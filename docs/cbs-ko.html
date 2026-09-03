@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>낯선 곳을 향해 기꺼이 떠나다</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">📖</text></svg>'>
+    <link rel="stylesheet" type="text/css" href="css/media-player.css">
+    <link rel="stylesheet" type="text/css" href="css/+0+61168f8ef805085f5a3c0118b14679f74c9e62a4.css">
+    <link rel="stylesheet" type="text/css" href="css/+1+f8319dd08c749624466cb777b7d528e1a42d7368.css">
+    <link rel="stylesheet" type="text/css" href="css/+2+894de4a6eba76bf97927253f95f582449947a96e.css">
+    <link rel="stylesheet" type="text/css" href="css/+3+d00a791fdbb951906e95f1428ae322e41ea9da95.css">
+    <style>
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @media screen and (min-width: 600px) {
+            .document, .bible {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 16px 50px 80px;
+            }
+            .document .dc-bleedToArticleEdge, .bible .dc-bleedToArticleEdge {
+                margin-left: -50px;
+                margin-right: -50px;
+            }
+            .document .dc-paddingToContentEdge, .bible .dc-paddingToContentEdge {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        #content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+        .inserted-reference {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+            font-size: 0.95em;
+        }
+        .inserted-reference-header {
+            margin: 0;
+            padding: 4px 16px;
+            background-color: #e2e6ea;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #495057;
+        }
+        .inserted-reference-header a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #1a73e8;
+        }
+        .inserted-reference-header a:hover {
+            text-decoration: underline;
+        }
+        .inserted-reference > *:not(.inserted-reference-header) {
+            margin: 12px 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-style: italic;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        /* Custom Lightbox Styles */
+        .custom-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            /* user-select: none; */
+            /* -webkit-user-select: none; */
+        }
+        .custom-lightbox.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .custom-lightbox-content {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 35px;
+            color: #fff;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10002;
+            transition: transform 0.2s ease;
+        }
+        .custom-lightbox-close:hover {
+            transform: scale(1.1);
+        }
+        .custom-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 20px;
+        }
+        .custom-lightbox-nav:hover {
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .custom-lightbox-prev {
+            left: 0px;
+        }
+        .custom-lightbox-next {
+            right: 0px;
+        }
+        .custom-lightbox-caption {
+            color: #ccc;
+            margin-top: 15px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 80%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+<body  class="showRuby cc-theme--light DynamicLayout">
+    <div id="content" class="content">
+        <article class="article document html5 pub- docId-1102025906 pub-wcg pub- pub-wcg docClass-13 jwac showRuby ml-KO ms-KOREAN dir-ltr includeSecondaryNav" data-lang="KO" dir="ltr" id="article" lang="ko" role="article">
+<div class="scalableui">
+<header>
+<div class="dc-bleedToArticleEdge suppressZoom" id="f1">
+<figure>
+<img alt="" class="suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/134" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/135" style="max-width: min(100%, 700px); height: auto;"/>
+</figure>
+</div>
+<p class="contextTtl dc-bleedToArticleEdge dc-paddingToContentEdge du-letterSpacing--1 du-color--orange-700 du-borderColor--orange-700 du-borderStyle-bottom--solid du-borderWidth--1 du-padding-vertical--2" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="36" data-no="36" id="page36"></span><strong>6</strong> 리브가</p>
+<h1 class="du-color--coolGray-600 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="2" id="p2"><strong>낯선 곳을 향해 기꺼이 떠나다</strong></h1>
+</header> <div class="clearfix alternatePresentation clickable noTooltips">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/132" data-alt-type="svg" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/130" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">인쇄판</div>
+</div>
+<div class="clearfix alternatePresentation clickable noTooltips hidden">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/133" data-alt-type="svg" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/131" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">인쇄판</div>
+</div>
+<div class="bodyTxt">
+<div id="tt4">
+<p data-pid="3" id="p3">해가 질 무렵 리브가는 큰 항아리를 메고 우물로 갔습니다. 가족들을 위해 물을 길어야 할 시간이었습니다. 분명 리브가는 매일 그런 일을 하는 데 익숙했을 것입니다. 그런데 이번에는 우물 곁에 가서 보니 낙타를 끌고 온 낯선 사람들이 눈에 띄었습니다. 하지만 리브가는 평소와 다름없이 우물로 가서 항아리에 물을 채웠습니다.</p>
+<p data-pid="4" id="p4">무거운 항아리를 메고 집으로 가려고 하는데 낯선 사람들 가운데 있던 한 노인이 달려와서 그에게 말했습니다. “부디 그대의 항아리에 있는 물을 좀 주시오.” 리브가는 그 낯선 사람에게 친절을 베풀기를 주저하지 않았습니다. 리브가는 “내 주여, 드십시오”라고 말하면서 무거운 항아리를 내려 그 사람이 물을 충분히 마실 수 있게 해 주었습니다.</p>
+<p data-pid="5" id="p5">리브가의 친절은 거기서 그치지 않았습니다. 그는 놀랍게도 그 낯선 사람들이 끌고 온 낙타 열 마리에게도 물을 길어다 주겠다고 했습니다. 그러고는 몸집이 큰 낙타들이 물을 충분히 마실 수 있도록 여러 번 우물로 달려가 물을 길어 구유에 부었습니다. 그 낯선 사람은 이 아름다운 젊은 여자가 그렇게 하는 모습을 놀라워하며 지켜보았습니다. 그는 리브가에게 누구의 딸인지, 그리고 그의 집에서 하룻밤을 묵을 수 있는지 물어보았습니다. 리브가는 망설임 없이 친절을 베풀었습니다. 자기 아버지의 집에 묵을 곳도 있고, 동물들의 먹이도 충분하다고 말했습니다.</p>
+<p data-pid="6" id="p6">리브가는 몰랐지만 그가 이 남자를 만난 것은 여호와의 인도였습니다. 이 노인은 아브라함의 신임받는 종이었으며, 아마 엘리에셀이었을 것입니다. 몇 주 전에 아브라함은 그에게 수백 킬로미터 떨어진 곳으로 가서 자신의 아들이자 상속자인 이삭의 아내가 될 사람을 찾아오라고 말했습니다. 아브라함은 그 여자가 반드시 여호와를 숭배하는 집안 사람이어야 한다고 했습니다. 그래서 엘리에셀은 여호와께 도와 달라고 기도했습니다. 그는 여호와께서 이삭을 위해 정해 주신 사람이 자신의 일행에게 친절을 나타내게 해 달라고 청했습니다. 그런데 그가 기도로 청한 그대로 리브가가 친절을 나타낸 것입니다!</p>
+<p data-pid="7" id="p7">리브가는 용기를 나타내어 한 번도 만나 본 적이 없는 이 사람들을 도와주었습니다. 물론 그 시대는 “사납고, 선을 사랑하지 않”는 사람들이 매우 많은 오늘날과는 달랐습니다. (<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025906/0/0">디모데 후서 3:1,</a><a class="b" data-bid="1-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025906/0/1"> 3</a>) 그렇다 하더라도 젊은 여자가 낯선 사람들에게 친절을 베풀려면 상당한 용기가 필요했을 것입니다. 그런데 <span aria-hidden="true" class="pageNum" data-before-text="37" data-no="37" id="page37"></span>리브가는 또 다른 면으로도 큰 용기를 나타냈습니다.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[디모데 후서 3:1,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v55-3-1-1"><a class="cl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070159/29946"><strong>3</strong> </a>이것을 알아 두십시오. 마지막 날에<a class="b" data-bid="56-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070159/55">+</a> 대처하기 어려운 위급한 때가 올 것입니다. </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[3]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v55-3-3-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070159/29948">3 </a>비정하고, 합의하려 하지 않고, 중상하고, 자제하지 않고, 사납고, 선을 사랑하지 않고, </span></td></tr></tbody></table></div>
+<p data-pid="8" id="p8">얼마 안 있어 리브가는 이 낯선 사람들이 왜 이렇게 먼 곳까지 왔는지 알게 되었습니다. 리브가의 아버지 브두엘과 오빠 라반은 엘리에셀을 식사에 초대했습니다. 하지만 이 연로한 종은 자기가 여기까지 온 이유를 먼저 이야기해야겠다고 말했습니다. 그는 여호와께서 어떻게 리브가를 만날 수 있게 도와주셨는지 설명했습니다. 브두엘과 라반은 여호와께서 그를 도와주신 것이 분명하다는 것을 깨닫고 “이 일은 여호와에게서 난 것”이라고 말했습니다.</p>
+<div class="stdPullQuote dc-ttClassStyle--unset du-color--orange-700 du-float-desktopOnly--inlineStart du-width-desktopOnly--oneHalf du-margin-inlineStart-mobileOnly--6 du-margin-inlineEnd-desktopOnly--4 du-margin-children-top-desktopOnly--0"><p data-pid="45" id="p45"><strong>하느님께서는 리브가가 집을 떠나 먼 곳으로 가서 한 번도 만난 적이 없는 남자와 결혼하기를 바라셨습니다</strong></p>
+</div>
+<p data-pid="9" id="p9">리브가는 어떻게 할 것입니까? 아브라함은 엘리에셀이 신붓감으로 찾은 여자가 그와 함께 가나안으로 오지 않으려고 할 수도 있다고 말한 적이 있습니다. 이 점을 보면 리브가에게도 어느 정도 선택권이 있었던 것 같습니다. 다음 날 아침 엘리에셀은 자신이 리브가를 데리고 곧바로 떠나도 되는지 물었습니다. 리브가의 가족은 리브가의 의사를 물어보기로 했습니다. 리브가는 “기꺼이 가겠습니다”라고 대답했습니다. 그는 어쩌면 가족들을 다시는 만나지 못할 수 있는데도 기꺼이 집과 가족을 떠나 먼 곳으로 가려고 했습니다. 리브가는 어떻게 그런 용기를 낼 수 있었습니까? 그렇게 하는 것이 여호와의 뜻이라고 생각한 것 같습니다.</p>
+<p data-pid="10" id="p10">낙타를 타고 몇 주 동안 여행한 끝에 엘리에셀과 리브가 일행은 가나안에 있는 아브라함의 진영에 도착했습니다. 해가 질 무렵, 리브가는 들에서 묵상을 하며 혼자 걷고 있는 남자를 보았습니다. 그 남자가 이삭이라는 것을 알게 된 리브가는 겸손하게 베일로 자기를 가렸습니다. 이것은 그를 자신의 남편으로 받아들이는 것을 의미했습니다. 이삭은 당시 40세였으며 감수성이 풍부하고 생각이 깊은 사람이었습니다. 그는 어머니 사라가 3년 전에 사망한 일로 여전히 슬퍼하고 있었습니다. 그러면 리브가는 용기를 나타내어, 하느님께서 그에게 맡기신 역할을 잘 수행했습니까? 다시 말해, 이삭이 여호와께서 주신 가장의 역할을 잘 수행하도록 지원하는 사랑 많은 아내가 되었습니까? 성경을 보면 리브가가 그런 아내가 되었다는 것을 알 수 있습니다. 성경은 이삭이 리브가에게 어떤 감정을 느꼈는지 이렇게 알려 줍니다. “이삭은 그를 사랑하게 되었으며, 어머니를 잃은 후에 위로를 얻었다.”</p>
+<div class="dc-bleedToArticleEdge du-margin-vertical--8 du-margin-vertical-desktopOnly--12" id="f2">
+<figure>
+<img alt="베일을 쓴 리브가가 이삭을 만나러 걸어갑니다. 리브가가 멀리 엘리에셀과 함께 서 있는 이삭을 보며 낙타를 끌고 가고 있습니다." data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/136" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/137" style="max-width: min(100%, 700px); height: auto;"/>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">베일을 쓴 리브가가 이삭을 만나러 걸어갑니다. 리브가가 멀리 엘리에셀과 함께 서 있는 이삭을 보며 낙타를 끌고 가고 있습니다.</td></tr></tbody></table></div></figure>
+</div>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="11" id="p11"><strong>성경 기록을 읽어 보십시오</strong></h3>
+<ul><li><p data-pid="12" id="p12"> <a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025906/1/0"><strong>창세기 24:1-67;</strong></a><a class="b" data-bid="2-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025906/1/1"> <strong>25:20</strong></a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[창세기 24:1-67;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-1-1"><a class="cl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/592"><strong>24</strong> </a>아브라함은 이제 늙고 나이가 많이 들었다. 여호와께서는 모든 일에서 아브라함을 축복하셨다.<a class="b" data-bid="532-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/531">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-2-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/593">2 </a>아브라함이 그의 종 곧 그의 집안에서 가장 나이 많고 그가 가진 모든 것을 관리하는 자에게<a class="b" data-bid="533-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/532">+</a> 말했다. “부디 그대의 손을 내 넓적다리 밑에 넣으시오. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-3-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/594">3 </a>나는 그대가 하늘의 하느님이자 땅의 하느님이신 여호와를 두고 맹세하게 하겠소. 그대는 내가 살고 있는 이곳 가나안 사람들의 딸들 중에서 내 아들을 위해 아내를 얻지 않겠다고 맹세하시오.<a class="b" data-bid="534-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/533">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-4-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/595">4 </a>그대는 내 고향, 내 친족에게<a class="b" data-bid="535-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/534">+</a> 가서 내 아들 이삭을 위해 아내를 얻어야 하오.”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-5-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/596">5 </a>종이 그에게 물었다. “그 여자가 저와 함께 이 땅으로 오려고 하지 않으면 어떻게 합니까? 주인께서 떠나오신 땅으로<a class="b" data-bid="536-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/535">+</a> 주인의 아들을 데려가야 합니까?” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-6-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/597">6 </a>그러자 아브라함이 말했다. “그대는 내 아들을 그리로 데려가는 일이 없도록 하시오.<a class="b" data-bid="537-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/536">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-7-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/598">7 </a>하늘의 하느님 여호와께서 나를 내 아버지의 집과 내 친족의 땅에서 데려오시고,<a class="b" data-bid="538-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/537">+</a> ‘내가 네 자손<a class="fn" data-fnid="166" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/165" id="footnotesource166">*</a><em> (각주: 직역하면 “씨”.)</em>에게<a class="b" data-bid="539-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/538">+</a> 이 땅을 주겠다’라고<a class="b" data-bid="540-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/539">+</a> 내게 말씀하시고 맹세하셨소.<a class="b" data-bid="541-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/540">+</a> 그분이 자신의 천사를 그대 앞에 보내실 것이며,<a class="b" data-bid="542-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/541">+</a> 그대는 틀림없이 그곳에서<a class="b" data-bid="543-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/542">+</a> 내 아들을 위해 아내를 얻을 것이오. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-8-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/599">8 </a>만일 그 여자가 그대와 함께 오려고 하지 않으면, 그대는 이 맹세에서 자유롭게 될 것이오. 하지만 그대는 내 아들을 그리로 데려가서는 안 되오.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-9-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/600">9 </a>그러자 그 종이 주인 아브라함의 넓적다리 밑에 손을 넣고 이 일에 관해 그에게 맹세했다.<a class="b" data-bid="544-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/543">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-10-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/601">10 </a>그 종은 주인의 낙타 중에 열 마리를 끌고 주인의 온갖 좋은 선물을 가지고 떠났다. 그는 메소포타미아로, 나홀의 도시로 갔다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-11-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/602">11 </a>그는 그 도시 밖의 우물에 이르러 낙타들을 쉬게 했다. 그때는 여자들이 물을 길으러 나오는 저녁 무렵이었다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-12-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/603">12 </a>그가 말했다. “저의 주인 아브라함의 하느님 여호와여, 부디 오늘 일이 잘되게 해 주시고 저의 주인 아브라함에게 충성스러운 사랑을 나타내 주십시오. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-13-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/604">13 </a>저는 지금 샘 곁에 서 있는데, 도시 사람들의 딸들이 물을 길으러 나올 것입니다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-14-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/605">14 </a>제가 젊은 여자에게 ‘부디 그대의 물 항아리를 내려 내가 물을 마시게 해 주시오’라고 말할 때 그가 ‘드십시오. 제가 낙타들에게도 물을 주겠습니다’라고 대답하면, 그 사람을 주께서 주의 종 이삭을 위해 정해 주신 사람으로 알겠습니다. 이것으로 주께서 저의 주인에게 충성스러운 사랑을 나타내셨음을 제가 알게 해 주십시오.”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-15-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/606">15 </a>그가 말을 마치기도 전에 리브가가 어깨에 물 항아리를 메고 나왔다. 리브가는 아브라함의 형제 나홀의<a class="b" data-bid="545-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/544">+</a> 아내 밀가의<a class="b" data-bid="546-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/545">+</a> 아들 브두엘의<a class="b" data-bid="547-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/546">+</a> 딸이었다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-16-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/607">16 </a>이 젊은 여자는 어떤 남자와도 성관계를 가진 적이 없는 매우 아름다운 처녀였다. 그는 샘으로 내려가서 물 항아리를 채워 가지고 올라왔다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-17-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/608">17 </a>즉시 그 종이 달려가 리브가를 만나서 말했다. “부디 그대의 항아리에 있는 물을 좀 주시오.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-18-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/609">18 </a>그러자 리브가가 말했다. “내 주여, 드십시오.” 그러면서 얼른 항아리를 내려 손에 받쳐 들고는 그가 마시게 했다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-19-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/610">19 </a>그에게 물을 마시게 해 준 다음, 리브가가 “낙타들에게도 그것들이 물을 다 마실 때까지 길어다 주겠습니다”라고 말했다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-20-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/611">20 </a>리브가는 물구유에 얼른 항아리의 물을 붓고 거듭 우물로 달려가 물을 길었다. 그리고 모든 낙타에게 물을 계속 길어다 주었다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-21-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/612">21 </a>그러는 동안 그 사람은 놀라워하며 말없이 그 여자를 지켜보면서, 여호와께서 자기의 여행을 성공하게 해 주신 것인가 하고 생각했다.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-22-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/613">22 </a>낙타들이 물을 다 마신 다음, 그 사람은 그 여자를 위해 무게가 반 세겔<a class="fn" data-fnid="167" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/166" id="footnotesource167">*</a><em> (각주: 1세겔은 11.4그램. 부록 나14 참조.)</em>인 금코걸이와 무게가 10세겔<a class="fn" data-fnid="168" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/167" id="footnotesource168">*</a><em> (각주: 1세겔은 11.4그램. 부록 나14 참조.)</em>인 금팔찌 두 개를 꺼내 주면서 </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-23-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/614">23 </a>말했다. “부디 말해 주시오. 그대는 누구의 딸이오? 그대의 아버지의 집에 우리가 밤을 지낼 곳이 있소?” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-24-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/615">24 </a>그러자 그 여자가 대답했다. “저는 밀가가 나홀에게<a class="b" data-bid="548-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/547">+</a> 낳아 준 아들 브두엘의<a class="b" data-bid="549-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/548">+</a> 딸입니다.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-25-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/616">25 </a>그 여자가 또 말했다. “우리에게는 짚과 여물도 많고, 밤을 지낼 곳도 있습니다.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-26-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/617">26 </a>그러자 그 사람이 여호와 앞에 몸을 굽히고 엎드려 </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-27-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/618">27 </a>말했다. “저의 주인에 대한 충성스러운 사랑과 충실을 버리지 않으셨으니, 저의 주인 아브라함의 하느님 여호와는 찬양받으시기 바랍니다. 여호와께서 저를 제 주인의 형제의 집으로 인도하셨습니다.”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-28-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/619">28 </a>그리하여 그 젊은 여자가 달려가서 어머니의 집안사람들에게 이 일을 알렸다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-29-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/620">29 </a>리브가에게 라반이라는<a class="b" data-bid="550-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/549">+</a> 오라비가 있었다. 라반이 도시 밖의 샘에 있는 그 사람에게 달려갔다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-30-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/621">30 </a>라반은 코걸이와 누이의 손에 있는 팔찌들을 보고, 또 “그 사람이 내게 이렇게 말했습니다”라고 한 누이 리브가의 말을 듣고 그 사람을 만나러 간 것이다. 그 사람은 그때까지 샘에서 낙타들 곁에 서 있었다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-31-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/622">31 </a>즉시 라반이 말했다. “여호와의 축복을 받은 이여, 오십시오. 왜 이렇게 바깥에 서 있습니까? 제가 집을 준비해 두었고 낙타가 있을 곳도 마련해 놓았습니다.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-32-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/623">32 </a>그리하여 그 사람이 집으로 들어오자, 그<a class="fn" data-fnid="169" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/168" id="footnotesource169">*</a><em> (각주: 라반인 듯함.)</em>는 낙타들에게서 짐과 안장을 풀어 내리고 낙타들에게 짚과 여물을 주었으며, 그 사람과 그의 일행에게 발 씻을 물을 주었다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-33-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/624">33 </a>그리고 음식을 그 사람 앞에 차려 놓았지만, 그가 말했다. “나는 할 말을 하기 전에는 먹지 않을 것입니다.” 그러자 라반이 말했다. “말씀하십시오!”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-34-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/625">34 </a>그때에 그 사람이 말했다. “나는 아브라함의 종입니다.<a class="b" data-bid="551-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/550">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-35-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/626">35 </a>여호와께서 나의 주인을 매우 크게 축복하셨고 그에게 양과 소, 은과 금, 하인과 하녀, 낙타와 나귀를 주셔서 매우 부유해지게 하셨습니다.<a class="b" data-bid="552-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/551">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-36-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/627">36 </a>더욱이, 나의 주인의 아내 사라는 노년에 나의 주인에게 아들을 낳아 주었습니다.<a class="b" data-bid="553-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/552">+</a> 주인은 아들에게 자기가 가진 모든 것을 줄 것입니다.<a class="b" data-bid="554-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/553">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-37-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/628">37 </a>나의 주인은 이렇게 말하면서 나에게 맹세하게 했습니다. ‘너는 내가 살고 있는 땅 가나안의 딸들 중에서 내 아들을 위해 아내를 얻어서는 안 된다.<a class="b" data-bid="555-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/554">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-38-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/629">38 </a>오히려 너는 내 아버지의 집, 내 가족에게<a class="b" data-bid="556-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/555">+</a> 가서 내 아들을 위해 아내를 얻어야 한다.’<a class="b" data-bid="557-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/556">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-39-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/630">39 </a>그러나 나는 주인에게 말했습니다. ‘그 여자가 저와 함께 오려고 하지 않으면 어떻게 합니까?’<a class="b" data-bid="558-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/557">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-40-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/631">40 </a>주인은 내게 말했습니다. ‘내가 여호와 앞에서 걷고 있으므로<a class="b" data-bid="559-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/558">+</a> 그분이 자신의 천사를 너와 함께 보내시어<a class="b" data-bid="560-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/559">+</a> 반드시 너의 여행이 성공하게 하실 것이다. 너는 내 가족, 내 아버지의 집에서 내 아들을 위해 아내를 얻어야 한다.<a class="b" data-bid="561-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/560">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-41-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/632">41 </a>네가 내 가족에게 갔는데 그들이 그 여자를 너에게 주지 않으면, 너는 내게 한 맹세에서 자유롭게 될 것이다. 그렇게 해서 너는 맹세에서 자유롭게 될 것이다.’<a class="b" data-bid="562-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/561">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-42-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/633">42 </a>나는 오늘 샘에 이르렀을 때 이렇게 말했습니다. ‘저의 주인 아브라함의 하느님 여호와여, 만일 제 여행을 성공하게 하시려거든, </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-43-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/634">43 </a>제가 지금 샘 곁에 서 있으니 이 일이 반드시 이루어지게 해 주십시오. 곧 젊은 여자가<a class="b" data-bid="563-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/562">+</a> 물을 길으러 나올 때 제가 “부디 그대의 항아리에서 내가 물을 좀 마시게 해 주시오”라고 말하면, </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-44-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/635">44 </a>그가 저에게 “드십시오. 제가 낙타들에게도 물을 길어다 주겠습니다” 하고 말하게 해 주십시오. 그 여자가 여호와께서 제 주인의 아들을 위해 정해 주신 사람이 되게 해 주십시오.’<a class="b" data-bid="564-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/563">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-45-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/636">45 </a>내가 마음속으로 말을 마치기도 전에, 리브가가 어깨에 항아리를 메고 나와 샘으로 내려가서 물을 긷기 시작했습니다. 그래서 내가 그에게 ‘부디 내게 마실 물을 주시오’라고 말했습니다.<a class="b" data-bid="565-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/564">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-46-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/637">46 </a>그러자 그는 어깨에서 얼른 항아리를 내리면서 ‘드십시오.<a class="b" data-bid="566-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/565">+</a> 제가 낙타들에게도 물을 주겠습니다’ 하고 말했습니다. 그래서 내가 물을 마셨고, 그는 낙타들에게도 물을 주었습니다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-47-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/638">47 </a>그 후에 내가 ‘그대는 누구의 딸이오?’ 하고 묻자, 그는 ‘밀가가 나홀에게 낳아 준 아들 브두엘의 딸입니다’ 하고 대답했습니다. 그래서 나는 그의 코에 코걸이를 걸어 주고 그의 손에 팔찌를 끼워 주었습니다.<a class="b" data-bid="567-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/566">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-48-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/639">48 </a>그리고 여호와 앞에 몸을 굽히고 엎드려서 나의 주인 아브라함의 하느님 여호와를 찬양했습니다.<a class="b" data-bid="568-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/567">+</a> 그분은 나의 주인의 아들을 위해 그 형제의 딸을 얻도록 나를 바른길로 인도하셨습니다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-49-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/640">49 </a>이제 당신들이 나의 주인에게 충성스러운 사랑과 충실을 나타내기 원하는지 내게 말해 주십시오. 그러나 그렇지 않더라도 내게 말해 주어 어느 쪽으로든 나아갈 수 있게<a class="fn" data-fnid="170" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/169" id="footnotesource170">*</a><em> (각주: 직역하면 “오른편으로든 왼편으로든 향할 수 있게”.)</em> 해 주십시오.”<a class="b" data-bid="569-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/568">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-50-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/641">50 </a>그때에 라반과 브두엘이 대답했다. “이 일은 여호와에게서 난 것이니, 우리가 당신에게 좋다거나 싫다고<a class="fn" data-fnid="171" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/170" id="footnotesource171">*</a><em> (각주: 또는 “좋게든 나쁘게든”.)</em> 말할 수 없습니다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-51-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/642">51 </a>여기 리브가가 당신 앞에 있습니다. 그를 데리고 가서 여호와께서 말씀하신 대로 당신 주인 아들의 아내가 되게 하십시오.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-52-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/643">52 </a>아브라함의 종은 그들의 말을 듣고 즉시 여호와 앞에서 땅에 몸을 굽혔다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-53-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/644">53 </a>그 종은 은 물품과 금 물품과 옷을 꺼내서 리브가에게 주고, 또 리브가의 오라비와 어머니에게도 값진 물건을 주었다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-54-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/645">54 </a>그 후에 그 종과 그의 일행이 먹고 마셨으며, 거기서 밤을 지냈다.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-54-2">그 종이 아침에 일어나 말했다. “나의 주인에게 돌아가게 해 주십시오.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-55-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/646">55 </a>그러자 리브가의 오라비와 어머니가 말했다. “이 여자아이가 적어도 10일 동안은 우리와 함께 머무르게 해 주십시오. 그 후에 그가 갈 수 있을 것입니다.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-56-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/647">56 </a>그러나 그가 말했다. “여호와께서 나의 여행을 성공하게 하셨으니 나를 붙잡지 마십시오. 내가 주인에게 가도록 나를 보내 주십시오.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-57-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/648">57 </a>그러자 그들이 말했다. “여자아이를 불러 물어봅시다.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-58-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/649">58 </a>그들이 리브가를 불러 물었다. “이 사람과 함께 가겠느냐?” 리브가가 대답했다. “기꺼이 가겠습니다.”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-59-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/650">59 </a>그래서 그들이 누이 리브가와<a class="b" data-bid="570-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/569">+</a> 그의 유모<a class="fn" data-fnid="172" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/171" id="footnotesource172">*</a><em> (각주: 현재는 수종으로 섬기고 있는 유모를 가리킴.)</em>와<a class="b" data-bid="571-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/570">+</a> 아브라함의 종과 그의 일행을 보냈다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-60-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/651">60 </a>그리고 그들이 리브가를 축복하며 말했다. “우리 누이야, 네가 수천만<a class="fn" data-fnid="173" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/172" id="footnotesource173">*</a><em> (각주: 또는 “수천만의 어머니”.)</em>이 되기를 바란다. 또 너의 자손<a class="fn" data-fnid="174" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/173" id="footnotesource174">*</a><em> (각주: 직역하면 “씨”.)</em>이 자기들을 미워하는 자들의 문<a class="fn" data-fnid="175" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/174" id="footnotesource175">*</a><em> (각주: 또는 “도시들”.)</em>을 차지하기 바란다.”<a class="b" data-bid="572-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/571">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-61-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/652">61 </a>리브가와 그의 몸종들이 일어나 낙타를 타고 그 사람을 따랐다. 이렇게 그 종은 리브가를 데리고 길을 떠났다.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-62-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/653">62 </a>그때에 이삭이 브엘라해로이<a class="b" data-bid="573-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/572">+</a> 쪽에서 왔는데, 그는 네게브 땅에서<a class="b" data-bid="574-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/573">+</a> 살고 있었다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-63-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/654">63 </a>이삭은 해 질 무렵에 묵상을<a class="b" data-bid="575-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/574">+</a> 하려고 들에서 걷고 있었다. 그가 눈을 들어 보니 낙타들이 오고 있었다! </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-64-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/655">64 </a>리브가는 눈을 들어 이삭을 보고 낙타에서 얼른 내렸다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-65-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/656">65 </a>그리고 그 종에게 물었다. “저기 들에서 우리를 맞으러 걸어오는 저 사람은 누구입니까?” 그 종이 “나의 주인입니다” 하고 대답했다. 그러자 리브가는 베일로 자기를 가렸다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-66-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/657">66 </a>그 종은 이삭에게 자기가 한 모든 일을 이야기했다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-67-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/658">67 </a>그 후에 이삭이 리브가를 어머니 사라의 천막으로 데리고 들어갔다.<a class="b" data-bid="576-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/575">+</a> 그렇게 하여 그는 리브가를 아내로 맞아들였다. 이삭은 그를 사랑하게 되었으며,<a class="b" data-bid="577-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/576">+</a> 어머니를 잃은 후에 위로를 얻었다.<a class="b" data-bid="578-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/577">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[25:20]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v1-25-20-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/678">20 </a>이삭은 40세에 밧단아람의 아람 사람 브두엘의<a class="b" data-bid="597-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/596">+</a> 딸, 곧 아람 사람 라반의 누이 리브가와 결혼했다. </span></td></tr></tbody></table></div>
+</li>
+</ul>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="13" id="p13"><strong>토의해 보십시오</strong></h3>
+<p data-pid="14" id="p14"><strong>리브가는 어떻게 용기를 나타냈습니까?</strong></p>
+
+</div>
+<div id="tt13">
+<h2 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--2" data-pid="16" id="p16"><span aria-hidden="true" class="pageNum" data-before-text="38" data-no="38" id="page38"></span><strong>더 깊이 알아보기</strong></h2>
+<ol class="du-listStyleType--source"><li><p data-pid="17" id="p17"><span class="txtSrcBullet"><strong>1.</strong> </span><strong>아브라함에게 자녀가 생겼을 때 엘리에셀의 상황에 어떤 변화가 있었으며, 무엇을 보면 그가 시기하지 않았음을 알 수 있습니까?</strong> (<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025906/2/0">창세 15:2-4;</a><a class="b" data-bid="3-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025906/2/1"> 24:12</a>; <a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025906/0/0">「파97」 1/1 30면 2항</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[창세 15:2-4;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-15-2-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/362">2 </a>그러자 아브람이 말했다. “주권자인 주 여호와여, 저에게는 자녀가 없고 저의 집을 상속할 사람은 다마스쿠스 사람 엘리에셀인데,<a class="b" data-bid="349-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/348">+</a> 주께서 저에게 무엇을 주시겠습니까?” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-15-3-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/363">3 </a>아브람이 또 말했다. “주께서 저에게 자손<a class="fn" data-fnid="104" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/103" id="footnotesource104">*</a><em> (각주: 직역하면 “씨”.)</em>을<a class="b" data-bid="350-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/349">+</a> 주지 않으셨으므로, 제 집안사람들 중 하나<a class="fn" data-fnid="105" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/104" id="footnotesource105">*</a><em> (각주: 직역하면 “한 아들”.)</em>가 저의 상속자가 될 것입니다.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-15-4-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/364">4 </a>그러자 여호와께서 말씀하셨다. “그 사람이 너의 상속자가 되지 않을 것이다. 네 아들<a class="fn" data-fnid="106" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/105" id="footnotesource106">*</a><em> (각주: 직역하면 “네 속에서 나오는 자”.)</em>이 너의 상속자가 될 것이다.”<a class="b" data-bid="351-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/350">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[24:12]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v1-24-12-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/603">12 </a>그가 말했다. “저의 주인 아브라함의 하느님 여호와여, 부디 오늘 일이 잘되게 해 주시고 저의 주인 아브라함에게 충성스러운 사랑을 나타내 주십시오. </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「파97」 1/1 30면 2항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">이 남자는 아브라함의 종으로서, ‘그의 집안에서 가장 나이 많은 자’였습니다. (<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997004/0/0">창세 24:2</a>, 「신세」) <a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997004/1/0">창세기 24장</a>에 그 이름이 나와 있지 않지만 분명히 이 남자는 엘리에셀이었던 것 같은데, 그는 예전에 아브라함이 “내 집에서 길리운 자”라고 언급한 사람으로서 아브라함이 ‘자기의 후사’가 되기로 예정되어 있다고 말한 사람입니다. (<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997004/2/0">창세 15:2, 3</a>) 물론, 그것은 아브라함과 사라에게 자식이 없을 때에 있었던 일입니다. 이제 그들의 아들 이삭이 40세가 되었고, 엘리에셀은 더는 아브라함의 주된 상속자가 아니지만, 그는 여전히 아브라함의 종이었습니다. 그래서 엘리에셀은 아브라함이 어려운 부탁을 하였을 때, 순순히 따랐습니다. 그 부탁은 어떤 것이었습니까?</td></tr></tbody></table></div>
+
+</li>
+<li><p data-pid="19" id="p19"><span class="txtSrcBullet"><strong>2.</strong> </span><strong>아브라함은 왜 이삭이 신붓감의 고향으로 가기보다는 신붓감이 가나안으로 오기를 원했습니까?</strong> (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025906/1/0">「파97」 1/1 30면 3항</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「파97」 1/1 30면 3항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">아브라함 시대에는 결혼이 그 가족뿐만 아니라 부족 전체, 즉 족장 사회 전체에까지 영향을 미치는 문제였습니다. 따라서 부모가 자녀의 배우자를 골라 주는 것이 관례였습니다. 그런데 아브라함은 아들 이삭의 신붓감을 찾을 때 몹시 난처한 상황에 놓이게 되었습니다. 그 지역 가나안 사람들은 경건하지 않은 행로를 따랐으므로, 이삭을 그들 가운데 한 사람과 결혼하게 한다는 것은 생각할 수도 없는 일이었습니다. (<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997004/3/0">신명 18:9-12</a>) 그리고 남자는 자기 부족 내에서 결혼하는 것이 관례였지만, 아브라함의 친척들은 수백 킬로미터나 떨어진 메소포타미아 북부 지역에 살고 있었습니다. 아브라함은 간단한 방법으로 이삭이 그 곳으로 이주하게 할 수도 없었는데, 여호와께서 아브라함에게 ‘<em>이</em> 땅 즉 가나안 땅을 네 씨에게 주리라’고 약속하셨기 때문입니다. (<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997004/4/0">창세 24:7</a>) 그러므로 아브라함은 엘리에셀에게 이렇게 말하였습니다. “내 고향 내 족속에게로 가서 내 아들 <strong>이삭</strong>을 위하여 아내를 택하라.”—<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997004/5/0">창세 24:4</a>.</td></tr></tbody></table></div>
+
+</li>
+<li><p data-pid="21" id="p21"><span class="txtSrcBullet"><strong>3.</strong> </span><strong>아브라함의 종이 리브가와 그의 가족에게 준 선물에는 어떤 의미가 있었습니까?</strong> (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025906/2/0">「통」 “리브가” 4항</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「통」 “리브가” 4항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="4"></span>아브라함의 종은 자기의 기도가 응답되었음을 알아차리고 리브가에게 금 코고리 하나와 아름다운 금 팔찌 두 개(현대의 가치로는 1350달러 정도)를 선사하였다. 이것들을 리브가가 가족들—어머니와 오라비 라반—에게 보여 주자, 그들은 자기들의 집을 그 방문객과 그 수행원들에게 제공하는 후대를 베풀었다. (<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003658/3/0">창 24:22-32</a>) 그러나 그 남자는 음식을 먹기 전에 자기의 용무를 밝혔다. 라반과 그의 아버지 브두엘은 리브가가 이삭과 결혼하는 데 동의했고, 리브가와 그 가족은 값진 금 물품과 은 물품과 매우 좋은 옷들로 이루어진 예물을 받았으며, 그다음에 그들은 모두 함께 음식을 먹었다. (<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003658/4/0">창 24:33-54</a>) 이러한 주고받음을 통해 영예로운 결혼 계약이 이루어졌는데, 리브가와 이삭 사이가 아니라 그 당시 관습에 따라 그들의 부모들 사이의 계약이었다. 이렇게 하여 리브가는 이삭과 약혼하게 되었으며, 그때부터 사실상 그의 아내가 된 것이다.</td></tr></tbody></table></div>
+
+</li>
+<li><p data-pid="23" id="p23"><span class="txtSrcBullet"><strong>4.</strong> </span><strong>리브가가 하란을 떠나 네게브에 있는 이삭의 집으로 가는 여정이 어땠을지 설명해 보십시오.</strong> (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025906/3/0">「파배16.3」 15면 1항</a>) <span class="du-color--orange-700"><strong>삽화 가</strong></span></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「파배16.3」 15면 1항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">브두엘의 가족은 사랑하는 리브가를 축복해 주었습니다. 그 후에 리브가와 그의 유모인 드보라는 몇몇 여종들을 데리고 엘리에셀의 일행과 함께 출발했습니다. (<a class="b" data-bid="18-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2016091/17/0">창세기 24:59-61;</a><a class="b" data-bid="18-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2016091/17/1"> 35:8</a>) 오래지 않아, 하란은 그들 뒤로 멀어졌습니다. 그 여행은 무려 800킬로미터 정도나 되는 장거리 여행이었으며, 아마 3주는 걸렸을 것입니다. 여행이 편하지는 않았을 것입니다. 리브가가 살면서 낙타를 많이 보기는 했겠지만, 그렇다고 낙타를 타 본 경험이 많다고 단정하기는 어렵습니다. 성경에서는 그의 가족을 낙타들을 몰고 다니는 상인들이 아니라, 목축을 하는 사람들로 묘사합니다. (<a class="b" data-bid="19-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2016091/18/0">창세기 29:10</a>) 낙타를 타 본 경험이 별로 없는 사람은 아주 짧은 거리만 타고도 흔히들 불편하다고 말합니다!</td></tr></tbody></table></div>
+
+<div class="south_center" id="f3">
+<figure>
+<img alt="이스라엘의 네게브 사막. 지형이 험한 이곳은 주로 흙과 바위, 협곡, 모래 언덕으로 이루어져 있습니다." class="south_center" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/138" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/139" style="max-width: min(100%, 700px); height: auto;"/>
+<p class="imgCredit" data-pid="49" id="p49">www.LifeintheHolyLand.com</p>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="47" id="p47"><span class="dc-screenReaderText"><strong>삽화</strong></span> <span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>가</strong></span><span class="dc-screenReaderText"><strong>:</strong></span> 고대 네게브에는 많은 사람이 살았으며 아브라함의 많은 가축이 풀을 뜯기에 충분한 목초지가 있었습니다</p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">이스라엘의 네게브 사막. 지형이 험한 이곳은 주로 흙과 바위, 협곡, 모래 언덕으로 이루어져 있습니다.</td></tr></tbody></table></div></figure>
+</div>
+</li>
+</ol>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="25" id="p25"><span aria-hidden="true" class="pageNum" data-before-text="39" data-no="39" id="page39"></span><strong>교훈점 적용하기</strong></h2>
+<ul><li><p data-pid="26" id="p26">  배우자를 선택하는 면에서 아브라함과 리브가와 이삭을 통해 무엇을 배울 수 있습니까? (<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025906/3/0">창세 24:2, 3;</a><a class="b" data-bid="4-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025906/3/1"> 27:46–28:1</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[창세 24:2, 3;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-2-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/593">2 </a>아브라함이 그의 종 곧 그의 집안에서 가장 나이 많고 그가 가진 모든 것을 관리하는 자에게<a class="b" data-bid="533-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/532">+</a> 말했다. “부디 그대의 손을 내 넓적다리 밑에 넣으시오. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-24-3-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/594">3 </a>나는 그대가 하늘의 하느님이자 땅의 하느님이신 여호와를 두고 맹세하게 하겠소. 그대는 내가 살고 있는 이곳 가나안 사람들의 딸들 중에서 내 아들을 위해 아내를 얻지 않겠다고 맹세하시오.<a class="b" data-bid="534-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/533">+</a> </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[27:46–28:1]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-27-46-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/773">46 </a>그 후에 리브가가 이삭에게 계속 말했다. “내가 헷의 딸들 때문에 살기가 싫어요.<a class="b" data-bid="689-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/688">+</a> 만일 야곱마저 이 땅의 딸들 곧 이들과 같은 헷의 딸들 중에서 아내를 얻는다면, 내가 사는 게 무슨 의미가 있겠어요?”<a class="b" data-bid="690-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/689">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-28-1-1"><a class="cl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/774"><strong>28</strong> </a>그래서 이삭이 야곱을 불러 그를 축복하고 이렇게 명령했다. “너는 가나안의 딸들 중에서 아내를 얻어서는 안 된다.<a class="b" data-bid="691-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/690">+</a> </span></div></td></tr></tbody></table></div>
+
+</li>
+<li><p data-pid="28" id="p28">  리브가는 다른 사람을 존중하고 부지런하고 친절한 사람이었습니다. 오늘날 자매들은 어떻게 그를 본받을 수 있습니까? <span class="du-color--orange-700"><strong>삽화 나</strong></span></p>
+
+<div class="south_center gen-flipbook pm-flipbook-gallery" id="f4">
+<figure class="south_center gen-flipbook pm-flipbook-gallery">
+<img alt="삽화 모음: 자매들이 리브가의 훌륭한 특성을 본받을 수 있는 세 가지 방법. 다음의 세 삽화는 각각의 장면을 보여 줍니다." class="south_center gen-flipbook pm-flipbook-gallery" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/140" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/140" style="max-width: min(100%, 700px); height: auto;"/>
+<img alt="어린 딸이 정원에서 신선한 채소를 따서 바구니에 담습니다. 어머니가 옆에서 딸을 도와줍니다." class="south_center gen-flipbook pm-flipbook-gallery" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/141" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/141" style="max-width: min(100%, 700px); height: auto;"/>
+<img alt="후에 어머니와 어린 딸이 채소가 담긴 바구니를 연로한 자매에게 가져다줍니다." class="south_center gen-flipbook pm-flipbook-gallery" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/142" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/142" style="max-width: min(100%, 700px); height: auto;"/>
+<img alt="그 어머니가 밝은 표정으로 가족 숭배에 참여합니다. 옆에는 남편과 어린 딸이 있습니다." class="south_center gen-flipbook pm-flipbook-gallery" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/143" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/143" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="51" id="p51"><span class="dc-screenReaderText"><strong>삽화</strong></span> <span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>나</strong></span></p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">삽화 모음: 자매들이 리브가의 훌륭한 특성을 본받을 수 있는 세 가지 방법. 다음의 세 삽화는 각각의 장면을 보여 줍니다.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">어린 딸이 정원에서 신선한 채소를 따서 바구니에 담습니다. 어머니가 옆에서 딸을 도와줍니다.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">후에 어머니와 어린 딸이 채소가 담긴 바구니를 연로한 자매에게 가져다줍니다.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">그 어머니가 밝은 표정으로 가족 숭배에 참여합니다. 옆에는 남편과 어린 딸이 있습니다.</td></tr></tbody></table></div></figure>
+</div>
+</li>
+<li><p data-pid="30" id="p30">  당신은 어떻게 생활에서 리브가를 본받아 용기를 나타낼 수 있습니까?</p>
+
+</li>
+</ul>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="32" id="p32"><strong>시야를 넓혀 생각해 보기</strong></h2>
+<ul><li><p data-pid="33" id="p33">  이 성경 기록을 통해 여호와에 대해 무엇을 배울 수 있을까?</p>
+
+</li>
+<li><p data-pid="35" id="p35">  이 성경 기록은 여호와의 목적과 어떤 관련이 있을까?</p>
+
+</li>
+<li><p data-pid="37" id="p37">  부활된 리브가를 만나면 무엇을 물어볼까?</p>
+
+</li>
+</ul>
+<div class="dc-bleedToArticleEdge dc-paddingToContentEdge du-bgColor--warmGray-50 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--4 du-padding-bottom--8" id="tt76">
+<h2 class="du-color--orange-700 du-margin-top--0" data-pid="39" id="p39"><strong>더 찾아보기</strong></h2>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt78">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f5">
+<figure>
+<a href="https://wol.jw.org/wol/rslink/r8/lp-ko?lang=KO&amp;docid=2004282&amp;pub=w04&amp;issuedate=20040415"><img alt="" class="suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/144" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/145" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt79">
+<p data-pid="40" id="p40">리브가가 충실한 아내이자 어머니로서 어떻게 계속 용기를 나타냈는지 살펴보십시오.</p>
+<p data-pid="41" id="p41"><a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025906/4/0"><strong>“리브가—행동하는 경건한 여자”</strong> (「파04」 4/15 8-11면)</a></p>
+</div>
+</div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[“리브가—행동하는 경건한 여자” (「파04」 4/15 8-11면)]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="st" data-pid="1" id="p1" style="margin-top: 0; margin-bottom: 8px"><span aria-hidden="true" class="pageNum" data-before-text="8" data-no="8" id="page8"></span><strong>리브가—행동하는 경건한 여자</strong></div><div class="sb" data-pid="2" id="p2" style="margin-top: 0; margin-bottom: 8px">당신이 아들의 신붓감을 고를 수 있다고 가정해 보십시오. 어떤 사람을 선택할 것입니까? 신붓감은 어떤 자격 조건을 갖추고 있어야 합니까? 외모가 매력적이고 똑똑하며 친절하고 부지런한 사람을 찾을 것입니까? 아니면 다른 자격 조건을 먼저 살펴볼 것입니까?</div><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px">아브라함이 이와 같은 어려운 문제를 겪게 되었습니다. 여호와께서는 아브라함의 아들 이삭을 통해 아브라함의 후손들이 축복을 받을 것이라고 약속하셨습니다. 하지만 우리가 고려하고자 하는 이야기가 시작되는 시점에서, 아브라함은 이제 늙었고 그의 아들은 아직 미혼입니다. (<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/0/0">창세 12:1-3,</a><a class="b" data-bid="1-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/0/1"> 7;</a><a class="b" data-bid="1-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/0/2"> 17:19;</a><a class="b" data-bid="1-4" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/0/3"> 22:17, 18;</a><a class="b" data-bid="1-5" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/0/4"> 24:1</a>) 이삭은 앞으로 아내가 될 사람과 그들이 출산하게 될 모든 자손들과 함께 축복을 누리게 될 것이기 때문에, 아브라함은 이삭에게 적합한 아내를 찾아 줄 마련을 합니다. 우선, 그 여자는 여호와의 종이어야 합니다. 아브라함이 살고 있는 가나안 지역에서는 그러한 여자를 찾을 수 없기 때문에, 아브라함은 다른 곳에서 찾아보아야 합니다. 마침내 선택된 사람은 리브가입니다. 어떻게 리브가를 발견하게 됩니까? 리브가는 영적인 여자입니까? 우리는 리브가의 모범을 고려해 봄으로 무엇을 배울 수 있습니까?</div><div class="ss" data-pid="4" id="p4" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>자격을 갖춘 여자를 찾으려는 노력</strong></div><div class="sb" data-pid="5" id="p5" style="margin-top: 0; margin-bottom: 8px">아브라함은 자신의 종들 중에서 가장 나이 많은 종, 아마도 엘리에셀을 멀리 메소포타미아로 보내어, 여호와를 숭배하는 동료들인 아브라함의 친척들 가운데서 이삭의 신붓감을 택하게 합니다. 이 일은 매우 중대한 일이기 때문에, 엘리에셀은 가나안 여자를 이삭의 아내로 택하지는 않겠다고 맹세하게 됩니다. 이 문제에 대한 아브라함의 확고한 의지는 주목할 만합니다.—<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/1/0">창세 24:2-10</a>.</div><div class="sb" data-pid="6" id="p6" style="margin-top: 0; margin-bottom: 8px"><span aria-hidden="true" class="pageNum" data-before-text="9" data-no="9" id="page9"></span>엘리에셀은 아브라함의 친척들이 거주하는 도시로 들어가 자기의 낙타 열 마리를 우물가로 끌고 갑니다. 그 광경을 상상해 보십시오! 때는 저녁 무렵이며, 엘리에셀은 이렇게 기도합니다. “여기, 제가 물샘 곁에 서 있으면, 도시 사람들의 딸들이 물을 길으러 나올 것입니다. 정녕 이 일이 이루어지게 해 주십시오. 곧 제가 젊은 여자에게 말하기를 ‘부디 그대의 물항아리를 내려 나로 물을 마시게 하시오’ 하여, 그가 참으로 말하기를 ‘드십시오. 제가 당신의 낙타들에게도 물을 줄 것입니다’ 하면, 바로 그 사람을 당신이 당신의 종 <strong>이삭</strong>에게 정해 주셔야 합니다.”—<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/2/0">창세 24:11-14</a>.</div><div class="sb" data-pid="7" id="p7" style="margin-top: 0; margin-bottom: 8px">아마 그 지방 여자들이라면 다 알고 있었을 테지만, 목이 마른 낙타 한 마리는 엄청난 양(많게는 100리터까지)의 물을 마실 수 있습니다. 따라서 낙타 열 마리에게 물을 주겠다고 하는 여자는 힘든 일을 할 각오가 되어 있어야 했습니다. 다른 사람들은 보면서도 도와주려고 하지 않는 상황에서 그러한 일을 한다면, 그것은 그 여자가 활력, 참을성, 겸손, 사람과 동물에 대한 친절한 마음을 가지고 있는 사람이라는 확실한 증거일 것입니다.</div><div class="sb" data-pid="8" id="p8" style="margin-top: 0; margin-bottom: 8px">어떤 일이 일어납니까? “그가 말을 마치기 전에, 아니, 거기로 <strong>리브가</strong>가 나오고 있었다. 그는 <strong>아브라함</strong>의 형제 <strong>나홀</strong>의 아내 <strong>밀가</strong>의 아들 <strong>브두엘</strong>에게 태어난 자였는데, 그의 물항아리가 그의 어깨 위에 있었다. 이 젊은 여자는 용모가 매우 매력적인 처녀[였다]. ··· 그는 샘으로 내려가서 자기 물항아리를 채워 가지고 올라왔다. 즉시 그 종이 달려가 그를 만나서 말하였다. ‘부디 그대의 항아리에서 물을 좀 마시게 해 주시오.’ 그러자 그가 말하였다. ‘드십시오, 내 주여.’ 그러면서 얼른 자기 항아리를 내려 손에 받쳐 들고는 그에게 마시게 하였다.”—<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/3/0">창세 24:15-18</a>.</div><div class="ss" data-pid="9" id="p9" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>리브가는 자격을 갖추고 있는가?</strong></div><div class="sb" data-pid="10" id="p10" style="margin-top: 0; margin-bottom: 8px">리브가는 아브라함의 종손녀이며 아름다울 뿐만 아니라 덕이 있는 여자입니다. 그는 낯선 사람과 이야기하는 것을 꺼리지도 않고 그렇다고 지나치게 친밀하게 대하지도 않습니다. 엘리에셀이 마실 물을 달라고 하자, 리브가는 부탁을 들어줍니다. 그런 부탁을 들어주는 <span aria-hidden="true" class="pageNum" data-before-text="10" data-no="10" id="page10"></span>것은 예의를 나타내는 행동이므로 충분히 기대할 수 있는 일입니다. 그러면 시험의 두 번째 부분은 어떻게 됩니까?</div><div class="sb" data-pid="11" id="p11" style="margin-top: 0; margin-bottom: 8px">리브가는 “드십시오, 내 주여” 하고 말합니다. 하지만 거기서 그치지 않습니다. 리브가는 계속 이렇게 말합니다. “당신의 낙타들에게도 그것들이 다 마실 때까지 제가 물을 길어다 주겠습니다.” 보통 기대할 수 있는 것 이상을 해 주겠다는 것입니다. 그리고는 기꺼이 ‘얼른 자기 항아리를 물 먹이는 구유에 비우고 거듭거듭 우물로 달려가 물을 길어, 그의 모든 낙타를 위하여 계속 길어다 줍니다.’ 리브가는 계속해서 활기차게 움직입니다. 성서 기록에 따르면, ‘그동안 그 사람은 놀라워하며 그 여자를 주시하고 있습니다.’—<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/4/0">창세 24:19-21</a>.</div><div class="sb" data-pid="12" id="p12" style="margin-top: 0; margin-bottom: 8px">엘리에셀은 그 처녀가 아브라함의 친족이라는 사실을 알게 되자 꿇어 엎드려 여호와께 감사를 표합니다. 그는 리브가의 아버지의 집에 자신과 일행이 밤을 지낼 만한 자리가 있는지 묻습니다. 리브가는 긍정적인 대답을 남기고 손님이 왔다는 소식을 알리기 위해 집으로 달려갑니다.—<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/5/0">창세 24:22-28</a>.</div><div class="sb" data-pid="13" id="p13" style="margin-top: 0; margin-bottom: 8px">리브가의 오라비 라반과 아버지 브두엘은 엘리에셀의 이야기를 듣고 나서 하느님께서 이 일을 인도하고 계시다는 사실을 깨닫게 됩니다. 물론 리브가는 이삭의 배필로 결정됩니다. 그들은 이렇게 말합니다. “그를 데리고 가서, <strong>여호와</strong>께서 말씀하신 대로 그가 당신 주인의 아들에게 아내가 되게 하십시오.” 리브가는 어떻게 생각합니까? 즉시 떠나겠느냐는 질문을 받고서, 리브가는 “기꺼이 가겠습니다”라는 뜻의 히브리어 단어 하나로 대답합니다. 리브가가 반드시 이 청혼을 받아들여야 하는 것은 아닙니다. 아브라함은 “만일 여자가 [떠나려고] 하지 않으면” 엘리에셀이 맹세에서 자유롭게 된다고 말하기까지 하였습니다. 하지만 리브가 역시 이 일에 하느님의 인도가 있다는 것을 알고 있습니다. 그래서 리브가는 지체하지 않고, 아직 한 번도 만나 보지 못한 남자와 결혼하기 위해 가족을 떠나갑니다. 그러한 <span aria-hidden="true" class="pageNum" data-before-text="11" data-no="11" id="page11"></span>용기 있는 결정은 뛰어난 믿음의 증거입니다. 정말 리브가는 적합한 신붓감입니다!—<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/6/0">창세 24:29-59</a>.</div><div class="sb" data-pid="14" id="p14" style="margin-top: 0; margin-bottom: 8px">리브가는 이삭을 만날 때 복종의 증표로 자신의 얼굴을 베일로 가립니다. 이삭은 리브가를 자신의 아내로 맞아들이며, 리브가를 사랑하게 되는데, 그 이유는 분명 리브가의 훌륭한 특성들 때문일 것입니다.—<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/7/0">창세 24:62-67</a>.</div><div class="ss" data-pid="15" id="p15" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>쌍둥이 아들들</strong></div><div class="sb" data-pid="16" id="p16" style="margin-top: 0; margin-bottom: 8px">리브가는 약 19년간 아이를 갖지 못합니다. 마침내 쌍둥이를 임신하지만 아이들이 태 속에서 서로 심하게 싸워 임신 기간이 힘들어지자, 리브가는 하느님께 부르짖습니다. 우리도 살아가면서 큰 고난을 겪을 때, 그와 같이 할 수 있습니다. 여호와께서는 리브가의 말을 들으시고 그를 안심시키십니다. 리브가는 두 나라의 어머니가 될 것이며, “형이 동생을 섬길 것”입니다.—<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/8/0">창세 25:20-26</a>.</div><div class="sb" data-pid="17" id="p17" style="margin-top: 0; margin-bottom: 8px">리브가가 작은아들인 야곱을 더 많이 사랑하는 것이 그 말씀 때문만은 아닐 것입니다. 두 아들은 서로 다릅니다. 야곱은 “나무랄 데 없”지만, 에서는 한 끼니의 식사를 위해서 자신의 맏아들의 권리 즉 하느님의 약속을 상속받을 권리를 야곱에게 팔 정도로 영적인 것들에 대해 무관심한 태도를 보입니다. 에서가 두 명의 헷 여자들과 결혼하는 것도 영적 가치관에 대한 경멸까지는 아니라 해도 업신여김을 나타내는 것이며 부모들을 매우 비통하게 합니다.—<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/9/0">창세 25:27-34;</a><a class="b" data-bid="10-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/9/1"> 26:34, 35</a>.</div><div class="ss" data-pid="18" id="p18" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>야곱이 축복을 받게 만들다</strong></div><div class="sb" data-pid="19" id="p19" style="margin-top: 0; margin-bottom: 8px">성서는 에서가 야곱을 섬기게 될 것이라는 사실을 이삭이 알고 있는지에 대해서 알려 주지 않습니다. 여하튼 리브가와 야곱 두 사람은 야곱이 축복을 받게 되어 있다는 사실을 알고 있습니다. 리브가는 에서가 사냥해 온 고기로 만든 요리를 아버지 이삭에게 가지고 가면, 이삭이 에서를 축복할 것이라는 말을 듣자마자 즉시 행동을 취합니다. 젊은 시절의 리브가에게 있었던 특유의 결단력과 열정은 사라지지 않았습니다. 리브가는 야곱에게 염소 새끼 둘을 가져오라고 ‘명합니다.’ 리브가는 남편이 좋아하는 요리를 만들 것입니다. 그런 다음 야곱은 축복을 받기 위해서 에서인 체해야 합니다. 야곱은 반대합니다. 그의 아버지는 틀림없이 그 계략을 알아채고 그를 저주할 것입니다! 리브가는 물러서지 않으면서 이렇게 말합니다. “내 아들아, 네게 향하는 저주의 말은 내게 임할 것이다.” 그런 다음 리브가는 요리를 만들고, 야곱을 변장시켜서 남편에게 보냅니다.—<a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/10/0">창세 27:1-17</a>.</div><div class="sb" data-pid="20" id="p20" style="margin-top: 0; margin-bottom: 8px">리브가가 왜 이처럼 행동하였는지는 명시되어 있지 않습니다. 많은 사람들은 리브가의 행동을 비난하지만, 성서는 그렇게 하지 않으며 야곱이 축복을 받았다는 것을 알게 된 이삭도 그렇게 하지 않습니다. 도리어 이삭은 더 많은 축복을 합니다. (<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/11/0">창세 27:29;</a><a class="b" data-bid="12-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/11/1"> 28:3, 4</a>) 리브가는 자기 아들들에 대해서 여호와께서 하신 예언을 알고 있습니다. 그래서 리브가는 야곱이 마땅히 받아야 할 축복을 받을 수 있도록 행동을 취한 것입니다. 분명 이것은 여호와의 뜻과도 일치하는 행동입니다.—<a class="b" data-bid="13-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/12/0">로마 9:6-13</a>.</div><div class="ss" data-pid="21" id="p21" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>야곱이 하란으로 떠나게 되다</strong></div><div class="sb" data-pid="22" id="p22" style="margin-top: 0; margin-bottom: 8px">이제 리브가는 형 에서의 분노가 지나가기까지 야곱이 도망해 있게 함으로써 에서의 계획을 좌절시킵니다. 리브가는 자신이 세운 계획에 대해 이삭의 동의를 구하지만, 친절하게도 에서의 분노에 대해서는 언급하지 않습니다. 도리어 야곱이 혹시 가나안 여자와 결혼하지 않을까 하는 염려를 나타내면서 남편에게 재치 있게 간청합니다. 그 생각은 이삭에게 충분히 설득력이 있어서, 이삭은 야곱에게 그러한 결혼을 하지 말라고 명령하고 하느님을 두려워하는 아내를 찾도록 야곱을 리브가의 가족에게로 보냅니다. 리브가가 야곱을 다시 보게 된다는 기록은 없지만 리브가의 행동은 미래의 이스라엘 나라에 풍부한 축복을 가져다줍니다.—<a class="b" data-bid="14-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004282/13/0">창세 27:43–28:2</a>.</div><div class="sb" data-pid="23" id="p23" style="margin-top: 0; margin-bottom: 8px">리브가에 대해 알게 된 점들로 인해 우리는 감동을 받아 그를 칭송하게 됩니다. 리브가는 아주 매력적이었지만 그의 진정한 아름다움은 경건한 정성에 있습니다. 그것이 바로 아브라함이 며느리에게서 찾고자 했던 것입니다. 아마도 리브가의 다른 훌륭한 특성들도 아브라함이 바랐던 모든 것을 충족하고도 남음이 있었을 것입니다. 리브가가 하느님의 인도를 따르면서 나타낸 믿음과 용기, 그리고 그의 열정, 겸허, 관대하게 후대하는 것은 모든 그리스도인 여자들이 마땅히 본받아야 할 특성들입니다. 이러한 특성들이야말로 여호와께서 진정으로 모범이 되는 여자들에게서 찾으시는 특성들입니다.</div><div class="sb" data-pid="24" id="p24" style="margin-top: 0; margin-bottom: 8px"></div></td></tr></tbody></table></div>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt80">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f6">
+<figure>
+<a href="https://www.jw.org/finder?wtlocale=KO&amp;docid=502012456"><img alt="" class="suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/146" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/147" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt81">
+<p data-pid="42" id="p42">어린이들은 리브가에게서 어떤 교훈을 배울 수 있습니까?</p>
+<p data-pid="43" id="p43"><a class="fb" href="https://www.jw.org/finder?docID=502012456&amp;prefer=content&amp;wtlocale=KO"><strong>“리브가의 훌륭한 특성”</strong> (jw.org에 연재된 “그림 학습”)</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="{BibleBookName} {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value="{BibleBookName} {StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value="{BibleBookName} {BibleVerse}"/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="용기 있게 하느님과 함께 걸으십시오 {StartingPageNumber}-{EndingPageNumber}면"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="용기 있게 하느님과 함께 걸으십시오 {PageNumber}면"/>
+<input id="documentDescription" type="hidden" value="용기 있게 하느님과 함께 걸으십시오"/>
+<input id="englishSym" type="hidden" value="wcg"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="audioPubSym" type="hidden" value="wcg"/>
+<input id="chapNo" type="hidden" value="6"/>
+<input id="issue" type="hidden" value=""/>
+<input id="docId" type="hidden" value="1102025906"/>
+<input id="documentInBible" type="hidden" value=""/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=KO&amp;docid=1102025906&amp;srctype=wol&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="document"/>
+<input id="contentTitle" type="hidden" value="낯선 곳을 향해 기꺼이 떠나다"/>
+<input id="parentTitle" type="hidden" value="용기 있게 하느님과 함께 걸으십시오"/>
+<input id="contentThumbnail" type="hidden" value="/ko/wol/d/r8/lp-ko/1102025906/thumbnail"/>
+</article>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Gather all alternate presentation elements and their images
+        const altPresElements = Array.from(document.querySelectorAll('.alternatePresentation'));
+        const altImages = altPresElements.map(el => {
+            const img = el.querySelector('img');
+            if (img) {
+                return {
+                    src: img.getAttribute('data-alt-src') || img.getAttribute('src'),
+                    title: el.querySelector('.title')?.textContent || "Image"
+                };
+            }
+            return null;
+        }).filter(Boolean);
+
+        // 2. Create Lightbox DOM structure dynamically
+        const lightbox = document.createElement('div');
+        lightbox.className = 'custom-lightbox';
+        lightbox.innerHTML = `
+            <button class="custom-lightbox-close">&times;</button>
+            <button class="custom-lightbox-nav custom-lightbox-prev">&#10094;</button>
+            <div class="custom-lightbox-content">
+                <img class="custom-lightbox-img" src="" alt="" />
+            </div>
+            <button class="custom-lightbox-nav custom-lightbox-next">&#10095;</button>
+            <div class="custom-lightbox-caption"></div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('.custom-lightbox-img');
+        const lightboxCaption = lightbox.querySelector('.custom-lightbox-caption');
+        const closeBtn = lightbox.querySelector('.custom-lightbox-close');
+        const prevBtn = lightbox.querySelector('.custom-lightbox-prev');
+        const nextBtn = lightbox.querySelector('.custom-lightbox-next');
+
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        const openLightbox = (group, index) => {
+            currentGroup = group;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const updateLightbox = () => {
+            const item = currentGroup[currentIndex];
+            if (item) {
+                lightboxImg.src = item.src;
+                if (item.title && item.title.trim() !== "" && item.title.trim() !== "Printed Edition") {
+                    lightboxCaption.textContent = item.title;
+                    lightboxCaption.style.display = 'block';
+                } else {
+                    lightboxCaption.textContent = "";
+                    lightboxCaption.style.display = 'none';
+                }
+                if (currentGroup.length > 1) {
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                } else {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                }
+            }
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImg.src = '';
+            lightboxCaption.textContent = '';
+        };
+
+        const navigate = (direction) => {
+            if (currentGroup.length <= 1) return;
+            currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+            updateLightbox();
+        };
+
+        // Event Listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('custom-lightbox-content')) {
+                closeLightbox();
+            }
+        });
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Attach click handlers to alternate presentations
+        altPresElements.forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(altImages, index);
+            });
+        });
+
+        // Attach click handlers to other zoomable figure images
+        document.querySelectorAll('article figure img:not(.suppressZoom)').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = img.getAttribute('data-alt-src') || img.getAttribute('src');
+                const title = img.getAttribute('alt') || "";
+                openLightbox([{ src, title }], 0);
+            });
+        });
+    });
+    </script>
+</body>
+</html>

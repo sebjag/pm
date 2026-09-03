@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>September 7-13 — Watchtower ONLINE LIBRARY</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">📚️</text></svg>'>
+    <link rel="stylesheet" type="text/css" href="css/media-player.css">
+    <link rel="stylesheet" type="text/css" href="css/+0+61168f8ef805085f5a3c0118b14679f74c9e62a4.css">
+    <link rel="stylesheet" type="text/css" href="css/+1+f8319dd08c749624466cb777b7d528e1a42d7368.css">
+    <link rel="stylesheet" type="text/css" href="css/+2+894de4a6eba76bf97927253f95f582449947a96e.css">
+    <link rel="stylesheet" type="text/css" href="css/+3+d00a791fdbb951906e95f1428ae322e41ea9da95.css">
+    <style>
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @media screen and (min-width: 600px) {
+            .document, .bible {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 16px 50px 80px;
+            }
+            .document .dc-bleedToArticleEdge, .bible .dc-bleedToArticleEdge {
+                margin-left: -50px;
+                margin-right: -50px;
+            }
+            .document .dc-paddingToContentEdge, .bible .dc-paddingToContentEdge {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        #content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+        .inserted-reference {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+            font-size: 0.95em;
+        }
+        .inserted-reference-header {
+            margin: 0;
+            padding: 4px 16px;
+            background-color: #e2e6ea;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #495057;
+        }
+        .inserted-reference-header a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #1a73e8;
+        }
+        .inserted-reference-header a:hover {
+            text-decoration: underline;
+        }
+        .inserted-reference > *:not(.inserted-reference-header) {
+            margin: 12px 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-style: italic;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        /* Custom Lightbox Styles */
+        .custom-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            /* user-select: none; */
+            /* -webkit-user-select: none; */
+        }
+        .custom-lightbox.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .custom-lightbox-content {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 35px;
+            color: #fff;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10002;
+            transition: transform 0.2s ease;
+        }
+        .custom-lightbox-close:hover {
+            transform: scale(1.1);
+        }
+        .custom-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 20px;
+        }
+        .custom-lightbox-nav:hover {
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .custom-lightbox-prev {
+            left: 0px;
+        }
+        .custom-lightbox-next {
+            right: 0px;
+        }
+        .custom-lightbox-caption {
+            color: #ccc;
+            margin-top: 15px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 80%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+<body  class="showRuby cc-theme--light DynamicLayout">
+    <div id="content" class="content">
+        <article class="article document html5 pub-mwb docId-202026252 pub-mwb26 pub-mwb pub-mwb26 docClass-106 jwac showRuby ml-E ms-ROMAN dir-ltr includeSecondaryNav" data-lang="E" dir="ltr" id="article" lang="en" role="article">
+<div class="scalableui">
+<header>
+<h1 class="du-fontSize--basePlus2 du-color--textSubdued" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="2" data-no="2" id="page2"></span>SEPTEMBER 7-13</h1>
+<h2 class="du-fontSize--base du-margin-top--2 du-margin-top-desktopOnly--4" data-pid="2" id="p2"><a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/202026252/0/0"><strong>JEREMIAH 32-33</strong></a></h2>
+</header>
+<div class="bodyTxt">
+<h3 class="dc-icon--music dc-icon-size--basePlus1 dc-icon-margin-horizontal--8 du-fontSize--base du-borderStyle-top--solid du-borderColor--borderDefault du-borderWidth--2 du-padding-top--4 du-padding-top-desktopOnly--5" data-pid="3" id="p3"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026252/0/0"><strong>Song 1</strong></a> <strong>and Prayer | Opening Comments</strong> <span class="du-fontWeight--normal">(1 min.)</span></h3><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Song 1]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<p class="contextTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="7" data-no="7" id="page7"></span><strong>SONG 1</strong></p>
+<h1 data-pid="2" id="p2"><strong>Jehovah’s Attributes</strong></h1>
+</header> 
+<p class="themeScrp" data-pid="3" id="p3">(<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016801/0/0">Revelation 4:11</a>)</p>
+<div class="bodyTxt">
+<ol><li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="4" id="p4">Jehovah our God, exalted in might,</p>
+<p class="sz" data-pid="5" id="p5">Creator of life and Provider of light.</p>
+<p class="sp" data-pid="6" id="p6">Creation speaks of your power so grand;</p>
+<p class="sz" data-pid="7" id="p7">The heavens and earth forever stand.</p>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="8" id="p8">Your heavenly throne, on justice it stands.</p>
+<p class="sz" data-pid="9" id="p9">To us you make known all your righteous commands.</p>
+<p class="sp" data-pid="10" id="p10">And as we turn to your Word, we can see</p>
+<p class="sz" data-pid="11" id="p11">Your wisdom revealed so brilliantly.</p>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="12" id="p12">The greatest of all is your perfect love.</p>
+<p class="sz" data-pid="13" id="p13">Beyond all compare are your gifts from above.</p>
+<p class="sp" data-pid="14" id="p14">Your attributes and your glorious name,</p>
+<p class="sz" data-pid="15" id="p15">With joy and with zeal, we will proclaim.</p>
+</li>
+</ol>
+</div>
+<div class="closingContent"><p class="se" data-pid="16" id="p16">(See also <a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016801/1/0">Ps. 36:9;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016801/1/1"> 145:6-13;</a><a class="b" data-bid="2-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016801/1/2"> Eccl. 3:14;</a><a class="b" data-bid="2-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016801/1/3"> Jas. 1:17</a>.)</p>
+</div>
+<p class="sb" data-pid="17" id="p17"></p>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+<div class="du-fontSize--basePlus2 dc-icon--gem dc-icon-layout--top dc-icon-bgColor--teal-600 dc-icon-color--white dc-icon-margin-inlineEnd--8 dc-icon-padding--5 dc-icon-size--baseMinus1 du-margin-top--8 du-margin-bottom--2" id="tt7">
+<h2 class="du-fontSize--base du-color--teal-700 du-margin-vertical--0" data-pid="4" id="p4"><strong>TREASURES FROM GOD’S WORD</strong></h2>
+</div>
+<div class="dc-bleedToArticleEdge dc-paddingToContentEdge du-bgColor--bgSecondary du-margin-top--8 du-padding-vertical--8" id="tt9">
+<h3 class="du-fontSize--base du-color--teal-700 du-margin-vertical--0" data-pid="5" id="p5"><strong>1. Reflecting on Jehovah’s Qualities Builds Faith</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6" id="tt11">
+<div class="du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt12">
+<p data-pid="6" id="p6">(10 min.)</p>
+</div>
+<p data-pid="7" id="p7">Jehovah’s power convinces us that he <em>can</em> help us (<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/202026252/1/0">Jer 32:17</a>; <a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026252/1/0"><em>wp19.1</em> 6 ¶1–7 ¶1</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Jer 32:17]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v24-32-17-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19864">17 </a>“Alas, O Sovereign Lord Jehovah! Look! You made the heavens and the earth by your great power<a class="b" data-bid="1021-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1020">+</a> and by your outstretched arm. Nothing is too wonderful for you, </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[wp19.1 6 ¶1–7 ¶1]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="4" id="p4" style="margin-top: 0; margin-bottom: 8px"><em>“O Sovereign Lord Jehovah! Look! You made the heavens and the earth by your great power.”</em>​—<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2019006/0/0">JEREMIAH 32:17</a>.</div><div class="sb" data-pid="5" id="p5" style="margin-top: 0; margin-bottom: 8px">Evidence of God’s power is seen in creation. For example, when you stand outside on a bright summer day, what do you feel on your skin? The warmth of the sun. Actually, you are feeling the results of Jehovah’s creative power. How powerful is the sun? At its core, its temperature is said to be about 27,000,000 degrees Fahrenheit (15,000,000°C). Every second, the sun emits energy equivalent to the explosion of many hundreds of millions of nuclear bombs.</div><div class="sb" data-pid="6" id="p6" style="margin-top: 0; margin-bottom: 8px">Yet our sun is small compared to many of the untold trillions of stars in the universe. Scientists estimate that one of the largest stars, named UY Scuti, has a diameter about 1,700 times that of the sun. If UY Scuti replaced the sun, it would engulf the earth and extend beyond the orbit of the planet Jupiter. Perhaps that helps us to grasp more fully <span aria-hidden="true" class="pageNum" data-before-text="7" data-no="7" id="page7"></span>Jeremiah’s statement that Jehovah God made the heavens and the earth, that is, the universe, by his great power.</div><div class="sb" data-pid="7" id="p7" style="margin-top: 0; margin-bottom: 8px"><strong>How do we benefit from God’s power?</strong> Our life depends on God’s physical creations, such as the sun and all the wonderful resources on earth. In addition, God uses his power to benefit humans in a personal way. How? In the first century, God granted power to Jesus to perform deeds that were truly miraculous. We read: “The blind are now seeing and the lame are walking, the lepers are being cleansed and the deaf are hearing, the dead are being raised up.” (<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2019006/1/0">Matthew 11:5</a>) What about today? “He gives power to the tired one,” says the Bible, adding: “Those hoping in Jehovah will regain power.” (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2019006/2/0">Isaiah 40:29,</a><a class="b" data-bid="3-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2019006/2/1"> 31</a>) God can supply “power beyond what is normal” to enable us to deal with or endure the hardships and trials of life. (<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2019006/3/0">2 Corinthians 4:7</a>) Do you not feel drawn to a God who so lovingly uses his limitless power in our behalf?</div></td></tr></tbody></table></div>
+<p data-pid="8" id="p8">Jehovah’s loyal love assures us that he <em>wants</em> to help us (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/202026252/2/0">Jer 32:18</a>; <a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026252/2/0"><em>w21.11</em> 7 ¶18</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Jer 32:18]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v24-32-18-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19865">18 </a>the One showing loyal love to thousands, but repaying the error of the fathers to<a class="fn" data-fnid="282" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/281" id="footnotesource282">*</a><em> (Footnote: Lit., “into the bosom of.”)</em> their sons after them,<a class="b" data-bid="1022-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1021">+</a> the true God, the great and mighty One, whose name is Jehovah of armies. </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[w21.11 7 ¶18]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="18"><strong><sup>18</sup></strong></span> What do we want to keep in mind? Before we began serving Jehovah, we received the love that God shows to mankind in general. As his worshippers, however, we also benefit from his loyal love. Moved by that love, Jehovah embraces us with his protective arms. He will always keep us close to him and will fulfill his purpose regarding us. He wants us to succeed! (<a class="b" data-bid="35-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2021645/34/0">Ps. 46:1, 2,</a><a class="b" data-bid="35-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2021645/34/1"> 7</a>) Therefore, no matter what trial we may face, Jehovah will give us the strength we need in order to keep our integrity.</td></tr></tbody></table></div>
+<p data-pid="9" id="p9">Jehovah’s sense of justice reminds us that he sees injustice and <em>will</em> act against it (<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/202026252/3/0">Jer 32:19</a>; <a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026252/3/0"><em>w25.10</em> 21 ¶15</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Jer 32:19]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v24-32-19-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19866">19 </a>You are great in counsel<a class="fn" data-fnid="283" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/282" id="footnotesource283">*</a><em> (Footnote: Or “great as regards your purposes.”)</em> and mighty in deed,<a class="b" data-bid="1023-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1022">+</a> you whose eyes observe all the ways of men,<a class="b" data-bid="1024-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1023">+</a> to give to each one according to his ways and according to what he does.<a class="b" data-bid="1025-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1024">+</a> </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[w25.10 21 ¶15]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="15"><strong><sup>15</sup></strong></span> <strong>Read</strong> <a class="b" data-bid="19-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2025603/18/0"><strong>Jeremiah 12:1</strong></a><strong>.</strong> At one point in his life, the prophet Jeremiah was troubled to see the wicked succeed. He was also affected by the way fellow Israelites treated him. (<a class="b" data-bid="20-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2025603/19/0">Jer. 20:7, 8</a>) We can relate to him when we see dishonest people prosper or when we are ridiculed. Although Jeremiah expressed his frustration, he did not question God’s justice. As he saw how Jehovah disciplined His rebellious people, his confidence in God’s justice must have increased. (<a class="b" data-bid="21-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2025603/20/0">Jer. 32:19</a>) We too can openly express our frustrations in prayer, trusting that Jehovah will in his due time correct any injustices we now face.</td></tr></tbody></table></div>
+</div>
+<div class="south_center" id="f1">
+<figure>
+<img alt="A father and his young son standing in a lush green landscape, gazing at a mountain range in the distance." class="south_center" data-img-small-src="/en/wol/mp/r1/lp-e/mwb26/2026/323" src="https://wol.jw.org/en/wol/mp/r1/lp-e/mwb26/2026/324" style="max-width: min(100%, 700px); height: auto;"/>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">A father and his young son standing in a lush green landscape, gazing at a mountain range in the distance.</td></tr></tbody></table></div></figure>
+</div>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6 du-margin-children-bottom--0" id="tt13">
+<p data-pid="10" id="p10"><span class="du-color--teal-700"><strong>FAMILY WORSHIP IDEA:</strong></span> Watch the <a data-video="webpubvid://?pub=jwb-098&amp;track=7&amp;langwritten=E" href="https://www.jw.org/finder?lank=pub-jwb-098_7_VIDEO&amp;wtlocale=E"><strong>VIDEO</strong></a> <em>Buy a Field in Anathoth,</em> and discuss how this dramatic illustration strengthened Jeremiah’s faith and how it can strengthen ours.​—<a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/202026252/4/0">Jer 32:6-8</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Video Transcript] Gage Fleegle: Buy a Field in Anathoth (video duration: 9:36)</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px">The year was 608 B.C.E. The prophet Jeremiah had already served nearly 40 years faithfully, and now he “was confined in the Courtyard of the Guard” in Jerusalem. Jerusalem’s walls were being battered by the Babylonians. In less than a year, the entire city would be completely destroyed. Jeremiah had to weather the storm. There was no way out. There was no place for him to go.</div><div style="margin-top: 0; margin-bottom: 8px">He was under lockdown. Well, have you ever felt like Jeremiah —as if the world was caving in on you? Maybe it was a serious health scare, the health of a loved one, the death of a loved one, or maybe COVID-19 has made you feel boxed in. Some of our brothers, just like Jeremiah, have faced persecution or imprisonment, and that might be our lot before the end of this system of things.</div><div style="margin-top: 0; margin-bottom: 8px">Well, what will help you students —in fact, all of us— during these critical last days when we face personal trials, or adversity? I invite you to open to Jeremiah chapter 32. Let’s consider a dramatic illustration in the life of Jeremiah. Now, Jeremiah is under lockdown. Jeremiah chapter 32, let’s read verses 6-8: “Jeremiah said: ‘The word of Jehovah has come to me, saying, “‘“Here Hanamel the son of Shallum your uncle will come to you and say: “‘“‘Buy for yourself my field in Anathoth, because you have the first right to repurchase it.’”’”</div><div style="margin-top: 0; margin-bottom: 8px">Verse 8 says: “Hanamel the son of my uncle came to me, “just as Jehovah had said, into the Courtyard of the Guard, “and he said to me: ‘Please buy my field in Anathoth, “‘in the land of Benjamin, for you have the right to take possession of it “‘and to repurchase it. “Buy it for yourself.’ At that I knew that this was by the word of Jehovah.” What was Jehovah’s instruction to Jeremiah? Buy a field.</div><div style="margin-top: 0; margin-bottom: 8px"><em>[2:06]</em></div><div style="margin-top: 0; margin-bottom: 8px">Buy a field? Right now, with the Babylonians beating on the door? Jeremiah might have thought, ‘I need an escape plan, not a field —of all places, Anathoth?’ Where was Anathoth? Well, Jeremiah knew exactly where it was —just a few miles north-northeast of Jerusalem. He was born there into a priestly family. Did he have pleasant memories of his past in Anathoth as a youth? Very likely.</div><div style="margin-top: 0; margin-bottom: 8px">But now that was a distant memory. More recently, men of Anathoth, possibly some of Jeremiah’s own relatives, threatened to kill him because of his prophesying. Well, did Jeremiah obey in spite of any personal feelings he might have had? Jeremiah always obeyed, even previously when Jehovah told him not to take a wife or to have children. Well, what did he do in this situation? Verses 9 and 10: “So I bought the field in Anathoth from Hanamel the son of my uncle. “I weighed out the money to him, seven shekels and ten silver pieces. “Then I recorded it in a deed, affixed the seal, called in witnesses, and weighed the money in the scales.”</div><div style="margin-top: 0; margin-bottom: 8px">Jeremiah could have worked in the Legal Department. Well, he carried out the legal transaction, the legal requirements of the transaction. He recorded the transaction in two deeds —one sealed, one unsealed— complete transparency in this situation. Why did Jehovah ask Jeremiah to buy a field in Anathoth? Jeremiah already had complete faith that, yes, Jehovah’s word would be restored —when 70 years had transpired, the Jews would return to their homeland.</div><div style="margin-top: 0; margin-bottom: 8px">But now Jehovah reinforced Jeremiah’s faith by giving him something specific to think about. Jeremiah could imagine the time when buying and selling would again occur in Israel. Well, was Jeremiah’s faith well-placed in Jehovah’s promise? Absolutely. Ezra later documented that 128 men of Anathoth were among the first group of those returning from Babylonian exile.</div><div style="margin-top: 0; margin-bottom: 8px"><em>[4:22]</em></div><div style="margin-top: 0; margin-bottom: 8px">Jehovah’s word always comes true. Well, how might we —how might you— “buy a field in Anathoth”? Well, we’re not expecting you to go out and purchase a piece of property in a place called Anathoth. No. We find a clue, though, in Hebrews chapter 11 —Hebrews 11:1: “Faith is the assured expectation of what is hoped for, the evident demonstration of realities that are not seen.”</div><div style="margin-top: 0; margin-bottom: 8px">The Simple English Bible renders it this way: “Faith is the title-deed to the things we hope for.” Now, most of us in special full-time service, we don’t own property. But we may have the title to a car. What does that mean? That means that car, that vehicle, belongs to us personally. Our faith is the “title-deed” of good things to come, a guarantee of future realities.</div><div style="margin-top: 0; margin-bottom: 8px">Jeremiah had a “title-deed.” We have a “title-deed” of faith. So how do we “buy a field in Anathoth”? It’s not a type-antitype situation; it’s just an illustration. In the context of our discussion, it means we exercise faith in Jehovah’s promises. When facing a trial, we can search Jehovah’s Word for promises regarding the future, and that gives us strength to keep on enduring.</div><div style="margin-top: 0; margin-bottom: 8px">For example, if we’re facing a serious illness, God’s Word promises: “No resident will say: ‘I am sick.’” If we’re grieving the death of a loved one, the Bible assures us there is going to be a resurrection. The trial doesn’t disappear yet, but exercising faith in Jehovah’s promises helps us to endure. Now, there’s something else that we can learn from that dramatic illustration in the life of Jeremiah.</div><div style="margin-top: 0; margin-bottom: 8px"><em>[6:27]</em></div><div style="margin-top: 0; margin-bottom: 8px">Back in Jeremiah 32, notice, please, verses 13 through 15. Jeremiah was inspired to write, he said: “I now commanded Baruch in their presence, saying: “‘This is what Jehovah of armies, the God of Israel, says, “‘“Take these deeds, this deed of purchase, “‘“the sealed one and the other deed left unsealed, “‘“and put them into an earthenware vessel, “‘so that they may be kept for a long time.”</div><div style="margin-top: 0; margin-bottom: 8px">“‘For this is what Jehovah of armies, the God of Israel, says, “Houses and fields and vineyards will again be bought in this land.”’” Jeremiah involved Baruch in the legal proceedings when he bought the field in Anathoth. Jeremiah’s faith influenced Baruch for the good. We can almost hear the confidence and conviction in his voice: “This is what Jehovah of armies, the God of Israel says.”</div><div style="margin-top: 0; margin-bottom: 8px">Jeremiah used that expression, “Jehovah of armies,” more than any other Bible writer. It was like Jeremiah said: ‘Our God will certainly overturn the Babylonians. ‘These promises are real; you can take them to the bank! They’re not counterfeit; they’re completely true!’ What’s the lesson for us? Our faith can strengthen fellow believers. A sister named Joyce, while she herself was fighting cancer, made what she called shot-in-the-arm cards.</div><div style="margin-top: 0; margin-bottom: 8px">They were collections of Bible verses, pictures from our publications, quotes from theocratic songs or Watchtower articles, and she would give them to those in need of encouragement. One of her favorites was Psalm 112:7, 8. And there it says: “He will not fear bad news. “His heart is steadfast, trusting in Jehovah. “His heart is unshakable; he is not afraid; in the end he will look in triumph on his adversaries.”</div><div style="margin-top: 0; margin-bottom: 8px"><em>[8:25]</em></div><div style="margin-top: 0; margin-bottom: 8px">Sister Joyce had a lot of bad news in her life, but her faith in Jehovah’s promises was powerful. Sadly, Joyce lost her fight with cancer a few years back, but she “bought a field in Anathoth,” and she will witness the fulfillment of Jehovah’s promises. Even now, she’s given us a shot in the arm —encouragement from Jehovah’s Word— and strengthened us with her faith.</div><div style="margin-top: 0; margin-bottom: 8px">And so, dear Gilead students, what have we learned? Faith is like a “title-deed of things hoped for.” Faith in Jehovah’s Word helps us to endure trials and adversity. Our faith can have a powerful effect on those around us. So when faced with persecution, “buy a field in Anathoth.” When faced with a grievous health problem, “buy a field in Anathoth.” When grieving the loss of a loved one, “buy a field in Anathoth.”</div><div style="margin-top: 0; margin-bottom: 8px">And some day soon, your faith will be rewarded. You’ll walk in that field when Jehovah’s word comes true.</div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Jer 32:6-8]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-32-6-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19853">6 </a>Jeremiah said: “The word of Jehovah has come to me, saying, </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-32-7-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19854">7 </a>‘Here Hanʹa·mel the son of Shalʹlum your uncle<a class="fn" data-fnid="280" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/279" id="footnotesource280">*</a><em> (Footnote: That is, paternal uncle.)</em> will come to you and say: “Buy for yourself my field in Anʹa·thoth,<a class="b" data-bid="1012-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1011">+</a> because you have the first right to repurchase it.”’”<a class="b" data-bid="1013-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1012">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-32-8-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19855">8 </a>Hanʹa·mel the son of my uncle came to me, just as Jehovah had said, into the Courtyard of the Guard, and he said to me: “Please buy my field in Anʹa·thoth, in the land of Benjamin, for you have the right to take possession of it and to repurchase it. Buy it for yourself.” At that I knew that this was by the word of Jehovah.</span></div></td></tr></tbody></table></div>
+</div>
+</div>
+<h3 class="du-fontSize--base du-color--teal-700 du-margin-top--8 du-margin-bottom--0" data-pid="11" id="p11"><strong>2. Spiritual Gems</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6" id="tt17">
+<div class="du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt18">
+<p data-pid="12" id="p12">(10 min.)</p>
+</div>
+<ul class="du-listStyleType--none du-padding-inlineStart--0"><li><p data-pid="13" id="p13"><a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/202026252/5/0">Jer 33:23, 24</a>​—Who are the “two families” spoken of here? (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026252/4/0"><em>w07</em> 3/15 11 ¶4</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Jer 33:23, 24]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-33-23-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19914">23 </a>And the word of Jehovah again came to Jeremiah, saying: </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-33-24-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19915">24 </a>“Have you not taken note of what this people is saying, ‘Jehovah will reject the two families that he chose’? And they are treating my own people with disrespect, and they no longer regard them as a nation.</span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[w07 3/15 11 ¶4]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><a class="b" data-bid="46-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2007202/45/0"><strong>33:23, 24</strong></a>​<strong>—What are “the two families” spoken of here?</strong> One is the royal family through the line of King David, and the other, the priestly family of the descendants of Aaron. With the destruction of Jerusalem and Jehovah’s temple, it appeared that Jehovah had rejected these two families and would no longer have a kingdom over the earth or have his worship revived.</td></tr></tbody></table></div>
+
+</li>
+<li class="du-margin-top--8"><p data-pid="15" id="p15">What spiritual gems from this week’s Bible reading would you like to share?</p>
+
+</li>
+</ul>
+</div>
+<h3 class="du-fontSize--base du-color--teal-700 du-margin-top--8 du-margin-bottom--0" data-pid="17" id="p17"><strong>3. Bible Reading</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6 du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt31">
+<p data-pid="18" id="p18">(4 min.) <a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/202026252/6/0">Jer 32:6-18</a> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026252/5/0"><em>th</em> study 2</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Jer 32:6-18]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-32-6-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19853">6 </a>Jeremiah said: “The word of Jehovah has come to me, saying, </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-32-7-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19854">7 </a>‘Here Hanʹa·mel the son of Shalʹlum your uncle<a class="fn" data-fnid="280" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/279" id="footnotesource280">*</a><em> (Footnote: That is, paternal uncle.)</em> will come to you and say: “Buy for yourself my field in Anʹa·thoth,<a class="b" data-bid="1012-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1011">+</a> because you have the first right to repurchase it.”’”<a class="b" data-bid="1013-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1012">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-32-8-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19855">8 </a>Hanʹa·mel the son of my uncle came to me, just as Jehovah had said, into the Courtyard of the Guard, and he said to me: “Please buy my field in Anʹa·thoth, in the land of Benjamin, for you have the right to take possession of it and to repurchase it. Buy it for yourself.” At that I knew that this was by the word of Jehovah.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-32-9-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19856">9 </a>So I bought the field in Anʹa·thoth from Hanʹa·mel the son of my uncle. I weighed out the money<a class="b" data-bid="1014-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1013">+</a> to him, seven shekels<a class="fn" data-fnid="281" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/280" id="footnotesource281">*</a><em> (Footnote: A shekel equaled 11.4 g (0.367 oz t). See App. B14.)</em> and ten silver pieces. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-32-10-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19857">10 </a>Then I recorded it in a deed,<a class="b" data-bid="1015-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1014">+</a> affixed the seal, called in witnesses,<a class="b" data-bid="1016-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1015">+</a> and weighed the money in the scales. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-32-11-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19858">11 </a>I took the deed of purchase, the one that was sealed according to the commandment and legal requirements, as well as the one that was left unsealed, </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-32-12-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19859">12 </a>and I gave the deed of purchase to Barʹuch<a class="b" data-bid="1017-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1016">+</a> son of Ne·riʹah<a class="b" data-bid="1018-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1017">+</a> son of Mah·seiʹah in the presence of Hanʹa·mel the son of my uncle, the witnesses who wrote in the deed of purchase, and all the Jews who were sitting in the Courtyard of the Guard.<a class="b" data-bid="1019-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1018">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-32-13-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19860">13 </a>I now commanded Barʹuch in their presence, saying: </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-32-14-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19861">14 </a>“This is what Jehovah of armies, the God of Israel, says, ‘Take these deeds, this deed of purchase, the sealed one and the other deed left unsealed, and put them into an earthenware vessel, so that they may be kept for a long time.’ </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-32-15-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19862">15 </a>For this is what Jehovah of armies, the God of Israel, says, ‘Houses and fields and vineyards will again be bought in this land.’”<a class="b" data-bid="1020-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1019">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-32-16-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19863">16 </a>Then I prayed to Jehovah after giving the deed of purchase to Barʹuch the son of Ne·riʹah, saying: </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-32-17-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19864">17 </a>“Alas, O Sovereign Lord Jehovah! Look! You made the heavens and the earth by your great power<a class="b" data-bid="1021-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1020">+</a> and by your outstretched arm. Nothing is too wonderful for you, </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-32-18-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19865">18 </a>the One showing loyal love to thousands, but repaying the error of the fathers to<a class="fn" data-fnid="282" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/281" id="footnotesource282">*</a><em> (Footnote: Lit., “into the bosom of.”)</em> their sons after them,<a class="b" data-bid="1022-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1021">+</a> the true God, the great and mighty One, whose name is Jehovah of armies. </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[th study 2]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<p class="contextTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="5" data-no="5" id="page5"></span><strong>STUDY 2</strong></p>
+<h1 data-pid="2" id="p2"><strong>Conversational Manner</strong></h1>
+</header>
+<div class="bodyTxt">
+<div class="west_left eighth suppressZoom" id="f1">
+<figure>
+<img alt="Cited scripture" class="west_left eighth suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/th/2018/25" height="104" src="https://wol.jw.org/en/wol/mp/r1/lp-e/th/2018/26" width="150"/>
+</figure>
+</div>
+<h2 data-pid="3" id="p3"><a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102018442/0/0"><strong>2 Corinthians 2:17</strong></a></h2>
+<div class="grpItems du-clearfix"><p data-pid="4" id="p4"><strong>SUMMARY:</strong> Speak in a natural, sincere way that conveys how you feel about the topic and your listeners.</p>
+<table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Embedded Video]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026252/5/0" style="display: block;" target="_blank"><img src="https://wol.jw.org/en/wol/mp/r1/lp-e/th/2018/31" style="display: block; margin: 0 auto; max-width: min(100%, 700px); height: auto;"/></a></td></tr></tbody></table>
+<h2 data-pid="5" id="p5"><strong>HOW TO DO IT:</strong></h2>
+</div><ul><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="6" id="p6"> <strong>Prepare prayerfully and carefully.</strong> Pray for help to concentrate, not on yourself, but on your message. Fix in your mind the main points you need to convey. Express thoughts in your own words; do not simply recite expressions word for word as they appear in print.</p>
+<table class="box-supplement-table" style="width: 100%; border-collapse: separate; border-spacing: 0; margin: 16px 0; background-color: #f1f3f5; border-top: 1px solid #a7a7a7; border-left: 1px solid #a7a7a7; border-right: 1px solid #a7a7a7; border-bottom: 1px solid #a7a7a7; border-radius: 0px;"><tbody><tr><td style="padding: 15px 33px 30px; font-size: 1.2em; line-height: 1.5; color: #212529; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px;"><div class="grpItems imgWestEighth"><div class="west_left eighth suppressZoom" id="f2">
+<figure>
+<img alt="Practical tip" class="west_left eighth suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/th/2018/27" height="104" src="https://wol.jw.org/en/wol/mp/r1/lp-e/th/2018/28" width="150"/>
+</figure>
+</div>
+<p data-pid="7" id="p7">If you plan to read from the Bible or another publication, get to know the passage well so that your reading will be fluent. If people are quoted, read their words with feeling, without being overly dramatic.</p>
+</div></td></tr></tbody></table>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="8" id="p8"> <strong>Speak from the heart.</strong> Think about why your listeners need to hear the message. Focus on them. Then your posture, gestures, and facial expressions will convey warm sincerity and friendliness.</p>
+<table class="box-supplement-table" style="width: 100%; border-collapse: separate; border-spacing: 0; margin: 16px 0; background-color: #f1f3f5; border-top: 1px solid #a7a7a7; border-left: 1px solid #a7a7a7; border-right: 1px solid #a7a7a7; border-bottom: 1px solid #a7a7a7; border-radius: 0px;"><tbody><tr><td style="padding: 15px 33px 30px; font-size: 1.2em; line-height: 1.5; color: #212529; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px;"><div class="grpItems imgWestEighth"><div class="west_left eighth suppressZoom" id="f3">
+<figure>
+<img alt="Practical tip" class="west_left eighth suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/th/2018/29" height="104" src="https://wol.jw.org/en/wol/mp/r1/lp-e/th/2018/30" width="150"/>
+</figure>
+</div>
+<p data-pid="9" id="p9">Do not confuse naturalness with casualness. Maintain the dignity of your message by using clear speech and proper grammar.</p>
+</div></td></tr></tbody></table>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="10" id="p10"> <strong>Look at your listeners.</strong> Maintain eye contact where it is not offensive to do so. When you give a discourse, look at one individual in the audience at a time, rather than looking at or scanning over the entire group.</p>
+</li>
+</ul>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+</div>
+<div class="dc-icon--wheat dc-icon-layout--top dc-icon-bgColor--gold-600 dc-icon-color--white dc-icon-margin-inlineEnd--8 dc-icon-padding--5 dc-icon-size--baseMinus1 du-fontSize--basePlus2 du-borderStyle-bottom--solid du-borderColor--borderDefault du-borderWidth--1 du-margin-top--12 du-margin-bottom--2 du-padding-bottom--2" id="tt32">
+<h2 class="du-fontSize--base du-color--gold-700 du-margin-vertical--0" data-pid="19" id="p19"><strong>APPLY YOURSELF TO THE FIELD MINISTRY</strong></h2>
+</div>
+<h3 class="du-fontSize--base du-color--gold-700 du-margin-top--8 du-margin-bottom--0" data-pid="20" id="p20"><strong>4. Starting a Conversation</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6 du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt35">
+<p data-pid="21" id="p21">(3 min.) HOUSE TO HOUSE. Offer a Bible study. (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026252/6/0"><em>lmd</em> lesson 4 point 3</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[lmd lesson 4 point 3]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">3. <strong>Do not be condescending.</strong> Avoid giving the impression that you know everything and that the other person knows nothing. Speak with him in a respectful way.</td></tr></tbody></table></div>
+</div>
+<h3 class="du-fontSize--base du-color--gold-700 du-margin-top--8 du-margin-bottom--0" data-pid="22" id="p22"><strong>5. Starting a Conversation</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6 du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt37">
+<p data-pid="23" id="p23">(4 min.) INFORMAL WITNESSING. Offer a Bible study. (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026252/7/0"><em>lmd</em> lesson 4 point 4</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[lmd lesson 4 point 4]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">4. <strong>Make clear that the Bible is the source of the truths you share.</strong> God’s Word contains thoughts that touch people’s hearts. When we use it, we are building their faith on the right foundation.</td></tr></tbody></table></div>
+</div>
+<h3 class="du-fontSize--base du-color--gold-700 du-margin-top--8 du-margin-bottom--0" data-pid="24" id="p24"><strong>6. Following Up</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6 du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt39">
+<p data-pid="25" id="p25">(5 min.) HOUSE TO HOUSE. Offer a Bible study. (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026252/8/0"><em>lmd</em> lesson 8 point 3</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[lmd lesson 8 point 3]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">3. <strong>Try a different approach.</strong> If the person does not immediately agree to a Bible study, do not pressure him. When appropriate, use videos or articles to help him understand what happens on a Bible study and how he would benefit.</td></tr></tbody></table></div>
+</div>
+<div class="dc-icon--sheep dc-icon-layout--top dc-icon-bgColor--red-600 dc-icon-color--white dc-icon-margin-inlineEnd--8 dc-icon-padding--5 dc-icon-size--baseMinus1 du-fontSize--basePlus2 du-borderStyle-bottom--solid du-borderColor--borderDefault du-borderWidth--1 du-margin-top--12 du-margin-bottom--2 du-padding-bottom--2" id="tt40">
+<h2 class="du-fontSize--base du-color--maroon-600 du-margin-vertical--0" data-pid="26" id="p26"><span aria-hidden="true" class="pageNum" data-before-text="3" data-no="3" id="page3"></span><strong>LIVING AS CHRISTIANS</strong></h2>
+</div>
+<h3 class="dc-icon--music dc-icon-size--basePlus1 dc-icon-margin-horizontal--8 du-fontSize--base" data-pid="27" id="p27"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026252/9/0"><strong>Song 128</strong></a></h3><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Song 128]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<p class="contextTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="157" data-no="157" id="page157"></span><strong>SONG 128</strong></p>
+<h1 data-pid="2" id="p2"><strong>Enduring to the End</strong></h1>
+</header> 
+<p class="themeScrp" data-pid="3" id="p3">(<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016928/0/0">Matthew 24:13</a>)</p>
+<div class="bodyTxt">
+<ol><li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="4" id="p4">God’s Word and all it promises</p>
+<p class="sz" data-pid="5" id="p5">Give reason to endure.</p>
+<p class="sp" data-pid="6" id="p6">The things you’ve learned and come to love</p>
+<p class="sz" data-pid="7" id="p7">Are all well-founded and sure.</p>
+<p class="sp" data-pid="8" id="p8">Be stabilized in holy faith,</p>
+<p class="sz" data-pid="9" id="p9">Keeping God’s day close in mind.</p>
+<p class="sp" data-pid="10" id="p10">Stand firm in your integrity;</p>
+<p class="sz" data-pid="11" id="p11">By tests you will be refined.</p>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="12" id="p12">Maintain the love you had at first,</p>
+<p class="sz" data-pid="13" id="p13">Which somehow could be lost.</p>
+<p class="sp" data-pid="14" id="p14">Despite the trials you will meet,</p>
+<p class="sz" data-pid="15" id="p15">Endure no matter the cost.</p>
+<p class="sp" data-pid="16" id="p16">Whatever test may come your way,</p>
+<p class="sz" data-pid="17" id="p17">Never yield to doubt or fear.</p>
+<p class="sp" data-pid="18" id="p18">Jehovah will provide escape,</p>
+<p class="sz" data-pid="19" id="p19">Our God ever will be near.</p>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="20" id="p20"><span aria-hidden="true" class="pageNum" data-before-text="158" data-no="158" id="page158"></span>All those enduring to the end</p>
+<p class="sz" data-pid="21" id="p21">Are those who will be saved.</p>
+<p class="sp" data-pid="22" id="p22">The book of life will list their names,</p>
+<p class="sz" data-pid="23" id="p23">A record clearly engraved.</p>
+<p class="sp" data-pid="24" id="p24">So let endurance be your aim;</p>
+<p class="sz" data-pid="25" id="p25">Let it have its work complete.</p>
+<p class="sp" data-pid="26" id="p26">Jehovah’s favor you will know;</p>
+<p class="sz" data-pid="27" id="p27">With joy you will be replete.</p>
+</li>
+</ol>
+</div>
+<div class="closingContent"><p class="se" data-pid="28" id="p28">(See also <a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016928/1/0">Heb. 6:19;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016928/1/1"> Jas. 1:4;</a><a class="b" data-bid="2-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016928/1/2"> 2 Pet. 3:12;</a><a class="b" data-bid="2-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016928/1/3"> Rev. 2:4</a>.)</p>
+</div>
+<p class="sb" data-pid="29" id="p29"></p>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+<h3 class="du-fontSize--base du-color--maroon-600 du-margin-top--8 du-margin-bottom--0" data-pid="28" id="p28"><strong>7. Make Your Blows Count During the Campaign</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6" id="tt45">
+<div class="du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt46">
+<p data-pid="29" id="p29">(15 min.) Discussion.</p>
+</div>
+<p data-pid="30" id="p30">Would you like to start a Bible study this month? By applying a few simple suggestions, you can improve your chances. (<a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/202026252/7/0">1Co 9:26</a>) Consider what we learned from a Governing Body update presented during the 2024 campaign to start Bible studies.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[1Co 9:26]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v46-9-26-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070150/28658">26 </a>Therefore, the way I am running is not aimlessly;<a class="b" data-bid="249-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070150/248">+</a> the way I am aiming my blows is so as not to be striking the air;<a class="b" data-bid="250-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070150/249">+</a> </span></td></tr></tbody></table></div>
+</div>
+<div class="south_center" id="f2">
+<figure>
+<img alt="A sister and her young daughter in the ministry, offering the brochure “Enjoy Life Forever!” to a woman sitting in front of her house." class="south_center" data-img-small-src="/en/wol/mp/r1/lp-e/mwb26/2026/325" src="https://wol.jw.org/en/wol/mp/r1/lp-e/mwb26/2026/326" style="max-width: min(100%, 700px); height: auto;"/>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">A sister and her young daughter in the ministry, offering the brochure “Enjoy Life Forever!” to a woman sitting in front of her house.</td></tr></tbody></table></div></figure>
+</div>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6" id="tt47">
+<p data-pid="31" id="p31"><a data-video="webpubvid://?pub=mwbv&amp;issue=202609&amp;track=1&amp;langwritten=E" href="https://www.jw.org/finder?lank=pub-mwbv_202609_1_VIDEO&amp;wtlocale=E"><strong>Play the VIDEO</strong></a> <strong><em>2024 Governing Body Update #6​—Excerpt.</em></strong> Then ask the audience:</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Video Transcript] 2024 Governing Body Update #6—Excerpt (video duration: 6:49)</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px">During this month, September 2024, we’ve all been involved in a global campaign to start Bible studies using the Enjoy Life Forever! brochure. What a joy to be united with our brothers and sisters worldwide in this campaign! Note a couple of experiences. Hannelore is an 84-year-old pioneer sister in Austria. Because of her health, she can’t preach from door to door for long periods of time.</div><div style="margin-top: 0; margin-bottom: 8px">However, she decided to offer a Bible course to people who had responded positively to her visits before. She thought of six people and visited them. She was very happy to demonstrate the Bible course with all six people. The result? All six agreed to continue the course in the coming days. In the Philippines, while witnessing from house to house, two publishers approached a woman named Josie who was doing laundry in front of her apartment.</div><div style="margin-top: 0; margin-bottom: 8px">Since Josie was busy, she told the publishers to talk instead to her adult son and nephew who were inside. Using the direct approach, the publishers started a Bible study right away with both the son and the nephew. As the Bible study was being demonstrated, Josie’s niece also joined in the discussion and the publishers offered her a Bible study, which she readily accepted.</div><div style="margin-top: 0; margin-bottom: 8px">Now with three persons involved in the initial Bible study session, Josie became more curious and also wanted to join in the conversation. Josie too accepted a Bible study. However, before the two publishers ended the initial study session, a fifth family member, Josie’s daughter, was moved to ask what they were discussing. Taking advantage of yet another opportunity, the publishers offered her a Bible study, which she immediately accepted.</div><div style="margin-top: 0; margin-bottom: 8px"><em>[2:00]</em></div><div style="margin-top: 0; margin-bottom: 8px">In all, five family members from one household accepted the offer to have a Bible study using the direct approach. Clearly, Jehovah has blessed our efforts to offer Bible studies during the campaign. But we want to continue to focus on starting Bible studies. Brothers and sisters, don’t lose the momentum of this campaign! Ride the wave of enthusiasm. Continue to offer Bible studies at every appropriate opportunity.</div><div style="margin-top: 0; margin-bottom: 8px">What can help us to do so? Although public witnessing is an important aspect of our ministry and Bible studies sometimes result, we encourage all to share regularly in the house-to-house work. And remember, we will have better results if we call at times when people are more likely to be home. This gives us more opportunities to start conversations that lead to Bible studies.</div><div style="margin-top: 0; margin-bottom: 8px">Why not try the direct approach when it seems appropriate? While sharing in the ministry one evening, a brother in Germany spoke with a man who is about 35 years old. The brother asked him, “When did you last read the Bible?” The man replied, “This morning.” They talked about why the Bible is valuable, using Micah 4:3, 4 as an example. Then, they discussed lesson 01 of the Enjoy Life Forever! brochure.</div><div style="margin-top: 0; margin-bottom: 8px">The man’s children were present and read the Bible verses aloud. The man agreed to start the Bible course. In addition, many have started studies by witnessing informally to relatives, neighbors, coworkers, shopkeepers, and so forth. In Tanzania, a sister named Elizabeth started four new studies during the first days of the campaign. One was with a woman who has a small café across the street from the Kingdom Hall.</div><div style="margin-top: 0; margin-bottom: 8px">Elizabeth frequently stopped in her shop for tea or to purchase small items, and she decided to offer her a study using the direct approach. They watched the video Welcome to Your Bible Study, and the woman was delighted. She said, “We should start right now!” She also included her daughter and her niece in the demonstration of the study. Elizabeth was so pleased that she also attended a congregation meeting.</div><div style="margin-top: 0; margin-bottom: 8px"><em>[4:28]</em></div><div style="margin-top: 0; margin-bottom: 8px">When asked what she thought of the meeting, the woman said: “That’s what I love about Jehovah’s Witnesses. “They study the Bible. “When I go to other churches, they just sing and preach “but don’ t study the Bible. “I really loved it. I will try to come regularly.” We are happy to hear these positive experiences. Our time in the ministry is valuable, and we want to use it wisely.</div><div style="margin-top: 0; margin-bottom: 8px">As 1 Corinthians 9:26 says: “Therefore, the way I am running is not aimlessly; the way I am aiming my blows is so as not to be striking the air.” We love to give Jehovah our best. In addition to having a regular share in the house-to-house work, what else can help us? In some areas, publishers have many return visits. But perhaps we need to consider prayerfully if our return visits are productive.</div><div style="margin-top: 0; margin-bottom: 8px">Are such individuals growing in their love of the truth? Do they truly appreciate our visits? Are they interested in a Bible study? If not, perhaps we are “striking the air.” It might be best to redirect our efforts. Those individuals will have another opportunity to hear the good news when the territory is worked again. Of course, balance, patience, and discernment are needed.</div><div style="margin-top: 0; margin-bottom: 8px"><em>[6:01]</em></div><div style="margin-top: 0; margin-bottom: 8px">But we want to be sure we are making the best use of our time. Similarly, we might ask ourselves, ‘Are my Bible students making progress?’ Prayerfully consider: Are they accepting Bible truths? Are they beginning to apply what they learn and to make changes where needed? Have they begun to attend congregation meetings? Are they speaking with others about what they learn? If they are not progressing, it would be best to spend our time and energy seeking out those who are “rightly disposed for everlasting life.”</div><div style="margin-top: 0; margin-bottom: 8px">So brothers and sisters, let’s continue to offer Bible studies at every opportunity!</div></td></tr></tbody></table></div>
+<ul><li><p data-pid="32" id="p32">  What did you learn from the positive experiences that were shared?</p>
+
+</li>
+<li class="du-margin-top--8"><p data-pid="34" id="p34">  Why would it be good to make time for the house-to-house ministry during this campaign?</p>
+
+</li>
+<li class="du-margin-top--8"><p data-pid="36" id="p36">  What is the direct approach, and why is it often effective?</p>
+
+</li>
+<li class="du-margin-top--8"><p data-pid="38" id="p38">  How can we make the best use of our time in the ministry?</p>
+
+</li>
+</ul>
+<p data-pid="40" id="p40"><strong>Refer to the article “A Simple Question That Anyone Can Ask.”</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026252/10/0"><em>w25.02</em> 30-31</a>) Then ask the audience:</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[w25.02 30-31]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><h1 class="du-color--gray-800" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="30" data-no="30" id="page30"></span><strong>A Simple Question That Anyone Can Ask</strong></h1><div data-pid="2" id="p2" style="margin-top: 0; margin-bottom: 8px">Mary and her husband, John,<a class="fn" data-fnid="1" href="https://wol.jw.org/en/wol/fn/r1/lp-e/2025288/0" id="footnotesource1">a</a><em> (Footnote: Names have been changed.)</em> live in a part of the world where the good news can be shared with many foreign workers from the Philippines. During the COVID-19 pandemic, Mary successfully started Bible studies not only in the country where she lives but also in other places in the world. How did she do it?</div><div data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px">Mary would ask her Bible students, “Do you know anyone else who would like to study the Bible?” If they said yes, she would ask to be introduced to them. Asking this simple question often has good results. Why? Because people who appreciate God’s Word usually want to share what they learn with family members and friends they care about. What has been the result of asking this question?</div><div data-pid="4" id="p4" style="margin-top: 0; margin-bottom: 8px">Mary’s Bible student Jasmin introduced her to four new Bible students. One of them, Kristine, enjoyed her study sessions so much that she asked Mary to study with her twice a week. When Mary asked if she knew anyone else who wanted to study the Bible, Kristine said, “Yes, I will introduce my friends to you.” Within a few weeks, Kristine introduced Mary to four friends who wanted to study. Later, Kristine introduced her to other friends, some of whom repeated the process with still others.</div><div data-pid="5" id="p5" style="margin-top: 0; margin-bottom: 8px">Kristine also wanted her family in the Philippines to learn about the Bible. So she spoke to her daughter, Andrea. Initially, Andrea thought, ‘The Witnesses are a cult, they do not believe in Jesus, and they use only the Old Testament.’ But after just one study, her misconceptions cleared up. During her studies, she would exclaim, “As long as the Bible says so, it must be true!”</div><div data-pid="6" id="p6" style="margin-top: 0; margin-bottom: 8px">In time, Andrea introduced Mary to two friends and a workmate who started studying. Also, unknown to Mary, Andrea’s blind aunt, Angela, was listening in on their studies. Then one day, Angela asked Andrea to introduce her to Mary and requested her own Bible study. Angela loved what she was learning. Within a month, she memorized many scriptures and wanted to study four times a week! With Andrea’s help, Angela started to attend the meetings regularly via videoconferencing.</div><div data-pid="7" id="p7" style="margin-top: 0; margin-bottom: 8px">When Mary learned that Kristine’s husband, Joshua, was lingering in the background during Kristine’s studies, Mary <span aria-hidden="true" class="pageNum" data-before-text="31" data-no="31" id="page31"></span>asked him if he would like to join. Joshua remarked, “I will just listen, but don’t direct any questions to me; if you do, I will walk out.” Within the first five minutes of the study, he asked more questions than Kristine did and wanted to continue with the Bible discussions.</div><div data-pid="8" id="p8" style="margin-top: 0; margin-bottom: 8px">Mary’s simple question led to numerous Bible studies. With several of them, she made arrangements for the students to be helped by fellow Witnesses. In total, Mary started 28 Bible studies in four different countries.</div><div data-pid="9" id="p9" style="margin-top: 0; margin-bottom: 8px">Jasmin, the first student mentioned in this experience, got baptized in April 2021. Kristine got baptized in May 2022 and has returned to the Philippines to be with her family. Two other students who had been introduced to Mary by Kristine also got baptized. Angela got baptized a few months later and now serves as a regular pioneer. Kristine’s husband, Joshua, and their daughter, Andrea, as well as several other students are making good progress.</div><div data-pid="10" id="p10" style="margin-top: 0; margin-bottom: 8px">In the first century, the good news spread quickly between family members and friends. (<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2025288/0/0">John 1:41, 42a;</a><a class="b" data-bid="1-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2025288/0/1"> Acts 10:24,</a><a class="b" data-bid="1-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2025288/0/2"> 27,</a><a class="b" data-bid="1-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2025288/0/3"> 48;</a><a class="b" data-bid="1-5" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2025288/0/4"> 16:25-33</a>) Why not ask your Bible students and other interested ones, “Do you know anyone else who would like to study the Bible?” Who knows how many studies could be started as a result of this simple question that anyone can ask?</div><div data-pid="12" id="p12" style="margin-top: 0; margin-bottom: 8px"><a class="fn-symbol" href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026252/10/0#footnotesource1">a</a> Names have been changed.</div></td></tr></tbody></table></div>
+<ul><li><p data-pid="41" id="p41">  What do you learn from Mary’s experience?</p>
+
+</li>
+</ul>
+<hr class="du-width--oneSixth du-borderWidth--1 du-borderColor--borderDefault du-margin-top--8"/>
+<ul class="du-listStyleType--none du-padding-inlineStart--0"><li><p data-pid="43" id="p43">Make a list of people you would like to offer a Bible study to.</p>
+
+</li>
+</ul>
+</div>
+<h3 class="du-fontSize--base du-color--maroon-600 du-margin-top--8 du-margin-bottom--0" data-pid="45" id="p45"><strong>8. Congregation Bible Study</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6 du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt83">
+<p data-pid="46" id="p46">(30 min.) <a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026252/11/0"><em>wcg</em> chap. 7</a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[wcg chap. 7]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<div class="suppressZoom" id="f1">
+<figure>
+<img alt="" class="suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/158" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/159" style="max-width: min(100%, 700px); height: auto;"/>
+</figure>
+</div>
+<p class="contextTtl du-letterSpacing--1 du-color--orange-700 du-borderColor--orange-700 du-borderStyle-bottom--solid du-borderWidth--1 du-padding-vertical--2" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="40" data-no="40" id="page40"></span><strong>7</strong> JACOB</p>
+<h1 class="du-color--coolGray-600 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="2" id="p2"><strong>He Faced Danger to Protect His Family</strong></h1>
+</header> <div class="clearfix alternatePresentation clickable noTooltips">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/156" data-alt-type="svg" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/154" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">Printed Edition</div>
+</div>
+<div class="clearfix alternatePresentation clickable noTooltips hidden">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/157" data-alt-type="svg" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/155" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">Printed Edition</div>
+</div>
+<div class="bodyTxt">
+<div id="tt4">
+<p data-pid="3" id="p3">NEAR the end of his life, Jacob chose two words to describe his years, “few” and “distressing.” (<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025907/0/0">Gen. 47:9</a>) He did have his share of hardships! Earlier in his life, he had to run away to distant Haran because his own brother wanted to kill him. In Haran, Jacob fell in love with Rachel, but her father, Laban, tricked him into marrying Rachel’s older sister first. So Jacob had two wives​—who did not get along. For decades, Laban employed Jacob but repeatedly tried to swindle him. Yet, Jacob showed remarkable courage, faith, and endurance.</p>
+<p data-pid="4" id="p4">One day, Jehovah told Jacob that it was time to leave Haran and return home to Canaan. But that could be dangerous, for Laban was possessive and greedy. Jacob consulted with his family and then gathered them and fled without telling Laban. When Laban learned of it, he gathered his men and pursued. He finally caught up with the family and harshly criticized Jacob for leaving. Laban even said, menacingly: “It is in my power to do harm to you.” But Jacob courageously corrected Laban. He pointed out that Laban had treated him unfairly and deviously for years. At the same time, Jacob had been willing to pursue peace. The two men parted on friendly terms.</p>
+<div class="stdPullQuote dc-ttClassStyle--unset du-color--orange-700 du-float-desktopOnly--inlineStart du-width-desktopOnly--oneHalf du-margin-inlineStart-mobileOnly--6 du-margin-inlineEnd-desktopOnly--4 du-margin-children-top-desktopOnly--0"><p data-pid="43" id="p43"><strong>What enabled Jacob to make peace with aggressive family members and even to wrestle with a mighty angel?</strong></p>
+</div>
+<p data-pid="5" id="p5">Jacob had yet to face his twin brother, Esau. Decades earlier, their mother, Rebekah, had warned Jacob that Esau wanted to kill him. Esau was convinced that Jacob had cheated him out of his father’s blessing. Now, Jacob sought to make peace. He learned that Esau was heading toward him and his family, leading 400 men. Jacob sent servants ahead to meet Esau, taking valuable gifts to him. But would that be enough to quell Esau’s anger? We read: “Jacob became very frightened and anxious.” Then something amazing happened.</p>
+<p data-pid="6" id="p6">In the predawn hours, Jacob caught sight of a stranger. It was an angel of Jehovah, and the angel began to struggle with Jacob. Sensing that the angel had some blessing to offer, Jacob courageously grappled with him for hours. Jacob refused to give up​—though he was then 97 years old and hopelessly outmatched. <span aria-hidden="true" class="pageNum" data-before-text="41" data-no="41" id="page41"></span>He fought hard. He even wept. (<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025907/1/0">Hos. 12:4</a>) Jacob was determined, convinced that any blessing from Jehovah was worth the struggle. At dawn, with a mere touch, the angel put Jacob’s hip socket out of joint. Yet, the angel also told Jacob something wonderful​—that his name was now Israel. The name had meaning; it referred to contending with God. Jacob certainly had persisted and had exerted himself in order to gain a blessing from Jehovah.</p>
+<p data-pid="7" id="p7">Jacob limped back to his family. In the distance, there was Esau, approaching with his 400 men. Jacob went ahead, alone, to face them all. As he approached Esau, Jacob bowed low seven times. Then Esau ran toward him. But Esau drew no weapon. Instead, he opened his arms wide and embraced Jacob! The two men wept. Jacob’s generous gifts and his humble manner had completely disarmed Esau. Perhaps he admired Jacob’s courage as well. Jacob had found a way to make peace with his brother.</p>
+<div class="du-margin-vertical--8 du-margin-vertical-desktopOnly--12" id="f2">
+<figure>
+<img alt="Jacob limping as he approaches Esau and his men." data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/160" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/161" style="max-width: min(100%, 700px); height: auto;"/>
+</figure>
+</div>
+<p data-pid="8" id="p8">For the rest of his life, Jacob limped because of his injured hip. And he faced many more hardships. But he surely never regretted his decisions to obey Jehovah or to struggle with that angel. In time, a wonderful promise Jehovah had made to him was fulfilled​—Israel became a great nation. (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025907/2/0">Gen. 28:14</a>) Moreover, Jehovah was often called “the God of Jacob.” (<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025907/3/0">Ex. 3:6</a>) Jesus Christ himself used that phrase. He added that Jehovah “is a God, not of the dead, but of the living, for they are all living to him.” (<a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025907/4/0">Luke 20:37, 38</a>) So Jacob’s future is assured. In the new world, his years will be long beyond counting and happy beyond measure!</p>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="9" id="p9"><strong>Read the Bible account:</strong></h3>
+<ul><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="10" id="p10"> <a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025907/5/0"><strong>Genesis 27:41-45;</strong></a><a class="b" data-bid="6-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025907/5/1"> <strong>31:1-29,</strong></a><a class="b" data-bid="6-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025907/5/2"> <strong>36-55;</strong></a><a class="b" data-bid="6-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025907/5/3"> <strong>32:1–33:16</strong></a></p>
+</li>
+</ul>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="11" id="p11"><strong>For discussion:</strong></h3>
+<p data-pid="12" id="p12"><strong>In what ways did Jacob show courage?</strong></p>
+
+</div>
+<div id="tt13">
+<h2 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--2" data-pid="14" id="p14"><span aria-hidden="true" class="pageNum" data-before-text="42" data-no="42" id="page42"></span><strong>Dig Deeper</strong></h2>
+<ol class="du-listStyleType--source"><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="15" id="p15"><strong>Why did Jehovah make sure that Jacob received the birthright instead of Esau?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025907/0/0"><em>w03</em> 10/15 29 ¶2</a>)</p>
+
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="17" id="p17"><strong>What dream did Jehovah give Jacob, and of what did it reassure him?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025907/1/0"><em>w03</em> 10/15 28 ¶3–29 ¶1</a>) <span class="du-color--orange-700"><strong>A</strong></span></p>
+
+<div class="south_center" id="f3">
+<figure>
+<img alt="Angels ascending and descending a ladder between heaven and earth." class="south_center" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/162" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/163" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="45" id="p45"><span class="dc-screenReaderText"><strong>Picture</strong> </span><span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>A</strong></span></p>
+</figcaption>
+</figure>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="19" id="p19"><strong>Why was Jacob confident that he could receive a blessing from the angel?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025907/2/0"><em>w03</em> 10/15 31 ¶1</a>) <span class="du-color--orange-700"><strong>B</strong></span></p>
+
+<div class="south_center" id="f4">
+<figure>
+<img alt="Jacob facing a materialized angel and preparing to wrestle him." class="south_center" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/164" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/165" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="47" id="p47"><span class="dc-screenReaderText"><strong>Picture</strong> </span><span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>B</strong></span></p>
+</figcaption>
+</figure>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="21" id="p21"><strong>What steps did Jacob take to protect his family from the influence of the Canaanites?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025907/3/0"><em>w95</em> 9/15 21 ¶4, ftn.</a>)</p>
+
+</li>
+</ol>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="23" id="p23"><span aria-hidden="true" class="pageNum" data-before-text="43" data-no="43" id="page43"></span><strong>Reflect on the Lessons</strong></h2>
+<ul><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="24" id="p24">  Jacob felt responsible for each of Laban’s sheep. (<a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025907/6/0">Gen. 31:38-40</a>) How can Christian shepherds today show even greater concern for Jehovah’s sheep​—their brothers and sisters? <span class="du-color--orange-700"><strong>C</strong></span></p>
+
+<div class="south_center gen-flipbook pm-flipbook-gallery" id="f5">
+<figure class="south_center gen-flipbook pm-flipbook-gallery">
+<img alt="Collage: A young elder showing concern for an older brother in the congregation. The scenes are repeated next in this chapter." class="south_center gen-flipbook pm-flipbook-gallery" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/166" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/166" style="max-width: min(100%, 700px); height: auto;"/>
+<img alt="A young elder visits an older brother at his home and attentively listens to him express himself." class="south_center gen-flipbook pm-flipbook-gallery" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/167" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/167" style="max-width: min(100%, 700px); height: auto;"/>
+<img alt="Later, the elder texts the older brother and says: “On my lunch break. Thinking about you. Feeling better?” The older brother responds: “Thanks Sam! I am much better today.”" class="south_center gen-flipbook pm-flipbook-gallery" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/168" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/168" style="max-width: min(100%, 700px); height: auto;"/>
+<img alt="The elder and older brother work together in the ministry. The older brother confidently discusses a scripture with a man standing at his door." class="south_center gen-flipbook pm-flipbook-gallery" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/169" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/169" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="49" id="p49"><span class="dc-screenReaderText"><strong>Picture</strong> </span><span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>C</strong></span></p>
+</figcaption>
+</figure>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="26" id="p26">  When Jacob was afraid, he prayed to Jehovah. (<a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025907/7/0">Gen. 32:6-12</a>) What do you learn from Jacob about how to pray?</p>
+
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="28" id="p28">  How might you imitate Jacob’s courage in your life?</p>
+
+</li>
+</ul>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="30" id="p30"><strong>Meditate on the Bigger Picture</strong></h2>
+<ul><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="31" id="p31">  What does this account teach me about Jehovah?</p>
+
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="33" id="p33">  How does this account tie in with Jehovah’s purposes?</p>
+
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="35" id="p35">  What would I like to ask Jacob in the resurrection?</p>
+
+</li>
+</ul>
+<div class="du-bgColor--warmGray-50 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--4 du-padding-bottom--8" id="tt77">
+<h2 class="du-color--orange-700 du-margin-top--0" data-pid="37" id="p37"><strong>Learn More</strong></h2>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt79">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f6">
+<figure>
+<a href="https://wol.jw.org/wol/rslink/r1/lp-e?lang=E&amp;docid=2021687&amp;pub=w21&amp;issuesymbol=w21.12&amp;issuedate=202112&amp;issuenumber=12&amp;beginpar=18&amp;endpar=27"><img alt="" class="suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/170" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/171" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt80">
+<p data-pid="38" id="p38">How might we imitate Jacob when we realize we have offended a fellow believer?</p>
+<p data-pid="39" id="p39"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025907/4/0"><strong>“Continue to ‘Listen to Him’”</strong> (<em>w21.12</em> 25-27 ¶10-18)</a></p>
+</div>
+</div>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt81">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f7">
+<figure>
+<a href="https://www.jw.org/finder?wtlocale=E&amp;docid=502013187"><img alt="" class="suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/172" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/173" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt82">
+<p data-pid="40" id="p40">Use this illustrated Bible story to teach your family about Jacob.</p>
+<p data-pid="41" id="p41"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025907/5/0"><strong>“Jacob and Esau”</strong> (<em>ijwis</em> article 3)</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+</div>
+<h3 class="du-fontSize--base du-borderStyle-top--solid du-borderColor--borderDefault du-borderWidth--2 du-margin-top--12 du-padding-top--4 du-padding-top-desktopOnly--5" data-pid="47" id="p47"><strong>Concluding Comments</strong> <span class="du-fontWeight--normal">(3 min.)</span> <strong>|</strong> <span class="dc-icon--music dc-icon-size--basePlus1 dc-icon-margin-inlineStart--2 dc-icon-margin-inlineEnd--8"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026252/12/0"><strong>Song 143</strong></a></span> <strong>and Prayer</strong></h3><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Song 143]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<p class="contextTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="175" data-no="175" id="page175"></span><strong>SONG 143</strong></p>
+<h1 data-pid="2" id="p2"><strong>Keep Working, Watching, and Waiting</strong></h1>
+</header> 
+<p class="themeScrp" data-pid="3" id="p3">(<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016943/0/0">Romans 8:20-25</a>)</p>
+<div class="bodyTxt">
+<ol><li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="4" id="p4">The God of times and of seasons,</p>
+<p class="sz" data-pid="5" id="p5">Whose name alone is Jehovah—</p>
+<p class="sp" data-pid="6" id="p6">The time for his vindication</p>
+<p class="sz" data-pid="7" id="p7">Is near by signs we can see.</p>
+<div class="chorus"><p class="se" data-pid="8" id="p8">(CHORUS)</p>
+<p class="sp" data-pid="9" id="p9">Keep on working and watching and waiting,</p>
+<p class="sz" data-pid="10" id="p10" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">Joyfully anticipating,</p>
+<p class="sp" data-pid="11" id="p11">Life as God meant it to be.</p>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="12" id="p12">The time has long been appointed;</p>
+<p class="sz" data-pid="13" id="p13">His Son is ready to conquer,</p>
+<p class="sp" data-pid="14" id="p14">Defeating all who oppose him.</p>
+<p class="sz" data-pid="15" id="p15">His sword will bring victory.</p>
+<div class="chorus"><p class="se" data-pid="16" id="p16">(CHORUS)</p>
+<p class="sp" data-pid="17" id="p17">Keep on working and watching and waiting,</p>
+<p class="sz" data-pid="18" id="p18" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">Joyfully anticipating,</p>
+<p class="sp" data-pid="19" id="p19">Life as God meant it to be.</p>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="20" id="p20">Though all creation is groaning,</p>
+<p class="sz" data-pid="21" id="p21">In faith we’re eagerly waiting.</p>
+<p class="sp" data-pid="22" id="p22">Jehovah’s day is approaching,</p>
+<p class="sz" data-pid="23" id="p23">The time for setting us free.</p>
+<div class="chorus"><p class="se" data-pid="24" id="p24">(CHORUS)</p>
+<p class="sp" data-pid="25" id="p25">Keep on working and watching and waiting,</p>
+<p class="sz" data-pid="26" id="p26" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">Joyfully anticipating,</p>
+<p class="sp" data-pid="27" id="p27">Life as God meant it to be.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="closingContent"><p class="se" data-pid="28" id="p28">(See also <a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016943/1/0">Matt. 25:13;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016943/1/1"> Luke 12:36</a>.)</p>
+</div>
+<p class="sb" data-pid="29" id="p29"></p>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="{BibleBookName} {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value="{BibleBookName} {StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value="{BibleBookName} {BibleVerse}"/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="mwb26 September p. {StartingPageNumber}-{EndingPageNumber}"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="mwb26 September p. {PageNumber}"/>
+<input id="documentDescription" type="hidden" value="mwb26 September"/>
+<input id="englishSym" type="hidden" value="mwb"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="audioPubSym" type="hidden" value="mwb"/>
+<input id="chapNo" type="hidden" value="-1"/>
+<input id="issue" type="hidden" value="202609"/>
+<input id="docId" type="hidden" value="202026252"/>
+<input id="documentInBible" type="hidden" value=""/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=E&amp;docid=202026252&amp;srctype=wol&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="document"/>
+<input id="contentTitle" type="hidden" value="September 7-13"/>
+<input id="parentTitle" type="hidden" value="Our Christian Life and Ministry—Meeting Workbook—2026"/>
+<input id="contentThumbnail" type="hidden" value="/en/wol/d/r1/lp-e/202026252/thumbnail"/>
+</article>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Gather all alternate presentation elements and their images
+        const altPresElements = Array.from(document.querySelectorAll('.alternatePresentation'));
+        const altImages = altPresElements.map(el => {
+            const img = el.querySelector('img');
+            if (img) {
+                return {
+                    src: img.getAttribute('data-alt-src') || img.getAttribute('src'),
+                    title: el.querySelector('.title')?.textContent || "Image"
+                };
+            }
+            return null;
+        }).filter(Boolean);
+
+        // 2. Create Lightbox DOM structure dynamically
+        const lightbox = document.createElement('div');
+        lightbox.className = 'custom-lightbox';
+        lightbox.innerHTML = `
+            <button class="custom-lightbox-close">&times;</button>
+            <button class="custom-lightbox-nav custom-lightbox-prev">&#10094;</button>
+            <div class="custom-lightbox-content">
+                <img class="custom-lightbox-img" src="" alt="" />
+            </div>
+            <button class="custom-lightbox-nav custom-lightbox-next">&#10095;</button>
+            <div class="custom-lightbox-caption"></div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('.custom-lightbox-img');
+        const lightboxCaption = lightbox.querySelector('.custom-lightbox-caption');
+        const closeBtn = lightbox.querySelector('.custom-lightbox-close');
+        const prevBtn = lightbox.querySelector('.custom-lightbox-prev');
+        const nextBtn = lightbox.querySelector('.custom-lightbox-next');
+
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        const openLightbox = (group, index) => {
+            currentGroup = group;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const updateLightbox = () => {
+            const item = currentGroup[currentIndex];
+            if (item) {
+                lightboxImg.src = item.src;
+                if (item.title && item.title.trim() !== "" && item.title.trim() !== "Printed Edition") {
+                    lightboxCaption.textContent = item.title;
+                    lightboxCaption.style.display = 'block';
+                } else {
+                    lightboxCaption.textContent = "";
+                    lightboxCaption.style.display = 'none';
+                }
+                if (currentGroup.length > 1) {
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                } else {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                }
+            }
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImg.src = '';
+            lightboxCaption.textContent = '';
+        };
+
+        const navigate = (direction) => {
+            if (currentGroup.length <= 1) return;
+            currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+            updateLightbox();
+        };
+
+        // Event Listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('custom-lightbox-content')) {
+                closeLightbox();
+            }
+        });
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Attach click handlers to alternate presentations
+        altPresElements.forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(altImages, index);
+            });
+        });
+
+        // Attach click handlers to other zoomable figure images
+        document.querySelectorAll('article figure img:not(.suppressZoom)').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = img.getAttribute('data-alt-src') || img.getAttribute('src');
+                const title = img.getAttribute('alt') || "";
+                openLightbox([{ src, title }], 0);
+            });
+        });
+    });
+    </script>
+</body>
+</html>
