@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>9월 14-20일 — 워치타워 온라인 라이브러리</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">📚️</text></svg>'>
+    <link rel="stylesheet" type="text/css" href="css/media-player.css">
+    <link rel="stylesheet" type="text/css" href="css/+0+61168f8ef805085f5a3c0118b14679f74c9e62a4.css">
+    <link rel="stylesheet" type="text/css" href="css/+1+f8319dd08c749624466cb777b7d528e1a42d7368.css">
+    <link rel="stylesheet" type="text/css" href="css/+2+894de4a6eba76bf97927253f95f582449947a96e.css">
+    <link rel="stylesheet" type="text/css" href="css/+3+d00a791fdbb951906e95f1428ae322e41ea9da95.css">
+    <style>
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @media screen and (min-width: 600px) {
+            .document, .bible {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 16px 50px 80px;
+            }
+            .document .dc-bleedToArticleEdge, .bible .dc-bleedToArticleEdge {
+                margin-left: -50px;
+                margin-right: -50px;
+            }
+            .document .dc-paddingToContentEdge, .bible .dc-paddingToContentEdge {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        #content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+        .inserted-reference {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+            font-size: 0.95em;
+        }
+        .inserted-reference-header {
+            margin: 0;
+            padding: 4px 16px;
+            background-color: #e2e6ea;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #495057;
+        }
+        .inserted-reference-header a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #1a73e8;
+        }
+        .inserted-reference-header a:hover {
+            text-decoration: underline;
+        }
+        .inserted-reference > *:not(.inserted-reference-header) {
+            margin: 12px 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-style: italic;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        /* Custom Lightbox Styles */
+        .custom-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            /* user-select: none; */
+            /* -webkit-user-select: none; */
+        }
+        .custom-lightbox.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .custom-lightbox-content {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 35px;
+            color: #fff;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10002;
+            transition: transform 0.2s ease;
+        }
+        .custom-lightbox-close:hover {
+            transform: scale(1.1);
+        }
+        .custom-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 20px;
+        }
+        .custom-lightbox-nav:hover {
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .custom-lightbox-prev {
+            left: 0px;
+        }
+        .custom-lightbox-next {
+            right: 0px;
+        }
+        .custom-lightbox-caption {
+            color: #ccc;
+            margin-top: 15px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 80%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+<body  class="showRuby cc-theme--light DynamicLayout">
+    <div id="content" class="content">
+        <article class="article document html5 pub- docId-202026253 pub-mwb26 pub-집교 pub-mwb26 docClass-106 jwac showRuby ml-KO ms-KOREAN dir-ltr includeSecondaryNav" data-lang="KO" dir="ltr" id="article" lang="ko" role="article">
+<div class="scalableui">
+<header>
+<h1 class="du-fontSize--basePlus2 du-color--textSubdued" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="4" data-no="4" id="page4"></span>9월 14-20일</h1>
+<h2 class="du-fontSize--base du-margin-top--2 du-margin-top-desktopOnly--4" data-pid="2" id="p2"><a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/202026253/0/0"><strong>예레미야 34-35장</strong></a></h2>
+</header>
+<div class="bodyTxt">
+<h3 class="dc-icon--music dc-icon-size--basePlus1 dc-icon-margin-horizontal--8 du-fontSize--base du-borderStyle-top--solid du-borderColor--borderDefault du-borderWidth--2 du-padding-top--4 du-padding-top-desktopOnly--5" data-pid="3" id="p3"><a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026253/0/0"><strong>노래 161</strong></a> <strong>및 기도 | 소개말</strong> <span class="du-fontWeight--normal">(1분)</span></h3><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[노래 161]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<p class="contextTtl" data-pid="1" id="p1"><strong>161번</strong></p>
+<h1 data-pid="2" id="p2"><strong>당신의 뜻 행하리다</strong></h1>
+</header> 
+<p class="themeScrp" data-pid="3" id="p3">(<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102022961/0/0">시편 40:8</a>)</p>
+<div class="bodyTxt">
+<ol><li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="4" id="p4">“이는 사랑하는 내 아들.”</p>
+<p class="sb" data-pid="5" id="p5">울려 퍼진 주의 말씀.</p>
+<p class="sb" data-pid="6" id="p6">예수 마음 깊이 새겼죠,</p>
+<p class="sb" data-pid="7" id="p7">당신의 오랜 뜻을.</p>
+<p class="sb" data-pid="8" id="p8">주를 향한 그 사랑으로</p>
+<p class="sb" data-pid="9" id="p9">유혹 이겨 내셨죠.</p>
+<p class="sb" data-pid="10" id="p10">당신의 뜻을 사랑하신</p>
+<p class="sb" data-pid="11" id="p11">그분 따르리이다.</p>
+<div class="chorus"><p class="se" data-pid="12" id="p12">(코러스)</p>
+<p class="se" data-pid="13" id="p13">당신의 뜻 행하리다.</p>
+<p class="sb" data-pid="14" id="p14">가장 큰 기쁨입니다.</p>
+<p class="sb" data-pid="15" id="p15">내 온 마음, 내 정성을</p>
+<p class="sb" data-pid="16" id="p16">영원히 드리리다.</p>
+<p class="sb" data-pid="17" id="p17">당신의 뜻 행하리다.</p>
+<p class="sb" data-pid="18" id="p18">가장 큰 영예입니다.</p>
+<p class="sb" data-pid="19" id="p19">내 아버지, 내 하느님</p>
+<p class="sb" data-pid="20" id="p20">주의 기쁨이 나의</p>
+<p class="sb" data-pid="21" id="p21">기쁨이죠.</p>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="22" id="p22">나를 당신께 이끄시니</p>
+<p class="sb" data-pid="23" id="p23">내 맘 벅차오릅니다.</p>
+<p class="sb" data-pid="24" id="p24">큰 목소리로 외칩니다,</p>
+<p class="sb" data-pid="25" id="p25">당신의 선하심을.</p>
+<p class="sb" data-pid="26" id="p26">크고 놀라운 주의 이름</p>
+<p class="sb" data-pid="27" id="p27">모두 알게 하리다.</p>
+<p class="sb" data-pid="28" id="p28">내게 이보다 영예로운</p>
+<p class="sb" data-pid="29" id="p29">삶이 있겠습니까?</p>
+<div class="chorus"><p class="se" data-pid="30" id="p30">(코러스)</p>
+<p class="se" data-pid="31" id="p31">당신의 뜻 행하리다.</p>
+<p class="sb" data-pid="32" id="p32">가장 큰 기쁨입니다.</p>
+<p class="sb" data-pid="33" id="p33">내 온 마음, 내 정성을</p>
+<p class="sb" data-pid="34" id="p34">영원히 드리리다.</p>
+<p class="sb" data-pid="35" id="p35">당신의 뜻 행하리다.</p>
+<p class="sb" data-pid="36" id="p36">가장 큰 영예입니다.</p>
+<p class="sb" data-pid="37" id="p37">내 아버지, 내 하느님</p>
+<p class="sb" data-pid="38" id="p38">주의 기쁨이 나의</p>
+<p class="sb" data-pid="39" id="p39">기쁨이죠.</p>
+<p class="sb" data-pid="40" id="p40">주 뜻 행하리다.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="closingContent"><p class="se" data-pid="41" id="p41">(<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102022961/1/0">시 40:3,</a><a class="b" data-bid="2-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102022961/1/1"> 10</a> 참조)</p>
+</div>
+<p class="sb" data-pid="42" id="p42"></p>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+<div class="du-fontSize--basePlus2 dc-icon--gem dc-icon-layout--top dc-icon-bgColor--teal-600 dc-icon-color--white dc-icon-margin-inlineEnd--8 dc-icon-padding--5 dc-icon-size--baseMinus1 du-margin-top--8 du-margin-bottom--2" id="tt7">
+<h2 class="du-fontSize--base du-color--teal-700 du-margin-vertical--0" data-pid="4" id="p4"><strong>성경에 담긴 보물</strong></h2>
+</div>
+<div class="dc-bleedToArticleEdge dc-paddingToContentEdge du-bgColor--bgSecondary du-margin-top--8 du-padding-bottom--4" id="tt9">
+<div class="dc-bleedToArticleEdge" id="f1">
+<figure>
+<img alt="성전 식당에서 레갑 사람들에게 예레미야가 포도주를 권합니다. 하지만 레갑 사람들은 그 포도주를 거절합니다." data-img-small-src="/ko/wol/mp/r8/lp-ko/mwb26/2026/333" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/mwb26/2026/334" style="max-width: min(100%, 700px); height: auto;"/>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">성전 식당에서 레갑 사람들에게 예레미야가 포도주를 권합니다. 하지만 레갑 사람들은 그 포도주를 거절합니다.</td></tr></tbody></table></div></figure>
+</div>
+<h3 class="du-fontSize--base du-color--teal-700 du-margin-top--8 du-margin-bottom--0" data-pid="5" id="p5"><strong>1. 여호와는 충실하게 순종하는 사람들에게 상을 주십니다</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6" id="tt11">
+<div class="du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt12">
+<p data-pid="6" id="p6">(10분)</p>
+</div>
+<p data-pid="7" id="p7">많은 유대인들은 여호와의 도움이 필요할 때만 그분께 순종했습니다 (<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/202026253/1/0">렘 34:8-11</a>; <a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026253/1/0">「예레」 49-50면 13-14항</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[렘 34:8-11]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-34-8-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19925">8 </a>시드기야 왕이 예루살렘에 있는 모든 백성과 계약을 맺어 해방을 공포하기로 한 후에<a class="b" data-bid="1108-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1107">+</a> 여호와께서 예레미야에게 내리신 말씀이다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-34-9-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19926">9 </a>그 계약이란 모두가 자기의 히브리 종들을 남종이든 여종이든 자유롭게 해 주어, 아무도 동족인 유대인을 종으로 삼지 않는다는 것이었다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-34-10-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19927">10 </a>모든 방백과 모든 백성이 순종했다. 그들은 모두 자기의 남종과 여종을 자유롭게 해 주고 그들을 더 이상 종으로 삼지 않겠다는 계약을 맺었던 것이다. 그들은 순종하여 종들을 풀어 주었다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-34-11-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19928">11 </a>그러나 그 후에 그들은 자기들이 자유롭게 해 주었던 남종들과 여종들을 도로 데려와 다시 종으로 부렸다. </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「예레」 49-50면 13-14항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="18" data-rel-pid="[42]" id="p18" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="13"><sup>13</sup></span> 또 다른 예를 생각해 보겠습니다. 바빌론 사람들은 시드기야를 바빌론에 종속된 왕으로 임명하여 유다의 왕좌에 앉혔습니다. 하지만 시드기야는 예레미야를 통해 전달된 하느님의 조언을 듣지 않고 바빌론에 반역했습니다. (<a class="b" data-bid="20-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102010143/19/0">예레미야 27:8,</a><a class="b" data-bid="20-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102010143/19/1"> 12</a>) 그 결과 바빌론 군대가 예루살렘을 포위했습니다. 이제 시드기야 왕과 방백들은 하느님의 은혜를 얻기 위해 율법에 따라 뭔가 행동을 취해야겠다고 생각했습니다. 히브리 종들이 7년째 되는 해에 종살이에서 벗어나게 되어 있다는 것을 알았던 시드기야는 그러한 종들을 해방시키기로 <span aria-hidden="true" class="pageNum" data-before-text="50" data-no="50" id="page50"></span>계약을 맺었습니다. (<a class="b" data-bid="21-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102010143/20/0">탈출 21:2;</a><a class="b" data-bid="21-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102010143/20/1"> 예레미야 34:14</a>) 적들이 예루살렘을 포위하자 그제서야 종들에게 자유를 주어야겠다는 생각을 한 것입니다!—<a class="b" data-bid="22-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102010143/21/0"><strong><em>예레미야 34:8-10</em></strong></a> <strong><em>낭독.</em></strong></div><div class="sb" data-pid="19" data-rel-pid="[42]" id="p19" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="14"><sup>14</sup></span> 후에 이집트 군대가 예루살렘을 도우러 왔고 포위 공격을 하던 바빌론 군대는 퇴각했습니다. (<a class="b" data-bid="23-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102010143/22/0">예레미야 37:5</a>) 그러자 종에게 자유를 주었던 주인들은 어떻게 했습니까? 해방시켰던 사람들을 다시 종으로 부렸습니다. (<a class="b" data-bid="24-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102010143/23/0">예레미야 34:11</a>) 요점이 무엇입니까? 유다 사람들은 위험에 처하자, 하느님의 법을 지키면 과거의 잘못을 씻을 수 있기라도 한 것처럼 그분의 법을 지키는 척했습니다. 하지만 위험이 지나가자 다시 이전의 행로로 돌아갔습니다. 그들은 율법의 정신을 받아들이는 척 했지만, 그들이 나중에 한 행동을 보면 하느님의 말씀에 들어 있는 지침을 따르고 그에 따라 틀 잡히려는 마음이 없었다는 것을 알 수 있습니다.</div></td></tr></tbody></table></div>
+<p data-pid="8" id="p8">레갑 사람들은 여호나답의 명령에 철저히 순종했습니다 (<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/202026253/2/0">렘 35:5, 6</a>; <a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026253/2/0">「예레」 76면 17-18항</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[렘 35:5, 6]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-35-5-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19944">5 </a>나는 레갑 집안사람들 앞에 포도주가 가득 찬 잔들과 술잔들을 내놓고 “포도주를 드십시오” 하고 말했다.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-35-6-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19945">6 </a>그러나 그들은 이렇게 말했다. “우리는 포도주를 마시지 않겠습니다. 우리의 조상 레갑의 아들 여호나답<a class="fn" data-fnid="306" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/305" id="footnotesource306">*</a><em> (각주: 원문의 표기는 여호나답의 축약형인 “요나답”.)</em>이<a class="b" data-bid="1124-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1123">+</a> 우리에게 이렇게 명령했기 때문입니다. ‘너희와 너희 자손은 절대로 포도주를 마셔서는 안 된다. </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「예레」 76면 17-18항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="26" data-rel-pid="[53]" id="p26" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="17"><sup>17</sup></span> 여호와께 철저히 순종하는 행로는 우리에게 보호가 됩니다. 예레미야 시대에 레갑 사람들에게 있었던 일은 그 점을 잘 보여 줍니다. 그들의 조상인 겐 사람 여호나답은 그보다 2세기 전에 예후를 충성스럽게 지지했던 사람입니다. 그는 후손들에게 행동을 규제하는 몇 가지 명령을 내렸는데, 그중 한 가지는 포도주를 마시지 말라는 것이었습니다. 여호나답은 오래전에 사망했지만, 레갑 사람들은 계속 그의 명령에 순종했습니다. 예레미야는 그들을 시험하기 위해 성전에 있는 식당으로 데려가서 그들 앞에 포도주를 차려 놓은 다음 마실 것을 권했습니다. 그러자 그들은 예레미야에게 “우리는 포도주를 마시지 않을 것입니다” 하고 말했습니다.—<a class="b" data-bid="21-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102010145/20/0">예레미야 35:1-10</a>.</div><div class="sb" data-pid="27" data-rel-pid="[53]" id="p27" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="18"><sup>18</sup></span> 레갑 사람들은 오래전에 죽은 조상에게 순종하는 것을 중요하게 <span aria-hidden="true" class="pageNum" data-before-text="77" data-no="77" id="page77"></span>여겼습니다. 참숭배자들은 살아 계신 하느님의 명령에 순종하기 위해 훨씬 더 노력해야 합니다. 여호와께서는 순종하려는 레갑 사람들의 결심에 깊은 인상을 받으셨으며, 그들의 태도는 유다 사람들의 불순종과 뚜렷한 대조를 이루었습니다. 하느님께서는 레갑 사람들을 다가오는 재앙으로부터 보호해 주겠다고 약속하셨습니다. 따라서 우리 시대에 여호와께서 자신에게 철저히 순종하는 사람들을 큰 환난에서 보호하시는 것도 당연하지 않겠습니까?—<a class="b" data-bid="22-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102010145/21/0"><strong><em>예레미야 35:19</em></strong></a> <strong><em>낭독.</em></strong></div></td></tr></tbody></table></div>
+<p data-pid="9" id="p9">여호와께서는 레갑 사람들의 충실한 순종에 대해 상을 주셨습니다 (<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/202026253/3/0">렘 35:18, 19</a>;<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026253/3/0"> 「통」 “레갑 사람들” 5-6항</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[렘 35:18, 19]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-35-18-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19957">18 </a>예레미야가 레갑 집안사람들에게 말했다. “만군의 여호와, 이스라엘의 하느님께서 이렇게 말씀하십니다. ‘너희는 조상 여호나답의 명령에 순종해 왔고, 계속 그의 모든 명령을 지켜서 그가 명령한 그대로 행하고 있다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-35-19-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19958">19 </a>그러므로 만군의 여호와, 이스라엘의 하느님이 이렇게 말한다. “레갑의 아들 여호나답<a class="fn" data-fnid="311" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/310" id="footnotesource311">*</a><em> (각주: 원문의 표기는 여호나답의 축약형인 “요나답”.)</em>의 후손 가운데서 내 앞에서 섬길 사람이 결코 끊어지지 않을 것이다.”’”</span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「통」 “레갑 사람들” 5-6항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="6" id="p6" style="margin-top: 0; margin-bottom: 8px"><span aria-hidden="true" class="pageNum" data-before-text="554" data-no="554" id="page554"></span><span class="parNum" data-pnum="5"></span>여호와께서는 그들이 나타낸 존경심과 순종을 보고 기뻐하셨다. 그들이 땅에 있던 조상에게 변함없이 순종한 것은, 유다 사람들이 그들의 창조주께 불순종한 것과 대조가 되었다. (<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003663/5/0">렘 35:12-16</a>) 하느님께서는 그에 대한 상으로 레갑 사람들에게 이런 약속을 하셨다. “<strong>레갑</strong>의 아들 <strong>요나답</strong>에게서 내 앞에 설 사람이 언제까지나 끊어지지 않을 것이다.”—<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003663/6/0">렘 35:19</a>.</div><div class="sb" data-pid="7" id="p7" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="6"></span>유배 기간 후 느헤미야가 총독으로 있던 기간에, “<strong>레갑</strong>의 아들 <strong>말기야</strong>”가 ‘잿더미 문’을 보수하였다. 이 레갑이 여호나답의 아버지 또는 조상이었던 사람과 동일 인물이라면, 그것은 레갑 사람들이 유배 기간을 살아남아 그 땅으로 돌아왔음을 보여 주는 것이 된다. (<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003663/7/0">느 3:14</a>) <a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003663/8/0">역대기 첫째 2:55</a>에는 함맛이 “<strong>레갑</strong> 집의 아버지”로 기재되어 있다.</div></td></tr></tbody></table></div>
+<hr class="du-width--oneSixth du-borderWidth--1 du-borderColor--borderDefault"/>
+<p data-pid="10" id="p10"><span class="du-color--teal-700"><strong>자문해 볼 점:</strong></span> ‘나는 순종하지 않아도 아무 문제가 없을 것 같아 보일 때에도 여호와께 순종하기로 결심하고 있는가?’</p>
+</div>
+</div>
+<h3 class="du-fontSize--base du-color--teal-700 du-margin-top--8 du-margin-bottom--0" data-pid="11" id="p11"><strong>2. 영적 보물 찾기</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6" id="tt15">
+<div class="du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt16">
+<p data-pid="12" id="p12">(10분)</p>
+</div>
+<ul class="du-listStyleType--none du-padding-inlineStart--0"><li><p data-pid="13" id="p13"><a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/202026253/4/0">렘 34:7</a>—어떤 고고학적 증거가 이 성구에 나오는 사건이 실제로 있었다는 것을 보여 줍니까? (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026253/4/0">「통」 “고고학” 28-29항</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[렘 34:7]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v24-34-7-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19924">7 </a>그때에 바빌론 왕의 군대는 예루살렘과 유다의 남아 있는 모든 도시,<a class="b" data-bid="1105-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1104">+</a> 곧 라기스와<a class="b" data-bid="1106-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1105">+</a> 아세가를<a class="b" data-bid="1107-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1106">+</a> 공격하고 있었다. 유다의 도시들 가운데 그 요새 도시들만 남아 있었던 것이다.</span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「통」 “고고학” 28-29항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div data-pid="29" id="p29" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="28"></span>예루살렘 서남서쪽으로 44킬로미터 지점에 있는 라기스는 유다 구릉성 산지를 보호하는 주된 요새였다. <a class="b" data-bid="46-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000344/45/0">예레미야 34:7</a>에서 예언자 예레미야는 느부갓네살의 군대가 “<strong>예루살렘</strong>을 대적하여, 그리고 <strong>유다</strong>의 남아 있는 모든 도시, 곧 <strong>라기스</strong>와 <strong>아세가</strong>를 대적하여 싸우고 있었다. 그 요새 도시들이 <strong>유다</strong>의 도시들 가운데 남아 있었던 것이다”라고 말한다. 라기스에서 발굴 작업을 한 결과 몇 년 사이에 두 차례나 불로 멸망당하였고—바빌로니아인들의 두 차례 공격(기원전 618-617년과 609-607년)을 뜻하는 것으로 여겨짐—그 후에 오랫동안 그 도시에 사람이 살지 않았다는 증거가 나왔다.</div><div data-pid="30" id="p30" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="29"></span>두 번째 화재의 잿더미 속에서 21개의 오스트라콘(글이 새겨진 도기 조각)이 발견되었는데, 이는 느부갓네살의 최종 공격으로 그 도시가 멸망되기 조금 전의 통신문일 것으로 생각된다. 라기스 서한으로 알려진 이 기록물은 그 시기의 위기와 불안을 잘 보여 주는 것으로, 남아 있는 유대인 전초 부대들이 라기스에 있는 군사령관 야오시에게 보낸 편지인 것으로 보인다. (1권, 325면 <strong>사진</strong>) 4번 서한에는 이런 진술이 들어 있다. “야훼께서 내 주가 바로 오늘 좋은 소식을 듣게 하시기를 바랍니다! ··· 우리는 내 주께서 내리신 모든 지시에 따라 라기스의 신호를 바라보고 있습니다. 우리가 아세가를 볼 수 없기 때문입니다.” (「고대 근동 문헌」 <em>Ancient Near Eastern Texts</em>, J. B. 프리처드 편, 1974년, 322면) 놀랍게도 이것은 앞서 인용된 <a class="b" data-bid="47-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000344/46/0">예레미야 34:7</a>에 묘사된 상황을 표현하는 것이며, 아세가가 이미 무너졌거나 적어도 기대되는 불 신호나 연기 신호를 보내지 못하고 있음을 알려 주는 것이다.</div></td></tr></tbody></table></div>
+
+</li>
+<li class="du-margin-top--8"><p data-pid="15" id="p15">이번 주 성경 읽기를 통해 어떤 영적 보물을 발견했습니까?</p>
+
+</li>
+</ul>
+</div>
+<h3 class="du-fontSize--base du-color--teal-700 du-margin-top--8 du-margin-bottom--0" data-pid="17" id="p17"><strong>3. 성경 낭독</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6 du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt29">
+<p data-pid="18" id="p18">(4분) <a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/202026253/5/0">렘 35:1-14</a> (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026253/5/0">「읽가」 5과</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[렘 35:1-14]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-35-1-1"><a class="cl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19940"><strong>35</strong> </a>유다 왕 요시야의 아들 여호야김의<a class="b" data-bid="1122-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1121">+</a> 날에 여호와께서 예레미야에게 내리신 말씀이다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-35-2-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19941">2 </a>“레갑 사람들의<a class="b" data-bid="1123-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1122">+</a> 집으로 가서 그들에게 말하고, 그들을 여호와의 집에 있는 한 식당<a class="fn" data-fnid="305" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/304" id="footnotesource305">*</a><em> (각주: 또는 “방”.)</em>으로 데려가 포도주를 주어 마시게 하여라.”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-35-3-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19942">3 </a>그래서 나는 하바시냐의 아들 예레미야의 아들인 야아사냐와 그의 형제들과 모든 아들들과 온 레갑 집안사람들을 데리고 </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-35-4-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19943">4 </a>여호와의 집으로 갔다. 그들을 데리고 참하느님의 사람 익다랴의 아들인 하난의 아들들의 식당으로 갔는데, 그곳은 문지기 살룸의 아들 마아세야의 식당 위에 있는 방백들의 식당 곁에 있었다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-35-5-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19944">5 </a>나는 레갑 집안사람들 앞에 포도주가 가득 찬 잔들과 술잔들을 내놓고 “포도주를 드십시오” 하고 말했다.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-35-6-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19945">6 </a>그러나 그들은 이렇게 말했다. “우리는 포도주를 마시지 않겠습니다. 우리의 조상 레갑의 아들 여호나답<a class="fn" data-fnid="306" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/305" id="footnotesource306">*</a><em> (각주: 원문의 표기는 여호나답의 축약형인 “요나답”.)</em>이<a class="b" data-bid="1124-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1123">+</a> 우리에게 이렇게 명령했기 때문입니다. ‘너희와 너희 자손은 절대로 포도주를 마셔서는 안 된다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-35-7-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19946">7 </a>또 너희는 집을 지어서도 안 되고 씨를 뿌려서도 안 되며 포도원을 만들거나 소유해서도 안 된다. 너희는 언제까지나 천막에서 살아야 한다. 그래야 너희가 외국인으로 거주하고 있는 땅에서 오래 살 것이다.’ </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-35-8-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19947">8 </a>그래서 우리는 우리의 조상 레갑의 아들 여호나답의 목소리에 계속 순종하여 그가 우리에게 명령한 모든 것을 지킵니다. 우리와 우리 아내들과 아들딸들은 절대로 포도주를 마시지 않으며, </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-35-9-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19948">9 </a>살 집도 짓지 않고, 포도원이나 밭이나 씨도 가지지 않습니다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-35-10-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19949">10 </a>우리는 계속 천막에서 살면서 우리의 조상 여호나답<a class="fn" data-fnid="307" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/306" id="footnotesource307">*</a><em> (각주: 원문의 표기는 여호나답의 축약형인 “요나답”.)</em>이 우리에게 명령한 모든 것에 순종하고 있습니다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-35-11-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19950">11 </a>그런데 바빌론 왕 느부갓네살<a class="fn" data-fnid="308" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/307" id="footnotesource308">*</a><em> (각주: 원문의 표기는 또 다른 철자 형태인 “느부갓레살”.)</em>이 이 땅을 치러 올라왔을 때에<a class="b" data-bid="1125-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1124">+</a> 우리는 ‘칼데아 사람들의 군대와 시리아 사람들의 군대를 피해 예루살렘으로 들어가자’ 하고 말했습니다. 그래서 우리가 지금 예루살렘에서 살고 있습니다.”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-35-12-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19951">12 </a>여호와의 말씀이 예레미야에게 임했다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-35-13-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19952">13 </a>“만군의 여호와, 이스라엘의 하느님이 이렇게 말한다. ‘가서 유다 사람들과 예루살렘 주민들에게 말하여라. “내가 너희에게 나의 말에 순종하라고 계속 권고하지 않았느냐?”<a class="b" data-bid="1126-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1125">+</a> 여호와의 말이다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-35-14-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/19953">14 </a>“레갑의 아들 여호나답은 후손에게 포도주를 마시지 말라고 명령했고 그들은 그 말대로 하여 오늘날까지 포도주를 마시지 않았다. 그렇게 그들은 조상의 명령에 순종하였다.<a class="b" data-bid="1127-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1126">+</a> 그러나 너희는 내가 거듭거듭<a class="fn" data-fnid="309" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/308" id="footnotesource309">*</a><em> (각주: 직역하면 “일찍 일어나”.)</em> 말해도 나에게 순종하지 않았다.<a class="b" data-bid="1128-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1127">+</a> </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「읽가」 5과]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<p class="contextTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="8" data-no="8" id="page8"></span><strong>5과</strong></p>
+<h1 data-pid="2" id="p2"><strong>정확한 낭독</strong></h1>
+</header>
+<div class="bodyTxt">
+<div class="west_left eighth suppressZoom" id="f1">
+<figure>
+<img alt="참조 성구" class="west_left eighth suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/th/2018/47" height="104" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/th/2018/48" width="150"/>
+</figure>
+</div>
+<h2 data-pid="3" id="p3"><a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102018445/0/0"><strong>디모데 전서 4:13</strong></a></h2>
+<div class="grpItems du-clearfix"><p data-pid="4" id="p4"><strong>이 과의 요점:</strong> 자료의 내용을 정확하게 낭독해야 합니다.</p>
+<table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Embedded Video]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026253/5/0" style="display: block;" target="_blank"><img src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/th/2018/53" style="display: block; margin: 0 auto; max-width: min(100%, 700px); height: auto;"/></a></td></tr></tbody></table>
+<h2 data-pid="5" id="p5"><strong>어떻게 해야 하는가?</strong></h2>
+</div><ul><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="6" id="p6"> <strong>잘 준비한다.</strong> 낭독할 자료의 목적을 파악하십시오. 단어 하나하나가 아니라 단어군으로 묶어 읽는 연습을 하십시오. 없는 단어를 넣어 읽거나, 단어를 건너뛰거나, 다른 단어로 바꿔 읽지 않도록 주의하십시오. 모든 문장 부호를 지키십시오.</p>
+<table class="box-supplement-table" style="width: 100%; border-collapse: separate; border-spacing: 0; margin: 16px 0; background-color: #f1f3f5; border-top: 1px solid #a7a7a7; border-left: 1px solid #a7a7a7; border-right: 1px solid #a7a7a7; border-bottom: 1px solid #a7a7a7; border-radius: 0px;"><tbody><tr><td style="padding: 15px 33px 30px; font-size: 1.2em; line-height: 1.5; color: #212529; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px;"><div class="grpItems imgWestEighth"><div class="west_left eighth suppressZoom" id="f2">
+<figure>
+<img alt="실용적인 제안" class="west_left eighth suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/th/2018/49" height="104" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/th/2018/50" width="150"/>
+</figure>
+</div>
+<p data-pid="7" id="p7">가까운 사람에게 당신의 낭독을 듣고 틀리게 읽은 단어를 지적해 달라고 부탁해 보십시오.</p>
+</div></td></tr></tbody></table>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="8" id="p8"> <strong>각 단어를 정확히 발음한다.</strong> 어떻게 발음해야 하는지 모르는 단어가 있다면, 사전을 찾아보거나 출판물 녹음 자료를 들어 보거나 낭독을 잘하는 사람에게 도움을 받으십시오.</p>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="9" id="p9"> <strong>또렷하게 말한다.</strong> 고개를 들고 입을 크게 벌리면서 분명하게 말하십시오. 각 글자를 빠짐없이 발음하기 위해 노력하십시오.</p>
+<table class="box-supplement-table" style="width: 100%; border-collapse: separate; border-spacing: 0; margin: 16px 0; background-color: #f1f3f5; border-top: 1px solid #a7a7a7; border-left: 1px solid #a7a7a7; border-right: 1px solid #a7a7a7; border-bottom: 1px solid #a7a7a7; border-radius: 0px;"><tbody><tr><td style="padding: 15px 33px 30px; font-size: 1.2em; line-height: 1.5; color: #212529; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px;"><div class="grpItems imgWestEighth"><div class="west_left eighth suppressZoom" id="f3">
+<figure>
+<img alt="실용적인 제안" class="west_left eighth suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/th/2018/51" height="104" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/th/2018/52" width="150"/>
+</figure>
+</div>
+<p data-pid="10" id="p10">지나치게 또렷하게 말하려고 하면 낭독이 부자연스럽게 들릴 수 있습니다.</p>
+</div></td></tr></tbody></table>
+</li>
+</ul>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+</div>
+<div class="dc-icon--wheat dc-icon-layout--top dc-icon-bgColor--gold-600 dc-icon-color--white dc-icon-margin-inlineEnd--8 dc-icon-padding--5 dc-icon-size--baseMinus1 du-fontSize--basePlus2 du-borderStyle-bottom--solid du-borderColor--borderDefault du-borderWidth--1 du-margin-top--12 du-margin-bottom--2 du-padding-bottom--2" id="tt30">
+<h2 class="du-fontSize--base du-color--gold-700 du-margin-vertical--0" data-pid="19" id="p19"><strong>야외 봉사에 힘쓰십시오</strong></h2>
+</div>
+<h3 class="du-fontSize--base du-color--gold-700 du-margin-top--8 du-margin-bottom--0" data-pid="20" id="p20"><strong>4. 대화 시작하기</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6 du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt33">
+<p data-pid="21" id="p21">(2분) 호별 방문. 성서 연구를 제안한다. (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026253/6/0">「랑제」 3과 요점 3</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「랑제」 3과 요점 3]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div data-pid="13" id="p13" style="margin-top: 0; margin-bottom: 8px">3. <strong>상대방의 감정에 공감하려고 노력하십시오.</strong> 그가 어떤 생각을 하고 있을지 상상해 보십시오.</div><ol class="du-listStyleType--source du-padding-inlineStart--10 du-padding-inlineStart-desktopOnly--12"><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="14" id="p14"> 이렇게 자문해 보십시오. ‘그는 요즘 무엇에 대해 걱정하고 있을까? 어떤 것에 관심이 있고 무엇이 도움이 된다고 느낄까?’ 이런 점에 대해 생각해 보면 자연스럽고 진실한 태도로 친절을 나타낼 수 있을 것입니다.</p>
+</li><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="15" id="p15"> 귀 기울여 잘 들음으로 그가 중요하게 생각하는 문제에 진실한 관심이 있다는 것을 나타내십시오. 그가 자신의 감정이나 자신이 겪고 있는 문제에 대해 이야기하면, 화제를 돌리지 마십시오.</p>
+</li></ol></td></tr></tbody></table></div>
+</div>
+<h3 class="du-fontSize--base du-color--gold-700 du-margin-top--8 du-margin-bottom--0" data-pid="22" id="p22"><strong>5. 대화 시작하기</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6 du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt35">
+<p data-pid="23" id="p23">(2분) 호별 방문. 성서 연구를 제안한다. 봉사 도구함에 있는 동영상을 하나 보여 주고 그에 대해 이야기한다. (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026253/7/0">「랑제」 3과 요점 5</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「랑제」 3과 요점 5]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">5. <strong>도움을 베푸십시오.</strong> 실제적인 도움을 베풀 적절한 기회를 찾으십시오. 친절한 행동이 좋은 대화로 이어질 수 있습니다.</td></tr></tbody></table></div>
+</div>
+<h3 class="du-fontSize--base du-color--gold-700 du-margin-top--8 du-margin-bottom--0" data-pid="24" id="p24"><strong>6. 관심이 자라도록 돕기</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6 du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt37">
+<p data-pid="25" id="p25">(3분) 비공식 증거. 지난번에 최근 사건에 대한 염려를 표현한 사람에게 성서 연구를 제안한다. (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026253/8/0">「랑제」 7과 요점 4</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「랑제」 7과 요점 4]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">4. <strong>다시 대화를 나눌 약속을 하십시오.</strong> 대화를 마칠 때마다, 다시 대화를 나눌 시간을 구체적으로 정하려고 노력하십시오. 약속을 반드시 지키십시오.</td></tr></tbody></table></div>
+</div>
+<h3 class="du-fontSize--base du-color--gold-700 du-margin-top--8 du-margin-bottom--0" data-pid="26" id="p26"><strong>7. 제자가 되도록 돕기</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6 du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt39">
+<p data-pid="27" id="p27">(4분) 성서 연구생과 대화한다. 연구생에게 성서 연구 특별 활동에 대해 알려 준다. 아는 사람 중에 성서 연구에 관심이 있을 만한 사람이 있는지 물어본다. (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026253/9/0">「읽가」 11과</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「읽가」 11과]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<p class="contextTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="14" data-no="14" id="page14"></span><strong>11과</strong></p>
+<h1 data-pid="2" id="p2"><strong>열정</strong></h1>
+</header>
+<div class="bodyTxt">
+<div class="west_left eighth suppressZoom" id="f1">
+<figure>
+<img alt="참조 성구" class="west_left eighth suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/th/2018/89" height="104" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/th/2018/90" width="150"/>
+</figure>
+</div>
+<h2 data-pid="3" id="p3"><a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102018451/0/0"><strong>로마서 12:11</strong></a></h2>
+<div class="grpItems du-clearfix"><p data-pid="4" id="p4"><strong>이 과의 요점:</strong> 열정적으로 말하면 듣는 사람에게 힘을 주고 동기를 부여할 수 있습니다.</p>
+<table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Embedded Video]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026253/9/0" style="display: block;" target="_blank"><img src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/th/2018/93" style="display: block; margin: 0 auto; max-width: min(100%, 700px); height: auto;"/></a></td></tr></tbody></table>
+<h2 data-pid="5" id="p5"><strong>어떻게 해야 하는가?</strong></h2>
+</div><ul><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="6" id="p6"> <strong>먼저 내용이 자신의 마음에 이르게 한다.</strong> 말할 내용을 준비하면서 그 소식이 얼마나 중요한 것인지 깊이 생각해 보십시오. 마음에서 우러나와 말할 수 있을 만큼 자료의 내용을 충분히 숙지하십시오.</p>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="7" id="p7"> <strong>듣는 사람에 대해 생각한다.</strong> 당신이 낭독하거나 가르칠 내용이 사람들에게 어떤 유익을 줄지 묵상해 보십시오. 내용을 어떤 방식으로 전달할 때 사람들이 듣는 내용의 가치를 더 잘 깨달을 것인지 생각해 보십시오.</p>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="8" id="p8"> <strong>생기 있게 말한다.</strong> 열의를 가지고 말하십시오. 자연스러운 몸짓과 진실한 표정으로 당신의 느낌을 전달하십시오.</p>
+<table class="box-supplement-table" style="width: 100%; border-collapse: separate; border-spacing: 0; margin: 16px 0; background-color: #f1f3f5; border-top: 1px solid #a7a7a7; border-left: 1px solid #a7a7a7; border-right: 1px solid #a7a7a7; border-bottom: 1px solid #a7a7a7; border-radius: 0px;"><tbody><tr><td style="padding: 15px 33px 30px; font-size: 1.2em; line-height: 1.5; color: #212529; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px;"><div class="grpItems imgWestEighth"><div class="west_left eighth suppressZoom" id="f2">
+<figure>
+<img alt="실용적인 제안" class="west_left eighth suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/th/2018/91" height="104" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/th/2018/92" width="150"/>
+</figure>
+</div>
+<p data-pid="9" id="p9">의미 있는 몸짓을 사용하십시오. 똑같은 몸짓을 틀에 박힌 방식으로 계속 사용하면 사람들의 주의가 흐트러질 수 있습니다. 요점을 다룰 때나 듣는 사람에게 행동하도록 동기를 불어넣을 때 특히 열정을 나타내십시오. 처음부터 끝까지 계속 강한 열정을 나타내면 듣는 사람이 지치게 될 것입니다.</p>
+</div></td></tr></tbody></table>
+</li>
+</ul>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+</div>
+<div class="dc-icon--sheep dc-icon-layout--top dc-icon-bgColor--red-600 dc-icon-color--white dc-icon-margin-inlineEnd--8 dc-icon-padding--5 dc-icon-size--baseMinus1 du-fontSize--basePlus2 du-borderStyle-bottom--solid du-borderColor--borderDefault du-borderWidth--1 du-margin-top--12 du-margin-bottom--2 du-padding-bottom--2" id="tt40">
+<h2 class="du-fontSize--base du-color--maroon-600 du-margin-vertical--0" data-pid="28" id="p28"><span aria-hidden="true" class="pageNum" data-before-text="5" data-no="5" id="page5"></span><strong>그리스도인 생활</strong></h2>
+</div>
+<h3 class="dc-icon--music dc-icon-size--basePlus1 dc-icon-margin-horizontal--8 du-fontSize--base" data-pid="29" id="p29"><a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026253/10/0"><strong>노래 121</strong></a></h3><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[노래 121]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<p class="contextTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="149" data-no="149" id="page149"></span><strong>121번</strong></p>
+<h1 data-pid="2" id="p2"><strong>우리는 자제가 필요하다</strong></h1>
+</header> 
+<p class="themeScrp" data-pid="3" id="p3">(<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016921/0/0">로마서 7:14-25</a>)</p>
+<div class="bodyTxt">
+<ol><li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="4" id="p4">우린 여호와 사랑하지만</p>
+<p class="sz" data-pid="5" id="p5">죄의 힘 강하니 자제 필요해.</p>
+<p class="sp" data-pid="6" id="p6">육을 따르면 근심 얻고</p>
+<p class="sz" data-pid="7" id="p7">영을 따르면 생명 얻네.</p>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="8" id="p8">사탄 우리를 늘 유혹하고</p>
+<p class="sz" data-pid="9" id="p9">죄의 법 우리를 압도하여도</p>
+<p class="sp" data-pid="10" id="p10">진리의 힘이 더 강하니</p>
+<p class="sz" data-pid="11" id="p11">주의 힘 입어 이겨 내리.</p>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="12" id="p12">우리 언행을 항상 살펴서</p>
+<p class="sz" data-pid="13" id="p13">여호와 이름을 드높이리라.</p>
+<p class="sp" data-pid="14" id="p14">우리는 굳게 결심했네,</p>
+<p class="sz" data-pid="15" id="p15">항상 자제를 나타내리.</p>
+</li>
+</ol>
+</div>
+<div class="closingContent"><p class="se" data-pid="16" id="p16">(<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016921/1/0">고린도 전서 9:25;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016921/1/1"> 갈라디아 5:23;</a><a class="b" data-bid="2-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016921/1/2"> 베드로 후서 1:6</a> 참조)</p>
+</div>
+<p class="sb" data-pid="17" id="p17"></p>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+<h3 class="du-fontSize--base du-color--maroon-600 du-margin-top--8 du-margin-bottom--0" data-pid="30" id="p30"><strong>8. 자제는 순종하는 데 도움이 됩니다</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6" id="tt45">
+<div class="du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt46">
+<p data-pid="31" id="p31">(6분) 토의.</p>
+</div>
+<p data-pid="32" id="p32">부정적인 생각이 있으면 옳은 일을 하려는 결심이 약해질 수 있습니다. 따라서 그러한 생각을 제어하기 위해 최선을 다하는 것은 매우 중요합니다! 그러면 어떻게 그러한 생각을 제어할 수 있습니까?</p>
+</div>
+<div class="north_center" id="f2">
+<figure>
+<img alt="「충성심을 강화시켜 주는 것을 추구하십시오—자제」 동영상의 한 장면. 부정적인 생각으로 힘들어하고 있는 자매가 성경을 연구하고 있습니다. 옆에는 전자 기기와 공책이 있습니다." class="north_center" data-img-small-src="/ko/wol/mp/r8/lp-ko/mwb26/2026/335" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/mwb26/2026/336" style="max-width: min(100%, 700px); height: auto;"/>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">「충성심을 강화시켜 주는 것을 추구하십시오—자제」 동영상의 한 장면. 부정적인 생각으로 힘들어하고 있는 자매가 성경을 연구하고 있습니다. 옆에는 전자 기기와 공책이 있습니다.</td></tr></tbody></table></div></figure>
+</div>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6" id="tt47">
+<p data-pid="33" id="p33"><a data-video="webpubvid://?pub=mwbv&amp;issue=202609&amp;track=2&amp;langwritten=KO" href="https://www.jw.org/finder?lank=pub-mwbv_202609_2_VIDEO&amp;wtlocale=KO"><strong>동영상</strong></a> <strong>「충성심을 강화시켜 주는 것을 추구하십시오—자제」</strong>를 보여 주고 다음 질문을 하십시오.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Video Transcript] 충성심을 강화시켜 주는 것을 추구하십시오—자제 (video duration: 3:28)</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px">표정을 보니까 누나도 뭔가 있었나 본데? 그렇긴 한데. 누나 일은 내가 다 아는데. 동생 앞에서는 별로 꺼내고 싶지 않은 이야기라서. 일레인 자매 부담되면 얘기 안 해도 돼요. 해 볼게요. 한동안 부정적인 생각 땜에 힘들었어요. 진짜? 어. 하지만 한 자매가 친구처럼 잘 들어 주면서 조언을 해 주셨죠.</div><div style="margin-top: 0; margin-bottom: 8px">그때 받은 도움을 두고두고 못 잊을 거예요. 기도를 해도 때로는 부정적인 감정이 너무 강해서 사라지지 않았죠. 괜찮아요. 일레인 자매. 정말 힘들죠? 왜 자꾸 이런 감정이 드는 거죠? 그럴 수 있어요. 너무 걱정하지 말고, 부정적인 생각을 어떻게 제어할 수 있는지 우리 같이 얘기해 봐요.</div><div style="margin-top: 0; margin-bottom: 8px">제어한다고요? 성경은 우리가 행동에서 자제를 나타낼 수 있게 기도해야 된다고 말하죠. 그런데 사실 생각에서도 자제를 보여야 해요. 그런 생각은 한 번도 안 해 봤어요. 성경에 그 방법이 나와요. 같이 읽어 볼래요? - 네, 좋아요. 고린도 후서 10:5이에요.</div><div style="margin-top: 0; margin-bottom: 8px">5절인데요. 분명 도움이 될 거예요. 여기 읽어 줄 수 있겠어요? 네. “우리는 헛된 추리와 하느님에 대한 지식을 거슬러 일어난 모든 높은 것을 무너뜨립니다. 그리고 모든 생각을 사로잡아 그리스도께 순종하게 합니다.” 캐런 자매가 부정적인 생각을 사로잡아 그리스도께 순종하게 한다는 게 무슨 의미인지를 알려 주셨어요.</div><div style="margin-top: 0; margin-bottom: 8px"><em>[2:17]</em></div><div style="margin-top: 0; margin-bottom: 8px">우선 내가 어떤 부정적인 생각을 갖고 있는지 알아야 했죠. 그래서 생각나는 대로 다 적어 봤어요. 그리고 각각의 부정적인 생각에 관해 그에 대한 여호와의 견해가 뭔지 찾아 봤어요. 또 부정적인 생각이 들 때마다 살펴볼 수 있게 성구를 적어서 항상 들고 다녔어요.</div><div style="margin-top: 0; margin-bottom: 8px">시간이 좀 걸리기는 했지만 여호와의 도움과 캐런 자매 덕분에 부정적인 생각을 극복할 수 있었어요. 얘기하기가 쉽지 않았을 텐데 고마워요. 다른 분들이 충성을 지킨 이야길 듣고 있으니까 제 경험을 다시 생각해 보게 되더라고요. 근데 부정적인 생각을 제어하는 거랑 충성이랑 무슨 상관이 있어? 내가 적은 성구 중에 고린도 전서 9:25이 있는데 거기엔 ‘경기에 참가하는 사람은 모든 일에서 자제를 나타낸다’고 나와요.</div><div style="margin-top: 0; margin-bottom: 8px">여호와께선 내가 모든 일 그러니까 생각에서도 자젤 나타내길 바라시니까, 생각을 제어하는 건 그분께 충성을 지키는 거죠.</div></td></tr></tbody></table></div>
+<ul><li><p data-pid="34" id="p34">  이 동영상에서 부정적인 생각을 극복하는 방법에 대해 무엇을 배웠습니까?</p>
+
+</li>
+</ul>
+</div>
+<h3 class="du-fontSize--base du-color--maroon-600 du-margin-top--8 du-margin-bottom--0" data-pid="36" id="p36"><strong>9. 「우리의 조직이 이루고 있는 일들」 9월</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6" id="tt56">
+<div class="du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt57">
+<p data-pid="37" id="p37">(9분) 토의.</p>
+</div>
+<ul class="du-listStyleType--none du-padding-inlineStart--0"><li><p data-pid="38" id="p38"><a data-video="webpubvid://?pub=mwbv&amp;issue=202609&amp;track=3&amp;langwritten=KO" href="https://www.jw.org/finder?lank=pub-mwbv_202609_3_VIDEO&amp;wtlocale=KO"><strong>동영상</strong></a>을 보여 주고 청중에게 동영상 끝에 나오는 질문들을 하십시오.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Video Transcript] 우리의 조직이 이루고 있는 일들—무력 분쟁의 영향을 받는 사람들을 돕는 일 (video duration: 7:05)</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px">예수께서는 마지막 날에 “전쟁과 소요”가 있을 것이라고 말씀하셨습니다. 따라서 집을 떠나야 하는 사람들이 점점 늘어나는 것도 놀라운 일이 아닙니다. 그런 사람들 중에는 우리 형제자매들도 있습니다. 그들은 어떤 어려움을 겪고 있으며, 어떤 도움을 받아 왔습니까? 두 나라의 예를 생각해 보시겠습니다.</div><div style="margin-top: 0; margin-bottom: 8px">우크라이나와 아이티입니다. ‘여호와께서 자신을 부르는 모든 이에게 가까이 계시다’는 걸 보시게 될 겁니다. 다른 지역이나 심지어 다른 나라로 피신한 사람들에게도 말이죠. 2022년에 러시아는 우크라이나에 대한 전면 침공을 시작했습니다. 우크라이나 동부에 살고 있던 2만 2000명이 넘는 형제자매들이 국내의 다른 지역으로 피신했습니다.</div><div style="margin-top: 0; margin-bottom: 8px">그리고 3만 1000명은 인근의 나라들로 피신했죠. 형제들의 필요를 돌보기 위해 130개가 넘는 재해 구호 위원회가 구성되었는데, 주로 유럽에 임명되었습니다. 그중 27개는 우크라이나에, 17개는 폴란드에 임명되었죠. 많은 전도인들은 도착하자마자 도움이 필요했습니다.</div><div style="margin-top: 0; margin-bottom: 8px">재해 구호 위원회는 어떻게 도와주었을까요? 전쟁이 심해져서 저는 두 딸과 함께 하르키우에 있는 집을 떠나 다른 곳으로 가야 했어요. 우리는 왕국회관으로 피신했습니다. 그곳에서 재해 구호 위원회의 형제들이 솔선해서 우리를 도와주었습니다. 우리가 안전한 곳에 도착해 보니 온 가족이 입을 따뜻한 겨울옷이 준비돼 있었어요.</div><div style="margin-top: 0; margin-bottom: 8px">따뜻한 담요와 필요한 모든 침구류가 있었죠. 그리고 냉장고에는 여러 가지 먹을 것이 가득 들어 있었어요. 무엇보다도 형제들은 우리의 영적, 감정적 필요를 돌봐줬어요. 그런 다음 우리가 살 곳을 찾게 도와주었죠. 여호와께서 우릴 돌보고 계시다는 걸 알 수 있었어요.</div><div style="margin-top: 0; margin-bottom: 8px"><em>[2:20]</em></div><div style="margin-top: 0; margin-bottom: 8px">다른 나라로 피신하기로 한 전도인들도 있었죠. 그들은 어떤 어려움을 겪었습니까? 우리는 우크라이나의 재해 구호 위원회 형제들에게 연락했어요. 형제들은 우리 가족 아홉 명 모두가 우크라이나의 위험 지역을 벗어나게 도와주었고, 폴란드의 형제들과도 연락해 주었죠.</div><div style="margin-top: 0; margin-bottom: 8px">위원회는 제가 떠나게 도와줬어요. 러시아와 벨라루스를 거쳐 11일이 걸리는 여정이었죠. 형제들은 매일 저와 연락하면서 도와주었고, 제가 밤에 안전하게 머물 수 있는 장소도 마련해줬어요. 우리가 폴란드 국경을 넘자마자, 폴란드 형제들이 우크라이나 형제들을 환영하면서 음식과 따뜻한 차를 주는 모습이 보였어요.</div><div style="margin-top: 0; margin-bottom: 8px">우리는 계속 대회장으로 이동했고, 새벽 3시쯤 그곳에 도착했습니다. 우리 아들이 많이 아파서 치료할 필요가 있었어요. 그런데 형제들이 아이에게 필요한 의사들을 찾아주었지요. 그리고 위원회는 제가 폴란드에 체류하는 데 필요한 서류 작업도 도와주었습니다.</div><div style="margin-top: 0; margin-bottom: 8px">여호와께서 돕고 계신 걸 느낄 수 있었어요. 2026년 1월 기준으로, 폴란드 지부는 3만 4000명이 넘는 난민들에게 도움을 베풀었습니다. 재해 구호 위원회는 그들이 안정을 찾고 자립할 수 있도록 돕는 데 중요한 역할을 해 왔습니다. 2026년 1월 기준으로 우크라이나 지부는 6만 1000명이 넘는 난민들에게 도움을 베풀었습니다.</div><div style="margin-top: 0; margin-bottom: 8px">여호와께서는 이 재해 구호 위원회들의 노력을 통해, 우크라이나 형제자매들에게 가까이 계시다는 것을 보여 주셨습니다. 그분은 또 다른 사람들에게도 사랑에 찬 돌봄을 베푸셨죠. 2021년 이후로 아이티의 형제자매들은 더 심해진 폭력과 불안정한 상황을 겪어 왔습니다.</div><div style="margin-top: 0; margin-bottom: 8px"><em>[4:14]</em></div><div style="margin-top: 0; margin-bottom: 8px">7000명이 넘는 형제자매들이 집을 떠나야 했습니다. 이것은 아이티 전도인 수의 40퍼센트가 넘는 것이죠. 다른 도시와 지역으로 피신했던 많은 사람은 나중에 다시 피신해야 했습니다. 여호와의 조직은 이런 사람들을 어떻게 도왔습니까? 우리는 가장 가까운 왕국회관으로 피신했어요.</div><div style="margin-top: 0; margin-bottom: 8px">그리고 불과 몇 시간 만에, 안전하게 지낼 수 있는 숙소를 제공받았죠. 우리에게 필요했던 걸 모두 다 받았습니다. 형제자매들이 피신한 그날, 머물 곳이 필요한 245명 정도 되는 사람들이 우리 집에 있었습니다. 그날 저녁 무렵에는 그중 243명이 다른 머물 곳을 찾았죠.</div><div style="margin-top: 0; margin-bottom: 8px">그리고 우리를 찾아온 한 형제도 그렇게 피신한 분이었는데, 가진 걸 모두 다 잃으셨죠. 형제들이 우리 애들하고 놀아주기도 했는데, 우릴 얼마나 사랑하는지 알 수 있었어요. 또 지역 대회 준비에 참여하게 해 줘서 제가 유용한 사람이라는 느낌이 들었죠.</div><div style="margin-top: 0; margin-bottom: 8px">재해 구호 위원회는 재난이 있을 때 지원해 주는 다른 단체들로부터도 제가 도움을 받을 수 있게 해 주었어요. 여호와의 증인은 단 한 사람도 머물 곳이 없거나 먹을 것이 없는 사람이 없었죠. 여호와의 증인이라는 것이 정말 자랑스럽습니다. 2026년 1월 기준으로 아이티 지부는 6000명이 넘는, 이재민이 된 증인들과 그들의 가족을 도와 왔습니다.</div><div style="margin-top: 0; margin-bottom: 8px">이것은 전쟁과 무력 분쟁의 시기에 우리 조직이 어떻게 구호 활동을 베푸는지 보여 주는 몇 가지 예에 불과합니다. 비슷한 구호 활동이 콩고, 미얀마 그리고 다른 지역들에서 진행되고 있죠. 우리는 우크라이나, 폴란드, 아이티, 그리고 그 밖의 지역의 수많은 자원봉사자들에게 감사합니다.</div><div style="margin-top: 0; margin-bottom: 8px"><em>[6:00]</em></div><div style="margin-top: 0; margin-bottom: 8px">그들은 집을 제공하고 여러 방법으로 지원과 사랑을 베풀었죠. 그리고 세계적인 활동에 기부해 주시는 모든 형제자매들께 감사드립니다. 그 덕분에 세계 전역에서 구호 활동을 할 수 있죠. 2026년 1월 기준으로 우리는 우크라이나, 폴란드, 아이티에서의 구호 활동에만 480만 달러가 넘는 금액을 지출했습니다.</div><div style="margin-top: 0; margin-bottom: 8px">세계적인 활동에 해 주신 여러분의 기부 덕분에 이 세 나라에서만 10만 명이 넘는 형제자매들이 그 어려운 시기에 도움을 받을 수 있었습니다. 무엇보다도 여러분의 기도에 감사합니다. 여호와께서는 여러분을 사용해서 시편 145:18에 기록된 그분의 이러한 약속을 이루고 계십니다.</div><div style="margin-top: 0; margin-bottom: 8px">“여호와는 자신을 부르는 모든 이에게, 자신을 참되게 부르는 모든 이에게 가까이 계십니다.”</div></td></tr></tbody></table></div>
+
+</li>
+</ul>
+</div>
+<h3 class="du-fontSize--base du-color--maroon-600 du-margin-top--8 du-margin-bottom--0" data-pid="40" id="p40"><strong>10. 회중 성서 연구</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6 du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt66">
+<p data-pid="41" id="p41">(30분) <a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026253/11/0">「용하」 8장</a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「용하」 8장]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<div class="suppressZoom" id="f1">
+<figure>
+<img alt="" class="suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/184" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/185" style="max-width: min(100%, 700px); height: auto;"/>
+</figure>
+</div>
+<p class="contextTtl du-letterSpacing--1 du-color--orange-700 du-borderColor--orange-700 du-borderStyle-bottom--solid du-borderWidth--1 du-padding-vertical--2" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="44" data-no="44" id="page44"></span><strong>8</strong> 요셉</p>
+<h1 class="du-color--coolGray-600 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="2" id="p2"><strong>유혹을 물리치다</strong></h1>
+</header> <div class="clearfix alternatePresentation clickable noTooltips">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/182" data-alt-type="svg" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/180" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">인쇄판</div>
+</div>
+<div class="clearfix alternatePresentation clickable noTooltips hidden">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/183" data-alt-type="svg" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/181" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">인쇄판</div>
+</div>
+<div class="bodyTxt">
+<div id="tt4">
+<p data-pid="3" id="p3">요셉은 사랑받는 소년이었습니다. 그는 아버지 야곱과 여호와 하느님의 특별한 사랑을 받았습니다. 그렇다고 해서 그의 삶이 순탄하기만 했던 것은 아닙니다. 그는 미움을 받기도 했습니다. 야곱이 요셉에게만 특별한 대우를 해 주자 요셉의 이복형들은 그를 시기하고 반감을 품었습니다. 그리고 요셉이 열일곱 살쯤 되었을 때, 여호와께서는 요셉이 예언적인 꿈을 꾸게 하셔서 그의 가족이 후에 그에게 몸을 굽힐 것임을 알려 주셨습니다. 그 때문에 형들의 미움은 더욱 커졌습니다.</p>
+<p data-pid="4" id="p4">어느 날 아버지가 그에게 먼 곳에서 가축을 돌보고 있는 형들이 잘 지내는지 보고 오라고 했습니다. 형들이 있는 곳까지 가는 데는 여러 날이 걸렸습니다. 형들은 그를 보고 붙잡아 마른 물구덩이에 던져 넣었습니다. 요셉이 도와 달라고 소리쳤지만 그들은 들은 척도 하지 않았습니다. 형들은 처음에는 요셉을 죽일 생각도 했었지만 그 대신 지나가는 상인들에게 팔아넘기기로 했습니다. 후에 그들은 아버지를 속여 사랑하는 아들 요셉이 들짐승에 찢겨 죽었다고 믿게 만들었습니다. 하지만 사실 요셉은 머나먼 남쪽의 이집트로 끌려가 파라오의 궁정 관리인 보디발의 종이 되었습니다.</p>
+<p data-pid="5" id="p5">그런 상황에서 요셉은 쉽게 절망에 빠질 수도 있었을 것입니다. 하지만 그는 용기를 내어 열심히 일했습니다. 성경에서는 “여호와께서 요셉과 함께 계셨다”고 알려 줍니다. 여호와께서는 요셉이 하는 일마다 성공하게 해 주셨습니다. 보디발은 요셉이 집안 전체를 맡아서 돌보게 했습니다.</p>
+<p data-pid="6" id="p6">그런데 문제가 생겼습니다. “체격이 좋고 잘생긴 사람이 된” 요셉이 보디발의 아내의 눈길을 끌게 된 것입니다. 보디발의 아내는 노골적으로 관심을 표현하며 “나와 동침하자” 하고 말하기까지 했습니다. 요셉은 어떻게 했습니까? 그의 가족은 멀리 떨어져 있었습니다. 그리고 그는 주인이 자기 마음대로 다룰 수 있는 한낱 종에 불과했습니다. 그 여자에게는 마음만 먹으면 요셉의 삶을 고통스럽게 만들 수 있는 힘이 있었습니다. 요셉은 그 여자의 말에 유혹을 느꼈습니까? 그에게는 거절할 용기가 있었습니까?</p>
+<div class="du-margin-vertical--8 du-margin-vertical-desktopOnly--12" id="f2">
+<figure>
+<img alt="요셉이 도기로 된 물병을 들고 앞을 똑바로 바라보며 보디발의 집 안을 걸어가고 있습니다. 보디발의 아내가 자기 침실 밖에 서서, 지나가는 요셉을 유혹하듯 바라봅니다." data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/186" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/187" style="max-width: min(100%, 700px); height: auto;"/>
+</figure>
+</div>
+<div class="stdPullQuote dc-ttClassStyle--unset du-color--orange-700 du-float-desktopOnly--inlineStart du-width-desktopOnly--oneHalf du-margin-inlineStart-mobileOnly--6 du-margin-inlineEnd-desktopOnly--4 du-margin-children-top-desktopOnly--0"><p data-pid="49" id="p49"><strong>요셉은 주인의 아내의 요구를 들어주지 않으면 삶이 고통스러워질 수 있다는 것을 알면서도 어떻게 그의 유혹을 물리칠 수 있었습니까?</strong></p>
+</div>
+<p data-pid="7" id="p7">성경에서는 그가 “거절했다”고 알려 줍니다. 요셉은 보디발의 아내에게 자신을 전적으로 신뢰하는 보디발을 배신하지 않겠다고 말했습니다. 더 중요한 것으로, 요셉은 이렇게 말했습니다. “내가 어떻게 이 큰 악을 행하여 하느님께 죄를 지을 수 있겠습니까?” 요셉은 아버지 여호와를 사랑했기 때문에 용기를 나타내어 단호하게 거절할 수 있었습니다. 하지만 보디발의 아내는 포기하지 <span aria-hidden="true" class="pageNum" data-before-text="45" data-no="45" id="page45"></span>않았습니다. 그 여자는 “날마다” 끈질기게 유혹했습니다. 어느 날 근처에 종들이 아무도 없을 때 그 여자는 요셉의 옷을 붙잡고 “나와 동침하자!” 하고 말했습니다. 요셉은 그 여자를 뿌리치고 도망쳤습니다. 하지만 그 여자는 요셉의 옷을 가지고 있다가 나중에 남편에게 보여 주면서 요셉이 자신을 성폭행하려 했다고 말했습니다. 분노한 보디발은 요셉을 감옥에 가두었습니다.</p>
+<p data-pid="8" id="p8">이제 요셉은 어두컴컴한 감옥에 갇히게 되었습니다. 한동안 그는 발에 족쇄가 채워지고 목에 쇠사슬이 매인 채 지내야 했습니다. (<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025908/0/0">시 105:17, 18</a>) 아무런 희망이 없다고 느낄 만한 상황이었습니다. 여호와께서 그를 버리신 것입니까? 결코 그렇지 않았습니다! 그리고 요셉도 하느님에 대한 신뢰를 잃지 않았습니다. 그는 감옥에서 열심히 일했으며 여호와께서는 그를 축복하셨습니다. 얼마 안 있어 그는 감옥에서 큰 책임을 맡게 되었습니다. 그는 여러 해가 지나도록 계속 인내하며 용기를 나타냈습니다.</p>
+<p data-pid="9" id="p9">요셉은 믿음과 용기를 나타냈기 때문에 계속 여호와께 유용한 사람이 될 수 있었습니다. 후에 하느님께서는 파라오가 예언적인 꿈을 두 번 꾸게 하시고 요셉이 꿈을 해석하게 하셨습니다. 요셉은 왕에게 꿈을 해석해 주면서 7년 동안 풍년이 있은 다음, 7년 동안 흉년이 들 것이라고 말했습니다. 요셉이 꿈을 해석하고 지혜로운 조언을 하는 것을 보고 파라오는 깊은 인상을 받았습니다. 그래서 다가오는 기근에 대비할 책임을 요셉에게 맡겼습니다. 파라오는 요셉을 이집트에서 자신 다음으로 높은 통치자로 삼았습니다. 요셉은 그 책임을 수행하면서 이집트 사람들뿐만 아니라 자기 가족의 생명도 구할 수 있었습니다. 요셉의 형들은 이집트로 식량을 구하러 왔을 때 그들도 모르는 사이에 동생에게 몸을 굽혔습니다. 여호와께서 요셉이 소년일 때 꾸게 하신 꿈대로 된 것입니다. 그리고 그의 형들도 그 사이에 더 나은 사람이 되었습니다. 그들이 한때 미워했던 동생 덕분에 그들과 아버지가 목숨을 건졌으며, 이스라엘 민족이 보존될 수 있었습니다. 이 모든 것이 가능했던 것은 요셉이 용기를 나타내고 계속 여호와께 믿음을 두었기 때문이었습니다.</p>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="10" id="p10"><strong>성경 기록을 읽어 보십시오</strong></h3>
+<ul><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="11" id="p11"> <a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025908/1/0"><strong>창세기 37:1-36;</strong></a><a class="b" data-bid="2-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025908/1/1"> <strong>39:1-23;</strong></a><a class="b" data-bid="2-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025908/1/2"> <strong>41:1–45:28</strong></a></p>
+</li>
+</ul>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="12" id="p12"><strong>토의해 보십시오</strong></h3>
+<p data-pid="13" id="p13"><strong>요셉은 어떻게 용기를 나타냈습니까?</strong></p>
+
+</div>
+<div id="tt13">
+<h2 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--2" data-pid="15" id="p15"><span aria-hidden="true" class="pageNum" data-before-text="46" data-no="46" id="page46"></span><strong>더 깊이 알아보기</strong></h2>
+<ol class="du-listStyleType--source"><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="16" id="p16"><strong>이집트에서의 요셉의 삶을 묘사하는 이 성경 기록이 정확하다는 것을 무엇이 뒷받침해 줍니까?</strong> (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025908/0/0">「깨」 10/11 15면 2항</a>)</p>
+
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="18" id="p18"><strong>요셉은 여호와께서 간음을 “큰 악”으로 여기신다는 것을 어떻게 알았습니까?</strong> (<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025908/2/0">창세 39:9</a>; <a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025908/1/0">「파22.08」 26면 2항</a>)</p>
+
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="20" id="p20"><strong>여호와께서 요셉이 이집트의 총리가 되게 하신 이유는 무엇입니까?</strong> (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025908/2/0">「파96」 5/1 11면 4항</a>) <span class="du-color--orange-700"><strong>삽화 가</strong></span></p>
+
+<div class="south_center" id="f3">
+<figure>
+<img alt="이제 이집트의 총리가 된 요셉이 두 명의 이집트인 종에게 지시를 내립니다." class="south_center" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/188" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/189" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="51" id="p51"><span class="dc-screenReaderText"><strong>삽화</strong></span> <span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>가</strong></span></p>
+</figcaption>
+</figure>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="22" id="p22"><strong>무엇을 보면 요셉이 110세의 나이에도 믿음이 약해지지 않았다는 것을 알 수 있습니까?</strong> (<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025908/3/0">창세 50:25, 26</a>; <a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025908/3/0">「파07」 6/1 28면 10-11항</a>) <span class="du-color--orange-700"><strong>삽화 나</strong></span></p>
+
+<div class="south_center" id="f4">
+<figure>
+<img alt="이스라엘 남자들이 요셉의 유골을 약속의 땅에 묻기 위해 그의 유골이 들어 있는 관을 메고 갑니다." class="south_center" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/190" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/191" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="53" id="p53"><span class="dc-screenReaderText"><strong>삽화</strong></span> <span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>나</strong></span></p>
+</figcaption>
+</figure>
+</div>
+</li>
+</ol>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="24" id="p24"><span aria-hidden="true" class="pageNum" data-before-text="47" data-no="47" id="page47"></span><strong>교훈점 적용하기</strong></h2>
+<ul><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="25" id="p25">  동료 그리스도인에게 부당한 대우를 받을 때 어떻게 요셉을 본받을 수 있습니까? (<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025908/4/0">창세 45:4, 5;</a><a class="b" data-bid="5-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025908/4/1"> 50:19-21</a>)</p>
+
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="27" id="p27">  요셉은 집에서 멀리 떨어진 곳에 있을 때에도 여호와께 충성을 지켰습니다. 다음의 상황에서 어떻게 그를 본받을 수 있습니까?</p>
+<ul><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="28" id="p28">  학교에 있을 때 <span class="du-color--orange-700"><strong>삽화 다</strong></span></p>
+
+<div class="south_center" id="f5">
+<figure>
+<img alt="한 청소년 자매가 방과 후에 집으로 가고 있습니다. 학교 친구들이 옆에서 전자 담배를 피우며 자매를 바라봅니다. 하지만 자매는 단호하게 앞을 바라보며 걸어갑니다." class="south_center" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/192" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/193" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="55" id="p55"><span class="dc-screenReaderText"><strong>삽화</strong></span> <span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>다</strong></span></p>
+</figcaption>
+</figure>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="30" id="p30">  여행을 할 때 <span class="du-color--orange-700"><strong>삽화 라</strong></span></p>
+
+<div class="south_center" id="f6">
+<figure>
+<img alt="한 결혼한 젊은 형제가 출장을 가서 호텔에 체크인합니다. 증인이 아닌 한 매력적인 젊은 여성이 옆에서 체크인하며 형제를 바라봅니다." class="south_center" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/194" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/195" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="57" id="p57"><span class="dc-screenReaderText"><strong>삽화</strong></span> <span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>라</strong></span></p>
+</figcaption>
+</figure>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="32" id="p32">  스마트폰이나 다른 전자 기기를 사용할 때 <span class="du-color--orange-700"><strong>삽화 마</strong></span></p>
+
+<div class="south_center" id="f7">
+<figure>
+<img alt="한 청소년 형제가 침대에 엎드려 스마트폰 화면을 봅니다." class="south_center" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/196" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/197" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="59" id="p59"><span class="dc-screenReaderText"><strong>삽화</strong></span> <span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>마</strong></span></p>
+</figcaption>
+</figure>
+</div>
+</li>
+</ul>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="34" id="p34">  당신은 어떻게 생활에서 요셉을 본받아 용기를 나타낼 수 있습니까?</p>
+
+</li>
+</ul>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="36" id="p36"><strong>시야를 넓혀 생각해 보기</strong></h2>
+<ul><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="37" id="p37">  이 성경 기록을 통해 여호와에 대해 무엇을 배울 수 있을까?</p>
+
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="39" id="p39">  이 성경 기록은 여호와의 목적과 어떤 관련이 있을까?</p>
+
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="41" id="p41">  부활된 요셉을 만나면 무엇을 물어볼까?</p>
+
+</li>
+</ul>
+<div class="du-bgColor--warmGray-50 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--4 du-padding-bottom--8" id="tt91">
+<h2 class="du-color--orange-700 du-margin-top--0" data-pid="43" id="p43"><strong>더 찾아보기</strong></h2>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt93">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f8">
+<figure>
+<a href="https://wol.jw.org/wol/rslink/r8/lp-ko?lang=KO&amp;docid=2023242&amp;pub=w23&amp;issuesymbol=w23.01&amp;issuedate=202301&amp;issuenumber=1"><img alt="" class="suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/198" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/199" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt94">
+<p data-pid="44" id="p44">여호와께서는 요셉이 시련을 겪지 않도록 막아 주지는 않으셨지만 인내하도록 도와주셨습니다. 여호와께서는 우리도 도와주실 것입니다. 그분이 어떻게 그렇게 하시는지 살펴보십시오.</p>
+<p data-pid="45" id="p45"><a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025908/4/0"><strong>“여호와께서는 당신이 성공적인 삶을 살도록 도와주십니다”</strong> (「파23.01」 14-19면)</a></p>
+</div>
+</div>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt95">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f9">
+<figure>
+<a class="dc-iconOverlay--play" data-video="webpubvid://?pub=pk&amp;track=28" href="https://www.jw.org/finder?lank=pub-pk_28_VIDEO&amp;wtlocale=KO"><img alt="" class="suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/200" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/201" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt96">
+<p data-pid="46" id="p46">어린이들은 괴롭힘을 당할 때 어떻게 요셉을 본받을 수 있습니까?</p>
+<p data-pid="47" id="p47"><a data-video="webpubvid://?pub=pk&amp;track=28&amp;langwritten=KO" href="https://www.jw.org/finder?lank=pub-pk_28_VIDEO&amp;wtlocale=KO"><strong><em>불공정한 일을 당해도 참을성을 보이세요</em> (1:31)</strong></a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+</div>
+<h3 class="du-fontSize--base du-borderStyle-top--solid du-borderColor--borderDefault du-borderWidth--2 du-margin-top--12 du-padding-top--4 du-padding-top-desktopOnly--5" data-pid="42" id="p42"><strong>맺음말</strong> <span class="du-fontWeight--normal">(3분)</span> <strong>|</strong> <span class="dc-icon--music dc-icon-size--basePlus1 dc-icon-margin-inlineStart--2 dc-icon-margin-inlineEnd--8"><a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026253/12/0"><strong>노래 28</strong></a></span> <strong>및 기도</strong></h3><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[노래 28]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<p class="contextTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="42" data-no="42" id="page42"></span><strong>28번</strong></p>
+<h1 data-pid="2" id="p2"><strong>여호와의 벗이 되리</strong></h1>
+</header> 
+<p class="themeScrp" data-pid="3" id="p3">(<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016828/0/0">시편 15</a>)</p>
+<div class="bodyTxt">
+<ol><li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="4" id="p4">오, 우리 하느님, 주 집에 거하며</p>
+<p class="sz" data-pid="5" id="p5">주 신뢰받고 주 아는 벗, 그 누구입니까?</p>
+<p class="sp" data-pid="6" id="p6">말씀 받아들여 믿음 나타내고</p>
+<p class="sz" data-pid="7" id="p7">충성과 진리 사랑하는 사람들입니다.</p>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="8" id="p8">하느님 벗 되어 주 곁에 다가가</p>
+<p class="sz" data-pid="9" id="p9">즐거움, 기쁨 드리는 이, 그 누구입니까?</p>
+<p class="sp" data-pid="10" id="p10">주 이름 높이며 말씀 순종하고</p>
+<p class="sz" data-pid="11" id="p11">진실 말하고 마음 참된 사람들입니다.</p>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="12" id="p12">날마다 기도로 염려 내맡기고</p>
+<p class="sz" data-pid="13" id="p13">주 가까이서 주의 사랑 매일 느끼려고</p>
+<p class="sp" data-pid="14" id="p14">주의 벗이 되어 늘 머물렵니다.</p>
+<p class="sz" data-pid="15" id="p15">더 훌륭한 벗 또 없으니 벗 되어 주소서.</p>
+</li>
+</ol>
+</div>
+<div class="closingContent"><p class="se" data-pid="16" id="p16">(<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016828/1/0">시 139:1;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016828/1/1"> 베드로 전서 5:6, 7</a> 참조)</p>
+</div>
+<p class="sb" data-pid="17" id="p17"></p>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="{BibleBookName} {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value="{BibleBookName} {StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value="{BibleBookName} {BibleVerse}"/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="집교26 9월호 {StartingPageNumber}-{EndingPageNumber}면"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="집교26 9월호 {PageNumber}면"/>
+<input id="documentDescription" type="hidden" value="집교26 9월호"/>
+<input id="englishSym" type="hidden" value="mwb"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="audioPubSym" type="hidden" value="mwb"/>
+<input id="chapNo" type="hidden" value="-1"/>
+<input id="issue" type="hidden" value="202609"/>
+<input id="docId" type="hidden" value="202026253"/>
+<input id="documentInBible" type="hidden" value=""/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=KO&amp;docid=202026253&amp;srctype=wol&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="document"/>
+<input id="contentTitle" type="hidden" value="9월 14-20일"/>
+<input id="parentTitle" type="hidden" value="그리스도인 생활과 봉사—집회 교재—2026"/>
+<input id="contentThumbnail" type="hidden" value="/ko/wol/d/r8/lp-ko/202026253/thumbnail"/>
+</article>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Gather all alternate presentation elements and their images
+        const altPresElements = Array.from(document.querySelectorAll('.alternatePresentation'));
+        const altImages = altPresElements.map(el => {
+            const img = el.querySelector('img');
+            if (img) {
+                return {
+                    src: img.getAttribute('data-alt-src') || img.getAttribute('src'),
+                    title: el.querySelector('.title')?.textContent || "Image"
+                };
+            }
+            return null;
+        }).filter(Boolean);
+
+        // 2. Create Lightbox DOM structure dynamically
+        const lightbox = document.createElement('div');
+        lightbox.className = 'custom-lightbox';
+        lightbox.innerHTML = `
+            <button class="custom-lightbox-close">&times;</button>
+            <button class="custom-lightbox-nav custom-lightbox-prev">&#10094;</button>
+            <div class="custom-lightbox-content">
+                <img class="custom-lightbox-img" src="" alt="" />
+            </div>
+            <button class="custom-lightbox-nav custom-lightbox-next">&#10095;</button>
+            <div class="custom-lightbox-caption"></div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('.custom-lightbox-img');
+        const lightboxCaption = lightbox.querySelector('.custom-lightbox-caption');
+        const closeBtn = lightbox.querySelector('.custom-lightbox-close');
+        const prevBtn = lightbox.querySelector('.custom-lightbox-prev');
+        const nextBtn = lightbox.querySelector('.custom-lightbox-next');
+
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        const openLightbox = (group, index) => {
+            currentGroup = group;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const updateLightbox = () => {
+            const item = currentGroup[currentIndex];
+            if (item) {
+                lightboxImg.src = item.src;
+                if (item.title && item.title.trim() !== "" && item.title.trim() !== "Printed Edition") {
+                    lightboxCaption.textContent = item.title;
+                    lightboxCaption.style.display = 'block';
+                } else {
+                    lightboxCaption.textContent = "";
+                    lightboxCaption.style.display = 'none';
+                }
+                if (currentGroup.length > 1) {
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                } else {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                }
+            }
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImg.src = '';
+            lightboxCaption.textContent = '';
+        };
+
+        const navigate = (direction) => {
+            if (currentGroup.length <= 1) return;
+            currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+            updateLightbox();
+        };
+
+        // Event Listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('custom-lightbox-content')) {
+                closeLightbox();
+            }
+        });
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Attach click handlers to alternate presentations
+        altPresElements.forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(altImages, index);
+            });
+        });
+
+        // Attach click handlers to other zoomable figure images
+        document.querySelectorAll('article figure img:not(.suppressZoom)').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = img.getAttribute('data-alt-src') || img.getAttribute('src');
+                const title = img.getAttribute('alt') || "";
+                openLightbox([{ src, title }], 0);
+            });
+        });
+    });
+    </script>
+</body>
+</html>
