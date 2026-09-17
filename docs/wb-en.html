@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>September 21-27 — Watchtower ONLINE LIBRARY</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">📚️</text></svg>'>
+    <link rel="stylesheet" type="text/css" href="css/media-player.css">
+    <link rel="stylesheet" type="text/css" href="css/+0+61168f8ef805085f5a3c0118b14679f74c9e62a4.css">
+    <link rel="stylesheet" type="text/css" href="css/+1+f8319dd08c749624466cb777b7d528e1a42d7368.css">
+    <link rel="stylesheet" type="text/css" href="css/+2+894de4a6eba76bf97927253f95f582449947a96e.css">
+    <link rel="stylesheet" type="text/css" href="css/+3+d00a791fdbb951906e95f1428ae322e41ea9da95.css">
+    <style>
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @media screen and (min-width: 600px) {
+            .document, .bible {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 16px 50px 80px;
+            }
+            .document .dc-bleedToArticleEdge, .bible .dc-bleedToArticleEdge {
+                margin-left: -50px;
+                margin-right: -50px;
+            }
+            .document .dc-paddingToContentEdge, .bible .dc-paddingToContentEdge {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        #content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+        .inserted-reference {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+            font-size: 0.95em;
+        }
+        .inserted-reference-header {
+            margin: 0;
+            padding: 4px 16px;
+            background-color: #e2e6ea;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #495057;
+        }
+        .inserted-reference-header a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #1a73e8;
+        }
+        .inserted-reference-header a:hover {
+            text-decoration: underline;
+        }
+        .inserted-reference > *:not(.inserted-reference-header) {
+            margin: 12px 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-style: italic;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        /* Custom Lightbox Styles */
+        .custom-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            /* user-select: none; */
+            /* -webkit-user-select: none; */
+        }
+        .custom-lightbox.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .custom-lightbox-content {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 35px;
+            color: #fff;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10002;
+            transition: transform 0.2s ease;
+        }
+        .custom-lightbox-close:hover {
+            transform: scale(1.1);
+        }
+        .custom-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 20px;
+        }
+        .custom-lightbox-nav:hover {
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .custom-lightbox-prev {
+            left: 0px;
+        }
+        .custom-lightbox-next {
+            right: 0px;
+        }
+        .custom-lightbox-caption {
+            color: #ccc;
+            margin-top: 15px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 80%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body, #content {
+                background-color: #171c2a !important;
+                color: #e2e8f0;
+            }
+            .document, .bible, .article, #article {
+                background-color: #1e293b !important;
+                color: #e2e8f0;
+            }
+            .scalableui, .bodyTxt {
+                background-color: transparent !important;
+                color: #e2e8f0;
+            }
+            .du-bgColor--bgSecondary, .du-bgColor--warmGray-50,
+            [class*="du-bgColor--bgSecondary"], [class*="du-bgColor--warmGray-"],
+            #tt9, .document #tt9, body #tt9,
+            .document [class*="du-bgColor--bgSecondary"], body [class*="du-bgColor--bgSecondary"],
+            .document [class*="du-bgColor--warmGray-"], body [class*="du-bgColor--warmGray-"] {
+                background-color: #2d3a4f !important;
+                color: #e2e8f0 !important;
+            }
+            .du-borderColor--borderDefault, hr {
+                border-color: #3b4d66 !important;
+            }
+            .du-color--teal-700 {
+                color: #2dd4bf !important;
+            }
+            h1, h2, h3, h4, h5, h6, strong {
+                color: #f8fafc;
+            }
+            a, a.b, a.vl, a.fn, a:visited {
+                color: #60a5fa;
+            }
+            a:hover, a.b:hover, a.vl:hover, a.fn:hover {
+                color: #93c5fd;
+            }
+            .du-color--textSubdued, .pageNum, .themeScrp {
+                color: #94a3b8 !important;
+            }
+            .inserted-reference {
+                background-color: #263346;
+                border: 1px solid #3b4d66;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .inserted-reference-header {
+                background-color: #1e2b3c;
+                border-bottom: 1px solid #3b4d66;
+                color: #cbd5e1;
+            }
+            .inserted-reference-header a {
+                color: #60a5fa;
+            }
+            .inserted-reference-header a:hover {
+                color: #93c5fd;
+            }
+            .note-card-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .note-card-header {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #cbd5e1 !important;
+            }
+            .note-card-header a {
+                color: #60a5fa !important;
+            }
+            .note-card-body {
+                color: #e2e8f0 !important;
+            }
+            .box-supplement-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+            }
+            .box-supplement-table th {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #f8fafc !important;
+            }
+            .box-supplement-table th h1, .box-supplement-table th h2,
+            .box-supplement-table th h3, .box-supplement-table th h4,
+            .box-supplement-table th strong, .box-supplement-table th p {
+                color: #f8fafc !important;
+            }
+            .box-supplement-table td {
+                color: #e2e8f0 !important;
+            }
+            .image-caption {
+                color: #94a3b8;
+            }
+            .custom-lightbox-img {
+                background-color: #1e293b;
+            }
+            .custom-lightbox-caption {
+                color: #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body  class="showRuby cc-theme--light DynamicLayout">
+    <div id="content" class="content">
+        <article class="article document html5 pub-mwb docId-202026254 pub-mwb26 pub-mwb pub-mwb26 docClass-106 jwac showRuby ml-E ms-ROMAN dir-ltr includeSecondaryNav" data-lang="E" dir="ltr" id="article" lang="en" role="article">
+<div class="scalableui">
+<header>
+<h1 class="du-fontSize--basePlus2 du-color--textSubdued" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="6" data-no="6" id="page6"></span>SEPTEMBER 21-27</h1>
+<h2 class="du-fontSize--base du-margin-top--2 du-margin-top-desktopOnly--4" data-pid="2" id="p2"><a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/202026254/0/0"><strong>JEREMIAH 36-37</strong></a></h2>
+</header>
+<div class="bodyTxt">
+<h3 class="dc-icon--music dc-icon-size--basePlus1 dc-icon-margin-horizontal--8 du-fontSize--base du-borderStyle-top--solid du-borderColor--borderDefault du-borderWidth--2 du-padding-top--4 du-padding-top-desktopOnly--5" data-pid="3" id="p3"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026254/0/0"><strong>Song 74</strong></a> <strong>and Prayer | Opening Comments</strong> <span class="du-fontWeight--normal">(1 min.)</span></h3><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Song 74]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<p class="contextTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="96" data-no="96" id="page96"></span><strong>SONG 74</strong></p>
+<h1 data-pid="2" id="p2"><strong>Join in the Kingdom Song!</strong></h1>
+</header> 
+<p class="themeScrp" data-pid="3" id="p3">(<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016874/0/0">Psalm 98:1</a>)</p>
+<div class="bodyTxt">
+<ol><li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="4" id="p4">This is a song, a happy song of vict’ry;</p>
+<p class="sz" data-pid="5" id="p5">It magnifies the One who is supreme.</p>
+<p class="sp" data-pid="6" id="p6">The words give hope and prompt all to be loyal.</p>
+<p class="sz" data-pid="7" id="p7">Come sing with us; enjoy its Kingdom theme:</p>
+<div class="chorus"><p class="se" data-pid="8" id="p8">(CHORUS)</p>
+<p class="sp" data-pid="9" id="p9">‘Come worship God Before his throne.</p>
+<p class="sz" data-pid="10" id="p10" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">His Son is King; Let’s make it known!</p>
+<p class="sp" data-pid="11" id="p11">Come learn this song, this song about the Kingdom;</p>
+<p class="sz" data-pid="12" id="p12" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">Bow down to God, and praise his holy name.’</p>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="13" id="p13">With this new song, we advertise the Kingdom.</p>
+<p class="sz" data-pid="14" id="p14">Christ Jesus rules; the earth is his domain.</p>
+<p class="sp" data-pid="15" id="p15">And as foretold, there is a newborn nation:</p>
+<p class="sz" data-pid="16" id="p16">The Kingdom heirs, who welcome Jesus’ reign:</p>
+<div class="chorus"><p class="se" data-pid="17" id="p17">(CHORUS)</p>
+<p class="sp" data-pid="18" id="p18">‘Come worship God Before his throne.</p>
+<p class="sz" data-pid="19" id="p19" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">His Son is King; Let’s make it known!</p>
+<p class="sp" data-pid="20" id="p20">Come learn this song, this song about the Kingdom;</p>
+<p class="sz" data-pid="21" id="p21" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">Bow down to God, and praise his holy name.’</p>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="22" id="p22">This Kingdom song, all humble ones can master.</p>
+<p class="sz" data-pid="23" id="p23">The words are clear, their message warm and bright.</p>
+<p class="sp" data-pid="24" id="p24">In all the earth, a multitude have learned it,</p>
+<p class="sz" data-pid="25" id="p25">And they in turn still others now invite:</p>
+<div class="chorus"><p class="se" data-pid="26" id="p26">(CHORUS)</p>
+<p class="sp" data-pid="27" id="p27">‘Come worship God Before his throne.</p>
+<p class="sz" data-pid="28" id="p28" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">His Son is King; Let’s make it known!</p>
+<p class="sp" data-pid="29" id="p29">Come learn this song, this song about the Kingdom;</p>
+<p class="sz" data-pid="30" id="p30" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">Bow down to God, and praise his holy name.’</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="closingContent"><p class="se" data-pid="31" id="p31">(See also <a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016874/1/0">Ps. 95:6;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016874/1/1"> 1 Pet. 2:9, 10;</a><a class="b" data-bid="2-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016874/1/2"> Rev. 12:10</a>.)</p>
+</div>
+<p class="sb" data-pid="32" id="p32"></p>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+<div class="du-fontSize--basePlus2 dc-icon--gem dc-icon-layout--top dc-icon-bgColor--teal-600 dc-icon-color--white dc-icon-margin-inlineEnd--8 dc-icon-padding--5 dc-icon-size--baseMinus1 du-margin-top--8 du-margin-bottom--2" id="tt7">
+<h2 class="du-fontSize--base du-color--teal-700 du-margin-vertical--0" data-pid="4" id="p4"><strong>TREASURES FROM GOD’S WORD</strong></h2>
+</div>
+<div class="dc-bleedToArticleEdge dc-paddingToContentEdge du-bgColor--bgSecondary du-margin-top--8 du-padding-top--8 du-padding-bottom--4" id="tt9">
+<h3 class="du-fontSize--base du-color--teal-700 du-margin-vertical--0" data-pid="5" id="p5"><strong>1. Jehovah Supports Those Who Support His Kingdom</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6" id="tt11">
+<div class="du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt12">
+<p data-pid="6" id="p6">(10 min.)</p>
+</div>
+<p data-pid="7" id="p7">Jeremiah proclaimed an unpopular message during a time of political controversy in Judah (<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/202026254/1/0">Jer 37:6-10</a>; <a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026254/1/0"><em>jr</em> 27 ¶22</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Jer 37:6-10]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-37-6-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19996">6 </a>Then the word of Jehovah came to Jeremiah the prophet, saying: </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-37-7-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19997">7 </a>“This is what Jehovah the God of Israel says, ‘This is what you should say to the king of Judah, who sent you to me to inquire of me: “Look! The army of Pharʹaoh that is coming to assist you will have to go back to its land, Egypt.<a class="b" data-bid="1174-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1173">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-37-8-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19998">8 </a>And the Chal·deʹans will come back and fight against this city and capture it and burn it with fire.”<a class="b" data-bid="1175-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1174">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-37-9-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19999">9 </a>This is what Jehovah says, “Do not deceive yourselves<a class="fn" data-fnid="327" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/326" id="footnotesource327">*</a><em> (Footnote: Or “your souls.”)</em> by saying, ‘The Chal·deʹans will surely go away from against us,’ because they will not go away. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-37-10-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20000">10 </a>Even if you were to strike down the entire army of the Chal·deʹans who are fighting against you and only their wounded men were left, they would still rise up from their tents and burn this city with fire.”’”<a class="b" data-bid="1176-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1175">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[jr 27 ¶22]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="22"><sup>22</sup></span> Judah was now split into opposing factions​—those who favored submission to Babylon and those who urged rebellion. In 609 B.C.E., Zedekiah did rebel by seeking military assistance from Egypt. Jeremiah then had to contend with the nationalistic hysteria of those <span aria-hidden="true" class="pageNum" data-before-text="28" data-no="28" id="page28"></span>supporting the rebellion. (<a class="b" data-bid="34-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102010141/33/0">Jer. 52:3;</a><a class="b" data-bid="34-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102010141/33/1"> Ezek. 17:15</a>) Nebuchadnezzar and his armies returned to Judah to quell the revolt, conquering all the cities of Judah and again besieging Jerusalem. Jeremiah’s message to Zedekiah and his subjects at this critical time was that Jerusalem would fall to the Babylonians. Death awaited those who remained in the city. Those who went out to the Chaldeans would survive.​—<em>Read</em> <a class="b" data-bid="35-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102010141/34/0"><em>Jeremiah 21:8-10;</em></a><a class="b" data-bid="35-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102010141/34/1"> <em>52:4</em></a><em>.</em></td></tr></tbody></table></div>
+<p data-pid="8" id="p8">He was persecuted because his position was misunderstood (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/202026254/2/0">Jer 37:13-15</a>; <a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026254/2/0"><em>jr</em> 28 ¶23</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Jer 37:13-15]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-37-13-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20003">13 </a>But when he reached the Gate of Benjamin, the officer in charge of the guard, whose name was I·riʹjah the son of Shel·e·miʹah the son of Han·a·niʹah, seized Jeremiah the prophet and said: “You are deserting to the Chal·deʹans!” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-37-14-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20004">14 </a>But Jeremiah said: “It is not true! I am not deserting to the Chal·deʹans.” But he did not listen to him. So I·riʹjah arrested Jeremiah and brought him in to the princes. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-37-15-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20005">15 </a>The princes were furious with Jeremiah,<a class="b" data-bid="1179-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1178">+</a> and they beat him and imprisoned him<a class="fn pr" data-fnid="328" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/327" id="footnotesource328">*</a><em> (Footnote: Lit., “put him into the house of the fetters.”)</em><a class="b" data-bid="1180-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1179">+</a> in the house of Je·honʹa·than the secretary, which had been made into a prison. </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[jr 28 ¶23]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="23"><sup>23</sup></span> The princes of Judah claimed that Jeremiah was throwing in his lot with the Babylonians. When he stated the truth, the Judean princes struck him and put him in the house of detention. (<a class="b" data-bid="36-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102010141/35/0">Jer. 37:13-15</a>) Jeremiah would still not soften Jehovah’s message. Therefore, the princes persuaded Zedekiah to put Jeremiah to death. They put the prophet into an empty water cistern where he could have perished in the deep mire. But Ebed-melech, an Ethiopian serving in the king’s house, rescued Jeremiah. (<a class="b" data-bid="37-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102010141/36/0">Jer. 38:4-13</a>) How often Jehovah’s people in modern times have faced perils because of their conscientious refusal to get involved in political controversies! Clearly, Jeremiah’s experience can fortify you to face trials and overcome them.</td></tr></tbody></table></div>
+<p data-pid="9" id="p9">Jehovah supported Jeremiah while he was imprisoned (<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/202026254/3/0">Jer 37:21</a>; <a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026254/3/0"><em>w08</em> 10/15 11 ¶18</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Jer 37:21]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v24-37-21-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20011">21 </a>So King Zed·e·kiʹah ordered that Jeremiah be put in custody in the Courtyard of the Guard,<a class="b" data-bid="1186-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1185">+</a> and he was given a round loaf of bread daily from the street of the bakers<a class="b" data-bid="1187-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1186">+</a> until all the bread in the city was gone.<a class="b" data-bid="1188-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1187">+</a> And Jeremiah remained in the Courtyard of the Guard.</span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[w08 10/15 11 ¶18]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="18"><sup>18</sup></span> During the latter part of the Babylonian siege of Jerusalem, Jeremiah was imprisoned in the Courtyard of the Guard. How would he obtain food? Had he been free, he could have searched for it. Instead, he was totally dependent on those around him, most of whom hated him! Still, Jeremiah trusted not in men but in God, who promised to care for him. Did Jehovah live up to his word? Absolutely! He saw to it that Jeremiah daily received “a round loaf of bread . . . until all the bread was exhausted from the city.” (<a class="b" data-bid="38-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2008761/37/0">Jer. 37:21</a>) Jeremiah, as well as Baruch, Ebed-melech, and others, survived that time of famine, disease, and death.​—<a class="b" data-bid="39-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2008761/38/0">Jer. 38:2;</a><a class="b" data-bid="39-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2008761/38/1"> 39:15-18</a>.</td></tr></tbody></table></div>
+<hr class="du-width--oneSixth du-borderWidth--1 du-borderColor--borderDefault"/>
+<p data-pid="10" id="p10"><span class="du-color--teal-700"><strong>ASK YOURSELF,</strong></span> ‘How can the examples of Jeremiah and others motivate me to support God’s Kingdom during times of political unrest?’</p>
+</div>
+<div class="du-margin-top--8" id="f1">
+<figure>
+<img alt="A collage of Jehovah’s Witnesses from around the world who suffered persecution because of their Christian neutrality." data-img-small-src="/en/wol/mp/r1/lp-e/mwb26/2026/341" src="https://wol.jw.org/en/wol/mp/r1/lp-e/mwb26/2026/342" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption">
+<p data-pid="53" id="p53">Modern-day examples show that Jehovah continues to care for those who are persecuted because of their Christian neutrality</p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">A collage of Jehovah’s Witnesses from around the world who suffered persecution because of their Christian neutrality.</td></tr></tbody></table></div></figure>
+</div>
+</div>
+<h3 class="du-fontSize--base du-color--teal-700 du-margin-top--8 du-margin-bottom--0" data-pid="11" id="p11"><strong>2. Spiritual Gems</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6" id="tt15">
+<div class="du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt16">
+<p data-pid="12" id="p12">(10 min.)</p>
+</div>
+<ul class="du-listStyleType--none du-padding-inlineStart--0"><li><p data-pid="13" id="p13"><a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/202026254/4/0">Jer 36:30</a>​—How did the prophecy that Jehoiakim would have no successor come true? (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026254/4/0"><em>it</em> “Jehoiakim” ¶9</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Jer 36:30]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v24-36-30-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19988">30 </a>Therefore this is what Jehovah says against King Je·hoiʹa·kim of Judah, ‘He will have no one to sit on the throne of David,<a class="b" data-bid="1160-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1159">+</a> and his dead body will be left exposed to the heat by day and the frost by night.<a class="b" data-bid="1161-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1160">+</a> </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[it “Jehoiakim” ¶9]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="9"></span>After Jehoiakim’s son Jehoiachin surrendered, Nebuchadnezzar elevated Jehoiachin’s uncle Zedekiah to the throne of Judah. (<a class="b" data-bid="18-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200002377/17/0">2Ch 36:9, 10</a>) This fulfilled Jeremiah’s prophecy that Jehoiakim would have no one sitting on the throne of David. (<a class="b" data-bid="19-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200002377/18/0">Jer 36:30</a>) Jehoiakim’s son Jehoiachin ruled a mere three months and ten days.</td></tr></tbody></table></div>
+
+</li>
+<li class="du-margin-top--8"><p data-pid="15" id="p15">What spiritual gems from this week’s Bible reading would you like to share?</p>
+
+</li>
+</ul>
+</div>
+<h3 class="du-fontSize--base du-color--teal-700 du-margin-top--8 du-margin-bottom--0" data-pid="17" id="p17"><strong>3. Bible Reading</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6 du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt29">
+<p data-pid="18" id="p18">(4 min.) <a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/202026254/5/0">Jer 36:1-13</a> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026254/5/0"><em>th</em> study 10</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Jer 36:1-13]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-36-1-1"><a class="cl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19959"><strong>36</strong> </a>Now in the fourth year of Je·hoiʹa·kim<a class="b" data-bid="1135-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1134">+</a> son of Jo·siʹah, the king of Judah, this word came to Jeremiah from Jehovah, saying: </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-36-2-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19960">2 </a>“Take a scroll<a class="fn" data-fnid="311" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/310" id="footnotesource311">*</a><em> (Footnote: Lit., “a scroll of a book.”)</em> and write in it all the words that I have spoken to you against Israel and Judah<a class="b" data-bid="1136-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1135">+</a> and all the nations,<a class="b" data-bid="1137-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1136">+</a> from the first day I spoke to you in the days of Jo·siʹah to this day.<a class="b" data-bid="1138-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1137">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-36-3-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19961">3 </a>Perhaps when those of the house of Judah hear of all the calamity that I intend to bring on them, they may turn back from their evil ways, so that I may forgive their error and their sin.”<a class="b" data-bid="1139-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1138">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-36-4-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19962">4 </a>Jeremiah then called Barʹuch<a class="b" data-bid="1140-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1139">+</a> the son of Ne·riʹah, and Jeremiah dictated all the words that Jehovah had spoken to him, and Barʹuch wrote them in the scroll.<a class="fn pr" data-fnid="312" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/311" id="footnotesource312">*</a><em> (Footnote: Lit., “the scroll of the book.”)</em><a class="b" data-bid="1141-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1140">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-36-5-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19963">5 </a>Then Jeremiah commanded Barʹuch: “I am confined and unable to enter the house of Jehovah. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-36-6-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19964">6 </a>So you are the one who must go in and read aloud the words of Jehovah from the scroll that you wrote at my dictation. Read them in the hearing of the people at the house of Jehovah on the day of a fast; thus you will read them to all the people of Judah who come in from their cities. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-36-7-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19965">7 </a>Perhaps their request for favor will reach Jehovah, and they will turn back, each one from his evil ways, for great is the anger and the wrath that Jehovah has declared against this people.”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-36-8-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19966">8 </a>So Barʹuch the son of Ne·riʹah did all that Jeremiah the prophet had commanded him; he read aloud from the scroll<a class="fn" data-fnid="313" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/312" id="footnotesource313">*</a><em> (Footnote: Or “book.”)</em> the words of Jehovah at the house of Jehovah.<a class="b" data-bid="1142-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1141">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-36-9-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19967">9 </a>Now in the fifth year of Je·hoiʹa·kim<a class="b" data-bid="1143-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1142">+</a> son of Jo·siʹah, the king of Judah, in the ninth month, all the people in Jerusalem and all the people who came into Jerusalem from the cities of Judah proclaimed a fast before Jehovah.<a class="b" data-bid="1144-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1143">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-36-10-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19968">10 </a>Barʹuch then read aloud from the scroll<a class="fn" data-fnid="314" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/313" id="footnotesource314">*</a><em> (Footnote: Or “book.”)</em> the words of Jeremiah at the house of Jehovah, in the chamber<a class="fn" data-fnid="315" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/314" id="footnotesource315">*</a><em> (Footnote: Or “dining room.”)</em> of Gem·a·riʹah<a class="b" data-bid="1145-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1144">+</a> the son of Shaʹphan<a class="b" data-bid="1146-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1145">+</a> the copyist,<a class="fn" data-fnid="316" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/315" id="footnotesource316">*</a><em> (Footnote: Or “scribe.”)</em> in the upper courtyard, at the entrance of the new gate of the house of Jehovah,<a class="b" data-bid="1147-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1146">+</a> in the hearing of all the people.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-36-11-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19969">11 </a>When Mi·caiʹah the son of Gem·a·riʹah the son of Shaʹphan heard all the words of Jehovah from the scroll,<a class="fn" data-fnid="317" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/316" id="footnotesource317">*</a><em> (Footnote: Or “book.”)</em> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-36-12-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19970">12 </a>he went down to the house<a class="fn" data-fnid="318" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/317" id="footnotesource318">*</a><em> (Footnote: Or “palace.”)</em> of the king, to the secretary’s chamber. All the princes<a class="fn" data-fnid="319" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/318" id="footnotesource319">*</a><em> (Footnote: Or “court officials.”)</em> were sitting there: E·lishʹa·ma<a class="b" data-bid="1148-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1147">+</a> the secretary, De·laʹiah the son of She·maiʹah, El·naʹthan<a class="b" data-bid="1149-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1148">+</a> the son of Achʹbor,<a class="b" data-bid="1150-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1149">+</a> Gem·a·riʹah the son of Shaʹphan, Zed·e·kiʹah the son of Han·a·niʹah, and all the other princes. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v24-36-13-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/19971">13 </a>Mi·caiʹah told them all the words that he had heard when Barʹuch read from the scroll<a class="fn" data-fnid="320" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/319" id="footnotesource320">*</a><em> (Footnote: Or “book.”)</em> in the hearing of the people.</span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[th study 10]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<p class="contextTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="13" data-no="13" id="page13"></span><strong>STUDY 10</strong></p>
+<h1 data-pid="2" id="p2"><strong>Modulation</strong></h1>
+</header>
+<div class="bodyTxt">
+<div class="west_left eighth suppressZoom" id="f1">
+<figure>
+<img alt="Cited scripture" class="west_left eighth suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/th/2018/81" height="104" src="https://wol.jw.org/en/wol/mp/r1/lp-e/th/2018/82" width="150"/>
+</figure>
+</div>
+<h2 data-pid="3" id="p3"><a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102018450/0/0"><strong>Proverbs 8:4,</strong></a><a class="b" data-bid="1-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102018450/0/1"> <strong>7</strong></a></h2>
+<div class="grpItems du-clearfix"><p data-pid="4" id="p4"><strong>SUMMARY:</strong> Convey ideas clearly and stir emotion by varying your volume, pitch, and pace.</p>
+<table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Embedded Video]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026254/5/0" style="display: block;" target="_blank"><img src="https://wol.jw.org/en/wol/mp/r1/lp-e/th/2018/87" style="display: block; margin: 0 auto; max-width: min(100%, 700px); height: auto;"/></a></td></tr></tbody></table>
+<h2 data-pid="5" id="p5"><strong>HOW TO DO IT:</strong></h2>
+</div><ul><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="6" id="p6"> <strong>Vary your volume.</strong> Increase your volume to highlight main points and to motivate your listeners. Do the same when reading Scriptural judgments. Decrease your volume to build anticipation or to convey fear or anxiety.</p>
+<table class="box-supplement-table" style="width: 100%; border-collapse: separate; border-spacing: 0; margin: 16px 0; background-color: #f1f3f5; border-top: 1px solid #a7a7a7; border-left: 1px solid #a7a7a7; border-right: 1px solid #a7a7a7; border-bottom: 1px solid #a7a7a7; border-radius: 0px;"><tbody><tr><td style="padding: 15px 33px 30px; font-size: 1.2em; line-height: 1.5; color: #212529; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px;"><div class="grpItems imgWestEighth"><div class="west_left eighth suppressZoom" id="f2">
+<figure>
+<img alt="Practical tip" class="west_left eighth suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/th/2018/83" height="104" src="https://wol.jw.org/en/wol/mp/r1/lp-e/th/2018/84" width="150"/>
+</figure>
+</div>
+<p data-pid="7" id="p7">Do not increase your volume so often that your listeners feel scolded. Avoid drawing attention to yourself by being overly dramatic.</p>
+</div></td></tr></tbody></table>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="8" id="p8"> <strong>Vary your pitch.</strong> If appropriate in your language, raise your pitch to express enthusiasm or to indicate size or distance. Lower your pitch to express sorrow or anxiety.</p>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="9" id="p9"> <strong>Vary your pace.</strong> Speak more rapidly to convey excitement. Speak more slowly when stating important points.</p>
+<table class="box-supplement-table" style="width: 100%; border-collapse: separate; border-spacing: 0; margin: 16px 0; background-color: #f1f3f5; border-top: 1px solid #a7a7a7; border-left: 1px solid #a7a7a7; border-right: 1px solid #a7a7a7; border-bottom: 1px solid #a7a7a7; border-radius: 0px;"><tbody><tr><td style="padding: 15px 33px 30px; font-size: 1.2em; line-height: 1.5; color: #212529; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px;"><div class="grpItems imgWestEighth"><div class="west_left eighth suppressZoom" id="f3">
+<figure>
+<img alt="Practical tip" class="west_left eighth suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/th/2018/85" height="104" src="https://wol.jw.org/en/wol/mp/r1/lp-e/th/2018/86" width="150"/>
+</figure>
+</div>
+<p data-pid="10" id="p10">To avoid startling your listeners, do not change pace abruptly. Do not speak so rapidly that your diction suffers.</p>
+</div></td></tr></tbody></table>
+</li>
+</ul>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+</div>
+<div class="dc-icon--wheat dc-icon-layout--top dc-icon-bgColor--gold-600 dc-icon-color--white dc-icon-margin-inlineEnd--8 dc-icon-padding--5 dc-icon-size--baseMinus1 du-fontSize--basePlus2 du-borderStyle-bottom--solid du-borderColor--borderDefault du-borderWidth--1 du-margin-top--12 du-margin-bottom--2 du-padding-bottom--2" id="tt30">
+<h2 class="du-fontSize--base du-color--gold-700 du-margin-vertical--0" data-pid="19" id="p19"><strong>APPLY YOURSELF TO THE FIELD MINISTRY</strong></h2>
+</div>
+<h3 class="du-fontSize--base du-color--gold-700 du-margin-top--8 du-margin-bottom--0" data-pid="20" id="p20"><strong>4. Starting a Conversation</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6 du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt33">
+<p data-pid="21" id="p21">(3 min.) PUBLIC WITNESSING. Offer a Bible study to a person of a non-Christian background. (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026254/6/0"><em>lmd</em> lesson 5 point 5</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[lmd lesson 5 point 5]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">5. <strong>Agree with and commend the person where possible.</strong> He may sincerely believe that his religious beliefs are correct. Build common ground first, and then progressively help him understand what the Bible teaches.</td></tr></tbody></table></div>
+</div>
+<h3 class="du-fontSize--base du-color--gold-700 du-margin-top--8 du-margin-bottom--0" data-pid="22" id="p22"><strong>5. Following Up</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6 du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt35">
+<p data-pid="23" id="p23">(4 min.) HOUSE TO HOUSE. Offer a Bible study to a person who accepted a tract on your last visit. (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026254/7/0"><em>lmd</em> lesson 9 point 4</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[lmd lesson 9 point 4]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div data-pid="14" id="p14" style="margin-top: 0; margin-bottom: 8px">4. <strong>Think about the interested person.</strong> Based on your conversations with him, ask yourself:</div><ol class="du-listStyleType--lowerAlpha du-padding-inlineStart--10 du-padding-inlineStart-desktopOnly--12"><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="15" id="p15">               ‘Why does he need to hear the truth?’</p>
+</li><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="16" id="p16">               ‘How would studying the Bible make his daily life and his future better?’</p>
+</li></ol></td></tr></tbody></table></div>
+</div>
+<h3 class="du-fontSize--base du-color--gold-700 du-margin-top--8 du-margin-bottom--0" data-pid="24" id="p24"><strong>6. What Would You Say?</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6" id="tt37">
+<div class="du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt38">
+<p data-pid="25" id="p25">(6 min.) Discussion. HOUSE TO HOUSE. Briefly review <a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026254/8/0"><em>lmd</em> lesson 2 point 5</a>. Then ask the audience:</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[lmd lesson 2 point 5]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">5. <strong>Be adaptable.</strong> A conversation may go in an unexpected direction. So be willing to share something that is <em>relevant to the person,</em> even if that means discussing a different Bible truth than the one you had in mind.</td></tr></tbody></table></div>
+</div>
+<ul class="du-listStyleType--none du-padding-inlineStart--0"><li><p data-pid="26" id="p26">A householder says that he is concerned about the rising cost of living. What would you say to acknowledge his worry?</p>
+
+</li>
+<li class="du-margin-top--8"><p data-pid="28" id="p28">What Bible truth might you share?</p>
+
+</li>
+</ul>
+</div>
+<div class="dc-icon--sheep dc-icon-layout--top dc-icon-bgColor--red-600 dc-icon-color--white dc-icon-margin-inlineEnd--8 dc-icon-padding--5 dc-icon-size--baseMinus1 du-fontSize--basePlus2 du-borderStyle-bottom--solid du-borderColor--borderDefault du-borderWidth--1 du-margin-top--12 du-margin-bottom--2 du-padding-bottom--2" id="tt50">
+<h2 class="du-fontSize--base du-color--maroon-600 du-margin-vertical--0" data-pid="30" id="p30"><span aria-hidden="true" class="pageNum" data-before-text="7" data-no="7" id="page7"></span><strong>LIVING AS CHRISTIANS</strong></h2>
+</div>
+<h3 class="dc-icon--music dc-icon-size--basePlus1 dc-icon-margin-horizontal--8 du-fontSize--base" data-pid="31" id="p31"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026254/9/0"><strong>Song 142</strong></a></h3><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Song 142]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<p class="contextTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="174" data-no="174" id="page174"></span><strong>SONG 142</strong></p>
+<h1 data-pid="2" id="p2"><strong>Holding Fast to Our Hope</strong></h1>
+</header> 
+<p class="themeScrp" data-pid="3" id="p3">(<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016942/0/0">Hebrews 6:18, 19</a>)</p>
+<div class="bodyTxt">
+<ol><li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="4" id="p4">Mankind has stumbled for centuries in darkness.</p>
+<p class="sz" data-pid="5" id="p5">Vain is their quest as they try to catch the wind.</p>
+<p class="sp" data-pid="6" id="p6">Man’s tragic flaw is revealed in its starkness;</p>
+<p class="sz" data-pid="7" id="p7">None can they save, for they all have sinned.</p>
+<div class="chorus"><p class="se" data-pid="8" id="p8">(CHORUS)</p>
+<p class="sp" data-pid="9" id="p9">Sing with good cheer, for God’s Kingdom is here!</p>
+<p class="sz" data-pid="10" id="p10" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">His Son’s mighty reign brings us freedom from fear.</p>
+<p class="sp" data-pid="11" id="p11">Through him, at last, evil soon will be past;</p>
+<p class="sz" data-pid="12" id="p12" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">This hope, like an anchor, is holding us fast.</p>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="13" id="p13">“God’s day is near!” rings the Kingdom proclamation;</p>
+<p class="sz" data-pid="14" id="p14">Men will no longer cry out to God: “How long?”</p>
+<p class="sp" data-pid="15" id="p15">Soon he will free all his groaning creation.</p>
+<p class="sz" data-pid="16" id="p16">Praise God Almighty, and join our song.</p>
+<div class="chorus"><p class="se" data-pid="17" id="p17">(CHORUS)</p>
+<p class="sp" data-pid="18" id="p18">Sing with good cheer, for God’s Kingdom is here!</p>
+<p class="sz" data-pid="19" id="p19" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">His Son’s mighty reign brings us freedom from fear.</p>
+<p class="sp" data-pid="20" id="p20">Through him, at last, evil soon will be past;</p>
+<p class="sz" data-pid="21" id="p21" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">This hope, like an anchor, is holding us fast.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="closingContent"><p class="se" data-pid="22" id="p22">(See also <a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016942/1/0">Ps. 27:14;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016942/1/1"> Eccl. 1:14;</a><a class="b" data-bid="2-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016942/1/2"> Joel 2:1;</a><a class="b" data-bid="2-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016942/1/3"> Hab. 1:2, 3;</a><a class="b" data-bid="2-5" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016942/1/4"> Rom. 8:22</a>.)</p>
+</div>
+<p class="sb" data-pid="23" id="p23"></p>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+<h3 class="du-fontSize--base du-color--maroon-600 du-margin-top--8 du-margin-bottom--0" data-pid="32" id="p32"><strong>7. Remaining Neutral in Our Hearts</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6 du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt55">
+<p data-pid="33" id="p33">(15 min.) Discussion.</p>
+</div>
+<div class="north_center" id="f2">
+<figure>
+<img alt="A brother being pressured by two men to support a politician. One of the men points to a TV that displays two candidates and election poll percentages." class="north_center" data-img-small-src="/en/wol/mp/r1/lp-e/mwb26/2026/343" src="https://wol.jw.org/en/wol/mp/r1/lp-e/mwb26/2026/344" style="max-width: min(100%, 700px); height: auto;"/>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">A brother being pressured by two men to support a politician. One of the men points to a TV that displays two candidates and election poll percentages.</td></tr></tbody></table></div></figure>
+</div>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6" id="tt56">
+<p data-pid="34" id="p34">As the world becomes increasingly divided, we expect to face growing tests of our neutrality. To ensure that our actions remain neutral, we must make sure that our hearts remain neutral.​—<a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/202026254/6/0">Pr 4:23</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Pr 4:23]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v20-4-23-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070124/16629">23 </a>Above all the things that you guard, safeguard your heart,<a class="b" data-bid="129-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070124/128">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v20-4-23-2">For out of it are the sources of life.</span></div></td></tr></tbody></table></div>
+<ul><li><p data-pid="35" id="p35">  What tests of neutrality might you face where you live?</p>
+
+</li>
+<li class="du-margin-top--8"><p data-pid="37" id="p37">  Why, at times, may it be difficult not to take sides?</p>
+
+</li>
+</ul>
+<p data-pid="39" id="p39"><span class="du-color--maroon-600"><strong>Read</strong></span> <a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/202026254/7/0"><strong>Luke 4:5, 6</strong></a><strong>.</strong> Then ask the audience:</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Luke 4:5, 6]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v42-4-5-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070146/25172">5 </a>So he brought him up and showed him all the kingdoms of the inhabited earth in an instant of time.<a class="b" data-bid="173-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070146/172">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v42-4-6-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070146/25173">6 </a>Then the Devil said to him: “I will give you all this authority and their glory, because it has been handed over to me,<a class="b" data-bid="174-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070146/173">+</a> and I give it to whomever I wish.<a class="b" data-bid="175-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070146/174">+</a> </span></div></td></tr></tbody></table></div>
+<ul><li><p data-pid="40" id="p40">  How do these verses motivate you to remain neutral?</p>
+
+</li>
+<li class="du-margin-top--8"><p data-pid="42" id="p42">  What Bible verses can you use to explain your decision to remain neutral?</p>
+
+</li>
+</ul>
+<p data-pid="44" id="p44"><a data-video="webpubvid://?pub=jwb&amp;issue=201903&amp;track=6&amp;langwritten=E" href="https://www.jw.org/finder?lank=pub-jwb_201903_6_VIDEO&amp;wtlocale=E"><strong>Play the VIDEO</strong></a> <strong><em>Lessons From The Watchtower​—Remain Neutral in a Divided World.</em></strong> Then ask the audience:</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Video Transcript] Lessons From The Watchtower—Remain Neutral in a Divided World (video duration: 5:16)</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px">As a professor of finance, I need to be well-informed. As a Christian, I also need to be well-informed, as do all Christians. It’s difficult not to take sides in politics. It’s very difficult because we are aware of the issues. I always really liked soccer ever since I was little. I lived in a poor area, and soccer was what we used to do for fun. There was a journalist that I liked to keep up with.</div><div style="margin-top: 0; margin-bottom: 8px">He would point out both the good and the bad on all sides of politics. But when he spoke up and pointed out only the bad side of a political party, I did not like that. I live in the downtown area of the city. That is where the largest political demonstrations take place. People from this area are really into politics. They have definite opinions. And even though I always knew that we must remain neutral, I secretly approved of the demonstrations.</div><div style="margin-top: 0; margin-bottom: 8px">On the outside, I wasn’t jumping up and down or cheering, but on the inside, I was saying: ‘Come on! Let’s win!’ It was all about the desire, the crowd, and the pride of your team having the most victories or the most trophies. I used to rationalize saying: “I was created in Jehovah’s image, and Jehovah is a just God.” What was speaking was my sense of justice.</div><div style="margin-top: 0; margin-bottom: 8px">I thought neutrality was shown through actions and not through what I felt. The April 2016 Watchtower has interesting information regarding neutrality. Being neutral means that you do not consider yourself better than others because “in God’s sight, all people are equal.” After studying the article, I realized that I needed to make changes; I was not being neutral.</div><div style="margin-top: 0; margin-bottom: 8px"><em>[2:00]</em></div><div style="margin-top: 0; margin-bottom: 8px">So I read the article again. I prayed to Jehovah; I said to him that I knew it was as if he were speaking to me. The magazine really touched me deeply. I remember reading the article at least three times that evening. I was really surprised. I realized how far off I was from what God wanted me to be on the inside. The second situation mentioned in the article had to do with news reports and the media.</div><div style="margin-top: 0; margin-bottom: 8px">The article even suggested that we limit our intake of news that we watch related to politics. There was another phrase that really moved me. It said: ‘Even if we don’t march with protesters, might we be with them in spirit?’ Yes! I was with them. Yes! There were several phrases in that article that were written just for me. When I cut back watching so many news reports —and I had to— this helped me to have self-control when I spoke to others at work.</div><div style="margin-top: 0; margin-bottom: 8px">When workmates mentioned something that was in the news, I didn’t have anything to say since I hadn’t seen it. I didn’t know about it. A workmate would say: “Did you see that so-and-so said this and that someone else made a statement?” I would say: “No, I didn’t see it,” and that was the end of the conversation. The article mentions Romans 10:12 which says that Jehovah is “Lord over all” of us, that ‘there is no difference between Jew and Greek.’</div><div style="margin-top: 0; margin-bottom: 8px">To Jehovah, it’s not important if my country has five or six titles or if it won or lost the World Cup. To Jehovah, all people are equal. I took a piece of paper, just a simple piece of paper, and I wrote on it the four key points that the article talks about —four key points that will help us to remain neutral. I keep it in my purse; that way I can always read it at work.</div><div style="margin-top: 0; margin-bottom: 8px">I like watching soccer; it’s fun. I still watch it on TV. I still play soccer with my friends at Bethel, but I’ve made an effort to change. Little by little, I’ve managed to put soccer in its proper place. This helps me to keep pride and nationalism from getting the best of me. I learned from this article not to express opinions about politics. That has to come from deep inside.</div><div style="margin-top: 0; margin-bottom: 8px"><em>[4:24]</em></div><div style="margin-top: 0; margin-bottom: 8px">If I’m convinced that God’s Kingdom is the best solution and that there’s nothing that comes even close, remaining neutral will come naturally. But I can’t let my guard down. I really enjoy studying articles from The Watchtower, especially those dealing with practical matters. They help me see the Bible as if it were a mirror that shows me where I can improve.</div><div style="margin-top: 0; margin-bottom: 8px">Following counsel and making the changes suggested in the article has helped me to speak with the conviction that only the Kingdom can solve mankind’s problems.</div></td></tr></tbody></table></div>
+<ul><li><p data-pid="45" id="p45">  What did you learn from this video that can help you remain neutral in your heart?</p>
+
+</li>
+<li class="du-margin-top--8"><p data-pid="47" id="p47">  Based on the study article featured in the video, what four key points can help us to remain neutral? (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026254/10/0"><em>w16.04</em> 27-31</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[w16.04 27-31]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><h1 data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="27" data-no="27" id="page27"></span><strong>Maintain Your Neutrality in a Divided World</strong></h1><div class="themeScrp" data-pid="2" id="p2" style="margin-top: 0; margin-bottom: 8px">“Pay back . . . God’s things to God.”​—<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/0/0">MATT. 22:21</a>.</div><div class="pubRefs" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/2016288/0/0">SONGS: <strong>33,</strong></a><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/2016288/1/0"> <strong>137</strong></a></div><div class="boxTtl emphasized" data-pid="4" id="p4" style="margin-top: 0; margin-bottom: 8px"><h2><strong>CAN YOU ANSWER?</strong></h2></div><ul><li style="line-height: 1.5; margin-bottom: 15px"><p class="si" data-pid="5" id="p5">What does Jehovah think about human governments?</p>
+</li><li style="line-height: 1.5; margin-bottom: 15px"><p class="si" data-pid="6" id="p6">What should we do when it becomes difficult to stay neutral?</p>
+</li><li style="line-height: 1.5; margin-bottom: 15px"><p class="si" data-pid="7" id="p7">What can we learn from faithful servants of Jehovah who stayed neutral?</p>
+</li></ul><div class="qu" data-pid="35" id="p35" style="margin-top: 0; margin-bottom: 8px"> <strong>1.</strong> How can we obey both God and human governments?</div><div class="sb" data-pid="8" data-rel-pid="[35]" id="p8" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="1"></span>GOD’S WORD tells us to be obedient to human governments, yet it also teaches that we must obey God rather than men. (<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/1/0">Acts 5:29;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/1/1"> Titus 3:1</a>) Is this a contradiction? Not at all! The principle of relative subjection helps us to understand and obey these commands. Jesus summarized this principle when he said: “Pay back, therefore, Caesar’s things to Caesar, but God’s things to God.”<a class="en" data-enid="1" href="https://wol.jw.org/en/wol/en/r1/lp-e/2016288/0" id="endnotesource1"><strong><sup>[1]</sup></strong></a> (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/2/0">Matt. 22:21</a>) How do we follow Jesus’ direction? We submit to the authority of the government under which we live by obeying its laws, respecting its officials, and paying the taxes it levies. (<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/3/0">Rom. 13:7</a>) However, if government authorities tell us to disobey God, we respectfully refuse to comply.</div><div class="qu" data-pid="36" id="p36" style="margin-top: 0; margin-bottom: 8px"> <strong>2.</strong> How do we show that we do not take sides in the world’s politics?</div><div class="sb" data-pid="9" data-rel-pid="[36]" id="p9" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="2"><strong><sup>2</sup></strong></span> We pay back to God what is rightfully his, in part, by remaining neutral in the world’s political affairs. (<a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/4/0">Isa. 2:4</a>) Thus, we do not oppose human governments that Jehovah allows to function; nor do we promote patriotic or nationalistic activity. (<a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/5/0">Rom. 13:1, 2</a>) We do not lobby, vote <span aria-hidden="true" class="pageNum" data-before-text="28" data-no="28" id="page28"></span>in political elections, run for government office, or try to change governments.</div><div class="qu" data-pid="37" id="p37" style="margin-top: 0; margin-bottom: 8px"> <strong>3.</strong> Why must we remain neutral?</div><div class="sb" data-pid="10" data-rel-pid="[37]" id="p10" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="3"><strong><sup>3</sup></strong></span> The Bible gives several reasons why God requires that we remain neutral. For example, we follow the teachings and example of his Son, Jesus Christ, by being “no part of the world,” avoiding its politics and wars. (<a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/6/0">John 6:15;</a><a class="b" data-bid="7-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/6/1"> 17:16</a>) We must remain neutral in order to be loyal subjects of God’s Kingdom. Otherwise, how could we have a clean conscience when we preach the good news that only God’s Kingdom can solve mankind’s problems? Additionally, unlike false religions that divide their members by meddling in politics, true worship preserves our international brotherhood by helping us to remain neutral.​—<a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/7/0">1 Pet. 2:17</a>.</div><div class="qu" data-pid="38" id="p38" style="margin-top: 0; margin-bottom: 8px"> <strong>4.</strong> (a) How do we know that it will become more difficult to remain neutral? (b) Why should we prepare now to remain neutral?</div><div class="sb" data-pid="11" data-rel-pid="[38]" id="p11" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="4"><strong><sup>4</sup></strong></span> Where we live, the political environment may be calm, seemingly tolerant of true worship. Yet, as Satan’s system nears its end, we can expect the issue of neutrality to become more prominent. The world is filled with people who are “not open to any agreement” and “headstrong,” so it will only become more divided and polarized. (<a class="b" data-bid="9-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/8/0">2 Tim. 3:3, 4</a>) In some countries, our brothers have already faced unexpected challenges to their neutrality because of a rapidly changing political environment. Do you see why we need to strengthen our resolve now to remain neutral? If we wait until we face a challenging situation, we might compromise and violate our neutral stand. So how can we prepare to maintain our neutrality in a divided world? Let us consider four keys that will help us to succeed.</div><h2 data-pid="12" id="p12"><strong>VIEW HUMAN GOVERNMENTS AS JEHOVAH DOES</strong></h2><div class="qu" data-pid="39" id="p39" style="margin-top: 0; margin-bottom: 8px"> <strong>5.</strong> What does Jehovah think about human governments?</div><div class="sb" data-pid="13" data-rel-pid="[39]" id="p13" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="5"><strong><sup>5</sup></strong></span> A first key to remaining neutral is to share Jehovah’s view of political systems. Although some governments might appear to be just, the very concept of humans ruling over other humans was never Jehovah’s purpose. (<a class="b" data-bid="10-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/9/0">Jer. 10:23</a>) Man-made governments promote nationalism, which divides the human family. Even the best human leaders are unable to solve all problems. In addition, since 1914, human governments have become rivals to God’s Kingdom, which will soon execute judgment on the nations by destroying them.​—<strong>Read</strong> <a class="b" data-bid="11-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/10/0"><strong>Psalm 2:2,</strong></a><a class="b" data-bid="11-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/10/1"> <strong>7-9</strong></a><strong>.</strong></div><div class="qu" data-pid="40" id="p40" style="margin-top: 0; margin-bottom: 8px"> <strong>6.</strong> How should we treat those who have authority in the government?</div><div class="sb" data-pid="14" data-rel-pid="[40]" id="p14" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="6"><strong><sup>6</sup></strong></span> God lets the world’s political structure remain because it provides a measure of stability that, in turn, helps us to preach the good news of the Kingdom. (<a class="b" data-bid="12-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/11/0">Rom. 13:3, 4</a>) God even directs us to pray concerning those in authority, especially when their decisions might affect our worship. (<a class="b" data-bid="13-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/12/0">1 Tim. 2:1, 2</a>) We appeal to government authorities for fair treatment, as the apostle Paul did. (<a class="b" data-bid="14-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/13/0">Acts 25:11</a>) Although the Bible teaches that God’s adversary, Satan, has authority over political systems, it does not say that he directly controls each leader or official. (<a class="b" data-bid="15-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/14/0">Luke 4:5, 6</a>) We should therefore avoid implying that a particular official is controlled by the Devil. Instead, when dealing with “governments <span aria-hidden="true" class="pageNum" data-before-text="29" data-no="29" id="page29"></span>and authorities,” we “speak injuriously of no one.”​—<a class="b" data-bid="16-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/15/0">Titus 3:1, 2</a>.</div><div class="qu" data-pid="41" id="p41" style="margin-top: 0; margin-bottom: 8px"> <strong>7.</strong> What thinking must we avoid?</div><div class="sb" data-pid="15" data-rel-pid="[41]" id="p15" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="7"><strong><sup>7</sup></strong></span> We obey God by never favoring any candidate or political party over another, regardless of whether they seem to support or oppose our interests. How might our neutrality be tested in this regard? Suppose that a popular uprising tries to oust an oppressive regime, one under which God’s people have also suffered. Although we would not march with the protesters, might we be with them in spirit? (<a class="b" data-bid="17-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/16/0">Eph. 2:2</a>) We must remain neutral not only in our words and actions but also in our heart.</div><h2 data-pid="16" id="p16"><strong>BE “CAUTIOUS” YET “INNOCENT”</strong></h2><div class="qu" data-pid="42" id="p42" style="margin-top: 0; margin-bottom: 8px"> <strong>8.</strong> When it is difficult to remain neutral, how can we be “cautious” yet “innocent”?</div><div class="sb" data-pid="17" data-rel-pid="[42]" id="p17" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="8"><strong><sup>8</sup></strong></span> A second key to maintaining our neutrality is to be “cautious as serpents and yet innocent as doves” when facing challenges. <strong>(Read</strong> <a class="b" data-bid="18-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/17/0"><strong>Matthew 10:16, 17</strong></a><strong>.)</strong> We show caution by recognizing dangers early, and we remain innocent by not letting them lead us into compromise. Consider some potential challenges and how we can deal with them.</div><div class="qu" data-pid="43" id="p43" style="margin-top: 0; margin-bottom: 8px"> <strong>9.</strong> What must we be careful of when talking to others?</div><div class="sb" data-pid="18" data-rel-pid="[43]" id="p18" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="9"><strong><sup>9</sup></strong></span> <em>Conversations.</em> We must exercise caution when political issues are brought up. For example, when presenting the Kingdom message, avoid either praising or criticizing the policies of a political party or leader. Try to establish common ground with the householder by focusing on the underlying problem rather than on any proposed political solution. Then, show from the Bible how God’s government will solve the problem completely and permanently. If such volatile issues as same-sex marriage or abortion come up, defend God’s standards and explain how we follow these in our own lives. During the discussion, remain strictly neutral on the political aspects of these topics. We take no position regarding what laws should be enacted, repealed, or changed, and we do not pressure others to agree with our view.</div><div class="qu" data-pid="44" id="p44" style="margin-top: 0; margin-bottom: 8px"><strong>10.</strong> How can we make sure that we remain neutral when we watch or read anything in the media?</div><div class="sb" data-pid="19" data-rel-pid="[44]" id="p19" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="10"><strong><sup>10</sup></strong></span> <em>The media.</em> Information broadcast as “news” is often presented in a biased and opinionated way. The media sometimes functions as a tool of the political system. News reports might be blatantly slanted in lands with State-controlled media, yet even Christians living in so-called free countries must be careful not to adopt the bias of a commentator. Ask yourself, ‘Do I enjoy listening to someone in the media because I agree with his political leaning?’ If so, you might look for a more objective source of information. In any case, it is wise to limit your intake from media sources that promote a political agenda and to test what you hear against “the standard of wholesome words” found in the Bible.​—<a class="b" data-bid="19-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/18/0">2 Tim. 1:13</a>.</div><div class="qu" data-pid="45" id="p45" style="margin-top: 0; margin-bottom: 8px"><strong>11.</strong> How might it be hard for us to remain neutral when the things we own are very important to us?</div><div class="sb" data-pid="20" data-rel-pid="[45]" id="p20" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="11"><strong><sup>11</sup></strong></span> <em>Materialism.</em> If we are attached to our possessions, we risk compromising our neutrality when we are under test. Ruth, in Malawi, saw several Witnesses do so when they were persecuted in the 1970’s. She recalls: “They could not give up their comfortable life. Some went into exile with us but later joined the <span aria-hidden="true" class="pageNum" data-before-text="30" data-no="30" id="page30"></span>political party and returned home because they did not want to put up with the discomforts of life in the refugee camp.” In contrast, the vast majority of God’s people have remained neutral despite economic pressures or even the loss of everything they own.​—<a class="b" data-bid="20-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/19/0">Heb. 10:34</a>.</div><div class="qu" data-pid="46" id="p46" style="margin-top: 0; margin-bottom: 8px"><strong>12, 13.</strong> (a) What does Jehovah think about humans? (b) How can we tell if we are becoming too proud of our country?</div><div class="sb" data-pid="21" data-rel-pid="[46]" id="p21" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="12"><strong><sup>12</sup></strong></span> <em>Undue pride.</em> People often tout the merits of their race, tribe, culture, city, or nation. However, we know that taking undue pride in tribe, culture, or nation puts us at odds with Jehovah’s view of human rule and the human family. Of course, God does not expect us to renounce our culture. In fact, cultural differences illustrate the marvelous diversity of the human family. Still, we must remember that in God’s sight, all people are equal.​—<a class="b" data-bid="21-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/20/0">Rom. 10:12</a>.</div><div class="sb" data-pid="22" data-rel-pid="[46]" id="p22" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="13"><strong><sup>13</sup></strong></span> Taking undue pride in our place of origin is at the heart of nationalism and could be the first step on a path to compromise. Christians are not immune to such pride, for even some in the first-century congregation discriminated against their brothers because of their nationality. (<a class="b" data-bid="22-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/21/0">Acts 6:1</a>) How can we tell if undue pride is taking root in us? Suppose a brother or sister from another land offered you a suggestion. Would you reject it, immediately thinking, ‘We do things better around here’? Instead, we should all apply the inspired counsel: “With humility consider others superior to you.”​—<a class="b" data-bid="23-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/22/0">Phil. 2:3</a>.</div><h2 data-pid="23" id="p23"><strong>GAIN STRENGTH FROM JEHOVAH</strong></h2><div class="qu" data-pid="47" id="p47" style="margin-top: 0; margin-bottom: 8px"><strong>14.</strong> How can prayer help us, and what Bible example proves this?</div><div class="sb" data-pid="24" data-rel-pid="[47]" id="p24" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="14"><strong><sup>14</sup></strong></span> A third key to maintaining our neutrality is to gain strength from Jehovah. Pray for holy spirit, which can give you patience and self-control, qualities needed to cope with a government that may be corrupt or unjust. You can also ask Jehovah for the wisdom to recognize and deal with situations that could cause you to violate your Christian neutrality. (<a class="b" data-bid="24-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/23/0">Jas. 1:5</a>) If you are imprisoned or otherwise punished because of your resolute stand for true worship, pray for the strength to defend your faith with boldness and to endure whatever persecution may come.​—<strong>Read</strong> <a class="b" data-bid="25-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/24/0"><strong>Acts 4:27-31</strong></a><strong>.</strong></div><div class="qu" data-pid="48" id="p48" style="margin-top: 0; margin-bottom: 8px"><strong>15.</strong> How can the Bible help us to remain neutral? (See also the box “<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/2016288/6/0">God’s Word Strengthened Their Conviction</a>.”)</div><div class="sb" data-pid="25" data-rel-pid="[48]" id="p25" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="15"><strong><sup>15</sup></strong></span> Jehovah can strengthen you by means of his Word. Meditate on verses that will help you maintain your neutrality under test. Commit them to memory now, so that they can sustain you if you do not have access to a Bible later. God’s Word can also reinforce your hope in future Kingdom blessings. This hope is essential if we are to endure persecution. (<a class="b" data-bid="26-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/25/0">Rom. 8:25</a>) Select passages that describe blessings that you especially hope to enjoy, and visualize yourself experiencing those blessings in Paradise.</div><h2 data-pid="26" id="p26"><strong>BENEFIT FROM OTHER INTEGRITY-KEEPERS</strong></h2><div class="qu" data-pid="49" id="p49" style="margin-top: 0; margin-bottom: 8px"><strong>16, 17.</strong> What can we learn from the examples of God’s faithful servants who remained neutral? (See opening picture.)</div><div class="sb" data-pid="27" data-rel-pid="[49]" id="p27" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="16"><strong><sup>16</sup></strong></span> Faithful servants of Jehovah provide the fourth key to maintaining neutrality. Their examples can give us the wisdom and strength we need to endure. For instance, Shadrach, Meshach, and Abednego refused to worship <span aria-hidden="true" class="pageNum" data-before-text="31" data-no="31" id="page31"></span>an image representing the Babylonian State. <strong>(Read</strong> <a class="b" data-bid="27-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/26/0"><strong>Daniel 3:16-18</strong></a><strong>.)</strong> Reading about their determination has given Witnesses today the courage to refuse to worship the flag of the nation in which they live. Also, Jesus stayed completely separate from the political and social conflicts of the world. Noting the effect that his example would have on others, he urged his disciples: “Take courage! I have conquered the world.”​—<a class="b" data-bid="28-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/27/0">John 16:33</a>.</div><div class="sb" data-pid="28" data-rel-pid="[49]" id="p28" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="17"><strong><sup>17</sup></strong></span> Many Witnesses in modern times have maintained their neutrality. Some have suffered physical abuse and imprisonment and have even died for their faith. Their examples can help you as they did Barış, from Turkey, who said: “Franz Reiter was a young brother who was executed because he refused to join Hitler’s army. The letter he wrote to his mother the night before he died showed tremendous faith and confidence in Jehovah, and I wanted to follow his example if I faced such a trial.”<a class="en" data-enid="2" href="https://wol.jw.org/en/wol/en/r1/lp-e/2016288/1" id="endnotesource2"><strong><sup>[2]</sup></strong></a></div><div class="qu" data-pid="50" id="p50" style="margin-top: 0; margin-bottom: 8px"><strong>18, 19.</strong> (a) How can the members of your congregation help you to remain neutral? (b) What are you determined to do?</div><div class="sb" data-pid="29" data-rel-pid="[50]" id="p29" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="18"><strong><sup>18</sup></strong></span> Support also comes from the brothers and sisters in your congregation. Let the elders know about the tests of neutrality that you may be facing, and ask for their mature, Bible-based counsel. Members of the congregation will encourage you if they are aware of the challenges you are facing. Ask them to pray in your behalf. Of course, if we want our brothers to support us and pray for us, we should do the same for them. (<a class="b" data-bid="29-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/28/0">Matt. 7:12</a>) The jw.org article “<a class="fb" href="https://www.jw.org/finder?docID=1012730&amp;prefer=content&amp;wtlocale=E">Jehovah’s Witnesses Imprisoned for Their Faith​—By Location</a>” posted under NEWSROOM &gt; LEGAL DEVELOPMENTS can help you to be specific in your prayers. It includes links to lists of Witnesses currently imprisoned for their faith. Pick some names, and pray that such ones courageously maintain their integrity.​—<a class="b" data-bid="30-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/29/0">Eph. 6:19, 20</a>.</div><div class="sb" data-pid="30" data-rel-pid="[50]" id="p30" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="19"><strong><sup>19</sup></strong></span> As human governments near their end, we will not be surprised if they become less and less tolerant of our loyalty to Jehovah and his Kingdom. Thus, may we now strengthen our resolve to maintain our neutrality in a divided world.</div><div data-pid="32" id="p32" style="margin-top: 0; margin-bottom: 8px"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026254/10/0#endnotesource1">^</a> <strong>[1]</strong> (paragraph 1) Jesus here used Caesar, the highest-ranking human ruler at the time, as a symbol of the civil authority, or State.</div><div data-pid="33" id="p33" style="margin-top: 0; margin-bottom: 8px"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026254/10/0#endnotesource2">^</a> <strong>[2]</strong> (paragraph 17) See <a href="https://wol.jw.org/en/wol/pc/r1/lp-e/2016288/3/0"><em>Jehovah’s Witnesses​—Proclaimers of God’s Kingdom,</em> p. 662</a>, and the box “<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/2016288/4/0">He Died for God’s Honor</a>” in <a href="https://wol.jw.org/en/wol/pc/r1/lp-e/2016288/5/0">chapter 14 of the book <em>God’s Kingdom Rules!</em></a></div><div class="boxTtl rule" data-pid="52" id="p52" style="margin-top: 0; margin-bottom: 8px"><h2><strong>God’s Word Strengthened Their Conviction</strong></h2></div><div class="sc" data-pid="53" id="p53" style="margin-top: 0; margin-bottom: 8px">  “Meditating on <a class="b" data-bid="31-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/30/0">Proverbs 27:11,</a><a class="b" data-bid="31-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/30/1"> Matthew 26:52</a>, and <a class="b" data-bid="32-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/31/0">John 13:35</a> strengthened my conviction to refuse military service. These verses also helped me to remain calm during my trial.”​<em>—Andriy, from Ukraine.</em></div><div class="sc" data-pid="54" id="p54" style="margin-top: 0; margin-bottom: 8px">  “<a class="b" data-bid="33-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2016288/32/0">Isaiah 2:4</a> helped me to remain neutral under test. I pictured in my mind the quietness of life in the new world, when no one will carry a weapon to harm his neighbor.”​<em>—Wilmer, from Colombia.</em></div></td></tr></tbody></table></div>
+
+</li>
+</ul>
+</div>
+<h3 class="du-fontSize--base du-color--maroon-600 du-margin-top--8 du-margin-bottom--0" data-pid="49" id="p49"><strong>8. Congregation Bible Study</strong></h3>
+<div class="du-margin-inlineStart--5 du-margin-inlineStart-desktopOnly--6 du-color--textSubdued du-margin-top--1 du-margin-children-vertical--0" id="tt93">
+<p data-pid="50" id="p50">(30 min.) <a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026254/11/0"><em>wcg</em> chap. 9</a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[wcg chap. 9]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<div class="suppressZoom" id="f1">
+<figure>
+<img alt="" class="suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/212" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/213" style="max-width: min(100%, 700px); height: auto;"/>
+</figure>
+</div>
+<p class="contextTtl du-letterSpacing--1 du-color--orange-700 du-borderColor--orange-700 du-borderStyle-bottom--solid du-borderWidth--1 du-padding-vertical--2" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="48" data-no="48" id="page48"></span><strong>9</strong> SHIPHRAH, PUAH, AMRAM, JOCHEBED, AND MIRIAM</p>
+<h1 class="du-color--coolGray-600 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="2" id="p2"><strong>“By Faith Moses Was Hid”</strong></h1>
+</header> <div class="clearfix alternatePresentation clickable noTooltips">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/210" data-alt-type="svg" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/208" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">Printed Edition</div>
+</div>
+<div class="clearfix alternatePresentation clickable noTooltips hidden">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/211" data-alt-type="svg" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/209" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">Printed Edition</div>
+</div>
+<div class="bodyTxt">
+<div id="tt4">
+<p data-pid="3" id="p3">JOSEPH had been dead for over 60 years. The Egyptians forgot about the faithful man whom Jehovah had used to save their nation from famine. Now, a new Pharaoh ruled the land, and he hated and feared the Israelites. They kept growing in number, for Jehovah was blessing them. So the Egyptians enslaved the Hebrews and treated them harshly. Still, these slaves continued to multiply.</p>
+<p data-pid="4" id="p4">Pharaoh’s next tactic was murderous. He ordered two Hebrew midwives, Shiphrah and Puah, to be brought before him. Imagine their feelings as this mighty ruler ordered them to do away with any male babies that they helped to deliver! But those two courageous women “feared the true God.” They knew that no man, however powerful, had the right to make them disobey Jehovah, the Sovereign of the universe. Their godly fear helped them to do something truly courageous. “They did not do what the king of Egypt told them.” Instead, they did the opposite: They helped to protect and save as many babies as they could. Pharaoh was furious, but they cleverly concealed their actions. Jehovah saw what they were doing. In response, “God dealt well with the midwives.” In time, he gave them families of their own.</p>
+<div class="stdPullQuote dc-ttClassStyle--unset du-color--orange-700 du-float-desktopOnly--inlineStart du-width-desktopOnly--oneHalf du-margin-inlineStart-mobileOnly--6 du-margin-inlineEnd-desktopOnly--4 du-margin-children-top-desktopOnly--0"><p data-pid="44" id="p44"><strong>If not for the courage of the midwives, his parents, and his sister, what might have become of baby Moses?</strong></p>
+</div>
+<p data-pid="5" id="p5">When Pharaoh saw that the Israelites had thwarted his scheme, he issued another brutal decree: Drown the male babies in the Nile River! During that dark time, a Hebrew couple named Amram and Jochebed faced a hard choice. They had two children already, Miriam and Aaron. But when Jochebed became pregnant with their third child, she and Amram knew that if they had a boy, he would be in great danger. When the little boy was born, they tried to hide him for as long as they could. But it is not easy to hide a baby. When he was three months old, Jochebed took a basket, coated it with bitumen and pitch, and then placed the baby inside. She went and hid the little vessel among the reeds on the shore of the Nile River. Her young daughter, Miriam, hid at a safe distance to watch over her little brother.</p>
+<div class="du-margin-vertical--8 du-margin-vertical-desktopOnly--12" id="f2">
+<figure>
+<img alt="Jochebed with Miriam by her side, lowering baby Moses into a papyrus basket among the reeds by the bank of the Nile River." data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/214" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/215" style="max-width: min(100%, 700px); height: auto;"/>
+</figure>
+</div>
+<p data-pid="6" id="p6"><span aria-hidden="true" class="pageNum" data-before-text="49" data-no="49" id="page49"></span>In time, Pharaoh’s daughter came down to the Nile to bathe. She caught sight of the basket and sent a slave girl to fetch it. Opening it, the princess saw the beautiful baby boy crying, and her heart went out to him. She decided to adopt him, but she could see that the baby needed a mother to nurse him. Quick-thinking Miriam courageously ran up and offered to find a nursemaid for the child, and Pharaoh’s daughter agreed. Then Miriam came back with her own mother. Imagine Jochebed’s joy when she learned that she could safely nurse and care for her own beloved child​—and be paid for it besides! She and Amram surely did everything they could to teach the little boy about Jehovah. Eventually, though, the day came when they had to turn the child over to Pharaoh’s daughter. The princess named him Moses.</p>
+<p data-pid="7" id="p7">Did Jehovah reward Amram, Jochebed, and Miriam for the faith and courage they showed? Without question! Amram and Jochebed raised Miriam and Aaron to become faithful servants of Jehovah. And they were able to see that Jehovah was protecting Moses. Whether the parents lived long enough to see the kind of man Moses became, the Bible does not say. (<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025909/0/0">Ex. 6:20</a>) But Miriam certainly did, and so did Aaron. They saw Jehovah do marvelous things through Moses. And together the three of them showed outstanding faith and courage. In the next chapter, we will learn how Moses grew up and decided to serve Jehovah.</p>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="8" id="p8"><strong>Read the Bible account:</strong></h3>
+<ul><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="9" id="p9"> <a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025909/1/0"><strong>Exodus 1:6–2:10</strong></a></p>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="10" id="p10"> <a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025909/2/0"><strong>Acts 7:17-21</strong></a></p>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="11" id="p11"> <a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025909/3/0"><strong>Hebrews 11:23</strong></a></p>
+</li>
+</ul>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="12" id="p12"><strong>For discussion:</strong></h3>
+<p data-pid="13" id="p13"><strong>In what ways did the midwives and Moses’ family show courage?</strong></p>
+
+</div>
+<div id="tt15">
+<h2 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--2" data-pid="15" id="p15"><span aria-hidden="true" class="pageNum" data-before-text="50" data-no="50" id="page50"></span><strong>Dig Deeper</strong></h2>
+<ol class="du-listStyleType--source"><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="16" id="p16"><strong>What does archaeology reveal as to the accuracy of this account?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025909/0/0"><em>g04</em> 4/8 4 ¶4–5 ¶1</a>)</p>
+
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="18" id="p18"><strong>What supports the Bible’s record of a papyrus basket and of Pharaoh’s order to kill the Hebrew babies?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025909/1/0"><em>g04</em> 4/8 6 ¶1-2</a>) <span class="du-color--orange-700"><strong>A</strong></span></p>
+
+<div class="south_center" id="f3">
+<figure>
+<img alt="An Egyptian man using papyrus stalks to make a boat." class="south_center" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/216" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/217" style="max-width: min(100%, 700px); height: auto;"/>
+<p class="imgCredit" data-pid="48" id="p48">Christine Osborne Pictures/​Alamy Stock Photo</p>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="46" id="p46"><span class="dc-screenReaderText"><strong>Picture</strong> </span><span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>A</strong></span><span class="dc-screenReaderText"><strong>:</strong> </span>Even today, papyrus is used to make boats</p>
+</figcaption>
+</figure>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="20" id="p20"><strong>What do we know about the Hebrew midwives, and how were they blessed?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025909/2/0"><em>w03</em> 11/1 8 ¶3-4</a>; <a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025909/3/0"><em>it</em> “Midwife”</a>) <span class="du-color--orange-700"><strong>B</strong></span></p>
+
+<div class="south_center" id="f4">
+<figure>
+<img alt="Two midwives hiding a newborn baby boy. One of them is cautiously keeping a lookout as Egyptian soldiers knock on doors in search of newborn male children." class="south_center" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/218" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/219" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="50" id="p50"><span class="dc-screenReaderText"><strong>Picture</strong> </span><span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>B</strong></span></p>
+</figcaption>
+</figure>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="22" id="p22"><strong>How did Miriam show outstanding faith well into old age?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025909/4/0"><em>ijwia</em> article 7 ¶14-18</a>)</p>
+
+</li>
+</ol>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="24" id="p24"><span aria-hidden="true" class="pageNum" data-before-text="51" data-no="51" id="page51"></span><strong>Reflect on the Lessons</strong></h2>
+<ul><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="25" id="p25">  What can parents learn from Amram and Jochebed?</p>
+
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="27" id="p27">  What can siblings learn from young Miriam? <span class="du-color--orange-700"><strong>C</strong></span></p>
+
+<div class="south_center gen-flipbook pm-flipbook-gallery" id="f5">
+<figure class="south_center gen-flipbook pm-flipbook-gallery">
+<img alt="Collage: Siblings learning lessons from young Miriam. The scenes are repeated next in this chapter." class="south_center gen-flipbook pm-flipbook-gallery" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/220" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/220" style="max-width: min(100%, 700px); height: auto;"/>
+<img alt="A young sister sits with her younger brother and reads from a book while he draws pictures of Bible scenes." class="south_center gen-flipbook pm-flipbook-gallery" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/221" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/221" style="max-width: min(100%, 700px); height: auto;"/>
+<img alt="The young sister and her brother happily talk as they walk and enjoy some cold refreshments." class="south_center gen-flipbook pm-flipbook-gallery" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/222" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/222" style="max-width: min(100%, 700px); height: auto;"/>
+<img alt="The young sister comments at a meeting as her brother looks over at her with a smile." class="south_center gen-flipbook pm-flipbook-gallery" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/223" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/223" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="52" id="p52"><span class="dc-screenReaderText"><strong>Picture</strong> </span><span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>C</strong></span></p>
+</figcaption>
+</figure>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="29" id="p29">  How might you imitate the courage of Shiphrah and Puah in your life?</p>
+
+</li>
+</ul>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="31" id="p31"><strong>Meditate on the Bigger Picture</strong></h2>
+<ul><li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="32" id="p32">  What does this account teach me about Jehovah?</p>
+
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="34" id="p34">  How does the account tie in with Jehovah’s purposes?</p>
+
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p data-pid="36" id="p36">  What would I like to ask the characters in this Bible account when they are resurrected?</p>
+
+</li>
+</ul>
+<div class="du-bgColor--warmGray-50 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--4 du-padding-bottom--8" id="tt79">
+<h2 class="du-color--orange-700 du-margin-top--0" data-pid="38" id="p38"><strong>Learn More</strong></h2>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt81">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f6">
+<figure>
+<a href="https://wol.jw.org/wol/rslink/r1/lp-e?lang=E&amp;docid=2003802&amp;pub=w03&amp;issuedate=20031101&amp;beginpar=6&amp;endpar=8"><img alt="" class="suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/224" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/225" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt82">
+<p data-pid="39" id="p39">See how we can benefit from the example of the women who defied a Pharaoh.</p>
+<p data-pid="40" id="p40"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025909/5/0"><strong>“Women Who Made Jehovah’s Heart Rejoice”</strong> (<em>w03</em> 11/1 8-9 ¶3-5)</a></p>
+</div>
+</div>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt83">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f7">
+<figure>
+<a class="dc-iconOverlay--play" data-video="webpubvid://?pub=jwb&amp;issue=201911&amp;track=3" href="https://www.jw.org/finder?lank=pub-jwb_201911_3_VIDEO&amp;wtlocale=E"><img alt="" class="suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/226" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/227" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt84">
+<p data-pid="41" id="p41">Does Jehovah continue to care for those who courageously obey him as ruler rather than men?</p>
+<p data-pid="42" id="p42"><a data-video="webpubvid://?pub=jwb&amp;issue=201911&amp;track=3&amp;langwritten=E" href="https://www.jw.org/finder?lank=pub-jwb_201911_3_VIDEO&amp;wtlocale=E"><strong><em>We Belong to Jehovah</em> (6:55)</strong></a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+</div>
+<h3 class="du-fontSize--base du-borderStyle-top--solid du-borderColor--borderDefault du-borderWidth--2 du-margin-top--12 du-padding-top--4 du-padding-top-desktopOnly--5" data-pid="51" id="p51"><strong>Concluding Comments</strong> <span class="du-fontWeight--normal">(3 min.)</span> <strong>|</strong> <span class="dc-icon--music dc-icon-size--basePlus1 dc-icon-margin-inlineStart--2 dc-icon-margin-inlineEnd--8"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/202026254/12/0"><strong>Song 134</strong></a></span> <strong>and Prayer</strong></h3><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Song 134]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<p class="contextTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="165" data-no="165" id="page165"></span><strong>SONG 134</strong></p>
+<h1 data-pid="2" id="p2"><strong>Children Are a Trust From God</strong></h1>
+</header> 
+<p class="themeScrp" data-pid="3" id="p3">(<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016934/0/0">Psalm 127:3-5</a>)</p>
+<div class="bodyTxt">
+<ol><li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="4" id="p4">When a man becomes a father</p>
+<p class="sz" data-pid="5" id="p5">And a woman has a child of her own,</p>
+<p class="sp" data-pid="6" id="p6">They share a trust, they must remember,</p>
+<p class="sz" data-pid="7" id="p7">That is not theirs, not theirs alone.</p>
+<p class="sp" data-pid="8" id="p8">The gift they share is from Jehovah;</p>
+<p class="sz" data-pid="9" id="p9">Of life and love he is the one true Source.</p>
+<p class="sp" data-pid="10" id="p10">To parents he gives sure direction</p>
+<p class="sz" data-pid="11" id="p11">That they may follow the wisest course.</p>
+<div class="chorus"><p class="se" data-pid="12" id="p12">(CHORUS)</p>
+<p class="sp" data-pid="13" id="p13">A sacred trust you have been given;</p>
+<p class="sz" data-pid="14" id="p14" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">A precious life is in your hands.</p>
+<p class="sp" data-pid="15" id="p15">You can bestow the greatest favor;</p>
+<p class="sz" data-pid="16" id="p16" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">Instruct your child in God’s commands.</p>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="17" id="p17">All the words God has commanded—</p>
+<p class="sz" data-pid="18" id="p18">They must always prove to be on your heart.</p>
+<p class="sp" data-pid="19" id="p19">These words you’ll speak to sons and daughters;</p>
+<p class="sz" data-pid="20" id="p20">This is your trust, this is your part.</p>
+<p class="sp" data-pid="21" id="p21">To them you’ll speak along your roadway,</p>
+<p class="sz" data-pid="22" id="p22">When you rise up and when you are at rest.</p>
+<p class="sp" data-pid="23" id="p23">In years to come, may they remember,</p>
+<p class="sz" data-pid="24" id="p24">May they be faithful, may they be blessed.</p>
+<div class="chorus"><p class="se" data-pid="25" id="p25">(CHORUS)</p>
+<p class="sp" data-pid="26" id="p26">A sacred trust you have been given;</p>
+<p class="sz" data-pid="27" id="p27" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">A precious life is in your hands.</p>
+<p class="sp" data-pid="28" id="p28">You can bestow the greatest favor;</p>
+<p class="sz" data-pid="29" id="p29" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">Instruct your child in God’s commands.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="closingContent"><p class="se" data-pid="30" id="p30">(See also <a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016934/1/0">Deut. 6:6, 7;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016934/1/1"> Eph. 6:4;</a><a class="b" data-bid="2-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016934/1/2"> 1 Tim. 4:16</a>.)</p>
+</div>
+<p class="sb" data-pid="31" id="p31"></p>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="{BibleBookName} {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value="{BibleBookName} {StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value="{BibleBookName} {BibleVerse}"/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="mwb26 September p. {StartingPageNumber}-{EndingPageNumber}"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="mwb26 September p. {PageNumber}"/>
+<input id="documentDescription" type="hidden" value="mwb26 September"/>
+<input id="englishSym" type="hidden" value="mwb"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="audioPubSym" type="hidden" value="mwb"/>
+<input id="chapNo" type="hidden" value="-1"/>
+<input id="issue" type="hidden" value="202609"/>
+<input id="docId" type="hidden" value="202026254"/>
+<input id="documentInBible" type="hidden" value=""/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=E&amp;docid=202026254&amp;srctype=wol&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="document"/>
+<input id="contentTitle" type="hidden" value="September 21-27"/>
+<input id="parentTitle" type="hidden" value="Our Christian Life and Ministry—Meeting Workbook—2026"/>
+<input id="contentThumbnail" type="hidden" value="/en/wol/d/r1/lp-e/202026254/thumbnail"/>
+</article>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Gather all alternate presentation elements and their images
+        const altPresElements = Array.from(document.querySelectorAll('.alternatePresentation'));
+        const altImages = altPresElements.map(el => {
+            const img = el.querySelector('img');
+            if (img) {
+                return {
+                    src: img.getAttribute('data-alt-src') || img.getAttribute('src'),
+                    title: el.querySelector('.title')?.textContent || "Image"
+                };
+            }
+            return null;
+        }).filter(Boolean);
+
+        // 2. Create Lightbox DOM structure dynamically
+        const lightbox = document.createElement('div');
+        lightbox.className = 'custom-lightbox';
+        lightbox.innerHTML = `
+            <button class="custom-lightbox-close">&times;</button>
+            <button class="custom-lightbox-nav custom-lightbox-prev">&#10094;</button>
+            <div class="custom-lightbox-content">
+                <img class="custom-lightbox-img" src="" alt="" />
+            </div>
+            <button class="custom-lightbox-nav custom-lightbox-next">&#10095;</button>
+            <div class="custom-lightbox-caption"></div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('.custom-lightbox-img');
+        const lightboxCaption = lightbox.querySelector('.custom-lightbox-caption');
+        const closeBtn = lightbox.querySelector('.custom-lightbox-close');
+        const prevBtn = lightbox.querySelector('.custom-lightbox-prev');
+        const nextBtn = lightbox.querySelector('.custom-lightbox-next');
+
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        const openLightbox = (group, index) => {
+            currentGroup = group;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const updateLightbox = () => {
+            const item = currentGroup[currentIndex];
+            if (item) {
+                lightboxImg.src = item.src;
+                if (item.title && item.title.trim() !== "" && item.title.trim() !== "Printed Edition") {
+                    lightboxCaption.textContent = item.title;
+                    lightboxCaption.style.display = 'block';
+                } else {
+                    lightboxCaption.textContent = "";
+                    lightboxCaption.style.display = 'none';
+                }
+                if (currentGroup.length > 1) {
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                } else {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                }
+            }
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImg.src = '';
+            lightboxCaption.textContent = '';
+        };
+
+        const navigate = (direction) => {
+            if (currentGroup.length <= 1) return;
+            currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+            updateLightbox();
+        };
+
+        // Event Listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('custom-lightbox-content')) {
+                closeLightbox();
+            }
+        });
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Attach click handlers to alternate presentations
+        altPresElements.forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(altImages, index);
+            });
+        });
+
+        // Attach click handlers to other zoomable figure images
+        document.querySelectorAll('article figure img:not(.suppressZoom)').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = img.getAttribute('data-alt-src') || img.getAttribute('src');
+                const title = img.getAttribute('alt') || "";
+                openLightbox([{ src, title }], 0);
+            });
+        });
+    });
+    </script>
+</body>
+</html>
