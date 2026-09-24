@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>He Made His Choice</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">📖</text></svg>'>
+    <link rel="stylesheet" type="text/css" href="css/media-player.css">
+    <link rel="stylesheet" type="text/css" href="css/+0+61168f8ef805085f5a3c0118b14679f74c9e62a4.css">
+    <link rel="stylesheet" type="text/css" href="css/+1+f8319dd08c749624466cb777b7d528e1a42d7368.css">
+    <link rel="stylesheet" type="text/css" href="css/+2+894de4a6eba76bf97927253f95f582449947a96e.css">
+    <link rel="stylesheet" type="text/css" href="css/+3+d00a791fdbb951906e95f1428ae322e41ea9da95.css">
+    <style>
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @media screen and (min-width: 600px) {
+            .document, .bible {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 16px 50px 80px;
+            }
+            .document .dc-bleedToArticleEdge, .bible .dc-bleedToArticleEdge {
+                margin-left: -50px;
+                margin-right: -50px;
+            }
+            .document .dc-paddingToContentEdge, .bible .dc-paddingToContentEdge {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        #content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+        .inserted-reference {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+            font-size: 0.95em;
+        }
+        .inserted-reference-header {
+            margin: 0;
+            padding: 4px 16px;
+            background-color: #e2e6ea;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #495057;
+        }
+        .inserted-reference-header a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #1a73e8;
+        }
+        .inserted-reference-header a:hover {
+            text-decoration: underline;
+        }
+        .inserted-reference > *:not(.inserted-reference-header) {
+            margin: 12px 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-style: italic;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        /* Custom Lightbox Styles */
+        .custom-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            /* user-select: none; */
+            /* -webkit-user-select: none; */
+        }
+        .custom-lightbox.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .custom-lightbox-content {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 35px;
+            color: #fff;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10002;
+            transition: transform 0.2s ease;
+        }
+        .custom-lightbox-close:hover {
+            transform: scale(1.1);
+        }
+        .custom-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 20px;
+        }
+        .custom-lightbox-nav:hover {
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .custom-lightbox-prev {
+            left: 0px;
+        }
+        .custom-lightbox-next {
+            right: 0px;
+        }
+        .custom-lightbox-caption {
+            color: #ccc;
+            margin-top: 15px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 80%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body, #content {
+                background-color: #171c2a !important;
+                color: #e2e8f0;
+            }
+            .document, .bible, .article, #article {
+                background-color: #1e293b !important;
+                color: #e2e8f0;
+            }
+            .scalableui, .bodyTxt {
+                background-color: transparent !important;
+                color: #e2e8f0;
+            }
+            .du-bgColor--bgSecondary, .du-bgColor--warmGray-50,
+            [class*="du-bgColor--bgSecondary"], [class*="du-bgColor--warmGray-"],
+            #tt9, .document #tt9, body #tt9,
+            .document [class*="du-bgColor--bgSecondary"], body [class*="du-bgColor--bgSecondary"],
+            .document [class*="du-bgColor--warmGray-"], body [class*="du-bgColor--warmGray-"] {
+                background-color: #2d3a4f !important;
+                color: #e2e8f0 !important;
+            }
+            .du-borderColor--borderDefault, hr {
+                border-color: #3b4d66 !important;
+            }
+            .du-color--teal-700 {
+                color: #2dd4bf !important;
+            }
+            h1, h2, h3, h4, h5, h6, strong {
+                color: #f8fafc;
+            }
+            a, a.b, a.vl, a.fn, a:visited {
+                color: #60a5fa;
+            }
+            a:hover, a.b:hover, a.vl:hover, a.fn:hover {
+                color: #93c5fd;
+            }
+            .du-color--textSubdued, .pageNum, .themeScrp {
+                color: #94a3b8 !important;
+            }
+            .inserted-reference {
+                background-color: #263346;
+                border: 1px solid #3b4d66;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .inserted-reference-header {
+                background-color: #1e2b3c;
+                border-bottom: 1px solid #3b4d66;
+                color: #cbd5e1;
+            }
+            .inserted-reference-header a {
+                color: #60a5fa;
+            }
+            .inserted-reference-header a:hover {
+                color: #93c5fd;
+            }
+            .note-card-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .note-card-header {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #cbd5e1 !important;
+            }
+            .note-card-header a {
+                color: #60a5fa !important;
+            }
+            .note-card-body {
+                color: #e2e8f0 !important;
+            }
+            .box-supplement-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+            }
+            .box-supplement-table th {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #f8fafc !important;
+            }
+            .box-supplement-table th h1, .box-supplement-table th h2,
+            .box-supplement-table th h3, .box-supplement-table th h4,
+            .box-supplement-table th strong, .box-supplement-table th p {
+                color: #f8fafc !important;
+            }
+            .box-supplement-table td {
+                color: #e2e8f0 !important;
+            }
+            .image-caption {
+                color: #94a3b8;
+            }
+            .custom-lightbox-img {
+                background-color: #1e293b;
+            }
+            .custom-lightbox-caption {
+                color: #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body  class="showRuby cc-theme--light DynamicLayout">
+    <div id="content" class="content">
+        <article class="article document html5 pub- docId-1102025910 pub-wcg pub- pub-wcg docClass-13 jwac showRuby ml-E ms-ROMAN dir-ltr includeSecondaryNav" data-lang="E" dir="ltr" id="article" lang="en" role="article">
+<div class="scalableui">
+<header>
+<div class="dc-bleedToArticleEdge suppressZoom" id="f1">
+<figure>
+<img alt="" class="suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/240" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/241" style="max-width: min(100%, 700px); height: auto;"/>
+</figure>
+</div>
+<p class="contextTtl dc-bleedToArticleEdge dc-paddingToContentEdge du-letterSpacing--1 du-color--orange-700 du-borderColor--orange-700 du-borderStyle-bottom--solid du-borderWidth--1 du-padding-vertical--2" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="52" data-no="52" id="page52"></span><strong>10</strong> MOSES</p>
+<h1 class="du-color--coolGray-600 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="2" id="p2"><strong>He Made His Choice</strong></h1>
+</header> <div class="clearfix alternatePresentation clickable noTooltips">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/237" data-alt-type="svg" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/234" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">Printed Edition</div>
+</div>
+<div class="clearfix alternatePresentation clickable noTooltips hidden">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/238" data-alt-type="svg" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/235" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">Printed Edition</div>
+</div>
+<div class="clearfix alternatePresentation clickable noTooltips hidden">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/239" data-alt-type="svg" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/236" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">Printed Edition</div>
+</div>
+<div class="bodyTxt">
+<div id="tt4">
+<p data-pid="3" id="p3">MOSES got his name, not from his Hebrew parents, but from the Egyptian princess who adopted him. She chose it because it meant something like “Saved out of Water,” and she had saved the baby boy that way. She likely hoped that he would grow up to become an Egyptian nobleman. She must have been pleased to see him get a prestigious education. We read: “Moses was instructed in all the wisdom of the Egyptians.”</p>
+<p data-pid="4" id="p4">He grew up to be a remarkable young man. The Bible says: “In fact, he was powerful in his words and deeds.” He could have pursued wealth, prominence, and pleasure in Egypt. However, Moses knew that such a life would cost him Jehovah’s favor. So Moses had a choice to make: What would he do with the rest of his life?</p>
+<p data-pid="5" id="p5">When Moses was 40 years old, he made his choice clear to all. We read: “By faith Moses, when grown up, refused to be called the son of Pharaoh’s daughter, choosing to be mistreated with the people of God rather than to have the temporary enjoyment of sin.” He made the right choice, one that showed his faith and courage. But he did not act on his choice in the best way.</p>
+<p data-pid="6" id="p6">Moses saw the Israelites as “his brothers,” and he wanted to help those who were being mistreated. One day, he went to observe their plight up close. He saw an Egyptian, likely a taskmaster, beating a Hebrew slave. Did Moses call out to the Egyptian to stop? We do not know. In any case, Moses “looked this way and that”​—perhaps to see if there was anyone there who might intervene to protect the slave. But he saw no one. So Moses took action. “He killed the Egyptian.” Did he mean to do so? Or did anger drive him to strike the man harder than he had intended? The account does not say. In any case, Moses knew that he was now in great danger, so he hid the body in the sand.</p>
+<div class="dc-bleedToArticleEdge du-margin-vertical--8 du-margin-vertical-desktopOnly--12" id="f2">
+<figure>
+<img alt="Moses observing an Egyptian taskmaster viciously beating a Hebrew slave." data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/242" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/243" style="max-width: min(100%, 700px); height: auto;"/>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">Moses observing an Egyptian taskmaster viciously beating a Hebrew slave.</td></tr></tbody></table></div></figure>
+</div>
+<p data-pid="7" id="p7">The next day, he went out again. This time he tried to settle a fight between two Hebrew slaves. But the slave who was in the wrong said these chilling words: “Who appointed you as a prince and a judge over us? Are you planning to kill me just <span aria-hidden="true" class="pageNum" data-before-text="53" data-no="53" id="page53"></span>as you killed the Egyptian?” Moses then knew that his secret was out. He feared for his life.</p>
+<p data-pid="8" id="p8">Nothing was going the way Moses had hoped. What had he hoped? The Bible tells us: “He thought that his brothers would grasp that God was giving them salvation by his hand, but they did not grasp it.” It seems that Moses believed that God had chosen him to lead Israel from slavery in Egypt. But Moses did not understand Jehovah’s timetable, and he had misread his own people. They did not trust this Hebrew raised by Egyptian royalty.</p>
+<div class="stdPullQuote dc-ttClassStyle--unset du-color--orange-700 du-float-desktopOnly--inlineStart du-width-desktopOnly--oneHalf du-margin-inlineStart-mobileOnly--6 du-margin-inlineEnd-desktopOnly--4 du-margin-children-top-desktopOnly--0"><p data-pid="47" id="p47"><strong>Would Moses choose to pursue wealth and prestige, or would he support Jehovah’s people?</strong></p>
+</div>
+<p data-pid="9" id="p9">Moses did not realize it at the time, but he was far from ready to lead Jehovah’s people out of slavery in Egypt. In God’s eyes, Moses was not yet qualified. True, he had a measure of courage. He was strong. And “he was powerful in his words” as well. But he still needed another quality that Jehovah values highly​—meekness. He had rashly killed an Egyptian man, and Pharaoh soon learned about that violent act.</p>
+<p data-pid="10" id="p10">Without even giving Moses a hearing, Pharaoh sought to kill him. So Moses fled Egypt. He had to face the unknown, leaving wealth, comfort, and prominence behind. He surely needed all the courage he could muster. Moses bravely went ahead, traveling far away to the land of Midian. In that arid landscape, he would face decades as an exile, “a foreign resident in a foreign land.” Would he have the courage to grow, to change? Would he become the meek, humble man Jehovah wanted him to be? Let us see.</p>
+<div class="dc-bleedToArticleEdge du-margin-vertical--8 du-margin-vertical-desktopOnly--12" id="f3">
+<figure>
+<img alt="Moses, now afraid, running away from Egypt. He looks over his shoulder as he flees." data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/244" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/245" style="max-width: min(100%, 700px); height: auto;"/>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">Moses, now afraid, running away from Egypt. He looks over his shoulder as he flees.</td></tr></tbody></table></div></figure>
+</div>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="11" id="p11"><strong>Read the Bible account:</strong></h3>
+<ul><li><p data-pid="12" id="p12"> <a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025910/0/0"><strong>Exodus 2:11-22</strong></a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Exodus 2:11-22]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-11-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070106/1565">11 </a>Now in those days, after Moses had become an adult,<a class="fn" data-fnid="9" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070106/8" id="footnotesource9">*</a><em> (Footnote: Or “as Moses was becoming strong.”)</em> he went out to his brothers to look at the burdens they were bearing,<a class="b" data-bid="24-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070106/23">+</a> and he caught sight of an Egyptian beating a Hebrew, one of his brothers. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-12-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070106/1566">12 </a>So he looked this way and that, and seeing no one, he killed the Egyptian and hid him in the sand.<a class="b" data-bid="25-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070106/24">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-13-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070106/1567">13 </a>But he went out on the following day, and there were two Hebrew men fighting with each other. So he said to the one in the wrong: “Why do you strike your companion?”<a class="b" data-bid="26-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070106/25">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-14-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070106/1568">14 </a>At this he said: “Who appointed you as a prince and a judge over us? Are you planning to kill me just as you killed the Egyptian?”<a class="b" data-bid="27-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070106/26">+</a> Moses now was afraid and said: “Surely the matter has become known!”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-15-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070106/1569">15 </a>Then Pharʹaoh heard about it, and he attempted to kill Moses; but Moses ran away from Pharʹaoh and went to dwell in the land of Midʹi·an,<a class="b" data-bid="28-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070106/27">+</a> and he sat down by a well. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-16-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070106/1570">16 </a>Now the priest of Midʹi·an<a class="b" data-bid="29-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070106/28">+</a> had seven daughters, and these came to draw water and to fill the troughs to water their father’s flock. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-17-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070106/1571">17 </a>But as usual, the shepherds came and drove them away. At this Moses got up and helped<a class="fn" data-fnid="10" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070106/9" id="footnotesource10">*</a><em> (Footnote: Or “defended.”)</em> the women and watered their flock. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-18-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070106/1572">18 </a>When they came home to their father Reuʹel,<a class="fn pr" data-fnid="11" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070106/10" id="footnotesource11">*</a><em> (Footnote: That is, Jethro.)</em><a class="b" data-bid="30-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070106/29">+</a> he exclaimed: “How is it that you have come home so quickly today?” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-19-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070106/1573">19 </a>They replied: “A certain Egyptian<a class="b" data-bid="31-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070106/30">+</a> rescued us from the shepherds, and he even drew water for us and watered the flock.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-20-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070106/1574">20 </a>He said to his daughters: “But where is he? Why did you leave the man behind? Call him, so that he may eat with us.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-21-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070106/1575">21 </a>After that Moses consented to stay with the man, and he gave his daughter Zip·poʹrah<a class="b" data-bid="32-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070106/31">+</a> to Moses in marriage. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-22-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070106/1576">22 </a>Later she bore a son, and he named him Gerʹshom,<a class="fn pr" data-fnid="12" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070106/11" id="footnotesource12">*</a><em> (Footnote: Meaning “A Foreign Resident There.”)</em><a class="b" data-bid="33-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070106/32">+</a> for he said, “I have become a foreign resident in a foreign land.”<a class="b" data-bid="34-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070106/33">+</a></span></div></td></tr></tbody></table></div>
+</li>
+<li><p data-pid="13" id="p13"> <a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025910/1/0"><strong>Acts 7:22-29</strong></a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Acts 7:22-29]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-7-22-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070148/27230">22 </a>So Moses was instructed in all the wisdom of the Egyptians. In fact, he was powerful in his words and deeds.<a class="b" data-bid="224-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070148/223">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-7-23-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070148/27231">23 </a>“Now when he reached the age of 40, it came into his heart to make a visit on<a class="fn" data-fnid="16" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070148/15" id="footnotesource16">*</a><em> (Footnote: Or “to check the conditions of.”)</em> his brothers, the sons of Israel.<a class="b" data-bid="225-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070148/224">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-7-24-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070148/27232">24 </a>When he caught sight of one of them being unjustly treated, he defended him and avenged the one being abused by striking down the Egyptian.<a class="b" data-bid="226-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070148/225">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-7-25-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070148/27233">25 </a>He thought that his brothers would grasp that God was giving them salvation by his hand, but they did not grasp it. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-7-26-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070148/27234">26 </a>The next day he appeared to them as they were fighting, and he tried to reconcile them in peace, saying: ‘Men, you are brothers. Why do you mistreat each other?’<a class="b" data-bid="227-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070148/226">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-7-27-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070148/27235">27 </a>But the one who was mistreating his neighbor pushed him away, saying: ‘Who appointed you ruler and judge over us? </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-7-28-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070148/27236">28 </a>You do not want to do away with me the way you did away with the Egyptian yesterday, do you?’<a class="b" data-bid="228-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070148/227">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-7-29-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070148/27237">29 </a>On hearing this, Moses fled and lived as a foreigner in the land of Midʹi·an, where he became the father of two sons.<a class="b" data-bid="229-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070148/228">+</a></span></div></td></tr></tbody></table></div>
+</li>
+<li><p data-pid="14" id="p14"> <a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025910/2/0"><strong>Hebrews 11:24-26</strong></a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Hebrews 11:24-26]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v58-11-24-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070162/30288">24 </a>By faith Moses, when grown up,<a class="b" data-bid="331-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070162/330">+</a> refused to be called the son of Pharʹaoh’s daughter,<a class="b" data-bid="332-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070162/331">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v58-11-25-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070162/30289">25 </a>choosing to be mistreated with the people of God rather than to have the temporary enjoyment of sin, </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v58-11-26-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070162/30290">26 </a>because he considered the reproach of the Christ to be riches greater than the treasures of Egypt, for he looked intently toward the payment of the reward. </span></div></td></tr></tbody></table></div>
+</li>
+</ul>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="15" id="p15"><strong>For discussion:</strong></h3>
+<p data-pid="16" id="p16"><strong>In what ways did Moses show courage during this time of his life?</strong></p>
+
+</div>
+<div id="tt15">
+<h2 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--2" data-pid="18" id="p18"><span aria-hidden="true" class="pageNum" data-before-text="56" data-no="56" id="page56"></span><strong>Dig Deeper</strong></h2>
+<ol class="du-listStyleType--source"><li><p data-pid="19" id="p19"><span class="txtSrcBullet"><strong>1.</strong> </span><strong>What historical evidence is consistent with the Bible’s account that the Israelites were slaves in Egypt?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025910/0/0"><em>w20.03</em> 30</a>) <span class="du-color--orange-700"><strong>A</strong></span></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[w20.03 30]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><h1 class="featureTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="30" data-no="30" id="page30"></span><strong>Did You Know?</strong></h1><h2 data-pid="2" id="p2"><strong>What evidence exists outside the Bible that the Israelites were slaves in Egypt?</strong></h2><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px">The Bible reports that after the Midianites took Joseph to Egypt, the patriarch Jacob and his family moved from Canaan to Egypt. They settled in the region of Egypt called Goshen, in the Nile Delta. (<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2020322/0/0">Gen. 47:1,</a><a class="b" data-bid="1-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2020322/0/1"> 6</a>) The Israelites “kept on multiplying and growing mightier.” So the Egyptians grew fearful of the Israelites and forced them into slavery.​—<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2020322/1/0">Ex. 1:7-14</a>.</div><div class="sb" data-pid="4" id="p4" style="margin-top: 0; margin-bottom: 8px">Some modern critics have mocked the above Bible account, calling it a myth. Still, evidence does exist that Semites<a class="fn" data-fnid="1" href="https://wol.jw.org/en/wol/fn/r1/lp-e/2020322/0" id="footnotesource1">a</a><em> (Footnote: The name Semite comes from Shem, one of Noah’s three sons. The descendants of Shem likely included the Elamites, the Assyrians, the early Chaldeans, the Hebrews, the Syrians, and various Arabian tribes.)</em> lived as slaves in ancient Egypt.</div><div class="sb" data-pid="5" id="p5" style="margin-top: 0; margin-bottom: 8px">For instance, archaeologists have unearthed ancient settlements in northern Egypt. Dr. John Bimson reports that there is evidence of 20 or more Semitic settlements in that area of northern Egypt. Moreover, Egyptologist James K. Hoffmeier says: “For a period roughly from 1800 to 1540 B.C., Egypt was an attractive place for the Semitic-speaking people of western Asia to migrate.” He adds: “This span of time coincides with the traditional ‘Patriarchal Period’ and therefore fits the period and circumstances described in Genesis.”</div><div class="sb" data-pid="6" id="p6" style="margin-top: 0; margin-bottom: 8px">There is additional evidence from southern Egypt. A papyrus dated to the Middle Kingdom (c. 2000–c. 1600 B.C.E.) contains names of slaves who worked in a household in southern Egypt. More than 40 of those names are Semitic. These slaves, or servants, worked as cooks, weavers, and laborers. Hoffmeier observes: “Since over forty Semites were attached to this single estate in the Thebaid [southern Egypt], the number across Egypt, especially in the Delta, was likely considerable.”</div><div class="sb" data-pid="7" id="p7" style="margin-top: 0; margin-bottom: 8px">Archaeologist David Rohl writes that some of the names of the slaves on the list “leap straight out of the pages of the Bible.” For instance, the fragments contain names that are similar to such names as Issachar, Asher, and Shiphrah. (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2020322/2/0">Ex. 1:3, 4,</a><a class="b" data-bid="3-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2020322/2/1"> 15</a>) “This is real evidence for the time when the Israelites were in Egypt as slaves,” concludes Rohl.</div><div class="sb" data-pid="8" id="p8" style="margin-top: 0; margin-bottom: 8px">Dr. Bimson states: “The biblical traditions of the bondage in Egypt and of the Exodus have a firm historical basis.”</div></td></tr></tbody></table></div>
+
+<div class="south_center" id="f4">
+<figure>
+<img alt="Fragments of a papyrus scroll." class="south_center" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/246" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/247" style="max-width: min(100%, 700px); height: auto;"/>
+<p class="imgCredit" data-pid="52" id="p52">Courtesy Brooklyn Museum, gift of Theodora Wilbour</p>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="50" id="p50"><span class="dc-screenReaderText"><strong>Picture</strong> </span><span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>A</strong></span><span class="dc-screenReaderText"><strong>:</strong> </span>Part of an ancient Egyptian list of slaves that features more than 40 Semitic names, indicating the presence of Israelite slaves in Egypt</p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">Fragments of a papyrus scroll.</td></tr></tbody></table></div></figure>
+</div>
+</li>
+<li><p data-pid="21" id="p21"><span class="txtSrcBullet"><strong>2.</strong> </span><strong>How might Moses have been taught by his parents and then “instructed in all the wisdom of the Egyptians”?</strong> (<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025910/3/0">Acts 7:22</a>; <a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025910/1/0"><em>w02</em> 6/15 10 ¶2-5</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Acts 7:22]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v44-7-22-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070148/27230">22 </a>So Moses was instructed in all the wisdom of the Egyptians. In fact, he was powerful in his words and deeds.<a class="b" data-bid="224-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070148/223">+</a></span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[w02 6/15 10 ¶2-5]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="15" id="p15" style="margin-top: 0; margin-bottom: 8px">Jochebed “took the child and nursed him. And the child grew up. Then she brought him to Pharaoh’s daughter, so that he became a son to her.” (<a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002442/6/0">Exodus 2:9, 10</a>) The Bible does not say how long Moses lived with his natural parents. Some think it must have been at least until he was weaned​—two or three years—​but it may have been longer. Exodus simply states that he “grew up” with his parents, which can signify reaching any age. In any case, Amram and Jochebed doubtless used the time to make their son aware of his Hebrew origin and to teach him about Jehovah. How well they succeeded in instilling a faith and love for righteousness in Moses’ heart, only time would tell.</div><div class="sb" data-pid="16" id="p16" style="margin-top: 0; margin-bottom: 8px">On being returned to Pharaoh’s daughter, Moses was educated “in all the wisdom of the Egyptians.” (<a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002442/7/0">Acts 7:22</a>) That would imply training designed to fit Moses for government office. The vast learning of Egypt included mathematics, geometry, architecture, construction, and other arts and sciences. Presumably, the royal family would have wanted him to receive instruction in Egyptian religion.</div><div class="sb" data-pid="17" id="p17" style="margin-top: 0; margin-bottom: 8px">Moses may have received his privileged education along with other royal offspring. Among those who benefited from such elite education were “children of foreign rulers who were sent or taken as hostages to Egypt to be ‘civilized’ and then returned to rule as vassals” faithful to Pharaoh. (<em>The Reign of Thutmose IV,</em> by Betsy M. Bryan) Nurseries connected to royal palaces seem to have prepared youths to serve as court officials.<a class="fn" data-fnid="1" href="https://wol.jw.org/en/wol/fn/r1/lp-e/2002442/0" id="footnotesource1">a</a><em> (Footnote: This education may have resembled that received by Daniel and his companions to serve as state functionaries in Babylon. (Daniel 1:3-7) Compare Pay Attention to Daniel’s Prophecy!, chapter 3, published by Jehovah’s Witnesses.)</em> Inscriptions dating to the Egyptian Middle and New Kingdom periods reveal that several of Pharaoh’s personal attendants and high-ranking government officers retained the honorable title “Child of the Nursery” even as adults.</div><div class="sb" data-pid="18" id="p18" style="margin-top: 0; margin-bottom: 8px">Court life would test Moses. It offered wealth, luxury, and power. It also presented moral dangers. How would Moses react? Where would his loyalties be? Was he at heart a worshiper of Jehovah, a brother of the oppressed Hebrews, or did he prefer all that pagan Egypt could offer?</div></td></tr></tbody></table></div>
+
+</li>
+<li><p data-pid="23" id="p23"><span class="txtSrcBullet"><strong>3.</strong> </span><strong>How did the Egyptians usually bury their dead? How might they have felt when Moses not only killed an Egyptian but also hid the body instead of embalming and burying it?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025910/2/0"><em>it</em> “Egypt, Egyptian” ¶28</a>) <span class="du-color--orange-700"><strong>B</strong></span></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[it “Egypt, Egyptian” ¶28]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="28"></span><strong><em>Beliefs about the dead.</em></strong> Strikingly prominent in Egyptian religion was the concern for the dead and the preoccupation with ensuring one’s welfare and happiness after the “change” of death. The belief in reincarnation or the transmigration of the soul was an all-pervading doctrine. The soul was believed to be immortal; nevertheless, it was believed that the human body must also be preserved so that the soul might return and use it on occasion. Because of this belief, the Egyptians embalmed their dead. The tomb in which the mummified body was placed was considered the deceased’s “home.” The pyramids were colossal residences for the royal dead. The necessities and luxuries of life, including jewelry, clothing, furniture, and supplies of food, were stored away in the tombs for future use by the deceased, along with written spells and charms (such as the “Book of the Dead”) to provide the departed with protection from evil spirits. (PICTURE, Vol. 1, p. 533) However, these spells did not even protect them from the human tomb robbers who eventually ransacked virtually every major tomb.</td></tr></tbody></table></div>
+
+<div class="south_center" id="f5">
+<figure>
+<img alt="An Egyptian mummy on display at a museum." class="south_center" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/248" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/249" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="54" id="p54"><span class="dc-screenReaderText"><strong>Picture</strong> </span><span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>B</strong></span><span class="dc-screenReaderText"><strong>:</strong> </span>An Egyptian mummy</p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">An Egyptian mummy on display at a museum.</td></tr></tbody></table></div></figure>
+</div>
+</li>
+<li><p data-pid="25" id="p25"><span class="txtSrcBullet"><strong>4.</strong> </span><strong>Moses fled to Midian. What did the Midianites and the Israelites have in common?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025910/3/0"><em>it</em> “Midian” No. 2 ¶1-2</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[it “Midian” No. 2 ¶1-2]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="4" id="p4" style="margin-top: 0; margin-bottom: 8px"><strong>2.</strong> The descendants of Abraham’s son Midian are collectively designated as “Midian” and “Midianites.” (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200003041/2/0">Nu 31:2, 3</a>) At times the Bible seemingly refers to them as Ishmaelites. (Compare <a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200003041/3/0">Ge 37:25,</a><a class="b" data-bid="4-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200003041/3/1"> 27, 28,</a><a class="b" data-bid="4-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200003041/3/2"> 36;</a><a class="b" data-bid="4-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200003041/3/3"> 39:1;</a><a class="b" data-bid="4-5" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200003041/3/4"> Jg 8:22,</a><a class="b" data-bid="4-6" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200003041/3/5"> 24</a>.) This may imply that the descendants of Abraham through his sons Ishmael and Midian were much alike in their way of life, and there may have been a further amalgamation through intermarriage among the two peoples. It also appears that at least some of the Kenites were known as Midianites. Since the Kenites are already mentioned as a people before Midian’s birth, this may mean that Moses’ Kenite brother-in-law Hobab was a Midianite merely from a geographic standpoint.​—<a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200003041/4/0">Ge 15:18, 19;</a><a class="b" data-bid="5-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200003041/4/1"> Nu 10:29;</a><a class="b" data-bid="5-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200003041/4/2"> Jg 1:16;</a><a class="b" data-bid="5-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200003041/4/3"> 4:11</a>; see <a href="https://wol.jw.org/en/wol/tc/r1/lp-e/1200003041/0">ISHMAELITE</a>; <a class="it" href="https://wol.jw.org/en/wol/tc/r1/lp-e/1200003041/1">KENITE</a>.</div><div class="sb" data-pid="5" id="p5" style="margin-top: 0; margin-bottom: 8px">Being descendants of Abraham, the Midianites likely spoke a language that closely resembled Hebrew. Gideon, for instance, apparently had no difficulty in understanding the Midianites. (<a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200003041/5/0">Jg 7:13-15;</a><a class="b" data-bid="6-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200003041/5/1"> 8:18, 19</a>) There is also a possibility, however, that Gideon learned the tongue of the Midianites, Israel having been under their domination for seven years.​—<a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200003041/6/0">Jg 6:1</a>.</div></td></tr></tbody></table></div>
+
+</li>
+</ol>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="27" id="p27"><span aria-hidden="true" class="pageNum" data-before-text="57" data-no="57" id="page57"></span><strong>Reflect on the Lessons</strong></h2>
+<ul><li><p data-pid="28" id="p28">  What can Moses’ example teach you about controlling your temper?</p>
+
+</li>
+<li><p data-pid="30" id="p30">  What can youths learn from Moses about courageously choosing the right goals? <span class="du-color--orange-700"><strong>C</strong></span></p>
+
+<div class="south_center" id="f6">
+<figure>
+<img alt="Collage: A brother in high school carefully considering his future. 1. He sees himself in a prestigious job designing airplanes. 2. He sees himself using the brochure “Enjoy Life Forever!” to study the Bible with a man." class="south_center" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/250" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/251" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="56" id="p56"><span class="dc-screenReaderText"><strong>Picture</strong> </span><span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>C</strong></span></p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">Collage: A brother in high school carefully considering his future. 1. He sees himself in a prestigious job designing airplanes. 2. He sees himself using the brochure “Enjoy Life Forever!” to study the Bible with a man.</td></tr></tbody></table></div></figure>
+</div>
+</li>
+<li><p data-pid="32" id="p32">  How else might you imitate the courage shown by Moses in this account?</p>
+
+</li>
+</ul>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="34" id="p34"><strong>Meditate on the Bigger Picture</strong></h2>
+<ul><li><p data-pid="35" id="p35">  What does this account teach me about Jehovah?</p>
+
+</li>
+<li><p data-pid="37" id="p37">  How does the account tie in with Jehovah’s purposes?</p>
+
+</li>
+<li><p data-pid="39" id="p39">  In the resurrection, what would I like to ask Moses about his early life?</p>
+
+</li>
+</ul>
+<div class="dc-bleedToArticleEdge dc-paddingToContentEdge du-bgColor--warmGray-50 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--4 du-padding-bottom--8" id="tt79">
+<h2 class="du-color--orange-700 du-margin-top--0" data-pid="41" id="p41"><strong>Learn More</strong></h2>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt81">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f7">
+<figure>
+<a class="dc-iconOverlay--play" data-video="webpubvid://?pub=jwbcov21&amp;track=11" href="https://www.jw.org/finder?lank=pub-jwbcov21_11_VIDEO&amp;wtlocale=E"><img alt="" class="suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/252" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/253" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt82">
+<p data-pid="42" id="p42">See how we can imitate Moses’ self-sacrificing course.</p>
+<p data-pid="43" id="p43"><a data-video="webpubvid://?pub=jwbcov21&amp;track=11&amp;langwritten=E" href="https://www.jw.org/finder?lank=pub-jwbcov21_11_VIDEO&amp;wtlocale=E"><strong><em>Imitate the Faithful, Not the Faithless​—Moses, Not Pharaoh</em> (2:27)</strong></a></p>
+</div>
+</div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Video Transcript] Imitate the Faithful, Not the Faithless—Moses, Not Pharaoh (video duration: 2:27)</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px">Danny is going to look after the business while we’re away. I only scheduled a few small jobs. I’m sure he can handle it. It’s our assigned convention, and I planned as best I could for us to go together. But some things you just can’t see coming. Hello. Danny was in a panic. He got trouble calls from my two biggest accounts. It was bad. I can’t lose their business.</div><div style="margin-top: 0; margin-bottom: 8px">OK, just find the parts, and I’ll call you back. This will take all weekend. You want us to go? Will you get the program later? Yeah, and I’ll have to text John that I can’t be an attendant. But what will I miss that I can’t get later? At Hebrews 11:26 it says Moses “considered the reproach of the Christ “to be riches greater than the treasure of Egypt, for he looked intently toward the payment of the reward.”</div><div style="margin-top: 0; margin-bottom: 8px">Of what value is being a prince of Egypt compared with being . . . Honey? Honey, what do you think? Danny? Yeah. Here’s what I want you to do for now, and we’ll pick up the pieces when I get back.</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Video Transcript] Imitate the Faithful, Not the Faithless—Moses, Not Pharaoh (video duration: 2:27)</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px">Danny is going to look after the business while we’re away. I only scheduled a few small jobs. I’m sure he can handle it. It’s our assigned convention, and I planned as best I could for us to go together. But some things you just can’t see coming. Hello. Danny was in a panic. He got trouble calls from my two biggest accounts. It was bad. I can’t lose their business.</div><div style="margin-top: 0; margin-bottom: 8px">OK, just find the parts, and I’ll call you back. This will take all weekend. You want us to go? Will you get the program later? Yeah, and I’ll have to text John that I can’t be an attendant. But what will I miss that I can’t get later? At Hebrews 11:26 it says Moses “considered the reproach of the Christ “to be riches greater than the treasure of Egypt, for he looked intently toward the payment of the reward.”</div><div style="margin-top: 0; margin-bottom: 8px">Of what value is being a prince of Egypt compared with being . . . Honey? Honey, what do you think? Danny? Yeah. Here’s what I want you to do for now, and we’ll pick up the pieces when I get back.</div></td></tr></tbody></table></div>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt84">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f8">
+<figure>
+<a class="dc-iconOverlay--play" data-video="webpubvid://?pub=jwbai&amp;issue=201507&amp;track=1" href="https://www.jw.org/finder?lank=pub-jwbai_201507_1_VIDEO&amp;wtlocale=E"><img alt="" class="suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/254" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/255" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt85">
+<p data-pid="44" id="p44">Moses gave up a lucrative future to serve Jehovah. Is that realistic today?</p>
+<p data-pid="45" id="p45"><a data-video="webpubvid://?pub=jwbai&amp;issue=201507&amp;track=1&amp;langwritten=E" href="https://www.jw.org/finder?lank=pub-jwbai_201507_1_VIDEO&amp;wtlocale=E"><strong><em>Choose a Career With an Eternal Future</em> (4:58)</strong></a></p>
+</div>
+</div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Video Transcript] Choose a Career With an Eternal Future (video duration: 4:58)</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px">I love music. When I sing, I feel I can do or be anything; it sets me free. My classmates tell me to pursue what I want, and my teachers think that I could have a career doing what I love. Wouldn’t it be awesome to be a famous musician who is known by everyone? I know I would never leave Jehovah. But would it be so wrong to get my career sorted first, and then serve Jehovah whole souled? Now I have an offer that can do that.</div><div style="margin-top: 0; margin-bottom: 8px">You see, our family has never had a lot of money, and this could change everything. We could be rich! When I told dad my plans —how we could have more money— he was really grateful I wanted to help. He liked the idea of using my talent. But he also mentioned someone who I had never thought about, someone who had many opportunities in life and needed to make a choice —Moses.</div><div style="margin-top: 0; margin-bottom: 8px"><em>[2:13]</em></div><div style="margin-top: 0; margin-bottom: 8px">Dad left me to think about Hebrews chapter 11 verses 24 to 26, “By faith Moses, when grown up, “refused to be called the son of Pharaoh’s daughter, “choosing to be mistreated with the people of God “rather than to have the temporary enjoyment of sin, “because he considered the reproach of the Christ “to be riches greater than the treasures of Egypt, for he looked intently toward the payment of the reward.”</div><div style="margin-top: 0; margin-bottom: 8px">Moses had it all. Yet, he knew that while living in that Egyptian palace he could never give Jehovah 100 percent. There were too many temptations —idol worship, spiritism, materialism. He rejected this lifestyle and chose to serve Jehovah. Clearly, Moses made the right career choice. What would my career be? Even if I am successful, is the dream that they are selling me a reality? Or will they throw me out as soon as the next big thing comes along? What are the risks —immorality, materialism? Would I have the strength to resist these? What a change one scripture and thinking things through can make.</div><div style="margin-top: 0; margin-bottom: 8px">My teachers and classmates may never understand why I chose not to pursue a career in music. But that’s OK. The career I chose gives me purpose and happiness now and has an eternal future. Now, instead of being the only thing I do in life, teaching music helps me to support my career, pioneering. My life is free of regret. What career choice will you make?</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Video Transcript] Choose a Career With an Eternal Future (video duration: 4:58)</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px">I love music. When I sing, I feel I can do or be anything; it sets me free. My classmates tell me to pursue what I want, and my teachers think that I could have a career doing what I love. Wouldn’t it be awesome to be a famous musician who is known by everyone? I know I would never leave Jehovah. But would it be so wrong to get my career sorted first, and then serve Jehovah whole souled? Now I have an offer that can do that.</div><div style="margin-top: 0; margin-bottom: 8px">You see, our family has never had a lot of money, and this could change everything. We could be rich! When I told dad my plans —how we could have more money— he was really grateful I wanted to help. He liked the idea of using my talent. But he also mentioned someone who I had never thought about, someone who had many opportunities in life and needed to make a choice —Moses.</div><div style="margin-top: 0; margin-bottom: 8px"><em>[2:13]</em></div><div style="margin-top: 0; margin-bottom: 8px">Dad left me to think about Hebrews chapter 11 verses 24 to 26, “By faith Moses, when grown up, “refused to be called the son of Pharaoh’s daughter, “choosing to be mistreated with the people of God “rather than to have the temporary enjoyment of sin, “because he considered the reproach of the Christ “to be riches greater than the treasures of Egypt, for he looked intently toward the payment of the reward.”</div><div style="margin-top: 0; margin-bottom: 8px">Moses had it all. Yet, he knew that while living in that Egyptian palace he could never give Jehovah 100 percent. There were too many temptations —idol worship, spiritism, materialism. He rejected this lifestyle and chose to serve Jehovah. Clearly, Moses made the right career choice. What would my career be? Even if I am successful, is the dream that they are selling me a reality? Or will they throw me out as soon as the next big thing comes along? What are the risks —immorality, materialism? Would I have the strength to resist these? What a change one scripture and thinking things through can make.</div><div style="margin-top: 0; margin-bottom: 8px">My teachers and classmates may never understand why I chose not to pursue a career in music. But that’s OK. The career I chose gives me purpose and happiness now and has an eternal future. Now, instead of being the only thing I do in life, teaching music helps me to support my career, pioneering. My life is free of regret. What career choice will you make?</div></td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="{BibleBookName} {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value="{BibleBookName} {StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value="{BibleBookName} {BibleVerse}"/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="Walk Courageously With God p. {StartingPageNumber}-{EndingPageNumber}"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="Walk Courageously With God p. {PageNumber}"/>
+<input id="documentDescription" type="hidden" value="Walk Courageously With God"/>
+<input id="englishSym" type="hidden" value="wcg"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="audioPubSym" type="hidden" value="wcg"/>
+<input id="chapNo" type="hidden" value="10"/>
+<input id="issue" type="hidden" value=""/>
+<input id="docId" type="hidden" value="1102025910"/>
+<input id="documentInBible" type="hidden" value=""/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=E&amp;docid=1102025910&amp;srctype=wol&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="document"/>
+<input id="contentTitle" type="hidden" value="He Made His Choice"/>
+<input id="parentTitle" type="hidden" value="Walk Courageously With God"/>
+<input id="contentThumbnail" type="hidden" value="/en/wol/d/r1/lp-e/1102025910/thumbnail"/>
+</article>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Gather all alternate presentation elements and their images
+        const altPresElements = Array.from(document.querySelectorAll('.alternatePresentation'));
+        const altImages = altPresElements.map(el => {
+            const img = el.querySelector('img');
+            if (img) {
+                return {
+                    src: img.getAttribute('data-alt-src') || img.getAttribute('src'),
+                    title: el.querySelector('.title')?.textContent || "Image"
+                };
+            }
+            return null;
+        }).filter(Boolean);
+
+        // 2. Create Lightbox DOM structure dynamically
+        const lightbox = document.createElement('div');
+        lightbox.className = 'custom-lightbox';
+        lightbox.innerHTML = `
+            <button class="custom-lightbox-close">&times;</button>
+            <button class="custom-lightbox-nav custom-lightbox-prev">&#10094;</button>
+            <div class="custom-lightbox-content">
+                <img class="custom-lightbox-img" src="" alt="" />
+            </div>
+            <button class="custom-lightbox-nav custom-lightbox-next">&#10095;</button>
+            <div class="custom-lightbox-caption"></div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('.custom-lightbox-img');
+        const lightboxCaption = lightbox.querySelector('.custom-lightbox-caption');
+        const closeBtn = lightbox.querySelector('.custom-lightbox-close');
+        const prevBtn = lightbox.querySelector('.custom-lightbox-prev');
+        const nextBtn = lightbox.querySelector('.custom-lightbox-next');
+
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        const openLightbox = (group, index) => {
+            currentGroup = group;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const updateLightbox = () => {
+            const item = currentGroup[currentIndex];
+            if (item) {
+                lightboxImg.src = item.src;
+                if (item.title && item.title.trim() !== "" && item.title.trim() !== "Printed Edition") {
+                    lightboxCaption.textContent = item.title;
+                    lightboxCaption.style.display = 'block';
+                } else {
+                    lightboxCaption.textContent = "";
+                    lightboxCaption.style.display = 'none';
+                }
+                if (currentGroup.length > 1) {
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                } else {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                }
+            }
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImg.src = '';
+            lightboxCaption.textContent = '';
+        };
+
+        const navigate = (direction) => {
+            if (currentGroup.length <= 1) return;
+            currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+            updateLightbox();
+        };
+
+        // Event Listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('custom-lightbox-content')) {
+                closeLightbox();
+            }
+        });
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Attach click handlers to alternate presentations
+        altPresElements.forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(altImages, index);
+            });
+        });
+
+        // Attach click handlers to other zoomable figure images
+        document.querySelectorAll('article figure img:not(.suppressZoom)').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = img.getAttribute('data-alt-src') || img.getAttribute('src');
+                const title = img.getAttribute('alt') || "";
+                openLightbox([{ src, title }], 0);
+            });
+        });
+    });
+    </script>
+</body>
+</html>

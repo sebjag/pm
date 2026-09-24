@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>믿음으로 모세를 보호하다</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">📖</text></svg>'>
+    <link rel="stylesheet" type="text/css" href="css/media-player.css">
+    <link rel="stylesheet" type="text/css" href="css/+0+61168f8ef805085f5a3c0118b14679f74c9e62a4.css">
+    <link rel="stylesheet" type="text/css" href="css/+1+f8319dd08c749624466cb777b7d528e1a42d7368.css">
+    <link rel="stylesheet" type="text/css" href="css/+2+894de4a6eba76bf97927253f95f582449947a96e.css">
+    <link rel="stylesheet" type="text/css" href="css/+3+d00a791fdbb951906e95f1428ae322e41ea9da95.css">
+    <style>
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @media screen and (min-width: 600px) {
+            .document, .bible {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 16px 50px 80px;
+            }
+            .document .dc-bleedToArticleEdge, .bible .dc-bleedToArticleEdge {
+                margin-left: -50px;
+                margin-right: -50px;
+            }
+            .document .dc-paddingToContentEdge, .bible .dc-paddingToContentEdge {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        #content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+        .inserted-reference {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+            font-size: 0.95em;
+        }
+        .inserted-reference-header {
+            margin: 0;
+            padding: 4px 16px;
+            background-color: #e2e6ea;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #495057;
+        }
+        .inserted-reference-header a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #1a73e8;
+        }
+        .inserted-reference-header a:hover {
+            text-decoration: underline;
+        }
+        .inserted-reference > *:not(.inserted-reference-header) {
+            margin: 12px 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-style: italic;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        /* Custom Lightbox Styles */
+        .custom-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            /* user-select: none; */
+            /* -webkit-user-select: none; */
+        }
+        .custom-lightbox.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .custom-lightbox-content {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 35px;
+            color: #fff;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10002;
+            transition: transform 0.2s ease;
+        }
+        .custom-lightbox-close:hover {
+            transform: scale(1.1);
+        }
+        .custom-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 20px;
+        }
+        .custom-lightbox-nav:hover {
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .custom-lightbox-prev {
+            left: 0px;
+        }
+        .custom-lightbox-next {
+            right: 0px;
+        }
+        .custom-lightbox-caption {
+            color: #ccc;
+            margin-top: 15px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 80%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body, #content {
+                background-color: #171c2a !important;
+                color: #e2e8f0;
+            }
+            .document, .bible, .article, #article {
+                background-color: #1e293b !important;
+                color: #e2e8f0;
+            }
+            .scalableui, .bodyTxt {
+                background-color: transparent !important;
+                color: #e2e8f0;
+            }
+            .du-bgColor--bgSecondary, .du-bgColor--warmGray-50,
+            [class*="du-bgColor--bgSecondary"], [class*="du-bgColor--warmGray-"],
+            #tt9, .document #tt9, body #tt9,
+            .document [class*="du-bgColor--bgSecondary"], body [class*="du-bgColor--bgSecondary"],
+            .document [class*="du-bgColor--warmGray-"], body [class*="du-bgColor--warmGray-"] {
+                background-color: #2d3a4f !important;
+                color: #e2e8f0 !important;
+            }
+            .du-borderColor--borderDefault, hr {
+                border-color: #3b4d66 !important;
+            }
+            .du-color--teal-700 {
+                color: #2dd4bf !important;
+            }
+            h1, h2, h3, h4, h5, h6, strong {
+                color: #f8fafc;
+            }
+            a, a.b, a.vl, a.fn, a:visited {
+                color: #60a5fa;
+            }
+            a:hover, a.b:hover, a.vl:hover, a.fn:hover {
+                color: #93c5fd;
+            }
+            .du-color--textSubdued, .pageNum, .themeScrp {
+                color: #94a3b8 !important;
+            }
+            .inserted-reference {
+                background-color: #263346;
+                border: 1px solid #3b4d66;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .inserted-reference-header {
+                background-color: #1e2b3c;
+                border-bottom: 1px solid #3b4d66;
+                color: #cbd5e1;
+            }
+            .inserted-reference-header a {
+                color: #60a5fa;
+            }
+            .inserted-reference-header a:hover {
+                color: #93c5fd;
+            }
+            .note-card-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .note-card-header {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #cbd5e1 !important;
+            }
+            .note-card-header a {
+                color: #60a5fa !important;
+            }
+            .note-card-body {
+                color: #e2e8f0 !important;
+            }
+            .box-supplement-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+            }
+            .box-supplement-table th {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #f8fafc !important;
+            }
+            .box-supplement-table th h1, .box-supplement-table th h2,
+            .box-supplement-table th h3, .box-supplement-table th h4,
+            .box-supplement-table th strong, .box-supplement-table th p {
+                color: #f8fafc !important;
+            }
+            .box-supplement-table td {
+                color: #e2e8f0 !important;
+            }
+            .image-caption {
+                color: #94a3b8;
+            }
+            .custom-lightbox-img {
+                background-color: #1e293b;
+            }
+            .custom-lightbox-caption {
+                color: #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body  class="showRuby cc-theme--light DynamicLayout">
+    <div id="content" class="content">
+        <article class="article document html5 pub- docId-1102025909 pub-wcg pub- pub-wcg docClass-13 jwac showRuby ml-KO ms-KOREAN dir-ltr includeSecondaryNav" data-lang="KO" dir="ltr" id="article" lang="ko" role="article">
+<div class="scalableui">
+<header>
+<div class="dc-bleedToArticleEdge suppressZoom" id="f1">
+<figure>
+<img alt="" class="suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/212" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/213" style="max-width: min(100%, 700px); height: auto;"/>
+</figure>
+</div>
+<p class="contextTtl dc-bleedToArticleEdge dc-paddingToContentEdge du-letterSpacing--1 du-color--orange-700 du-borderColor--orange-700 du-borderStyle-bottom--solid du-borderWidth--1 du-padding-vertical--2" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="48" data-no="48" id="page48"></span><strong>9</strong> 십브라, 부아, 아므람, 요게벳, 미리암</p>
+<h1 class="du-color--coolGray-600 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="2" id="p2"><strong>믿음으로 모세를 보호하다</strong></h1>
+</header> <div class="clearfix alternatePresentation clickable noTooltips">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/210" data-alt-type="svg" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/208" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">인쇄판</div>
+</div>
+<div class="clearfix alternatePresentation clickable noTooltips hidden">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/211" data-alt-type="svg" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/209" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">인쇄판</div>
+</div>
+<div class="bodyTxt">
+<div id="tt4">
+<p data-pid="3" id="p3">요셉이 죽은 지도 60년이 넘었습니다. 이집트 사람들은 자신들을 기근에서 구하기 위해 여호와께서 사용하셨던 이 충실한 남자를 잊었습니다. 이집트를 다스리던 새로운 파라오는 이스라엘 사람들을 미워하면서도 두려워했습니다. 여호와께서 이스라엘 사람들을 축복하셔서 그들의 수가 크게 늘어나고 있었기 때문입니다. 그래서 이집트인들은 이스라엘 사람들을 노예로 삼아 가혹하게 대했습니다. 그런데도 이스라엘 사람들은 계속 불어났습니다.</p>
+<p data-pid="4" id="p4">그러자 파라오는 매우 잔인한 계획을 세웠습니다. 그는 히브리 산파들인 십브라와 부아를 자기 앞으로 데려오게 했습니다. 이 강력한 통치자는 그들에게 히브리 여자들의 출산을 도와주다가 아들이 태어나면 모두 죽이라고 명령했습니다. 그 명령을 듣고 두 여자가 어떻게 느꼈을지 생각해 보십시오! 하지만 이 용기 있는 여자들은 “참하느님을 두려워했습니다.” 그들은 아무리 강력한 통치자라도 우주 주권자이신 여호와의 법을 어기게 만들 권한은 없다는 것을 알았습니다. 그들은 하느님에 대한 두려움 때문에 매우 용기 있게 행동했습니다. “이집트 왕이 시킨 대로 하지 않고” 오히려 그 반대로 했습니다. 할 수 있는 한 많은 아이들을 보호하고 살려 준 것입니다. 그들은 분노한 파라오에게 슬기롭게 대답하여 그가 자신들이 한 일을 모르게 했습니다. 여호와께서는 산파들의 행동을 눈여겨보시고 그들에게 “선을 베푸셨습니다.” 후에 그분은 그들이 가족을 갖게 해 주셨습니다.</p>
+<div class="stdPullQuote dc-ttClassStyle--unset du-color--orange-700 du-float-desktopOnly--inlineStart du-width-desktopOnly--oneHalf du-margin-inlineStart-mobileOnly--6 du-margin-inlineEnd-desktopOnly--4 du-margin-children-top-desktopOnly--0"><p data-pid="44" id="p44"><strong>두 산파와 모세의 부모와 누나가 용기를 내지 않았다면 아기 모세는 어떻게 되었겠습니까?</strong></p>
+</div>
+<p data-pid="5" id="p5">파라오는 자신의 계획이 실패한 것을 알고 또 다른 잔인한 명령을 내렸습니다. 히브리인들에게서 아들이 태어나면 나일강에 모두 던지라는 것이었습니다! 이 어려운 시기에 히브리인인 아므람과 요게벳 부부는 힘든 선택을 해야 했습니다. 그들에게는 이미 미리암과 아론이라는 두 자녀가 있었는데 요게벳이 셋째 아이를 임신하게 된 것입니다. 그들은 아들이 태어나면 그 아이가 생명을 잃을 수도 있다는 것을 알았습니다. 아들이 태어나자 가능한 한 오랫동안 아이를 숨겨 두려고 했지만, 그것은 쉬운 일이 아니었습니다. 아이가 생후 3개월이 되었을 때 요게벳은 바구니를 가져다가 역청과 피치를 바르고 그 안에 아이를 뉘었습니다. 그러고는 나일강 가로 가서 갈대 사이에 그 작은 바구니를 숨겨 두었습니다. 어린 딸 미리암은 멀찍이 서서 동생이 어떻게 되는지 지켜보고 있었습니다.</p>
+<div class="dc-bleedToArticleEdge du-margin-vertical--8 du-margin-vertical-desktopOnly--12" id="f2">
+<figure>
+<img alt="요게벳이 아기 모세를 안고 있고 그 옆에 미리암이 있습니다. 요게벳이 나일강 기슭의 갈대 사이에 있는 파피루스 바구니에 모세를 눕히려고 합니다." data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/214" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/215" style="max-width: min(100%, 700px); height: auto;"/>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">요게벳이 아기 모세를 안고 있고 그 옆에 미리암이 있습니다. 요게벳이 나일강 기슭의 갈대 사이에 있는 파피루스 바구니에 모세를 눕히려고 합니다.</td></tr></tbody></table></div></figure>
+</div>
+<p data-pid="6" id="p6"><span aria-hidden="true" class="pageNum" data-before-text="49" data-no="49" id="page49"></span>얼마 후에 파라오의 딸이 목욕을 하러 나일강에 왔습니다. 그는 바구니를 보고 여종을 보내 그것을 가져오게 했습니다. 바구니를 열자 잘생긴 남자 아기가 울고 있었습니다. 파라오의 딸은 동정심을 느껴 아기를 입양하기로 했습니다. 하지만 아기에게 젖을 먹일 여자가 필요했습니다. 지켜보고 있던 미리암은 무엇을 해야 할지 금방 깨달았습니다. 그래서 용기를 내어 파라오의 딸에게 달려가 젖을 먹일 여자를 찾아 주겠다고 말했고, 파라오의 딸은 그렇게 하라고 했습니다. 미리암은 어머니인 요게벳을 데리고 왔습니다. 요게벳이 얼마나 기뻤을지 생각해 보십시오! 사랑하는 아들이 죽임을 당할까 봐 걱정할 필요 없이 아들을 돌보면서 젖을 먹일 수 있게 된 것입니다. 게다가 파라오의 딸은 그 대가로 돈을 주겠다고 했습니다. 요게벳과 아므람은 최선을 다해 아들에게 여호와에 대해 가르쳤을 것입니다. 하지만 아이가 자라자 그들은 아이를 파라오의 딸에게 데려다주어야 했습니다. 파라오의 딸은 아이에게 모세라는 이름을 지어 주었습니다.</p>
+<p data-pid="7" id="p7">여호와께서는 아므람과 요게벳과 미리암이 믿음과 용기를 보인 것에 대해 상을 주셨습니까? 물론입니다! 아므람과 요게벳은 자녀인 미리암과 아론이 여호와를 충실히 섬기는 사람이 되는 것을 보았습니다. 또한 여호와께서 모세를 보호해 주시는 것도 볼 수 있었습니다. 그들은 모세가 성장하여 어떤 사람이 되었는지도 볼 수 있었습니까? 성경은 그들이 그 정도로 오래 살았는지는 알려 주지 않습니다. (<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025909/0/0">출애굽 6:20</a>) 하지만 미리암과 아론은 모세가 어떤 사람으로 성장했는지, 여호와께서 모세를 사용해 어떤 놀라운 일들을 하시는지 보았습니다. 그리고 세 사람 모두 뛰어난 믿음과 용기를 나타냈습니다. 다음 장에서는 모세가 성장하여 어떻게 여호와를 섬기기로 결정했는지 살펴볼 것입니다.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출애굽 6:20]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v2-6-20-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1675">20 </a>아므람은 아버지의 누이인 요게벳을 아내로 삼았다.<a class="b" data-bid="142-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/141">+</a> 그 여자는 그에게 아론과 모세를 낳아 주었다.<a class="b" data-bid="143-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/142">+</a> 아므람은 137년을 살았다.</span></td></tr></tbody></table></div>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="8" id="p8"><strong>성경 기록을 읽어 보십시오</strong></h3>
+<ul><li><p data-pid="9" id="p9"> <a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025909/1/0"><strong>출애굽기 1:6–2:10</strong></a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출애굽기 1:6–2:10]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-1-6-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1538">6 </a>그 후 요셉이 죽었으며,<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/4">+</a> 그의 형제들과 그 세대도 모두 죽었다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-1-7-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1539">7 </a>이스라엘 사람들<a class="fn" data-fnid="4" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070106/3" id="footnotesource4">*</a><em> (각주: 직역하면 “이스라엘의 아들들”.)</em>은 자녀를 많이 낳아 그 수가 크게 늘어났다. 그들이 계속 불어나고 급속히 강대해져 그 땅이 그들로 가득 차게 되었다.<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/5">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-1-8-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1540">8 </a>시간이 흘러 요셉을 모르는 새 왕이 일어나 이집트를 다스리게 되었다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-1-9-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1541">9 </a>그가 자기 백성에게 말했다. “보아라! 이스라엘 백성이 우리보다 더 많고 강대하다.<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/6">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-1-10-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1542">10 </a>우리가 그들을 지혜롭게 다루자. 그렇게 하지 않으면 그들이 계속 불어날 것이고, 전쟁이 일어나면 우리의 적들과 한편이 되어 우리와 싸우고 이 나라를 떠날 것이다.”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-1-11-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1543">11 </a>그래서 이집트인들은 힘든 노동을 시켜 그들을 압제하려고 그들 위에 강제 노역을 감독할 자<a class="fn" data-fnid="5" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070106/4" id="footnotesource5">*</a><em> (각주: 또는 “작업 감독관”.)</em>들을 세웠다.<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/7">+</a> 그들은 파라오를 위한 국고 도시들인 비돔과 라암셋을<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/8">+</a> 건축했다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-1-12-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1544">12 </a>그러나 압제하면 할수록 이스라엘 백성은 더욱더 불어나고 더 널리 퍼져 나갔다. 그래서 그들은 이스라엘 사람들 때문에 몹시 두려워했다.<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/9">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-1-13-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1545">13 </a>그리하여 이집트인들은 이스라엘 사람들을 가혹하게 노예로 부렸다.<a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/10">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-1-14-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1546">14 </a>그들은 이스라엘 사람들에게 진흙 모르타르와 벽돌을 만드는 일과 들에서 하는 온갖 노역을 시켜, 힘든 노동으로 그들의 삶을 괴롭게 만들었다. 그처럼 온갖 노역으로 그들을 열악한 환경에서 고생하게 했다.<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/11">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-1-15-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1547">15 </a>후에 이집트 왕이 히브리 산파들인 십브라와 부아에게 말했다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-1-16-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1548">16 </a>그는 이렇게 말했다. “너희는 히브리 여자들이 아이를 낳는 것을 도와줄 때에,<a class="b" data-bid="13-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/12">+</a> 그들이 분만대<a class="fn" data-fnid="6" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070106/5" id="footnotesource6">*</a><em> (각주: 또는 “분만용 의자”.)</em>에 있는 것을 볼 때에, 그 아이가 아들이면 죽이고 딸이면 살려 두어라.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-1-17-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1549">17 </a>하지만 그 산파들은 참하느님을 두려워하여 이집트 왕이 시킨 대로 하지 않고 사내아이들을 살려 두었다.<a class="b" data-bid="14-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/13">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-1-18-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1550">18 </a>얼마 후에 이집트 왕이 산파들을 불러 물었다. “어째서 사내아이들을 살려 두었느냐?” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-1-19-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1551">19 </a>산파들이 파라오에게 대답했다. “히브리 여자들은 이집트 여자들과 다릅니다. 그들은 기운이 좋아서 산파가 가기도 전에 아이를 낳아 버립니다.”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-1-20-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1552">20 </a>그래서 하느님께서 산파들에게 선을 베푸셨다. 백성은 계속 불어나고 매우 강대해졌다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-1-21-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1553">21 </a>산파들이 참하느님을 두려워했기 때문에 그분은 후에 그들에게 가족을 주셨다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-1-22-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1554">22 </a>마침내 파라오가 모든 백성에게 명령했다. “히브리인들에게서 태어나는 아들은 모두 나일 강에 던지고, 딸은 모두 살려 두어라.”<a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/14">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-1-1"><a class="cl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1555"><strong>2</strong> </a>그 무렵, 레위 집안의 어떤 사람이 레위의 딸과 결혼했다.<a class="b" data-bid="16-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/15">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-2-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1556">2 </a>그리고 그 여자가 임신하여 아들을 낳았다. 그 여자는 아들이 잘생긴 것을 보고 3개월 동안 숨겨 두었다.<a class="b" data-bid="17-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/16">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-3-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1557">3 </a>더 이상 숨겨 둘 수 없게 되자,<a class="b" data-bid="18-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/17">+</a> 그 여자는 파피루스 바구니<a class="fn" data-fnid="7" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070106/6" id="footnotesource7">*</a><em> (각주: 또는 “궤; 상자”.)</em>를 가져다가 역청과 피치를 바르고 그 안에 아이를 뉘어 나일 강가의 갈대 사이에 두었다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-4-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1558">4 </a>그 아이의 누나는<a class="b" data-bid="19-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/18">+</a> 멀찍이 서서 아이가 어떻게 되는지 지켜보고 있었다.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-5-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1559">5 </a>그런데 파라오의 딸이 목욕을 하려고 나일 강으로 내려왔고, 그의 시녀들은 나일 강가를 거닐고 있었다. 파라오의 딸은 갈대 사이에 있는 바구니를 보고 즉시 여종을 보내 그것을 가져오게 했다.<a class="b" data-bid="20-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/19">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-6-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1560">6 </a>그가 그것을 열고 아이를 보았는데, 아이가 울고 있었다. 그는 아이에게 동정심을 느끼면서도, “이 아이는 히브리인의 아이구나” 하고 말했다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-7-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1561">7 </a>그때에 그 아이의 누나가 파라오의 딸에게 “제가 가서 아이에게 젖을 먹일 히브리 여자를 불러 드릴까요?” 하고 말했다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-8-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1562">8 </a>파라오의 딸이 “그래, 가거라!” 하고 말하자, 소녀가 즉시 가서 그 아이의 어머니를<a class="b" data-bid="21-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/20">+</a> 불러왔다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-9-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1563">9 </a>파라오의 딸이 그에게 말했다. “이 아이를 데리고 가서 아이에게 젖을 먹이시오. 그러면 내가 그대에게 삯을 줄 것이오.” 그래서 그 여자가 아이를 데려다가 젖을 먹였다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v2-2-10-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070106/1564">10 </a>아이가 자라자 그 여자는 아이를 파라오의 딸에게 데려다 주었고 아이는 그의 아들이 되었다.<a class="b" data-bid="22-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/21">+</a> 그는 아이의 이름을 모세<a class="fn" data-fnid="8" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070106/7" id="footnotesource8">*</a><em> (각주: “건져 낸”을 의미함. 물에서 구원받았다는 의미임.)</em>라고 하면서 말했다. “내가 이 아이를 물에서 건져 냈기 때문이다.”<a class="b" data-bid="23-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070106/22">+</a></span></div></td></tr></tbody></table></div>
+</li>
+<li><p data-pid="10" id="p10"> <a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025909/2/0"><strong>사도행전 7:17-21</strong></a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[사도행전 7:17-21]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-7-17-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070148/27225">17 </a>하느님께서 아브라함에게 확언하신 약속이 성취될 때가 가까워지자, 그 백성이 이집트에서 늘어나고 불어났습니다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-7-18-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070148/27226">18 </a>그러다가 이집트에 요셉을 모르는 다른 왕이 일어났습니다.<a class="b" data-bid="219-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070148/218">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-7-19-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070148/27227">19 </a>그 왕은 교활하게 우리 민족을 학대하여, 부당하게도 조상들에게 아기들을 버리라고 강요해서 아기들이 살아남지 못하게 했습니다.<a class="b" data-bid="220-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070148/219">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-7-20-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070148/27228">20 </a>그때 모세가 태어났는데, 그는 하느님 보시기에도 매우 아름다웠습니다. 그는 세 달 동안 아버지 집에서 양육받다가<a class="b" data-bid="221-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070148/220">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-7-21-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070148/27229">21 </a>버려졌는데,<a class="b" data-bid="222-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070148/221">+</a> 파라오의 딸이 데려다가 자기 아들로 삼아 길렀습니다.<a class="b" data-bid="223-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070148/222">+</a> </span></div></td></tr></tbody></table></div>
+</li>
+<li><p data-pid="11" id="p11"> <a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025909/3/0"><strong>히브리서 11:23</strong></a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[히브리서 11:23]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v58-11-23-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070162/30287">23 </a>믿음으로 모세의 부모는 그가 태어난 후에 세 달 동안 그를 숨겼습니다.<a class="b" data-bid="311-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070162/310">+</a> 아이가 아름다운 것을 보고<a class="b" data-bid="312-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070162/311">+</a> 왕의 명령을<a class="b" data-bid="313-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070162/312">+</a> 두려워하지 않았기 때문입니다. </span></td></tr></tbody></table></div>
+</li>
+</ul>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="12" id="p12"><strong>토의해 보십시오</strong></h3>
+<p data-pid="13" id="p13"><strong>두 산파와 모세의 가족은 어떻게 용기를 나타냈습니까?</strong></p>
+
+</div>
+<div id="tt15">
+<h2 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--2" data-pid="15" id="p15"><span aria-hidden="true" class="pageNum" data-before-text="50" data-no="50" id="page50"></span><strong>더 깊이 알아보기</strong></h2>
+<ol class="du-listStyleType--source"><li><p data-pid="16" id="p16"><span class="txtSrcBullet"><strong>1.</strong> </span><strong>이스라엘 사람들이 한때 이집트에 살았다는 것을 뒷받침하는 어떤 고고학적 증거가 있습니까?</strong> (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025909/0/0">「깨04」 4/8 4면 4항–5면 1항</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「깨04」 4/8 4면 4항–5면 1항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="6" id="p6" style="margin-top: 0; margin-bottom: 8px">오늘날 많은 학자들은 이 사건들을 꾸며 낸 이야기라며 받아들이지 않습니다. 「오늘날의 그리스도교」(<em>Christianity Today</em>)에서는 이렇게 알려 줍니다. “사실, 이스라엘의 후손들이 이집트에 체류하고 있던 [기간]에 대해 알려 주는 직접적인 고고학적 증거는 전혀 발견되지 않았다.” 직접적인 물리적 증거는 없을지 모르지만, 성서 기록이 믿을 만하다는 <em>간접적인</em> 증거는 상당히 많이 있습니다. 이집트학 학자인 제임스 K. 호프마이어는 자신의 저서 「이집트의 이스라엘」(<em>Israel</em> <span aria-hidden="true" class="pageNum" data-before-text="5" data-no="5" id="page5"></span><em>in Egypt</em>)에서 이렇게 말합니다. “고고학적 자료가 명백히 알려 주는 바에 따르면, 레반트[지중해 동부 연안 국가들]에 사는 사람들은 이집트에 자주 갔는데, 특히 가뭄을 일으키는 기후 문제의 결과 때문에 그러했다. ··· 따라서 대략 기원전 1800년부터 1540년에 이르는 기간에 이집트는 서아시아에 사는 셈어를 사용하는 사람들이 이주하고 싶어 하는 매혹적인 곳이었다.”</div><div class="sb" data-pid="7" id="p7" style="margin-top: 0; margin-bottom: 8px">더욱이 이집트에서 했던 종살이에 관한 성서의 묘사가 정확한 것임이 오랫동안 인정되어 왔습니다. 「모세—그의 생애」라는 책에서는 이렇게 알려 줍니다. “이스라엘 사람들이 겪은 압제에 대한 성서의 기록은 다른 자료에 자주 등장하는 고대 이집트의 한 무덤 벽화를 통해 확증되는 것 같다. 그 벽화에는 노예들이 진흙 벽돌을 만드는 장면이 매우 세밀하게 묘사되어 있다.”</div></td></tr></tbody></table></div>
+
+</li>
+<li><p data-pid="18" id="p18"><span class="txtSrcBullet"><strong>2.</strong> </span><strong>파라오가 히브리 아기들을 모두 죽이라고 명령했다는 성경 기록과 파피루스 바구니에 대한 언급이 정확하다는 점을 무엇이 뒷받침합니까?</strong> (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025909/1/0">「깨04」 4/8 6면 1-2항</a>) <span class="du-color--orange-700"><strong>삽화 가</strong></span></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「깨04」 4/8 6면 1-2항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="8" id="p8" style="margin-top: 0; margin-bottom: 8px"><span aria-hidden="true" class="pageNum" data-before-text="6" data-no="6" id="page6"></span>요게벳이 사용한 작은 궤에 대한 성서의 묘사도 사실과 일치한 것 같습니다. 성서에서는 그 궤가 파피루스로 만들어졌다고 알려 주는데, 쿡이 저술한 「주해」(<em>Commentary</em>)에 따르면 “이집트 사람들은 가볍고 빠른 배를 만들 때 보통 [파피루스]를 사용”했습니다.</div><div class="sb" data-pid="9" id="p9" style="margin-top: 0; margin-bottom: 8px">하지만 국가 지도자가 유아들을 잔인하게 살해하라는 명령을 내릴 것이라고는 믿기 어렵지 않겠습니까? 조지 롤린슨이라는 학자는 우리에게 이러한 점을 상기시켜 줍니다. “유아 살해는 ··· 각기 다른 시대에 여러 곳에서 널리 성행했으며, 사소한 일로 여겨졌다.” 사실, 굳이 오랜 옛날로 거슬러 올라가지 않아도 현대에 대량 살육이 자행된 그처럼 오싹하게 만드는 예를 찾을 수 있습니다. 그러한 성서의 기록은 당혹스러울지는 모르지만 유감스럽게도 매우 신뢰할 만한 것입니다.</div></td></tr></tbody></table></div>
+
+<div class="south_center" id="f3">
+<figure>
+<img alt="한 이집트 남자가 파피루스 줄기를 사용해 배를 만들고 있습니다." class="south_center" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/216" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/217" style="max-width: min(100%, 700px); height: auto;"/>
+<p class="imgCredit" data-pid="48" id="p48">Christine Osborne Pictures/Alamy Stock Photo</p>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="46" id="p46"><span class="dc-screenReaderText"><strong>삽화</strong></span> <span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>가</strong></span><span class="dc-screenReaderText"><strong>:</strong></span> 오늘날에도 파피루스는 배를 만드는 데 사용됩니다</p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">한 이집트 남자가 파피루스 줄기를 사용해 배를 만들고 있습니다.</td></tr></tbody></table></div></figure>
+</div>
+</li>
+<li><p data-pid="20" id="p20"><span class="txtSrcBullet"><strong>3.</strong> </span><strong>히브리 산파들에 대해 어떤 점을 알 수 있으며 여호와께서는 그들을 어떻게 축복하셨습니까?</strong> (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025909/2/0">「파03」 11/1 8면 3-4항</a>; <a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025909/3/0">「통」 “산파”</a>) <span class="du-color--orange-700"><strong>삽화 나</strong></span></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「파03」 11/1 8면 3-4항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="6" data-rel-pid="[39]" id="p6" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="3"><sup>3</sup></span> 제2차 세계 대전 후에 독일에서 열린 뉘른베르크 재판에서, 대량 학살로 유죄 판결을 받은 많은 사람들은 단지 명령에 복종한 것뿐이라면서 자신들이 저지른 범죄를 정당화하려고 하였습니다. 이제 그 사람들과 이스라엘 산파 두 사람을 비교해 보십시오. 십브라와 부아라고 하는 그 여자들은, 이름은 알려져 있지 않지만 매우 포학했던 한 파라오가 다스리던 기간에 고대 이집트에서 살던 사람들입니다. 히브리 주민 수가 급격히 증가하는 것을 두려워한 그 파라오는 그 두 산파에게 새로 태어나는 모든 히브리 남자 아이들을 반드시 죽이라고 명령하였습니다. 그 여자들은 그처럼 극악한 명령에 어떻게 대처하였습니까? “그 산파들은 ··· <strong>이집트</strong> 왕이 그들에게 말한 대로 하지 <em>않고</em>, 남자 아이들을 살려 두었”습니다. 그 여자들이 사람에 대한 두려움에 굴복하지 않았던 이유는 무엇입니까? 그들이 “참 하느님을 두려워”하였기 때문입니다.—<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/2/0">탈출 1:15,</a><a class="b" data-bid="3-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/2/1"> 17;</a><a class="b" data-bid="3-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/2/2"> 창세 9:6</a>.</div><div class="sb" data-pid="7" data-rel-pid="[39]" id="p7" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="4"><sup>4</sup></span> 그렇습니다. 그 산파들은 여호와께 도피하였습니다. 그러자 그분은 그들에게 “방패”가 되어 주셨으며, 파라오의 진노로부터 그들을 보호해 주셨습니다. (<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/3/0">사무엘 둘째 22:31;</a><a class="b" data-bid="4-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/3/1"> 탈출 1:18-20</a>) 하지만 여호와의 축복은 그것으로 그친 것이 아니었습니다. 그분은 십브라와 부아에게 그들 자신의 가족을 주심으로 상을 주셨습니다. 심지어 그분은 후대의 사람들이 읽을 수 있도록 그 여자들의 이름과 그들이 한 일이 그분의 영감받은 말씀에 기록되게 하심으로 그들을 영예롭게 <span aria-hidden="true" class="pageNum" data-before-text="9" data-no="9" id="page9"></span>해 주셨습니다. 반면에 그 파라오의 이름은 시간의 흐름 속에 묻혀 완전히 잊혀지고 말았습니다.—<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/4/0">탈출 1:21;</a><a class="b" data-bid="5-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/4/1"> 사무엘 첫째 2:30ㄴ;</a><a class="b" data-bid="5-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/4/2"> 잠언 10:7</a>.</div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「통」 “산파”]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><h1 data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="1060" data-no="1060" id="page1060"></span><strong>산파</strong></h1><div class="sn" data-pid="2" id="p2" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="1"></span>(midwife)</div><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="2"></span>“산파”에 해당되는 히브리어는 동사 <em>얄라드</em>(낳다)의 여성 분사이며, 따라서 문자적으로 아이를 낳는 것을 돕는 여자를 의미한다. (<a href="https://wol.jw.org/ko/wol/tc/r8/lp-ko/1200003042/0"><strong>출산</strong></a> 참조) 산파는 산고를 겪는 임산부를 도우며, 아이가 태어나면 탯줄을 끊고 유아를 씻어 준다. 고대에는 산파가 또한 아이를 소금으로 문지르고 천으로 된 띠로 감싸 주었다.—<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003042/0/0">겔 16:4</a>.</div><div class="sb" data-pid="4" id="p4" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="3"></span>가까운 벗이나 친족 또는 지역 사회의 연로한 여자들이 때때로 이러한 역할을 하였지만, 전문적인 지식과 기술과 경험이—특히 난산일 경우에—필요하기 때문에, 직업적으로 산파 일을 하는 사람은 소수였다. 베냐민의 출생과 관련하여, 산파는 “[라헬이] 해산하기가 힘들어지고 있”을 때 라헬에게 아들을 가질 것이라고 확언할 수 있었지만, 라헬은 죽고 말았다. (<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003042/1/0">창 35:16-19</a>) 다말이 쌍둥이 베레스와 제라를 낳던 복잡한 분만 중에, 산파는 맏아들일 것이라고 예상한 아기에게 표를 하는 것에 주의를 기울였다. 산파는 제라가 내민 손에 재빨리 진홍색 천 조각을 매었다. 하지만 제라는 손을 집어넣었고, 그의 형제가 먼저 나오면서 어머니에게 회음 열상을 일으켰다.—<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003042/2/0">창 38:27-30</a>.</div><div class="sb" data-pid="5" id="p5" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="4"></span>이스라엘인들이 이집트에서 노예살이를 할 때 그들 가운데 있던 산파들은 매우 위태롭고 위험한 입장에 놓이게 되었다. 파라오는 그들 가운데서 십브라와 부아라는 두 명의 산파를 지명하여 불러서, 그들에게 히브리인 남자 아기가 태어나면 그 즉시 모두 죽이라고 명령하였다. 아마도 이 두 여자는 산파 직업을 가진 자들의 우두머리 역할을 하였고 동료들에게 왕의 명령을 전할 책임이 있었던 것 같다. 하지만 “그 산파들은 참 하느님을 두려워하여 <strong>이집트</strong> 왕이 그들에게 말한 대로 하지 않고, 남자 아이들을 살려 두었다.” 이 때문에 파라오는 그들에게 책임 추궁을 하면서, ‘어찌하여 너희가 이런 일을 하였느냐?’라고 힐문하였다. 산파들은 그것이 어쩔 수 없는 일이었다고 꾸며 대면서, 히브리 여자들은 “기운이 좋아서”, “산파가 그들에게 들어가기도 전에” 해산한다고 주장하였다. (<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003042/3/0">출 1:15-19</a>) 이 산파들이 여호와를 두려워하여 유아 살해 행위를 거부하였기 때문에, 하느님은 그들을 축복하시고 그 상으로 그들에게 가족을 주셨다.—<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003042/4/0">출 1:20, 21</a>.</div><div class="sb" data-pid="6" id="p6" style="margin-top: 0; margin-bottom: 8px"></div></td></tr></tbody></table></div>
+
+<div class="south_center" id="f4">
+<figure>
+<img alt="두 산파가 갓 태어난 남자 아기를 숨기고 있습니다. 그중 한 사람이 바깥 상황을 조심스럽게 살피고 있습니다. 이집트 군인들이 집집마다 문을 두드리며 갓 태어난 남자 아기를 찾고 있습니다." class="south_center" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/218" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/219" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="50" id="p50"><span class="dc-screenReaderText"><strong>삽화</strong></span> <span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>나</strong></span></p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">두 산파가 갓 태어난 남자 아기를 숨기고 있습니다. 그중 한 사람이 바깥 상황을 조심스럽게 살피고 있습니다. 이집트 군인들이 집집마다 문을 두드리며 갓 태어난 남자 아기를 찾고 있습니다.</td></tr></tbody></table></div></figure>
+</div>
+</li>
+<li><p data-pid="22" id="p22"><span class="txtSrcBullet"><strong>4.</strong> </span><strong>미리암은 어떻게 연로한 나이에도 뛰어난 믿음을 나타냈습니까?</strong> (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025909/4/0">「웹믿본」 기사 7 14-18항</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「웹믿본」 기사 7 14-18항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="20" id="p20" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="14"></span>모세가 하느님께 그분의 백성을 구출하라는 명령을 받고 이집트로 돌아왔을 때 미리암은 80세가 훨씬 넘었을 것입니다. 미리암의 또 다른 남동생인 아론은 모세의 대변자가 되었습니다. 모세와 아론은 함께 파라오를 찾아가 하느님의 백성을 떠나게 해 달라고 요청했습니다. 파라오가 그들의 요청을 거절할 때마다 여호와께서는 이집트인들에게 재앙을 내리셨습니다. 그렇게 열 번의 재앙이 닥치는 동안 거듭거듭 파라오 앞에 나아가야 했던 남동생들을 미리암은 최선을 다해 지원하고 격려해 주었을 것입니다. 마지막으로 열 번째 재앙이 닥쳐 이집트의 모든 맏아들이 죽게 되자 수많은 이스라엘 민족은 이집트를 빠져나올 수 있게 되었습니다! 모세의 인도를 받아 이집트를 떠나는 동족을 지칠 줄 모르고 격려하는 미리암의 모습을 상상해 보십시오.—<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/501500100/11/0">출애굽기 4:14-16,</a><a class="b" data-bid="12-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/501500100/11/1"> 27-31;</a><a class="b" data-bid="12-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/501500100/11/2"> 7:1–12:51</a>.</div><div class="sb" data-pid="21" id="p21" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="15"></span>후에 이스라엘 백성은 홍해와 이집트 군대 사이에 꼼짝없이 갇혔습니다. 그때 미리암은 남동생 모세가 바다를 향해 서서 지팡이를 들어올리는 모습을 보았습니다. 그러자 바다가 둘로 갈라졌습니다! 모세의 인도 아래 백성과 함께 마른 땅을 밟고 바다 한가운데를 걸어가면서 여호와에 대한 미리암의 믿음은 이전 어느 때보다 강해졌을 것입니다. 미리암이 섬기는 하느님은 어떤 일이든 하실 수 있고 어떤 약속이든 이루실 수 있는 분이었습니다!—<a class="b" data-bid="13-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/501500100/12/0">출애굽기 14:1-31</a>.</div><div class="sb" data-pid="22" id="p22" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="16"></span>이스라엘 백성이 무사히 바다를 건넌 뒤에 바닷물이 파라오와 그의 군대를 휩쓸어 버리자, 미리암은 여호와께서 세계에서 가장 막강한 군대보다 더 강력한 분이라는 사실을 깨달았습니다. 이스라엘 백성은 감동을 받아 여호와께 노래를 불렀습니다. 미리암은 그에 화답하여 여자들을 이끌고 이런 노래를 불렀습니다. “여호와께 노래하여라, 그분이 드높여지셨으니. 그분이 말과 그 탄 자를 바다에 던지셨다.”—<a class="b" data-bid="14-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/501500100/13/0">출애굽기 15:20, 21;</a><a class="b" data-bid="14-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/501500100/13/1"> 시편 136:15</a>.</div><div class="sb" data-pid="23" id="p23" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="17"></span>미리암의 삶에서 결코 잊을 수 없는 가장 행복한 순간이었을 것입니다. 성경은 그때의 상황을 묘사하며 미리암을 여예언자라고 부릅니다. 그는 여예언자라고 불린 최초의 여자이며, 그처럼 특별한 위치에서 여호와를 섬긴 몇 안되는 여자들 중 한 명입니다.—<a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/501500100/14/0">사사기 4:4;</a><a class="b" data-bid="15-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/501500100/14/1"> 열왕기하 22:14;</a><a class="b" data-bid="15-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/501500100/14/2"> 이사야 8:3;</a><a class="b" data-bid="15-4" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/501500100/14/3"> 누가복음 2:36</a>.</div><div class="sb" data-pid="24" id="p24" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="18"></span>이런 성경 기록을 통해 여호와께서 우리를 지켜보고 계시며 우리의 보잘것없어 보이는 노력과 우리가 나타내는 참을성, 그분을 찬양하려는 열망을 소중히 여기신다는 점을 알 수 있습니다. 나이나 성별에 관계없이 우리는 여호와에 대한 믿음을 나타낼 수 있습니다. 여호와께서는 그런 믿음을 기뻐하시고 결코 잊지 않으시며 그에 대해 기꺼이 상을 주십니다. (<a class="b" data-bid="16-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/501500100/15/0">히브리서 6:10;</a><a class="b" data-bid="16-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/501500100/15/1"> 11:6</a>) 우리도 미리암과 같은 믿음을 나타내야 하지 않겠습니까!</div></td></tr></tbody></table></div>
+
+</li>
+</ol>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="24" id="p24"><span aria-hidden="true" class="pageNum" data-before-text="51" data-no="51" id="page51"></span><strong>교훈점 적용하기</strong></h2>
+<ul><li><p data-pid="25" id="p25">  부모들은 아므람과 요게벳에게서 무엇을 배울 수 있습니까?</p>
+
+</li>
+<li><p data-pid="27" id="p27">  미리암의 본을 통해 친형제자매를 대하는 것에 관해 무엇을 배울 수 있습니까? <span class="du-color--orange-700"><strong>삽화 다</strong></span></p>
+
+<div class="south_center gen-flipbook pm-flipbook-gallery" id="f5">
+<figure class="south_center gen-flipbook pm-flipbook-gallery">
+<img alt="삽화 모음: 한 남매가 어린 미리암에 대해 공부하고 있습니다. 다음의 세 삽화는 각각의 장면을 보여 줍니다." class="south_center gen-flipbook pm-flipbook-gallery" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/220" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/220" style="max-width: min(100%, 700px); height: auto;"/>
+<img alt="누나가 남동생과 함께 앉아 있습니다. 누나는 책을 읽고 남동생은 성경 내용을 그림으로 그리고 있습니다." class="south_center gen-flipbook pm-flipbook-gallery" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/221" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/221" style="max-width: min(100%, 700px); height: auto;"/>
+<img alt="누나와 남동생이 즐겁게 이야기를 나누며 걸어갑니다. 남동생은 아이스크림을 들고 있고 누나는 시원한 음료를 들고 있습니다." class="south_center gen-flipbook pm-flipbook-gallery" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/222" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/222" style="max-width: min(100%, 700px); height: auto;"/>
+<img alt="누나가 집회 때 해설합니다. 그 모습을 남동생이 미소 지으며 바라봅니다." class="south_center gen-flipbook pm-flipbook-gallery" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/223" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/223" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="52" id="p52"><span class="dc-screenReaderText"><strong>삽화</strong></span> <span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>다</strong></span></p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">삽화 모음: 한 남매가 어린 미리암에 대해 공부하고 있습니다. 다음의 세 삽화는 각각의 장면을 보여 줍니다.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">누나가 남동생과 함께 앉아 있습니다. 누나는 책을 읽고 남동생은 성경 내용을 그림으로 그리고 있습니다.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">누나와 남동생이 즐겁게 이야기를 나누며 걸어갑니다. 남동생은 아이스크림을 들고 있고 누나는 시원한 음료를 들고 있습니다.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">누나가 집회 때 해설합니다. 그 모습을 남동생이 미소 지으며 바라봅니다.</td></tr></tbody></table></div></figure>
+</div>
+</li>
+<li><p data-pid="29" id="p29">  당신은 어떻게 생활에서 십브라와 부아를 본받아 용기를 나타낼 수 있습니까?</p>
+
+</li>
+</ul>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="31" id="p31"><strong>시야를 넓혀 생각해 보기</strong></h2>
+<ul><li><p data-pid="32" id="p32">  이 성경 기록을 통해 여호와에 대해 무엇을 배울 수 있을까?</p>
+
+</li>
+<li><p data-pid="34" id="p34">  이 성경 기록은 여호와의 목적과 어떤 관련이 있을까?</p>
+
+</li>
+<li><p data-pid="36" id="p36">  이 성경 기록에 나오는 인물들이 부활되면 무엇을 물어볼까?</p>
+
+</li>
+</ul>
+<div class="dc-bleedToArticleEdge dc-paddingToContentEdge du-bgColor--warmGray-50 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--4 du-padding-bottom--8" id="tt79">
+<h2 class="du-color--orange-700 du-margin-top--0" data-pid="38" id="p38"><strong>더 찾아보기</strong></h2>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt81">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f6">
+<figure>
+<a href="https://wol.jw.org/wol/rslink/r8/lp-ko?lang=KO&amp;docid=2003802&amp;pub=w03&amp;issuedate=20031101&amp;beginpar=6&amp;endpar=8"><img alt="" class="suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/224" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/225" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt82">
+<p data-pid="39" id="p39">파라오의 명령을 따르지 않은 여자들의 본을 통해 무엇을 배울 수 있는지 알아보십시오.</p>
+<p data-pid="40" id="p40"><a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025909/5/0"><strong>“여호와의 마음을 기쁘시게 해 드린 여자들”</strong> (「파03」 11/1 8-9면 3-5항)</a></p>
+</div>
+</div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[“여호와의 마음을 기쁘시게 해 드린 여자들” (「파03」 11/1 8-9면 3-5항)]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="6" data-rel-pid="[39]" id="p6" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="3"><sup>3</sup></span> 제2차 세계 대전 후에 독일에서 열린 뉘른베르크 재판에서, 대량 학살로 유죄 판결을 받은 많은 사람들은 단지 명령에 복종한 것뿐이라면서 자신들이 저지른 범죄를 정당화하려고 하였습니다. 이제 그 사람들과 이스라엘 산파 두 사람을 비교해 보십시오. 십브라와 부아라고 하는 그 여자들은, 이름은 알려져 있지 않지만 매우 포학했던 한 파라오가 다스리던 기간에 고대 이집트에서 살던 사람들입니다. 히브리 주민 수가 급격히 증가하는 것을 두려워한 그 파라오는 그 두 산파에게 새로 태어나는 모든 히브리 남자 아이들을 반드시 죽이라고 명령하였습니다. 그 여자들은 그처럼 극악한 명령에 어떻게 대처하였습니까? “그 산파들은 ··· <strong>이집트</strong> 왕이 그들에게 말한 대로 하지 <em>않고</em>, 남자 아이들을 살려 두었”습니다. 그 여자들이 사람에 대한 두려움에 굴복하지 않았던 이유는 무엇입니까? 그들이 “참 하느님을 두려워”하였기 때문입니다.—<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/2/0">탈출 1:15,</a><a class="b" data-bid="3-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/2/1"> 17;</a><a class="b" data-bid="3-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/2/2"> 창세 9:6</a>.</div><div class="sb" data-pid="7" data-rel-pid="[39]" id="p7" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="4"><sup>4</sup></span> 그렇습니다. 그 산파들은 여호와께 도피하였습니다. 그러자 그분은 그들에게 “방패”가 되어 주셨으며, 파라오의 진노로부터 그들을 보호해 주셨습니다. (<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/3/0">사무엘 둘째 22:31;</a><a class="b" data-bid="4-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/3/1"> 탈출 1:18-20</a>) 하지만 여호와의 축복은 그것으로 그친 것이 아니었습니다. 그분은 십브라와 부아에게 그들 자신의 가족을 주심으로 상을 주셨습니다. 심지어 그분은 후대의 사람들이 읽을 수 있도록 그 여자들의 이름과 그들이 한 일이 그분의 영감받은 말씀에 기록되게 하심으로 그들을 영예롭게 <span aria-hidden="true" class="pageNum" data-before-text="9" data-no="9" id="page9"></span>해 주셨습니다. 반면에 그 파라오의 이름은 시간의 흐름 속에 묻혀 완전히 잊혀지고 말았습니다.—<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/4/0">탈출 1:21;</a><a class="b" data-bid="5-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/4/1"> 사무엘 첫째 2:30ㄴ;</a><a class="b" data-bid="5-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/4/2"> 잠언 10:7</a>.</div><div class="sb" data-pid="8" data-rel-pid="[40]" id="p8" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="5"><sup>5</sup></span> 오늘날에도 십브라나 부아와 같은 여자들이 있습니까? 분명히 있습니다! 해마다 그러한 수많은 여자들은, “왕의 명령”이 생명을 구하는 성서의 소식을 전파하는 것을 금하는 나라와 지역에서, 자유와 심지어 생명을 잃을 위험을 무릅쓰고 두려움 없이 그 소식을 전파합니다. (<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/5/0">히브리 11:23;</a><a class="b" data-bid="6-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/5/1"> 사도 5:28, 29</a>) 그러한 용감한 여자들은 하느님과 이웃에 대한 사랑에서 우러나와, 하느님의 왕국의 좋은 소식을 다른 사람들에게 전하는 것을 그 누구도 막지 못하게 합니다. 따라서 많은 그리스도인 여자들이 반대와 박해에 맞서 싸우고 있습니다. (<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/6/0">마가 12:30, 31;</a><a class="b" data-bid="7-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/6/1"> 13:9-13</a>) 십브라와 부아의 경우처럼, 여호와께서는 그러한 훌륭하고 용기 있는 여자들이 하는 일들을 낱낱이 알고 계시며, 그들이 끝까지 충실하게 인내한다면 그들의 이름을 “생명 책”에 보존하심으로 그들에 대한 사랑을 분명히 나타내실 것입니다.—<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/7/0">빌립보 4:3;</a><a class="b" data-bid="8-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003802/7/1"> 마태 24:13</a>.</div></td></tr></tbody></table></div>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt83">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f7">
+<figure>
+<a class="dc-iconOverlay--play" data-video="webpubvid://?pub=jwb&amp;issue=201911&amp;track=3" href="https://www.jw.org/finder?lank=pub-jwb_201911_3_VIDEO&amp;wtlocale=KO"><img alt="" class="suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/226" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/227" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt84">
+<p data-pid="41" id="p41">용기를 나타내서 사람보다 여호와께 순종하는 사람들을 그분이 계속 돌보신다는 점을 어떻게 알 수 있습니까?</p>
+<p data-pid="42" id="p42"><a data-video="webpubvid://?pub=jwb&amp;issue=201911&amp;track=3&amp;langwritten=KO" href="https://www.jw.org/finder?lank=pub-jwb_201911_3_VIDEO&amp;wtlocale=KO"><strong><em>우리는 여호와의 것입니다</em> (6:55)</strong></a></p>
+</div>
+</div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Video Transcript] 알폰스 타클라: 우리는 여호와의 것입니다 (video duration: 6:55)</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px">우리는 여호와의 백성과 여럿이 함께 모여서 봉사를 하거나 집회와 대회를 볼 때면 정말 여호와의 축복을 느끼게 되지 않습니까? 하지만 고립돼 있다면 어떨까요? 박해를 당하고 있다면요? 알폰스 타클라 형제는 과거에 이집트에서 그런 일을 겪었습니다.</div><div style="margin-top: 0; margin-bottom: 8px">여호와께서 어떻게 그와 함께 계셨는지 보시죠. 어두운 밤이었습니다. 온통 칠흑 같은 어둠 뿐이었어요. 이집트는 이스라엘과 전쟁 중이었고, 당국은 형제들을 잡아들이고 있었습니다. 금지된 조직에서 불법 활동을 한다는 이유였죠. 그날 밤 우리는 강제 수용소로 이송되고 있었습니다.</div><div style="margin-top: 0; margin-bottom: 8px">잘 보이지가 않았어요. 우린 어떻게 되는 건지, 이곳은 어디고 뭐 하는 곳인지 어리둥절했죠. 감독관은 군인 둘을 시켜 우릴 감방으로 데려가게 했는데, 거기엔 형제들이 갇혀 있었습니다. 우린 수용소로 끌려가면 여러 해를 보내거나 아예 돌아오지 못하는 경우도 있다는 걸 알고 있었죠.</div><div style="margin-top: 0; margin-bottom: 8px">저는 청소년일 때 성경 인물들을 아주 좋아했습니다. 아브라함, 다니엘, 모세 같은 사람들이요. 참숭배의 옹호자들이라고 생각했죠. 어떤 땐 질투심이 나기도 했어요. 하느님과 정말 친구 같은 사이였잖아요. 저도 그런 사람이 되고 싶었습니다. 하느님과 가까워지려고 계속 성경을 읽었어요.</div><div style="margin-top: 0; margin-bottom: 8px"><em>[2:02]</em></div><div style="margin-top: 0; margin-bottom: 8px">여호와께서 절 돌보실 거고 결코 자신의 종을 버리지 않으실 걸 알았죠. 형제들에게 우리가 여호와를 숭배하기 때문에 여기 있다는 걸 잊지 말자고 격려했습니다. 우린 둘러 앉아서 어떻게 계속 영적으로 강한 상태를 유지할지 의논했어요. 기도가 꼭 필요하다는 데 의견이 일치했습니다.</div><div style="margin-top: 0; margin-bottom: 8px">그리고 일용할 성구처럼 매일 성구를 하나씩 골랐어요. 또 여러 성구들을 암송했죠. 한 형제가 기억하고 있던 내용을 근거로 연설을 했고, 그런 뒤엔 함께 성경 질문을 토의했습니다. 그때 우린 성경을 갖고 있지 않았거든요. 감독관들은 우리가 믿음을 버리기를 원했습니다.</div><div style="margin-top: 0; margin-bottom: 8px">그래서 저를 바닥에 엎드리게 한 다음 때리기 시작했습니다. 수감자들 모두가 보고 있었는데, 그 중 한 명은 기절하기까지 했어요. 여호와께 기도했습니다. “여호와여, 이 순간을 인내하게 도와주세요!” 고통이 엄청났지만, 곧 그분의 도움을 느꼈습니다.</div><div style="margin-top: 0; margin-bottom: 8px">몇 차례 맞고 나니 몸의 감각이 사라져서, 더 이상 아프지가 않았죠. 한 수감자가 제게 말했어요. “내가 여기서 살아 나가면, 내 아이들에게 말해 줄 겁니다. 여기 수용소에서 초기 그리스도인들을 꼭 닮은 그리스도인들을 봤다고 말이에요. 죽기를 마다하지 않고 믿음을 저버리지 않았다고 말해 줄 겁니다.”</div><div style="margin-top: 0; margin-bottom: 8px">감독관 한 명이 유독 못되게 굴었는데, 우릴 정말 심하게 때렸죠. 하루는 그가 와서 말했어요. “너희들이 뭘 믿는지 보고서를 쓸 사람이 두 명 필요하다.” 우린 생각했죠. ‘여기에 응하는 게 현명할까? 보고서를 악용할 수도 있잖아.’ 여호와께 어떻게 결정하는 게 좋을지 도와달라고 기도했습니다.</div><div style="margin-top: 0; margin-bottom: 8px"><em>[4:06]</em></div><div style="margin-top: 0; margin-bottom: 8px">그리고 결정을 봤어요. 우리가 여기서 나가든 못 나가든, 저 사람들에게 일단 증거해 보기로 한 거죠. 감독관에게 성경이 필요하다고 했더니 이유가 뭐냐고 했어요. 성경에 나온 말을 인용해서 보고서를 써야 한다고 했더니, “좋아. 보관함에 성경이 있나?” 라고 했죠.</div><div style="margin-top: 0; margin-bottom: 8px">전 그렇다고 했고, 감독관은 가져 오라고 했습니다. 저는 가방에서 성경을 꺼냈습니다. 하지만 그는 제 손에서 성경을 뺐더니 아무 데나 펴서 읽었습니다. “민수기라.” 이걸 누가 썼냐고 묻길래, “모세”라고 대답했더니, “거짓말 마!” 하고 소릴 질렀어요.</div><div style="margin-top: 0; margin-bottom: 8px">저는 가만히 있었죠. 성경을 덮었다가 다시 열더군요. “거짓말 마!” 또 소릴 질렀죠. 전 여호와께서 모세에게 이 내용을 기록하라고 하신 말씀이 어디 나오는지 생각해 내려고 애쓰고 있었어요. 그는 성경을 덮고 세 번째로 다시 펴더니 큰 소리로 읽기 시작했습니다.</div><div style="margin-top: 0; margin-bottom: 8px">몹시 놀란 표정으로 저를 쳐다보더군요. 보고서를 다 쓰고 전 감독관에게 물었죠. “성경을 갖고 있어도 될까요?” 그는 그러라고 했습니다. 3개월 동안 거의 매일 감독관들이 들어와 우릴 때리고 타협하라고 협박했지만, 절대 굴하지 않았어요. 다 여호와의 손길 덕분입니다.</div><div style="margin-top: 0; margin-bottom: 8px">여호와께선 우리가 타협하지 않고 계속 그분의 뜻을 행하며 인내하도록 도와주셨어요. 우리가 그분의 것이고 그분을 의지하기 때문이죠. 하느님은 자신의 종을 버리지 않으십니다.</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Video Transcript] 알폰스 타클라: 우리는 여호와의 것입니다 (video duration: 6:55)</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px">우리는 여호와의 백성과 여럿이 함께 모여서 봉사를 하거나 집회와 대회를 볼 때면 정말 여호와의 축복을 느끼게 되지 않습니까? 하지만 고립돼 있다면 어떨까요? 박해를 당하고 있다면요? 알폰스 타클라 형제는 과거에 이집트에서 그런 일을 겪었습니다.</div><div style="margin-top: 0; margin-bottom: 8px">여호와께서 어떻게 그와 함께 계셨는지 보시죠. 어두운 밤이었습니다. 온통 칠흑 같은 어둠 뿐이었어요. 이집트는 이스라엘과 전쟁 중이었고, 당국은 형제들을 잡아들이고 있었습니다. 금지된 조직에서 불법 활동을 한다는 이유였죠. 그날 밤 우리는 강제 수용소로 이송되고 있었습니다.</div><div style="margin-top: 0; margin-bottom: 8px">잘 보이지가 않았어요. 우린 어떻게 되는 건지, 이곳은 어디고 뭐 하는 곳인지 어리둥절했죠. 감독관은 군인 둘을 시켜 우릴 감방으로 데려가게 했는데, 거기엔 형제들이 갇혀 있었습니다. 우린 수용소로 끌려가면 여러 해를 보내거나 아예 돌아오지 못하는 경우도 있다는 걸 알고 있었죠.</div><div style="margin-top: 0; margin-bottom: 8px">저는 청소년일 때 성경 인물들을 아주 좋아했습니다. 아브라함, 다니엘, 모세 같은 사람들이요. 참숭배의 옹호자들이라고 생각했죠. 어떤 땐 질투심이 나기도 했어요. 하느님과 정말 친구 같은 사이였잖아요. 저도 그런 사람이 되고 싶었습니다. 하느님과 가까워지려고 계속 성경을 읽었어요.</div><div style="margin-top: 0; margin-bottom: 8px"><em>[2:02]</em></div><div style="margin-top: 0; margin-bottom: 8px">여호와께서 절 돌보실 거고 결코 자신의 종을 버리지 않으실 걸 알았죠. 형제들에게 우리가 여호와를 숭배하기 때문에 여기 있다는 걸 잊지 말자고 격려했습니다. 우린 둘러 앉아서 어떻게 계속 영적으로 강한 상태를 유지할지 의논했어요. 기도가 꼭 필요하다는 데 의견이 일치했습니다.</div><div style="margin-top: 0; margin-bottom: 8px">그리고 일용할 성구처럼 매일 성구를 하나씩 골랐어요. 또 여러 성구들을 암송했죠. 한 형제가 기억하고 있던 내용을 근거로 연설을 했고, 그런 뒤엔 함께 성경 질문을 토의했습니다. 그때 우린 성경을 갖고 있지 않았거든요. 감독관들은 우리가 믿음을 버리기를 원했습니다.</div><div style="margin-top: 0; margin-bottom: 8px">그래서 저를 바닥에 엎드리게 한 다음 때리기 시작했습니다. 수감자들 모두가 보고 있었는데, 그 중 한 명은 기절하기까지 했어요. 여호와께 기도했습니다. “여호와여, 이 순간을 인내하게 도와주세요!” 고통이 엄청났지만, 곧 그분의 도움을 느꼈습니다.</div><div style="margin-top: 0; margin-bottom: 8px">몇 차례 맞고 나니 몸의 감각이 사라져서, 더 이상 아프지가 않았죠. 한 수감자가 제게 말했어요. “내가 여기서 살아 나가면, 내 아이들에게 말해 줄 겁니다. 여기 수용소에서 초기 그리스도인들을 꼭 닮은 그리스도인들을 봤다고 말이에요. 죽기를 마다하지 않고 믿음을 저버리지 않았다고 말해 줄 겁니다.”</div><div style="margin-top: 0; margin-bottom: 8px">감독관 한 명이 유독 못되게 굴었는데, 우릴 정말 심하게 때렸죠. 하루는 그가 와서 말했어요. “너희들이 뭘 믿는지 보고서를 쓸 사람이 두 명 필요하다.” 우린 생각했죠. ‘여기에 응하는 게 현명할까? 보고서를 악용할 수도 있잖아.’ 여호와께 어떻게 결정하는 게 좋을지 도와달라고 기도했습니다.</div><div style="margin-top: 0; margin-bottom: 8px"><em>[4:06]</em></div><div style="margin-top: 0; margin-bottom: 8px">그리고 결정을 봤어요. 우리가 여기서 나가든 못 나가든, 저 사람들에게 일단 증거해 보기로 한 거죠. 감독관에게 성경이 필요하다고 했더니 이유가 뭐냐고 했어요. 성경에 나온 말을 인용해서 보고서를 써야 한다고 했더니, “좋아. 보관함에 성경이 있나?” 라고 했죠.</div><div style="margin-top: 0; margin-bottom: 8px">전 그렇다고 했고, 감독관은 가져 오라고 했습니다. 저는 가방에서 성경을 꺼냈습니다. 하지만 그는 제 손에서 성경을 뺐더니 아무 데나 펴서 읽었습니다. “민수기라.” 이걸 누가 썼냐고 묻길래, “모세”라고 대답했더니, “거짓말 마!” 하고 소릴 질렀어요.</div><div style="margin-top: 0; margin-bottom: 8px">저는 가만히 있었죠. 성경을 덮었다가 다시 열더군요. “거짓말 마!” 또 소릴 질렀죠. 전 여호와께서 모세에게 이 내용을 기록하라고 하신 말씀이 어디 나오는지 생각해 내려고 애쓰고 있었어요. 그는 성경을 덮고 세 번째로 다시 펴더니 큰 소리로 읽기 시작했습니다.</div><div style="margin-top: 0; margin-bottom: 8px">몹시 놀란 표정으로 저를 쳐다보더군요. 보고서를 다 쓰고 전 감독관에게 물었죠. “성경을 갖고 있어도 될까요?” 그는 그러라고 했습니다. 3개월 동안 거의 매일 감독관들이 들어와 우릴 때리고 타협하라고 협박했지만, 절대 굴하지 않았어요. 다 여호와의 손길 덕분입니다.</div><div style="margin-top: 0; margin-bottom: 8px">여호와께선 우리가 타협하지 않고 계속 그분의 뜻을 행하며 인내하도록 도와주셨어요. 우리가 그분의 것이고 그분을 의지하기 때문이죠. 하느님은 자신의 종을 버리지 않으십니다.</div></td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="{BibleBookName} {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value="{BibleBookName} {StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value="{BibleBookName} {BibleVerse}"/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="용기 있게 하느님과 함께 걸으십시오 {StartingPageNumber}-{EndingPageNumber}면"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="용기 있게 하느님과 함께 걸으십시오 {PageNumber}면"/>
+<input id="documentDescription" type="hidden" value="용기 있게 하느님과 함께 걸으십시오"/>
+<input id="englishSym" type="hidden" value="wcg"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="audioPubSym" type="hidden" value="wcg"/>
+<input id="chapNo" type="hidden" value="9"/>
+<input id="issue" type="hidden" value=""/>
+<input id="docId" type="hidden" value="1102025909"/>
+<input id="documentInBible" type="hidden" value=""/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=KO&amp;docid=1102025909&amp;srctype=wol&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="document"/>
+<input id="contentTitle" type="hidden" value="믿음으로 모세를 보호하다"/>
+<input id="parentTitle" type="hidden" value="용기 있게 하느님과 함께 걸으십시오"/>
+<input id="contentThumbnail" type="hidden" value="/ko/wol/d/r8/lp-ko/1102025909/thumbnail"/>
+</article>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Gather all alternate presentation elements and their images
+        const altPresElements = Array.from(document.querySelectorAll('.alternatePresentation'));
+        const altImages = altPresElements.map(el => {
+            const img = el.querySelector('img');
+            if (img) {
+                return {
+                    src: img.getAttribute('data-alt-src') || img.getAttribute('src'),
+                    title: el.querySelector('.title')?.textContent || "Image"
+                };
+            }
+            return null;
+        }).filter(Boolean);
+
+        // 2. Create Lightbox DOM structure dynamically
+        const lightbox = document.createElement('div');
+        lightbox.className = 'custom-lightbox';
+        lightbox.innerHTML = `
+            <button class="custom-lightbox-close">&times;</button>
+            <button class="custom-lightbox-nav custom-lightbox-prev">&#10094;</button>
+            <div class="custom-lightbox-content">
+                <img class="custom-lightbox-img" src="" alt="" />
+            </div>
+            <button class="custom-lightbox-nav custom-lightbox-next">&#10095;</button>
+            <div class="custom-lightbox-caption"></div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('.custom-lightbox-img');
+        const lightboxCaption = lightbox.querySelector('.custom-lightbox-caption');
+        const closeBtn = lightbox.querySelector('.custom-lightbox-close');
+        const prevBtn = lightbox.querySelector('.custom-lightbox-prev');
+        const nextBtn = lightbox.querySelector('.custom-lightbox-next');
+
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        const openLightbox = (group, index) => {
+            currentGroup = group;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const updateLightbox = () => {
+            const item = currentGroup[currentIndex];
+            if (item) {
+                lightboxImg.src = item.src;
+                if (item.title && item.title.trim() !== "" && item.title.trim() !== "Printed Edition") {
+                    lightboxCaption.textContent = item.title;
+                    lightboxCaption.style.display = 'block';
+                } else {
+                    lightboxCaption.textContent = "";
+                    lightboxCaption.style.display = 'none';
+                }
+                if (currentGroup.length > 1) {
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                } else {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                }
+            }
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImg.src = '';
+            lightboxCaption.textContent = '';
+        };
+
+        const navigate = (direction) => {
+            if (currentGroup.length <= 1) return;
+            currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+            updateLightbox();
+        };
+
+        // Event Listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('custom-lightbox-content')) {
+                closeLightbox();
+            }
+        });
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Attach click handlers to alternate presentations
+        altPresElements.forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(altImages, index);
+            });
+        });
+
+        // Attach click handlers to other zoomable figure images
+        document.querySelectorAll('article figure img:not(.suppressZoom)').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = img.getAttribute('data-alt-src') || img.getAttribute('src');
+                const title = img.getAttribute('alt') || "";
+                openLightbox([{ src, title }], 0);
+            });
+        });
+    });
+    </script>
+</body>
+</html>
