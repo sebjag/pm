@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>Jeremiah 40 & Jeremiah 41</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💎</text></svg>'>
+    <link rel="stylesheet" type="text/css" href="css/media-player.css">
+    <link rel="stylesheet" type="text/css" href="css/+0+61168f8ef805085f5a3c0118b14679f74c9e62a4.css">
+    <link rel="stylesheet" type="text/css" href="css/+1+f8319dd08c749624466cb777b7d528e1a42d7368.css">
+    <link rel="stylesheet" type="text/css" href="css/+2+894de4a6eba76bf97927253f95f582449947a96e.css">
+    <link rel="stylesheet" type="text/css" href="css/+3+d00a791fdbb951906e95f1428ae322e41ea9da95.css">
+    <style>
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @media screen and (min-width: 600px) {
+            .document, .bible {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 16px 50px 80px;
+            }
+            .document .dc-bleedToArticleEdge, .bible .dc-bleedToArticleEdge {
+                margin-left: -50px;
+                margin-right: -50px;
+            }
+            .document .dc-paddingToContentEdge, .bible .dc-paddingToContentEdge {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        #content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+        .inserted-reference {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+            font-size: 0.95em;
+        }
+        .inserted-reference-header {
+            margin: 0;
+            padding: 4px 16px;
+            background-color: #e2e6ea;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #495057;
+        }
+        .inserted-reference-header a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #1a73e8;
+        }
+        .inserted-reference-header a:hover {
+            text-decoration: underline;
+        }
+        .inserted-reference > *:not(.inserted-reference-header) {
+            margin: 12px 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-style: italic;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        /* Custom Lightbox Styles */
+        .custom-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            /* user-select: none; */
+            /* -webkit-user-select: none; */
+        }
+        .custom-lightbox.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .custom-lightbox-content {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 35px;
+            color: #fff;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10002;
+            transition: transform 0.2s ease;
+        }
+        .custom-lightbox-close:hover {
+            transform: scale(1.1);
+        }
+        .custom-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 20px;
+        }
+        .custom-lightbox-nav:hover {
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .custom-lightbox-prev {
+            left: 0px;
+        }
+        .custom-lightbox-next {
+            right: 0px;
+        }
+        .custom-lightbox-caption {
+            color: #ccc;
+            margin-top: 15px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 80%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body, #content {
+                background-color: #171c2a !important;
+                color: #e2e8f0;
+            }
+            .document, .bible, .article, #article {
+                background-color: #1e293b !important;
+                color: #e2e8f0;
+            }
+            .scalableui, .bodyTxt {
+                background-color: transparent !important;
+                color: #e2e8f0;
+            }
+            .du-bgColor--bgSecondary, .du-bgColor--warmGray-50,
+            [class*="du-bgColor--bgSecondary"], [class*="du-bgColor--warmGray-"],
+            #tt9, .document #tt9, body #tt9,
+            .document [class*="du-bgColor--bgSecondary"], body [class*="du-bgColor--bgSecondary"],
+            .document [class*="du-bgColor--warmGray-"], body [class*="du-bgColor--warmGray-"] {
+                background-color: #2d3a4f !important;
+                color: #e2e8f0 !important;
+            }
+            .du-borderColor--borderDefault, hr {
+                border-color: #3b4d66 !important;
+            }
+            .du-color--teal-700 {
+                color: #2dd4bf !important;
+            }
+            h1, h2, h3, h4, h5, h6, strong {
+                color: #f8fafc;
+            }
+            a, a.b, a.vl, a.fn, a:visited {
+                color: #60a5fa;
+            }
+            a:hover, a.b:hover, a.vl:hover, a.fn:hover {
+                color: #93c5fd;
+            }
+            .du-color--textSubdued, .pageNum, .themeScrp {
+                color: #94a3b8 !important;
+            }
+            .inserted-reference {
+                background-color: #263346;
+                border: 1px solid #3b4d66;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .inserted-reference-header {
+                background-color: #1e2b3c;
+                border-bottom: 1px solid #3b4d66;
+                color: #cbd5e1;
+            }
+            .inserted-reference-header a {
+                color: #60a5fa;
+            }
+            .inserted-reference-header a:hover {
+                color: #93c5fd;
+            }
+            .note-card-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .note-card-header {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #cbd5e1 !important;
+            }
+            .note-card-header a {
+                color: #60a5fa !important;
+            }
+            .note-card-body {
+                color: #e2e8f0 !important;
+            }
+            .box-supplement-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+            }
+            .box-supplement-table th {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #f8fafc !important;
+            }
+            .box-supplement-table th h1, .box-supplement-table th h2,
+            .box-supplement-table th h3, .box-supplement-table th h4,
+            .box-supplement-table th strong, .box-supplement-table th p {
+                color: #f8fafc !important;
+            }
+            .box-supplement-table td {
+                color: #e2e8f0 !important;
+            }
+            .image-caption {
+                color: #94a3b8;
+            }
+            .custom-lightbox-img {
+                background-color: #1e293b;
+            }
+            .custom-lightbox-caption {
+                color: #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body  class="showRuby cc-theme--light DynamicLayout">
+    <div id="content" class="content">
+        <article class="article bible html5 pub-nwtsty jwac showRuby ml-E ms-ROMAN dir-ltr includeSecondaryNav" data-lang="E" dir="ltr" id="article" lang="en" role="article"><div class="gems-global-controls"><button onclick="toggleAllGems(this, true)">💎 Expand All Gems</button><button onclick="toggleAllGems(this, false)">💎 Collapse All Gems</button></div>
+<div class="scalableui">
+<header>
+<h1>Jeremiah<button class="gems-toggle-btn" onclick="toggleGems('gems-outline-24-40-1')" title="Toggle Outline">💎</button></h1>
+</header><div class="gems-references-container inserted-reference-container" id="gems-outline-24-40-1" style="display: block;"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Jeremiah Outline]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="summaryOutline" style="margin-top: 0; margin-bottom: 8px"><ul style="list-style: none; list-style-type: none; padding-left: 0; margin: 2px 0;"><li class="L2" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 0px;"><p style="margin: 2px 0; line-height: 1.35;">Nebuzaradan frees Jeremiah <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/en/wol/b/r1/lp-e/nwtsty/24/40#h=1090:0-1093:0"><span class="altsize">1-6</span></a><span class="altsize">)</span></p></li><li class="L2" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 0px;"><p style="margin: 2px 0; line-height: 1.35;">Gedaliah appointed over the land <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/en/wol/b/r1/lp-e/nwtsty/24/40#h=1093:0-1095:0"><span class="altsize">7-12</span></a><span class="altsize">)</span></p></li><li class="L2" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 0px;"><p style="margin: 2px 0; line-height: 1.35;">Plot against Gedaliah <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/en/wol/b/r1/lp-e/nwtsty/24/40#h=1095:0-1097:0"><span class="altsize">13-16</span></a><span class="altsize">)</span></p></li></ul></div></td></tr></tbody></table></div>
+<p class="sb" data-pid="1090" id="p1090"><span class="v" id="v24-40-1-1"><a class="cl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20058"><strong>40</strong> </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-40-1')" title="Toggle Gems Study References">💎</button>The word that came to Jeremiah from Jehovah after Neb·uʹzar·adʹan<a class="b" data-bid="1235-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1234">+</a> the chief of the guard let him go free from Raʹmah.<a class="b" data-bid="1236-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1235">+</a> He had taken him there bound with handcuffs, and he was among all the exiles of Jerusalem and of Judah who were being deported to Babylon. </span><span class="v" id="v24-40-2-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20059">2 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-40-2')" title="Toggle Gems Study References">💎</button>Then the chief of the guard took Jeremiah and said to him: “Jehovah your God foretold this calamity against this place, </span><span class="v" id="v24-40-3-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20060">3 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-40-3')" title="Toggle Gems Study References">💎</button>and Jehovah has brought it about just as he said, because you people sinned against Jehovah and did not obey his voice. That is why this has happened to you.<a class="b" data-bid="1237-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1236">+</a> </span><span class="v" id="v24-40-4-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20061">4 </a>Now I am releasing you today from the handcuffs that were on your hands. If it seems good to you to come with me to Babylon, come, and I will look after you. But if you do not want to come with me to Babylon, do not come. See! The entire land is before you. Go wherever you choose.”<a class="b" data-bid="1238-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1237">+</a></span></p><div class="gems-references-container" id="gems-ref-24-40-3" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Publications Index - w72 392;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="ss" data-pid="13" id="p13" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>JEHOVAH HAS KINDLY GIVEN WARNING</strong></div><div class="sb" data-pid="14" id="p14" style="margin-top: 0; margin-bottom: 8px">Judging from the attitude that is now gaining ground among the political rulers and the people, when Christendom’s destruction comes it will be clearly seen that the detestable religious system is getting nothing but its just deserts and merits no pity. This was the case with hypocritical Jerusalem. The Babylonian destroyers of Jerusalem felt this way, as shown by what the chief of King Nebuchadnezzar’s bodyguard said to the prophet Jeremiah: “Jehovah your God himself spoke this calamity against this place, that Jehovah might bring it true and do just as he has spoken, because you people have sinned against Jehovah and have not obeyed his voice. And this thing has happened to you.”​—<a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1972482/7/0">Jer. 40:1-3</a>.</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Publications Index - kj 125]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="31" data-rel-pid="[103]" id="p31" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="26"><sup>26</sup></span> Even those whom Jehovah uses as his executioners on earth might appreciate that the detestable religious system is getting nothing but its just deserts and deserves no pity. Listen in on the prophet Jeremiah as he tells us what a Babylonian army officer said to him after the destruction of Jerusalem in the year 607 B.C.E.: “The word that occurred to Jeremiah from Jehovah after Nebuzaradan the chief of the <span aria-hidden="true" class="pageNum" data-before-text="125" data-no="125" id="page125"></span>bodyguard sent him from Ramah, when he took him while he was bound with handcuffs in the midst of all the exiles of Jerusalem and of Judah, who were being taken into exile in Babylon. Then the chief of the bodyguard took Jeremiah and said to him: ‘Jehovah your God himself spoke this calamity against this place, that Jehovah might bring it true and do just as he has spoken, because you people have sinned against Jehovah and have not obeyed his voice. And this thing has happened to you.’”—<a class="b" data-bid="14-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1101971007/13/0">Jeremiah 40:1-3</a>.</div><div class="sb" data-pid="32" data-rel-pid="[104]" id="p32" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="27"><sup>27</sup></span> Today Christendom has been longer in existence than the 860 years that the house of Israel was in the Promised Land by the time that Ezekiel was appointed as a prophet and a watchman over Israel. She has a longer record of committing detestable things in her religious realm. She has been a longer time in coming to her day of reckoning. But now at last her sin has found her out, has caught up with her. The end that Jehovah has decreed for her is about to come upon her, and she may expect no mercy from Him. She is past all possibility of repenting and converting to Him.</div><div class="sb" data-pid="33" data-rel-pid="[105]" id="p33" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="28"><sup>28</sup></span> Just as it was foretold concerning these last days, Christendom has had a “form of godliness,” a “form of godly devotion,” but she has all along been “denying the power thereof,” or “proving false to its power.” (<a class="b" data-bid="15-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1101971007/14/0">2 Timothy 3:1-5</a>, <em>AV; NW</em>) By not holding true to the Holy Bible, she ignored the God who is set forth in the Bible, Jehovah. He does her no injustice by bringing upon her the consequences of her ways and by showing her how detestable to Him her religious things are. At her end it is proper for her to know that there is indeed a God named Jehovah, who gives due rewards.</div></td></tr></tbody></table></div></div><div class="gems-references-container" id="gems-ref-24-40-2" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Publications Index - w72 392;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="ss" data-pid="13" id="p13" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>JEHOVAH HAS KINDLY GIVEN WARNING</strong></div><div class="sb" data-pid="14" id="p14" style="margin-top: 0; margin-bottom: 8px">Judging from the attitude that is now gaining ground among the political rulers and the people, when Christendom’s destruction comes it will be clearly seen that the detestable religious system is getting nothing but its just deserts and merits no pity. This was the case with hypocritical Jerusalem. The Babylonian destroyers of Jerusalem felt this way, as shown by what the chief of King Nebuchadnezzar’s bodyguard said to the prophet Jeremiah: “Jehovah your God himself spoke this calamity against this place, that Jehovah might bring it true and do just as he has spoken, because you people have sinned against Jehovah and have not obeyed his voice. And this thing has happened to you.”​—<a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1972482/7/0">Jer. 40:1-3</a>.</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Publications Index - kj 125]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="31" data-rel-pid="[103]" id="p31" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="26"><sup>26</sup></span> Even those whom Jehovah uses as his executioners on earth might appreciate that the detestable religious system is getting nothing but its just deserts and deserves no pity. Listen in on the prophet Jeremiah as he tells us what a Babylonian army officer said to him after the destruction of Jerusalem in the year 607 B.C.E.: “The word that occurred to Jeremiah from Jehovah after Nebuzaradan the chief of the <span aria-hidden="true" class="pageNum" data-before-text="125" data-no="125" id="page125"></span>bodyguard sent him from Ramah, when he took him while he was bound with handcuffs in the midst of all the exiles of Jerusalem and of Judah, who were being taken into exile in Babylon. Then the chief of the bodyguard took Jeremiah and said to him: ‘Jehovah your God himself spoke this calamity against this place, that Jehovah might bring it true and do just as he has spoken, because you people have sinned against Jehovah and have not obeyed his voice. And this thing has happened to you.’”—<a class="b" data-bid="14-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1101971007/13/0">Jeremiah 40:1-3</a>.</div><div class="sb" data-pid="32" data-rel-pid="[104]" id="p32" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="27"><sup>27</sup></span> Today Christendom has been longer in existence than the 860 years that the house of Israel was in the Promised Land by the time that Ezekiel was appointed as a prophet and a watchman over Israel. She has a longer record of committing detestable things in her religious realm. She has been a longer time in coming to her day of reckoning. But now at last her sin has found her out, has caught up with her. The end that Jehovah has decreed for her is about to come upon her, and she may expect no mercy from Him. She is past all possibility of repenting and converting to Him.</div><div class="sb" data-pid="33" data-rel-pid="[105]" id="p33" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="28"><sup>28</sup></span> Just as it was foretold concerning these last days, Christendom has had a “form of godliness,” a “form of godly devotion,” but she has all along been “denying the power thereof,” or “proving false to its power.” (<a class="b" data-bid="15-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1101971007/14/0">2 Timothy 3:1-5</a>, <em>AV; NW</em>) By not holding true to the Holy Bible, she ignored the God who is set forth in the Bible, Jehovah. He does her no injustice by bringing upon her the consequences of her ways and by showing her how detestable to Him her religious things are. At her end it is proper for her to know that there is indeed a God named Jehovah, who gives due rewards.</div></td></tr></tbody></table></div></div><div class="gems-references-container" id="gems-ref-24-40-1" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Publications Index - kj 125;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="31" data-rel-pid="[103]" id="p31" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="26"><sup>26</sup></span> Even those whom Jehovah uses as his executioners on earth might appreciate that the detestable religious system is getting nothing but its just deserts and deserves no pity. Listen in on the prophet Jeremiah as he tells us what a Babylonian army officer said to him after the destruction of Jerusalem in the year 607 B.C.E.: “The word that occurred to Jeremiah from Jehovah after Nebuzaradan the chief of the <span aria-hidden="true" class="pageNum" data-before-text="125" data-no="125" id="page125"></span>bodyguard sent him from Ramah, when he took him while he was bound with handcuffs in the midst of all the exiles of Jerusalem and of Judah, who were being taken into exile in Babylon. Then the chief of the bodyguard took Jeremiah and said to him: ‘Jehovah your God himself spoke this calamity against this place, that Jehovah might bring it true and do just as he has spoken, because you people have sinned against Jehovah and have not obeyed his voice. And this thing has happened to you.’”—<a class="b" data-bid="14-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1101971007/13/0">Jeremiah 40:1-3</a>.</div><div class="sb" data-pid="32" data-rel-pid="[104]" id="p32" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="27"><sup>27</sup></span> Today Christendom has been longer in existence than the 860 years that the house of Israel was in the Promised Land by the time that Ezekiel was appointed as a prophet and a watchman over Israel. She has a longer record of committing detestable things in her religious realm. She has been a longer time in coming to her day of reckoning. But now at last her sin has found her out, has caught up with her. The end that Jehovah has decreed for her is about to come upon her, and she may expect no mercy from Him. She is past all possibility of repenting and converting to Him.</div><div class="sb" data-pid="33" data-rel-pid="[105]" id="p33" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="28"><sup>28</sup></span> Just as it was foretold concerning these last days, Christendom has had a “form of godliness,” a “form of godly devotion,” but she has all along been “denying the power thereof,” or “proving false to its power.” (<a class="b" data-bid="15-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1101971007/14/0">2 Timothy 3:1-5</a>, <em>AV; NW</em>) By not holding true to the Holy Bible, she ignored the God who is set forth in the Bible, Jehovah. He does her no injustice by bringing upon her the consequences of her ways and by showing her how detestable to Him her religious things are. At her end it is proper for her to know that there is indeed a God named Jehovah, who gives due rewards.</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Publications Index - w64 702;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="33" id="p33" style="margin-top: 0; margin-bottom: 8px">At last, in the month Tammuz, the Babylonians made a breach in the wall and entered and took possession of the Middle Gate. It was too late now for King Zedekiah to surrender. He fled by night, but was overtaken in the desert plains of Jericho near the Jordan River and taken to Nebuchadnezzar at Riblah in Hamath. There the king of Babylon slaughtered Zedekiah’s sons before his eyes, and killed all the nobles of Judah. Then he blinded Zedekiah <span aria-hidden="true" class="pageNum" data-before-text="702" data-no="702" id="page702"></span>and took him in fetters to Babylon, where he died. (<a class="b" data-bid="21-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1964846/20/0">Jer. 39:2-8</a>) Just as Ezekiel had foretold, he came to Babylon, but did not see it—<a class="b" data-bid="22-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1964846/21/0">Ezek. 12:12, 13</a>.</div><div class="sb" data-pid="34" id="p34" style="margin-top: 0; margin-bottom: 8px">As for Jeremiah, the fall of Jerusalem served for his liberation. The Babylonians had heard about his preaching. They treated him kindly. The chief of the Babylonian bodyguard, named Nebuzar-adan, brought him out of the Courtyard of the Guard. (<a class="b" data-bid="23-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1964846/22/0">Jer. 39:13, 14</a>) Jeremiah got mixed in with the Jews who were being carried captive to Babylon but the chief of the bodyguard saw him and said to him: “Now, look! I have let you loose today from the handcuffs that were upon your hands. If it is good in your eyes to come with me to Babylon, come, and I shall keep my eye upon you. But if it is bad in your eyes to come with me to Babylon, refrain. See! The entire land is before you. To wherever it is good and right in your eyes to go, go there.”—<a class="b" data-bid="24-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1964846/23/0">Jer. 40:1-4</a>.</div><div class="sb" data-pid="35" id="p35" style="margin-top: 0; margin-bottom: 8px">While Jeremiah hesitated, the chief of the bodyguard told him to go back and live under Gedaliah, whom the king of Babylon had commissioned over the cities of Judah, living wherever he wanted to. Then he gave Jeremiah a food allowance and a gift and let him go. Accordingly, Jeremiah went to Gedaliah at Mizpah, and resided there until later developments, to be discussed in this magazine’s next issue.—<a class="b" data-bid="25-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1964846/24/0">Jer. 40:5, 6</a>.</div><div class="ss" data-pid="36" id="p36" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>WE CAN TAKE THE SAFE COURSE</strong></div><div class="sb" data-pid="37" id="p37" style="margin-top: 0; margin-bottom: 8px">So, in Jerusalem’s dark hour, it looked as if Jeremiah, in a besieged and starving city, and a prisoner therein at that, in disfavor with the ruling elements, would never be able to survive. But by maintaining firmness in his dedication to Jehovah, even though his preaching condemned the rulers of the land and foretold destruction for Jerusalem itself, he actually took the course of safety.</div><div class="sb" data-pid="38" id="p38" style="margin-top: 0; margin-bottom: 8px">We can learn a lesson from this. Jehovah’s anointed witnesses proclaim destruction upon this system of things because of its being influenced by Babylonish false religion and for turning away in disobedience from Jehovah God. They have thereby experienced what Jesus foretold at <a class="b" data-bid="26-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1964846/25/0">Matthew 24:9</a>: “You will be objects of hatred by all the nations.” To them, many of whom are even now in prison and suffering persecution in many lands, the experience of Jeremiah gives assurance that they will escape the condemnation of this world and that as a group they will survive the destruction of this system of things. Ebed-melech, who befriended Jeremiah because he recognized him as a prophet of Jehovah, was spared with Jeremiah. Those today who come alongside God’s servants in faithful dedication and activity will receive Jehovah’s favor and protection just as surely as did Ebed-melech, according to the rule stated by Jesus Christ himself: “He that receives a prophet because he is a prophet will get a prophet’s reward, . . . And whoever gives one of these little ones only a cup of cold water to drink because he is a disciple, I tell you truly, he will by no means lose his reward.”—<a class="b" data-bid="27-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1964846/26/0">Matt. 10:41, 42</a>.</div><div class="sd" data-pid="39" id="p39" style="margin-top: 0; margin-bottom: 8px">Anyone dwelling in the secret place of the Most High will procure himself lodging under the very shadow of the Almighty One.—<a class="b" data-bid="28-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1964846/27/0">Ps. 91:1</a>.</div></td></tr></tbody></table></div></div>
+<p class="sb" data-pid="1091" id="p1091"><span class="v" id="v24-40-5-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20062">5 </a>While Jeremiah still had not turned back, Neb·uʹzar·adʹan said: “Return to Ged·a·liʹah<a class="b" data-bid="1239-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1238">+</a> the son of A·hiʹkam<a class="b" data-bid="1240-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1239">+</a> the son of Shaʹphan,<a class="b" data-bid="1241-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1240">+</a> whom the king of Babylon has appointed over the cities of Judah, and stay with him among the people; or go wherever you choose.”</span></p>
+<p class="sb" data-pid="1092" id="p1092"><span class="v" id="v24-40-5-2">The chief of the guard then gave him a food allowance and a gift and let him go. </span><span class="v" id="v24-40-6-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20063">6 </a>So Jeremiah went to Ged·a·liʹah the son of A·hiʹkam at Mizʹpah<a class="b" data-bid="1242-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1241">+</a> and stayed with him among the people who were left in the land.</span></p>
+<p class="sb" data-pid="1093" id="p1093"><span class="v" id="v24-40-7-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20064">7 </a>In time all the army chiefs who were in the field with their men heard that the king of Babylon had appointed Ged·a·liʹah the son of A·hiʹkam over the land and that he had appointed him over the men, women, and children from the poor people of the land who had not been deported to Babylon.<a class="b" data-bid="1243-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1242">+</a> </span><span class="v" id="v24-40-8-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20065">8 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-40-8')" title="Toggle Gems Study References">💎</button>So they came to Ged·a·liʹah at Mizʹpah.<a class="b" data-bid="1244-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1243">+</a> They were Ishʹma·el<a class="b" data-bid="1245-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1244">+</a> the son of Neth·a·niʹah, Jo·haʹnan<a class="b" data-bid="1246-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1245">+</a> and Jonʹa·than the sons of Ka·reʹah, Se·raiʹah the son of Tan·huʹmeth, the sons of Eʹphai the Ne·tophʹa·thite, and Jez·a·niʹah<a class="b" data-bid="1247-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1246">+</a> the son of the Ma·acʹa·thite, together with their men. </span><span class="v" id="v24-40-9-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20066">9 </a>Ged·a·liʹah the son of A·hiʹkam the son of Shaʹphan swore an oath to them and to their men, saying: “Do not be afraid of serving the Chal·deʹans. Live in the land and serve the king of Babylon, and it will go well with you.<a class="b" data-bid="1248-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1247">+</a> </span><span class="v" id="v24-40-10-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20067">10 </a>As for me, I will stay in Mizʹpah to represent you to<a class="fn" data-fnid="360" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/359" id="footnotesource360">*</a><em> (Footnote: Lit., “to stand before.”)</em> the Chal·deʹans who come to us. But you should gather wine, summer fruits, and oil and put them in your storage containers and settle in the cities that you have taken over.”<a class="b" data-bid="1249-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1248">+</a></span></p><div class="gems-references-container" id="gems-ref-24-40-8" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Research Guide - Insight, Volume 1, p. 486]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="4"></span>While the Jewish Mishnah (<em>Bava Kamma</em> 7:7) contains a prohibition against the keeping of domestic fowl by the Jews, because of the probability of their causing ceremonial defilement, rabbinic sources indicate that they were kept as much by the Jews as by the Romans. An onyx seal bearing the figure of a cock was found near Mizpah and contains the inscription “belonging to Jaazaniah, servant of the king.” If, as some suggest, this Jaazaniah (Jezaniah) is the one mentioned at <a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200001002/1/0">2 Kings 25:23</a> and <a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200001002/2/0">Jeremiah 40:8</a>, this would indicate the keeping of cocks in Israel back in the seventh century B.C.E. The figure of a cock has also been found on a shard of a cooking pot excavated at ancient Gibeon.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Publications Index - it-1 486;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Publications Index - ad 362]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="7" id="p7"><span aria-hidden="true" class="pageNum" data-before-text="362" data-no="362" id="page362"></span>charmers.” (<a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010986/4/0">Ps. 58:4, 5</a>) Though some naturalists claim snakes cannot hear, the Bible is in harmony with the latest findings that demonstrate that snakes have an internal sound mechanism and that they can hear fairly well. Thus the New York <em>Times</em> of January 10, 1954 (Sec. 4, p. 9), reported under the heading “Are Snakes ‘Charmed’ by Music?”:</p>
+<p class="sb" data-pid="8" id="p8">“Dr. David I. Macht, research pharmacologist of the Mount Sinai Hospital in Baltimore, is one of the world’s leading authorities on cobra snake venom. . . . Dr. Macht reported that in working with cobras and cobra venom he became acquainted with a number of Hindu physicians, well educated, and from different parts of India. All agreed that cobras respond to some musical tones, from musical pipes or fifes. Some forms of music excite the animals more than other forms, the physicians reported. Indian children, playing in the dark in the countryside, are even warned not to sing lest their sounds attract cobras, he said. Dr. Macht commented that Shakespeare, who repeatedly referred to serpents as deaf . . . merely repeated a common misunderstanding. On the other hand, Dr. Macht said, the psalmist was right who implied conversely, in <a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010986/5/0">Psalm 58</a>, Verse 5, that serpents can hear: . . . Contrary to the claims of some naturalists, Dr. Macht said, snakes are ‘charmed’ by sounds, not by movements of the charmer. Revise the textbooks, the physicians recommended.”</p>
+<p class="sb" data-pid="9" id="p9">The snake can best hear a vibration on the ground or notes of high pitch. Some of its most common preys make high-pitched sounds; these high-pitched notes produce great uneasiness and alarm in the snake. Thus notes produced by flutes only signify food or danger to the snake and do not meet with an appreciation of the music played. When a snake charmer starts playing on his flute, this immediately gets a reaction from the snake and it lifts itself erect, alert to danger. Recognizing the sound as coming from the flute, it will naturally fix its attention on that object and the one playing it. If the charmer moves or sways back and forth, the snake will do the same. If he moves around the snake in a circle, the snake will, of course, turn to keep its eyes on the source of the sound.</p>
+<p class="sb" data-pid="10" id="p10">Pharaoh Tutankhamen, whose tomb was discovered in 1922, used the Egyptian cobra (<em>Naja haje</em>) as his imperial symbol.</p>
+<p class="sb" data-pid="11" id="p11">Some cobras, such as the black-necked or spitting cobra of Africa, can spit or spray venom a distance of six to twelve feet (1.8 to 3.7 meters). The spitting cobras aim at the eyes of the victim and seldom miss their target. Spitting cobras appear to be able to eject their venom in rapid-fire salvos. One observer reports that in Tanganyika a black-necked cobra sprayed venom between a dozen and twenty times—in rapid succession.</p>
+<p class="sb" data-pid="12" id="p12"></p>
+</article><article class="scalableui">
+<p class="st" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="362" data-no="362" id="page362"></span><strong>COCK</strong></p>
+<p class="sb" data-pid="2" id="p2">[Gr., <em>a·leʹktor;</em> Lat., <em>gallus</em>].</p>
+<p class="sb" data-pid="3" id="p3">A rooster or male chicken. Due to the widespread domestication of the chicken, the jaunty figure of the cock with its bright-colored plumage, long tail feathers arched over its back, and red wavy fleshlike comb topping its head, with two similar appendages hanging beneath the beak and throat, is a generally familiar sight. From early times it appears to have been prominent in India, Persia and Babylon, and is mentioned by Greek writers of the classical period.</p>
+<p class="sb" data-pid="4" id="p4">The cock is not mentioned in the Hebrew Scriptures and appears in the Christian Greek Scriptures only in connection with its crowing (Gr., <em>a·le·kto·ro·pho·niʹa</em>), as at <a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010987/0/0">Mark 13:35</a>, where Jesus shows “cock-crowing” to have marked a definite period of the night. The most frequent references, however, relate to Jesus’ prophecy concerning Peter’s denials of him, fulfilled on the night prior to Jesus’ death and recounted by all four writers of the Gospel accounts. (<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010987/1/0">Matt. 26:34,</a><a class="b" data-bid="2-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010987/1/1"> 74, 75;</a><a class="b" data-bid="2-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010987/1/2"> Mark 14:30,</a><a class="b" data-bid="2-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010987/1/3"> 72;</a><a class="b" data-bid="2-5" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010987/1/4"> Luke 22:34,</a><a class="b" data-bid="2-6" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010987/1/5"> 60, 61;</a><a class="b" data-bid="2-7" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010987/1/6"> John 13:38;</a><a class="b" data-bid="2-8" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010987/1/7"> 18:27</a>) For a full consideration of these reports see COCKCROW.</p>
+<p class="sb" data-pid="5" id="p5">While the Jewish Mishnah contains a prohibition against the keeping of domestic fowl by the Jews, due to the probability of their causing ceremonial defilement, Rabbinical sources indicate that they were kept as much by the Jews as by the Romans. An onyx seal bearing the figure of a cock was found near Mizpah and contains the inscription “belonging to Jaazaniah, servant of the king.” If, as some suggest, this Jaazaniah is the one mentioned at <a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010987/2/0">2 Kings 25:23 and</a><a class="b" data-bid="3-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010987/2/1"> Jeremiah 40:8-10</a>, this would indicate the keeping of cocks in Palestine back in the seventh century B.C.E. The figure of a cock has also been found on a sherd of a cooking pot excavated at ancient Gibeon.</p>
+<p class="sb" data-pid="6" id="p6">The cock was a symbol of watchfulness and may have been used as such on the above-mentioned seal. The Greek name for it is similar to the Greek word <em>aʹle·ktros,</em> meaning “one without a bed” or “the sleepless one.” Among the Romans the third watch of the night was called the <em>gallicinium</em> or “cockcrowing.” Some claim that the prime purpose for keeping such cocks in ancient times was not to provide food but, rather, for their service as natural alarm clocks, rousing men for the day’s activities. The cruel “sport” of cockfighting, however, was popular among the Greeks and Romans for centuries before the Common Era, though nothing indicates its practice in Palestine.</p>
+<p class="sb" data-pid="7" id="p7">Both the hen, with its chicks, and the egg are used by Jesus in his illustrations, indicating that the domestic fowl was well known by his listeners.—<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010987/3/0">Matt. 23:37;</a><a class="b" data-bid="4-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010987/3/1"> Luke 11:12;</a><a class="b" data-bid="4-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010987/3/2"> 13:34</a>; see HEN, II.</p>
+<p class="sb" data-pid="8" id="p8"></p>
+</article><article class="scalableui">
+<p class="st" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="362" data-no="362" id="page362"></span><strong>COCKCROW</strong></p>
+<p class="sb" data-pid="2" id="p2">(Greek: <em>a·le·kto·ro·pho·niʹa</em>).</p>
+<p class="sb" data-pid="3" id="p3">This was the name given to the third watch period of the night, according to the Grecian and the Roman division. (<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010988/0/0">Mark 13:35</a>) It corresponded to the time from midnight to three o’clock in the morning.</p>
+<p class="sb" data-pid="4" id="p4">There has been some discussion of the subject of cockcrowing owing to Jesus’ reference to it in connection with his prediction of Peter’s denying him on three occasions. (<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010988/1/0">Matt. 26:34,</a><a class="b" data-bid="2-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010988/1/1"> 74, 75;</a><a class="b" data-bid="2-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010988/1/2"> Mark 14:30,</a><a class="b" data-bid="2-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010988/1/3"> 72;</a><a class="b" data-bid="2-5" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010988/1/4"> Luke 22:34;</a><a class="b" data-bid="2-6" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010988/1/5"> John 13:38</a>) On the basis of statements made in the Jewish Mishnah, some argue that cocks were not bred in Jerusalem, since they caused ceremonial uncleanness by their scratching up the ground. They say that the cockcrowing mentioned by Jesus actually refers to the Roman <em>gallicinium,</em> a time signal said to be made with bugles by the Roman guard stationed on the ramparts of the castle of Antonia in Jerusalem that sounded out at the close of the third night watch.</p>
+<p class="sb" data-pid="5" id="p5">However, the Jewish Talmud contains definite indications that cocks were bred in Jerusalem in those times. Further indication is that Jesus, when mourning over the city of Jerusalem, chose the simile of a ‘mother hen gathering her chicks under her wings’ to express the desire he had held toward it. (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010988/2/0">Matt. 23:37</a>) His choice of illustrations was always such as would be readily appreciated by his listeners. So, in his statement to Peter, there seems to be no good reason for assuming that Jesus meant anything other than a literal cockcrowing.</p>
+<p class="sb" data-pid="6" id="p6">Others point out an apparent contradiction in the four accounts, since Matthew, Luke and John mention only one cockcrowing, while Mark quotes Jesus as saying: “Truly I say to you, You today, yes, this night, before a cock crows twice, even you will disown me three times.” He repeats this statement in relating what happened later.—<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010988/3/0">Mark 14:30,</a><a class="b" data-bid="4-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010988/3/1"> 72</a>.</p>
+<p class="sb" data-pid="7" id="p7">This is evidently a matter of one writer giving a more detailed account than the others rather than a contradiction. The incident involves Peter, and since Mark was his close companion over a period of time and doubtless wrote his Gospel account with Peter’s aid or on the basis of his testimony, it is reasonable that Mark’s account would be the more explicit one. (At other times Matthew gave the more detailed description of certain events, as seen by a comparison of <a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010988/4/0">Matthew 8:28</a> with <a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010988/5/0">Mark 5:2 and</a><a class="b" data-bid="6-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010988/5/1"> </a></p>
+</article></td></tr></tbody></table></div></div>
+<p class="sb" data-pid="1094" id="p1094"><span class="v" id="v24-40-11-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20068">11 </a>And all the Jews who were in Moʹab, Amʹmon, and Eʹdom, as well as those who were in all the other lands, also heard that the king of Babylon had let a remnant stay in Judah and that he had appointed over them Ged·a·liʹah the son of A·hiʹkam the son of Shaʹphan. </span><span class="v" id="v24-40-12-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20069">12 </a>So all the Jews began returning from all the places to which they had been dispersed, and they came into the land of Judah, to Ged·a·liʹah at Mizʹpah. And they gathered wine and summer fruits in very great quantity.</span></p>
+<p class="sb" data-pid="1095" id="p1095"><span class="v" id="v24-40-13-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20070">13 </a>Jo·haʹnan the son of Ka·reʹah and all the army chiefs who were in the field came to Ged·a·liʹah at Mizʹpah. </span><span class="v" id="v24-40-14-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20071">14 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-40-14')" title="Toggle Gems Study References">💎</button>They said to him: “Do you not know that Baʹa·lis, the king of the Amʹmon·ites,<a class="b" data-bid="1250-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1249">+</a> has sent Ishʹma·el the son of Neth·a·niʹah to kill you?”<a class="fn pr" data-fnid="361" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/360" id="footnotesource361">*</a><em> (Footnote: Or “to strike your soul?”)</em><a class="b" data-bid="1251-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1250">+</a> But Ged·a·liʹah the son of A·hiʹkam did not believe them.</span></p><div class="gems-references-container" id="gems-ref-24-40-14" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Research Guide - Insight, Volume 1, p. 232]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><h1 data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="232" data-no="232" id="page232"></span><strong>BAALIS</strong></h1><div class="sn" data-pid="2" id="p2" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="1"></span>(Baʹa·lis).</div><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="2"></span>King of Ammon, who reportedly sent Ishmael to murder Governor Gedaliah of Judah in 607 B.C.E. The Greek <em>Septuagint</em> spells this name “Belisa.”​—<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200000516/0/0">Jer 40:14</a>.</div><div class="sb" data-pid="4" id="p4" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="3"></span>A seal impression bearing the name Baʽalyishʽa was discovered in 1984 in the excavations at Tell el-ʽUmeiri in Jordan. This seal impression was dated paleographically to the latter part of the seventh century B.C.E. The inscription on it, written in ancient Ammonite characters, reads: “Belonging to Milkomʼor [or, Milkomʼur], servant of Baʽalyishʽa.” Baʽalyishʽa is possibly the Baalis of the Bible.</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Publications Index - it-1 232;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Publications Index - w80 3/1 15]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="15" data-rel-pid="[36]" id="p15" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="11"><sup>11</sup></span> Here there stepped upon the stage of action a villain! He appeared in the person of Ishmael the son of Nethaniah. Likely King Baalis of the Ammonites to whom Ishmael had fled from before the Babylonians felt Ishmael a good one to hire to assassinate Gedaliah, whom King Nebuchadnezzar appointed to be the provincial governor of Judah. Why so? Because Ishmael was “of the royal offspring.” So through Elishama, his grandfather, Ishmael had royal connections and was one of the “principal men of the king.” (<a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1980164/6/0">Jer. 41:1</a>) Hence, this official associate of deposed King Zedekiah could resent it that Gedaliah was made governor despite his not being “of the royal offspring.” So Ammonite King Baalis, who had rejoiced at Jerusalem’s destruction, made Ishmael his tool in putting Gedaliah out of the way.​—<a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1980164/7/0">Ps. 83:7, 8;</a><a class="b" data-bid="8-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1980164/7/1"> Jer. 40:14</a>.</div><div class="sb" data-pid="16" data-rel-pid="[37]" id="p16" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="12"><sup>12</sup></span> Despite the warning of Johanan the son of Kareah, Gedaliah hosted Ishmael and his 10 associates at a meal in the new governmental city of Mizpah, some miles north of the ruins of Jerusalem. Though some Babylonian soldiers were present, Ishmael and his band took by surprise all those at the meal and nearby and foully murdered them all. (<a class="b" data-bid="9-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1980164/8/0">Jer. 41:2, 3</a>) Still others fell victim to Ishmael and his treacherous band. This occurred in the seventh lunar month, Tishri, the month that was usually marked by the celebration of the booths for seven days. The people of Mizpah now inclined to follow this usurper of power as his captives. However, when Johanan the son of Kareah put in appearance and opposed Ishmael, then Ishmael and eight of his men made their escape to the land of Ammon, which had not yet been subjected by King Nebuchadnezzar of Babylon.​—<a class="b" data-bid="10-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1980164/9/0">Jer. 41:10-15;</a><a class="b" data-bid="10-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1980164/9/1"> 49:1-5</a>.</div></td></tr></tbody></table></div></div>
+<p class="sb" data-pid="1096" id="p1096"><span class="v" id="v24-40-15-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20072">15 </a>Then Jo·haʹnan the son of Ka·reʹah secretly told Ged·a·liʹah in Mizʹpah: “I want to go and strike down Ishʹma·el the son of Neth·a·niʹah, and no one will know. Why should he kill you,<a class="fn" data-fnid="362" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/361" id="footnotesource362">*</a><em> (Footnote: Or “strike your soul.”)</em> and why should all the people of Judah who have gathered to you be scattered and the remnant of Judah perish?” </span><span class="v" id="v24-40-16-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20073">16 </a>But Ged·a·liʹah<a class="b" data-bid="1252-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1251">+</a> the son of A·hiʹkam said to Jo·haʹnan the son of Ka·reʹah: “Do not do this, for what you are saying concerning Ishʹma·el is a lie.”</span></p>
+<!-- Root element of lightbox -->
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="Jeremiah 40:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="Jeremiah 40:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="Jeremiah {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value=""/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value=""/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="{PublicationSymbol} p. {StartingPageNumber}-{EndingPageNumber}"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="{PublicationSymbol} p. {PageNumber}"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="englishSym" type="hidden" value="nwtsty"/>
+<input id="audioPubSym" type="hidden" value="nwt"/>
+<input id="pubYear" type="hidden" value="2026"/>
+<input id="langSym" type="hidden" value="E"/>
+<input id="bookNo" type="hidden" value="24"/>
+<input id="chapNo" type="hidden" value="40"/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=E&amp;pub=nwtsty&amp;srctype=wol&amp;bible=24040000&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="bible-chapter"/>
+<input id="contentTitle" type="hidden" value="Jeremiah 40"/>
+<input id="contentThumbnail" type="hidden" value="/en/wol/publication/r1/lp-e/nwtsty/thumbnail"/>
+<input id="parentTitle" type="hidden" value="New World Translation of the Holy Scriptures (Study Edition)"/>
+<input id="sourcePreferredBible" type="hidden" value="nwtsty"/>
+<style>
+.gems-toggle-btn {
+    background: none;
+    border: 1px solid #4a6da7;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75em;
+    padding: 1px 3px;
+    margin-left: 0px;
+    margin-right: 4px;
+    vertical-align: top;
+    transition: background-color 0.2s, transform 0.1s;
+}
+h1 .gems-toggle-btn {
+    font-size: 13px;
+    vertical-align: top;
+    margin-left: 8px;
+}
+.gems-toggle-btn:hover {
+    background-color: #e9ecef;
+    transform: scale(1.1);
+}
+.summaryOutline {
+    margin: 0;
+    padding: 0;
+}
+.summaryOutline ul {
+    padding-left: 16px;
+    margin: 2px 0;
+}
+.summaryOutline > ul.content {
+    padding-left: 0;
+    list-style: none;
+}
+.summaryOutline li {
+    margin-bottom: 2px;
+    line-height: 1.35;
+}
+.summaryOutline p {
+    margin: 2px 0;
+    line-height: 1.35;
+}
+.gems-note-link {
+    cursor: pointer;
+    color: #4a6da7;
+    background-color: #e9ecef;
+}
+.gems-note-link:hover {
+    color: #4a6da7;
+    background-color: #e9ecef;
+}
+.studyItemMedia, .media-list img {
+    max-width: 80px !important;
+    height: auto !important;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+.media-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.media-list li {
+    margin-bottom: 12px;
+}
+.media-list li:last-child {
+    margin-bottom: 0;
+}
+.media-list a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    /* color: inherit; */
+}
+.media-list a:hover .caption {
+    text-decoration: underline;
+}
+.media-list .caption {
+    display: block;
+    font-size: 0.95em;
+    /* color: #212529; */
+}
+.media-list .caption p {
+    margin: 0;
+}
+.gems-references-container {
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+.gems-global-controls {
+    margin: 12px 0 16px auto;
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    display: flex;
+    width: fit-content;
+    gap: 10px;
+    align-items: center;
+}
+.gems-global-controls button {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 0.85em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.gems-global-controls button:hover {
+    background-color: #e9ecef;
+}
+</style><script>
+function toggleGems(id) {
+    var elem = document.getElementById(id);
+    if (elem) {
+        var isHidden = elem.style.display === 'none' || !elem.style.display;
+        elem.style.display = isHidden ? 'block' : 'none';
+        var cards = elem.querySelectorAll('.inserted-reference-container');
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = isHidden ? 'block' : 'none';
+        }
+    }
+}
+function toggleSpecificGemsNote(containerId, noteId) {
+    var container = document.getElementById(containerId);
+    var targetNote = document.getElementById(noteId);
+    if (!container || !targetNote) return;
+
+    var cards = container.querySelectorAll('.inserted-reference-container');
+    var isContainerHidden = container.style.display === 'none' || !container.style.display;
+
+    var visibleCount = 0;
+    for (var i = 0; i < cards.length; i++) {
+        if (cards[i].style.display !== 'none' && cards[i].style.display !== '') visibleCount++;
+    }
+
+    if (isContainerHidden) {
+        container.style.display = 'block';
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = (cards[i] === targetNote) ? 'block' : 'none';
+        }
+    } else if (visibleCount === 1 && targetNote.style.display === 'block') {
+        container.style.display = 'none';
+        targetNote.style.display = 'none';
+    } else {
+        container.style.display = 'block';
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = (cards[i] === targetNote) ? 'block' : 'none';
+        }
+    }
+}
+function toggleAllGems(btnOrShowAll, showAll) {
+    var target = document;
+    var show = showAll;
+    if (typeof btnOrShowAll === 'boolean') {
+        show = btnOrShowAll;
+    } else if (btnOrShowAll && btnOrShowAll.closest) {
+        target = btnOrShowAll.closest('article') || btnOrShowAll.closest('.content') || document;
+    }
+    var containers = target.querySelectorAll('.gems-references-container');
+    containers.forEach(function(c) {
+        c.style.display = show ? 'block' : 'none';
+        var cards = c.querySelectorAll('.inserted-reference-container');
+        cards.forEach(function(card) {
+            card.style.display = show ? 'block' : 'none';
+        });
+    });
+}
+</script></article><article class="article bible html5 pub-nwtsty jwac showRuby ml-E ms-ROMAN dir-ltr includeSecondaryNav" data-lang="E" dir="ltr" id="article" lang="en" role="article"><div class="gems-global-controls"><button onclick="toggleAllGems(this, true)">💎 Expand All Gems</button><button onclick="toggleAllGems(this, false)">💎 Collapse All Gems</button></div>
+<div class="scalableui">
+<header>
+<h1>Jeremiah<button class="gems-toggle-btn" onclick="toggleGems('gems-outline-24-41-1')" title="Toggle Outline">💎</button></h1>
+</header><div class="gems-references-container inserted-reference-container" id="gems-outline-24-41-1" style="display: block;"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Jeremiah Outline]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="summaryOutline" style="margin-top: 0; margin-bottom: 8px"><ul style="list-style: none; list-style-type: none; padding-left: 0; margin: 2px 0;"><li class="L2" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 0px;"><p style="margin: 2px 0; line-height: 1.35;">Gedaliah assassinated by Ishmael <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/en/wol/b/r1/lp-e/nwtsty/24/41#h=1097:0-1101:0"><span class="altsize">1-10</span></a><span class="altsize">)</span></p></li><li class="L2" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 0px;"><p style="margin: 2px 0; line-height: 1.35;">Ishmael put to flight by Johanan <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/en/wol/b/r1/lp-e/nwtsty/24/41#h=1101:0-1104:0"><span class="altsize">11-18</span></a><span class="altsize">)</span></p></li></ul></div></td></tr></tbody></table></div>
+<p class="sb" data-pid="1097" id="p1097"><span class="v" id="v24-41-1-1"><a class="cl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20074"><strong>41</strong> </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-41-1')" title="Toggle Gems Study References">💎</button>In the seventh month Ishʹma·el<a class="b" data-bid="1253-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1252">+</a> son of Neth·a·niʹah son of E·lishʹa·ma, who was of the royal line<a class="fn" data-fnid="363" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/362" id="footnotesource363">*</a><em> (Footnote: Lit., “the seed of the kingdom.”)</em> and one of the principal men of the king, came with ten other men to Ged·a·liʹah the son of A·hiʹkam at Mizʹpah.<a class="b" data-bid="1254-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1253">+</a> As they were eating a meal together in Mizʹpah, </span><span class="v" id="v24-41-2-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20075">2 </a>Ishʹma·el the son of Neth·a·niʹah and the ten men who were with him rose up and struck down Ged·a·liʹah the son of A·hiʹkam the son of Shaʹphan with the sword. So he put to death the one whom the king of Babylon had appointed over the land. </span><span class="v" id="v24-41-3-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20076">3 </a>Ishʹma·el also struck down all the Jews who were with Ged·a·liʹah in Mizʹpah, as well as the Chal·deʹan soldiers who were there.</span></p><div class="gems-references-container" id="gems-ref-24-41-1" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Publications Index - w80 3/1 15;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="15" data-rel-pid="[36]" id="p15" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="11"><sup>11</sup></span> Here there stepped upon the stage of action a villain! He appeared in the person of Ishmael the son of Nethaniah. Likely King Baalis of the Ammonites to whom Ishmael had fled from before the Babylonians felt Ishmael a good one to hire to assassinate Gedaliah, whom King Nebuchadnezzar appointed to be the provincial governor of Judah. Why so? Because Ishmael was “of the royal offspring.” So through Elishama, his grandfather, Ishmael had royal connections and was one of the “principal men of the king.” (<a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1980164/6/0">Jer. 41:1</a>) Hence, this official associate of deposed King Zedekiah could resent it that Gedaliah was made governor despite his not being “of the royal offspring.” So Ammonite King Baalis, who had rejoiced at Jerusalem’s destruction, made Ishmael his tool in putting Gedaliah out of the way.​—<a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1980164/7/0">Ps. 83:7, 8;</a><a class="b" data-bid="8-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1980164/7/1"> Jer. 40:14</a>.</div><div class="sb" data-pid="16" data-rel-pid="[37]" id="p16" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="12"><sup>12</sup></span> Despite the warning of Johanan the son of Kareah, Gedaliah hosted Ishmael and his 10 associates at a meal in the new governmental city of Mizpah, some miles north of the ruins of Jerusalem. Though some Babylonian soldiers were present, Ishmael and his band took by surprise all those at the meal and nearby and foully murdered them all. (<a class="b" data-bid="9-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1980164/8/0">Jer. 41:2, 3</a>) Still others fell victim to Ishmael and his treacherous band. This occurred in the seventh lunar month, Tishri, the month that was usually marked by the celebration of the booths for seven days. The people of Mizpah now inclined to follow this usurper of power as his captives. However, when Johanan the son of Kareah put in appearance and opposed Ishmael, then Ishmael and eight of his men made their escape to the land of Ammon, which had not yet been subjected by King Nebuchadnezzar of Babylon.​—<a class="b" data-bid="10-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1980164/9/0">Jer. 41:10-15;</a><a class="b" data-bid="10-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1980164/9/1"> 49:1-5</a>.</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Publications Index - w65 568;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="8" id="p8" style="margin-top: 0; margin-bottom: 8px">The Jews, of course, left Babylon as quickly as possible after Cyrus’ decree, for, by reason of their knowledge of Jehovah’s prophecies by Jeremiah and Isaiah, they had prepared in advance for departure. But it would take some time to complete all preparations for 49,897 people, and it was a good four months’ journey back to the land of Judah. They arrived there just before the seventh month, Tishri. (<a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1965684/5/0">Ezra 2:70;</a><a class="b" data-bid="6-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1965684/5/1"> 3:1</a>) Therefore, the decree of Cyrus must have been made toward the close of winter and the beginning of spring of 537 B.C.E.<a class="fn" data-fnid="2" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1965684/1" id="footnotesource2">b</a><em> (Footnote: If we proceed according to the cuneiform inscriptions, rather than the Bible, we have to take the position that Darius the Mede and Cyrus the Persian reigned concurrently for a time. According to this, the accession year (an incomplete lunar year) of Cyrus as king of Babylon began on October 23 of 539 B.C.E., when he entered the city (by day) after its capture by his troops. Hence his first regnal year (a full lunar year) began on Nisan 1 of 538 B.C.E., or on March 17/18 of 538 B.C.E., Gregorian time.)</em> This date plays a very important role for all Bible students, for by it we can fix the time of the beginning of the desolation of the land of Judah and the beginning of the “times of the Gentiles,” or, “the appointed <span aria-hidden="true" class="pageNum" data-before-text="568" data-no="568" id="page568"></span>times of the nations.”—<a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1965684/6/0">Luke 21:24</a>, <em>AV; NW.</em><a class="fn" data-fnid="3" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1965684/2" id="footnotesource3">c</a><em> (Footnote: For further details on the authenticity of the date 537 B.C.E. and the desolation of Judah and “times of the Gentiles,” see the books “Babylon the Great Has Fallen!” God’s Kingdom Rules! and “Your Will Be Done on Earth” by Watch Tower Bible and Tract Society, Brooklyn, New York.)</em></div><div class="sb" data-pid="9" id="p9" style="margin-top: 0; margin-bottom: 8px">That the seventy years of desolation were to be ended as a result of Cyrus’ decree is plainly stated at <a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1965684/7/0">2 Chronicles 36:20-23</a>:</div><div class="si" data-pid="10" id="p10" style="margin-top: 0; margin-bottom: 8px">“Furthermore, [Nebuchadnezzar] carried off those remaining from the sword captive to Babylon, . . . to fulfill Jehovah’s word by the mouth of Jeremiah, until the land had paid off its sabbaths. All the days of lying desolated it kept sabbath, to fulfill seventy years. And in the first year of Cyrus the king of Persia, that Jehovah’s word by the mouth of Jeremiah might be accomplished, Jehovah roused the spirit of Cyrus the king of Persia, so that he caused a cry to pass through all his kingdom, and also in writing, . . . ”</div><div class="sb" data-pid="11" id="p11" style="margin-top: 0; margin-bottom: 8px">Cyrus’ decree was recorded in the official records of Persia, as shown in <a class="b" data-bid="9-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1965684/8/0">Ezra 6:1-5</a>, where Darius I the Persian, successor to Cambyses the son of Cyrus, had the records searched and found the scroll with the decree written within it, at Ecbatana (Achmetha, <em>AV</em>)<em>,</em> which was the former capital of Media and the summer residence of King Cyrus, northeast of Babylon.</div><div class="ss" data-pid="12" id="p12" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>WHEN THE SEVENTY-YEAR DESOLATION ENDED</strong></div><div class="sb" data-pid="13" id="p13" style="margin-top: 0; margin-bottom: 8px">Did the decree of Cyrus itself end the seventy-year desolation of Jerusalem and the land of Judah? No. Why not? The exiled Jews had to take advantage of the decree and leave Babylon and go back to their homeland and reoccupy it in order to end this desolation. For various reasons, such as old age, some Jews were not able to go back; but many others had become well established in highly materialistic Babylonia, and they preferred to remain in comfort rather than to exert themselves and suffer the hardships of traveling across a forbidding terrain to a land absolutely desolate. But the remnant of faithful Jews that returned were eager to obey Jehovah’s command. They were zealous for true worship at the place where he had put his name. They wanted to get away from unclean Babylon in order to be clean to bear Jehovah’s sacred vessels of worship back to the site of his holy temple.—<a class="b" data-bid="10-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1965684/9/0">Isa. 52:11;</a><a class="b" data-bid="10-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1965684/9/1"> Jer. 50:8;</a><a class="b" data-bid="10-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1965684/9/2"> 51:6</a>.</div><div class="sb" data-pid="14" id="p14" style="margin-top: 0; margin-bottom: 8px">Cyrus appointed Sheshbazzar as governor of the returning Jews and entrusted him with the delivering of the sacred utensils. At <a class="b" data-bid="11-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1965684/10/0">Ezra 3:2,</a><a class="b" data-bid="11-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1965684/10/1"> 8</a> Sheshbazzar is identified with Zerubbabel, the son of Shealtiel, a descendant of King David. (<a class="b" data-bid="12-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1965684/11/0">Matt. 1:6-13</a>) The Jewish high priest Joshua (or Jeshua) the son of Jehozadak accompanied Governor Zerubbabel back to the site of Jerusalem.</div><div class="sb" data-pid="15" id="p15" style="margin-top: 0; margin-bottom: 8px">When the Jews returned to Judah there was no one in the land to keep them out, for God had by his power preserved the land unoccupied in order that it might enjoy the sabbath years of complete rest as it deserved, with no one on it to cultivate it. Every year of its lying desolate was the equivalent of a sabbath year according to Jehovah’s law through Moses. (<a class="b" data-bid="13-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1965684/12/0">Lev. 25:1-12</a>) How was this an exactly accurate fulfillment of the seventy-years time prophecy? Well, it was in the seventh month of the year of Jerusalem’s destruction that the land of Judah was left completely desolate by the flight of the poor Jews who had not been deported by Nebuchadnezzar. In the seventh month they fled, taking the prophet Jeremiah with them down to Egypt. (<a class="b" data-bid="14-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1965684/13/0">2 Ki. 25:22-26;</a><a class="b" data-bid="14-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1965684/13/1"> Jer. 41:1 to 43:8</a>) That was also the very month in which sabbath years and Jubilee years began, namely, “in the seventh month on the tenth of the month; on the day of atonement.” (<a class="b" data-bid="15-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1965684/14/0">Lev. 25:9, 10</a>) The statement at <a class="b" data-bid="16-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1965684/15/0">Ezra 3:1</a>: “When the seventh <span aria-hidden="true" class="pageNum" data-before-text="569" data-no="569" id="page569"></span>month [Tishri] arrived the sons of Israel were in their cities,” gives official corroboration of the exact fulfillment of this prophecy.</div></td></tr></tbody></table></div></div>
+<p class="sb" data-pid="1098" id="p1098"><span class="v" id="v24-41-4-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20077">4 </a>On the second day after Ged·a·liʹah had been put to death, before anyone knew about it, </span><span class="v" id="v24-41-5-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20078">5 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-41-5')" title="Toggle Gems Study References">💎</button>there came 80 men from Sheʹchem,<a class="b" data-bid="1255-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1254">+</a> from Shiʹloh,<a class="b" data-bid="1256-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1255">+</a> and from Sa·marʹi·a.<a class="b" data-bid="1257-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1256">+</a> Their beards were shaved off, their garments were ripped apart, they had cut themselves,<a class="b" data-bid="1258-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1257">+</a> and they had grain offerings and frankincense<a class="b" data-bid="1259-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1258">+</a> in their hand to bring to the house of Jehovah. </span><span class="v" id="v24-41-6-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20079">6 </a>So Ishʹma·el the son of Neth·a·niʹah went out from Mizʹpah to meet them, weeping as he walked along. When he encountered them, he said to them: “Come to Ged·a·liʹah the son of A·hiʹkam.” </span><span class="v" id="v24-41-7-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20080">7 </a>But when they came into the city, Ishʹma·el the son of Neth·a·niʹah and his men slaughtered them and threw them into the cistern.</span></p><div class="gems-references-container" id="gems-ref-24-41-5" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Research Guide - Insight, Volume 1, p. 266]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="4"></span>After the destruction of Jerusalem in 607 B.C.E., men from Shechem, Shiloh, and Samaria expressed their distress by shaving their beards, ripping their garments apart, and cutting themselves. Even though they were bringing offerings to the house of Jehovah, they were bloodless offerings, apparently to be offered at the place where the temple had been. (<a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200000590/5/0">Jer 41:5</a>) That the practices of these men were not fully in harmony with the law of God is shown by the fact that they made cuts upon themselves, a practice sternly prohibited by the Law.​—<a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200000590/6/0">Le 19:28;</a><a class="b" data-bid="7-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200000590/6/1"> 21:5</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Publications Index - it-1 266;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Publications Index - ad 198]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="4" id="p4"><span aria-hidden="true" class="pageNum" data-before-text="198" data-no="198" id="page198"></span>The ferocity of the female bear when its young are lost or endangered is mentioned several times in the Scriptures. (<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010588/1/0">2 Sam. 17:8;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010588/1/1"> Prov. 17:12;</a><a class="b" data-bid="2-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010588/1/2"> Hos. 13:8</a>) Bears, on one occasion, served as God’s executioners against the delinquent youths who mocked the prophet Elisha.—<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010588/2/0">2 Ki. 2:24</a>.</p>
+<p class="sb" data-pid="5" id="p5">Bears subsist on a varied diet, feeding on leaves and roots of plants, fruits, berries nuts, eggs, insects, fish, rodents and the like, and have a special fondness for honey. Although there are exceptions, bears seem to prefer a vegetarian diet. Nonetheless, in ancient Israel, in the season when fruits and other nonflesh items of the bear’s diet were scarce, herders of sheep and goats had to be on guard against the depredations of bears. In his youth David had to brave the attack of a bear in order to protect his father’s flock.—<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010588/3/0">1 Sam. 17:34-37</a>.</p>
+<p class="sb" data-pid="6" id="p6">When bears are hungry, and get the scent of prey, they are known to make an impatient groaning sound. So the prophet Isaiah describes the Israelites as ‘groaning like bears’ in expectation of justice and salvation, only to be disappointed repeatedly. (<a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010588/4/0">Isa. 59:11</a>) An onrushing bear is also fittingly likened to a wicked ruler who harries and oppresses his lowly subjects.—<a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010588/5/0">Prov. 28:15</a>.</p>
+<p class="sb" data-pid="7" id="p7">In Daniel’s vision of terrible beasts symbolizing mighty ruling dynasties of earth, the bear represented the Medo-Persian dynasty and its greed for territorial conquest and pillage. (<a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010588/6/0">Dan. 7:5,</a><a class="b" data-bid="7-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010588/6/1"> 17</a>) Rapacious like this, the wild beast out of the sea, having ten horns and seven heads, is seen in John’s vision to have feet “as those of a bear.” (<a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010588/7/0">Rev. 13:2</a>) Suitably, then, the peacefulness among Jehovah’s regathered people, under Messiah’s rule, is indicated by the prophecy that the bear will feed with the cow.—<a class="b" data-bid="9-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010588/8/0">Isa. 11:7</a>.</p>
+</article><article class="scalableui">
+<p class="st" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="198" data-no="198" id="page198"></span><strong>BEARD</strong></p>
+<p class="sb" data-pid="2" id="p2">The hair growing on a man’s chin and cheeks, sometimes including that growing on the upper lip. In the Hebrew Scriptures, <em>za·qan</em>ʹ is the word for “beard,” while <em>sa·phamʹ,</em> pertaining to the lip, is variously rendered by translators as “beard,” “mustache” and “upper lip.”</p>
+<p class="sb" data-pid="3" id="p3">Among many ancient peoples of the East, including the Israelites, a beard was cherished as an evidence of manly dignity. God’s law to Israel prohibited the cutting off of the “side locks,” the hair between the ear and the eye, and the extremity of the beard. (<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/0/0">Lev. 19:27;</a><a class="b" data-bid="1-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/0/1"> 21:5</a>) This was doubtless because among some pagans it was a religious practice.</p>
+<p class="sb" data-pid="4" id="p4">During extreme grief, shame or humiliation, one might pluck hairs from his beard or leave the beard or the mustache untended. (<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/1/0">Ezra 9:3</a>) It may have been the untended beard of Mephibosheth, son of Jonathan, that indicated to David that Mephibosheth was perhaps telling the truth when he said that his servant Ziba had slandered him, and that Mephibosheth was actually mourning while David was a refugee from Absalom, contrary to what Ziba had reported. (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/2/0">2 Sam. 16:3;</a><a class="b" data-bid="3-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/2/1"> 19:24-30</a>) The removing of the beard was viewed in figurative expression to illustrate great mourning because of calamity.—<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/3/0">Isa. 7:20;</a><a class="b" data-bid="4-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/3/1"> 15:2;</a><a class="b" data-bid="4-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/3/2"> Jer. 48:37;</a><a class="b" data-bid="4-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/3/3"> Ezek. 5:1</a>.</p>
+<p class="sb" data-pid="5" id="p5">After the destruction of Jerusalem in 607 B.C.E., men from Shechem, Shiloh and Samaria expressed their distress by shaving their beards, ripping their garments apart and cutting themselves. Even though they were bringing offerings to the house of Jehovah, they were bloodless offerings, apparently to be offered at the place where the temple had been. (<a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/4/0">Jer. 41:5</a>) That the practices of these men were not fully in harmony with the law of God is shown by the fact that they made cuts upon themselves, a practice sternly prohibited by the Law.—<a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/5/0">Lev. 19:28;</a><a class="b" data-bid="6-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/5/1"> 21:5</a></p>
+<p class="sb" data-pid="6" id="p6">The importance of the beard and its being well groomed played a part in the attitude of Achish the king of Gath toward David when the latter disguised his sanity by letting his saliva run down upon his beard. This served to help convince King Achish that David was insane. (<a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/6/0">1 Sam. 21:13</a>) Later, when Hanun the king of Ammon grossly insulted David’s ambassadors by cutting off half their beards, David sympathetically told his men to stay in Jericho until their beards grew abundantly again. The Ammonites knew that it was a signal insult to David and that they had become foul smelling in his eyes over the incident, and so they prepared for war.—<a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/7/0">2 Sam. 10:4-6;</a><a class="b" data-bid="8-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/7/1"> 1 Chron. 19:1-6</a>.</p>
+<p class="sb" data-pid="7" id="p7">It was customary for men to wear beards, even before the Law covenant was made. While the Hebrews did not make monuments with figures of themselves, many monuments and inscriptions have been found in Egypt and Mesopotamia and other Near Eastern lands, in which the Assyrians, Babylonians and Canaanites are pictured with beards, and even some representations dated as far back as the third millennium B.C.E. show beards of varying styles. Among the above-named peoples eunuchs were mainly the ones depicted beardless. The making of eunuchs was not a practice in Israel, however, because the Law excluded eunuchs from the congregation of Israel.—<a class="b" data-bid="9-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/8/0">Deut. 23:1</a>.</p>
+<p class="sb" data-pid="8" id="p8">Since most Semites are pictured as wearing beards, even prior to the time of the Law, it would logically follow that the faithful men of the line of Shem, who continued to speak the language of Eden and who doubtless followed more closely the original customs from the time of their forefather Seth, possessed beards. Consequently, there is good reason to believe that Noah, Enoch, Seth and Seth’s father Adam likewise were bearded men.</p>
+<p class="sb" data-pid="9" id="p9">Herodotus says the Egyptians shaved both the hair of the face and of the head. To them a beard betokened grief or an undesirable condition. One writer states that whenever an Egyptian artist wanted to convey the idea of a man of low condition or a slovenly person, he would depict the man with a beard. This helps one to appreciate why Joseph shaved before appearing in the presence of Pharaoh. (<a class="b" data-bid="10-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/9/0">Gen. 41:14</a>; compare <a class="b" data-bid="11-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/10/0">Jeremiah 9:26;</a><a class="b" data-bid="11-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/10/1"> 25:23</a>.) However, false beards as well as wigs were worn by the Egyptians. The beard of the common man was short; that of the monarch, long and square-bottomed, and those on the figures of their gods were curled up at the end. In two Egyptian representations of the Philistines these men are also pictured beardless.</p>
+<p class="sb" data-pid="10" id="p10">Did Jesus, when on earth, wear a beard? Certainly it was a custom strictly held by the Jews. Jesus, born a Jew, “came to be under law” and he fulfilled the Law. (<a class="b" data-bid="12-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/11/0">Gal. 4:4;</a><a class="b" data-bid="12-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010589/11/1"> Matt. 5:17</a>) Like all other Jews, Jesus was dedicated to Jehovah God from his birth, by reason of the Law covenant, and was under obligation to keep the whole law, including the prohibition on </p>
+</article></td></tr></tbody></table></div></div>
+<p class="sb" data-pid="1099" id="p1099"><span class="v" id="v24-41-8-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20081">8 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-41-8')" title="Toggle Gems Study References">💎</button>But there were ten men among them who said to Ishʹma·el: “Do not put us to death, for we have hidden stores of wheat, barley, oil, and honey in the field.” So he refrained from putting them to death along with their brothers. </span><span class="v" id="v24-41-9-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20082">9 </a>Now Ishʹma·el threw all the carcasses of the men he had killed into a great cistern, the one that King Aʹsa had made because of King Baʹa·sha of Israel.<a class="b" data-bid="1260-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1259">+</a> This was the cistern that Ishʹma·el the son of Neth·a·niʹah filled with the slain men.</span></p><div class="gems-references-container" id="gems-ref-24-41-8" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Research Guide - Insight, Volume 2, p. 1179]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="4"></span>Wheat was sown in Palestine about the same time as the barley, in the month of Bul (October-November), after the early fall rains had sufficiently softened the soil for plowing. (<a class="b" data-bid="11-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200004599/10/0">Isa 28:24, 25</a>) The wheat harvest followed the barley harvest (<a class="b" data-bid="12-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200004599/11/0">Ru 2:23</a>; compare <a class="b" data-bid="13-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200004599/12/0">Ex 9:31, 32</a>) and was closely associated with the Festival of Weeks, or Pentecost, in the month of Sivan (May-June), at which time two leavened loaves made of wheat flour were presented as a wave offering to Jehovah. (<a class="b" data-bid="14-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200004599/13/0">Ex 34:22;</a><a class="b" data-bid="14-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200004599/13/1"> Le 23:17</a>) After the wheat was threshed, winnowed, and sifted, it was often stored in underground pits, a practice perhaps alluded to at <a class="b" data-bid="15-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200004599/14/0">Jeremiah 41:8</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Publications Index - it-2 1179;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Publications Index - ad 1653]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="3" id="p3"><span aria-hidden="true" class="pageNum" data-before-text="1653" data-no="1653" id="page1653"></span>One variety of wheat cultivated in Egypt of old, and still encountered there, has several ears per stalk. (Compare <a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/6/0">Genesis 41:22, 23</a>.) The varieties of wheat that have been commonly cultivated in Palestine in more recent years, and likely also in Bible times, are bearded, that is, having coarse, prickly hairs on the husks of the kernels.</p>
+<p class="sb" data-pid="4" id="p4">True to God’s promise, the Israelites found Palestine to be a land of wheat and barley. (<a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/7/0">Deut. 8:8;</a><a class="b" data-bid="8-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/7/1"> 32:14;</a><a class="b" data-bid="8-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/7/2"> Ps. 81:16;</a><a class="b" data-bid="8-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/7/3"> 147:14</a>) Not only did they have enough for themselves but they also were able to export grain. (<a class="b" data-bid="9-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/8/0">2 Chron. 2:8-10,</a><a class="b" data-bid="9-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/8/1"> 15</a>) In Ezekiel’s time, commodities from Judah and Israel, including “wheat of Minnith,” were being traded in Tyre.—<a class="b" data-bid="10-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/9/0">Ezek. 27:17</a>.</p>
+<p class="sb" data-pid="5" id="p5">Wheat was sown in Palestine about the same time as the barley, in the month of Bul (October-November), after the early fall rains had sufficiently softened the soil for plowing. (<a class="b" data-bid="11-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/10/0">Isa. 28:24, 25</a>) The wheat harvest followed the barley harvest (<a class="b" data-bid="12-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/11/0">Ruth 2:23</a>; compare <a class="b" data-bid="13-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/12/0">Exodus 9:31, 32</a>), and was closely associated with the Festival of Weeks or Pentecost in the month of Sivan (May-June), at which time two leavened loaves made of wheat flour were presented as a wave offering to Jehovah. (<a class="b" data-bid="14-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/13/0">Ex. 34:22;</a><a class="b" data-bid="14-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/13/1"> Lev. 23:17</a>) After the wheat was threshed, winnowed and sifted, it was often stored in underground pits, a practice perhaps alluded to at <a class="b" data-bid="15-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/14/0">Jeremiah 41:8</a>.</p>
+<p class="sb" data-pid="6" id="p6">The Bible also makes illustrative reference to wheat. It is used to represent persons acceptable to Jehovah, “the sons of the kingdom.” (<a class="b" data-bid="16-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/15/0">Matt. 3:12;</a><a class="b" data-bid="16-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/15/1"> 13:24-30,</a><a class="b" data-bid="16-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/15/2"> 37, 38;</a><a class="b" data-bid="16-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/15/3"> Luke 3:17</a>) Both Jesus and the apostle Paul mentioned wheat in illustrating the resurrection. (<a class="b" data-bid="17-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/16/0">John 12:24;</a><a class="b" data-bid="17-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/16/1"> 1 Cor. 15:35-38</a>) And Jesus likened the test to come upon his disciples, as a result of the trials he was about to undergo, to the sifting of wheat.—<a class="b" data-bid="18-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014493/17/0">Luke 22:31</a>.</p>
+<p class="sb" data-pid="7" id="p7"></p>
+</article><article class="scalableui">
+<p class="st" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="1653" data-no="1653" id="page1653"></span><strong>WHEEL</strong></p>
+<p class="sb" data-pid="2" id="p2">The exact historical origin of the wheel is not known. Anciently, wooden planks were pegged together, rounded and furnished with a felloe or rim to form the early wheel. The spoked type was used on chariots, wagons and other vehicles. (<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014494/0/0">Ex. 14:25;</a><a class="b" data-bid="1-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014494/0/1"> Isa. 5:28;</a><a class="b" data-bid="1-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014494/0/2"> 28:27</a>) The ten copper carriages that Solomon made for use at Jehovah’s temple each had a copper axle and four chariotlike copper wheels one and a half cubits high, with hubs, spokes and felloes.—<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014494/1/0">1 Ki. 7:27-33</a>.</p>
+<p class="sb" data-pid="3" id="p3">The potter fashioned earthenware vessels on a revolving horizontal disk called a potter’s wheel. (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014494/2/0">Jer. 18:3, 4</a>) Also, a bucket might be lowered and raised in a cistern by means of rope attached to some type of wheel or windlass.—<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014494/3/0">Eccl. 12:6</a>.</p>
+<p class="ss" data-pid="4" id="p4" style="display:block; font-size: 0.8em; text-align: center"><strong>ILLUSTRATIVE AND FIGURATIVE USE</strong></p>
+<p class="sb" data-pid="5" id="p5">According to the Hebrew Masoretic text, <a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014494/4/0">Proverbs 20:26</a> reads: “A wise king is scattering wicked people, and he turns around upon them a wheel.” This seems to allude to an action of a king comparable to the use of the wheel in threshing grain. (Compare <a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014494/5/0">Isaiah 28:27, 28</a>.) The metaphor appears to indicate that the wise king acts promptly in separating wicked persons from righteous ones and in punishing the wicked. Thereby evil is suppressed in his domain. (Compare <a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014494/6/0">Proverbs 20:8</a>.) However, by a slight alteration, this verse says that a wise king turns around upon the wicked “their own hurtfulness.”</p>
+<p class="sb" data-pid="6" id="p6">The uncontrolled tongue is a “fire” that “sets the wheel of natural life aflame.” The entire round of one’s life can be set aflame by the tongue, even as a very hot axle can set a wheel on fire.—<a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014494/7/0">Jas. 3:6</a>.</p>
+<p class="sb" data-pid="7" id="p7">By the river Chebar in the land of the Chaldeans during the fifth year of King Jehoiachin’s exile, Ezekiel envisioned Jehovah riding upon a swift-moving chariotlike celestial vehicle. Its four wheels had rims filled with eyes, and within each wheel was another wheel apparently at right angles, making it possible to go forward or to either side without changing the angle of the wheels. Beside each wheel was a cherub, the cherubic living creatures and wheels moving in unison as spirit-directed. (<a class="b" data-bid="9-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014494/8/0">Ezek. 1:1-3,</a><a class="b" data-bid="9-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014494/8/1"> 15-21;</a><a class="b" data-bid="9-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014494/8/2"> 3:13</a>) The following year, Ezekiel had a similar vision, this time before the temple Solomon built in Jerusalem and indicating that soon that city and the temple would be destroyed in execution of Jehovah’s judicial decision. (<a class="b" data-bid="10-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014494/9/0">Ezek. 8:1-3;</a><a class="b" data-bid="10-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014494/9/1"> 10:1-19;</a><a class="b" data-bid="10-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014494/9/2"> 11:22</a>) Some sixty years thereafter, Daniel envisioned the Ancient of Days, Jehovah, seated upon a heavenly wheeled throne. Both throne and wheels were aflame, suggesting the approach of fiery divine judgment upon world powers.—<a class="b" data-bid="11-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014494/10/0">Dan. 7:1,</a><a class="b" data-bid="11-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014494/10/1"> 9, 10;</a><a class="b" data-bid="11-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014494/10/2"> Ps. 97:1-3</a>.</p>
+<p class="sb" data-pid="8" id="p8"></p>
+</article><article class="scalableui">
+<p class="st" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="1653" data-no="1653" id="page1653"></span><strong>WHIP</strong></p>
+<p class="sb" data-pid="2" id="p2">This instrument, usually a flexible cord or leather lash with a handle, has been used since ancient times to beat humans (<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014495/0/0">2 Chron. 10:11,</a><a class="b" data-bid="1-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014495/0/1"> 14</a>) and in driving and directing animals.—<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014495/1/0">Prov. 26:3;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014495/1/1"> Nah. 3:2</a>.</p>
+<p class="sb" data-pid="3" id="p3">King Rehoboam boasted that, whereas his father Solomon had chastised the Israelites with “whips”, he would do so with “scourges.” Though Rehoboam’s expression was figurative, the scourges alluded to may have been lashes equipped with sharp points, since the Hebrew word (<em>ʽaq·rab·bimʹ</em>) for “scourges” literally means “scorpions.”</p>
+<p class="sb" data-pid="4" id="p4">Eliphaz the Temanite spoke of the “whip of a tongue.” (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014495/2/0">Job 4:1;</a><a class="b" data-bid="3-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014495/2/1"> 5:21</a>) Apparently the allusion was to the use of the tongue to inflict injury, as in slandering and speaking abusively.—Compare <a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014495/3/0">Proverbs 12:18;</a><a class="b" data-bid="4-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014495/3/1"> James 3:5-10</a>.</p>
+<p class="sb" data-pid="5" id="p5">At Passover time of 30 C.E., “after making a whip of ropes, [Jesus] drove all those with the sheep and cattle out of the temple.” Indicating that Jesus used the whip only on the animals, not on the men with the sheep and cattle, is the fact that he evicted the sellers of doves verbally, not with the whip. Also, by driving out the cattle with the whip, he upset their business activity, and the men would naturally follow after their cattle, to round them up.—<a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014495/4/0">John 2:13-17</a>.</p>
+<p class="sb" data-pid="6" id="p6"></p>
+</article><article class="scalableui">
+<p class="st" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="1653" data-no="1653" id="page1653"></span><strong>WHITE</strong></p>
+<p class="sb" data-pid="2" id="p2">See COLORS.</p>
+<p class="sb" data-pid="3" id="p3"></p>
+</article><article class="scalableui">
+<p class="st" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="1653" data-no="1653" id="page1653"></span><strong>WICKEDNESS</strong></p>
+<p class="sb" data-pid="2" id="p2">Anyone who does not conform to God’s standard of moral excellence is wicked, bad, evil or worthless. Like the Greek word <em>po·ne·riʹa</em> (<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/0/0">Matt. 22:18;</a><a class="b" data-bid="1-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/0/1"> Mark 7:22;</a><a class="b" data-bid="1-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/0/2"> Luke 11:39;</a><a class="b" data-bid="1-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/0/3"> Acts 3:26;</a><a class="b" data-bid="1-5" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/0/4"> Rom. 1:29;</a><a class="b" data-bid="1-6" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/0/5"> 1 Cor. 5:8;</a><a class="b" data-bid="1-7" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/0/6"> Eph. 6:12</a>), the adjective, noun and verb forms drawn from the Hebrew root <em>ra·shaʽʹ</em> designate that which is wicked. (<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/1/0">Gen. 18:23;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/1/1"> 2 Sam. 22:22;</a><a class="b" data-bid="2-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/1/2"> 2 Chron. 20:35;</a><a class="b" data-bid="2-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/1/3"> Job 34:8;</a><a class="b" data-bid="2-5" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/1/4"> Ps. 37:10;</a><a class="b" data-bid="2-6" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/1/5"> Isa. 26:10</a>) <em>Po·ne·rosʹ</em> (related to <em>po·ne·riʹa</em>) often signifies that which is evil or wicked in a moral sense (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/2/0">Luke 6:45</a>) and can apply to something that is bad or worthless in a physical sense, as when Jesus Christ spoke of “worthless fruit.” (<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/3/0">Matt. 7:17, 18</a>) This word can also describe something that is hurtful and, at <a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/4/0">Revelation 16:2</a>, has been rendered “painful” (<em>AT, TEV</em>) and “malignant.”—<em>NE, NW</em>.</p>
+<p class="ss" data-pid="3" id="p3" style="display:block; font-size: 0.8em; text-align: center"><strong>WHY WICKEDNESS PERMITTED</strong></p>
+<p class="sb" data-pid="4" id="p4">Satan the Devil, who caused the first man and woman, Adam and Eve, to rebel against God, stands in opposition to God’s righteous standard and is appropriately termed “the wicked one.” (<a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/5/0">Matt. 6:13;</a><a class="b" data-bid="6-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/5/1"> 13:19,</a><a class="b" data-bid="6-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/5/2"> 38;</a><a class="b" data-bid="6-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/5/3"> 1 John 2:13, 14;</a><a class="b" data-bid="6-5" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200014497/5/4"> 5:19</a>) The rebellion initiated by Satan called into question the rightfulness and righteousness of God’s sovereignty, that is, whether God’s rulership over his creatures is exercised righteously and in their best interests. The fact that Adam and Eve rebelled also raised another issue: Would all other intelligent creatures prove unfaithful and disloyal to God when obedience appeared to bring no material benefits? Satan’s claim respecting faithful Job implied that they would do so. Satan said: “Skin </p>
+</article></td></tr></tbody></table></div></div>
+<p class="sb" data-pid="1100" id="p1100"><span class="v" id="v24-41-10-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20083">10 </a>Ishʹma·el took captive all the rest of the people in Mizʹpah,<a class="b" data-bid="1261-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1260">+</a> including the daughters of the king and all the people left in Mizʹpah, whom Neb·uʹzar·adʹan the chief of the guard had put in the custody of Ged·a·liʹah<a class="b" data-bid="1262-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1261">+</a> the son of A·hiʹkam. Ishʹma·el the son of Neth·a·niʹah took them captive and went off to cross over to the Amʹmon·ites.<a class="b" data-bid="1263-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1262">+</a></span></p>
+<p class="sb" data-pid="1101" id="p1101"><span class="v" id="v24-41-11-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20084">11 </a>When Jo·haʹnan<a class="b" data-bid="1264-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1263">+</a> the son of Ka·reʹah and all the army chiefs who were with him heard about all the evil that Ishʹma·el the son of Neth·a·niʹah had done, </span><span class="v" id="v24-41-12-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20085">12 </a>they took all the men and went off to fight against Ishʹma·el the son of Neth·a·niʹah, and they found him by the great waters<a class="fn" data-fnid="364" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070128/363" id="footnotesource364">*</a><em> (Footnote: Or possibly, “great pool.”)</em> in Gibʹe·on.</span></p>
+<p class="sb" data-pid="1102" id="p1102"><span class="v" id="v24-41-13-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20086">13 </a>All the people who were with Ishʹma·el rejoiced when they saw Jo·haʹnan the son of Ka·reʹah and all the army chiefs with him. </span><span class="v" id="v24-41-14-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20087">14 </a>Then all the people whom Ishʹma·el had taken captive from Mizʹpah<a class="b" data-bid="1265-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1264">+</a> turned around and went back with Jo·haʹnan the son of Ka·reʹah. </span><span class="v" id="v24-41-15-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20088">15 </a>But Ishʹma·el the son of Neth·a·niʹah and eight of his men escaped from Jo·haʹnan and went to the Amʹmon·ites.</span></p>
+<p class="sb" data-pid="1103" id="p1103"><span class="v" id="v24-41-16-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20089">16 </a>Jo·haʹnan the son of Ka·reʹah and all the army chiefs who were with him took with them the rest of the people from Mizʹpah, those whom they had rescued from Ishʹma·el the son of Neth·a·niʹah after he had struck down Ged·a·liʹah<a class="b" data-bid="1266-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1265">+</a> the son of A·hiʹkam. They brought the men, the soldiers, the women, the children, and the court officials back from Gibʹe·on. </span><span class="v" id="v24-41-17-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20090">17 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-41-17')" title="Toggle Gems Study References">💎</button>So they went and stayed in the lodging place of Chimʹham next to Bethʹle·hem,<a class="b" data-bid="1267-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1266">+</a> intending to go on into Egypt<a class="b" data-bid="1268-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1267">+</a> </span><span class="v" id="v24-41-18-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070128/20091">18 </a>because of the Chal·deʹans. For they had become afraid of them, since Ishʹma·el the son of Neth·a·niʹah had struck down Ged·a·liʹah the son of A·hiʹkam, whom the king of Babylon had appointed over the land.<a class="b" data-bid="1269-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070128/1268">+</a></span></p><div class="gems-references-container" id="gems-ref-24-41-17" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Research Guide - Insight, Volume 1, pp. 436-437]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="2"></span>Presumably a son of Barzillai. When the aged Barzillai declined the invitation to become part of King David’s court and recommended that Chimham go in his place, David replied: “With me Chimham will go across [the Jordan], and I myself shall do to him what is good in your eyes; and all that you may choose to lay upon me I shall do for you.” (<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200000957/0/0">2Sa 19:33,</a><a class="b" data-bid="1-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200000957/0/1"> 37-40</a>) Apparently Chimham remained in the royal court, as is indicated by David’s final instructions to Solomon. (<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200000957/1/0">1Ki 2:7</a>) Reference is made at <a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200000957/2/0">Jeremiah 41:17</a> to “the lodging <span aria-hidden="true" class="pageNum" data-before-text="437" data-no="437" id="page437"></span>place of Chimham” near Bethlehem. It is not known whether this refers to the Chimham of David’s time or to a later man by the same name. Some commentators say that Chimham may have been given a tract of land for his services to David, or that it was a place where Chimham had built a lodging place for travelers.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Publications Index - it-1 436-437;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Publications Index - ad 313]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="18" id="p18"><span aria-hidden="true" class="pageNum" data-before-text="313" data-no="313" id="page313"></span>was also manifest in marriage inasmuch as the parents selected wives for their sons or made arrangements for the marriage.—<a class="b" data-bid="43-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/42/0">Gen. 21:21;</a><a class="b" data-bid="43-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/42/1"> Ex. 21:8-11;</a><a class="b" data-bid="43-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/42/2"> Judg. 14:1-3</a>.</p>
+<p class="sb" data-pid="19" id="p19">The inheritance rights came through the father. A childless wife often endeavored to acquire children from her maidservant as her husband’s concubine. Such a child was welcomed by the barren wife as her own. (<a class="b" data-bid="44-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/43/0">Gen. 30:1-8</a>) An illegitimate child could not be a member of the congregation of Israel. (<a class="b" data-bid="45-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/44/0">Deut. 23:2</a>) In the birth of twins, great care was exercised to distinguish the child that came into the world first (<a class="b" data-bid="46-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/45/0">Gen. 38:28</a>), since the firstborn son received two portions of his father’s inheritance, while the other son received only one portion. (<a class="b" data-bid="47-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/46/0">Deut. 21:17;</a><a class="b" data-bid="47-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/46/1"> Gen. 25:1-6</a>) Usually the older son assumed the responsibility of supporting the females in the family after his father had died. A son born through levirate marriage was raised up as the son of the dead man and inherited his property.—<a class="b" data-bid="48-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/47/0">Deut. 25:6;</a><a class="b" data-bid="48-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/47/1"> Ruth 4:10,</a><a class="b" data-bid="48-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/47/2"> 17</a>.</p>
+<p class="ss" data-pid="20" id="p20" style="display:block; font-size: 0.8em; text-align: center"><strong>FIGURATIVE USES</strong></p>
+<p class="sb" data-pid="21" id="p21">The words “child” and “children” as used in the Bible have considerable latitude in meaning. The descendants of Israel are referred to as “children in the flesh,” also as “children of transgression” by Isaiah because of their rebellious ways against Jehovah. (<a class="b" data-bid="49-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/48/0">Rom. 9:8;</a><a class="b" data-bid="49-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/48/1"> Isa. 57:4</a>) In the days of the apostles wicked persons were classified as “accursed children” and “children of the Devil.” (<a class="b" data-bid="50-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/49/0">2 Pet. 2:14;</a><a class="b" data-bid="50-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/49/1"> 1 John 3:10</a>) In contrast, persons exercising faith in Christ and becoming spirit-begotten ones are called “God’s children.” (<a class="b" data-bid="51-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/50/0">John 1:12;</a><a class="b" data-bid="51-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/50/1"> Rom. 8:16</a>) Disciples are often called children.—<a class="b" data-bid="52-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/51/0">John 13:33;</a><a class="b" data-bid="52-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/51/1"> Heb. 2:13</a>.</p>
+<p class="sb" data-pid="22" id="p22">Individuals privileged to receive a resurrection from the dead are spoken of as “children of the resurrection” (<a class="b" data-bid="53-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/52/0">Luke 20:36</a>); also those who are joint heirs with Christ are “the children by the promise” (<a class="b" data-bid="54-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/53/0">Rom. 9:8</a>) or children “of the free woman.” (<a class="b" data-bid="55-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/54/0">Gal. 4:31</a>) All those desiring to attain life in the kingdom of heaven must display the childlike qualities of humility, receptiveness and trust. (<a class="b" data-bid="56-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/55/0">Matt. 18:2-4</a>) Men and women who strive to obey God by using the light of truth in their lives are described as “obedient children” and as “children of light.”—<a class="b" data-bid="57-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/56/0">1 Pet. 1:14;</a><a class="b" data-bid="57-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/56/1"> Eph. 5:8</a>.</p>
+<p class="sb" data-pid="23" id="p23">Paul counseled the congregation at Corinth as he would children, to “widen out” in affection; prior to this he had encouraged them not to become children in powers of understanding.—<a class="b" data-bid="58-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/57/0">2 Cor. 6:13;</a><a class="b" data-bid="58-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010941/57/1"> 1 Cor. 14:20</a>.</p>
+<p class="sb" data-pid="24" id="p24"></p>
+</article><article class="scalableui">
+<p class="st" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="313" data-no="313" id="page313"></span><strong>CHILDBEARING</strong></p>
+<p class="sb" data-pid="2" id="p2">A privilege granted exclusively to womankind by the Creator, and for which he especially designed and equipped the female. The Edenic mandate given to the first human couple and later repeated to the survivors of the Flood included conceiving and bearing children. (<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010942/0/0">Gen. 1:28;</a><a class="b" data-bid="1-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010942/0/1"> 9:7</a>) However, because of sin and disobedience, Jehovah said to Eve, in connection with childbearing: “I shall greatly increase the pain of your pregnancy; in birth pangs you will bring forth children.”—<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010942/1/0">Gen. 3:16</a>; see BIRTH; LABOR PAINS.</p>
+<p class="sb" data-pid="3" id="p3">Concerning childbearing and motherhood, the apostle Paul recommended that younger widows, who may be greatly distracted if their motherly instincts are not satisfied, get married and bear children rather than spend their time gadding about as “gossipers and meddlers in other people’s affairs.” (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010942/2/0">1 Tim. 5:11-15</a>) Concerning women in the Christian congregation, Paul said that they “will be kept safe through childbearing, provided they continue in faith and love and sanctification along with soundness of mind.”—<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010942/3/0">1 Tim. 2:15</a>.</p>
+<p class="sb" data-pid="4" id="p4"></p>
+</article><article class="scalableui">
+<p class="st" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="313" data-no="313" id="page313"></span><strong>CHILEAB</strong></p>
+<p class="sb" data-pid="2" id="p2">(Chilʹe·ab).</p>
+<p class="sb" data-pid="3" id="p3">David’s second son born in Hebron. His mother Abigail was the former wife of Nabal. (<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010943/0/0">2 Sam. 3:2, 3</a>) Chileab is called Daniel at <a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010943/1/0">1 Chronicles 3:1</a>.—See DANIEL No. 1.</p>
+<p class="sb" data-pid="4" id="p4"></p>
+</article><article class="scalableui">
+<p class="st" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="313" data-no="313" id="page313"></span><strong>CHILION</strong></p>
+<p class="sb" data-pid="2" id="p2">(Chilʹi·on) [frailty].</p>
+<p class="sb" data-pid="3" id="p3">A son of Naomi and Elimelech and the brother of Mahlon the husband of Ruth. In Moab, where the family had moved from Bethlehem, in Judah, to escape a famine that occurred in the time of the judges, Chilion, after the death of his father, married the Moabitess Orpah. Both he and his brother died childless in Moab.—<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010944/0/0">Ruth 1:1-5;</a><a class="b" data-bid="1-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010944/0/1"> 4:9, 10</a>.</p>
+<p class="sb" data-pid="4" id="p4"></p>
+</article><article class="scalableui">
+<p class="st" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="313" data-no="313" id="page313"></span><strong>CHILMAD</strong></p>
+<p class="sb" data-pid="2" id="p2">(Chilʹmad) [meaning uncertain].</p>
+<p class="sb" data-pid="3" id="p3">Evidently a place listed among those trading with Tyre in the sale of fine clothing, dyed materials, carpets and ropes.—<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010945/0/0">Ezek. 27:2,</a><a class="b" data-bid="1-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010945/0/1"> 23, 24</a>.</p>
+<p class="sb" data-pid="4" id="p4">In the phrase “Asshur and Chilmad were your traders,” the word “and” is supplied, not appearing in the Hebrew text. Because of this the version of the Jewish Publication Society prefers the rendering: “Asshur was as thine apprentice in traffic,” thereby not translating Chilmad as a proper name. Most translations, however, treat Chilmad as a place-name. Some authorities suggest an identification with Kalwadha, a city near Baghdad. The changing of an “m” for a “w” is common in Assyro-Babylonian.</p>
+<p class="sb" data-pid="5" id="p5"></p>
+</article><article class="scalableui">
+<p class="st" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="313" data-no="313" id="page313"></span><strong>CHIMHAM</strong></p>
+<p class="sb" data-pid="2" id="p2">(Chim’ham) [pale].</p>
+<p class="sb" data-pid="3" id="p3">Presumably a son of Barzillai. When the aged Barzillai declined the invitation to become part of King David’s court and recommended that Chimham go in his place, David replied: “With me Chimham will go across [the Jordan], and I myself shall do to him what is good in your eyes; and all that you may choose to lay upon me I shall do for you.” (<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010946/0/0">2 Sam. 19:33,</a><a class="b" data-bid="1-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010946/0/1"> 37-40</a>) Apparently Chimham remained in the royal court, as indicated by David’s final instructions to Solomon. (<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010946/1/0">1 Ki 2:7</a>) Reference is made at <a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010946/2/0">Jeremiah 41:17</a> to the “lodging place of Chimham” near Bethlehem. It is not known whether this refers to the Chimham of David’s time or to a later man by the same name. Some commentators say that Chimham may have been given a tract of land for his services to David, or that it was a place where Chimham had built a lodging place for travelers.</p>
+<p class="sb" data-pid="4" id="p4"></p>
+</article><article class="scalableui">
+<p class="st" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="313" data-no="313" id="page313"></span><strong>CHINNERETH</strong></p>
+<p class="sb" data-pid="2" id="p2">(Chinʹne·reth) [perhaps, lute, harp].</p>
+<p class="sb" data-pid="3" id="p3">1. A fortified city of Naphtali. (<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010947/0/0">Josh. 19:32,</a><a class="b" data-bid="1-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010947/0/1"> 35</a>) It is presently identified with Khirbet el-ʽOreimeh, situated on a mound about two miles (3.2 kilometers) SW of Capernaum, overlooking the NW portion of the Sea of Galilee. The name el-ʽOreimeh means “harp” or “lyre.” Chinnereth appears on the temple walls of Karnak at Thebes, Egypt, in the list of Canaanite cities conquered by Thutmose III (whose reign historians assign to the sixteenth century B.C.E.).</p>
+<p class="sb" data-pid="4" id="p4">2. A district or region of Israel attacked by Syrian King Ben-hadad at the instigation of King Asa of Judah. (c 962/961 B.C.E.) (<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010947/1/0">1 Ki. 15:20</a>; compare <a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010947/2/0">2 Chronicles 16:4</a>.) The expression “all Chinnereth” is usually considered to refer to the fertile Plain of Gennesaret, a small, well-watered triangular area extending S of the suggested site of the city of Chinnereth.</p>
+<p class="sb" data-pid="5" id="p5">3. The early name of the Sea of Galilee. (<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010947/3/0">Num. 34:11</a>) Associating the name with the Hebrew word for harp (<em>kin·nohrʹ</em>), some suggest that it is applied to the lake because of the harp-shaped form of this body of water. Gennesaret, probably the Greek form of the name, was used when Jesus was on earth (<a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010947/4/0">Luke 5:1</a>), as well as the names Sea of Galilee and Sea of Tiberias.—<a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010947/5/0">John 6:1</a>.</p>
+<p class="sb" data-pid="6" id="p6">In addition to being included among the boundaries of the Promised Land (<a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010947/6/0">Num. 34:11</a>), the lake formed part of the W boundary of the Amorite kingdom of Og, and, following the Israelite conquest, figured in the W boundary of the tribe of Gad. (<a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010947/7/0">Deut. 3:16, 17;</a><a class="b" data-bid="8-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010947/7/1"> Josh. 13:24-27</a>) The reference to “the desert plains [Heb., ʽ<em>ara·vah</em>ʹ] south of Chinnereth” (<a class="b" data-bid="9-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200010947/8/0">Josh. 11:2</a>) evidently means the section of the Jordan valley S of the Sea of Galilee, known as the Ghor.—See GALILEE, SEA OF.</p>
+<p class="sb" data-pid="7" id="p7"></p>
+</article></td></tr></tbody></table></div></div>
+<!-- Root element of lightbox -->
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="Jeremiah 41:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="Jeremiah 41:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="Jeremiah {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value=""/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value=""/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="{PublicationSymbol} p. {StartingPageNumber}-{EndingPageNumber}"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="{PublicationSymbol} p. {PageNumber}"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="englishSym" type="hidden" value="nwtsty"/>
+<input id="audioPubSym" type="hidden" value="nwt"/>
+<input id="pubYear" type="hidden" value="2026"/>
+<input id="langSym" type="hidden" value="E"/>
+<input id="bookNo" type="hidden" value="24"/>
+<input id="chapNo" type="hidden" value="41"/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=E&amp;pub=nwtsty&amp;srctype=wol&amp;bible=24041000&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="bible-chapter"/>
+<input id="contentTitle" type="hidden" value="Jeremiah 41"/>
+<input id="contentThumbnail" type="hidden" value="/en/wol/publication/r1/lp-e/nwtsty/thumbnail"/>
+<input id="parentTitle" type="hidden" value="New World Translation of the Holy Scriptures (Study Edition)"/>
+<input id="sourcePreferredBible" type="hidden" value="nwtsty"/>
+<style>
+.gems-toggle-btn {
+    background: none;
+    border: 1px solid #4a6da7;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75em;
+    padding: 1px 3px;
+    margin-left: 0px;
+    margin-right: 4px;
+    vertical-align: top;
+    transition: background-color 0.2s, transform 0.1s;
+}
+h1 .gems-toggle-btn {
+    font-size: 13px;
+    vertical-align: top;
+    margin-left: 8px;
+}
+.gems-toggle-btn:hover {
+    background-color: #e9ecef;
+    transform: scale(1.1);
+}
+.summaryOutline {
+    margin: 0;
+    padding: 0;
+}
+.summaryOutline ul {
+    padding-left: 16px;
+    margin: 2px 0;
+}
+.summaryOutline > ul.content {
+    padding-left: 0;
+    list-style: none;
+}
+.summaryOutline li {
+    margin-bottom: 2px;
+    line-height: 1.35;
+}
+.summaryOutline p {
+    margin: 2px 0;
+    line-height: 1.35;
+}
+.gems-note-link {
+    cursor: pointer;
+    color: #4a6da7;
+    background-color: #e9ecef;
+}
+.gems-note-link:hover {
+    color: #4a6da7;
+    background-color: #e9ecef;
+}
+.studyItemMedia, .media-list img {
+    max-width: 80px !important;
+    height: auto !important;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+.media-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.media-list li {
+    margin-bottom: 12px;
+}
+.media-list li:last-child {
+    margin-bottom: 0;
+}
+.media-list a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    /* color: inherit; */
+}
+.media-list a:hover .caption {
+    text-decoration: underline;
+}
+.media-list .caption {
+    display: block;
+    font-size: 0.95em;
+    /* color: #212529; */
+}
+.media-list .caption p {
+    margin: 0;
+}
+.gems-references-container {
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+.gems-global-controls {
+    margin: 12px 0 16px auto;
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    display: flex;
+    width: fit-content;
+    gap: 10px;
+    align-items: center;
+}
+.gems-global-controls button {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 0.85em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.gems-global-controls button:hover {
+    background-color: #e9ecef;
+}
+</style><script>
+function toggleGems(id) {
+    var elem = document.getElementById(id);
+    if (elem) {
+        var isHidden = elem.style.display === 'none' || !elem.style.display;
+        elem.style.display = isHidden ? 'block' : 'none';
+        var cards = elem.querySelectorAll('.inserted-reference-container');
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = isHidden ? 'block' : 'none';
+        }
+    }
+}
+function toggleSpecificGemsNote(containerId, noteId) {
+    var container = document.getElementById(containerId);
+    var targetNote = document.getElementById(noteId);
+    if (!container || !targetNote) return;
+
+    var cards = container.querySelectorAll('.inserted-reference-container');
+    var isContainerHidden = container.style.display === 'none' || !container.style.display;
+
+    var visibleCount = 0;
+    for (var i = 0; i < cards.length; i++) {
+        if (cards[i].style.display !== 'none' && cards[i].style.display !== '') visibleCount++;
+    }
+
+    if (isContainerHidden) {
+        container.style.display = 'block';
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = (cards[i] === targetNote) ? 'block' : 'none';
+        }
+    } else if (visibleCount === 1 && targetNote.style.display === 'block') {
+        container.style.display = 'none';
+        targetNote.style.display = 'none';
+    } else {
+        container.style.display = 'block';
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = (cards[i] === targetNote) ? 'block' : 'none';
+        }
+    }
+}
+function toggleAllGems(btnOrShowAll, showAll) {
+    var target = document;
+    var show = showAll;
+    if (typeof btnOrShowAll === 'boolean') {
+        show = btnOrShowAll;
+    } else if (btnOrShowAll && btnOrShowAll.closest) {
+        target = btnOrShowAll.closest('article') || btnOrShowAll.closest('.content') || document;
+    }
+    var containers = target.querySelectorAll('.gems-references-container');
+    containers.forEach(function(c) {
+        c.style.display = show ? 'block' : 'none';
+        var cards = c.querySelectorAll('.inserted-reference-container');
+        cards.forEach(function(card) {
+            card.style.display = show ? 'block' : 'none';
+        });
+    });
+}
+</script></article>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Gather all alternate presentation elements and their images
+        const altPresElements = Array.from(document.querySelectorAll('.alternatePresentation'));
+        const altImages = altPresElements.map(el => {
+            const img = el.querySelector('img');
+            if (img) {
+                return {
+                    src: img.getAttribute('data-alt-src') || img.getAttribute('src'),
+                    title: el.querySelector('.title')?.textContent || "Image"
+                };
+            }
+            return null;
+        }).filter(Boolean);
+
+        // 2. Create Lightbox DOM structure dynamically
+        const lightbox = document.createElement('div');
+        lightbox.className = 'custom-lightbox';
+        lightbox.innerHTML = `
+            <button class="custom-lightbox-close">&times;</button>
+            <button class="custom-lightbox-nav custom-lightbox-prev">&#10094;</button>
+            <div class="custom-lightbox-content">
+                <img class="custom-lightbox-img" src="" alt="" />
+            </div>
+            <button class="custom-lightbox-nav custom-lightbox-next">&#10095;</button>
+            <div class="custom-lightbox-caption"></div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('.custom-lightbox-img');
+        const lightboxCaption = lightbox.querySelector('.custom-lightbox-caption');
+        const closeBtn = lightbox.querySelector('.custom-lightbox-close');
+        const prevBtn = lightbox.querySelector('.custom-lightbox-prev');
+        const nextBtn = lightbox.querySelector('.custom-lightbox-next');
+
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        const openLightbox = (group, index) => {
+            currentGroup = group;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const updateLightbox = () => {
+            const item = currentGroup[currentIndex];
+            if (item) {
+                lightboxImg.src = item.src;
+                if (item.title && item.title.trim() !== "" && item.title.trim() !== "Printed Edition") {
+                    lightboxCaption.textContent = item.title;
+                    lightboxCaption.style.display = 'block';
+                } else {
+                    lightboxCaption.textContent = "";
+                    lightboxCaption.style.display = 'none';
+                }
+                if (currentGroup.length > 1) {
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                } else {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                }
+            }
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImg.src = '';
+            lightboxCaption.textContent = '';
+        };
+
+        const navigate = (direction) => {
+            if (currentGroup.length <= 1) return;
+            currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+            updateLightbox();
+        };
+
+        // Event Listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('custom-lightbox-content')) {
+                closeLightbox();
+            }
+        });
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Attach click handlers to alternate presentations
+        altPresElements.forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(altImages, index);
+            });
+        });
+
+        // Attach click handlers to other zoomable figure images
+        document.querySelectorAll('article figure img:not(.suppressZoom)').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = img.getAttribute('data-alt-src') || img.getAttribute('src');
+                const title = img.getAttribute('alt') || "";
+                openLightbox([{ src, title }], 0);
+            });
+        });
+    });
+    </script>
+</body>
+</html>

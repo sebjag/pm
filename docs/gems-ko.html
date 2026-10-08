@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>예레미야 40 & 예레미야 41</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💎</text></svg>'>
+    <link rel="stylesheet" type="text/css" href="css/media-player.css">
+    <link rel="stylesheet" type="text/css" href="css/+0+61168f8ef805085f5a3c0118b14679f74c9e62a4.css">
+    <link rel="stylesheet" type="text/css" href="css/+1+f8319dd08c749624466cb777b7d528e1a42d7368.css">
+    <link rel="stylesheet" type="text/css" href="css/+2+894de4a6eba76bf97927253f95f582449947a96e.css">
+    <link rel="stylesheet" type="text/css" href="css/+3+d00a791fdbb951906e95f1428ae322e41ea9da95.css">
+    <style>
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @media screen and (min-width: 600px) {
+            .document, .bible {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 16px 50px 80px;
+            }
+            .document .dc-bleedToArticleEdge, .bible .dc-bleedToArticleEdge {
+                margin-left: -50px;
+                margin-right: -50px;
+            }
+            .document .dc-paddingToContentEdge, .bible .dc-paddingToContentEdge {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        #content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+        .inserted-reference {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+            font-size: 0.95em;
+        }
+        .inserted-reference-header {
+            margin: 0;
+            padding: 4px 16px;
+            background-color: #e2e6ea;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #495057;
+        }
+        .inserted-reference-header a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #1a73e8;
+        }
+        .inserted-reference-header a:hover {
+            text-decoration: underline;
+        }
+        .inserted-reference > *:not(.inserted-reference-header) {
+            margin: 12px 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-style: italic;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        /* Custom Lightbox Styles */
+        .custom-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            /* user-select: none; */
+            /* -webkit-user-select: none; */
+        }
+        .custom-lightbox.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .custom-lightbox-content {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 35px;
+            color: #fff;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10002;
+            transition: transform 0.2s ease;
+        }
+        .custom-lightbox-close:hover {
+            transform: scale(1.1);
+        }
+        .custom-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 20px;
+        }
+        .custom-lightbox-nav:hover {
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .custom-lightbox-prev {
+            left: 0px;
+        }
+        .custom-lightbox-next {
+            right: 0px;
+        }
+        .custom-lightbox-caption {
+            color: #ccc;
+            margin-top: 15px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 80%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body, #content {
+                background-color: #171c2a !important;
+                color: #e2e8f0;
+            }
+            .document, .bible, .article, #article {
+                background-color: #1e293b !important;
+                color: #e2e8f0;
+            }
+            .scalableui, .bodyTxt {
+                background-color: transparent !important;
+                color: #e2e8f0;
+            }
+            .du-bgColor--bgSecondary, .du-bgColor--warmGray-50,
+            [class*="du-bgColor--bgSecondary"], [class*="du-bgColor--warmGray-"],
+            #tt9, .document #tt9, body #tt9,
+            .document [class*="du-bgColor--bgSecondary"], body [class*="du-bgColor--bgSecondary"],
+            .document [class*="du-bgColor--warmGray-"], body [class*="du-bgColor--warmGray-"] {
+                background-color: #2d3a4f !important;
+                color: #e2e8f0 !important;
+            }
+            .du-borderColor--borderDefault, hr {
+                border-color: #3b4d66 !important;
+            }
+            .du-color--teal-700 {
+                color: #2dd4bf !important;
+            }
+            h1, h2, h3, h4, h5, h6, strong {
+                color: #f8fafc;
+            }
+            a, a.b, a.vl, a.fn, a:visited {
+                color: #60a5fa;
+            }
+            a:hover, a.b:hover, a.vl:hover, a.fn:hover {
+                color: #93c5fd;
+            }
+            .du-color--textSubdued, .pageNum, .themeScrp {
+                color: #94a3b8 !important;
+            }
+            .inserted-reference {
+                background-color: #263346;
+                border: 1px solid #3b4d66;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .inserted-reference-header {
+                background-color: #1e2b3c;
+                border-bottom: 1px solid #3b4d66;
+                color: #cbd5e1;
+            }
+            .inserted-reference-header a {
+                color: #60a5fa;
+            }
+            .inserted-reference-header a:hover {
+                color: #93c5fd;
+            }
+            .note-card-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .note-card-header {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #cbd5e1 !important;
+            }
+            .note-card-header a {
+                color: #60a5fa !important;
+            }
+            .note-card-body {
+                color: #e2e8f0 !important;
+            }
+            .box-supplement-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+            }
+            .box-supplement-table th {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #f8fafc !important;
+            }
+            .box-supplement-table th h1, .box-supplement-table th h2,
+            .box-supplement-table th h3, .box-supplement-table th h4,
+            .box-supplement-table th strong, .box-supplement-table th p {
+                color: #f8fafc !important;
+            }
+            .box-supplement-table td {
+                color: #e2e8f0 !important;
+            }
+            .image-caption {
+                color: #94a3b8;
+            }
+            .custom-lightbox-img {
+                background-color: #1e293b;
+            }
+            .custom-lightbox-caption {
+                color: #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body  class="showRuby cc-theme--light DynamicLayout">
+    <div id="content" class="content">
+        <article class="article bible html5 pub-nwtsty jwac showRuby ml-KO ms-KOREAN dir-ltr includeSecondaryNav" data-lang="KO" dir="ltr" id="article" lang="ko" role="article"><div class="gems-global-controls"><button onclick="toggleAllGems(this, true)">💎 Expand All Gems</button><button onclick="toggleAllGems(this, false)">💎 Collapse All Gems</button></div>
+<div class="scalableui">
+<header>
+<h1>예레미야<button class="gems-toggle-btn" onclick="toggleGems('gems-outline-24-40-1')" title="Toggle Outline">💎</button></h1>
+</header><div class="gems-references-container inserted-reference-container" id="gems-outline-24-40-1" style="display: block;"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[예레미야 개요]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="summaryOutline" style="margin-top: 0; margin-bottom: 8px"><ul style="list-style: none; list-style-type: none; padding-left: 0; margin: 2px 0;"><li class="L2" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 0px;"><p style="margin: 2px 0; line-height: 1.35;">느부사라단이 예레미야를 풀어 주다 <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/24/40#h=1191:0-1194:0"><span class="altsize">1-6</span></a><span class="altsize">)</span></p></li><li class="L2" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 0px;"><p style="margin: 2px 0; line-height: 1.35;">그달리야가 그 땅을 다스리도록 임명되다 <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/24/40#h=1194:0-1196:0"><span class="altsize">7-12</span></a><span class="altsize">)</span></p></li><li class="L2" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 0px;"><p style="margin: 2px 0; line-height: 1.35;">그달리야를 해치려는 음모 <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/24/40#h=1196:0-1198:0"><span class="altsize">13-16</span></a><span class="altsize">)</span></p></li></ul></div></td></tr></tbody></table></div>
+<p class="sb" data-pid="1191" id="p1191"><span class="v" id="v24-40-1-1"><a class="cl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20058"><strong>40</strong> </a>호위대장 느부사라단이<a class="b" data-bid="1235-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1234">+</a> 라마에서<a class="b" data-bid="1236-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1235">+</a> 예레미야를 풀어 준 뒤에 여호와께서 그에게 내리신 말씀이다. 그때에 예레미야는 수갑을 찬 채, 바빌론으로 유배되어 가는 예루살렘과 유다의 모든 유배자들과 함께 끌려가고 있었다. </span><span class="v" id="v24-40-2-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20059">2 </a>호위대장이 예레미야를 데려다 놓고 말했다. “그대의 하느님 여호와께서는 이곳에 이런 재앙을 내리겠다고 말씀하셨소. </span><span class="v" id="v24-40-3-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20060">3 </a>그리고 여호와께서는 그분이 말씀하신 대로 이루셨소. 그대들이 여호와께 죄를 짓고 그분의 음성에 순종하지 않았기 때문에 이런 일이 그대들에게 일어난 것이오.<a class="b" data-bid="1237-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1236">+</a> </span><span class="v" id="v24-40-4-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20061">4 </a>내가 오늘 그대의 손에 채워진 수갑을 풀어 주겠소. 만일 나와 함께 바빌론으로 가는 것이 좋아 보인다면 같이 갑시다. 내가 그대를 보살펴 주겠소. 그러나 나와 함께 바빌론으로 가고 싶지 않으면 가지 않아도 좋소. 보시오! 온 땅이 그대 앞에 있소. 어디든지 원하는 곳으로 가시오.”<a class="b" data-bid="1238-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1237">+</a></span></p>
+<p class="sb" data-pid="1192" id="p1192"><span class="v" id="v24-40-5-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20062">5 </a>예레미야가 아직 떠나지 않고 있을 때에 느부사라단이 말했다. “바빌론 왕께서 유다의 도시들을 다스리도록 임명하신, 사반의<a class="b" data-bid="1239-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1238">+</a> 아들 아히감의<a class="b" data-bid="1240-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1239">+</a> 아들인 그달리야에게<a class="b" data-bid="1241-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1240">+</a> 돌아가서 그와 함께 백성 가운데서 지내든가, 아니면 어디든지 원하는 곳으로 가시오.”</span></p>
+<p class="sb" data-pid="1193" id="p1193"><span class="v" id="v24-40-5-2">그런 다음 호위대장은 그에게 양식과 선물을 주어서 보냈다. </span><span class="v" id="v24-40-6-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20063">6 </a>예레미야는 미스바에<a class="b" data-bid="1242-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1241">+</a> 있는 아히감의 아들 그달리야에게 가서 그와 함께 그 땅에 남아 있는 백성 가운데서 지냈다.</span></p>
+<p class="sb" data-pid="1194" id="p1194"><span class="v" id="v24-40-7-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20064">7 </a>얼마 후에 부하들과 함께 들에 있던 모든 군대 대장은 바빌론 왕이 아히감의 아들 그달리야를 임명하여 그 땅을 다스리게 하고, 남자와 여자와 어린아이들 곧 바빌론으로 유배되지 않은 그 땅의 가난한 백성을 다스리게 했다는 말을 듣게 되었다.<a class="b" data-bid="1243-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1242">+</a> </span><span class="v" id="v24-40-8-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20065">8 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-40-8')" title="Toggle Gems Study References">💎</button>그래서 그들이 미스바에 있는 그달리야에게 왔다.<a class="b" data-bid="1244-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1243">+</a> 그들은 느다냐의 아들 이스마엘,<a class="b" data-bid="1245-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1244">+</a> 가레아의 아들들인 요하난과<a class="b" data-bid="1246-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1245">+</a> 요나단, 단후멧의 아들 스라야, 느도바 사람 에배의 아들들, 마아갓 사람의 아들 여사냐,<a class="b" data-bid="1247-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1246">+</a> 그리고 그 부하들이었다. </span><span class="v" id="v24-40-9-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20066">9 </a>사반의 아들 아히감의 아들인 그달리야는 그들과 그 부하들에게 이렇게 맹세했다. “칼데아 사람들을 섬기는 것을 두려워하지 마십시오. 이 땅에 살면서 바빌론 왕을 섬기십시오. 그러면 여러분이 잘될 것입니다.<a class="b" data-bid="1248-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1247">+</a> </span><span class="v" id="v24-40-10-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20067">10 </a>나는 미스바에 머물면서, 우리에게 오는 칼데아 사람들 앞에서 여러분을 대변하겠습니다.<a class="fn" data-fnid="362" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/361" id="footnotesource362">*</a><em> (각주: 직역하면 “앞에 서겠습니다.”)</em> 여러분은 포도주와 여름 과일과 기름을 거두어 항아리에 담아 저장해 두고, 여러분이 차지한 도시들에 정착하십시오.”<a class="b" data-bid="1249-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1248">+</a></span></p><div class="gems-references-container" id="gems-ref-24-40-8" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 428면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="4"></span>유대교의 「미슈나」(바바 캄마 7:7)에는 가금이 의식상의 부정을 초래할 가능성이 있기 때문에 유대인들이 가금을 사육하는 것을 금지하는 규정이 들어 있지만, 랍비들의 문헌 자료에서는 유대인들이 로마인들 못지않게 닭을 많이 사육하였음을 시사해 준다. 닭의 상이 새겨져 있는 줄마노 인장이 미스바 근처에서 발견되었는데, 거기에는 “왕의 종 야아사냐에게 속한”이라는 명문(銘文)이 들어 있다. 어떤 사람들이 생각하듯이, 이 야아사냐(여사냐)가 <a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001002/1/0">열왕기 둘째 25:23과</a><a class="b" data-bid="2-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001002/1/1"> 예레미야 40:8</a>에 언급된 사람이라면, 이것은 일찍이 기원전 7세기에 이스라엘에서 닭을 사육하였음을 시사하는 것이다. 닭의 형상은 고대 기브온에서 발굴된 냄비의 파편에서도 발견되었다.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 428]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+<p class="sb" data-pid="1195" id="p1195"><span class="v" id="v24-40-11-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20068">11 </a>모압과 암몬과 에돔에 있던 모든 유대인과 다른 모든 나라에 있던 자들도, 바빌론 왕이 남은 자를 유다에 머무르게 해 주었고 사반의 아들 아히감의 아들인 그달리야를 임명하여 그들을 다스리게 했다는 말을 들었다. </span><span class="v" id="v24-40-12-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20069">12 </a>그래서 모든 유대인이 흩어져 있던 모든 곳에서 돌아오기 시작하여, 유다 땅으로 들어와서 미스바에 있는 그달리야에게 왔다. 그리고 그들은 포도주와 여름 과일을 아주 많이 거두어들였다.</span></p>
+<p class="sb" data-pid="1196" id="p1196"><span class="v" id="v24-40-13-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20070">13 </a>그런데 들에 있던 가레아의 아들 요하난과 모든 군대 대장이 미스바에 있는 그달리야에게 와서 </span><span class="v" id="v24-40-14-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20071">14 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-40-14')" title="Toggle Gems Study References">💎</button>이렇게 말했다. “암몬 사람들의<a class="b" data-bid="1250-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1249">+</a> 왕 바알리스가 당신을 죽이려고<a class="fn" data-fnid="363" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/362" id="footnotesource363">*</a><em> (각주: 또는 “당신의 영혼을 치려고”.)</em> 느다냐의 아들 이스마엘을 보냈다는 것을 모르십니까?”<a class="b" data-bid="1251-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1250">+</a> 그러나 아히감의 아들 그달리야는 그들의 말을 믿지 않았다.</span></p><div class="gems-references-container" id="gems-ref-24-40-14" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 792면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><h1 data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="792" data-no="792" id="page792"></span><strong>바알리스</strong></h1><div class="sn" data-pid="2" id="p2" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="1"></span>(Baalis)</div><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="2"></span>기원전 607년에 유다의 총독 그달리야를 살해하기 위해 이스마엘을 보낸 인물로 전해지고 있는 암몬 왕. 그리스어 「칠십인역」은 이 이름을 “벨리사”라고 옮긴다.—<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000516/0/0">렘 40:14</a>.</div><div class="sb" data-pid="4" id="p4" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="3"></span>바알리이샤라는 이름이 새겨진 인영(印影)이 1984년에 요르단의 텔엘우메이리에서 발굴된 물품들 가운데서 발견되었다. 이 인영은 고문서학적으로 기원전 7세기 후반의 것임이 드러났다. 그 인장에 새겨진 고대 암몬의 글자는 “바알리이샤의 종 밀코모르[밀코무르]의” 인장이라고 읽힌다. 바알리이샤는 성서에 나오는 바알리스일 가능성이 있다.</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 792;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파80 7 15]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="12" data-rel-pid="[34]" id="p12" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="9"><sup>9</sup></span> 귀환자들과 그 땅의 가난한 자들은 어느 길로 갔습니까? 그들은 그 땅을 떠나서는 안 되었습니다. 그러나 예레미야는 그 땅이 70년간 사람이나 아무 가축들도 없이 완전히 황폐된 상태에 있을 것임을 예언하였습니다. <span aria-hidden="true" class="pageNum" data-before-text="15" data-no="15" id="page15"></span>그럼에도 예레미야는 그 땅에 머물러 있는 사람들에게 떠나간 바벨론 군대를 결코 두려워하지 말고 평안히 머물라고 말하였습니다. 그들의 총독 그다랴도 그들과 같은 유대인이었고, 이제 다만 바벨론 왕 느부갓네살에게 순복하면 되었습니다. 그리하여 그들의 하나님 여호와께서는 예레미야에게 영감을 주어 유다 땅이 70년간 완전히 황폐될 것임을 예언하셨는데도 불구하고 하나님께서 그들에게 주신 땅에서 내어 쫓지 않으셨습니다.</div><div class="ss" data-pid="13" id="p13" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>암살 사건</strong></div><div class="sb" data-pid="14" data-rel-pid="[35]" id="p14" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="10"><sup>10</sup></span> 유다 지역에 남아 있는 “빈민”의 종교 상태는 참으로 비참하였습니다. (<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/4/0">예레미야 40:7</a>) 여호와께 기도하려면, 향하여 기도하던 예루살렘의 전이 없어졌습니다! 예레미야를 제외하고는 제사장도 레위인도 없었습니다! 그들의 제물을 바칠 제단도 없어졌습니다! 그렇습니다. 티쉬리월 10일에 속죄일 희생의 피를 대제사장이 뿌릴 두 천사의 형상으로 덮여 있는 황금 “언약궤”도 없었습니다. 그 언약궤는 오늘날까지 아무도 아는 사람이 없는 곳으로 사라졌습니다!—<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/5/0">호세아 3:4</a>.</div><div class="sb" data-pid="15" data-rel-pid="[36]" id="p15" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="11"><sup>11</sup></span> 이 때에 한 악한이 등장하였습니다! 그는 느다냐의 아들 이스마엘이라는 사람이었습니다. 이스마엘이 바벨론 군대로부터 도망해서 암몬 자손에게로 갔었으므로 암몬 자손의 왕 바알리스는 느부갓네살 왕이 유다 총독으로 임명한 그다랴를 암살하도록 사용하는 데 이스마엘이 적격이라고 생각했던 것 같습니다. 왜 그렇습니까? 이스마엘이 왕손이었기 때문입니다. 이스마엘은 조부 엘리사마를 통하여 왕족으로 태어났고 “왕의 장관” 중 한 사람이었습니다. (<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/6/0">예레미야 41:1</a>) 그리하여 폐위된 시드기야 왕과의 이러한 공식 관계 때문에 그다랴가 왕손이 아닌데도 총독이 된 것에 대하여 못마땅하게 생각하였을 것입니다. 그러므로 예루살렘의 멸망을 기뻐한 암몬 왕 바알리스는 이스마엘을 사유하여 그다랴를 제거하고자 했던 것입니다.—<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/7/0">시 83:7, 8;</a><a class="b" data-bid="8-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/7/1"> 예레미야 40:14</a>.</div><div class="sb" data-pid="16" data-rel-pid="[37]" id="p16" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="12"><sup>12</sup></span> 가레아의 아들 요하난의 경고에도 불구하고 그다랴는 예루살렘의 폐허에서 북쪽으로 수킬로미터 떨어진 새로운 수도 미스바에서 이스마엘과 그와 함께 온 열 사람을 대접하였습니다. 얼마의 바벨론 군대가 있었음에도 불구하고 이스마엘과 그의 무리가 갑자기 일어나 식사 자리와 그 근처에 있는 사람들을 다 죽였습니다. (<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/8/0">예레미야 41:2, 3</a>) 그 외에도 많은 사람들이 이스마엘과 그의 반역적인 무리에게 죽임을 당했습니다. 이 일이 일곱째 달인 티쉬리월에 일어났습니다. 그 달은 보통 7일간의 초막절 축제가 있는 달이었습니다. 이제 미스바 사람들은 이 약탈자에게 포로가 되어 그를 따르고자 하였습니다. 그러나 가레아의 아들 요하난이 나타나서 이스마엘을 대항하자 이스마엘과 8명의 그의 사람들은 아직 바벨론 왕 느부갓네살에게 예속되지 않은 암몬 땅으로 도망하였습니다.—<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/9/0">예레미야 41:10-15;</a><a class="b" data-bid="10-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/9/1"> 49:1-5</a>.</div><div class="sb" data-pid="17" data-rel-pid="[38]" id="p17" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="13"><sup>13</sup></span> 바벨론인들이 세워 놓은 임시 정부에 일어났던 일 때문에 요하난과 백성은 여호와 하나님께서 중동 지방에서 자기의 집행관으로 사용하시는 바벨론 제국인 새로운 세계 강국을 두려워할 만한 이유가 있다고 느꼈습니다. 이제 그들은 어느 길로 가야 하였습니까? 요하난과 그의 장관들은 예루살렘의 폐허를 정확하게 예언해 온 예레미야를 공식적으로 찾아갔습니다. 그들은 예레미야를 통하여 나올 여호와의 소식이 좋은 것이든 좋지 않은 것이든 그 말씀을 따를 것을 약속하였습니다. 그들이 예레미야에게 문의한 지 열흘 후에 그를 통한 여호와의 소식이 나왔습니다. 즉 그들은 두려워해서는 안 되고 바벨론에 예속된 땅에 머물러 있어야 하였습니다. 그러나 그들이 만일 믿음이 없어 남쪽 애굽으로 옮겨 간다면 그들은 거기서 정복자인 바벨론 왕의 칼과 기근과 염병의 재앙을 당할 것이었습니다. 소수의 남은 자들을 제외하고는 그들은 멸망의 운명에 있는 애굽 땅에서 멸망을 당할 것입니다. 그들은 바벨론 제국이 정복된 후에 유다도로 평화스럽게 돌아오지 못할 것이었습니다. 요하난과 그의 추종자들은 하나님의 이 말씀을 청종하였습니까? 그렇게 하지 않았습니다! 그들은 이 소식을 거짓이라고 낙인찍었습니다. 그들은 예레미야를 거짓말하는 자라고 불렀습니다.—<a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/10/0">예레미야 42:1-43:3</a>.</div><div class="sb" data-pid="18" data-rel-pid="[39]" id="p18" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="14"><sup>14</sup></span> 하지만 거짓말하는 자는 누구였습니까? 그들은 한 <span aria-hidden="true" class="pageNum" data-before-text="16" data-no="16" id="page16"></span>사람 한 사람이 그렇게 하지는 않았을지 모르지만 좋은 소식이 아니라 할지라도 예레미야가 그들에게 전달하는 소식을 따르겠다고 맹세하지 않았습니까? 그럼에도 불구하고 그들은 이미 남쪽으로 애굽을 향하여 길을 떠났고 이제 그들은 나일 강이 있는 땅에 도착할 때까지 전진하려는 결의를 하였습니다. 그들은 세째 세계 강국인 바벨론의 지배를 받기를 원치 않았습니다. 애굽은 팽창하는 바벨론 세계 강국을 대항하는 데 그들과 동맹한 나라였습니다. 그런데 이제 유다 땅이 바벨론의 지배하에 있게 되었습니다. 그러므로 그들은 아무도 그 땅에 남아서 바벨론에게 복종해서는 안 된다는 결심을 한 것입니다. 바벨론에게 복종할 것을 주장하는 자들 즉 예레미야와 그의 서기관 바룩도 거기 남겨 두어서는 안 되었습니다. 그러므로 그들은 이들 여호와의 종들도 그들과 함께 끌고 갔습니다. 때를 꼭 그렇게 맞추어서가 아니라 마침 유다 땅에서 기원전 607년 티쉬리월 15-21일에 즐겁게 수장절 혹은 초막절을 경축해야 할 때에 여호와의 뜻을 저항하는 자들은 그 땅을 떠남으로 여호와께서 예언하신 바와 같이 사람과 가축이 없이 황폐하게 되었습니다.—<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/11/0">예레미야 43:4-7</a>.</div></td></tr></tbody></table></div></div>
+<p class="sb" data-pid="1197" id="p1197"><span class="v" id="v24-40-15-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20072">15 </a>그 후에 가레아의 아들 요하난은 미스바에 있는 그달리야에게 은밀히 말했다. “제가 가서 느다냐의 아들 이스마엘을 쳐 죽이게 해 주십시오. 아무도 모를 것입니다. 어찌하여 당신이 그의 손에 죽어서,<a class="fn" data-fnid="364" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/363" id="footnotesource364">*</a><em> (각주: 또는 “그가 당신의 영혼을 쳐서”.)</em> 당신에게 모여든 유다의 모든 백성이 흩어지고 유다의 남은 자가 망해야 한단 말입니까?” </span><span class="v" id="v24-40-16-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20073">16 </a>그러나 아히감의 아들 그달리야는<a class="b" data-bid="1252-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1251">+</a> 가레아의 아들 요하난에게 말했다. “그런 일을 하지 마시오. 그대는 이스마엘에 관해 거짓말을 하고 있소.”</span></p>
+<!-- Root element of lightbox -->
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="예레미야 40:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="예레미야 40:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="예레미야 {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value=""/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value=""/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="{PublicationSymbol} {StartingPageNumber}-{EndingPageNumber}면"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="{PublicationSymbol} {PageNumber}면"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="englishSym" type="hidden" value="nwtsty"/>
+<input id="audioPubSym" type="hidden" value="nwt"/>
+<input id="pubYear" type="hidden" value="2024"/>
+<input id="langSym" type="hidden" value="KO"/>
+<input id="bookNo" type="hidden" value="24"/>
+<input id="chapNo" type="hidden" value="40"/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=KO&amp;pub=nwtsty&amp;srctype=wol&amp;bible=24040000&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="bible-chapter"/>
+<input id="contentTitle" type="hidden" value="예레미야 40"/>
+<input id="contentThumbnail" type="hidden" value="/ko/wol/publication/r8/lp-ko/nwtsty/thumbnail"/>
+<input id="parentTitle" type="hidden" value="신세계역 성경 (연구용)"/>
+<input id="sourcePreferredBible" type="hidden" value="nwtsty"/>
+<style>
+.gems-toggle-btn {
+    background: none;
+    border: 1px solid #4a6da7;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75em;
+    padding: 1px 3px;
+    margin-left: 0px;
+    margin-right: 4px;
+    vertical-align: top;
+    transition: background-color 0.2s, transform 0.1s;
+}
+h1 .gems-toggle-btn {
+    font-size: 13px;
+    vertical-align: top;
+    margin-left: 8px;
+}
+.gems-toggle-btn:hover {
+    background-color: #e9ecef;
+    transform: scale(1.1);
+}
+.summaryOutline {
+    margin: 0;
+    padding: 0;
+}
+.summaryOutline ul {
+    padding-left: 16px;
+    margin: 2px 0;
+}
+.summaryOutline > ul.content {
+    padding-left: 0;
+    list-style: none;
+}
+.summaryOutline li {
+    margin-bottom: 2px;
+    line-height: 1.35;
+}
+.summaryOutline p {
+    margin: 2px 0;
+    line-height: 1.35;
+}
+.gems-note-link {
+    cursor: pointer;
+    color: #4a6da7;
+    background-color: #e9ecef;
+}
+.gems-note-link:hover {
+    color: #4a6da7;
+    background-color: #e9ecef;
+}
+.studyItemMedia, .media-list img {
+    max-width: 80px !important;
+    height: auto !important;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+.media-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.media-list li {
+    margin-bottom: 12px;
+}
+.media-list li:last-child {
+    margin-bottom: 0;
+}
+.media-list a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    /* color: inherit; */
+}
+.media-list a:hover .caption {
+    text-decoration: underline;
+}
+.media-list .caption {
+    display: block;
+    font-size: 0.95em;
+    /* color: #212529; */
+}
+.media-list .caption p {
+    margin: 0;
+}
+.gems-references-container {
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+.gems-global-controls {
+    margin: 12px 0 16px auto;
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    display: flex;
+    width: fit-content;
+    gap: 10px;
+    align-items: center;
+}
+.gems-global-controls button {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 0.85em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.gems-global-controls button:hover {
+    background-color: #e9ecef;
+}
+</style><script>
+function toggleGems(id) {
+    var elem = document.getElementById(id);
+    if (elem) {
+        var isHidden = elem.style.display === 'none' || !elem.style.display;
+        elem.style.display = isHidden ? 'block' : 'none';
+        var cards = elem.querySelectorAll('.inserted-reference-container');
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = isHidden ? 'block' : 'none';
+        }
+    }
+}
+function toggleSpecificGemsNote(containerId, noteId) {
+    var container = document.getElementById(containerId);
+    var targetNote = document.getElementById(noteId);
+    if (!container || !targetNote) return;
+
+    var cards = container.querySelectorAll('.inserted-reference-container');
+    var isContainerHidden = container.style.display === 'none' || !container.style.display;
+
+    var visibleCount = 0;
+    for (var i = 0; i < cards.length; i++) {
+        if (cards[i].style.display !== 'none' && cards[i].style.display !== '') visibleCount++;
+    }
+
+    if (isContainerHidden) {
+        container.style.display = 'block';
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = (cards[i] === targetNote) ? 'block' : 'none';
+        }
+    } else if (visibleCount === 1 && targetNote.style.display === 'block') {
+        container.style.display = 'none';
+        targetNote.style.display = 'none';
+    } else {
+        container.style.display = 'block';
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = (cards[i] === targetNote) ? 'block' : 'none';
+        }
+    }
+}
+function toggleAllGems(btnOrShowAll, showAll) {
+    var target = document;
+    var show = showAll;
+    if (typeof btnOrShowAll === 'boolean') {
+        show = btnOrShowAll;
+    } else if (btnOrShowAll && btnOrShowAll.closest) {
+        target = btnOrShowAll.closest('article') || btnOrShowAll.closest('.content') || document;
+    }
+    var containers = target.querySelectorAll('.gems-references-container');
+    containers.forEach(function(c) {
+        c.style.display = show ? 'block' : 'none';
+        var cards = c.querySelectorAll('.inserted-reference-container');
+        cards.forEach(function(card) {
+            card.style.display = show ? 'block' : 'none';
+        });
+    });
+}
+</script></article><article class="article bible html5 pub-nwtsty jwac showRuby ml-KO ms-KOREAN dir-ltr includeSecondaryNav" data-lang="KO" dir="ltr" id="article" lang="ko" role="article"><div class="gems-global-controls"><button onclick="toggleAllGems(this, true)">💎 Expand All Gems</button><button onclick="toggleAllGems(this, false)">💎 Collapse All Gems</button></div>
+<div class="scalableui">
+<header>
+<h1>예레미야<button class="gems-toggle-btn" onclick="toggleGems('gems-outline-24-41-1')" title="Toggle Outline">💎</button></h1>
+</header><div class="gems-references-container inserted-reference-container" id="gems-outline-24-41-1" style="display: block;"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[예레미야 개요]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="summaryOutline" style="margin-top: 0; margin-bottom: 8px"><ul style="list-style: none; list-style-type: none; padding-left: 0; margin: 2px 0;"><li class="L2" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 0px;"><p style="margin: 2px 0; line-height: 1.35;">그달리야가 이스마엘에게 암살되다 <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/24/41#h=1198:0-1202:0"><span class="altsize">1-10</span></a><span class="altsize">)</span></p></li><li class="L2" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 0px;"><p style="margin: 2px 0; line-height: 1.35;">이스마엘이 요하난에게 쫓겨 도망하다 <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/24/41#h=1202:0-1205:0"><span class="altsize">11-18</span></a><span class="altsize">)</span></p></li></ul></div></td></tr></tbody></table></div>
+<p class="sb" data-pid="1198" id="p1198"><span class="v" id="v24-41-1-1"><a class="cl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20074"><strong>41</strong> </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-41-1')" title="Toggle Gems Study References">💎</button>일곱째 달에 왕족<a class="fn" data-fnid="365" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/364" id="footnotesource365">*</a><em> (각주: 직역하면 “왕국의 씨”.)</em>이자 왕의 고관들 가운데 한 사람으로, 엘리사마의 아들 느다냐의 아들인 이스마엘이<a class="b" data-bid="1253-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1252">+</a> 다른 열 사람과 함께 미스바에 있는 아히감의 아들 그달리야에게 왔다.<a class="b" data-bid="1254-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1253">+</a> 그들이 미스바에서 함께 식사를 할 때에, </span><span class="v" id="v24-41-2-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20075">2 </a>느다냐의 아들 이스마엘과 그와 함께 온 열 사람이 일어나서 사반의 아들 아히감의 아들인 그달리야를 칼로 쳤다. 이렇게 그는 바빌론 왕이 그 땅을 다스리도록 임명한 사람을 죽였다. </span><span class="v" id="v24-41-3-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20076">3 </a>이스마엘은 미스바에서 그달리야와 함께 있던 모든 유대인과 그곳에 있던 칼데아 군인들도 쳐 죽였다.</span></p><div class="gems-references-container" id="gems-ref-24-41-1" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파80 7 15]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="12" data-rel-pid="[34]" id="p12" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="9"><sup>9</sup></span> 귀환자들과 그 땅의 가난한 자들은 어느 길로 갔습니까? 그들은 그 땅을 떠나서는 안 되었습니다. 그러나 예레미야는 그 땅이 70년간 사람이나 아무 가축들도 없이 완전히 황폐된 상태에 있을 것임을 예언하였습니다. <span aria-hidden="true" class="pageNum" data-before-text="15" data-no="15" id="page15"></span>그럼에도 예레미야는 그 땅에 머물러 있는 사람들에게 떠나간 바벨론 군대를 결코 두려워하지 말고 평안히 머물라고 말하였습니다. 그들의 총독 그다랴도 그들과 같은 유대인이었고, 이제 다만 바벨론 왕 느부갓네살에게 순복하면 되었습니다. 그리하여 그들의 하나님 여호와께서는 예레미야에게 영감을 주어 유다 땅이 70년간 완전히 황폐될 것임을 예언하셨는데도 불구하고 하나님께서 그들에게 주신 땅에서 내어 쫓지 않으셨습니다.</div><div class="ss" data-pid="13" id="p13" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>암살 사건</strong></div><div class="sb" data-pid="14" data-rel-pid="[35]" id="p14" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="10"><sup>10</sup></span> 유다 지역에 남아 있는 “빈민”의 종교 상태는 참으로 비참하였습니다. (<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/4/0">예레미야 40:7</a>) 여호와께 기도하려면, 향하여 기도하던 예루살렘의 전이 없어졌습니다! 예레미야를 제외하고는 제사장도 레위인도 없었습니다! 그들의 제물을 바칠 제단도 없어졌습니다! 그렇습니다. 티쉬리월 10일에 속죄일 희생의 피를 대제사장이 뿌릴 두 천사의 형상으로 덮여 있는 황금 “언약궤”도 없었습니다. 그 언약궤는 오늘날까지 아무도 아는 사람이 없는 곳으로 사라졌습니다!—<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/5/0">호세아 3:4</a>.</div><div class="sb" data-pid="15" data-rel-pid="[36]" id="p15" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="11"><sup>11</sup></span> 이 때에 한 악한이 등장하였습니다! 그는 느다냐의 아들 이스마엘이라는 사람이었습니다. 이스마엘이 바벨론 군대로부터 도망해서 암몬 자손에게로 갔었으므로 암몬 자손의 왕 바알리스는 느부갓네살 왕이 유다 총독으로 임명한 그다랴를 암살하도록 사용하는 데 이스마엘이 적격이라고 생각했던 것 같습니다. 왜 그렇습니까? 이스마엘이 왕손이었기 때문입니다. 이스마엘은 조부 엘리사마를 통하여 왕족으로 태어났고 “왕의 장관” 중 한 사람이었습니다. (<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/6/0">예레미야 41:1</a>) 그리하여 폐위된 시드기야 왕과의 이러한 공식 관계 때문에 그다랴가 왕손이 아닌데도 총독이 된 것에 대하여 못마땅하게 생각하였을 것입니다. 그러므로 예루살렘의 멸망을 기뻐한 암몬 왕 바알리스는 이스마엘을 사유하여 그다랴를 제거하고자 했던 것입니다.—<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/7/0">시 83:7, 8;</a><a class="b" data-bid="8-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/7/1"> 예레미야 40:14</a>.</div><div class="sb" data-pid="16" data-rel-pid="[37]" id="p16" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="12"><sup>12</sup></span> 가레아의 아들 요하난의 경고에도 불구하고 그다랴는 예루살렘의 폐허에서 북쪽으로 수킬로미터 떨어진 새로운 수도 미스바에서 이스마엘과 그와 함께 온 열 사람을 대접하였습니다. 얼마의 바벨론 군대가 있었음에도 불구하고 이스마엘과 그의 무리가 갑자기 일어나 식사 자리와 그 근처에 있는 사람들을 다 죽였습니다. (<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/8/0">예레미야 41:2, 3</a>) 그 외에도 많은 사람들이 이스마엘과 그의 반역적인 무리에게 죽임을 당했습니다. 이 일이 일곱째 달인 티쉬리월에 일어났습니다. 그 달은 보통 7일간의 초막절 축제가 있는 달이었습니다. 이제 미스바 사람들은 이 약탈자에게 포로가 되어 그를 따르고자 하였습니다. 그러나 가레아의 아들 요하난이 나타나서 이스마엘을 대항하자 이스마엘과 8명의 그의 사람들은 아직 바벨론 왕 느부갓네살에게 예속되지 않은 암몬 땅으로 도망하였습니다.—<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/9/0">예레미야 41:10-15;</a><a class="b" data-bid="10-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/9/1"> 49:1-5</a>.</div><div class="sb" data-pid="17" data-rel-pid="[38]" id="p17" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="13"><sup>13</sup></span> 바벨론인들이 세워 놓은 임시 정부에 일어났던 일 때문에 요하난과 백성은 여호와 하나님께서 중동 지방에서 자기의 집행관으로 사용하시는 바벨론 제국인 새로운 세계 강국을 두려워할 만한 이유가 있다고 느꼈습니다. 이제 그들은 어느 길로 가야 하였습니까? 요하난과 그의 장관들은 예루살렘의 폐허를 정확하게 예언해 온 예레미야를 공식적으로 찾아갔습니다. 그들은 예레미야를 통하여 나올 여호와의 소식이 좋은 것이든 좋지 않은 것이든 그 말씀을 따를 것을 약속하였습니다. 그들이 예레미야에게 문의한 지 열흘 후에 그를 통한 여호와의 소식이 나왔습니다. 즉 그들은 두려워해서는 안 되고 바벨론에 예속된 땅에 머물러 있어야 하였습니다. 그러나 그들이 만일 믿음이 없어 남쪽 애굽으로 옮겨 간다면 그들은 거기서 정복자인 바벨론 왕의 칼과 기근과 염병의 재앙을 당할 것이었습니다. 소수의 남은 자들을 제외하고는 그들은 멸망의 운명에 있는 애굽 땅에서 멸망을 당할 것입니다. 그들은 바벨론 제국이 정복된 후에 유다도로 평화스럽게 돌아오지 못할 것이었습니다. 요하난과 그의 추종자들은 하나님의 이 말씀을 청종하였습니까? 그렇게 하지 않았습니다! 그들은 이 소식을 거짓이라고 낙인찍었습니다. 그들은 예레미야를 거짓말하는 자라고 불렀습니다.—<a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/10/0">예레미야 42:1-43:3</a>.</div><div class="sb" data-pid="18" data-rel-pid="[39]" id="p18" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="14"><sup>14</sup></span> 하지만 거짓말하는 자는 누구였습니까? 그들은 한 <span aria-hidden="true" class="pageNum" data-before-text="16" data-no="16" id="page16"></span>사람 한 사람이 그렇게 하지는 않았을지 모르지만 좋은 소식이 아니라 할지라도 예레미야가 그들에게 전달하는 소식을 따르겠다고 맹세하지 않았습니까? 그럼에도 불구하고 그들은 이미 남쪽으로 애굽을 향하여 길을 떠났고 이제 그들은 나일 강이 있는 땅에 도착할 때까지 전진하려는 결의를 하였습니다. 그들은 세째 세계 강국인 바벨론의 지배를 받기를 원치 않았습니다. 애굽은 팽창하는 바벨론 세계 강국을 대항하는 데 그들과 동맹한 나라였습니다. 그런데 이제 유다 땅이 바벨론의 지배하에 있게 되었습니다. 그러므로 그들은 아무도 그 땅에 남아서 바벨론에게 복종해서는 안 된다는 결심을 한 것입니다. 바벨론에게 복종할 것을 주장하는 자들 즉 예레미야와 그의 서기관 바룩도 거기 남겨 두어서는 안 되었습니다. 그러므로 그들은 이들 여호와의 종들도 그들과 함께 끌고 갔습니다. 때를 꼭 그렇게 맞추어서가 아니라 마침 유다 땅에서 기원전 607년 티쉬리월 15-21일에 즐겁게 수장절 혹은 초막절을 경축해야 할 때에 여호와의 뜻을 저항하는 자들은 그 땅을 떠남으로 여호와께서 예언하신 바와 같이 사람과 가축이 없이 황폐하게 되었습니다.—<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980164/11/0">예레미야 43:4-7</a>.</div></td></tr></tbody></table></div></div>
+<p class="sb" data-pid="1199" id="p1199"><span class="v" id="v24-41-4-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20077">4 </a>그달리야가 죽은 다음 날, 아직 아무도 그것을 모를 때에, </span><span class="v" id="v24-41-5-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20078">5 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-41-5')" title="Toggle Gems Study References">💎</button>세겜과<a class="b" data-bid="1255-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1254">+</a> 실로와<a class="b" data-bid="1256-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1255">+</a> 사마리아에서<a class="b" data-bid="1257-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1256">+</a> 80명이 왔다. 그들은 수염을 깎고 옷을 찢고 자기 몸을 베고는<a class="b" data-bid="1258-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1257">+</a> 여호와의 집에 가져갈 곡식 제물과 유향을<a class="b" data-bid="1259-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1258">+</a> 손에 들고 왔다. </span><span class="v" id="v24-41-6-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20079">6 </a>그러자 느다냐의 아들 이스마엘이 그들을 맞이하려고 미스바에서 나왔다. 그는 울면서 걸어가다가 그들을 만나자 “아히감의 아들 그달리야에게로 갑시다” 하고 말했다. </span><span class="v" id="v24-41-7-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20080">7 </a>그들이 그 도시 안으로 들어가자, 느다냐의 아들 이스마엘은 부하들과 함께 그들을 살해하여 저수조 안에 던져 넣었다.</span></p><div class="gems-references-container" id="gems-ref-24-41-5" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 1184면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="5"></span>기원전 607년에 예루살렘이 멸망된 후에 세겜과 실로와 사마리아에서 온 사람들은 수염을 깎고 옷을 찢고 자기 몸을 베어서 비통한 심정을 표현하였다. 그들이 여호와의 집에 제물을 가져오기는 하였지만, 그 제물은 피가 없는 것이었는데, 그들은 그것을 전에 성전이 있던 곳에서 바치려 했던 것 같다. (<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000590/5/0">렘 41:5</a>) 율법에서는 몸을 베는 것을 엄하게 금지하였는데도 이 사람들이 자기 몸을 베었다는 사실로 보아, 그들의 행위가 하느님의 율법과 온전히 조화되지 않았음을 알 수 있다.—<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000590/6/0">레 19:28;</a><a class="b" data-bid="7-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000590/6/1"> 21:5</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 1184]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+<p class="sb" data-pid="1200" id="p1200"><span class="v" id="v24-41-8-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20081">8 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-41-8')" title="Toggle Gems Study References">💎</button>그런데 그들 가운데 열 사람이 이스마엘에게 말했다. “우리를 죽이지 마십시오. 우리에게는 밭에 숨겨 둔 밀과 보리와 기름과 꿀이 있습니다.” 그래서 이스마엘은 그들을 그 형제들과 함께 죽이지 않았다. </span><span class="v" id="v24-41-9-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20082">9 </a>이스마엘은 아사 왕이 이스라엘 왕 바아사 때문에 만든<a class="b" data-bid="1260-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1259">+</a> 큰 저수조에 자기가 죽인 사람들의 시체를 모두 던져 넣었다. 느다냐의 아들 이스마엘은 그 저수조를 살해당한 자들로 가득 채웠다.</span></p><div class="gems-references-container" id="gems-ref-24-41-8" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 768면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="5"></span>밀은 팔레스타인에서 보리와 거의 같은 시기, 곧 이른 가을비가 쟁기질할 수 있게 땅을 충분히 부드럽게 해 준 후인 불월(10-11월)에 파종하였다. (<a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004599/10/0">사 28:24, 25</a>) 밀 수확은 보리 수확에 이어서 하였으며(<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004599/11/0">룻 2:23</a>. <a class="b" data-bid="13-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004599/12/0">출 9:31, 32</a> 비교), 시완월(5-6월)의 칠칠절 축제 곧 오순절과 밀접한 관련이 있었는데, 이때에 밀가루로 만든 두 개의 누룩을 넣은 빵을 여호와께 흔들 제물로 바쳤다. (<a class="b" data-bid="14-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004599/13/0">출 34:22;</a><a class="b" data-bid="14-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004599/13/1"> 레 23:17</a>) 밀은 타작하고 넉가래질하고 체질한 후에 대개 지하 구덩이에 저장하였는데, 어쩌면 <a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004599/14/0">예레미야 41:8</a>의 내용은 그와 같은 관습이 있었음을 시사하는 것일 수 있다.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 768]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+<p class="sb" data-pid="1201" id="p1201"><span class="v" id="v24-41-10-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20083">10 </a>이스마엘은 미스바에 있던 다른 모든 백성,<a class="b" data-bid="1261-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1260">+</a> 곧 왕의 딸들과 미스바에 남아 있는 모든 백성을 사로잡았다. 그들은 호위대장 느부사라단이 아히감의 아들 그달리야에게<a class="b" data-bid="1262-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1261">+</a> 맡겨 놓은 사람들이었다. 느다냐의 아들 이스마엘은 그들을 사로잡아 암몬 사람들에게로 건너가려고 길을 떠났다.<a class="b" data-bid="1263-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1262">+</a></span></p>
+<p class="sb" data-pid="1202" id="p1202"><span class="v" id="v24-41-11-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20084">11 </a>가레아의 아들 요하난과<a class="b" data-bid="1264-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1263">+</a> 그와 함께한 모든 군대 대장은 느다냐의 아들 이스마엘이 저지른 모든 악행에 대해 듣자, </span><span class="v" id="v24-41-12-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20085">12 </a>부하들을 모두 데리고 느다냐의 아들 이스마엘과 싸우러 갔다. 그들은 기브온에 있는 큰 물<a class="fn" data-fnid="366" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/365" id="footnotesource366">*</a><em> (각주: 달리 번역하면 “큰 못”.)</em> 근처에서 그를 만났다.</span></p>
+<p class="sb" data-pid="1203" id="p1203"><span class="v" id="v24-41-13-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20086">13 </a>이스마엘과 함께 있던 모든 백성은 가레아의 아들 요하난과 그와 함께한 모든 군대 대장을 보고 기뻐했다. </span><span class="v" id="v24-41-14-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20087">14 </a>미스바에서 이스마엘이 사로잡아 가던 백성은<a class="b" data-bid="1265-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1264">+</a> 모두 돌아서서 가레아의 아들 요하난과 함께 돌아갔으며, </span><span class="v" id="v24-41-15-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20088">15 </a>느다냐의 아들 이스마엘은 부하 여덟 명과 함께 요하난에게서 도망하여 암몬 사람들에게로 갔다.</span></p>
+<p class="sb" data-pid="1204" id="p1204"><span class="v" id="v24-41-16-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20089">16 </a>가레아의 아들 요하난과 그와 함께한 모든 군대 대장은 남은 백성 곧 느다냐의 아들 이스마엘이 아히감의 아들 그달리야를 쳐 죽인 후에<a class="b" data-bid="1266-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1265">+</a> 미스바에서 잡아간 백성을 구해 내서 데리고 왔다. 그들은 남자들과 군인들과 여자들과 아이들과 궁정 관리들을 기브온에서 다시 데리고 왔다. </span><span class="v" id="v24-41-17-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20090">17 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-41-17')" title="Toggle Gems Study References">💎</button>그리고 이집트로 들어갈 생각으로,<a class="b" data-bid="1267-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1266">+</a> 베들레헴<a class="b" data-bid="1268-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1267">+</a> 근처에 있는 김함의 숙소에 가서 그곳에 머물렀다. </span><span class="v" id="v24-41-18-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20091">18 </a>그것은 칼데아 사람들 때문이었다. 바빌론 왕이 그 땅을 다스리도록 임명한 아히감의 아들 그달리야를 느다냐의 아들 이스마엘이 쳐 죽였기 때문에,<a class="b" data-bid="1269-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1268">+</a> 그들이 칼데아 사람들을 두려워했던 것이다.</span></p><div class="gems-references-container" id="gems-ref-24-41-17" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 285면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="2"></span>바르실래의 한 아들인 것으로 여겨진다. 연로한 바르실래가 궁정의 신하들 가운데 한 명이 되라는 다윗 왕의 요청을 사양하며 자기 대신에 김함을 추천했을 때 다윗은 이렇게 대답하였다. “<strong>김함</strong>은 나와 함께 [요르단 강을] 건너갈 것입니다. 그리고 당신의 눈에 좋은 대로 그에게 해 주겠습니다. 또한 당신이 나에게 지우고자 하는 모든 것을 내가 당신을 위하여 행하겠습니다.” (<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000957/0/0">삼둘 19:33,</a><a class="b" data-bid="1-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000957/0/1"> 37-40</a>) 다윗이 마지막으로 솔로몬에게 한 지시를 통해 알 수 있듯이, 김함은 왕궁에 남아 있었던 것 같다. (<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000957/1/0">왕첫 2:7</a>) <a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000957/2/0">예레미야 41:17</a>은 베들레헴 근처의 “<strong>김함</strong>의 숙소”에 대해 언급한다. 이것이 다윗 시대의 김함을 가리키는 것인지 아니면 같은 이름을 가진 후세의 사람을 가리키는 것인지의 여부는 알려져 있지 않다. 일부 주석가들은 김함이 다윗을 섬긴 대가로 한 구획의 땅을 받았을 가능성이 있다고 말하거나, 또는 그곳이 김함이 나그네들을 위하여 숙소를 지은 장소라고 말한다.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 285]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+<!-- Root element of lightbox -->
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="예레미야 41:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="예레미야 41:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="예레미야 {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value=""/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value=""/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="{PublicationSymbol} {StartingPageNumber}-{EndingPageNumber}면"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="{PublicationSymbol} {PageNumber}면"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="englishSym" type="hidden" value="nwtsty"/>
+<input id="audioPubSym" type="hidden" value="nwt"/>
+<input id="pubYear" type="hidden" value="2024"/>
+<input id="langSym" type="hidden" value="KO"/>
+<input id="bookNo" type="hidden" value="24"/>
+<input id="chapNo" type="hidden" value="41"/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=KO&amp;pub=nwtsty&amp;srctype=wol&amp;bible=24041000&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="bible-chapter"/>
+<input id="contentTitle" type="hidden" value="예레미야 41"/>
+<input id="contentThumbnail" type="hidden" value="/ko/wol/publication/r8/lp-ko/nwtsty/thumbnail"/>
+<input id="parentTitle" type="hidden" value="신세계역 성경 (연구용)"/>
+<input id="sourcePreferredBible" type="hidden" value="nwtsty"/>
+<style>
+.gems-toggle-btn {
+    background: none;
+    border: 1px solid #4a6da7;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75em;
+    padding: 1px 3px;
+    margin-left: 0px;
+    margin-right: 4px;
+    vertical-align: top;
+    transition: background-color 0.2s, transform 0.1s;
+}
+h1 .gems-toggle-btn {
+    font-size: 13px;
+    vertical-align: top;
+    margin-left: 8px;
+}
+.gems-toggle-btn:hover {
+    background-color: #e9ecef;
+    transform: scale(1.1);
+}
+.summaryOutline {
+    margin: 0;
+    padding: 0;
+}
+.summaryOutline ul {
+    padding-left: 16px;
+    margin: 2px 0;
+}
+.summaryOutline > ul.content {
+    padding-left: 0;
+    list-style: none;
+}
+.summaryOutline li {
+    margin-bottom: 2px;
+    line-height: 1.35;
+}
+.summaryOutline p {
+    margin: 2px 0;
+    line-height: 1.35;
+}
+.gems-note-link {
+    cursor: pointer;
+    color: #4a6da7;
+    background-color: #e9ecef;
+}
+.gems-note-link:hover {
+    color: #4a6da7;
+    background-color: #e9ecef;
+}
+.studyItemMedia, .media-list img {
+    max-width: 80px !important;
+    height: auto !important;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+.media-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.media-list li {
+    margin-bottom: 12px;
+}
+.media-list li:last-child {
+    margin-bottom: 0;
+}
+.media-list a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    /* color: inherit; */
+}
+.media-list a:hover .caption {
+    text-decoration: underline;
+}
+.media-list .caption {
+    display: block;
+    font-size: 0.95em;
+    /* color: #212529; */
+}
+.media-list .caption p {
+    margin: 0;
+}
+.gems-references-container {
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+.gems-global-controls {
+    margin: 12px 0 16px auto;
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    display: flex;
+    width: fit-content;
+    gap: 10px;
+    align-items: center;
+}
+.gems-global-controls button {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 0.85em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.gems-global-controls button:hover {
+    background-color: #e9ecef;
+}
+</style><script>
+function toggleGems(id) {
+    var elem = document.getElementById(id);
+    if (elem) {
+        var isHidden = elem.style.display === 'none' || !elem.style.display;
+        elem.style.display = isHidden ? 'block' : 'none';
+        var cards = elem.querySelectorAll('.inserted-reference-container');
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = isHidden ? 'block' : 'none';
+        }
+    }
+}
+function toggleSpecificGemsNote(containerId, noteId) {
+    var container = document.getElementById(containerId);
+    var targetNote = document.getElementById(noteId);
+    if (!container || !targetNote) return;
+
+    var cards = container.querySelectorAll('.inserted-reference-container');
+    var isContainerHidden = container.style.display === 'none' || !container.style.display;
+
+    var visibleCount = 0;
+    for (var i = 0; i < cards.length; i++) {
+        if (cards[i].style.display !== 'none' && cards[i].style.display !== '') visibleCount++;
+    }
+
+    if (isContainerHidden) {
+        container.style.display = 'block';
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = (cards[i] === targetNote) ? 'block' : 'none';
+        }
+    } else if (visibleCount === 1 && targetNote.style.display === 'block') {
+        container.style.display = 'none';
+        targetNote.style.display = 'none';
+    } else {
+        container.style.display = 'block';
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = (cards[i] === targetNote) ? 'block' : 'none';
+        }
+    }
+}
+function toggleAllGems(btnOrShowAll, showAll) {
+    var target = document;
+    var show = showAll;
+    if (typeof btnOrShowAll === 'boolean') {
+        show = btnOrShowAll;
+    } else if (btnOrShowAll && btnOrShowAll.closest) {
+        target = btnOrShowAll.closest('article') || btnOrShowAll.closest('.content') || document;
+    }
+    var containers = target.querySelectorAll('.gems-references-container');
+    containers.forEach(function(c) {
+        c.style.display = show ? 'block' : 'none';
+        var cards = c.querySelectorAll('.inserted-reference-container');
+        cards.forEach(function(card) {
+            card.style.display = show ? 'block' : 'none';
+        });
+    });
+}
+</script></article>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Gather all alternate presentation elements and their images
+        const altPresElements = Array.from(document.querySelectorAll('.alternatePresentation'));
+        const altImages = altPresElements.map(el => {
+            const img = el.querySelector('img');
+            if (img) {
+                return {
+                    src: img.getAttribute('data-alt-src') || img.getAttribute('src'),
+                    title: el.querySelector('.title')?.textContent || "Image"
+                };
+            }
+            return null;
+        }).filter(Boolean);
+
+        // 2. Create Lightbox DOM structure dynamically
+        const lightbox = document.createElement('div');
+        lightbox.className = 'custom-lightbox';
+        lightbox.innerHTML = `
+            <button class="custom-lightbox-close">&times;</button>
+            <button class="custom-lightbox-nav custom-lightbox-prev">&#10094;</button>
+            <div class="custom-lightbox-content">
+                <img class="custom-lightbox-img" src="" alt="" />
+            </div>
+            <button class="custom-lightbox-nav custom-lightbox-next">&#10095;</button>
+            <div class="custom-lightbox-caption"></div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('.custom-lightbox-img');
+        const lightboxCaption = lightbox.querySelector('.custom-lightbox-caption');
+        const closeBtn = lightbox.querySelector('.custom-lightbox-close');
+        const prevBtn = lightbox.querySelector('.custom-lightbox-prev');
+        const nextBtn = lightbox.querySelector('.custom-lightbox-next');
+
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        const openLightbox = (group, index) => {
+            currentGroup = group;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const updateLightbox = () => {
+            const item = currentGroup[currentIndex];
+            if (item) {
+                lightboxImg.src = item.src;
+                if (item.title && item.title.trim() !== "" && item.title.trim() !== "Printed Edition") {
+                    lightboxCaption.textContent = item.title;
+                    lightboxCaption.style.display = 'block';
+                } else {
+                    lightboxCaption.textContent = "";
+                    lightboxCaption.style.display = 'none';
+                }
+                if (currentGroup.length > 1) {
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                } else {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                }
+            }
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImg.src = '';
+            lightboxCaption.textContent = '';
+        };
+
+        const navigate = (direction) => {
+            if (currentGroup.length <= 1) return;
+            currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+            updateLightbox();
+        };
+
+        // Event Listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('custom-lightbox-content')) {
+                closeLightbox();
+            }
+        });
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Attach click handlers to alternate presentations
+        altPresElements.forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(altImages, index);
+            });
+        });
+
+        // Attach click handlers to other zoomable figure images
+        document.querySelectorAll('article figure img:not(.suppressZoom)').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = img.getAttribute('data-alt-src') || img.getAttribute('src');
+                const title = img.getAttribute('alt') || "";
+                openLightbox([{ src, title }], 0);
+            });
+        });
+    });
+    </script>
+</body>
+</html>
