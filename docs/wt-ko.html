@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>악한 영의 세력들과 싸워 이기십시오! — 워치타워 온라인 라이브러리</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">📰</text></svg>'>
+    <link rel="stylesheet" type="text/css" href="css/media-player.css">
+    <link rel="stylesheet" type="text/css" href="css/+0+61168f8ef805085f5a3c0118b14679f74c9e62a4.css">
+    <link rel="stylesheet" type="text/css" href="css/+1+f8319dd08c749624466cb777b7d528e1a42d7368.css">
+    <link rel="stylesheet" type="text/css" href="css/+2+894de4a6eba76bf97927253f95f582449947a96e.css">
+    <link rel="stylesheet" type="text/css" href="css/+3+d00a791fdbb951906e95f1428ae322e41ea9da95.css">
+    <style>
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @media screen and (min-width: 600px) {
+            .document, .bible {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 16px 50px 80px;
+            }
+            .document .dc-bleedToArticleEdge, .bible .dc-bleedToArticleEdge {
+                margin-left: -50px;
+                margin-right: -50px;
+            }
+            .document .dc-paddingToContentEdge, .bible .dc-paddingToContentEdge {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        #content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+        .inserted-reference {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+            font-size: 0.95em;
+        }
+        .inserted-reference-header {
+            margin: 0;
+            padding: 4px 16px;
+            background-color: #e2e6ea;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #495057;
+        }
+        .inserted-reference-header a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #1a73e8;
+        }
+        .inserted-reference-header a:hover {
+            text-decoration: underline;
+        }
+        .inserted-reference > *:not(.inserted-reference-header) {
+            margin: 12px 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-style: italic;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        /* Custom Lightbox Styles */
+        .custom-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            /* user-select: none; */
+            /* -webkit-user-select: none; */
+        }
+        .custom-lightbox.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .custom-lightbox-content {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 35px;
+            color: #fff;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10002;
+            transition: transform 0.2s ease;
+        }
+        .custom-lightbox-close:hover {
+            transform: scale(1.1);
+        }
+        .custom-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 20px;
+        }
+        .custom-lightbox-nav:hover {
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .custom-lightbox-prev {
+            left: 0px;
+        }
+        .custom-lightbox-next {
+            right: 0px;
+        }
+        .custom-lightbox-caption {
+            color: #ccc;
+            margin-top: 15px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 80%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body, #content {
+                background-color: #171c2a !important;
+                color: #e2e8f0;
+            }
+            .document, .bible, .article, #article {
+                background-color: #1e293b !important;
+                color: #e2e8f0;
+            }
+            .scalableui, .bodyTxt {
+                background-color: transparent !important;
+                color: #e2e8f0;
+            }
+            .du-bgColor--bgSecondary, .du-bgColor--warmGray-50,
+            [class*="du-bgColor--bgSecondary"], [class*="du-bgColor--warmGray-"],
+            #tt9, .document #tt9, body #tt9,
+            .document [class*="du-bgColor--bgSecondary"], body [class*="du-bgColor--bgSecondary"],
+            .document [class*="du-bgColor--warmGray-"], body [class*="du-bgColor--warmGray-"] {
+                background-color: #2d3a4f !important;
+                color: #e2e8f0 !important;
+            }
+            .du-borderColor--borderDefault, hr {
+                border-color: #3b4d66 !important;
+            }
+            .du-color--teal-700 {
+                color: #2dd4bf !important;
+            }
+            h1, h2, h3, h4, h5, h6, strong {
+                color: #f8fafc;
+            }
+            a, a.b, a.vl, a.fn, a:visited {
+                color: #60a5fa;
+            }
+            a:hover, a.b:hover, a.vl:hover, a.fn:hover {
+                color: #93c5fd;
+            }
+            .du-color--textSubdued, .pageNum, .themeScrp {
+                color: #94a3b8 !important;
+            }
+            .inserted-reference {
+                background-color: #263346;
+                border: 1px solid #3b4d66;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .inserted-reference-header {
+                background-color: #1e2b3c;
+                border-bottom: 1px solid #3b4d66;
+                color: #cbd5e1;
+            }
+            .inserted-reference-header a {
+                color: #60a5fa;
+            }
+            .inserted-reference-header a:hover {
+                color: #93c5fd;
+            }
+            .note-card-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .note-card-header {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #cbd5e1 !important;
+            }
+            .note-card-header a {
+                color: #60a5fa !important;
+            }
+            .note-card-body {
+                color: #e2e8f0 !important;
+            }
+            .box-supplement-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+            }
+            .box-supplement-table th {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #f8fafc !important;
+            }
+            .box-supplement-table th h1, .box-supplement-table th h2,
+            .box-supplement-table th h3, .box-supplement-table th h4,
+            .box-supplement-table th strong, .box-supplement-table th p {
+                color: #f8fafc !important;
+            }
+            .box-supplement-table td {
+                color: #e2e8f0 !important;
+            }
+            .image-caption {
+                color: #94a3b8;
+            }
+            .custom-lightbox-img {
+                background-color: #1e293b;
+            }
+            .custom-lightbox-caption {
+                color: #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body  class="showRuby cc-theme--light DynamicLayout">
+    <div id="content" class="content">
+        <article class="article document html5 pub-w docId-2026521 pub-w26 pub-파 pub-w26 docClass-40 jwac showRuby ml-KO ms-KOREAN dir-ltr includeSecondaryNav" data-lang="KO" dir="ltr" id="article" lang="ko" role="article">
+<div class="scalableui">
+<header>
+<div class="dc-bleedToArticleEdge dc-paddingToContentEdge du-bgColor--amber-600 du-padding-vertical--2" id="tt2">
+<p class="contextTtl du-color--white" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="8" data-no="8" id="page8"></span><strong>2026년 10월 12-18일</strong></p>
+</div>
+<div class="du-color--textSubdued du-margin-vertical--8" id="tt4">
+<p class="pubRefs" data-pid="2" id="p2"><a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/2026521/0/0"><strong>노래 129</strong></a> 우린 계속 인내하리라</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[노래 129]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<p class="contextTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="159" data-no="159" id="page159"></span><strong>129번</strong></p>
+<h1 data-pid="2" id="p2"><strong>우린 계속 인내하리라</strong></h1>
+</header> 
+<p class="themeScrp" data-pid="3" id="p3">(<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016929/0/0">마태복음 24:13</a>)</p>
+<div class="bodyTxt">
+<ol><li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="4" id="p4">인내하리라,</p>
+<p class="sz" data-pid="5" id="p5">예수의 본을 따라서.</p>
+<p class="sp" data-pid="6" id="p6">시련 중에도</p>
+<p class="sz" data-pid="7" id="p7">미래의 기쁨 보셨네.</p>
+<p class="sp" data-pid="8" id="p8">아버지 약속에</p>
+<p class="sz" data-pid="9" id="p9">큰 힘 얻으셨네.</p>
+<div class="chorus"><p class="se" data-pid="10" id="p10">(후렴)</p>
+<p class="sp" data-pid="11" id="p11">우린 인내해야 해.</p>
+<p class="sz" data-pid="12" id="p12" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">믿음 지켜야 해.</p>
+<p class="sp" data-pid="13" id="p13">여호와 힘 주시니</p>
+<p class="sz" data-pid="14" id="p14" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">우린 끝까지 인내하리라.</p>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="15" id="p15">세월 가면서</p>
+<p class="sz" data-pid="16" id="p16">슬픔과 아픔 많지만</p>
+<p class="sp" data-pid="17" id="p17">그 눈물 너머</p>
+<p class="sz" data-pid="18" id="p18">보이는 새로운 세상.</p>
+<p class="sp" data-pid="19" id="p19">그곳에 있으리</p>
+<p class="sz" data-pid="20" id="p20">굳게 다짐하네.</p>
+<div class="chorus"><p class="se" data-pid="21" id="p21">(후렴)</p>
+<p class="sp" data-pid="22" id="p22">우린 인내해야 해.</p>
+<p class="sz" data-pid="23" id="p23" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">믿음 지켜야 해.</p>
+<p class="sp" data-pid="24" id="p24">여호와 힘 주시니</p>
+<p class="sz" data-pid="25" id="p25" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">우린 끝까지 인내하리라.</p>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="26" id="p26"><span aria-hidden="true" class="pageNum" data-before-text="160" data-no="160" id="page160"></span>충실하리라,</p>
+<p class="sz" data-pid="27" id="p27">주의 날 가까워 오니.</p>
+<p class="sp" data-pid="28" id="p28">의심하거나</p>
+<p class="sz" data-pid="29" id="p29">두려워 포기 않으리.</p>
+<p class="sp" data-pid="30" id="p30">끝까지 인내해!</p>
+<p class="sz" data-pid="31" id="p31">그날 올 때까지.</p>
+<div class="chorus"><p class="se" data-pid="32" id="p32">(후렴)</p>
+<p class="sp" data-pid="33" id="p33">우린 인내해야 해.</p>
+<p class="sz" data-pid="34" id="p34" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">믿음 지켜야 해.</p>
+<p class="sp" data-pid="35" id="p35">여호와 힘 주시니</p>
+<p class="sz" data-pid="36" id="p36" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">우린 끝까지 인내하리라.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="closingContent"><p class="se" data-pid="37" id="p37">(<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016929/1/0">사도 20:19, 20;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016929/1/1"> 야고보 1:12;</a><a class="b" data-bid="2-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016929/1/2"> 베드로 전서 4:12-14</a> 참조)</p>
+</div>
+<p class="sb" data-pid="38" id="p38"></p>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+</div>
+<h1 class="du-color--coolGray-700 du-margin-top--8" data-pid="3" id="p3"><strong>악한 영의 세력들과 싸워 이기십시오!</strong></h1>
+</header>
+<div class="du-color--textSubdued du-margin-vertical--8" id="tt8">
+<p class="themeScrp" data-pid="4" id="p4"><em>“우리는 혈과 육을 상대로 싸우고 있는 것이 아니라, ··· 하늘에 있는 악한 영의 세력들을 상대로 싸우고 있습니다.”</em>—<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/0/0">에베소 6:12</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[에베소 6:12]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v49-6-12-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070153/29441">12 </a>우리는 혈과 육을 상대로 싸우고<a class="b" data-bid="195-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/194">+</a> 있는 것이 아니라, 정부들과 권위들과 이 어둠의 세상 통치자들과 하늘에 있는 악한 영의 세력들을<a class="b" data-bid="196-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/195">+</a> 상대로<a class="b" data-bid="197-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/196">+</a> 싸우고 있기 때문입니다. </span></td></tr></tbody></table></div>
+</div>
+<div class="du-color--textSubdued du-borderStyle-inlineStart--solid du-borderWidth--2 du-borderColor--amber-600 du-margin-vertical--8 du-margin-children--0 du-padding-inlineStart--4 du-padding-vertical--1" id="tt10">
+<p class="pubRefs" data-pid="5" id="p5"><strong>요점</strong></p>
+<p class="pubRefs" data-pid="6" id="p6">우리가 싸워야 할 대상이 동료 형제자매들이 아니라 악한 영의 세력들이라는 점을 늘 기억하십시오.</p>
+</div>
+<div class="bodyTxt">
+<p class="qu" data-pid="36" id="p36"> <strong>1.</strong> 우리는 누구와 싸움을 벌이고 있습니까? (<a class="b" data-bid="42-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/41/0">에베소서 6:11, 12</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[에베소서 6:11, 12]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v49-6-11-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070153/29440">11 </a>마귀의 교활한 행위에<a class="b" data-bid="193-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/192">+</a> 맞서 굳게 설 수 있도록 하느님께서 주시는 온전한 갑주를<a class="b" data-bid="194-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/193">+</a> 입으십시오. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v49-6-12-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070153/29441">12 </a>우리는 혈과 육을 상대로 싸우고<a class="b" data-bid="195-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/194">+</a> 있는 것이 아니라, 정부들과 권위들과 이 어둠의 세상 통치자들과 하늘에 있는 악한 영의 세력들을<a class="b" data-bid="196-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/195">+</a> 상대로<a class="b" data-bid="197-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/196">+</a> 싸우고 있기 때문입니다. </span></div></td></tr></tbody></table></div>
+
+<p data-pid="7" data-rel-pid="[36]" id="p7"><span class="parNum" data-pnum="1"></span>여호와의 종들인 우리는 문자적인 전쟁에 참여하지 않습니다. (<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/1/0">이사야 2:4;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/1/1"> 요한 18:36</a>) 그런데 성경은 우리 모두가 한 가지 전쟁을 하고 있다고 알려 줍니다. 우리는 악한 영의 세력들을 상대로 싸우고 있습니다. <strong>(</strong><a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/2/0"><strong>에베소서 6:11, 12</strong></a> <strong>낭독)</strong> 그처럼 강력한 적들과 싸워 이기는 것이 정말 가능합니까? 여호와를 의지한다면 가능합니다. 그에 더해, 사탄과 악귀들이 우리를 공격하기 위해 사용하는 방법이 무엇인지 잘 알 필요가 있습니다.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[이사야 2:4;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070127/17805">4 </a>그분은 나라들 가운데서 심판하시고</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-2">많은 민족들에 관한 문제들을 바로잡으실 것이다.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-3">그들은 칼을 쳐서 보습을 만들고</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-4">창을 쳐서 낫을 만들 것이다.<a class="b" data-bid="72-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070127/71">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-5">나라가 나라를 대적하여 칼을 들지도 않고</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-6">다시는 전쟁을 배워 익히지도 않을 것이다.<a class="b" data-bid="73-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070127/72">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[요한 18:36]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v43-18-36-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070147/26913">36 </a>예수께서 대답하셨다.<a class="b" data-bid="711-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070147/710">+</a> “내 왕국은 이 세상에 속해 있지 않습니다.<a class="b" data-bid="712-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070147/711">+</a> 내 왕국이 이 세상에 속해 있다면, 내 종들이 싸워서 내가 유대인들에게 넘겨지지 않게 했을 것입니다.<a class="b" data-bid="713-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070147/712">+</a> 그러나 내 왕국은 이 세상에서 나온 것이 아닙니다.” </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[에베소서 6:11, 12]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v49-6-11-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070153/29440">11 </a>마귀의 교활한 행위에<a class="b" data-bid="193-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/192">+</a> 맞서 굳게 설 수 있도록 하느님께서 주시는 온전한 갑주를<a class="b" data-bid="194-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/193">+</a> 입으십시오. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v49-6-12-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070153/29441">12 </a>우리는 혈과 육을 상대로 싸우고<a class="b" data-bid="195-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/194">+</a> 있는 것이 아니라, 정부들과 권위들과 이 어둠의 세상 통치자들과 하늘에 있는 악한 영의 세력들을<a class="b" data-bid="196-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/195">+</a> 상대로<a class="b" data-bid="197-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/196">+</a> 싸우고 있기 때문입니다. </span></div></td></tr></tbody></table></div>
+<p class="qu" data-pid="38" id="p38"> <strong>2.</strong> 이 기사에서는 무엇을 살펴볼 것입니까?</p>
+
+<p data-pid="8" data-rel-pid="[38]" id="p8"><span class="parNum" data-pnum="2"><strong><sup>2</sup></strong></span> 앞 기사에서 우리는 사탄이 여호와와 예수에 대한 우리의 신뢰심을 약화시키려고 한다는 점을 알아보았습니다. 이 기사에서는 사탄이 우리를 공격하는 다른 두 가지 방법을 살펴볼 것입니다. 한 가지는 형제자매들과의 연합을 깨뜨리는 것입니다. 다른 한 가지는 우리를 반대하도록 사람들을 부추겨서 우리가 전파 활동을 수행할 용기나 열의를 잃게 만드는 것입니다.</p>
+<h2 class="du-color--coolGray-700 du-textAlign--center" data-pid="9" id="p9"><strong>사탄은 우리의 연합을 깨뜨리려고 합니다</strong></h2>
+<p class="qu" data-pid="40" id="p40"> <strong>3.</strong> 사탄이 우리에게 바라는 것은 무엇입니까?</p>
+
+<p data-pid="10" data-rel-pid="[40]" id="p10"><span class="parNum" data-pnum="3"><strong><sup>3</sup></strong></span> 사탄은 우리와 형제자매들 사이에 분열을 일으키려고 합니다. 사탄의 목표는 우리가 그와 싸우는 것이 아니라 형제자매들과 싸우게 만드는 것입니다. 그는 우리가 세상 사람들이 나타내는 태도에 <span aria-hidden="true" class="pageNum" data-before-text="9" data-no="9" id="page9"></span>물들기를 바랍니다. 이 세상의 많은 사람들은 거칠고 사랑이 없고 서로를 신뢰하지 않습니다. 사탄은 우리가 세상 사람들의 태도에 영향을 받아 형제자매들을 비판적으로 보고, 심지어 미워하게 되기를 바랍니다.—<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/3/0">로마 16:17</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[로마 16:17]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v45-16-17-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070149/28445">17 </a>형제 여러분, 내가 여러분에게 권고합니다. 여러분이 배운 가르침을 거슬러 분열을 일으키고 걸려 넘어지게 만드는 사람들을 계속 살피고 그들을 피하십시오.<a class="b" data-bid="539-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070149/538">+</a> </span></td></tr></tbody></table></div>
+<p class="qu" data-pid="42" id="p42"> <strong>4.</strong> 사울은 왜 다윗을 미워했습니까? (또한 삽화 참조)</p>
+
+<p data-pid="11" data-rel-pid="[42]" id="p11"><span class="parNum" data-pnum="4"><strong><sup>4</sup></strong></span> 사울왕의 경우를 생각해 보겠습니다. 사울은 처음에 젊은 다윗을 만났을 때 그를 좋아했습니다. 다윗이 용맹하고 능력이 출중한 전사였기 때문에 그를 매우 신임했습니다. (<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/4/0">사무엘상 18:5</a>) 하지만 시간이 흐르면서 다윗이 자기보다 더 많은 칭송을 받는 것을 보고 그를 질투하게 되었습니다. 그래서 오랫동안 다윗을 추격하며 죽이려고 했습니다. (<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/5/0">사무엘상 18:9-11</a>) 만약 다윗이 죽임을 당했다면 사탄이 정말 좋아했을 것입니다. 왜 그렇습니까? 다윗은 여호와께서 이스라엘의 다음 왕으로 선택하신 사람이었기 때문입니다. (<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/6/0">사무엘상 16:13</a>) 만약 다윗이 죽임을 당해 여호와의 뜻대로 그가 왕이 되지 못했다면 사탄은 정말 기뻤을 것입니다. 질투심에 눈이 먼 사울이 여호와께서 선택하신 사람을 죽이려고 혈안이 된 모습을 보면서 사탄이 얼마나 흡족해했을지 상상해 보십시오.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[사무엘상 18:5]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v9-18-5-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070113/7681">5 </a>다윗은 싸우러 나가기 시작했다. 사울이 그를 어디로 보내든 그는 성공을 거두었다.<a class="fn pr" data-fnid="115" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070113/114" id="footnotesource115">*</a><em> (각주: 또는 “지혜롭게 행동했다.”)</em><a class="b" data-bid="523-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070113/522">+</a> 그래서 사울은 그가 군사들을 통솔하게 했다.<a class="b" data-bid="524-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070113/523">+</a> 그러자 모든 백성과 사울의 신하들이 기뻐했다.</span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[사무엘상 18:9-11]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v9-18-9-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070113/7685">9 </a>그날부터 사울은 다윗을 계속 의심하며 바라보았다.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v9-18-10-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070113/7686">10 </a>그다음 날 하느님으로부터 온 악한 영이 사울을 사로잡아<a class="b" data-bid="530-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070113/529">+</a> 그가 집 안에서 이상하게 행동하기 시작했으며<a class="fn" data-fnid="116" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070113/115" id="footnotesource116">*</a><em> (각주: 또는 “예언자처럼 행동했으며”.)</em> 다윗은 여느 때와 같이 수금을 연주하고 있었다.<a class="b" data-bid="531-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070113/530">+</a> 사울은 손에 창을 들고 있었는데<a class="b" data-bid="532-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070113/531">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v9-18-11-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070113/7687">11 </a>‘내가 다윗을 벽에 박아 버리겠다!’ 하고 혼잣말을 하면서 창을 던졌다.<a class="b" data-bid="533-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070113/532">+</a> 그러나 다윗은 두 번이나 피했다. </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[사무엘상 16:13]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v9-16-13-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070113/7608">13 </a>그리하여 사무엘이 기름이 든 뿔을 가져다가<a class="b" data-bid="442-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070113/441">+</a> 그의 형들 앞에서 그에게 기름을 부었다. 그러자 여호와의 영이 그날부터 다윗에게 능력을 주기 시작했다.<a class="b" data-bid="443-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070113/442">+</a> 후에 사무엘은 일어나 라마로<a class="b" data-bid="444-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070113/443">+</a> 갔다.</span></td></tr></tbody></table></div>
+<div class="du-margin-top--8" id="f1">
+<figure>
+<img alt="다윗이 승리를 거두고 돌아오자, 이스라엘 백성이 탬버린을 치고 노래하면서 축하하고 있습니다. 질투심에 사로잡힌 사울이 분노에 찬 얼굴을 하고 있고, 요나단은 다윗 옆에서 기뻐하고 있습니다." data-img-small-src="/ko/wol/mp/r8/lp-ko/w26/2026/455" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/w26/2026/456" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption">
+<p data-pid="71" id="p71">요나단은 충성스럽게 다윗을 지지했지만, 사울은 여호와에 대한 믿음을 나타내지 않고 다윗을 질투했습니다 (4, 6항 참조)</p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">다윗이 승리를 거두고 돌아오자, 이스라엘 백성이 탬버린을 치고 노래하면서 축하하고 있습니다. 질투심에 사로잡힌 사울이 분노에 찬 얼굴을 하고 있고, 요나단은 다윗 옆에서 기뻐하고 있습니다.</td></tr></tbody></table></div></figure>
+</div>
+<hr class="du-width--oneQuarter du-borderColor--amber-600 du-borderWidth--2 du-margin-top--0 du-margin-bottom--8"/>
+<p class="qu" data-pid="44" id="p44"> <strong>5.</strong> 사탄은 왜 우리가 형제자매들을 시기하고 질투하기를 원합니까? (<a class="b" data-bid="43-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/42/0">야고보서 3:14-16</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[야고보서 3:14-16]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v59-3-14-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070163/30425">14 </a>그러나 여러분의 마음속에 심한 질투와<a class="b" data-bid="72-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070163/71">+</a> 다툼<a class="fn" data-fnid="32" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070163/31" id="footnotesource32">*</a><em> (각주: 달리 번역하면 “이기적인 야심”.)</em>이<a class="b" data-bid="73-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070163/72">+</a> 있다면, 진리를 거슬러 우쭐대거나<a class="b" data-bid="74-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070163/73">+</a> 거짓말하지 마십시오. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v59-3-15-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070163/30426">15 </a>그것은 위에서 내려오는 지혜가 아니라, 땅에 속하고<a class="b" data-bid="75-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070163/74">+</a> 동물적이고 악귀적인 것입니다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v59-3-16-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070163/30427">16 </a>질투와 다툼<a class="fn" data-fnid="33" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070163/32" id="footnotesource33">*</a><em> (각주: 달리 번역하면 “이기적인 야심”.)</em>이 있는 곳에는 무질서와 온갖 악한 일도 있습니다.<a class="b" data-bid="76-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070163/75">+</a></span></div></td></tr></tbody></table></div>
+
+<p data-pid="12" data-rel-pid="[44]" id="p12"><span class="parNum" data-pnum="5"><strong><sup>5</sup></strong></span> 사탄은 우리가 연합되어 있으면 여호와의 축복과 지원을 받는다는 것을 알기 때문에 그 연합을 깨뜨리려고 합니다. (<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/7/0">시 133:1</a>) 그래서 사울이 다윗을 질투한 것처럼 우리도 형제자매들을 시기하고 질투하기를 원합니다. 그는 우리가 질투심에 사로잡히면 서로 사랑을 나타내기가 어렵다는 것을 잘 알고 있습니다. (<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/8/0">마가 12:30, 31</a>) 한번 생각해 보십시오. 우리가 형제자매들을 사랑하지 않는다면 과연 여호와께서 우리가 드리는 숭배를 기뻐하시겠습니까? 제자 야고보도 질투심에 사로잡히는 것이 얼마나 위험한지 강력한 표현을 사용해 경고했습니다.—<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/9/0"><strong>야고보서 3:14-16</strong></a> <strong>낭독.</strong></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[시 133:1]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-133-1-1"><a class="cl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070123/16277"><strong>133</strong> </a>보라! 형제들이 연합하여 함께 거하는 것이</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-133-1-2">얼마나 좋으며 얼마나 즐거운가!<a class="b" data-bid="2799-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070123/2798">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[마가 12:30, 31]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v41-12-30-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070145/24819">30 </a>네 마음을 다하고 영혼을 다하고 정신을 다하고 힘을 다해 너의 하느님 여호와를 사랑해야 한다.’<a class="b" data-bid="419-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070145/418">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v41-12-31-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070145/24820">31 </a>둘째 계명은 ‘네 이웃을 너 자신처럼 사랑해야 한다’는 것입니다.<a class="b" data-bid="420-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070145/419">+</a> 이것들보다 더 큰 계명은 없습니다.” </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[야고보서 3:14-16]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v59-3-14-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070163/30425">14 </a>그러나 여러분의 마음속에 심한 질투와<a class="b" data-bid="72-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070163/71">+</a> 다툼<a class="fn" data-fnid="32" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070163/31" id="footnotesource32">*</a><em> (각주: 달리 번역하면 “이기적인 야심”.)</em>이<a class="b" data-bid="73-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070163/72">+</a> 있다면, 진리를 거슬러 우쭐대거나<a class="b" data-bid="74-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070163/73">+</a> 거짓말하지 마십시오. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v59-3-15-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070163/30426">15 </a>그것은 위에서 내려오는 지혜가 아니라, 땅에 속하고<a class="b" data-bid="75-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070163/74">+</a> 동물적이고 악귀적인 것입니다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v59-3-16-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070163/30427">16 </a>질투와 다툼<a class="fn" data-fnid="33" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070163/32" id="footnotesource33">*</a><em> (각주: 달리 번역하면 “이기적인 야심”.)</em>이 있는 곳에는 무질서와 온갖 악한 일도 있습니다.<a class="b" data-bid="76-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070163/75">+</a></span></div></td></tr></tbody></table></div>
+<p class="qu" data-pid="46" id="p46"> <strong>6.</strong> 요나단의 본에서 무엇을 배울 수 있습니까? (또한 삽화 참조)</p>
+
+<p data-pid="13" data-rel-pid="[46]" id="p13"><span aria-hidden="true" class="pageNum" data-before-text="10" data-no="10" id="page10"></span><span class="parNum" data-pnum="6"><strong><sup>6</sup></strong></span> 형제자매들을 진정으로 사랑하면 우리의 마음속에 질투심이나 시기심이 자라게 하지 않는 데 도움이 됩니다. 사울의 아들 요나단의 본을 생각해 보겠습니다. 다윗을 질투했던 아버지와는 달리, 요나단은 다윗을 친구로 여기고 아꼈습니다. 그는 여호와의 뜻이 이루어질 것이라는 확신을 표현하면서 다윗에게 “자네는 이스라엘의 왕이 될 걸세” 하고 말해 주었습니다. 그는 여호와께서 다윗을 이스라엘의 다음 왕으로 선택하셨다는 사실을 겸손히 받아들이고 다윗을 지원했습니다.—<a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/10/0">사무엘상 23:16, 17</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[사무엘상 23:16, 17]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v9-23-16-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070113/7826">16 </a>그때 사울의 아들 요나단이 호레스에 있는 다윗에게 가서, 여호와 안에서 힘을 얻도록 그를 도와주었다.<a class="fn pr" data-fnid="150" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070113/149" id="footnotesource150">*</a><em> (각주: 직역하면 “여호와 안에서 그의 손을 강하게 해 주었다.”)</em><a class="b" data-bid="664-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070113/663">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v9-23-17-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070113/7827">17 </a>요나단이 다윗에게 말했다. “두려워하지 말게. 내 아버지 사울이 자네를 찾지 못할 것이네. 자네는 이스라엘의 왕이 되고,<a class="b" data-bid="665-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070113/664">+</a> 나는 자네 다음가는 사람이 될 걸세. 내 아버지 사울도 그것을 알고 계시네.”<a class="b" data-bid="666-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070113/665">+</a> </span></div></td></tr></tbody></table></div>
+<p class="qu" data-pid="48" id="p48"> <strong>7.</strong> 어떻게 사탄에게 우리의 연합을 깨뜨릴 기회를 주지 않을 수 있습니까? (<a class="b" data-bid="44-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/43/0">에베소서 4:25-27</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[에베소서 4:25-27]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v49-4-25-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070153/29389">25 </a>여러분은 거짓을 버렸으므로 각자 이웃에게 진실을 말하십시오.<a class="b" data-bid="119-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/118">+</a> 우리는 서로에게 속한 지체들이기 때문입니다.<a class="b" data-bid="120-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/119">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v49-4-26-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070153/29390">26 </a>격분하더라도 죄를 짓지 마십시오.<a class="b" data-bid="121-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/120">+</a> 해가 질 때까지 화난 상태로 있지 마십시오.<a class="b" data-bid="122-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/121">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v49-4-27-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070153/29391">27 </a>마귀에게 기회를 주지 마십시오.<a class="b" data-bid="123-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/122">+</a> </span></div></td></tr></tbody></table></div>
+
+<p data-pid="14" data-rel-pid="[48]" id="p14"><span class="parNum" data-pnum="7"><strong><sup>7</sup></strong></span> 또한 사탄은 우리가 서로 생각, 성격, 인종, 문화가 다르다는 점을 이용해 우리의 연합을 깨뜨리려고 합니다. 그는 우리가 그런 차이점 때문에 서로 친구가 될 수 없다고 느끼기를 바랍니다. 어떻게 사탄에게 우리의 연합을 깨뜨릴 기회를 주지 않을 수 있습니까? 의견 차이나 불화가 생겼을 때 신속히 해결하십시오. <strong>(</strong><a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/11/0"><strong>에베소서 4:25-27</strong></a> <strong>낭독)</strong> 또한 평소에 형제자매들에 대한 사랑을 키워 나가십시오. 우리 모두가 여호와께 소중한 존재이며, 한 몸에 속한 지체로서 서로에게 꼭 필요하다는 점을 기억하십시오. (<a class="b" data-bid="13-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/12/0">고린도 전서 12:12</a>) 형제자매들은 우리의 적이 아니라 사탄과 악귀들이라는 공동의 적과 싸우는 동료들입니다.—<a class="b" data-bid="14-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/13/0">베드로 전서 5:8, 9</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[에베소서 4:25-27]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v49-4-25-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070153/29389">25 </a>여러분은 거짓을 버렸으므로 각자 이웃에게 진실을 말하십시오.<a class="b" data-bid="119-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/118">+</a> 우리는 서로에게 속한 지체들이기 때문입니다.<a class="b" data-bid="120-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/119">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v49-4-26-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070153/29390">26 </a>격분하더라도 죄를 짓지 마십시오.<a class="b" data-bid="121-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/120">+</a> 해가 질 때까지 화난 상태로 있지 마십시오.<a class="b" data-bid="122-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/121">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v49-4-27-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070153/29391">27 </a>마귀에게 기회를 주지 마십시오.<a class="b" data-bid="123-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/122">+</a> </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[고린도 전서 12:12]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v46-12-12-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070150/28738">12 </a>몸은 하나이지만 많은 지체가 있고 그 몸의 지체는 많지만 모두 한 몸인 것처럼,<a class="b" data-bid="336-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070150/335">+</a> 그리스도도 그러합니다. </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[베드로 전서 5:8, 9]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v60-5-8-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070164/30565">8 </a>정신을 차리고 깨어 살피십시오!<a class="b" data-bid="177-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070164/176">+</a> 여러분의 적대자 마귀가 울부짖는 사자같이 삼킬 자를 찾아 돌아다닙니다.<a class="b" data-bid="178-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070164/177">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v60-5-9-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070164/30566">9 </a>그러나 굳건한 믿음을 가지고 그를 대적하십시오.<a class="b" data-bid="179-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070164/178">+</a> 여러분이 아는 것처럼, 이 세상에 있는 연합된 모든 형제들<a class="fn" data-fnid="41" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070164/40" id="footnotesource41">*</a><em> (각주: 직역하면 “형제 관계; 형제 공동체”.)</em>도 같은 고난을 겪고 있습니다.<a class="b" data-bid="180-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070164/179">+</a> </span></div></td></tr></tbody></table></div>
+<p class="qu" data-pid="50" id="p50"> <strong>8.</strong> 동료 형제자매로부터 상처를 받을 때 어떻게 해야 합니까?</p>
+
+<p data-pid="15" data-rel-pid="[50]" id="p15"><span class="parNum" data-pnum="8"><strong><sup>8</sup></strong></span> 동료 형제자매로부터 상처를 받을 때, 나도 불완전하기 때문에 누군가에게 상처를 준 적이 있다는 점을 기억하십시오. 형제자매들과 함께 많은 시간을 보내다 보면 마찰이 생기는 것은 자연스러운 일입니다. (<a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/14/0">전도 7:20</a>) 그럴 때 서로 참아 주라는 성경의 교훈을 적용해 보십시오. 그리고 당신의 마음을 상하게 한 사람을 기꺼이 용서해 주십시오. (<a class="b" data-bid="16-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/15/0">골로새 3:12-14</a>) 우리는 여호와와 예수께서 우리가 연합을 유지하기를 얼마나 바라시는지 알기 때문에, 형제자매들과 가깝게 지내고 그들을 사랑하기 위해 최선을 다합니다.—<a class="b" data-bid="17-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/16/0">요한 17:20, 21</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[전도 7:20]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v21-7-20-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070125/17565">20 </a>늘 선한 일만 하고 죄를 짓지 않는 의로운 사람은 땅에 없다.<a class="b" data-bid="158-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070125/157">+</a></span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[골로새 3:12-14]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v51-3-12-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070155/29621">12 </a>그러므로 여러분은 하느님께서 선택하신<a class="b" data-bid="101-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070155/100">+</a> 거룩하고 사랑받는 사람들로서, 동정심 어린 부드러운 애정,<a class="b" data-bid="102-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070155/101">+</a> 친절, 겸손,<a class="b" data-bid="103-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070155/102">+</a> 온화,<a class="b" data-bid="104-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070155/103">+</a> 참을성을<a class="b" data-bid="105-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070155/104">+</a> 입으십시오. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v51-3-13-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070155/29622">13 </a>누군가 다른 사람에 대해 불평할 이유가 있더라도<a class="b" data-bid="106-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070155/105">+</a> 계속 서로 참고 서로 기꺼이 용서하십시오.<a class="b" data-bid="107-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070155/106">+</a> 여호와께서 여러분을 기꺼이 용서하신 것처럼 여러분도 그렇게 해야 합니다.<a class="b" data-bid="108-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070155/107">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v51-3-14-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070155/29623">14 </a>이 모든 것에 더해 사랑을 입으십시오.<a class="b" data-bid="109-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070155/108">+</a> 사랑은 완전한 연합의 띠입니다.<a class="b" data-bid="110-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070155/109">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[요한 17:20, 21]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v43-17-20-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070147/26871">20 </a>저는 그들을 위해서만 요청하는 것이 아니라 그들의 말을 통해 저를 믿는 사람들을 위해서도 요청합니다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v43-17-21-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070147/26872">21 </a>아버지, 그것은 아버지께서 저와 함께하시고 제가 아버지와 함께하는 것처럼,<a class="b" data-bid="673-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070147/672">+</a> 그들이 모두 하나가 되어<a class="b" data-bid="674-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070147/673">+</a> 그들도 우리와 함께하게 하려는 것입니다. 그래서 아버지께서 저를 보내신 것을 세상이 믿게 하려는 것입니다. </span></div></td></tr></tbody></table></div>
+<h2 class="du-color--coolGray-700 du-textAlign--center" data-pid="16" id="p16"><strong>사탄은 우리를 반대하도록 사람들을 부추깁니다</strong></h2>
+<p class="qu" data-pid="52" id="p52"> <strong>9.</strong> 사탄이 우리를 공격하는 또 다른 방법은 무엇입니까?</p>
+
+<p data-pid="17" data-rel-pid="[52]" id="p17"><span class="parNum" data-pnum="9"><strong><sup>9</sup></strong></span> 사탄이 우리를 공격하는 또 다른 수단은 바로 박해입니다. 사도 바울은 모든 참그리스도인이 박해를 받을 것이라고 경고했습니다. (<a class="b" data-bid="18-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/17/0">디모데 후서 3:12</a>) 그런데 그처럼 부당한 일을 겪다 보면 불공정을 바로잡거나, 내가 잘못한 것이 없다는 것을 증명하거나, 당한 대로 갚아 주고 싶은 마음이 커질지 모릅니다. 그러한 생각에 사로잡혀 시간과 활력을 허비하다 보면 여호와께서 맡기신 가장 중요한 일인 전파 활동이 뒤로 밀려나게 될 수 있습니다.—<a class="b" data-bid="19-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/18/0">로마 12:19-21</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[디모데 후서 3:12]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v55-3-12-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070159/29957">12 </a>사실, 그리스도 예수와 연합하여 경건한 정성으로 살고자 하는 모든 사람은 박해를 받을 것입니다.<a class="b" data-bid="64-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070159/63">+</a> </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[로마 12:19-21]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v45-12-19-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070149/28356">19 </a>사랑하는 여러분, 스스로 복수하지 말고 진노에 맡겨 두십시오.<a class="b" data-bid="439-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070149/438">+</a> “여호와께서 말씀하신다. ‘복수는 나의 것이니, 내가 갚아 주겠다’”라고 기록되어 있습니다.<a class="b" data-bid="440-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070149/439">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v45-12-20-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070149/28357">20 </a>또 “네 원수가 굶주리거든 먹이고, 목말라하거든 마실 것을 주어라. 그렇게 함으로 너는 그의 머리 위에 숯불을 쌓을 것이다”라고<a class="b" data-bid="441-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070149/440">+</a> 되어 있습니다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v45-12-21-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070149/28358">21 </a>악에게 지지 말고 계속 선으로 악을 이기십시오.<a class="b" data-bid="442-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070149/441">+</a></span></div></td></tr></tbody></table></div>
+<p class="qu" data-pid="54" id="p54"><strong>10.</strong> 이삭은 부당한 일을 겪을 때 어떻게 했습니까?</p>
+
+<p data-pid="18" data-rel-pid="[54]" id="p18"><span class="parNum" data-pnum="10"><strong><sup>10</sup></strong></span> 아브라함의 아들 이삭의 본을 생각해 보겠습니다. 그가 부유해지자 주변에 살던 블레셋 사람들은 그를 시기하기 시작했습니다. 그래서 이삭의 아버지 아브라함의 종들이 팠던 우물들을 막아 버렸습니다. (<a class="b" data-bid="20-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/19/0">창세 26:12-18</a>) 이삭의 가족과 가축을 위해서는 물이 꼭 필요했습니다. 그래서 이삭은 다른 곳으로 가서 우물들을 다시 팠습니다. 그런데 블레셋 사람들은 그 우물들도 자기들 것이라고 우겼습니다. 이삭의 입장에서는 정말 부당하고 힘이 빠지는 일이 아닙니까? 하지만 이삭은 자신의 목자들과 블레셋 사람들 사이의 다툼이 심해지는 것을 원하지 않았습니다. 그래서 또다시 다른 지역으로 이주했습니다. 여호와께서는 그처럼 평화를 이루려고 노력한 이삭을 축복해 주셨습니다. (<a class="b" data-bid="21-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/20/0">창세 26:19-25</a>) 무엇을 <span aria-hidden="true" class="pageNum" data-before-text="11" data-no="11" id="page11"></span>배울 수 있습니까? 우리도 부당한 일을 겪을 때 이삭처럼 참을성과 온화를 나타내기 위해 노력해야 합니다.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[창세 26:12-18]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-26-12-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/704">12 </a>이삭은 그 땅에 씨를 뿌리기 시작했고, 그해에 그가 뿌린 것의 100배를 거두었다. 여호와께서 그를 축복하셨기 때문이다.<a class="b" data-bid="628-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/627">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-26-13-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/705">13 </a>그 사람은 부유해졌으며, 계속 번성하여 마침내 매우 부유해졌다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-26-14-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/706">14 </a>그가 양 떼와 소 떼와 많은 종을 두게 되자,<a class="b" data-bid="629-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/628">+</a> 블레셋 사람들이 그를 시기하기 시작했다.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-26-15-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/707">15 </a>그래서 블레셋 사람들이 이삭의 아버지 아브라함의 날에 아브라함의 종들이 팠던 모든 우물을<a class="b" data-bid="630-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/629">+</a> 흙으로 막아 버렸다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-26-16-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/708">16 </a>아비멜렉이 이삭에게 말했다. “당신이 우리보다 훨씬 더 강해졌으니 우리를 떠나십시오.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-26-17-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/709">17 </a>그래서 이삭이 그곳을 떠나 그랄<a class="b" data-bid="631-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/630">+</a> 골짜기<a class="fn" data-fnid="191" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/190" id="footnotesource191">*</a><em> (각주: 또는 “와디”.)</em>에 진을 치고 살기 시작했다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-26-18-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/710">18 </a>그리고 이삭은 우물들을 다시 팠다. 그것들은 그의 아버지 아브라함의 날에 팠다가 아브라함이 죽은 후에 블레셋 사람들이 막았던 우물들이었다.<a class="b" data-bid="632-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/631">+</a> 그는 그 우물들에 그의 아버지가 지었던 이름을 다시 붙였다.<a class="b" data-bid="633-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/632">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[창세 26:19-25]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-26-19-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/711">19 </a>이삭의 종들이 골짜기<a class="fn" data-fnid="192" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/191" id="footnotesource192">*</a><em> (각주: 또는 “와디”.)</em>를 파다가 맑은 우물을 발견했다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-26-20-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/712">20 </a>그러자 그랄의 목자들이 “이 물은 우리의 것이다!” 하고 말하며 이삭의 목자들과 다투기 시작했다. 그래서 그가 그 우물의 이름을 에섹<a class="fn" data-fnid="193" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/192" id="footnotesource193">*</a><em> (각주: “다툼”을 의미함.)</em>이라고 했는데, 그들이 그와 다투었기 때문이다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-26-21-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/713">21 </a>또 다른 우물을 팠는데, 그들이 그 우물에 대해서도 다투기 시작했다. 그래서 그가 그 이름을 싯나<a class="fn" data-fnid="194" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/193" id="footnotesource194">*</a><em> (각주: “고발”을 의미함.)</em>라고 했다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-26-22-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/714">22 </a>후에 그는 거기서 옮겨 다른 우물을 팠는데, 그들이 그것을 놓고는 다투지 않았다. 그래서 그가 그 이름을 르호봇<a class="fn" data-fnid="195" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/194" id="footnotesource195">*</a><em> (각주: “넓은 곳들”을 의미함.)</em>이라고 하며 말했다. “이제 여호와께서 우리에게 넓은 곳을 주시어 우리가 땅에서 번성하게 하셨기 때문이다.”<a class="b" data-bid="634-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/633">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-26-23-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/715">23 </a>그리고 그가 그곳에서 브엘세바로<a class="b" data-bid="635-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/634">+</a> 올라갔다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-26-24-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/716">24 </a>그 밤에 여호와께서 그에게 나타나 말씀하셨다. “나는 너의 아버지 아브라함의 하느님이다.<a class="b" data-bid="636-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/635">+</a> 두려워하지 마라.<a class="b" data-bid="637-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/636">+</a> 내가 너와 함께 있다. 내 종 아브라함 때문에 내가 너를 축복하겠고 네 자손<a class="fn" data-fnid="196" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/195" id="footnotesource196">*</a><em> (각주: 직역하면 “씨”.)</em>을 번성하게 하겠다.”<a class="b" data-bid="638-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/637">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-26-25-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/717">25 </a>그래서 이삭이 거기에 제단을 쌓고 여호와의 이름을 불렀다.<a class="b" data-bid="639-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/638">+</a> 그가 그곳에 천막을 쳤으며,<a class="b" data-bid="640-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/639">+</a> 그의 종들이 그곳에 우물을 팠다.</span></div></td></tr></tbody></table></div>
+<p class="qu" data-pid="56" id="p56"><strong>11.</strong> 예수께서는 부당한 일을 겪을 때 어떻게 하셨습니까?</p>
+
+<p data-pid="19" data-rel-pid="[56]" id="p19"><span class="parNum" data-pnum="11"><strong><sup>11</sup></strong></span> 여러 세기 후에 메시아로 땅에 오신 예수께서도 부당한 일을 많이 겪으셨습니다. 예를 들어, 그분의 일부 친족들은 그분이 정신이 나갔다고 생각했습니다. (<a class="b" data-bid="22-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/21/0">마가 3:21</a>) 종교 지도자들은 그분에게 하느님에 관해 가르칠 자격이 없다고 끊임없이 비난했습니다. (<a class="b" data-bid="23-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/22/0">누가 11:15, 16</a>) 또한 오랜 시간을 함께한 사도들 중 한 명이 그분을 배신했습니다. (<a class="b" data-bid="24-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/23/0">마태 26:14-16</a>) 종교 지도자들은 정부 관리들과 결탁해 예수를 범죄자로 몰아 처형했습니다. (<a class="b" data-bid="25-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/24/0">마가 15:1,</a><a class="b" data-bid="25-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/24/1"> 13-15</a>) 하지만 예수께서는 이러한 일들을 겪으면서도 여호와께서 맡기신 일을 흔들림 없이 계속 열심히 수행하셨습니다. 그리고 자신을 부당하게 대한 사람들에게 똑같이 응수하지 않으셨습니다. 예를 들어, 예수께서 체포되실 때 있었던 일을 생각해 보십시오. 사도 베드로는 그분을 보호하기 위해 대제사장의 종의 귀를 칼로 잘라 버렸습니다. 그때 예수께서는 베드로를 나무라면서 그 종의 귀를 낫게 해 주셨습니다. (<a class="b" data-bid="26-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/25/0">누가 22:50, 51</a>) 예수께서는 그 어떤 경우에도 자신을 부당하게 대한 사람들에게 앙갚음하려고 하지 않으셨습니다. 그분은 여호와께서 맡기신 가장 중요한 일을 하는 데 계속 초점을 맞추셨습니다.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[마가 3:21]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v41-3-21-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070145/24425">21 </a>그런데 그분의 친족들은 그 일에 대해 듣고 그분을 붙잡으러 나섰다. 그들은 “그가 정신이 나갔다”고 말했다.<a class="b" data-bid="90-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070145/89">+</a> </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[누가 11:15, 16]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v42-11-15-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070146/25524">15 </a>그러나 그중 어떤 사람들은 “저자는 악귀들의 통치자인 베엘세붑의 힘을 빌려 악귀를 쫓아낸다” 하고 말했다.<a class="b" data-bid="499-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070146/498">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v42-11-16-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070146/25525">16 </a>또 어떤 사람들은 그분을 시험하려고 하늘에서 오는 표징을 요구했다.<a class="b" data-bid="500-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070146/499">+</a> </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[마태 26:14-16]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v40-26-14-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070144/24184">14 </a>그때에 열두 제자 중 하나인 가룟 유다라는<a class="b" data-bid="922-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/921">+</a> 자가 수제사장들에게 가서,<a class="b" data-bid="923-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/922">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v40-26-15-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070144/24185">15 </a>“내가 그를 배반하여 여러분에게 넘겨주면 내게 무엇을 주겠습니까?” 하고 말했다.<a class="b" data-bid="924-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/923">+</a> 그들은 은 30닢을 주기로 했다.<a class="b" data-bid="925-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/924">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v40-26-16-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070144/24186">16 </a>그때부터 유다는 그분을 배반하여 넘겨줄 적당한 기회를 계속 찾았다.</span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[마가 15:1,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v41-15-1-1"><a class="cl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070145/24943"><strong>15</strong> </a>새벽이 되자마자 수제사장들과 장로들과 서기관들 곧 온 산헤드린이 회의를 했다.<a class="b" data-bid="554-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070145/553">+</a> 그리고 예수를 묶어서 끌고 가 빌라도에게 넘겨주었다.<a class="b" data-bid="555-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070145/554">+</a> </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[13-15]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v41-15-13-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070145/24955">13 </a>또다시 그들은 “기둥에 다시오!”<a class="fn" data-fnid="53" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070145/52" id="footnotesource53">*</a><em> (각주: 또는 “그를 기둥에 달아 처형하시오!”)</em> 하고 외쳤다.<a class="b" data-bid="567-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070145/566">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v41-15-14-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070145/24956">14 </a>그러나 빌라도는 그들에게 “이유가 무엇이오? 그가 무슨 나쁜 짓을 했소?” 하고 말했다. 그래도 그들은 “기둥에 다시오!”<a class="fn" data-fnid="54" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070145/53" id="footnotesource54">*</a><em> (각주: 또는 “그를 기둥에 달아 처형하시오!”)</em> 하고 더욱더 큰 소리로 외쳤다.<a class="b" data-bid="568-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070145/567">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v41-15-15-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070145/24957">15 </a>그래서 빌라도는 무리를 만족시키려고 바라바를 그들에게 놓아주고, 예수는 채찍질한 다음<a class="b" data-bid="569-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070145/568">+</a> 기둥에 달아 처형하라고 넘겨주었다.<a class="b" data-bid="570-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070145/569">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[누가 22:50, 51]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v42-22-50-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070146/26018">50 </a>그 사람들 중 하나가 대제사장의 종을 쳐서 그의 오른쪽 귀를 잘라 버렸다.<a class="b" data-bid="876-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070146/875">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v42-22-51-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070146/26019">51 </a>그러자 예수께서 “그만하십시오” 하고 말씀하시고, 그의 귀를 만져 낫게 해 주셨다. </span></div></td></tr></tbody></table></div>
+<p class="qu" data-pid="58" id="p58"><strong>12.</strong> 우리를 반대하거나 박해하는 사람들을 어떻게 대해야 합니까? (<a class="b" data-bid="45-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/44/0">마태복음 5:43, 44</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[마태복음 5:43, 44]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v40-5-43-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070144/23393">43 </a>‘네 이웃을 사랑하고<a class="b" data-bid="185-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/184">+</a> 원수를 미워해야 한다’는 말을 여러분은 들었습니다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v40-5-44-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070144/23394">44 </a>그러나 나는 여러분에게 말합니다. 계속해서 원수를 사랑하고<a class="b" data-bid="186-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/185">+</a> 여러분을 박해하는 사람을 위해 기도하십시오.<a class="b" data-bid="187-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/186">+</a> </span></div></td></tr></tbody></table></div>
+
+<p data-pid="20" data-rel-pid="[58]" id="p20"><span class="parNum" data-pnum="12"><strong><sup>12</sup></strong></span> 오늘날 우리도 예수께서 겪으셨던 것과 비슷한 여러 가지 불공정과 어려움을 겪습니다. 사탄은 그러한 일들을 이용해 전파 활동에 대한 우리의 열의를 식게 만들려고 합니다. 예를 들어, 믿지 않는 가족이나 그 밖의 사람들이 우리를 반대하거나 심지어 박해할지 모릅니다. 하지만 예수께서는 우리를 박해하는 사람들도 사랑해야 한다고 말씀하셨습니다. <strong>(</strong><a class="b" data-bid="27-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/26/0"><strong>마태복음 5:43, 44</strong></a> <strong>낭독)</strong> 따라서 우리는 결코 우리를 박해하는 사람들을 미워하거나 그들에게 똑같이 응수하려고 하지 않습니다. 우리는 예수께서 분명히 명령하신 <span aria-hidden="true" class="pageNum" data-before-text="12" data-no="12" id="page12"></span>대로, 우리의 활동을 반대하는 사람을 포함해 모든 사람에게 참을성을 보이고 친절과 존중심을 나타내기 위해 최선을 다합니다.—<a class="b" data-bid="28-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/27/0">고린도 전서 13:4</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[마태복음 5:43, 44]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v40-5-43-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070144/23393">43 </a>‘네 이웃을 사랑하고<a class="b" data-bid="185-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/184">+</a> 원수를 미워해야 한다’는 말을 여러분은 들었습니다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v40-5-44-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070144/23394">44 </a>그러나 나는 여러분에게 말합니다. 계속해서 원수를 사랑하고<a class="b" data-bid="186-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/185">+</a> 여러분을 박해하는 사람을 위해 기도하십시오.<a class="b" data-bid="187-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/186">+</a> </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[고린도 전서 13:4]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v46-13-4-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070150/28761">4 </a>사랑은<a class="b" data-bid="360-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070150/359">+</a> 오래 참고<a class="b" data-bid="361-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070150/360">+</a> 친절합니다.<a class="b" data-bid="362-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070150/361">+</a> 사랑은 질투하지 않고,<a class="b" data-bid="363-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070150/362">+</a> 뽐내지 않고, 우쭐대지 않고,<a class="b" data-bid="364-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070150/363">+</a> </span></td></tr></tbody></table></div>
+<p class="qu" data-pid="60" id="p60"><strong>13.</strong> 정부 당국이 우리를 박해한다 해도 왜 존중심을 보여야 합니까? (또한 삽화 참조)</p>
+
+<p data-pid="21" data-rel-pid="[60]" id="p21"><span class="parNum" data-pnum="13"><strong><sup>13</sup></strong></span> 정부 당국이 우리의 숭배의 자유를 제한하는 법을 만들거나 우리의 삶을 힘들게 할지 모릅니다. 하지만 그럴 때에도 우리는 정부를 존중해야 합니다. 이유가 무엇입니까? 하느님께서 우리가 그렇게 하기를 바라시기 때문입니다. (<a class="b" data-bid="29-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/28/0">로마 13:1, 2</a>) 정부가 내리는 부당한 결정의 배후에 언제나 사탄이 있는 것은 아닙니다. 하지만 그는 우리가 정부의 결정에 부정적이거나 비판적으로 반응하기를 바랍니다. 그리고 우리가 중립을 지키지 못하면 기뻐합니다. 이 세상 사람들은 정부가 자기들의 마음에 들지 않는 결정을 내리면 시위를 벌이기도 하지만 그리스도인들은 그렇게 해서는 안 됩니다! (<a class="b" data-bid="30-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/29/0">잠언 24:21, 22</a>, 각주; <a class="b" data-bid="31-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/30/0">전도 8:2, 3</a>) 우리가 균형을 잃고 중립 입장을 타협한다면 사탄이 원하는 대로 행동하는 것입니다.—<a class="b" data-bid="32-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/31/0">요한 15:19</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[로마 13:1, 2]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v45-13-1-1"><a class="cl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070149/28359"><strong>13</strong> </a>모든 사람은 위에 있는 권위에 복종하십시오.<a class="b" data-bid="443-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070149/442">+</a> 하느님에게서 나오지 않은 권위는 없기 때문입니다.<a class="b" data-bid="444-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070149/443">+</a> 현존하는 권위는 하느님에 의해 상대적 지위에 놓여 있습니다.<a class="b" data-bid="445-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070149/444">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v45-13-2-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070149/28360">2 </a>그러므로 그 권위를 대적하는<a class="fn" data-fnid="32" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070149/31" id="footnotesource32">*</a><em> (각주: 또는 “거스르는”.)</em> 사람은 하느님의 마련을 거스르는 것입니다. 그 마련을 거스르는 사람들은 심판을 자초할 것입니다. </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[잠언 24:21, 22]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v20-24-21-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070124/17216">21 </a>내 아들아, 여호와와 왕을 두려워하고,<a class="b" data-bid="797-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070124/796">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v20-24-21-2">반기를 드는 자<a class="fn" data-fnid="339" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070124/338" id="footnotesource339">*</a><em> (각주: 또는 “변화를 추구하는 자”.)</em>들과 어울리지 마라.<a class="b" data-bid="798-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070124/797">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v20-24-22-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070124/17217">22 </a>그들에게 재난이 갑자기 닥칠 것이기 때문이다.<a class="b" data-bid="799-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070124/798">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v20-24-22-2">그 두 분<a class="fn" data-fnid="340" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070124/339" id="footnotesource340">*</a><em> (각주: 여호와와 왕을 가리킴.)</em>이 그들을 어떻게 멸망시키실지 누가 알겠느냐?<a class="b" data-bid="800-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070124/799">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[전도 8:2, 3]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v21-8-2-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070125/17576">2 </a>나는 말한다. “하느님께 한 맹세를 존중하여<a class="b" data-bid="168-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070125/167">+</a> 왕의 명령에 순종하여라.<a class="b" data-bid="169-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070125/168">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v21-8-3-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070125/17577">3 </a>왕 앞에서 서둘러 물러 나오지 말고,<a class="b" data-bid="170-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070125/169">+</a> 나쁜 일에 가담하지 마라.<a class="b" data-bid="171-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070125/170">+</a> 그는 자기가 하고 싶은 일은 무엇이든 할 수 있다. </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[요한 15:19]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v43-15-19-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070147/26810">19 </a>여러분이 세상에 속해 있다면 세상은 여러분을 자기의 것으로 여겨 좋아할 것입니다. 그러나 여러분이 세상에 속해 있지 않고<a class="b" data-bid="600-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070147/599">+</a> 내가 여러분을 세상에서 선택했기 때문에 세상이 여러분을 미워합니다.<a class="b" data-bid="601-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070147/600">+</a> </span></td></tr></tbody></table></div>
+<div class="du-margin-top--8" id="f2">
+<figure>
+<img alt="오토바이를 타고 가던 한 형제가 시위를 벌이는 사람들을 쳐다봅니다. 한 시위자가 형제에게 시위에 참여하라고 손짓하고 있습니다." data-img-small-src="/ko/wol/mp/r8/lp-ko/w26/2026/457" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/w26/2026/458" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption">
+<p data-pid="73" id="p73">당신은 중립을 지킴으로 계속 여호와와 그분의 왕국에 충성할 것입니까? (13항 참조)</p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">오토바이를 타고 가던 한 형제가 시위를 벌이는 사람들을 쳐다봅니다. 한 시위자가 형제에게 시위에 참여하라고 손짓하고 있습니다.</td></tr></tbody></table></div></figure>
+</div>
+<hr class="du-width--oneQuarter du-borderColor--amber-600 du-borderWidth--2 du-margin-top--0 du-margin-bottom--8"/>
+<p class="qu" data-pid="62" id="p62"><strong>14.</strong> 사람들이 우리를 반대할 때 무엇을 기억해야 합니까?</p>
+
+<p data-pid="22" data-rel-pid="[62]" id="p22"><span class="parNum" data-pnum="14"><strong><sup>14</sup></strong></span> 이전에 진리를 반대하던 일부 사람들이 현재 우리와 함께 여호와를 열심히 섬기고 있습니다. (<a class="b" data-bid="33-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/32/0">디모데 전서 1:12, 13</a>) 따라서 사람들이 “[우리를] 모욕하고 박해하고 [우리]에 대해 거짓으로 온갖 악한 말을 할 때에” 그 점을 기억하십시오. (<a class="b" data-bid="34-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/33/0">마태 5:11</a>) 또한 우리가 계속 숭배의 자유를 누릴 수 있게 정부 관리들을 위해 기도하십시오. (<a class="b" data-bid="35-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/34/0">디모데 전서 2:1, 2</a>) 반대하는 가족이나 직장 동료나 학교 친구들을 위해서도 기도할 수 있습니다. 어떻게 하면 그들의 마음을 움직일 수 있을지 깨닫게 도와달라고 기도하십시오. 무엇보다도 참을성을 나타내십시오! 오랫동안 남편을 박해하다 증인이 된 한 자매는 이렇게 말합니다. <span aria-hidden="true" class="pageNum" data-before-text="13" data-no="13" id="page13"></span>“인내하고 인내하고 또 인내하면 좋은 결과가 생길 수 있지요.”</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[디모데 전서 1:12, 13]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v54-1-12-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070158/29800">12 </a>나에게 능력을 주신 우리 주 그리스도 예수께 감사합니다. 그분이 나를 충실한 자로 여기시고 봉사의 직무를 맡기셨기 때문입니다.<a class="b" data-bid="16-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070158/15">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v54-1-13-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070158/29801">13 </a>내가 전에는 신성을 모독하는 자, 박해하는 자, 불손한 자였습니다.<a class="b" data-bid="17-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070158/16">+</a> 그렇지만 내가 모르고 믿음 없이 한 일이기 때문에 나는 자비를 받았습니다. </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[마태 5:11]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v40-5-11-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070144/23361">11 </a>사람들이 나 때문에 여러분을 모욕하고<a class="b" data-bid="141-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/140">+</a> 박해하고<a class="b" data-bid="142-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/141">+</a> 여러분에 대해 거짓으로 온갖 악한 말을 할 때에, 여러분은 행복합니다.<a class="b" data-bid="143-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/142">+</a> </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[디모데 전서 2:1, 2]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v54-2-1-1"><a class="cl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070158/29809"><strong>2</strong> </a>그러므로 나는 무엇보다도 이것을 권고합니다. 모든 부류의 사람들에 관해 간구와 기도와 탄원과 감사를 드리고, </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v54-2-2-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070158/29810">2 </a>왕들과 높은 지위에 있는 모든 사람에 관해서도 그렇게 하십시오.<a class="b" data-bid="29-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070158/28">+</a> 그리하여 우리가 경건한 정성과 진지함을 온전히 나타내며 평온하고 조용한 생활을 계속할 수 있게 하십시오.<a class="b" data-bid="30-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070158/29">+</a> </span></div></td></tr></tbody></table></div>
+<p class="qu" data-pid="64" id="p64"><strong>15.</strong> 우리의 시간과 활력을 어디에 사용하는 것이 지혜로우며, 그 이유는 무엇입니까?</p>
+
+<p data-pid="23" data-rel-pid="[64]" id="p23"><span class="parNum" data-pnum="15"><strong><sup>15</sup></strong></span> 현재 이 세상에서 일어나는 모든 불공정을 우리 힘으로 바로잡는다는 것은 불가능한 일입니다. (<a class="b" data-bid="36-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/35/0">전도 1:15</a>) 여호와께서는 우리가 어떤 어려움과 불공정을 겪고 있는지 정확히 아십니다. (<a class="b" data-bid="37-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/36/0">시 37:18</a>) 그분은 머지않아 자신의 왕국을 통해, 사탄과 그를 따르는 자들이 가져온 모든 해를 바로잡으실 것입니다. (<a class="b" data-bid="38-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/37/0">요한 1서 3:8;</a><a class="b" data-bid="38-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/37/1"> 계시록 21:5</a>) 그때까지 우리는 계속 사람들에게 참을성과 사랑을 나타내야 합니다. 우리의 시간과 활력을 가능한 한 많은 사람들이 여호와의 친구가 되도록 돕는 데 사용해야겠습니다.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[전도 1:15]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v21-1-15-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070125/17446">15 </a>구부러진 것은 곧게 할 수 없고,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v21-1-15-2">없는 것은 셀 수 없다.</span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[시 37:18]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-37-18-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070123/14501">18 </a>여호와께서 나무랄 데 없는 자들이 겪는 일<a class="fn" data-fnid="232" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070123/231" id="footnotesource232">*</a><em> (각주: 직역하면 “나무랄 데 없는 자들의 나날”.)</em>을 알고 계시니,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-37-18-2">그들의 상속 재산은 영원히 지속될 것이다.<a class="b" data-bid="713-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070123/712">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[요한 1서 3:8;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v62-3-8-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070166/30679">8 </a>죄를 거듭 짓는 사람은 마귀에게서 나왔습니다. 마귀는 처음부터<a class="fn" data-fnid="7" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070166/6" id="footnotesource7">*</a><em> (각주: 또는 “시작할 때부터”.)</em> 죄를 지어 왔기 때문입니다.<a class="b" data-bid="66-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070166/65">+</a> 하느님의 아들이 나타나신 목적은 마귀의 일을 산산이 부숴 버리기<a class="fn" data-fnid="8" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070166/7" id="footnotesource8">*</a><em> (각주: 또는 “멸하기”.)</em> 위한 것입니다.<a class="b" data-bid="67-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070166/66">+</a></span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[계시록 21:5]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v66-21-5-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070170/31150">5 </a>그리고 왕좌에 앉아 계신 분이<a class="b" data-bid="587-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070170/586">+</a> 이렇게 말씀하셨다. “보아라! 내가 모든 것을 새롭게 한다.”<a class="b" data-bid="588-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070170/587">+</a> 또 그분이 말씀하셨다. “이 말은 신실하고<a class="fn" data-fnid="97" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070170/96" id="footnotesource97">*</a><em> (각주: 또는 “믿을 만하고”.)</em> 참되니 기록하여라.” </span></td></tr></tbody></table></div>
+<h2 class="du-color--coolGray-700 du-textAlign--center" data-pid="24" id="p24"><strong>우리는 승리할 수 있습니다!</strong></h2>
+<p class="qu" data-pid="66" id="p66"><strong>16.</strong> 악한 영의 세력들을 상대로 한 싸움에서 승리하려면 무엇이 필요합니까? (또한 삽화 참조)</p>
+
+<p data-pid="25" data-rel-pid="[66]" id="p25"><span class="parNum" data-pnum="16"><strong><sup>16</sup></strong></span> 성경에서는 우리가 악한 영의 세력들을 상대로 한 싸움에서 이길 수 있다고 알려 줍니다. (<a class="b" data-bid="39-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/38/0">야고보 4:7;</a><a class="b" data-bid="39-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/38/1"> 요한 1서 5:4, 5</a>) 그리고 그 싸움에서 이기려면 반드시 강한 믿음이 있어야 한다고 강조합니다. (<a class="b" data-bid="40-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/39/0">에베소 6:16</a>) 따라서 여호와와 예수에 대한 믿음을 계속 길러 나가도록 하십시오. 그런 믿음은 우리가 형제자매들을 늘 사랑하고 그들과 연합을 유지하는 데도 도움이 될 것입니다.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[야고보 4:7;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v59-4-7-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070163/30436">7 </a>그러므로 하느님께 복종하고<a class="b" data-bid="91-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070163/90">+</a> 마귀를 대적하십시오.<a class="b" data-bid="92-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070163/91">+</a> 그러면 마귀가 여러분에게서 도망할 것입니다.<a class="b" data-bid="93-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070163/92">+</a> </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[요한 1서 5:4, 5]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v62-5-4-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070166/30720">4 </a>하느님에게서 난 사람<a class="fn" data-fnid="18" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070166/17" id="footnotesource18">*</a><em> (각주: 직역하면 “것”.)</em>은 모두 세상을 이기기 때문입니다.<a class="b" data-bid="137-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070166/136">+</a> 그리고 세상을 이긴 그 승리는 바로 우리의 믿음입니다.<a class="b" data-bid="138-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070166/137">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v62-5-5-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070166/30721">5 </a>누가 세상을 이길 수 있습니까?<a class="b" data-bid="139-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070166/138">+</a> 예수께서 하느님의 아들이심을 믿는 사람이 아닙니까?<a class="b" data-bid="140-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070166/139">+</a> </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[에베소 6:16]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v49-6-16-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070153/29445">16 </a>이 모든 것에 더해 믿음의 큰 방패를 드십시오.<a class="b" data-bid="202-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/201">+</a> 그것으로 여러분은 악한 자의 불화살을 모두 끌 수 있을 것입니다.<a class="b" data-bid="203-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/202">+</a> </span></td></tr></tbody></table></div>
+<div class="du-margin-top--8" id="f3">
+<figure>
+<img alt="삽화 모음: 형제자매들이 서로에 대한 사랑을 키우고 연합을 유지하기 위해 노력하는 모습. 1. 나이와 인종이 다른 두 형제가 왕국회관에서 즐겁게 대화를 나눕니다. 2. 신권 건축 공사 현장에서 젊은 형제가 더 나이 많은 형제에게 작업 지시를 합니다. 3. 나이와 인종이 다양한 자매들이 봉사 중에 차 안에서 즐겁게 대화를 나눕니다." data-img-small-src="/ko/wol/mp/r8/lp-ko/w26/2026/459" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/w26/2026/460" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption">
+<p data-pid="75" id="p75">형제자매들에 대한 사랑을 키우고 연합을 유지하기 위해 노력한다면 악한 영의 세력들과의 싸움에서 승리할 수 있습니다 (16항 참조)</p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">삽화 모음: 형제자매들이 서로에 대한 사랑을 키우고 연합을 유지하기 위해 노력하는 모습. 1. 나이와 인종이 다른 두 형제가 왕국회관에서 즐겁게 대화를 나눕니다. 2. 신권 건축 공사 현장에서 젊은 형제가 더 나이 많은 형제에게 작업 지시를 합니다. 3. 나이와 인종이 다양한 자매들이 봉사 중에 차 안에서 즐겁게 대화를 나눕니다.</td></tr></tbody></table></div></figure>
+</div>
+<hr class="du-width--oneQuarter du-borderColor--amber-600 du-borderWidth--2 du-margin-top--0 du-margin-bottom--8"/>
+<p class="qu" data-pid="68" id="p68"><strong>17.</strong> 당신은 어떻게 하기로 결심했습니까?</p>
+
+<p data-pid="26" data-rel-pid="[68]" id="p26"><span class="parNum" data-pnum="17"><strong><sup>17</sup></strong></span> 앞으로 사탄이 우리를 분열시키고 전파 활동에 대한 우리의 열의를 꺾기 위해 어떠한 방법을 사용하든 그의 계략에 넘어가서는 안 되겠습니다. 여호와와 예수께서는 우리가 그분들에게 충성스럽게 고착하는 한 우리 편이 되어 주겠다고 약속하셨습니다. 또한 형제자매들도 주된 적인 사탄에 맞서 우리 곁에서 함께 싸우고 있습니다. 사람들이 우리를 반대할 때는 예수의 말씀대로 그들을 친절하게 대하기 위해 최선을 다하십시오. (<a class="b" data-bid="41-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026521/40/0">누가 6:27, 28</a>) 포기하지 말고 사탄의 공격에 계속 맞서 싸우십시오! 분명 우리는 악한 영의 세력들을 상대로 한 싸움에서 승리할 수 있습니다.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[누가 6:27, 28]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v42-6-27-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070146/25277">27 </a>그러나 듣고 있는 여러분에게 말합니다. 계속해서 원수를 사랑하고 여러분을 미워하는 사람에게 선을 행하고<a class="b" data-bid="268-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070146/267">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v42-6-28-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070146/25278">28 </a>여러분을 저주하는 사람을 축복하고 여러분을 모욕하는 사람을 위해 기도하십시오.<a class="b" data-bid="269-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070146/268">+</a> </span></div></td></tr></tbody></table></div>
+</div>
+<div class="blockTeach dc-ttClassStyle--unset"><aside><div class="boxTtl dc-ttClassStyle--unset du-borderStyle-top--solid du-borderColor--amber-600 du-borderWidth--2 du-margin-top--6 du-margin-children-vertical--6" data-pid="27" id="p27"><h2><strong>어떻게 대답하시겠습니까?</strong></h2></div>
+<div class="boxContent dc-ttClassStyle--unset"><ul><li><p data-pid="28" id="p28">  사탄은 어떻게 우리의 연합을 깨뜨리려고 합니까?</p>
+
+</li>
+<li><p data-pid="30" id="p30">  사탄은 어떻게 전파 활동에 대한 우리의 열의를 꺾으려고 합니까?</p>
+
+</li>
+<li><p data-pid="32" id="p32">  악한 영의 세력들을 상대로 승리할 수 있다고 당신이 확신하는 이유는 무엇입니까?</p>
+
+</li>
+</ul>
+</div>
+</aside></div>
+<div class="du-color--textSubdued" id="tt36">
+<p class="pubRefs" data-pid="34" id="p34"><a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/2026521/1/0"><strong>노래 149</strong></a> 승리의 노래</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[노래 149]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<p class="contextTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="182" data-no="182" id="page182"></span><strong>149번</strong></p>
+<h1 data-pid="2" id="p2"><strong>승리의 노래</strong></h1>
+</header> 
+<p class="themeScrp" data-pid="3" id="p3">(<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016949/0/0">출애굽기 15:1</a>)</p>
+<div class="bodyTxt">
+<ol><li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="4" id="p4">찬송하여라, 영화로운 주 여호와를.</p>
+<p class="sz" data-pid="5" id="p5">저 이집트의 군대 바다에 던졌네.</p>
+<p class="sp" data-pid="6" id="p6">전능하시니, 그 누구도 맞설 수 없네.</p>
+<p class="sz" data-pid="7" id="p7">그 이름 여호와, 큰 승리 거두셨네.</p>
+<div class="chorus"><p class="se" data-pid="8" id="p8">(후렴)</p>
+<p class="sp" data-pid="9" id="p9">지극히 크신 주 여호와,</p>
+<p class="sz" data-pid="10" id="p10" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">늘 승리하는 우리 하느님,</p>
+<p class="sp" data-pid="11" id="p11">곧 모든 적을 멸망시키고</p>
+<p class="sz" data-pid="12" id="p12" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">이름 거룩게 하소서.</p>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="13" id="p13">모든 나라가 주 여호와 대적하지만</p>
+<p class="sz" data-pid="14" id="p14">아무리 강한 적도 큰 수치 겪으리.</p>
+<p class="sp" data-pid="15" id="p15">아마겟돈 때 그들 모두 멸하시리라.</p>
+<p class="sz" data-pid="16" id="p16">그 이름 여호와, 반드시 알게 되리.</p>
+<div class="chorus"><p class="se" data-pid="17" id="p17">(후렴)</p>
+<p class="sp" data-pid="18" id="p18">지극히 크신 주 여호와,</p>
+<p class="sz" data-pid="19" id="p19" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">늘 승리하는 우리 하느님,</p>
+<p class="sp" data-pid="20" id="p20">곧 모든 적을 멸망시키고</p>
+<p class="sz" data-pid="21" id="p21" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">이름 거룩게 하소서.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="closingContent"><p class="se" data-pid="22" id="p22">(<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016949/1/0">시 2:2,</a><a class="b" data-bid="2-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016949/1/1"> 9;</a><a class="b" data-bid="2-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016949/1/2"> 92:8;</a><a class="b" data-bid="2-4" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016949/1/3"> 말라기 3:6;</a><a class="b" data-bid="2-5" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016949/1/4"> 계시록 16:16</a> 참조)</p>
+</div>
+<p class="sb" data-pid="23" id="p23"></p>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="{BibleBookName} {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value="{BibleBookName} {StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value="{BibleBookName} {BibleVerse}"/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="파26 8월호 {StartingPageNumber}-{EndingPageNumber}면"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="파26 8월호 {PageNumber}면"/>
+<input id="documentDescription" type="hidden" value="파26 8월호"/>
+<input id="englishSym" type="hidden" value="w"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="audioPubSym" type="hidden" value="w"/>
+<input id="chapNo" type="hidden" value="-1"/>
+<input id="issue" type="hidden" value="202608"/>
+<input id="docId" type="hidden" value="2026521"/>
+<input id="documentInBible" type="hidden" value=""/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=KO&amp;docid=2026521&amp;srctype=wol&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="document"/>
+<input id="contentTitle" type="hidden" value="악한 영의 세력들과 싸워 이기십시오!"/>
+<input id="parentTitle" type="hidden" value="파수대—여호와의 왕국 선포 (연구용)—2026"/>
+<input id="contentThumbnail" type="hidden" value="/ko/wol/d/r8/lp-ko/2026521/thumbnail"/>
+</article>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Gather all alternate presentation elements and their images
+        const altPresElements = Array.from(document.querySelectorAll('.alternatePresentation'));
+        const altImages = altPresElements.map(el => {
+            const img = el.querySelector('img');
+            if (img) {
+                return {
+                    src: img.getAttribute('data-alt-src') || img.getAttribute('src'),
+                    title: el.querySelector('.title')?.textContent || "Image"
+                };
+            }
+            return null;
+        }).filter(Boolean);
+
+        // 2. Create Lightbox DOM structure dynamically
+        const lightbox = document.createElement('div');
+        lightbox.className = 'custom-lightbox';
+        lightbox.innerHTML = `
+            <button class="custom-lightbox-close">&times;</button>
+            <button class="custom-lightbox-nav custom-lightbox-prev">&#10094;</button>
+            <div class="custom-lightbox-content">
+                <img class="custom-lightbox-img" src="" alt="" />
+            </div>
+            <button class="custom-lightbox-nav custom-lightbox-next">&#10095;</button>
+            <div class="custom-lightbox-caption"></div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('.custom-lightbox-img');
+        const lightboxCaption = lightbox.querySelector('.custom-lightbox-caption');
+        const closeBtn = lightbox.querySelector('.custom-lightbox-close');
+        const prevBtn = lightbox.querySelector('.custom-lightbox-prev');
+        const nextBtn = lightbox.querySelector('.custom-lightbox-next');
+
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        const openLightbox = (group, index) => {
+            currentGroup = group;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const updateLightbox = () => {
+            const item = currentGroup[currentIndex];
+            if (item) {
+                lightboxImg.src = item.src;
+                if (item.title && item.title.trim() !== "" && item.title.trim() !== "Printed Edition") {
+                    lightboxCaption.textContent = item.title;
+                    lightboxCaption.style.display = 'block';
+                } else {
+                    lightboxCaption.textContent = "";
+                    lightboxCaption.style.display = 'none';
+                }
+                if (currentGroup.length > 1) {
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                } else {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                }
+            }
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImg.src = '';
+            lightboxCaption.textContent = '';
+        };
+
+        const navigate = (direction) => {
+            if (currentGroup.length <= 1) return;
+            currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+            updateLightbox();
+        };
+
+        // Event Listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('custom-lightbox-content')) {
+                closeLightbox();
+            }
+        });
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Attach click handlers to alternate presentations
+        altPresElements.forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(altImages, index);
+            });
+        });
+
+        // Attach click handlers to other zoomable figure images
+        document.querySelectorAll('article figure img:not(.suppressZoom)').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = img.getAttribute('data-alt-src') || img.getAttribute('src');
+                const title = img.getAttribute('alt') || "";
+                openLightbox([{ src, title }], 0);
+            });
+        });
+    });
+    </script>
+</body>
+</html>

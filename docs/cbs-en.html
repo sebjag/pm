@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>He Followed Unusual Instructions</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">📖</text></svg>'>
+    <link rel="stylesheet" type="text/css" href="css/media-player.css">
+    <link rel="stylesheet" type="text/css" href="css/+0+61168f8ef805085f5a3c0118b14679f74c9e62a4.css">
+    <link rel="stylesheet" type="text/css" href="css/+1+f8319dd08c749624466cb777b7d528e1a42d7368.css">
+    <link rel="stylesheet" type="text/css" href="css/+2+894de4a6eba76bf97927253f95f582449947a96e.css">
+    <link rel="stylesheet" type="text/css" href="css/+3+d00a791fdbb951906e95f1428ae322e41ea9da95.css">
+    <style>
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @media screen and (min-width: 600px) {
+            .document, .bible {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 16px 50px 80px;
+            }
+            .document .dc-bleedToArticleEdge, .bible .dc-bleedToArticleEdge {
+                margin-left: -50px;
+                margin-right: -50px;
+            }
+            .document .dc-paddingToContentEdge, .bible .dc-paddingToContentEdge {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        #content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+        .inserted-reference {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+            font-size: 0.95em;
+        }
+        .inserted-reference-header {
+            margin: 0;
+            padding: 4px 16px;
+            background-color: #e2e6ea;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #495057;
+        }
+        .inserted-reference-header a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #1a73e8;
+        }
+        .inserted-reference-header a:hover {
+            text-decoration: underline;
+        }
+        .inserted-reference > *:not(.inserted-reference-header) {
+            margin: 12px 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-style: italic;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        /* Custom Lightbox Styles */
+        .custom-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            /* user-select: none; */
+            /* -webkit-user-select: none; */
+        }
+        .custom-lightbox.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .custom-lightbox-content {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 35px;
+            color: #fff;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10002;
+            transition: transform 0.2s ease;
+        }
+        .custom-lightbox-close:hover {
+            transform: scale(1.1);
+        }
+        .custom-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 20px;
+        }
+        .custom-lightbox-nav:hover {
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .custom-lightbox-prev {
+            left: 0px;
+        }
+        .custom-lightbox-next {
+            right: 0px;
+        }
+        .custom-lightbox-caption {
+            color: #ccc;
+            margin-top: 15px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 80%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body, #content {
+                background-color: #171c2a !important;
+                color: #e2e8f0;
+            }
+            .document, .bible, .article, #article {
+                background-color: #1e293b !important;
+                color: #e2e8f0;
+            }
+            .scalableui, .bodyTxt {
+                background-color: transparent !important;
+                color: #e2e8f0;
+            }
+            .du-bgColor--bgSecondary, .du-bgColor--warmGray-50,
+            [class*="du-bgColor--bgSecondary"], [class*="du-bgColor--warmGray-"],
+            #tt9, .document #tt9, body #tt9,
+            .document [class*="du-bgColor--bgSecondary"], body [class*="du-bgColor--bgSecondary"],
+            .document [class*="du-bgColor--warmGray-"], body [class*="du-bgColor--warmGray-"] {
+                background-color: #2d3a4f !important;
+                color: #e2e8f0 !important;
+            }
+            .du-borderColor--borderDefault, hr {
+                border-color: #3b4d66 !important;
+            }
+            .du-color--teal-700 {
+                color: #2dd4bf !important;
+            }
+            h1, h2, h3, h4, h5, h6, strong {
+                color: #f8fafc;
+            }
+            a, a.b, a.vl, a.fn, a:visited {
+                color: #60a5fa;
+            }
+            a:hover, a.b:hover, a.vl:hover, a.fn:hover {
+                color: #93c5fd;
+            }
+            .du-color--textSubdued, .pageNum, .themeScrp {
+                color: #94a3b8 !important;
+            }
+            .inserted-reference {
+                background-color: #263346;
+                border: 1px solid #3b4d66;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .inserted-reference-header {
+                background-color: #1e2b3c;
+                border-bottom: 1px solid #3b4d66;
+                color: #cbd5e1;
+            }
+            .inserted-reference-header a {
+                color: #60a5fa;
+            }
+            .inserted-reference-header a:hover {
+                color: #93c5fd;
+            }
+            .note-card-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .note-card-header {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #cbd5e1 !important;
+            }
+            .note-card-header a {
+                color: #60a5fa !important;
+            }
+            .note-card-body {
+                color: #e2e8f0 !important;
+            }
+            .box-supplement-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+            }
+            .box-supplement-table th {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #f8fafc !important;
+            }
+            .box-supplement-table th h1, .box-supplement-table th h2,
+            .box-supplement-table th h3, .box-supplement-table th h4,
+            .box-supplement-table th strong, .box-supplement-table th p {
+                color: #f8fafc !important;
+            }
+            .box-supplement-table td {
+                color: #e2e8f0 !important;
+            }
+            .image-caption {
+                color: #94a3b8;
+            }
+            .custom-lightbox-img {
+                background-color: #1e293b;
+            }
+            .custom-lightbox-caption {
+                color: #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body  class="showRuby cc-theme--light DynamicLayout">
+    <div id="content" class="content">
+        <article class="article document html5 pub- docId-1102025913 pub-wcg pub- pub-wcg docClass-13 jwac showRuby ml-E ms-ROMAN dir-ltr includeSecondaryNav" data-lang="E" dir="ltr" id="article" lang="en" role="article">
+<div class="scalableui">
+<header>
+<div class="dc-bleedToArticleEdge suppressZoom" id="f1">
+<figure>
+<img alt="" class="suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/316" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/317" style="max-width: min(100%, 700px); height: auto;"/>
+</figure>
+</div>
+<p class="contextTtl dc-bleedToArticleEdge dc-paddingToContentEdge du-letterSpacing--1 du-color--orange-700 du-borderColor--orange-700 du-borderStyle-bottom--solid du-borderWidth--1 du-padding-vertical--2" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="66" data-no="66" id="page66"></span><strong>13</strong> JOSHUA</p>
+<h1 class="du-color--coolGray-600 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="2" id="p2"><strong>He Followed Unusual Instructions</strong></h1>
+</header> <div class="clearfix alternatePresentation clickable noTooltips">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/314" data-alt-type="svg" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/312" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">Printed Edition</div>
+</div>
+<div class="clearfix alternatePresentation clickable noTooltips hidden">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/315" data-alt-type="svg" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/313" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">Printed Edition</div>
+</div>
+<div class="bodyTxt">
+<div id="tt4">
+<p data-pid="3" id="p3">JOSHUA faced Jericho, the city that God directed him to attack and destroy. He remembered what Jehovah had told him when Moses was about to die: “Be courageous and strong.” (<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025913/0/0">Deut. 31:23</a>) More recently, Jehovah had told Joshua something similar: “Be courageous and very strong.” (<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025913/1/0">Josh. 1:7</a>) Now, Joshua would need every bit of courage he could muster. Why?</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Deut. 31:23]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v5-31-23-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070109/5751">23 </a>He<a class="fn" data-fnid="210" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070109/209" id="footnotesource210">*</a><em> (Footnote: Evidently God.)</em> then commissioned Joshua<a class="b" data-bid="1068-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070109/1067">+</a> the son of Nun and said: “Be courageous and strong,<a class="b" data-bid="1069-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070109/1068">+</a> for you are the one who will bring the Israelites into the land about which I have sworn to them,<a class="b" data-bid="1070-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070109/1069">+</a> and I will continue with you.”</span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Josh. 1:7]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v6-1-7-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5858">7 </a>“Only be courageous and very strong, and observe carefully the entire Law that Moses my servant commanded you. Do not deviate from it either to the right or to the left,<a class="b" data-bid="13-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/12">+</a> so that you may act wisely wherever you go.<a class="b" data-bid="14-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/13">+</a> </span></td></tr></tbody></table></div>
+<p data-pid="4" id="p4">Jericho was not an especially large city, but it was a strong and important one. It was here that Israel would begin its conquest of Canaan, the Promised Land, and the city was fortified, surrounded by a great wall. Behind that wall, its people were steeped in wickedness. Centuries earlier, Jehovah had told Abraham of “the error of the Amorites,” referring to all the people in this region of Canaan. He said that their wicked course would one day reach “its full measure,” and then Jehovah would finally execute judgment on them. (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025913/2/0">Gen. 15:16</a>) That day had now come. The people practiced idolatry, temple prostitution, homosexuality, incest, bestiality, and even the sacrifice of children to vile gods. The Canaanites had become so bad that it was as if the very land needed to vomit them out! (<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025913/3/0">Lev. 18:3,</a><a class="b" data-bid="4-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025913/3/1"> 6,</a><a class="b" data-bid="4-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025913/3/2"> 21-27</a>) How would that happen?</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Gen. 15:16]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v1-15-16-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070105/376">16 </a>But they will return here<a class="b" data-bid="361-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070105/360">+</a> in the fourth generation, because the error of the Amʹor·ites has not yet reached its full measure.”<a class="b" data-bid="362-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070105/361">+</a></span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Lev. 18:3,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v3-18-3-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070107/3254">3 </a>You must not behave as they do in the land of Egypt, where you were dwelling, and you must not do what they do in the land of Caʹnaan, where I am bringing you.<a class="b" data-bid="487-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070107/486">+</a> And you must not walk in their statutes. </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[6,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v3-18-6-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070107/3257">6 </a>“‘No man among you should approach any of his close relatives to have sexual relations.<a class="fn pr" data-fnid="105" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070107/104" id="footnotesource105">*</a><em> (Footnote: Lit., “to uncover nakedness,” here and in subsequent occurrences.)</em><a class="b" data-bid="490-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070107/489">+</a> I am Jehovah. </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[21-27]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v3-18-21-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070107/3272">21 </a>“‘You must not allow any of your offspring to be offered<a class="fn" data-fnid="111" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070107/110" id="footnotesource111">*</a><em> (Footnote: Or “devoted; sacrificed.”)</em> to Moʹlech.<a class="b" data-bid="501-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070107/500">+</a> You must not profane the name of your God in that way.<a class="b" data-bid="502-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070107/501">+</a> I am Jehovah.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v3-18-22-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070107/3273">22 </a>“‘You must not lie down with a male in the same way that you lie down with a woman.<a class="b" data-bid="503-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070107/502">+</a> It is a detestable act.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v3-18-23-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070107/3274">23 </a>“‘A man must not have sexual intercourse with an animal to become unclean by it; nor should a woman offer herself to an animal to have intercourse with it.<a class="b" data-bid="504-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070107/503">+</a> It is a violation of what is natural.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v3-18-24-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070107/3275">24 </a>“‘Do not make yourselves unclean by any of these things, for it is by all these things that the nations that I am driving out from before you have made themselves unclean.<a class="b" data-bid="505-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070107/504">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v3-18-25-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070107/3276">25 </a>Therefore, the land is unclean, and I will bring punishment on it for its error, and the land will vomit its inhabitants out.<a class="b" data-bid="506-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070107/505">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v3-18-26-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070107/3277">26 </a>But you yourselves must keep my statutes and my judicial decisions,<a class="b" data-bid="507-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070107/506">+</a> and you must not do any of these detestable things, whether a native or a foreigner who is residing among you.<a class="b" data-bid="508-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070107/507">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v3-18-27-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070107/3278">27 </a>For all these detestable things were done by the men who lived in the land before you,<a class="b" data-bid="509-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070107/508">+</a> and now the land is unclean. </span></div></td></tr></tbody></table></div>
+<div class="stdPullQuote dc-ttClassStyle--unset du-color--orange-700 du-float-desktopOnly--inlineStart du-width-desktopOnly--oneHalf du-margin-inlineStart-mobileOnly--6 du-margin-inlineEnd-desktopOnly--4 du-margin-children-top-desktopOnly--0"><p data-pid="47" id="p47"><strong>Jehovah told Joshua to attack a walled city in a way that made no sense from a military standpoint</strong></p>
+</div>
+<p data-pid="5" id="p5">God would use Joshua and his faithful men. Those soldiers were ready to follow Jehovah’s directions. This battle would be Jehovah’s first step in ridding the land of those wicked people. Still, the instructions Jehovah gave Joshua were so unusual! Jehovah told him, not to launch an immediate attack nor to prepare for a long siege, but to <strong><em>march.</em></strong> Simply march around the city for six days, once each day. The priests were to march as well, carrying the ark of the covenant and blowing horns. On the seventh day, they were all to march around the city seven times​—and then shout.</p>
+<div class="dc-bleedToArticleEdge du-margin-vertical--8 du-margin-vertical-desktopOnly--12" id="f2">
+<figure>
+<img alt="Canaanite men, ready for battle, standing atop Jericho’s wall and watching with concern as the Israelites march around the city." data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/318" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/319" style="max-width: min(100%, 700px); height: auto;"/>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">Canaanite men, ready for battle, standing atop Jericho’s wall and watching with concern as the Israelites march around the city.</td></tr></tbody></table></div></figure>
+</div>
+<p data-pid="6" id="p6">Joshua had some experience as a soldier. From a human, military standpoint, this strategy made no sense. And what if Israel were to lose this battle? Might not all the other Canaanite cities grow bolder, even more aggressive?</p>
+<p data-pid="7" id="p7">On the other hand, Jehovah had already given Joshua reason to trust him. When Joshua sent two spies into Jericho, they <span aria-hidden="true" class="pageNum" data-before-text="67" data-no="67" id="page67"></span>learned that the men of Jericho were weak with fear of the Israelites. Then, Jehovah had miraculously stopped up the waters of the Jordan River, allowing the Israelites to pass through.</p>
+<p data-pid="8" id="p8">Joshua surely pondered those reasons for putting faith in his God. He found the courage to obey. So he led his army in a march around Jericho. The priests blew their horns. However, the city was quiet, “tightly shut up” against attack. The next day, Joshua led another march, again doing exactly as Jehovah had commanded. Day after day they did the same, for six days. Then the seventh day came.</p>
+<p data-pid="9" id="p9">Seven times in that one day, Joshua’s army marched around Jericho. Finally, at the end of the seventh march, they did something different. Joshua called out: “Shout, for Jehovah has given you the city!” They did not have long to wait. We read: “As soon as the people . . . shouted a great war cry, the wall fell down flat.”</p>
+<p data-pid="10" id="p10">Joshua and his men marched right into the city and destroyed every living thing, just as Jehovah had commanded. When Jehovah was with them, Joshua and his army defeated city after city, nation after nation. At last, Jehovah was cleansing the land of the wicked “error of the Amorites”!</p>
+<p data-pid="11" id="p11">Still, there was a very small part of Jericho’s wall that did not fall. Why not? The answer has to do with the faith and courage of one remarkable woman, as we will see in the following chapter.</p>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="12" id="p12"><strong>Read the Bible account:</strong></h3>
+<ul><li><p data-pid="13" id="p13"> <a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025913/4/0"><strong>Deuteronomy 20:16-18</strong></a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Deuteronomy 20:16-18]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v5-20-16-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070109/5443">16 </a>But in the cities of these peoples, which Jehovah your God is giving you as an inheritance, you must not allow any breathing thing to live.<a class="b" data-bid="704-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070109/703">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v5-20-17-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070109/5444">17 </a>Instead, you should devote them completely to destruction, the Hitʹtites, the Amʹor·ites, the Caʹnaan·ites, the Perʹiz·zites, the Hiʹvites, and the Jebʹu·sites,<a class="b" data-bid="705-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070109/704">+</a> just as Jehovah your God has commanded you; </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v5-20-18-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070109/5445">18 </a>so that they may not teach you to follow all their detestable practices that they have done for their gods, causing you to sin against Jehovah your God.<a class="b" data-bid="706-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070109/705">+</a></span></div></td></tr></tbody></table></div>
+</li>
+<li><p data-pid="14" id="p14"> <a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025913/5/0"><strong>Joshua 2:1,</strong></a><a class="b" data-bid="6-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025913/5/1"> <strong>9-11,</strong></a><a class="b" data-bid="6-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025913/5/2"> <strong>24;</strong></a><a class="b" data-bid="6-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025913/5/3"> <strong>3:14-17;</strong></a><a class="b" data-bid="6-5" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025913/5/4"> <strong>5:1;</strong></a><a class="b" data-bid="6-6" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025913/5/5"> <strong>6:1-21,</strong></a><a class="b" data-bid="6-7" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025913/5/6"> <strong>24</strong></a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Joshua 2:1,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v6-2-1-1"><a class="cl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5870"><strong>2</strong> </a>Then Joshua the son of Nun secretly sent two men out from Shitʹtim<a class="b" data-bid="29-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/28">+</a> as spies. He told them: “Go and inspect the land, especially Jerʹi·cho.” So they went and came to the house of a prostitute named Raʹhab,<a class="b" data-bid="30-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/29">+</a> and they stayed there. </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[9-11,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-9-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5878">9 </a>She said to the men: “I do know that Jehovah will give you the land<a class="b" data-bid="32-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/31">+</a> and that the fear of you has fallen upon us.<a class="b" data-bid="33-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/32">+</a> All the inhabitants of the land are disheartened because of you,<a class="b" data-bid="34-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/33">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-10-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5879">10 </a>for we heard how Jehovah dried up the waters of the Red Sea before you when you left Egypt<a class="b" data-bid="35-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/34">+</a> and what you did to the two kings of the Amʹor·ites, Siʹhon<a class="b" data-bid="36-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/35">+</a> and Og,<a class="b" data-bid="37-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/36">+</a> whom you devoted to destruction on the other side<a class="fn" data-fnid="6" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/5" id="footnotesource6">*</a><em> (Footnote: That is, the east side.)</em> of the Jordan. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-11-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5880">11 </a>When we heard about it, we lost heart,<a class="fn" data-fnid="7" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/6" id="footnotesource7">*</a><em> (Footnote: Lit., “our hearts melted.”)</em> and no one has any courage<a class="fn" data-fnid="8" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/7" id="footnotesource8">*</a><em> (Footnote: Lit., “and spirit no longer arose in a man.”)</em> because of you, for Jehovah your God is God in the heavens above and on the earth beneath.<a class="b" data-bid="38-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/37">+</a> </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[24;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v6-2-24-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5893">24 </a>Then they said to Joshua: “Jehovah has handed over the entire land to us.<a class="b" data-bid="44-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/43">+</a> In fact, all the inhabitants of the land are disheartened because of us.”<a class="b" data-bid="45-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/44">+</a></span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[3:14-17;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-3-14-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5907">14 </a>So when the people departed from their tents just before crossing the Jordan, the priests carrying the ark<a class="b" data-bid="60-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/59">+</a> of the covenant went ahead of the people. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-3-15-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5908">15 </a>As soon as the carriers of the Ark reached the Jordan and the priests carrying the Ark dipped their feet into the edge of the waters (now the Jordan overflows its banks<a class="b" data-bid="61-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/60">+</a> all the days of harvest), </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-3-16-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5909">16 </a>the waters flowing from upstream stood still. They rose up like a dam<a class="fn" data-fnid="17" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/16" id="footnotesource17">*</a><em> (Footnote: Or “wall.”)</em> very far away at Adam, the city near Zarʹe·than, while the waters descending toward the Sea of the Arʹa·bah, the Salt Sea,<a class="fn" data-fnid="18" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/17" id="footnotesource18">*</a><em> (Footnote: That is, the Dead Sea.)</em> drained away. They were halted, and the people crossed over opposite Jerʹi·cho. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-3-17-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5910">17 </a>While the priests carrying the ark of Jehovah’s covenant kept standing still on dry ground<a class="b" data-bid="62-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/61">+</a> in the middle of the Jordan, all Israel crossed over on dry ground<a class="b" data-bid="63-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/62">+</a> until the whole nation had finished crossing the Jordan.</span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[5:1;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v6-5-1-1"><a class="cl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5935"><strong>5</strong> </a>As soon as all the kings of the Amʹor·ites<a class="b" data-bid="85-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/84">+</a> who were on the west side<a class="fn" data-fnid="22" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/21" id="footnotesource22">*</a><em> (Footnote: Lit., “the side toward the sea.”)</em> of the Jordan and all the kings of the Caʹnaan·ites<a class="b" data-bid="86-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/85">+</a> who were by the sea heard that Jehovah had dried up the waters of the Jordan before the Israelites until they had crossed over, they lost heart,<a class="fn pr" data-fnid="23" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/22" id="footnotesource23">*</a><em> (Footnote: Lit., “their hearts melted.”)</em><a class="b" data-bid="87-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/86">+</a> and they lost all courage<a class="fn" data-fnid="24" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/23" id="footnotesource24">*</a><em> (Footnote: Lit., “and there was no spirit in them any longer.”)</em> because of the Israelites.<a class="b" data-bid="88-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/87">+</a></span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[6:1-21,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-1-1"><a class="cl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5950"><strong>6</strong> </a>Now Jerʹi·cho was tightly shut up because of the Israelites; no one was leaving and no one was entering.<a class="b" data-bid="107-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/106">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-2-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5951">2 </a>Jehovah then said to Joshua: “See, I have handed over to you Jerʹi·cho and its king and its mighty warriors.<a class="b" data-bid="108-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/107">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-3-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5952">3 </a>All you fighting men should march around the city, going around the city once. That is what you should do for six days. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-4-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5953">4 </a>Have seven priests carry seven ram’s horns before the Ark. But on the seventh day, you should march around the city seven times and the priests should blow the horns.<a class="b" data-bid="109-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/108">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-5-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5954">5 </a>When the ram’s horn is sounded—as soon as you hear the sound<a class="fn" data-fnid="29" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/28" id="footnotesource29">*</a><em> (Footnote: Or “long blast.”)</em> of the horn—all the people should shout a great war cry. Then the wall of the city will fall down flat,<a class="b" data-bid="110-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/109">+</a> and the people must go up, each one straight ahead.”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-6-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5955">6 </a>So Joshua the son of Nun called the priests together and told them: “Take up the ark of the covenant, and seven priests should carry seven ram’s horns before the Ark of Jehovah.”<a class="b" data-bid="111-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/110">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-7-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5956">7 </a>Then he told the people: “Move on and march around the city, and the armed troops<a class="b" data-bid="112-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/111">+</a> should go ahead of the Ark of Jehovah.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-8-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5957">8 </a>And just as Joshua had spoken to the people, the seven priests carrying seven ram’s horns before Jehovah went forward and blew the horns, and the ark of the covenant of Jehovah was following them. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-9-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5958">9 </a>And the armed troops went ahead of the priests who were blowing the horns, and the rear guard followed the Ark as the horns were blown continuously.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-10-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5959">10 </a>Now Joshua had commanded the people: “Do not shout nor let your voices be heard. Not a word should come out of your mouths until the day I say to you, ‘Shout!’ Then shout.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-11-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5960">11 </a>He had the Ark of Jehovah go around the city, going around it once, after which they returned to the camp and spent the night there.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-12-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5961">12 </a>The next morning Joshua got up early, and the priests took up the Ark<a class="b" data-bid="113-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/112">+</a> of Jehovah, </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-13-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5962">13 </a>and seven priests carrying seven ram’s horns walked before the Ark of Jehovah, continuously blowing the horns. The armed troops were walking ahead of them while the rear guard was following the Ark of Jehovah as the horns were blown continuously. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-14-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5963">14 </a>They marched around the city on the second day once, after which they returned to the camp. That was what they did for six days.<a class="b" data-bid="114-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/113">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-15-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5964">15 </a>On the seventh day they got up early, as soon as the dawn broke, and they marched around the city in the same manner seven times. It was only on that day that they marched around the city seven times.<a class="b" data-bid="115-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/114">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-16-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5965">16 </a>And on the seventh time, the priests blew the horns, and Joshua told the people: “Shout,<a class="b" data-bid="116-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/115">+</a> for Jehovah has given you the city! </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-17-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5966">17 </a>The city and everything in it is to be devoted to destruction;<a class="b" data-bid="117-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/116">+</a> it all belongs to Jehovah. Only Raʹhab<a class="b" data-bid="118-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/117">+</a> the prostitute may keep living, she and all who are with her in the house, because she hid the messengers we sent out.<a class="b" data-bid="119-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/118">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-18-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5967">18 </a>But keep away from what is devoted to destruction,<a class="b" data-bid="120-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/119">+</a> so that you do not desire something devoted to destruction and take it,<a class="b" data-bid="121-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/120">+</a> making the camp of Israel something devoted to destruction by bringing disaster<a class="fn" data-fnid="30" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/29" id="footnotesource30">*</a><em> (Footnote: Or “trouble; ostracism.”)</em> on it.<a class="b" data-bid="122-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/121">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-19-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5968">19 </a>But all the silver and the gold and the articles of copper and iron are holy to Jehovah.<a class="b" data-bid="123-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/122">+</a> They should go into the treasury of Jehovah.”<a class="b" data-bid="124-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/123">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-20-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5969">20 </a>Then the people shouted when the horns were blown.<a class="b" data-bid="125-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/124">+</a> As soon as the people heard the sound of the horn and shouted a great war cry, the wall fell down flat.<a class="b" data-bid="126-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/125">+</a> After that the people went up into the city, each one straight ahead, and they captured the city. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-21-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5970">21 </a>They devoted all that was in the city to destruction by the sword, man and woman, young and old, bull, sheep, and donkey.<a class="b" data-bid="127-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/126">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[24]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v6-6-24-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5973">24 </a>Then they burned the city and everything in it with fire. But the silver, the gold, and the articles of copper and iron, they gave to the treasury of Jehovah’s house.<a class="b" data-bid="130-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/129">+</a> </span></td></tr></tbody></table></div>
+</li>
+</ul>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="15" id="p15"><strong>For discussion:</strong></h3>
+<p data-pid="16" id="p16"><strong>In what ways did Joshua show courage?</strong></p>
+
+</div>
+<div id="tt14">
+<h2 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--2" data-pid="18" id="p18"><span aria-hidden="true" class="pageNum" data-before-text="68" data-no="68" id="page68"></span><strong>Dig Deeper</strong></h2>
+<ol class="du-listStyleType--source"><li><p data-pid="19" id="p19"><span class="txtSrcBullet"><strong>1.</strong> </span><strong>What inspired writings were likely available to Joshua?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025913/0/0"><em>w09</em> 12/1 17 ¶4, ftn.</a>) <span class="du-color--orange-700"><strong>A</strong></span></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[w09 12/1 17 ¶4, ftn.]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">Joshua can draw courage and strength from the inspired writings. “Take care to do according to all the law that Moses my servant commanded you,” Jehovah says. (<a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009887/4/0">Verse 7</a>) At the time, Joshua likely has just a few books of the Bible in written form.<a class="fn" data-fnid="1" href="https://wol.jw.org/en/wol/fn/r1/lp-e/2009887/0" id="footnotesource1">a</a><em> (Footnote: The inspired writings available to Joshua likely included the five books of Moses (Genesis, Exodus, Leviticus, Numbers, and Deuteronomy), the book of Job, and one or two psalms.)</em> However, the mere possession of God’s Word will not guarantee success. In order to benefit from it, Joshua needs to do two things.</td></tr></tbody></table></div>
+
+<div class="south_center" id="f3">
+<figure>
+<img alt="Joshua sitting outside a tent and reading from a scroll at night." class="south_center" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/320" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/321" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="49" id="p49"><span class="dc-screenReaderText"><strong>Picture</strong> </span><span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>A</strong></span></p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">Joshua sitting outside a tent and reading from a scroll at night.</td></tr></tbody></table></div></figure>
+</div>
+</li>
+<li><p data-pid="21" id="p21"><span class="txtSrcBullet"><strong>2.</strong> </span><strong>Before the Israelites marched around Jericho, what did Jehovah tell Joshua to do? Why may His instructions not have appeared to be a good strategy?</strong> (<a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025913/6/0">Josh. 5:2-8</a>; <a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025913/1/0"><em>w18.10</em> 23 ¶5-7</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Josh. 5:2-8]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-5-2-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5936">2 </a>At that time Jehovah said to Joshua: “Make for yourself flint knives and circumcise<a class="b" data-bid="89-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/88">+</a> the men of Israel again, a second time.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-5-3-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5937">3 </a>So Joshua made flint knives and circumcised the men of Israel at Gibʹe·ath-ha·arʹa·loth.<a class="fn pr" data-fnid="25" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/24" id="footnotesource25">*</a><em> (Footnote: Meaning “Hill of the Foreskins.”)</em><a class="b" data-bid="90-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/89">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-5-4-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5938">4 </a>This is why Joshua circumcised them: All the males of the people who left Egypt, all the men of war,<a class="fn" data-fnid="26" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/25" id="footnotesource26">*</a><em> (Footnote: Or “the men of military age.”)</em> had died in the wilderness on the journey after they left Egypt.<a class="b" data-bid="91-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/90">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-5-5-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5939">5 </a>All the people who left Egypt were circumcised, but all the people born in the wilderness on the journey after they left Egypt were not circumcised. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-5-6-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5940">6 </a>The Israelites had walked for 40 years<a class="b" data-bid="92-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/91">+</a> in the wilderness until the entire nation had died off, that is, the men of war who left Egypt who did not obey the voice of Jehovah.<a class="b" data-bid="93-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/92">+</a> Jehovah swore to them that he would never let them see the land<a class="b" data-bid="94-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/93">+</a> that Jehovah had sworn to their forefathers to give to us,<a class="b" data-bid="95-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/94">+</a> a land flowing with milk and honey.<a class="b" data-bid="96-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/95">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-5-7-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5941">7 </a>So he raised up their sons instead of them.<a class="b" data-bid="97-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/96">+</a> These Joshua circumcised; they were uncircumcised because they had not circumcised them during the journey.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-5-8-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5942">8 </a>When they finished circumcising the entire nation, they remained where they were in the camp until they recovered.</span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[w18.10 23 ¶5-7]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="13" data-rel-pid="[40]" id="p13" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="5"><strong><sup>5</sup></strong></span> Soon after Israel crossed the Jordan, Joshua had an unexpected encounter. As he was nearing Jericho, he met a man carrying a drawn sword. Not knowing who the stranger was, Joshua asked: “Are you on our side or on the side of our adversaries?” To Joshua’s surprise, the warrior revealed his identity. He was none other than the “chief of Jehovah’s army,” who was ready to defend God’s people. <strong>(Read</strong> <a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2018606/7/0"><strong>Joshua 5:13-15</strong></a> <strong>and footnote.)</strong> Although the account in other places refers to Jehovah as speaking directly to Joshua, no doubt God was speaking through his angelic representative, as he often did in the past.​—<a class="b" data-bid="9-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2018606/8/0">Ex. 3:2-4;</a><a class="b" data-bid="9-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2018606/8/1"> Josh. 4:1,</a><a class="b" data-bid="9-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2018606/8/2"> 15;</a><a class="b" data-bid="9-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2018606/8/3"> 5:2,</a><a class="b" data-bid="9-5" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2018606/8/4"> 9;</a><a class="b" data-bid="9-6" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2018606/8/5"> Acts 7:38;</a><a class="b" data-bid="9-7" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2018606/8/6"> Gal. 3:19</a>.</div><div class="sb" data-pid="14" data-rel-pid="[41]" id="p14" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="6"><strong><sup>6</sup></strong></span> Joshua received clear instructions from the angelic Leader on how to take the city of Jericho. At first, some of the instructions may not have appeared to be a good strategy. For instance, Jehovah commanded that all the men be circumcised, which would leave them indisposed for several days. Was it really the right time to circumcise those able-bodied men?​—<a class="b" data-bid="10-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2018606/9/0">Gen. 34:24, 25;</a><a class="b" data-bid="10-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2018606/9/1"> Josh. 5:2,</a><a class="b" data-bid="10-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2018606/9/2"> 8</a>.</div><div class="sb" data-pid="15" data-rel-pid="[41]" id="p15" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="7"><strong><sup>7</sup></strong></span> Likely, those defenseless Israelite soldiers wondered how they would protect their family if enemy warriors raided their camp. But suddenly, the news broke that Jericho was “tightly shut up because of the Israelites.” (<a class="b" data-bid="11-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2018606/10/0">Josh. 6:1</a>) Would their trust in God’s direction not have been strengthened by such an unexpected turn of events?</div></td></tr></tbody></table></div>
+
+</li>
+<li><p data-pid="23" id="p23"><span class="txtSrcBullet"><strong>3.</strong> </span><strong>What evidence is there that Jericho was conquered after only a brief siege?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025913/2/0"><em>w15</em> 11/15 13</a>) <span class="du-color--orange-700"><strong>B</strong></span></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[w15 11/15 13]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><h1 class="featureTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="13" data-no="13" id="page13"></span><strong>QUESTIONS FROM READERS</strong></h1><h2 data-pid="2" id="p2"><strong>What evidence is there that the ancient city of Jericho was conquered without a long siege?</strong></h2><div class="sn" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px"> According to <a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2015847/0/0">Joshua 6:10-15,</a><a class="b" data-bid="1-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2015847/0/1"> 20</a>, Israelite forces marched around Jericho once a day for six days. On the seventh day, they went around the city seven times, and God caused Jericho’s formidable walls to fall. This allowed the Israelites to enter Jericho and conquer it. Does archaeological evidence corroborate what the Bible says about the short siege of Jericho?</div><div class="sb" data-pid="4" id="p4" style="margin-top: 0; margin-bottom: 8px">In ancient times, it was common for attackers to besiege a fortified city. Regardless of how long a successful siege lasted, the victors would plunder the city’s riches, including any remaining provisions. In Jericho’s ruins, however, archaeologists found large supplies of food. In this regard, <em>Biblical Archaeology Review</em> states: “The most abundant item found in the destruction, apart from pottery, was grain. . . . This is unique in the annals of Palestinian archaeology. Perhaps a jar or two might be found, but to find such an extensive amount of grain is exceptional.”</div><div class="sb" data-pid="5" id="p5" style="margin-top: 0; margin-bottom: 8px">According to the Scriptural account, the Israelites had good reason not to plunder Jericho’s grain. Jehovah had commanded them not to do so. (<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2015847/1/0">Josh. 6:17, 18</a>) The Israelites attacked in the spring of the year, just after harvesttime when grain supplies were abundant. (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2015847/2/0">Josh. 3:15-17;</a><a class="b" data-bid="3-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2015847/2/1"> 5:10</a>) The fact that much grain remained in Jericho indicates that the Israelite siege was of short duration, just as the Bible describes it.</div></td></tr></tbody></table></div>
+
+<div class="south_center" id="f4">
+<figure>
+<img alt="" class="south_center" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/322" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/323" style="max-width: min(100%, 700px); height: auto;"/>
+<p class="imgCredit" data-pid="53" id="p53">Kennedy, Titus (2023). The Bronze Age Destruction of Jericho, Archaeology, and the Book of Joshua. Accessed via researchgate.net. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="51" id="p51"><span class="dc-screenReaderText"><strong>Picture</strong> </span><span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>B</strong></span><span class="dc-screenReaderText"><strong>:</strong> </span>Jars of burnt grain discovered at the site of ancient Jericho</p>
+</figcaption>
+</figure>
+</div>
+</li>
+<li><p data-pid="25" id="p25"><span class="txtSrcBullet"><strong>4.</strong> </span><strong>How was the prophecy about Jericho found at</strong> <a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025913/7/0"><strong>Joshua 6:26</strong></a> <strong>fulfilled?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025913/3/0"><em>w98</em> 9/15 21 ¶8</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Joshua 6:26]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v6-6-26-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5975">26 </a>At that time Joshua pronounced this oath:<a class="fn" data-fnid="31" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/30" id="footnotesource31">*</a><em> (Footnote: Or possibly, “made the people swear this oath.”)</em> “Cursed be the man before Jehovah who undertakes to rebuild this city of Jerʹi·cho. At the cost of his firstborn he will lay its foundation, and at the cost of his youngest he will put up its doors.”<a class="b" data-bid="134-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/133">+</a></span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[w98 9/15 21 ¶8]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">For example, read the prophecy about the penalty for rebuilding Jericho and then consider its fulfillment. <a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1998685/5/0">Joshua 6:26</a> states: “Joshua had an oath pronounced at that particular time, saying: ‘Cursed may the man be before Jehovah who gets up and does build this city, even Jericho. At the <span aria-hidden="true" class="pageNum" data-before-text="22" data-no="22" id="page22"></span>forfeit of his firstborn let him lay the foundation of it, and at the forfeit of his youngest let him put up its doors.’” Fulfillment came some 500 years later, for we read at <a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1998685/6/0">1 Kings 16:34</a>: “In [King Ahab’s] days Hiel the Bethelite built Jericho. At the forfeit of Abiram his firstborn he laid the foundation of it, and at the forfeit of Segub his youngest he put up its doors, according to Jehovah’s word that he spoke by means of Joshua the son of Nun.”<a class="fn" data-fnid="1" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1998685/0" id="footnotesource1">a</a><em> (Footnote: As another example, read about the foretold defilement of Jeroboam’s altar at 1 Kings 13:1-3. Then take note of the fulfillment recorded at 2 Kings 23:16-18.)</em> Only a real God could inspire such prophecies and see to their fulfillment.</td></tr></tbody></table></div>
+
+</li>
+</ol>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="27" id="p27"><span aria-hidden="true" class="pageNum" data-before-text="69" data-no="69" id="page69"></span><strong>Reflect on the Lessons</strong></h2>
+<ul><li><p data-pid="28" id="p28">  What helped Joshua to have confidence in Jehovah’s promises? (<a class="b" data-bid="9-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025913/8/0">Josh. 23:14</a>) How can we have similar confidence today?</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Josh. 23:14]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v6-23-14-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/6474">14 </a>“Now look! I am about to die,<a class="fn" data-fnid="145" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/144" id="footnotesource145">*</a><em> (Footnote: Lit., “I am going today in the way of all the earth.”)</em> and you well know with all your heart and with all your soul<a class="fn" data-fnid="146" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/145" id="footnotesource146">*</a><em> (Footnote: See Glossary.)</em> that not one word out of all the good promises that Jehovah your God has spoken to you has failed. They have all come true for you. Not one word of them has failed.<a class="b" data-bid="823-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/822">+</a> </span></td></tr></tbody></table></div>
+
+</li>
+<li><p data-pid="30" id="p30">  How does Joshua’s example help us to follow the instructions we receive from God’s organization? <span class="du-color--orange-700"><strong>C</strong></span></p>
+
+<div class="south_center" id="f5">
+<figure>
+<img alt="A father conducting family worship and helping his wife and two children prepare for potential disasters. They are watching the video “Are You Prepared for a Disaster?” Before them are bottles of water, cash, a Bible, canned food, duct tape, emergency go bags, and other items." class="south_center" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/324" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/325" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="55" id="p55"><span class="dc-screenReaderText"><strong>Picture</strong> </span><span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>C</strong></span></p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">A father conducting family worship and helping his wife and two children prepare for potential disasters. They are watching the video “Are You Prepared for a Disaster?” Before them are bottles of water, cash, a Bible, canned food, duct tape, emergency go bags, and other items.</td></tr></tbody></table></div></figure>
+</div>
+</li>
+<li><p data-pid="32" id="p32">  How might you imitate Joshua’s courage?</p>
+
+</li>
+</ul>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="34" id="p34"><strong>Meditate on the Bigger Picture</strong></h2>
+<ul><li><p data-pid="35" id="p35">  What does this account teach me about Jehovah?</p>
+
+</li>
+<li><p data-pid="37" id="p37">  How does this account tie in with Jehovah’s purposes?</p>
+
+</li>
+<li><p data-pid="39" id="p39">  What would I like to ask Joshua in the resurrection?</p>
+
+</li>
+</ul>
+<div class="dc-bleedToArticleEdge dc-paddingToContentEdge du-bgColor--warmGray-50 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--4 du-padding-bottom--8" id="tt78">
+<h2 class="du-color--orange-700 du-margin-top--0" data-pid="41" id="p41"><strong>Learn More</strong></h2>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt80">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f6">
+<figure>
+<a href="https://wol.jw.org/wol/rslink/r1/lp-e?lang=E&amp;docid=2002882&amp;pub=w02&amp;issuedate=20021201"><img alt="" class="suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/326" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/327" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt81">
+<p data-pid="42" id="p42">How does Joshua’s example help us to learn from older ones, to trust God’s promises, and to remain faithful even when we are hurt by fellow Christians?</p>
+<p data-pid="43" id="p43"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025913/4/0"><strong>“What Joshua Remembered”</strong> (<em>w02</em> 12/1 9-12)</a></p>
+</div>
+</div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[“What Joshua Remembered” (w02 12/1 9-12)]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="st" data-pid="1" id="p1" style="margin-top: 0; margin-bottom: 8px"><span aria-hidden="true" class="pageNum" data-before-text="9" data-no="9" id="page9"></span><strong>What Joshua Remembered</strong></div><div class="sb" data-pid="2" id="p2" style="margin-top: 0; margin-bottom: 8px">“MOSES my servant is dead,” said Jehovah, “and now get up, cross this Jordan, you and all this people, into the land that I am giving to them.” (<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/0/0">Joshua 1:2</a>) What a task lay before Joshua! He had been Moses’ attendant for almost 40 years. Now he was told to step into his master’s place and lead the often difficult sons of Israel into the Promised Land.</div><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px">As Joshua surveyed what lay ahead, perhaps trials he had already faced and overcome raced through his mind. What Joshua remembered was doubtless an invaluable aid to him back then, and it can be for Christians today.</div><div class="ss" data-pid="4" id="p4" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>From Slave to Commander</strong></div><div class="sb" data-pid="5" id="p5" style="margin-top: 0; margin-bottom: 8px">Long years of slavery were part of Joshua’s memories. (<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/1/0">Exodus 1:13, 14;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/1/1"> 2:23</a>) Just what Joshua’s experiences were during that period, we can only imagine, since the Bible is silent on the particulars. Joshua might have learned to be a good organizer during his service in Egypt, and he could have assisted in marshaling the flight of the Hebrews and the “vast mixed company” from that land.​—<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/2/0">Exodus 12:38</a>.</div><div class="sb" data-pid="6" id="p6" style="margin-top: 0; margin-bottom: 8px">Joshua belonged to a family of the tribe of Ephraim. His grandfather Elishama was the chieftain of the tribe and apparently led 108,100 armed men of one of the three-tribe divisions of Israel. (<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/3/0">Numbers 1:4,</a><a class="b" data-bid="4-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/3/1"> 10,</a><a class="b" data-bid="4-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/3/2"> 16;</a><a class="b" data-bid="4-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/3/3"> 2:18-24;</a><a class="b" data-bid="4-5" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/3/4"> 1 Chronicles 7:20,</a><a class="b" data-bid="4-6" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/3/5"> 26, 27</a>) Yet, when the Amalekites attacked Israel soon after Israel’s departure from Egypt, Moses called on Joshua to organize the defense. (<a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/4/0">Exodus 17:8, 9a</a>) Why Joshua and not, for <span aria-hidden="true" class="pageNum" data-before-text="10" data-no="10" id="page10"></span>example, his grandfather or father? One suggestion is: “As a chief of the important tribe of Ephraim, and as one already well known for his skill in organization, and one thoroughly trusted by the people, to [Joshua] Moses turned as the leader best fitted to select and arrange the combatants.”</div><div class="sb" data-pid="7" id="p7" style="margin-top: 0; margin-bottom: 8px">Be that as it may, when chosen, Joshua did just as Moses commanded. Though Israel was totally inexperienced in warfare, Joshua was convinced of divine help. So when Moses told him, “tomorrow I am stationing myself upon the top of the hill, with the rod of the true God in my hand,” that was enough. Joshua must have remembered that Jehovah had just annihilated the greatest military power of the day. The next day, when Moses lifted his hands and held them high until sunset, no enemy could stand against Israel, and the Amalekites were vanquished. Then Jehovah commanded Moses to write in a book and ‘propound in Joshua’s ears’ the divine decree: “I shall completely wipe out the remembrance of Amalek from under the heavens.” (<a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/5/0">Exodus 17:9b-14</a>) Yes, Jehovah would unfailingly execute that sentence.</div><div class="ss" data-pid="8" id="p8" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>As Moses’ Attendant</strong></div><div class="sb" data-pid="9" id="p9" style="margin-top: 0; margin-bottom: 8px">The episode with Amalek must have forged an even closer relationship between Joshua and Moses. Joshua had the honor of being Moses’ personal attendant, or “minister,” “from his young manhood” until Moses’ death, a period of some 40 years.​—<a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/6/0">Numbers 11:28</a>.</div><div class="sb" data-pid="10" id="p10" style="margin-top: 0; margin-bottom: 8px">That office meant privileges and responsibilities. For example, when Moses, Aaron, Aaron’s sons, and 70 of the older men of Israel ascended Mount Sinai and saw a vision of Jehovah’s glory, likely Joshua was among them. In his role as attendant, he accompanied Moses higher up the mountain and apparently remained at a distance while Moses entered the cloud symbolizing Jehovah’s presence. Remarkably, Joshua seems to have stayed on the mountain for 40 days and 40 nights. He faithfully awaited his master’s return, for when Moses began his descent with the tablets of the Testimony, Joshua was there to meet him.​—<a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/7/0">Exodus 24:1, 2,</a><a class="b" data-bid="8-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/7/1"> 9-18;</a><a class="b" data-bid="8-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/7/2"> 32:15-17</a>.</div><div class="sb" data-pid="11" id="p11" style="margin-top: 0; margin-bottom: 8px">After the incident of Israel’s idolatry with the golden calf, Joshua continued in attendance on Moses at the tent of meeting outside the camp. There Jehovah spoke to Moses face-to-face. But when Moses returned to the camp, Joshua “would not <span aria-hidden="true" class="pageNum" data-before-text="11" data-no="11" id="page11"></span>withdraw from the midst of the tent.” Perhaps his presence there was required to prevent the Israelites from entering the tent in their unclean state. How seriously Joshua took that responsibility!​—<a class="b" data-bid="9-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/8/0">Exodus 33:7,</a><a class="b" data-bid="9-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/8/1"> 11</a>.</div><div class="sb" data-pid="12" id="p12" style="margin-top: 0; margin-bottom: 8px">Fellowship with Moses, who, according to historian Josephus, was 35 years older than Joshua, must have strengthened Joshua’s faith immensely. Their relationship has been called “the contact of maturity and youth, of the master and the scholar,” resulting in Joshua’s becoming “a firm, solid-set man.” We do not have prophets like Moses in our midst today, but congregations of Jehovah’s people do include older ones who because of their experience and spirituality represent a real source of strength and encouragement. Do you appreciate them? And are you benefiting from their company?</div><div class="ss" data-pid="13" id="p13" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>A Spy in Canaan</strong></div><div class="sb" data-pid="14" id="p14" style="margin-top: 0; margin-bottom: 8px">A crucial episode in Joshua’s life took place shortly after Israel received the Law. He was chosen to represent his tribe in spying out the Promised Land. The story is well-known. All 12 spies agreed that the land was indeed “flowing with milk and honey,” just as Jehovah had promised. However, ten faithlessly feared that Israel could not dispossess the inhabitants of the land. Only Joshua and Caleb urged the people not to rebel out of fear, for Jehovah would surely be with them. At that, all the assembly protested and talked of pelting the two with stones. Perhaps they would have done so had Jehovah not intervened with a manifestation of his glory. For their lack of faith, God decreed that none of those registered in Israel from 20 years old upward would live to enter Canaan. Of these, only Joshua, Caleb, and the Levites survived.​—<a class="b" data-bid="10-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/9/0">Numbers 13:1–16,</a><a class="b" data-bid="10-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/9/1"> 25-29;</a><a class="b" data-bid="10-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/9/2"> 14:6-10,</a><a class="b" data-bid="10-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/9/3"> 26-30</a>.</div><div class="sb" data-pid="15" id="p15" style="margin-top: 0; margin-bottom: 8px">Had not all the people seen Jehovah’s mighty acts in Egypt? What, then, enabled Joshua to have faith in God’s help while the majority doubted? Joshua must have kept clear in his mind all that Jehovah had promised and done, and he meditated on these. Years later he could say that ‘not one word of all the good words that Jehovah had spoken to Israel had failed. They had all come true.’ (<a class="b" data-bid="11-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/10/0">Joshua 23:14</a>) Joshua thus had faith that all the promises that Jehovah had made with regard to the future would also without fail be fulfilled. (<a class="b" data-bid="12-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/11/0">Hebrews 11:6</a>) This should move a person to ask: ‘What about me? Has the effort I have devoted to studying and pondering Jehovah’s promises convinced me of their trustworthiness? Do I believe that God can protect me along with his people during the coming great tribulation?’</div><div class="sb" data-pid="16" id="p16" style="margin-top: 0; margin-bottom: 8px">Not only did Joshua exercise faith but he also displayed moral courage. He and Caleb stood alone, and <em>all</em> the assembly talked of stoning them. How would you have felt? Intimidated? Not Joshua. He and Caleb firmly said what they believed. Loyalty to Jehovah may require that we do the same one day.</div><div class="sb" data-pid="17" id="p17" style="margin-top: 0; margin-bottom: 8px">The story of the spies also informs us that Joshua’s name was changed. To his original name, Hoshea, meaning “Salvation,” Moses added the syllable denoting the divine name and called him Jehoshua, or Joshua​—“Jehovah Is Salvation.” The <em>Septuagint</em> renders his name “Jesus.” (<a class="b" data-bid="13-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/12/0">Numbers 13:8,</a><a class="b" data-bid="13-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/12/1"> 16</a>, footnote.) True to that great name, Joshua boldly declared that Jehovah is salvation. Joshua’s name change could not have been done casually. It reflected Moses’ esteem of Joshua’s character and corresponded with the privileged role Joshua would fulfill in leading a new generation into the Promised Land.</div><div class="sb" data-pid="18" id="p18" style="margin-top: 0; margin-bottom: 8px">As their fathers died off, the Israelites wandered in the wilderness for 40 wearisome years. We know nothing of Joshua during that period. However, it must have taught him much. He likely witnessed God’s judgment on the rebels Korah, Dathan, and Abiram and on their followers and those who engaged in debased worship of the Baal of Peor. No doubt with great sadness Joshua <span aria-hidden="true" class="pageNum" data-before-text="12" data-no="12" id="page12"></span>learned that because of Moses’ failing to sanctify Jehovah concerning the waters of Meribah, Moses too would be excluded from the land of promise.​—<a class="b" data-bid="14-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/13/0">Numbers 16:1-50;</a><a class="b" data-bid="14-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/13/1"> 20:9-13;</a><a class="b" data-bid="14-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/13/2"> 25:1-9</a>.</div><div class="ss" data-pid="19" id="p19" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>Commissioned as Moses’ Successor</strong></div><div class="sb" data-pid="20" id="p20" style="margin-top: 0; margin-bottom: 8px">When Moses’ death drew near, he asked God to appoint his successor so that Israel might not become “like sheep that have no shepherd.” Jehovah’s response? Joshua, “a man in whom there is spirit,” was to be commissioned before all the assembly. They were to listen to him. What a recommendation! Jehovah had seen Joshua’s faith and ability. Israel’s leadership could not have been entrusted to more qualified hands. (<a class="b" data-bid="15-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/14/0">Numbers 27:15-20</a>) Still, Moses knew that Joshua faced enormous challenges. So Moses urged his successor to be “courageous and strong,” for Jehovah would continue with him.​—<a class="b" data-bid="16-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/15/0">Deuteronomy 31:7, 8</a>.</div><div class="sb" data-pid="21" id="p21" style="margin-top: 0; margin-bottom: 8px">God himself repeated the same encouragement to Joshua and added: “Take care to do according to all the law that Moses my servant commanded you. Do not turn aside from it to the right or to the left, in order that you may act wisely everywhere you go. This book of the law should not depart from your mouth, and you must in an undertone read in it day and night, in order that you may take care to do according to all that is written in it; for then you will make your way successful and then you will act wisely. Have I not commanded you? Be courageous and strong. Do not suffer shock or be terrified, for Jehovah your God is with you wherever you go.”​—<a class="b" data-bid="17-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/16/0">Joshua 1:7-9</a>.</div><div class="sb" data-pid="22" id="p22" style="margin-top: 0; margin-bottom: 8px">With Jehovah’s words ringing in his ears and with the experience he had already accumulated, how could Joshua doubt? Conquest of the land was assured. Difficulties would arise, of course, not least of which was the very first challenge, fording the Jordan River at flood stage. Yet, Jehovah himself had commanded: “Get up, cross this Jordan.” So, what problem could there be?​—<a class="b" data-bid="18-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/17/0">Joshua 1:2</a>.</div><div class="sb" data-pid="23" id="p23" style="margin-top: 0; margin-bottom: 8px">Successive events in Joshua’s life​—the conquest of Jericho, the progressive subjugation of their enemies, and the apportioning of the land—​reveal that he never lost sight of God’s promises. Close to the end of his days, when Jehovah had given Israel rest from their enemies, Joshua assembled the people to review God’s dealings with them and to urge them to serve Him wholeheartedly. As a result, Israel solemnly renewed its covenant with Jehovah, and no doubt inspired by the example of their leader, “Israel continued to serve Jehovah all the days of Joshua.”​—<a class="b" data-bid="19-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/18/0">Joshua 24:16,</a><a class="b" data-bid="19-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/18/1"> 31</a>.</div><div class="sb" data-pid="24" id="p24" style="margin-top: 0; margin-bottom: 8px">Joshua provides an excellent example for us. Christians today face numerous tests of faith. Meeting them successfully is vital to maintaining Jehovah’s approval and ultimately to inheriting his promises. Joshua’s success depended on his strong faith. True, we have not seen God’s mighty acts as Joshua did, but if anyone should doubt, the Bible book bearing Joshua’s name provides eyewitness testimony to the trustworthiness of Jehovah’s word. We, like Joshua, are assured wisdom and success if we read God’s Word daily and take care to put it into practice.</div><div class="sb" data-pid="25" id="p25" style="margin-top: 0; margin-bottom: 8px">Are you sometimes hurt by the conduct of fellow Christians? Think of Joshua’s endurance during the 40 years he was obliged, through no fault of his own, to wander in the wilderness with faithless companions. Do you find it difficult to stand up for what you believe? Recall what Joshua and Caleb did. For their faith and obedience, they received a splendid reward. Yes, Joshua truly had faith that Jehovah would fulfill all his promises. May the same be true of us.​—<a class="b" data-bid="20-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2002882/19/0">Joshua 23:14</a>.</div><div class="se" data-pid="26" id="p26" style="margin-top: 0; margin-bottom: 8px"><strong>[Picture on page 10]</strong></div><div class="sc" data-pid="27" id="p27" style="margin-top: 0; margin-bottom: 8px">Joshua and Caleb had confidence in Jehovah’s power</div><div class="se" data-pid="28" id="p28" style="margin-top: 0; margin-bottom: 8px"><strong>[Picture on page 10]</strong></div><div class="sc" data-pid="29" id="p29" style="margin-top: 0; margin-bottom: 8px">Fellowship with Moses strengthened Joshua’s faith</div><div class="se" data-pid="30" id="p30" style="margin-top: 0; margin-bottom: 8px"><strong>[Picture on page 10]</strong></div><div class="sc" data-pid="31" id="p31" style="margin-top: 0; margin-bottom: 8px">Joshua’s leadership inspired the people to stick to Jehovah</div><div class="sb" data-pid="32" id="p32" style="margin-top: 0; margin-bottom: 8px"></div></td></tr></tbody></table></div>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt82">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f7">
+<figure>
+<a href="https://www.jw.org/finder?wtlocale=E&amp;docid=502012394"><img alt="" class="suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/328" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/329" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt83">
+<p data-pid="44" id="p44">Help your children to learn about key events in Joshua’s life.</p>
+<p data-pid="45" id="p45"><a class="fb" href="https://www.jw.org/finder?docID=502012394&amp;prefer=content&amp;wtlocale=E"><strong>“Joshua”</strong> (Web Bible character card)</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="{BibleBookName} {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value="{BibleBookName} {StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value="{BibleBookName} {BibleVerse}"/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="Walk Courageously With God p. {StartingPageNumber}-{EndingPageNumber}"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="Walk Courageously With God p. {PageNumber}"/>
+<input id="documentDescription" type="hidden" value="Walk Courageously With God"/>
+<input id="englishSym" type="hidden" value="wcg"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="audioPubSym" type="hidden" value="wcg"/>
+<input id="chapNo" type="hidden" value="13"/>
+<input id="issue" type="hidden" value=""/>
+<input id="docId" type="hidden" value="1102025913"/>
+<input id="documentInBible" type="hidden" value=""/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=E&amp;docid=1102025913&amp;srctype=wol&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="document"/>
+<input id="contentTitle" type="hidden" value="He Followed Unusual Instructions"/>
+<input id="parentTitle" type="hidden" value="Walk Courageously With God"/>
+<input id="contentThumbnail" type="hidden" value="/en/wol/d/r1/lp-e/1102025913/thumbnail"/>
+</article>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Gather all alternate presentation elements and their images
+        const altPresElements = Array.from(document.querySelectorAll('.alternatePresentation'));
+        const altImages = altPresElements.map(el => {
+            const img = el.querySelector('img');
+            if (img) {
+                return {
+                    src: img.getAttribute('data-alt-src') || img.getAttribute('src'),
+                    title: el.querySelector('.title')?.textContent || "Image"
+                };
+            }
+            return null;
+        }).filter(Boolean);
+
+        // 2. Create Lightbox DOM structure dynamically
+        const lightbox = document.createElement('div');
+        lightbox.className = 'custom-lightbox';
+        lightbox.innerHTML = `
+            <button class="custom-lightbox-close">&times;</button>
+            <button class="custom-lightbox-nav custom-lightbox-prev">&#10094;</button>
+            <div class="custom-lightbox-content">
+                <img class="custom-lightbox-img" src="" alt="" />
+            </div>
+            <button class="custom-lightbox-nav custom-lightbox-next">&#10095;</button>
+            <div class="custom-lightbox-caption"></div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('.custom-lightbox-img');
+        const lightboxCaption = lightbox.querySelector('.custom-lightbox-caption');
+        const closeBtn = lightbox.querySelector('.custom-lightbox-close');
+        const prevBtn = lightbox.querySelector('.custom-lightbox-prev');
+        const nextBtn = lightbox.querySelector('.custom-lightbox-next');
+
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        const openLightbox = (group, index) => {
+            currentGroup = group;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const updateLightbox = () => {
+            const item = currentGroup[currentIndex];
+            if (item) {
+                lightboxImg.src = item.src;
+                if (item.title && item.title.trim() !== "" && item.title.trim() !== "Printed Edition") {
+                    lightboxCaption.textContent = item.title;
+                    lightboxCaption.style.display = 'block';
+                } else {
+                    lightboxCaption.textContent = "";
+                    lightboxCaption.style.display = 'none';
+                }
+                if (currentGroup.length > 1) {
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                } else {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                }
+            }
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImg.src = '';
+            lightboxCaption.textContent = '';
+        };
+
+        const navigate = (direction) => {
+            if (currentGroup.length <= 1) return;
+            currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+            updateLightbox();
+        };
+
+        // Event Listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('custom-lightbox-content')) {
+                closeLightbox();
+            }
+        });
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Attach click handlers to alternate presentations
+        altPresElements.forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(altImages, index);
+            });
+        });
+
+        // Attach click handlers to other zoomable figure images
+        document.querySelectorAll('article figure img:not(.suppressZoom)').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = img.getAttribute('data-alt-src') || img.getAttribute('src');
+                const title = img.getAttribute('alt') || "";
+                openLightbox([{ src, title }], 0);
+            });
+        });
+    });
+    </script>
+</body>
+</html>
