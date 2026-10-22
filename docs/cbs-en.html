@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>She Chose Jehovah Over Her Own People</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">📖</text></svg>'>
+    <link rel="stylesheet" type="text/css" href="css/media-player.css">
+    <link rel="stylesheet" type="text/css" href="css/+0+61168f8ef805085f5a3c0118b14679f74c9e62a4.css">
+    <link rel="stylesheet" type="text/css" href="css/+1+f8319dd08c749624466cb777b7d528e1a42d7368.css">
+    <link rel="stylesheet" type="text/css" href="css/+2+894de4a6eba76bf97927253f95f582449947a96e.css">
+    <link rel="stylesheet" type="text/css" href="css/+3+d00a791fdbb951906e95f1428ae322e41ea9da95.css">
+    <style>
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @media screen and (min-width: 600px) {
+            .document, .bible {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 16px 50px 80px;
+            }
+            .document .dc-bleedToArticleEdge, .bible .dc-bleedToArticleEdge {
+                margin-left: -50px;
+                margin-right: -50px;
+            }
+            .document .dc-paddingToContentEdge, .bible .dc-paddingToContentEdge {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        #content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+        .inserted-reference {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+            font-size: 0.95em;
+        }
+        .inserted-reference-header {
+            margin: 0;
+            padding: 4px 16px;
+            background-color: #e2e6ea;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #495057;
+        }
+        .inserted-reference-header a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #1a73e8;
+        }
+        .inserted-reference-header a:hover {
+            text-decoration: underline;
+        }
+        .inserted-reference > *:not(.inserted-reference-header) {
+            margin: 12px 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-style: italic;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        /* Custom Lightbox Styles */
+        .custom-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            /* user-select: none; */
+            /* -webkit-user-select: none; */
+        }
+        .custom-lightbox.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .custom-lightbox-content {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 35px;
+            color: #fff;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10002;
+            transition: transform 0.2s ease;
+        }
+        .custom-lightbox-close:hover {
+            transform: scale(1.1);
+        }
+        .custom-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 20px;
+        }
+        .custom-lightbox-nav:hover {
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .custom-lightbox-prev {
+            left: 0px;
+        }
+        .custom-lightbox-next {
+            right: 0px;
+        }
+        .custom-lightbox-caption {
+            color: #ccc;
+            margin-top: 15px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 80%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body, #content {
+                background-color: #171c2a !important;
+                color: #e2e8f0;
+            }
+            .document, .bible, .article, #article {
+                background-color: #1e293b !important;
+                color: #e2e8f0;
+            }
+            .scalableui, .bodyTxt {
+                background-color: transparent !important;
+                color: #e2e8f0;
+            }
+            .du-bgColor--bgSecondary, .du-bgColor--warmGray-50,
+            [class*="du-bgColor--bgSecondary"], [class*="du-bgColor--warmGray-"],
+            #tt9, .document #tt9, body #tt9,
+            .document [class*="du-bgColor--bgSecondary"], body [class*="du-bgColor--bgSecondary"],
+            .document [class*="du-bgColor--warmGray-"], body [class*="du-bgColor--warmGray-"] {
+                background-color: #2d3a4f !important;
+                color: #e2e8f0 !important;
+            }
+            .du-borderColor--borderDefault, hr {
+                border-color: #3b4d66 !important;
+            }
+            .du-color--teal-700 {
+                color: #2dd4bf !important;
+            }
+            h1, h2, h3, h4, h5, h6, strong {
+                color: #f8fafc;
+            }
+            a, a.b, a.vl, a.fn, a:visited {
+                color: #60a5fa;
+            }
+            a:hover, a.b:hover, a.vl:hover, a.fn:hover {
+                color: #93c5fd;
+            }
+            .du-color--textSubdued, .pageNum, .themeScrp {
+                color: #94a3b8 !important;
+            }
+            .inserted-reference {
+                background-color: #263346;
+                border: 1px solid #3b4d66;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .inserted-reference-header {
+                background-color: #1e2b3c;
+                border-bottom: 1px solid #3b4d66;
+                color: #cbd5e1;
+            }
+            .inserted-reference-header a {
+                color: #60a5fa;
+            }
+            .inserted-reference-header a:hover {
+                color: #93c5fd;
+            }
+            .note-card-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .note-card-header {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #cbd5e1 !important;
+            }
+            .note-card-header a {
+                color: #60a5fa !important;
+            }
+            .note-card-body {
+                color: #e2e8f0 !important;
+            }
+            .box-supplement-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+            }
+            .box-supplement-table th {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #f8fafc !important;
+            }
+            .box-supplement-table th h1, .box-supplement-table th h2,
+            .box-supplement-table th h3, .box-supplement-table th h4,
+            .box-supplement-table th strong, .box-supplement-table th p {
+                color: #f8fafc !important;
+            }
+            .box-supplement-table td {
+                color: #e2e8f0 !important;
+            }
+            .image-caption {
+                color: #94a3b8;
+            }
+            .custom-lightbox-img {
+                background-color: #1e293b;
+            }
+            .custom-lightbox-caption {
+                color: #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body  class="showRuby cc-theme--light DynamicLayout">
+    <div id="content" class="content">
+        <article class="article document html5 pub- docId-1102025914 pub-wcg pub- pub-wcg docClass-13 jwac showRuby ml-E ms-ROMAN dir-ltr includeSecondaryNav" data-lang="E" dir="ltr" id="article" lang="en" role="article">
+<div class="scalableui">
+<header>
+<div class="dc-bleedToArticleEdge suppressZoom" id="f1">
+<figure>
+<img alt="" class="suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/340" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/341" style="max-width: min(100%, 700px); height: auto;"/>
+</figure>
+</div>
+<p class="contextTtl dc-bleedToArticleEdge dc-paddingToContentEdge du-letterSpacing--1 du-color--orange-700 du-borderColor--orange-700 du-borderStyle-bottom--solid du-borderWidth--1 du-padding-vertical--2" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="70" data-no="70" id="page70"></span><strong>14</strong> RAHAB</p>
+<h1 class="du-color--coolGray-600 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="2" id="p2"><strong>She Chose Jehovah Over Her Own People</strong></h1>
+</header> <div class="clearfix alternatePresentation clickable noTooltips">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/338" data-alt-type="svg" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/336" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">Printed Edition</div>
+</div>
+<div class="clearfix alternatePresentation clickable noTooltips hidden">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/339" data-alt-type="svg" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/337" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">Printed Edition</div>
+</div>
+<div class="bodyTxt">
+<div id="tt4">
+<p data-pid="3" id="p3">IN A house on the wall of ancient Jericho, there lived a prostitute named Rahab. From her window, she could look outside this “city of the palm trees” and see the sun-drenched landscape. (<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025914/0/0">Deut. 34:3</a>) But as she walked about inside the city, she saw gloom and fear on every face. The residents knew that Jehovah was with his people, Israel, but that they themselves were to be destroyed. And they deserved it.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Deut. 34:3]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v5-34-3-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070109/5842">3 </a>and the Negʹeb<a class="b" data-bid="1248-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070109/1247">+</a> and the District,<a class="b" data-bid="1249-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070109/1248">+</a> the valley plain of Jerʹi·cho, the city of the palm trees, as far as Zoʹar.<a class="b" data-bid="1250-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070109/1249">+</a></span></td></tr></tbody></table></div>
+<p data-pid="4" id="p4">The nation of Israel was encamped nearby. Forty years earlier, Jehovah had saved his people by destroying the army of Pharaoh, drowning them all in the Red Sea. More recently, Jehovah had given his people​—mere wanderers in the desert—​resounding victories over the powerful Amorite kingdoms of Sihon and Og. Now they were coming to Jericho, directed by Jehovah to bring punishment on those people for all their wicked deeds!</p>
+<p data-pid="5" id="p5">Rahab knew that her people were wicked. She may have yearned for something better than her degrading life as a prostitute. What she learned about Jehovah filled her, not with dread, but with hope. Here was a God who protected his people and dignified them, unlike the pagan gods of Canaan. She was drawn to this God, Jehovah, who was clean, just, and protective.</p>
+<p data-pid="6" id="p6">One night, two strangers came to her door, seeking lodging for the night. Keen-eyed Rahab soon discerned who they were​—Israelite spies! And she was not the only one who realized who they were. The king of Jericho sent men to her door, demanding that the spies be brought out of her house. Rahab was faced with a decision that would change her life. Would she defend her wicked city or take sides with Jehovah?</p>
+<p data-pid="7" id="p7">Rahab courageously chose Jehovah. She hid the spies on her roof and then misdirected the king’s men. After they left, she went up to the roof and told the Israelite men why she had saved them. “I do know that Jehovah will give you the land.” She had put faith in their God! She revealed to them this encouraging truth: The men of Jericho were weak with fear of Israel. And she begged the spies for protection when Jehovah had Israel destroy the city.</p>
+<div class="stdPullQuote dc-ttClassStyle--unset du-color--orange-700 du-float-desktopOnly--inlineStart du-width-desktopOnly--oneHalf du-margin-inlineStart-mobileOnly--6 du-margin-inlineEnd-desktopOnly--4 du-margin-children-top-desktopOnly--0"><p data-pid="48" id="p48"><strong>How could a prostitute find the strength to turn away from her people and an immoral life?</strong></p>
+</div>
+<p data-pid="8" id="p8"><span aria-hidden="true" class="pageNum" data-before-text="71" data-no="71" id="page71"></span>Rahab had saved the lives of the spies, and they saw that she had stood up for Jehovah. They agreed to do as she asked. Rahab and her family would be spared. She would have to keep the spies’ location secret, hang a scarlet cord from her window in the wall of the city, and stay inside her house during the battle. Thus, she and her household would be kept safe.</p>
+<div class="dc-bleedToArticleEdge du-margin-vertical--8 du-margin-vertical-desktopOnly--12" id="f2">
+<figure>
+<img alt="Rahab tying a scarlet cord in the window of her house." data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/342" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/343" style="max-width: min(100%, 700px); height: auto;"/>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">Rahab tying a scarlet cord in the window of her house.</td></tr></tbody></table></div></figure>
+</div>
+<p data-pid="9" id="p9">Rahab helped the spies escape the city by means of a rope from her window. Then she did exactly as they had directed. She tied a scarlet cord in her window. And she courageously kept the spies’ mission a secret. She surely risked a terrible death if the men of her city found out what she had done. Obediently, she kept her family inside the house. When Jehovah stopped up the Jordan River so that Israel could cross, Rahab no doubt felt even more sure that she had made the right decision. As the army of Israel marched around the city for seven days, the tension within those city walls must have been severe. Finally, on the seventh day, when the horns blew and the Israelites shouted, Rahab and her family huddled safely in the house​—and the walls fell flat!</p>
+<p data-pid="10" id="p10">After the battle, the spies led Rahab and her family outside. Her house was located on the one part of the wall that was left standing. As Joshua had directed, the lives of Rahab and her family were saved. In time, Rahab was welcomed into the nation. She married an Israelite man and had children. From her family line, centuries later, came the most courageous man who ever lived​—Jesus Christ. (<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025914/1/0">Matt. 1:5,</a><a class="b" data-bid="2-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025914/1/1"> 16</a>) Jehovah had generously blessed Rahab for her faith and courage.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Matt. 1:5,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v40-1-5-1"> <a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070144/23265">5 </a>Salʹmon became father to Boʹaz<a class="b" data-bid="13-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070144/12">+</a> by Raʹhab;<a class="b" data-bid="14-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070144/13">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v40-1-5-2">Boʹaz became father to Oʹbed<a class="b" data-bid="15-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070144/14">+</a> by Ruth;<a class="b" data-bid="16-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070144/15">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v40-1-5-3">Oʹbed became father to Jesʹse;<a class="b" data-bid="17-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070144/16">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[16]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v40-1-16-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070144/23276">16 </a>Jacob became father to Joseph the husband of Mary, of whom Jesus was born,<a class="b" data-bid="38-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070144/37">+</a> who is called Christ.<a class="b" data-bid="39-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070144/38">+</a></span></td></tr></tbody></table></div>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="11" id="p11"><strong>Read the Bible account:</strong></h3>
+<ul><li><p data-pid="12" id="p12"> <a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025914/2/0"><strong>Joshua 2:1-24;</strong></a><a class="b" data-bid="3-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025914/2/1"> <strong>5:1;</strong></a><a class="b" data-bid="3-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025914/2/2"> <strong>6:14-25</strong></a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Joshua 2:1-24;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-1-1"><a class="cl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5870"><strong>2</strong> </a>Then Joshua the son of Nun secretly sent two men out from Shitʹtim<a class="b" data-bid="29-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/28">+</a> as spies. He told them: “Go and inspect the land, especially Jerʹi·cho.” So they went and came to the house of a prostitute named Raʹhab,<a class="b" data-bid="30-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/29">+</a> and they stayed there. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-2-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5871">2 </a>The king of Jerʹi·cho was told: “Look! Israelite men have come in here tonight to spy out the land.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-3-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5872">3 </a>At that the king of Jerʹi·cho sent word to Raʹhab: “Bring out the men who came and are staying in your house, for they have come to spy out the entire land.”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-4-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5873">4 </a>But the woman took the two men and hid them. Then she said: “Yes, the men came to me, but I did not know where they were from. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-5-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5874">5 </a>And at dark when the city gate was about to be closed, the men went out. I do not know where the men went, but if you quickly chase after them, you will catch up with them.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-6-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5875">6 </a>(However, she had taken them up to the roof and hidden them among stalks of flax laid in rows on the roof.) </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-7-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5876">7 </a>So the men chased after them in the direction of the Jordan at the fords,<a class="b" data-bid="31-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/30">+</a> and the city gate was shut once the pursuers had gone out.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-8-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5877">8 </a>Before the men lay down to sleep, she came up to them on the roof. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-9-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5878">9 </a>She said to the men: “I do know that Jehovah will give you the land<a class="b" data-bid="32-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/31">+</a> and that the fear of you has fallen upon us.<a class="b" data-bid="33-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/32">+</a> All the inhabitants of the land are disheartened because of you,<a class="b" data-bid="34-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/33">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-10-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5879">10 </a>for we heard how Jehovah dried up the waters of the Red Sea before you when you left Egypt<a class="b" data-bid="35-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/34">+</a> and what you did to the two kings of the Amʹor·ites, Siʹhon<a class="b" data-bid="36-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/35">+</a> and Og,<a class="b" data-bid="37-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/36">+</a> whom you devoted to destruction on the other side<a class="fn" data-fnid="6" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/5" id="footnotesource6">*</a><em> (Footnote: That is, the east side.)</em> of the Jordan. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-11-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5880">11 </a>When we heard about it, we lost heart,<a class="fn" data-fnid="7" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/6" id="footnotesource7">*</a><em> (Footnote: Lit., “our hearts melted.”)</em> and no one has any courage<a class="fn" data-fnid="8" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/7" id="footnotesource8">*</a><em> (Footnote: Lit., “and spirit no longer arose in a man.”)</em> because of you, for Jehovah your God is God in the heavens above and on the earth beneath.<a class="b" data-bid="38-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/37">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-12-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5881">12 </a>Now, please, swear to me by Jehovah that, because I showed loyal love to you, you will also show loyal love to my father’s household; and you must give me a sign of good faith.<a class="fn" data-fnid="9" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/8" id="footnotesource9">*</a><em> (Footnote: Or “a reliable sign.”)</em> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-13-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5882">13 </a>You must spare the lives of my father and mother, my brothers and sisters, and all who belong to them, and you must save us<a class="fn" data-fnid="10" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/9" id="footnotesource10">*</a><em> (Footnote: Or “our souls.”)</em> from death.”<a class="b" data-bid="39-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/38">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-14-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5883">14 </a>At that the men said to her: “We will give our lives for yours!<a class="fn" data-fnid="11" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/10" id="footnotesource11">*</a><em> (Footnote: Or “Our souls will die instead of you!”)</em> If you do not tell about our mission, then we will show loyal love and faithfulness toward you when Jehovah gives us the land.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-15-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5884">15 </a>After that she let them down by a rope through the window, for her house was on a side of the city wall. In fact, she was dwelling on the wall.<a class="b" data-bid="40-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/39">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-16-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5885">16 </a>Then she said to them: “Go to the mountainous region and hide there for three days, so that those pursuing you may not find you. Then, after your pursuers have come back, you can go on your way.”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-17-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5886">17 </a>The men said to her: “We will be free from guilt respecting this oath that you made us swear<a class="b" data-bid="41-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/40">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-18-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5887">18 </a>unless, when we come into the land, you tie this cord of scarlet thread in the window by which you let us down. You should gather your father, your mother, your brothers, and all your father’s household with you into the house.<a class="b" data-bid="42-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/41">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-19-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5888">19 </a>Then if anyone goes out the doors of your house into the open, his blood will be on his own head, and we will be free from guilt. But if harm comes to<a class="fn" data-fnid="12" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/11" id="footnotesource12">*</a><em> (Footnote: Or “if a hand is laid on.”)</em> anyone who remains with you in the house, his blood will be on our heads. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-20-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5889">20 </a>But if you report our mission,<a class="b" data-bid="43-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/42">+</a> we will be free from guilt respecting your oath that you made us swear.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-21-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5890">21 </a>She replied: “Let it be according to your words.”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-21-2">With that she sent them off, and they went their way. Afterward, she tied the scarlet cord in the window. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-22-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5891">22 </a>So they left and went to the mountainous region and stayed there for three days, until the pursuers returned. The pursuers had been looking for them on every road but did not find them. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-23-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5892">23 </a>The two men then descended from the mountainous region and crossed the river and came to Joshua the son of Nun. They related to him all the things that had happened to them. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-24-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5893">24 </a>Then they said to Joshua: “Jehovah has handed over the entire land to us.<a class="b" data-bid="44-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/43">+</a> In fact, all the inhabitants of the land are disheartened because of us.”<a class="b" data-bid="45-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/44">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[5:1;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v6-5-1-1"><a class="cl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5935"><strong>5</strong> </a>As soon as all the kings of the Amʹor·ites<a class="b" data-bid="85-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/84">+</a> who were on the west side<a class="fn" data-fnid="22" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/21" id="footnotesource22">*</a><em> (Footnote: Lit., “the side toward the sea.”)</em> of the Jordan and all the kings of the Caʹnaan·ites<a class="b" data-bid="86-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/85">+</a> who were by the sea heard that Jehovah had dried up the waters of the Jordan before the Israelites until they had crossed over, they lost heart,<a class="fn pr" data-fnid="23" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/22" id="footnotesource23">*</a><em> (Footnote: Lit., “their hearts melted.”)</em><a class="b" data-bid="87-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/86">+</a> and they lost all courage<a class="fn" data-fnid="24" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/23" id="footnotesource24">*</a><em> (Footnote: Lit., “and there was no spirit in them any longer.”)</em> because of the Israelites.<a class="b" data-bid="88-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/87">+</a></span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[6:14-25]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-14-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5963">14 </a>They marched around the city on the second day once, after which they returned to the camp. That was what they did for six days.<a class="b" data-bid="114-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/113">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-15-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5964">15 </a>On the seventh day they got up early, as soon as the dawn broke, and they marched around the city in the same manner seven times. It was only on that day that they marched around the city seven times.<a class="b" data-bid="115-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/114">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-16-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5965">16 </a>And on the seventh time, the priests blew the horns, and Joshua told the people: “Shout,<a class="b" data-bid="116-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/115">+</a> for Jehovah has given you the city! </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-17-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5966">17 </a>The city and everything in it is to be devoted to destruction;<a class="b" data-bid="117-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/116">+</a> it all belongs to Jehovah. Only Raʹhab<a class="b" data-bid="118-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/117">+</a> the prostitute may keep living, she and all who are with her in the house, because she hid the messengers we sent out.<a class="b" data-bid="119-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/118">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-18-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5967">18 </a>But keep away from what is devoted to destruction,<a class="b" data-bid="120-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/119">+</a> so that you do not desire something devoted to destruction and take it,<a class="b" data-bid="121-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/120">+</a> making the camp of Israel something devoted to destruction by bringing disaster<a class="fn" data-fnid="30" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070110/29" id="footnotesource30">*</a><em> (Footnote: Or “trouble; ostracism.”)</em> on it.<a class="b" data-bid="122-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/121">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-19-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5968">19 </a>But all the silver and the gold and the articles of copper and iron are holy to Jehovah.<a class="b" data-bid="123-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/122">+</a> They should go into the treasury of Jehovah.”<a class="b" data-bid="124-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/123">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-20-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5969">20 </a>Then the people shouted when the horns were blown.<a class="b" data-bid="125-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/124">+</a> As soon as the people heard the sound of the horn and shouted a great war cry, the wall fell down flat.<a class="b" data-bid="126-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/125">+</a> After that the people went up into the city, each one straight ahead, and they captured the city. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-21-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5970">21 </a>They devoted all that was in the city to destruction by the sword, man and woman, young and old, bull, sheep, and donkey.<a class="b" data-bid="127-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/126">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-22-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5971">22 </a>Joshua said to the two men who had spied out the land: “Go into the house of the prostitute and bring out the woman and all who belong to her, just as you swore to her.”<a class="b" data-bid="128-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/127">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-23-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5972">23 </a>So the young spies went in and brought out Raʹhab, along with her father, her mother, her brothers, and all who belonged to her; yes, they brought out her whole family,<a class="b" data-bid="129-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/128">+</a> and they brought them safely to a place outside the camp of Israel.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-24-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5973">24 </a>Then they burned the city and everything in it with fire. But the silver, the gold, and the articles of copper and iron, they gave to the treasury of Jehovah’s house.<a class="b" data-bid="130-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/129">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-25-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070110/5974">25 </a>Only Raʹhab the prostitute and her father’s household and all who belonged to her were spared by Joshua;<a class="b" data-bid="131-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/130">+</a> and she lives in Israel to this day,<a class="b" data-bid="132-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/131">+</a> because she hid the messengers whom Joshua sent out to spy on Jerʹi·cho.<a class="b" data-bid="133-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070110/132">+</a></span></div></td></tr></tbody></table></div>
+</li>
+<li><p data-pid="13" id="p13"> <a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025914/3/0"><strong>Hebrews 11:30, 31</strong></a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Hebrews 11:30, 31]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v58-11-30-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070162/30294">30 </a>By faith the walls of Jerʹi·cho fell down after the people had marched around them for seven days.<a class="b" data-bid="339-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070162/338">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v58-11-31-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070162/30295">31 </a>By faith Raʹhab the prostitute did not perish with those who acted disobediently, because she received the spies in a peaceable way.<a class="b" data-bid="340-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070162/339">+</a></span></div></td></tr></tbody></table></div>
+</li>
+<li><p data-pid="14" id="p14"> <a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025914/4/0"><strong>James 2:24, 25</strong></a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[James 2:24, 25]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v59-2-24-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070163/30409">24 </a>You see that a man is to be declared righteous by works and not by faith alone. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v59-2-25-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070163/30410">25 </a>In the same manner, was not Raʹhab the prostitute also declared righteous by works after she received the messengers hospitably and sent them out by another way?<a class="b" data-bid="66-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070163/65">+</a> </span></div></td></tr></tbody></table></div>
+</li>
+</ul>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="15" id="p15"><strong>For discussion:</strong></h3>
+<p data-pid="16" id="p16"><strong>In what ways did Rahab show courage?</strong></p>
+
+</div>
+<div id="tt15">
+<h2 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--2" data-pid="18" id="p18"><span aria-hidden="true" class="pageNum" data-before-text="72" data-no="72" id="page72"></span><strong>Dig Deeper</strong></h2>
+<ol class="du-listStyleType--source"><li><p data-pid="19" id="p19"><span class="txtSrcBullet"><strong>1.</strong> </span><strong>Describe what life was like for Rahab in Jericho.</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025914/0/0"><em>w13</em> 11/1 12 ¶4–13 ¶1</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[w13 11/1 12 ¶4–13 ¶1]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="7" id="p7" style="margin-top: 0; margin-bottom: 8px">Rahab was a prostitute. That stark fact so alarmed some Bible commentators in the past that they claimed that she was merely an innkeeper. The Bible, though, is quite clear and does not whitewash the facts. (<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2013809/0/0">Joshua 2:1;</a><a class="b" data-bid="1-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2013809/0/1"> Hebrews 11:31;</a><a class="b" data-bid="1-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2013809/0/2"> James 2:25</a>) In Canaanite society, Rahab’s profession was probably respectable enough. However, culture cannot always eradicate conscience, that inner sense of right and wrong that Jehovah has given us all. (<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2013809/1/0">Romans 2:14, 15</a>) Rahab may have keenly sensed that her way of life was degrading. Perhaps, like many today in such walks of life, she felt that she was trapped, with no other choice if she wanted to care for her family.</div><div class="sb" data-pid="8" id="p8" style="margin-top: 0; margin-bottom: 8px">No doubt Rahab longed for a better life. Her homeland was full of violence and depravity, including incest and bestiality. (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2013809/2/0">Leviticus 18:3,</a><a class="b" data-bid="3-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2013809/2/1"> 6,</a><a class="b" data-bid="3-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2013809/2/2"> 21-24</a>) The prevalence of such evils in the land had much to do with religion. The temples promoted ritual prostitution, and the worship of such demonic gods as Baal and Molech included the burning of children alive in sacrificial fires.</div><div class="sb" data-pid="9" id="p9" style="margin-top: 0; margin-bottom: 8px">Jehovah was not blind to what was going on in Canaan. In fact, because of the many wicked practices of the Canaanites, Jehovah said: “The land is unclean, and I shall bring punishment for its error upon it, and the land will vomit its inhabitants out.” (<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2013809/3/0">Leviticus 18:25</a>) What did “punishment for its error” involve? In general, <span aria-hidden="true" class="pageNum" data-before-text="13" data-no="13" id="page13"></span>Israel was given this divine promise: “Jehovah your God will certainly push these nations away from before you little by little.” (<a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2013809/4/0">Deuteronomy 7:22</a>) Centuries earlier, Jehovah had promised the land to the family of Abraham, and “God . . . cannot lie.”​—<a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2013809/5/0">Titus 1:2;</a><a class="b" data-bid="6-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2013809/5/1"> Genesis 12:7</a>.</div><div class="sb" data-pid="10" id="p10" style="margin-top: 0; margin-bottom: 8px">However, Jehovah also decreed that certain groups in the land were to be completely wiped out. (<a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2013809/6/0">Deuteronomy 7:1, 2</a>) As the righteous “Judge of all the earth,” he had read every heart and knew well how deeply entrenched their wickedness and depravity were. (<a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2013809/7/0">Genesis 18:25;</a><a class="b" data-bid="8-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2013809/7/1"> 1 Chronicles 28:9</a>) What was it like for Rahab to live in such a condemned city? We can only imagine how she felt as reports about Israel reached her ears. She learned that the God of Israel had led his people​—a downtrodden nation of slaves—​to complete victory over the army of Egypt, the mightiest fighting force in the world of that time. And now Israel was about to attack Jericho! Yet, the people of that city persisted in their wickedness. We can see why the Bible speaks of Rahab’s fellow Canaanites as “those who acted disobediently.”​—<a class="b" data-bid="9-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2013809/8/0">Hebrews 11:31</a>.</div></td></tr></tbody></table></div>
+
+</li>
+<li><p data-pid="21" id="p21"><span class="txtSrcBullet"><strong>2.</strong> </span><strong>How do we know that the spies did not stay at Rahab’s house for immoral purposes?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025914/1/0"><em>it</em> “Prostitute” ¶16</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[it “Prostitute” ¶16]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="16"></span><strong><em>Rahab.</em></strong> Rahab is an example of a prostitute who expressed faith in God and was counted righteous. (<a class="b" data-bid="27-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200003566/26/0">Jas 2:25</a>) Men sent by Joshua to spy out Jericho lodged at Rahab’s house. (<a class="b" data-bid="28-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200003566/27/0">Jos 2:1</a>) It would not be reasonable to assume that they did so for immoral purposes. As to their motive, Professors C. F. Keil and F. Delitzsch, in <em>Commentary on the Old Testament</em> remark: “Their entering the house of such a person would not excite so much suspicion. Moreover, the situation of her house against or upon the town wall was one which facilitated escape. But the Lord so guided the course of the spies, that they found in this sinner the very person who was the most suitable for their purpose, and upon whose heart the tidings of the miracles wrought by the living God on behalf of Israel had made such an impression, that she not only informed the spies of the despondency of the Canaanites, but, with believing trust in the power of the God of Israel, concealed the spies from all the inquiries of her countrymen, though at the greatest risk to herself.” (1973, Vol. II, Joshua, p. 34) In view of God’s statement that Israel was to drive out the Canaanites because of their immoral practices and in view also of God’s blessing on the conquest of Jericho and upon Rahab herself, it would be entirely unreasonable to assume that the spies committed immorality with Rahab or that she continued her practice of prostitution afterward.​—<a class="b" data-bid="29-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200003566/28/0">Le 18:24-30</a>.</td></tr></tbody></table></div>
+
+</li>
+<li><p data-pid="23" id="p23"><span class="txtSrcBullet"><strong>3.</strong> </span><strong>Why were rows of flax laid on Rahab’s roof, and what was flax used for?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025914/2/0"><em>it</em> “Flax” ¶2-4</a>) <span class="du-color--orange-700"><strong>A</strong></span></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[it “Flax” ¶2-4]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="2"></span>A plant that has been cultivated from ancient times, the fibers of which were, as now, commonly made into linen. Flax (<em>Linum usitatissimum</em>) may grow from 0.3 to 1.2 m (1 to 4 ft) in height. The slender stalk of the plant, with its pale-green linear leaves, branches out only at the top. Each branch or branchlet terminates in a deep- or pale-blue (rarely white), five-petal flower.​—PICTURE, Vol. 1, p. 544.</div><div class="sb" data-pid="4" id="p4" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="3"></span>When the flax had “flower buds” it was ready for harvesting (<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200001531/0/0">Ex 9:31</a>), which was done by pulling or hoeing it up. The flax was then dried. Likely the stalks of flax on the roof of Rahab’s house at Jericho had been laid there for this purpose.​—<a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200001531/1/0">Jos 2:6</a>.</div><div class="sb" data-pid="5" id="p5" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="4"></span>The method employed by the Hebrews in processing flax probably corresponded to the description given by Pliny the Elder of the first century C.E. in his <em>Natural History</em> (XIX, III, 17, 18) and to the ancient pictorial representation preserved at Beni Hasan in Egypt. After the seedpods had been removed, the stalks of flax were completely submerged in water and weighted down with stones to prevent them from floating. As the flax soaked in water, the woody part rotted, freeing the fibers. After the exterior part, or rind, of the stalks became loose, the stalks were taken out of the water and were repeatedly turned over in the sun until completely dry. The flax was thereafter beaten with mallets on stone slabs, and the fibers were separated and cleansed by combing. The inferior fibers next to the rind were used for lampwicks (see <a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200001531/2/0">Isa 42:3;</a><a class="b" data-bid="3-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200001531/2/1"> 43:17;</a><a class="b" data-bid="3-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200001531/2/2"> Mt 12:20</a>), whereas the interior fibers, whiter and of a finer quality, were made into yarn that was polished by striking it again and again on a hard stone.</div></td></tr></tbody></table></div>
+
+<div class="south_center" id="f3">
+<figure>
+<img alt="" class="south_center" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/344" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/345" style="max-width: min(100%, 700px); height: auto;"/>
+<p class="imgCredit" data-pid="52" id="p52">Thanks for your interest in my photos/​Moment Open via Getty Images</p>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="50" id="p50"><span class="dc-screenReaderText"><strong>Picture</strong> </span><span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>A</strong></span><span class="dc-screenReaderText"><strong>:</strong> </span>A flax field</p>
+</figcaption>
+</figure>
+</div>
+</li>
+<li><p data-pid="25" id="p25"><span class="txtSrcBullet"><strong>4.</strong> </span><strong>Why was it not wrong for Rahab to mislead the king’s men?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025914/3/0"><em>w04</em> 12/1 9 ¶1</a>) <span class="du-color--orange-700"><strong>B</strong></span></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[w04 12/1 9 ¶1]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2004882/6/0"><strong>2:4, 5</strong></a>​<strong>—Why does Rahab mislead the king’s men who are searching for the spies?</strong> Rahab protects the spies at the risk of her life because she has come to have faith in Jehovah. Therefore, she is under no obligation to divulge the spies’ whereabouts to men who are seeking to harm God’s people. (<a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2004882/7/0">Matthew 7:6;</a><a class="b" data-bid="8-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2004882/7/1"> 21:23-27;</a><a class="b" data-bid="8-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2004882/7/2"> John 7:3-10</a>) In fact, Rahab was “declared righteous by works,” including the act of misdirecting the emissaries of the king.​—<a class="b" data-bid="9-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2004882/8/0">James 2:24-26</a>.</td></tr></tbody></table></div>
+
+<div class="south_center" id="f4">
+<figure>
+<img alt="Rahab giving directions to two of the king’s men." class="south_center" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/346" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/347" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="54" id="p54"><span class="dc-screenReaderText"><strong>Picture</strong> </span><span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>B</strong></span></p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">Rahab giving directions to two of the king’s men.</td></tr></tbody></table></div></figure>
+</div>
+</li>
+</ol>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="27" id="p27"><span aria-hidden="true" class="pageNum" data-before-text="73" data-no="73" id="page73"></span><strong>Reflect on the Lessons</strong></h2>
+<ul><li><p data-pid="28" id="p28">  Why did Rahab need courage to abandon her immoral life and worship Jehovah with the Israelites? What can Bible students learn from her example?</p>
+
+</li>
+</ul>
+<div class="dc-bleedToArticleEdge dc-paddingToContentEdge dc-bgImageLayout--matchContainerWidth-bottom du-bgColor--black du-color--white du-margin-top-desktopOnly--5 du-margin-top--4 du-padding-top-desktopOnly--5 du-padding-top--4 du-padding-bottom--1 suppressZoom" data-bg-image="/en/wol/mp/r1/lp-e/wcg/2025/348" data-bg-image-label="" id="tt51" style="background-image: url('/en/wol/mp/r1/lp-e/wcg/2025/348')"><ul class="du-margin-inlineEnd-desktopOnly--8 du-margin-bottom-desktopOnly--0"><li><p data-pid="30" id="p30">  While the Bible condemns lying, how might Christians learn from the example of Rahab if enemies of God’s people were to pressure us to reveal confidential information about our Christian brothers? (<a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025914/5/0">Prov. 11:13;</a><a class="b" data-bid="6-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025914/5/1"> Eccl. 3:7;</a><a class="b" data-bid="6-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025914/5/2"> Eph. 4:25</a>) <span class="du-color--orange-400"><strong>C</strong></span></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Prov. 11:13;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v20-11-13-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070124/16817">13 </a>A slanderer goes about revealing confidential talk,<a class="b" data-bid="313-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070124/312">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v20-11-13-2">But the trustworthy person<a class="fn" data-fnid="113" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070124/112" id="footnotesource113">*</a><em> (Footnote: Lit., “the one faithful in spirit.”)</em> keeps a confidence.<a class="fn" data-fnid="114" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070124/113" id="footnotesource114">*</a><em> (Footnote: Lit., “covers over a matter.”)</em></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Eccl. 3:7;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v21-3-7-1"> <a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070125/17482">7 </a>A time to rip apart<a class="b" data-bid="56-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070125/55">+</a> and a time to sew together;</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v21-3-7-2">A time to be silent<a class="b" data-bid="57-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070125/56">+</a> and a time to speak;<a class="b" data-bid="58-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070125/57">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Eph. 4:25]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v49-4-25-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070153/29389">25 </a>Therefore, now that you have put away deceit, each one of you speak truth with his neighbor,<a class="b" data-bid="120-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070153/119">+</a> because we are members belonging to one another.<a class="b" data-bid="121-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070153/120">+</a> </span></td></tr></tbody></table></div>
+
+</li>
+</ul>
+</div>
+<div class="dc-bleedToArticleEdge" id="f5">
+<figure>
+<img alt="A sister in handcuffs remaining silent as a prison officer stands over her and interrogates her. He points at documents on a table while an armed soldier stands guard." data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/349" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/350" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption dc-screenReaderText">
+<p data-pid="56" id="p56"><strong>Picture C</strong></p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">A sister in handcuffs remaining silent as a prison officer stands over her and interrogates her. He points at documents on a table while an armed soldier stands guard.</td></tr></tbody></table></div></figure>
+</div>
+<div class="dc-bleedToArticleEdge dc-paddingToContentEdge dc-bgImageLayout--matchContainerWidth-top du-clearfix du-bgColor--black du-padding-vertical--4 du-margin-children--0 du-margin-bottom-desktopOnly--12 du-margin-bottom--8 suppressZoom" data-bg-image="/en/wol/mp/r1/lp-e/wcg/2025/351" data-bg-image-label="" id="tt59" style="background-image: url('/en/wol/mp/r1/lp-e/wcg/2025/351')"><p data-pid="32" id="p32"><span class="dc-screenReaderText"><strong>Picture</strong> </span><span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus1 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>C</strong></span></p>
+</div>
+<ul><li><p data-pid="33" id="p33">  In what other ways might you imitate Rahab’s courage?</p>
+
+</li>
+</ul>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="35" id="p35"><strong>Meditate on the Bigger Picture</strong></h2>
+<ul><li><p data-pid="36" id="p36">  What does this account teach me about Jehovah?</p>
+
+</li>
+<li><p data-pid="38" id="p38">  How does this account tie in with Jehovah’s purposes?</p>
+
+</li>
+<li><p data-pid="40" id="p40">  What would I like to ask Rahab in the resurrection?</p>
+
+</li>
+</ul>
+<div class="dc-bleedToArticleEdge dc-paddingToContentEdge du-bgColor--warmGray-50 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--4 du-padding-bottom--8" id="tt85">
+<h2 class="du-color--orange-700 du-margin-top--0" data-pid="42" id="p42"><strong>Learn More</strong></h2>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt87">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f6">
+<figure>
+<a href="https://wol.jw.org/wol/rslink/r1/lp-e?lang=E&amp;docid=2009366&amp;pub=w09&amp;issuedate=20090515"><img alt="" class="suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/352" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/353" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt88">
+<p data-pid="43" id="p43">What does the account of Rahab teach us about how to survive the coming day of Jehovah?</p>
+<p data-pid="44" id="p44"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025914/4/0"><strong>“Where Should You Be When the End Comes?”</strong> (<em>w09</em> 5/15 6-8)</a></p>
+</div>
+</div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[“Where Should You Be When the End Comes?” (w09 5/15 6-8)]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="st" data-pid="1" id="p1" style="margin-top: 0; margin-bottom: 8px"><span aria-hidden="true" class="pageNum" data-before-text="6" data-no="6" id="page6"></span><strong>Where Should You Be When the End Comes?</strong></div><div class="sb" data-pid="2" id="p2" style="margin-top: 0; margin-bottom: 8px">WHEN Jehovah brings an end to the present wicked system of things at Armageddon, how will upright individuals fare? <a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/0/0">Proverbs 2:21, 22</a> answers: “The upright are the ones that will reside in the earth, and the blameless are the ones that will be left over in it. As regards the wicked, they will be cut off from the very earth; and as for the treacherous, they will be torn away from it.”</div><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px">How, though, will the blameless be left over in the earth? Will there be a place of refuge for them? Where should the upright be when the end comes? Four Scriptural accounts of survival shed light on these matters.</div><div class="ss" data-pid="4" id="p4" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>When Location Was Important</strong></div><div class="sb" data-pid="5" id="p5" style="margin-top: 0; margin-bottom: 8px">Concerning the deliverance of the patriarchs Noah and Lot, we read at <a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/1/0">2 Peter 2:5-7</a>: “[God] did not hold back from punishing an ancient world, but kept Noah, a preacher of righteousness, safe with seven others when he brought a deluge upon a world of ungodly people; and by reducing the cities Sodom and Gomorrah to ashes he condemned them, setting a pattern for ungodly persons of things to come; and he delivered righteous Lot, who was greatly distressed by the indulgence of the law-defying people in loose conduct.”</div><div class="sb" data-pid="6" id="p6" style="margin-top: 0; margin-bottom: 8px">How did Noah survive the Flood? God told Noah: “The end of all flesh has come before me, because the earth is full of violence as a result of them; and here I am bringing them to ruin together with the earth. Make for yourself an ark out of wood of a resinous tree.” (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/2/0">Gen. 6:13, 14</a>) Noah constructed the ark just as Jehovah had commanded him. Seven days before the floodwaters began to fall, Jehovah instructed him to gather the animals into the ark and go into it along with all his household. On the seventh day, the door was shut behind him, “and the downpour upon the earth went on for forty days and forty nights.” (<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/3/0">Gen. 7:1-4,</a><a class="b" data-bid="4-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/3/1"> 11, 12,</a><a class="b" data-bid="4-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/3/2"> 16</a>) Noah and his family “were carried safely through the water.” (<a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/4/0">1 Pet. 3:20</a>) Their survival depended on their being inside the ark. No other place on earth could offer security.​—<a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/5/0">Gen. 7:19, 20</a>.</div><div class="sb" data-pid="7" id="p7" style="margin-top: 0; margin-bottom: 8px">In the case of Lot, the instructions were somewhat different. Two angels informed him of where he was <em>not</em> to be. “All who are yours in the city [of Sodom],” the two angels told Lot, “bring out of the place! For we are bringing this place to ruin.” They were to “escape to the mountainous region.”​—<a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/6/0">Gen. 19:12, 13,</a><a class="b" data-bid="7-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/6/1"> 17</a>.</div><div class="sb" data-pid="8" id="p8" style="margin-top: 0; margin-bottom: 8px">The experiences of Noah and Lot prove that “Jehovah knows how to deliver people of godly devotion out of trial, but to reserve unrighteous people for the day of judgment.” (<a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/7/0">2 Pet. 2:9</a>) In both of these cases of deliverance, location was a decisive factor. Noah had to go <em>into</em> the ark; Lot had to get <em>out of</em> Sodom. But is this always the case? Can Jehovah save the righteous wherever they are, without their having to relocate? To answer that question, note two other accounts of deliverance.</div><div class="ss" data-pid="9" id="p9" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>Is Location Always Important?</strong></div><div class="sb" data-pid="10" id="p10" style="margin-top: 0; margin-bottom: 8px">Before Jehovah devastated Egypt by bringing the tenth plague in Moses’ day, He commanded the Israelites to splash the blood of the Passover animal on the lintels and doorposts <span aria-hidden="true" class="pageNum" data-before-text="7" data-no="7" id="page7"></span>of their houses. Why? So that ‘when Jehovah passed through to plague the Egyptians and saw the blood upon the upper part of the doorway and upon the two doorposts, he would pass over the entrance and not allow the ruination to enter into their houses to plague them.’ That very night, “Jehovah struck every firstborn in the land of Egypt, from the firstborn of Pharaoh sitting on his throne to the firstborn of the captive who was in the prison hole, and every firstborn of beast.” The firstborn of the Israelites were saved without anyone having to relocate.​—<a class="b" data-bid="9-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/8/0">Ex. 12:22, 23,</a><a class="b" data-bid="9-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/8/1"> 29</a>.</div><div class="sb" data-pid="11" id="p11" style="margin-top: 0; margin-bottom: 8px">Consider also the case of Rahab, a prostitute living in the city of Jericho. The Israelites were about to begin their conquest of the Promised Land. When Rahab realized that Jericho was doomed, she told the two Israelite spies that the city was paralyzed with fear of the advancing Israelites. She hid the spies and asked them to swear to her that she and her whole family would be preserved when Jericho was conquered. The spies instructed Rahab to congregate her family inside her house, situated on the city wall. Leaving the house would mean destruction with the rest of the city. (<a class="b" data-bid="10-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/9/0">Josh. 2:8-13,</a><a class="b" data-bid="10-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/9/1"> 15,</a><a class="b" data-bid="10-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/9/2"> 18, 19</a>) However, Jehovah later told Joshua that “the wall of the city must fall down flat.” (<a class="b" data-bid="11-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/10/0">Josh. 6:5</a>) What the spies had stipulated as the place of safety now seemed to be in jeopardy. How would Rahab and her household be delivered?</div><div class="sb" data-pid="12" id="p12" style="margin-top: 0; margin-bottom: 8px">When the time came to capture Jericho, the Israelites shouted and proceeded to blow the horns. “It came about that as soon as the people [of Israel] heard the sound of the horn and the people began to shout a great war cry,” states <a class="b" data-bid="12-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/11/0">Joshua 6:20</a>, “then the wall began to fall down flat.” The collapsing wall was now beyond human control. Miraculously, though, the crumbling of the city wall stopped at Rahab’s house. Joshua ordered the two spies: “Go into the house of the woman, the prostitute, and bring out of there the woman and all who belong to her, just as you have sworn to her.” (<a class="b" data-bid="13-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/12/0">Josh. 6:22</a>) All in Rahab’s house were saved.</div><div class="ss" data-pid="13" id="p13" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>What Counted Most?</strong></div><div class="sb" data-pid="14" id="p14" style="margin-top: 0; margin-bottom: 8px">What can we learn from the deliverance of Noah, Lot, the Israelites in Moses’ day, and Rahab? How do these accounts help us to determine where we should be when the end of the present wicked system of things comes?</div><div class="sb" data-pid="15" id="p15" style="margin-top: 0; margin-bottom: 8px">True, Noah found salvation in the ark. But why was he there? Was it not because he exercised faith and was obedient? “Noah <span aria-hidden="true" class="pageNum" data-before-text="8" data-no="8" id="page8"></span>proceeded to do according to all that God had commanded him,” says the Bible. “He did just so.” (<a class="b" data-bid="14-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/13/0">Gen. 6:22;</a><a class="b" data-bid="14-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/13/1"> Heb. 11:7</a>) What about us? Are we doing all that God has commanded us? Noah was also “a preacher of righteousness.” (<a class="b" data-bid="15-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/14/0">2 Pet. 2:5</a>) Like him, are we zealous in the preaching work, even if our territory is unresponsive?</div><div class="sb" data-pid="16" id="p16" style="margin-top: 0; margin-bottom: 8px">Lot escaped destruction by fleeing Sodom. He was spared because he was righteous in God’s eyes and was greatly distressed by the loose conduct of the law-defying people of Sodom and Gomorrah. Does the loose conduct so prevalent today really distress us? Or are we so desensitized that it does not bother us? Are we doing our utmost to be found “spotless and unblemished and in peace”?​—<a class="b" data-bid="16-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/15/0">2 Pet. 3:14</a>.</div><div class="sb" data-pid="17" id="p17" style="margin-top: 0; margin-bottom: 8px">For the Israelites in Egypt and for Rahab in Jericho, deliverance depended on remaining in their houses. This required faith and obedience. (<a class="b" data-bid="17-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/16/0">Heb. 11:28,</a><a class="b" data-bid="17-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/16/1"> 30, 31</a>) Imagine how each Israelite family must have fixed their eyes on their firstborn as “there began arising a great outcry” in one Egyptian household after another. (<a class="b" data-bid="18-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/17/0">Ex. 12:30</a>) Imagine how Rahab must have huddled together with her family as she felt the rumbling of Jericho’s collapsing walls coming closer and closer. It took real faith on her part to remain obedient and stay in that house.</div><div class="sb" data-pid="18" id="p18" style="margin-top: 0; margin-bottom: 8px">Soon the end will come for Satan’s wicked world. How Jehovah will protect his people in the fear-inspiring ‘day of his anger,’ we do not yet know. (<a class="b" data-bid="19-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/18/0">Zeph. 2:3</a>) Regardless of where we are and what our situation is at that time, however, we can be sure that our survival will depend on our faith in Jehovah and our obedience to him. Meanwhile, we should cultivate a proper attitude toward what Isaiah’s prophecy refers to as our “interior rooms.”</div><div class="ss" data-pid="19" id="p19" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>“Enter Into Your Interior Rooms”</strong></div><div class="sb" data-pid="20" id="p20" style="margin-top: 0; margin-bottom: 8px">“Go, my people, enter into your interior rooms, and shut your doors behind you,” states <a class="b" data-bid="20-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/19/0">Isaiah 26:20</a>. “Hide yourself for but a moment until the denunciation passes over.” This prophecy may have had its first fulfillment in 539 B.C.E. when the Medes and the Persians conquered Babylon. Upon entering Babylon, Cyrus the Persian apparently commanded everyone to stay indoors because his soldiers were ordered to execute any found out-of-doors.</div><div class="sb" data-pid="21" id="p21" style="margin-top: 0; margin-bottom: 8px">In our day, the “interior rooms” of this prophecy could be closely associated with the more than 100,000 congregations of Jehovah’s Witnesses around the world. Such congregations play an important role in our lives. They will continue to do so through “the great tribulation.” (<a class="b" data-bid="21-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/20/0">Rev. 7:14</a>) God’s people are commanded to go into their “interior rooms” and hide themselves “until the denunciation passes over.” It is vital that we develop and maintain a wholesome attitude toward the congregation and be firmly resolved to stay in close association with it. We can take to heart Paul’s exhortation: “Let us consider one another to incite to love and fine works, not forsaking the gathering of ourselves together, as some have the custom, but encouraging one another, and all the more so as [we] behold the day drawing near.”​—<a class="b" data-bid="22-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2009366/21/0">Heb. 10:24, 25</a>.</div><div class="se" data-pid="22" id="p22" style="margin-top: 0; margin-bottom: 8px"><strong>[Pictures on page 7]</strong></div><div class="sc" data-pid="23" id="p23" style="margin-top: 0; margin-bottom: 8px">What can we learn from God’s past acts of deliverance?</div><div class="se" data-pid="24" id="p24" style="margin-top: 0; margin-bottom: 8px"><strong>[Picture on page 8]</strong></div><div class="sc" data-pid="25" id="p25" style="margin-top: 0; margin-bottom: 8px">What may the “interior rooms” point to in modern times?</div><div class="sb" data-pid="26" id="p26" style="margin-top: 0; margin-bottom: 8px"></div></td></tr></tbody></table></div>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt89">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f7">
+<figure>
+<a href="https://www.jw.org/finder?wtlocale=E&amp;docid=502014342"><img alt="" class="suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/354" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/355" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt90">
+<p data-pid="45" id="p45">Use this illustrated Bible story to help your children to visualize the events of this account.</p>
+<p data-pid="46" id="p46"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025914/5/0"><strong>“Rahab Follows Instructions”</strong> (<em>ijwis</em> article 11)</a></p>
+</div>
+</div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[“Rahab Follows Instructions” (ijwis article 11)]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="featureTtl" data-pid="1" id="p1" style="margin-top: 0; margin-bottom: 8px"><strong>ILLUSTRATED BIBLE STORIES</strong></div><h1 data-pid="2" id="p2"><span aria-hidden="true" class="pageNum" data-before-text="11" data-no="11" id="page11"></span><strong>Rahab Follows Instructions</strong></h1><div data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="1"></span>How did Rahab survive when the Israelites came to destroy the city of Jericho?</div><div data-pid="4" id="p4" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="2"></span>Read the illustrated story online or from a printed PDF.</div><div data-pid="5" id="p5" style="margin-top: 0; margin-bottom: 8px"><a data-online-link="https://www.jw.org/finder?wtlocale=E&amp;docid=502014342" href="https://wol.jw.org/wol/webpubdl?docid=502014342&amp;lang=E&amp;track=1">Download</a></div></td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="{BibleBookName} {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value="{BibleBookName} {StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value="{BibleBookName} {BibleVerse}"/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="Walk Courageously With God p. {StartingPageNumber}-{EndingPageNumber}"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="Walk Courageously With God p. {PageNumber}"/>
+<input id="documentDescription" type="hidden" value="Walk Courageously With God"/>
+<input id="englishSym" type="hidden" value="wcg"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="audioPubSym" type="hidden" value="wcg"/>
+<input id="chapNo" type="hidden" value="14"/>
+<input id="issue" type="hidden" value=""/>
+<input id="docId" type="hidden" value="1102025914"/>
+<input id="documentInBible" type="hidden" value=""/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=E&amp;docid=1102025914&amp;srctype=wol&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="document"/>
+<input id="contentTitle" type="hidden" value="She Chose Jehovah Over Her Own People"/>
+<input id="parentTitle" type="hidden" value="Walk Courageously With God"/>
+<input id="contentThumbnail" type="hidden" value="/en/wol/d/r1/lp-e/1102025914/thumbnail"/>
+</article>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Gather all alternate presentation elements and their images
+        const altPresElements = Array.from(document.querySelectorAll('.alternatePresentation'));
+        const altImages = altPresElements.map(el => {
+            const img = el.querySelector('img');
+            if (img) {
+                return {
+                    src: img.getAttribute('data-alt-src') || img.getAttribute('src'),
+                    title: el.querySelector('.title')?.textContent || "Image"
+                };
+            }
+            return null;
+        }).filter(Boolean);
+
+        // 2. Create Lightbox DOM structure dynamically
+        const lightbox = document.createElement('div');
+        lightbox.className = 'custom-lightbox';
+        lightbox.innerHTML = `
+            <button class="custom-lightbox-close">&times;</button>
+            <button class="custom-lightbox-nav custom-lightbox-prev">&#10094;</button>
+            <div class="custom-lightbox-content">
+                <img class="custom-lightbox-img" src="" alt="" />
+            </div>
+            <button class="custom-lightbox-nav custom-lightbox-next">&#10095;</button>
+            <div class="custom-lightbox-caption"></div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('.custom-lightbox-img');
+        const lightboxCaption = lightbox.querySelector('.custom-lightbox-caption');
+        const closeBtn = lightbox.querySelector('.custom-lightbox-close');
+        const prevBtn = lightbox.querySelector('.custom-lightbox-prev');
+        const nextBtn = lightbox.querySelector('.custom-lightbox-next');
+
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        const openLightbox = (group, index) => {
+            currentGroup = group;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const updateLightbox = () => {
+            const item = currentGroup[currentIndex];
+            if (item) {
+                lightboxImg.src = item.src;
+                if (item.title && item.title.trim() !== "" && item.title.trim() !== "Printed Edition") {
+                    lightboxCaption.textContent = item.title;
+                    lightboxCaption.style.display = 'block';
+                } else {
+                    lightboxCaption.textContent = "";
+                    lightboxCaption.style.display = 'none';
+                }
+                if (currentGroup.length > 1) {
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                } else {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                }
+            }
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImg.src = '';
+            lightboxCaption.textContent = '';
+        };
+
+        const navigate = (direction) => {
+            if (currentGroup.length <= 1) return;
+            currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+            updateLightbox();
+        };
+
+        // Event Listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('custom-lightbox-content')) {
+                closeLightbox();
+            }
+        });
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Attach click handlers to alternate presentations
+        altPresElements.forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(altImages, index);
+            });
+        });
+
+        // Attach click handlers to other zoomable figure images
+        document.querySelectorAll('article figure img:not(.suppressZoom)').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = img.getAttribute('data-alt-src') || img.getAttribute('src');
+                const title = img.getAttribute('alt') || "";
+                openLightbox([{ src, title }], 0);
+            });
+        });
+    });
+    </script>
+</body>
+</html>
