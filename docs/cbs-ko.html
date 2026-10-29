@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>동족을 버리고 여호와를 선택하다</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">📖</text></svg>'>
+    <link rel="stylesheet" type="text/css" href="css/media-player.css">
+    <link rel="stylesheet" type="text/css" href="css/+0+61168f8ef805085f5a3c0118b14679f74c9e62a4.css">
+    <link rel="stylesheet" type="text/css" href="css/+1+f8319dd08c749624466cb777b7d528e1a42d7368.css">
+    <link rel="stylesheet" type="text/css" href="css/+2+894de4a6eba76bf97927253f95f582449947a96e.css">
+    <link rel="stylesheet" type="text/css" href="css/+3+d00a791fdbb951906e95f1428ae322e41ea9da95.css">
+    <style>
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @media screen and (min-width: 600px) {
+            .document, .bible {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 16px 50px 80px;
+            }
+            .document .dc-bleedToArticleEdge, .bible .dc-bleedToArticleEdge {
+                margin-left: -50px;
+                margin-right: -50px;
+            }
+            .document .dc-paddingToContentEdge, .bible .dc-paddingToContentEdge {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        #content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+        .inserted-reference {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+            font-size: 0.95em;
+        }
+        .inserted-reference-header {
+            margin: 0;
+            padding: 4px 16px;
+            background-color: #e2e6ea;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #495057;
+        }
+        .inserted-reference-header a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #1a73e8;
+        }
+        .inserted-reference-header a:hover {
+            text-decoration: underline;
+        }
+        .inserted-reference > *:not(.inserted-reference-header) {
+            margin: 12px 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-style: italic;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        /* Custom Lightbox Styles */
+        .custom-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            /* user-select: none; */
+            /* -webkit-user-select: none; */
+        }
+        .custom-lightbox.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .custom-lightbox-content {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 35px;
+            color: #fff;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10002;
+            transition: transform 0.2s ease;
+        }
+        .custom-lightbox-close:hover {
+            transform: scale(1.1);
+        }
+        .custom-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 20px;
+        }
+        .custom-lightbox-nav:hover {
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .custom-lightbox-prev {
+            left: 0px;
+        }
+        .custom-lightbox-next {
+            right: 0px;
+        }
+        .custom-lightbox-caption {
+            color: #ccc;
+            margin-top: 15px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 80%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body, #content {
+                background-color: #171c2a !important;
+                color: #e2e8f0;
+            }
+            .document, .bible, .article, #article {
+                background-color: #1e293b !important;
+                color: #e2e8f0;
+            }
+            .scalableui, .bodyTxt {
+                background-color: transparent !important;
+                color: #e2e8f0;
+            }
+            .du-bgColor--bgSecondary, .du-bgColor--warmGray-50,
+            [class*="du-bgColor--bgSecondary"], [class*="du-bgColor--warmGray-"],
+            #tt9, .document #tt9, body #tt9,
+            .document [class*="du-bgColor--bgSecondary"], body [class*="du-bgColor--bgSecondary"],
+            .document [class*="du-bgColor--warmGray-"], body [class*="du-bgColor--warmGray-"] {
+                background-color: #2d3a4f !important;
+                color: #e2e8f0 !important;
+            }
+            .du-borderColor--borderDefault, hr {
+                border-color: #3b4d66 !important;
+            }
+            .du-color--teal-700 {
+                color: #2dd4bf !important;
+            }
+            h1, h2, h3, h4, h5, h6, strong {
+                color: #f8fafc;
+            }
+            a, a.b, a.vl, a.fn, a:visited {
+                color: #60a5fa;
+            }
+            a:hover, a.b:hover, a.vl:hover, a.fn:hover {
+                color: #93c5fd;
+            }
+            .du-color--textSubdued, .pageNum, .themeScrp {
+                color: #94a3b8 !important;
+            }
+            .inserted-reference {
+                background-color: #263346;
+                border: 1px solid #3b4d66;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .inserted-reference-header {
+                background-color: #1e2b3c;
+                border-bottom: 1px solid #3b4d66;
+                color: #cbd5e1;
+            }
+            .inserted-reference-header a {
+                color: #60a5fa;
+            }
+            .inserted-reference-header a:hover {
+                color: #93c5fd;
+            }
+            .note-card-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .note-card-header {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #cbd5e1 !important;
+            }
+            .note-card-header a {
+                color: #60a5fa !important;
+            }
+            .note-card-body {
+                color: #e2e8f0 !important;
+            }
+            .box-supplement-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+            }
+            .box-supplement-table th {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #f8fafc !important;
+            }
+            .box-supplement-table th h1, .box-supplement-table th h2,
+            .box-supplement-table th h3, .box-supplement-table th h4,
+            .box-supplement-table th strong, .box-supplement-table th p {
+                color: #f8fafc !important;
+            }
+            .box-supplement-table td {
+                color: #e2e8f0 !important;
+            }
+            .image-caption {
+                color: #94a3b8;
+            }
+            .custom-lightbox-img {
+                background-color: #1e293b;
+            }
+            .custom-lightbox-caption {
+                color: #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body  class="showRuby cc-theme--light DynamicLayout">
+    <div id="content" class="content">
+        <article class="article document html5 pub- docId-1102025914 pub-wcg pub- pub-wcg docClass-13 jwac showRuby ml-KO ms-KOREAN dir-ltr includeSecondaryNav" data-lang="KO" dir="ltr" id="article" lang="ko" role="article">
+<div class="scalableui">
+<header>
+<div class="dc-bleedToArticleEdge suppressZoom" id="f1">
+<figure>
+<img alt="" class="suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/340" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/341" style="max-width: min(100%, 700px); height: auto;"/>
+</figure>
+</div>
+<p class="contextTtl dc-bleedToArticleEdge dc-paddingToContentEdge du-letterSpacing--1 du-color--orange-700 du-borderColor--orange-700 du-borderStyle-bottom--solid du-borderWidth--1 du-padding-vertical--2" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="70" data-no="70" id="page70"></span><strong>14</strong> 라합</p>
+<h1 class="du-color--coolGray-600 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="2" id="p2"><strong>동족을 버리고 여호와를 선택하다</strong></h1>
+</header> <div class="clearfix alternatePresentation clickable noTooltips">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/338" data-alt-type="svg" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/336" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">인쇄판</div>
+</div>
+<div class="clearfix alternatePresentation clickable noTooltips hidden">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/339" data-alt-type="svg" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/337" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">인쇄판</div>
+</div>
+<div class="bodyTxt">
+<div id="tt4">
+<p data-pid="3" id="p3">예리코는 햇볕이 강렬하게 내리쬐는 지역에 자리 잡고 있었습니다. 성경에서는 예리코를 “야자나무 도시”라고도 부릅니다. (<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025914/0/0">신명 34:3</a>) 이 도시에 라합이라는 이름을 가진 매춘부가 살고 있었습니다. 성벽에 있는 그의 집 창문으로는 아름다운 풍경을 볼 수 있었을 것입니다. 하지만 성안 거리에 있는 사람들의 얼굴에는 수심과 두려움이 가득했습니다. 예리코 사람들은 여호와께서 그분의 백성 이스라엘과 함께하시기 때문에 이스라엘이 자신들을 정복하여 멸망시킬 것임을 알았습니다.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[신명 34:3]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v5-34-3-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070109/5842">3 </a>네게브와<a class="b" data-bid="1247-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070109/1246">+</a> 요르단 지역,<a class="b" data-bid="1248-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070109/1247">+</a> 야자나무 도시인 예리코의 골짜기<a class="fn" data-fnid="248" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070109/247" id="footnotesource248">*</a><em> (각주: 또는 “평야”.)</em>를 소알까지<a class="b" data-bid="1249-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070109/1248">+</a> 보여 주셨다.</span></td></tr></tbody></table></div>
+<p data-pid="4" id="p4">이스라엘은 예리코 근처에 진을 치고 있었습니다. 40년 전에 여호와께서는 파라오의 군대 전체를 홍해에 빠져 죽게 함으로 자신의 백성을 구출하셨습니다. 또한 얼마 전에 그분은 광야를 떠돌아다니던 자신의 백성이 시혼과 옥이 다스리던 강력한 아모리 왕국들에 큰 승리를 거두게 하셨습니다. 이제 그들이 여호와의 명령에 따라 예리코로 오고 있는 것입니다. 온갖 악행을 저지른 예리코 사람들에게 그들이 받아 마땅한 처벌을 내리러 오는 것이었습니다!</p>
+<p data-pid="5" id="p5">라합은 자기 동족이 악하다는 것을 알았습니다. 매춘부로서 수치스러운 삶을 살고 있던 그는 틀림없이 더 나은 삶을 간절히 원했을 것입니다. 여호와를 알게 되면서 그의 마음은 두려움이 아니라 희망으로 가득 차게 되었습니다. 가나안의 타락한 신들과는 달리 여호와는 자신의 백성을 보호하고 존중하는 하느님이었습니다. 라합은 거룩하고 공정하고 자신의 백성을 보호하는 여호와 하느님과 가까워지고 싶었습니다.</p>
+<p data-pid="6" id="p6">어느 날 밤, 두 명의 낯선 사람이 라합의 집을 찾아와 하룻밤 묵게 해 달라고 청했습니다. 관찰력이 뛰어난 라합은 그들이 이스라엘의 정탐꾼이라는 것을 바로 알아차렸습니다! 라합만 그들의 정체를 알아차린 것은 아니었습니다. 예리코 왕은 라합의 집에 사람들을 보내 라합에게 두 정탐꾼을 넘기라고 명령했습니다. 라합은 결정을 내려야 했습니다. 그 결정은 그의 삶에 큰 영향을 줄 것이었습니다. 그는 이 악한 도시 사람들의 편에 설 것입니까, 아니면 여호와의 편에 설 것입니까?</p>
+<p data-pid="7" id="p7">라합은 용기를 내어 여호와의 편에 서기로 선택했습니다. 그는 정탐꾼들을 지붕 위에 숨겨 놓고는 왕이 보낸 사람들에게 그들이 이미 떠났다고 말했습니다. 왕의 부하들이 떠나자 라합은 지붕으로 올라가 정탐꾼들에게 자신이 왜 그들을 구해 주었는지를 이렇게 말했습니다. “나는 여호와께서 이 땅을 당신들에게 주시리라는 것을 확신합니다.” 라합은 이스라엘의 하느님에 대한 믿음이 있었던 것입니다! 라합은 정탐꾼들에게 예리코 사람들이 이스라엘 때문에 겁에 질려 있다는 사실도 말해 주었습니다. 정탐꾼들은 이 말을 듣고 힘이 <span aria-hidden="true" class="pageNum" data-before-text="71" data-no="71" id="page71"></span>났을 것입니다. 라합은 여호와께서 이스라엘을 사용해 예리코를 멸망시키실 때 보호해 달라고 그들에게 부탁했습니다.</p>
+<div class="stdPullQuote dc-ttClassStyle--unset du-color--orange-700 du-float-desktopOnly--inlineStart du-width-desktopOnly--oneHalf du-margin-inlineStart-mobileOnly--6 du-margin-inlineEnd-desktopOnly--4 du-margin-children-top-desktopOnly--0"><p data-pid="48" id="p48"><strong>매춘부인 여자가 어떻게 동족에게 등을 돌리고 부도덕한 생활을 버릴 힘을 낼 수 있었습니까?</strong></p>
+</div>
+<p data-pid="8" id="p8">정탐꾼들은 라합이 용감하게 여호와의 편에 서서 자신들의 생명을 구해 주었기 때문에 그의 부탁을 들어주겠다고 했습니다. 그들은 라합과 그의 가족을 살려 주겠다고 약속했습니다. 그리고 자신들이 왔었다는 사실을 비밀로 하고, 성벽에 있는 집 창문에 진홍색 실로 만든 줄을 매달고, 이스라엘의 공격이 있을 때 집 안에 머물러 있으라고 말했습니다. 그렇게 하면 그와 그의 가족이 살아남을 수 있을 것이었습니다.</p>
+<div class="dc-bleedToArticleEdge du-margin-vertical--8 du-margin-vertical-desktopOnly--12" id="f2">
+<figure>
+<img alt="라합이 진홍색 줄을 자기 집 창문에 매어 둡니다." data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/342" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/343" style="max-width: min(100%, 700px); height: auto;"/>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">라합이 진홍색 줄을 자기 집 창문에 매어 둡니다.</td></tr></tbody></table></div></figure>
+</div>
+<p data-pid="9" id="p9">라합은 집 창문에서 밧줄을 내려 정탐꾼들이 도시를 빠져나가도록 도와주었습니다. 그런 다음 정탐꾼들이 시킨 대로 했습니다. 창문에 진홍색 실로 만든 줄을 매달아 두었습니다. 그리고 정탐꾼들에 대해 아무에게도 말하지 않았습니다. 그가 한 행동이 탄로 나면 도시 사람들에게 죽임을 당할 수도 있었습니다. 그리고 라합은 정탐꾼들의 말대로 가족과 함께 집 안에 머물렀습니다. 여호와께서 이스라엘 사람들이 건널 수 있도록 요르단강 물을 멈추게 하셨다는 소식을 듣고 틀림없이 라합은 올바른 선택을 했다는 확신이 강해졌을 것입니다. 이스라엘 군대가 7일 동안 예리코 주위를 행진할 때 예리코 사람들은 분명 공포심에 사로잡혔을 것입니다. 마침내 일곱째 날에 뿔나팔 소리와 이스라엘 사람들의 함성이 들리자 성벽이 무너져 내렸습니다! 하지만 라합과 그의 집에 함께 있던 가족들은 안전했습니다. 성벽에서 라합의 집이 있던 부분이 무너지지 않고 그대로 남아 있었기 때문입니다.</p>
+<p data-pid="10" id="p10">전쟁이 끝난 후에 정탐꾼들은 라합과 그의 가족을 밖으로 데리고 나왔습니다. 여호수아가 지시한 대로, 그들은 라합과 그의 가족을 죽이지 않았습니다. 시간이 흘러 라합은 이스라엘 민족에 속하게 되었습니다. 그는 이스라엘 남자와 결혼하여 자녀를 낳았습니다. 그 집안에서 여러 세기 후에 역사상 가장 용기 있는 사람인 예수 그리스도가 태어났습니다. (<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025914/1/0">마태 1:5,</a><a class="b" data-bid="2-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025914/1/1"> 16</a>) 믿음과 용기를 나타낸 라합을 여호와께서 크게 축복하신 것입니다.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[마태 1:5,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v40-1-5-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070144/23265">5 </a>살몬은 라합에게서<a class="b" data-bid="13-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/12">+</a> 보아스를 낳고,<a class="b" data-bid="14-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/13">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v40-1-5-2">보아스는 룻에게서<a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/14">+</a> 오벳을 낳고,<a class="b" data-bid="16-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/15">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v40-1-5-3">오벳은 이새를 낳고,<a class="b" data-bid="17-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/16">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[16]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v40-1-16-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070144/23276">16 </a>야곱은 마리아의 남편 요셉을 낳았는데, 마리아에게서 그리스도라고 하는 예수께서 태어나셨다.<a class="b" data-bid="38-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/37">+</a></span></td></tr></tbody></table></div>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="11" id="p11"><strong>성경 기록을 읽어 보십시오</strong></h3>
+<ul><li><p data-pid="12" id="p12"> <a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025914/2/0"><strong>여호수아 2:1-24;</strong></a><a class="b" data-bid="3-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025914/2/1"> <strong>5:1;</strong></a><a class="b" data-bid="3-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025914/2/2"> <strong>6:14-25</strong></a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[여호수아 2:1-24;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-1-1"><a class="cl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5870"><strong>2</strong> </a>눈의 아들 여호수아가 싯팀에서<a class="b" data-bid="29-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/28">+</a> 정탐꾼 두 사람을 은밀히 보내며 말했다. “가서, 그 땅을 특히 예리코를 살펴보십시오.” 그래서 그들은 가서 라합이라고<a class="b" data-bid="30-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/29">+</a> 하는 매춘부의 집에 이르러, 거기에서 묵었다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-2-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5871">2 </a>그때에 예리코 왕에게 “이스라엘 사람들이 이 땅을 정탐하려고 오늘 밤에 이리로 들어왔습니다” 하는 보고가 들어갔다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-3-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5872">3 </a>그러자 예리코 왕이 라합에게 전갈을 보냈다. “너의 집으로 와서 묵고 있는 사람들을 데리고 나와라. 그들은 이 온 땅을 정탐하러 온 자들이다.”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-4-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5873">4 </a>그러나 그 여자는 두 사람을 데리고 가서 숨겨 놓고, 이렇게 말했다. “그 사람들이 저에게 온 것은 맞지만 어디서 왔는지는 몰랐습니다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-5-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5874">5 </a>그리고 그 사람들은 어두워져서 성문을 닫을 때쯤 나갔는데, 그 사람들이 어디로 갔는지는 모르겠습니다. 빨리 뒤쫓으면 따라잡을 수 있을 것입니다.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-6-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5875">6 </a>(하지만 그 여자는 이미 그들을 지붕으로 데리고 올라가서, 지붕 위에 널어놓은 아마 줄기 사이에 숨겨 놓았다.) </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-7-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5876">7 </a>그래서 사람들은 요르단 쪽으로 여울목까지<a class="b" data-bid="31-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/30">+</a> 그들을 뒤쫓았고, 그들을 뒤쫓는 자들이 나가자 성문이 닫혔다.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-8-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5877">8 </a>그 두 사람이 자려고 눕기 전에, 라합이 지붕 위에 있는 그들에게 올라왔다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-9-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5878">9 </a>그리고 그 사람들에게 말했다. “나는 여호와께서 이 땅을 당신들에게 주시리라는 것을 확신합니다.<a class="b" data-bid="32-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/31">+</a> 우리는 당신들에 대한 두려움에 사로잡혀 있습니다.<a class="b" data-bid="33-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/32">+</a> 이 땅의 모든 주민이 당신들 때문에 낙담해 있어요.<a class="b" data-bid="34-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/33">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-10-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5879">10 </a>당신들이 이집트를 떠날 때에 여호와께서 당신들 앞에서 홍해의 물을 말리신 일과<a class="b" data-bid="35-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/34">+</a> 또 당신들이 아모리 사람들의 두 왕 시혼과<a class="b" data-bid="36-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/35">+</a> 옥에게<a class="b" data-bid="37-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/36">+</a> 한 일 곧 요르단 강 건너편<a class="fn" data-fnid="6" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070110/5" id="footnotesource6">*</a><em> (각주: 동쪽을 가리킴.)</em>에서 그들을 완전히 멸망시킨<a class="fn" data-fnid="7" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070110/6" id="footnotesource7">*</a><em> (각주: 또는 “멸망에 바친”.)</em> 일을 우리가 들었기 때문이지요. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-11-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5880">11 </a>우리는 그 일에 대해 듣고 사기가 꺾였으며<a class="fn" data-fnid="8" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070110/7" id="footnotesource8">*</a><em> (각주: 직역하면 “마음이 녹았으며”.)</em> 당신들 때문에 아무도 용기를 내지 못하고 있습니다.<a class="fn" data-fnid="9" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070110/8" id="footnotesource9">*</a><em> (각주: 직역하면 “어떤 사람에게도 더 이상 영이 일어나지 않았습니다.”)</em> 당신들의 하느님 여호와는 위로 하늘에서도 아래로 땅에서도 하느님이시기 때문입니다.<a class="b" data-bid="38-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/37">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-12-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5881">12 </a>내가 당신들에게 충성스러운 사랑을 나타냈으니, 이제 부디 당신들도 내 아버지의 집안에 충성스러운 사랑을 나타내겠다고 여호와를 두고 나에게 맹세하시고, 나에게 확실한 표<a class="fn" data-fnid="10" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070110/9" id="footnotesource10">*</a><em> (각주: 또는 “믿을 만한 표”.)</em>를 주십시오. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-13-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5882">13 </a>그리고 내 아버지와 어머니와 형제들과 자매들과 그들에게 속한 모든 자를 살려 주셔야 하며, 우리<a class="fn" data-fnid="11" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070110/10" id="footnotesource11">*</a><em> (각주: 또는 “우리의 영혼”.)</em>를 죽음에서 구해 주셔야 합니다.”<a class="b" data-bid="39-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/38">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-14-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5883">14 </a>그러자 그 사람들이 라합에게 말했다. “당신들을 위해 우리의 목숨을 내놓겠습니다!<a class="fn" data-fnid="12" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070110/11" id="footnotesource12">*</a><em> (각주: 또는 “우리의 영혼이 당신들을 대신하여 죽겠습니다!”)</em> 당신들이 우리가 하는 일을 알리지 않는다면, 여호와께서 우리에게 이 땅을 주실 때에, 우리도 당신들에게 충성스러운 사랑과 충실을 나타내겠습니다.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-15-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5884">15 </a>그 후에 라합은 그들이 창문을 통해 밧줄을 타고 내려가게 했다. 그의 집이 성벽에 붙어 있었기 때문이다. 사실 그는 성벽 위에 살고 있었다.<a class="b" data-bid="40-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/39">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-16-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5885">16 </a>그리고 라합이 그들에게 말했다. “뒤쫓는 자들이 당신들을 찾지 못하도록, 산간 지방으로 가서 그곳에 3일 동안 숨어 있으세요. 그리고 당신들을 뒤쫓는 자들이 돌아온 후에 당신들의 길을 가십시오.”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-17-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5886">17 </a>그 사람들이 라합에게 말했다. “당신이 하게 한 이 맹세를 우리가 반드시 지켜, 우리에게 죄가 없게 할 것입니다.<a class="b" data-bid="41-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/40">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-18-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5887">18 </a>단, 우리가 이 땅으로 들어올 때, 당신은 진홍색 실로 만든 이 줄을 당신이 우리를 내려보낸 창문에 매어 두어야 합니다. 당신의 아버지와 어머니와 형제들과 아버지의 온 집안사람들을 이 집에 모아 당신과 함께 있게 해야 합니다.<a class="b" data-bid="42-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/41">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-19-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5888">19 </a>누구든지 당신의 집 문밖으로 나가면, 그 피가 그의 머리로 돌아갈 것이며, 우리는 죄가 없을 것입니다. 그러나 누구든지 당신과 함께 집 안에 있는 사람이 해를 입으면,<a class="fn" data-fnid="13" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070110/12" id="footnotesource13">*</a><em> (각주: 또는 “사람에게 손을 대면”.)</em> 그 피가 우리의 머리로 돌아올 것입니다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-20-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5889">20 </a>그러나 당신이 우리가 하는 일을 알리면,<a class="b" data-bid="43-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/42">+</a> 당신이 우리에게 하게 한 맹세와 관련하여 우리는 죄가 없을 것입니다.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-21-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5890">21 </a>라합이 대답했다. “당신들의 말대로 하겠습니다.”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-21-2">그리고 그가 그들을 보냈고, 그들은 길을 떠났다. 그 후에 그는 진홍색 줄을 창문에 매어 두었다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-22-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5891">22 </a>그리하여 그들은 그곳을 떠나 산간 지방으로 가서, 뒤쫓는 자들이 돌아갈 때까지 거기에서 3일 동안 머물렀다. 뒤쫓는 자들은 모든 길을 수색했지만 그들을 찾아내지 못했다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-23-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5892">23 </a>그래서 그 두 사람은 산간 지방에서 내려와 강을 건너 눈의 아들 여호수아에게 와서 자기들에게 일어난 모든 일을 이야기했다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-2-24-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5893">24 </a>그들이 여호수아에게 말했다. “여호와께서 그 온 땅을 우리에게 넘겨주셨습니다.<a class="b" data-bid="44-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/43">+</a> 사실, 그 땅의 모든 주민이 우리 때문에 낙담해 있습니다.”<a class="b" data-bid="45-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/44">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[5:1;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v6-5-1-1"><a class="cl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5935"><strong>5</strong> </a>요르단 강의 서쪽<a class="fn" data-fnid="23" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070110/22" id="footnotesource23">*</a><em> (각주: 직역하면 “바다 쪽”.)</em>에 있는 아모리 사람들의<a class="b" data-bid="85-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/84">+</a> 모든 왕과 바닷가에 있는 가나안 사람들의<a class="b" data-bid="86-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/85">+</a> 모든 왕은 여호와께서 이스라엘 사람들이 요르단 강을 건널 때까지 그들 앞에서 그 물을 마르게 하셨다는 말을 듣자 사기가 꺾였으며<a class="fn pr" data-fnid="24" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070110/23" id="footnotesource24">*</a><em> (각주: 직역하면 “마음이 녹았으며”.)</em><a class="b" data-bid="87-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/86">+</a> 이스라엘 사람들 때문에 용기를 잃고 말았다.<a class="fn pr" data-fnid="25" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070110/24" id="footnotesource25">*</a><em> (각주: 직역하면 “그들 안에 더 이상 영이 없었다.”)</em><a class="b" data-bid="88-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/87">+</a></span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[6:14-25]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-14-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5963">14 </a>그들은 둘째 날에도 도시 주위를 한 번 행진한 후에, 진영으로 돌아왔다. 6일 동안 그렇게 했다.<a class="b" data-bid="114-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/113">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-15-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5964">15 </a>일곱째 날에 그들은 새벽 동이 트자마자 일찍 일어나서 같은 방식으로 도시 주위를 일곱 번 행진했다. 그날만은 도시 주위를 일곱 번 행진했다.<a class="b" data-bid="115-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/114">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-16-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5965">16 </a>일곱 번째가 되어 제사장들이 뿔나팔을 불자 여호수아가 백성에게 말했다. “함성을 지르십시오.<a class="b" data-bid="116-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/115">+</a> 여호와께서 여러분에게 이 도시를 주셨습니다! </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-17-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5966">17 </a>이 도시와 그 안에 있는 모든 것은 완전히 멸망시켜야<a class="fn" data-fnid="32" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070110/31" id="footnotesource32">*</a><em> (각주: 또는 “멸망에 바쳐야”.)</em> 합니다.<a class="b" data-bid="117-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/116">+</a> 그것은 모두 여호와의 것입니다. 다만 매춘부 라합과<a class="b" data-bid="118-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/117">+</a> 그 집에 그와 함께 있는 모든 자는 살려 두어야 합니다. 우리가 보낸 사자들을 그가 숨겨 주었기 때문입니다.<a class="b" data-bid="119-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/118">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-18-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5967">18 </a>여러분은 완전히 멸망시켜야 하는 것을 멀리하십시오.<a class="b" data-bid="120-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/119">+</a> 완전히 멸망시켜야 하는 것 중에 얼마를 탐내어 가져서,<a class="b" data-bid="121-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/120">+</a> 이스라엘 진영을 완전히 멸망시켜야 하는 대상으로 만들어 재앙<a class="fn" data-fnid="33" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070110/32" id="footnotesource33">*</a><em> (각주: 또는 “곤경; 배척”.)</em>을 가져오는 일이 없게 하십시오.<a class="b" data-bid="122-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/121">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-19-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5968">19 </a>은과 금, 구리와 철 물품은 모두 여호와께 거룩한 것입니다.<a class="b" data-bid="123-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/122">+</a> 그것은 여호와의 보물고에 넣어야 합니다.”<a class="b" data-bid="124-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/123">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-20-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5969">20 </a>뿔나팔이 울리자 백성이 함성을 질렀다.<a class="b" data-bid="125-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/124">+</a> 백성이 뿔나팔 소리를 듣고 큰 함성을 지르자, 즉시 성벽이 무너져 내렸다.<a class="b" data-bid="126-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/125">+</a> 백성은 각자 도시를 향해 곧장 앞으로 올라가서 도시를 점령했다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-21-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5970">21 </a>남자와 여자, 아이와 노인, 소와 양과 나귀 할 것 없이 도시에 있는 모든 것을 칼로 쳐서 완전히 멸망시켰다.<a class="b" data-bid="127-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/126">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-22-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5971">22 </a>여호수아가 그 땅을 정탐한 두 사람에게 말했다. “그 매춘부의 집으로 들어가서, 그대들이 그에게 맹세한 대로 그 여자와 그에게 속한 모든 자를 데리고 나오십시오.”<a class="b" data-bid="128-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/127">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-23-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5972">23 </a>그래서 정탐한 젊은이들은 들어가서 라합과 그의 아버지와 어머니와 형제들과 그에게 속한 모든 자를 데리고 나왔다. 그의 모든 가족을 데리고 나와<a class="b" data-bid="129-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/128">+</a> 이스라엘 진영 밖으로 안전하게 데려다 놓았다.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-24-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5973">24 </a>그리고 그들은 도시와 그 안에 있는 모든 것을 불태웠다. 그러나 은과 금, 구리와 철 물품은 여호와의 집의 보물고에 들여놓았다.<a class="b" data-bid="130-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/129">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v6-6-25-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070110/5974">25 </a>여호수아는 매춘부 라합과 그의 아버지의 집안사람들과 그에게 속한 모든 자를 살려 주었다.<a class="b" data-bid="131-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/130">+</a> 그래서 그 여자가 오늘날까지 이스라엘 가운데 살고 있다.<a class="b" data-bid="132-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/131">+</a> 여호수아가 예리코를 정탐하도록 보낸 사자들을 그가 숨겨 주었기 때문이다.<a class="b" data-bid="133-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070110/132">+</a></span></div></td></tr></tbody></table></div>
+</li>
+<li><p data-pid="13" id="p13"> <a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025914/3/0"><strong>히브리서 11:30, 31</strong></a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[히브리서 11:30, 31]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v58-11-30-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070162/30294">30 </a>믿음으로 사람들이 7일 동안 예리코 성벽 주위를 돌자 그 성벽이 무너졌습니다.<a class="b" data-bid="322-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070162/321">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v58-11-31-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070162/30295">31 </a>믿음으로 매춘부 라합은 불순종한 사람들과 함께 멸망당하지 않았습니다. 그가 정탐꾼들을 평화롭게 맞아들였기 때문입니다.<a class="b" data-bid="323-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070162/322">+</a></span></div></td></tr></tbody></table></div>
+</li>
+<li><p data-pid="14" id="p14"> <a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025914/4/0"><strong>야고보서 2:24, 25</strong></a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[야고보서 2:24, 25]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v59-2-24-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070163/30409">24 </a>여러분도 아는 것처럼, 사람은 믿음으로만이 아니라 행함으로 의롭다고 인정받게 됩니다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v59-2-25-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070163/30410">25 </a>마찬가지로 매춘부 라합도 사자들을 맞아들여 후대하고 다른 길로 내보낸 후에, 행함으로 의롭다고 인정받지 않았습니까?<a class="b" data-bid="61-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070163/60">+</a> </span></div></td></tr></tbody></table></div>
+</li>
+</ul>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="15" id="p15"><strong>토의해 보십시오</strong></h3>
+<p data-pid="16" id="p16"><strong>라합은 어떻게 용기를 나타냈습니까?</strong></p>
+
+</div>
+<div id="tt15">
+<h2 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--2" data-pid="18" id="p18"><span aria-hidden="true" class="pageNum" data-before-text="72" data-no="72" id="page72"></span><strong>더 깊이 알아보기</strong></h2>
+<ol class="du-listStyleType--source"><li><p data-pid="19" id="p19"><span class="txtSrcBullet"><strong>1.</strong> </span><strong>라합이 예리코에서 어떤 삶을 살았을지 설명해 보십시오.</strong> (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025914/0/0">「파13」 11/1 12면 4항–13면 1항</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「파13」 11/1 12면 4항–13면 1항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="7" id="p7" style="margin-top: 0; margin-bottom: 8px">라합은 매춘부였습니다. 이 사실을 받아들이기 힘들었던 일부 성서 주석가들은 라합이 여관 주인이었을 뿐이라고 주장했습니다. 하지만 성경은 사실을 감추지 않고 있는 그대로 밝혀 줍니다. (<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2013809/0/0">여호수아 2:1;</a><a class="b" data-bid="1-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2013809/0/1"> 히브리서 11:31;</a><a class="b" data-bid="1-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2013809/0/2"> 야고보서 2:25</a>) 가나안 지역에서는 라합의 직업이 사회적으로 인정되었을 것입니다. 하지만 문화가 그렇다고 해서 반드시 사람의 양심이—여호와께서 우리 모두에게 주신 옳고 그름에 대한 내적 감각이—무감각해지는 것은 아닙니다. (<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2013809/1/0">로마서 2:14, 15</a>) 아마 라합은 자신의 타락한 생활 방식을 수치스럽게 여겼을 것입니다. 오늘날 그렇게 생활하는 많은 사람처럼, 라합도 가족을 부양할 다른 도리가 없어서 그 생활에서 헤어나지 못하고 있었을 것입니다.</div><div class="sb" data-pid="8" id="p8" style="margin-top: 0; margin-bottom: 8px">틀림없이 라합은 더 나은 삶을 간절히 원했을 것입니다. 그가 사는 가나안 땅은 근친상간과 수간을 비롯한 타락과 폭력에 온통 물들어 있었습니다. (<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2013809/2/0">레위기 18:3,</a><a class="b" data-bid="3-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2013809/2/1"> 6,</a><a class="b" data-bid="3-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2013809/2/2"> 21-24</a>) 그 지역에 만연해 있던 그런 악행은 종교와 깊은 관련이 있었습니다. 신전에서는 매춘 의식을 장려했으며, 바알과 몰렉 같은 악귀적인 신들을 숭배할 때는 자녀를 산 채로 불에 태워 바치기도 했습니다.</div><div class="sb" data-pid="9" id="p9" style="margin-top: 0; margin-bottom: 8px">여호와께서는 가나안에서 벌어지는 일들을 보고 계셨습니다. 사실, 가나안 사람들이 악한 일을 너무나 많이 했기 때문에, 그분은 이렇게 말씀하셨습니다. “그 땅은 부정하다. 나는 그 잘못 때문에 그 위에 처벌을 내릴 것이며, 그 땅은 주민들을 토해 낼 것이다.” (<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2013809/3/0">레위기 18:25</a>) ‘그 잘못에 대한 처벌’에는 무엇이 포함되었습니까? 하느님은 가나안 사람들을 주로 이렇게 벌하겠다고 이스라엘에게 약속하셨습니다. “당신의 하느님 여호와께서는 틀림없이 <span aria-hidden="true" class="pageNum" data-before-text="13" data-no="13" id="page13"></span>이 나라들을 당신 앞에서 조금씩 몰아내실 것입니다.” (<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2013809/4/0">신명기 7:22</a>) 여러 세기 전에 여호와께서는 그 땅을 아브라함의 후손에게 주겠다고 약속하셨으며, ‘하느님은 거짓말하실 수 없는’ 분입니다.—<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2013809/5/0">디도서 1:2;</a><a class="b" data-bid="6-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2013809/5/1"> 창세기 12:7</a>.</div><div class="sb" data-pid="10" id="p10" style="margin-top: 0; margin-bottom: 8px">그렇지만 여호와께서는 그 땅의 몇몇 민족들에 관해서는 그들을 완전히 멸망시켜야 한다고 말씀하셨습니다. (<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2013809/6/0">신명기 7:1, 2</a>) 그분은 의로우신 “온 땅의 심판관”으로서 그들 각자의 마음을 읽으셨고, 악과 타락이 그들의 마음속에 얼마나 깊이 뿌리박혀 있는지 잘 알고 계셨습니다. (<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2013809/7/0">창세기 18:25;</a><a class="b" data-bid="8-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2013809/7/1"> 역대기 첫째 28:9</a>) 그처럼 멸망이 선고된 도시에 사는 라합의 심정이 어떠했겠습니까? 그가 이스라엘에 관한 소식을 전해 들었을 때 어떻게 느꼈을지 한번 상상해 보십시오. 라합은 이스라엘의 하느님이 압제받는 노예였던 그분의 백성을 인도하여, 당시 세계 최강인 이집트 군대를 상대로 완벽한 승리를 거두게 하셨다는 사실을 알게 되었습니다. 그런데 그 이스라엘이 이제 곧 예리코를 공격할 참이었습니다! 하지만 예리코의 주민들은 계속 악행을 일삼고 있었습니다. 성경에서 라합의 동족인 가나안 민족을 “불순종한 사람들”이라고 언급한 것도 이상한 일이 아닙니다.—<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2013809/8/0">히브리서 11:31</a>.</div></td></tr></tbody></table></div>
+
+</li>
+<li><p data-pid="21" id="p21"><span class="txtSrcBullet"><strong>2.</strong> </span><strong>정탐꾼들이 부도덕한 목적으로 라합의 집에 묵었던 것이 아님을 어떻게 알 수 있습니까?</strong> (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025914/1/0">「통」 “매춘부” 17항</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「통」 “매춘부” 17항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="17"></span><strong><em>라합</em></strong> 라합의 경우도 매춘부가 하느님에 대한 믿음을 나타내고 의롭다고 여겨진 사례이다. (<a class="b" data-bid="27-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003566/26/0">야 2:25</a>) 여호수아가 예리코를 정탐하도록 파견한 사람들은 라합의 집에 묵었다. (<a class="b" data-bid="28-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003566/27/0">수 2:1</a>) 그들이 부도덕한 목적으로 그렇게 했다고 여기는 것은 이치적이 아닐 것이다. 그들의 동기와 관련하여 교수들인 C. F. 카일과 F. 델리치는 「구약 주석」(<em>Commentary on the Old Testament</em>)에서 이렇게 말한다. “그들은 그런 사람의 집에 들어감으로 별로 의심을 받지 않을 수 있었을 것이다. 더욱이 그 여자의 집은 성읍 성벽에 접해 있었기 때문에 혹은 성벽 위에 있었기 때문에 위치상 탈출을 용이하게 해 줄 만한 곳이었다. 하지만 그들이 이 죄인이야말로 자신들의 목적에 가장 적합한 사람임을 알게 된 것은 주께서 정탐꾼들의 진로를 그렇게 인도하셨기 때문인데, 그 여자는 살아 계신 하느님이 이스라엘을 위하여 행하신 기적들에 관한 소식에 마음이 크게 감동되어, 정탐꾼들에게 가나안 사람들이 기가 꺾여 있음을 알려 주었을 뿐 아니라, 동족들에게 온갖 조사를 받으면서도 이스라엘의 하느님의 능력을 신뢰하는 믿음을 가지고 목숨이 지극히 위험한 상황까지 감수하면서 정탐꾼들을 숨겨 준 사람이었던 것이다.” (1973년, 2권, 여호수아, 34면) 이스라엘은 가나안 사람들의 부도덕한 행습 때문에 그들을 쫓아내야 한다는 하느님의 말씀으로 볼 때, 그리고 또한 예리코 정복과 라합을 하느님께서 축복하신 것을 볼 때에도, 정탐꾼들이 라합과 부도덕을 범하였다거나 라합이 그 후로도 매춘 행위를 계속했다고 여기는 것은 전적으로 이치에 맞지 않을 것이다.—<a class="b" data-bid="29-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003566/28/0">레 18:24-30</a>.</td></tr></tbody></table></div>
+
+</li>
+<li><p data-pid="23" id="p23"><span class="txtSrcBullet"><strong>3.</strong> </span><strong>라합의 지붕에 아마의 줄기가 있었던 이유는 무엇이며, 아마는 무엇에 사용되었습니까?</strong> (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025914/2/0">「통」 “아마” 2-4항</a>) <span class="du-color--orange-700"><strong>삽화 가</strong></span></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「통」 “아마” 2-4항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="2"></span>고대부터 재배된 식물로, 그 섬유는 지금과 마찬가지로 일반적으로 아마포를 만드는 데 사용되었다. 아마(<em>Linum usitatissimum</em>)는 대개 높이 0.3 내지 1.2미터로 자란다. 이 식물의 가느다란 줄기는 선형(線形)의 연한 녹색 잎이 달려 있으며, 꼭대기에서만 가지가 갈라진다. 꽃은 각각의 가지 또는 작은 분지의 끝에 달리며, 꽃잎이 다섯 장이고, 진한 푸른색 또는 연한 푸른색(드물게 흰색도 있음)이다.—1권, 544면 <strong>사진</strong>.</div><div class="sb" data-pid="4" id="p4" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="3"></span>아마가 “꽃망울”이 맺히면, 수확할 때가 된 것이며(<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001531/0/0">출 9:31</a>), 수확은 줄기를 잡아 뽑거나 괭이를 써서 뽑았다. 그런 다음 아마를 말렸다. 예리코의 라합의 집 지붕에 있던 아마 줄기는 아마도 이런 목적으로 거기에 있었을 것이다.—<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001531/1/0">수 2:6</a>.</div><div class="sb" data-pid="5" id="p5" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="4"></span>히브리인들이 아마를 가공하는 데 사용한 방법은 아마도 기원 1세기에 대(大)플리니우스가 저서인 「박물지」(<em>Natural History</em>, XIX, III, 17, 18)에서 기술한 설명과 이집트의 베니하산에 보존된 고대 그림에 묘사된 방법과 같았을 것이다. 꼬투리를 딴 다음에, 아마 줄기를 물에 완전히 담그는데 줄기가 물 위로 뜨지 않도록 돌로 눌러놓았다. 아마가 물에 푹 젖으면, 목질부가 썩어서 섬유가 나왔다. 줄기의 바깥 부분 곧 껍질이 물러지면, 줄기를 물에서 꺼내 완전히 마를 때까지 햇볕에 놓고 거듭해서 뒤집어 놓았다. 그 후에 아마를 석판에 놓고 나무 메로 치고, 빗질을 해서 섬유를 분리시키고 깨끗하게 하였다. 껍질 속에 바로 붙어 있는 질이 낮은 섬유는 등불의 심지로 사용되었지만(<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001531/2/0">사 42:3;</a><a class="b" data-bid="3-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001531/2/1"> 43:17;</a><a class="b" data-bid="3-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001531/2/2"> 마 12:20</a> 참조), 더 희고 질이 더 좋은 안쪽 섬유는 단단한 돌에 대고 거듭거듭 두드려 끝손질을 하여서 실로 만들었다.</div></td></tr></tbody></table></div>
+
+<div class="south_center" id="f3">
+<figure>
+<img alt="" class="south_center" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/344" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/345" style="max-width: min(100%, 700px); height: auto;"/>
+<p class="imgCredit" data-pid="52" id="p52">Thanks for your interest in my photos/Moment Open via Getty Images</p>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="50" id="p50"><span class="dc-screenReaderText"><strong>삽화</strong></span> <span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>가</strong></span><span class="dc-screenReaderText"><strong>:</strong></span> 아마를 재배하는 밭</p>
+</figcaption>
+</figure>
+</div>
+</li>
+<li><p data-pid="25" id="p25"><span class="txtSrcBullet"><strong>4.</strong> </span><strong>라합이 왕의 부하들에게 정탐꾼들이 이미 떠났다고 말한 것은 왜 잘못이 아닙니까?</strong> (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025914/3/0">「파04」 12/1 8면 6항</a>) <span class="du-color--orange-700"><strong>삽화 나</strong></span></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「파04」 12/1 8면 6항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004882/6/0"><strong>2:4, 5</strong></a><strong>—라합이 정탐꾼들을 찾는 왕의 사람들을 잘못된</strong> <span aria-hidden="true" class="pageNum" data-before-text="9" data-no="9" id="page9"></span><strong>길로 가게 하는 이유는 무엇입니까?</strong> 라합이 생명의 위험을 무릅쓰고 정탐꾼들을 보호하는 것은 그가 여호와께 믿음을 두게 되었기 때문입니다. 따라서 라합은 하느님의 백성에게 해를 끼치려고 하는 사람들에게 그 정탐꾼들의 행방을 사실대로 말해야 할 아무런 의무가 없습니다. (<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004882/7/0">마태 7:6,</a><a class="b" data-bid="8-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004882/7/1"> 21:23-27;</a><a class="b" data-bid="8-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004882/7/2"> 요한 7:3-10</a>) 사실 라합은 “행함으로 의롭다고 선언”되었는데, 그 행함에는 왕의 사자들을 잘못된 방향으로 가게 한 행동도 포함됩니다.—<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2004882/8/0">야고보 2:24-26</a>.</td></tr></tbody></table></div>
+
+<div class="south_center" id="f4">
+<figure>
+<img alt="라합이 왕이 보낸 두 사람에게 정탐꾼들이 이미 떠났다고 말합니다." class="south_center" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/346" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/347" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="54" id="p54"><span class="dc-screenReaderText"><strong>삽화</strong></span> <span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>나</strong></span></p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">라합이 왕이 보낸 두 사람에게 정탐꾼들이 이미 떠났다고 말합니다.</td></tr></tbody></table></div></figure>
+</div>
+</li>
+</ol>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="27" id="p27"><span aria-hidden="true" class="pageNum" data-before-text="73" data-no="73" id="page73"></span><strong>교훈점 적용하기</strong></h2>
+<ul><li><p data-pid="28" id="p28">  라합이 부도덕한 생활을 버리고 이스라엘 백성과 함께 여호와를 숭배하는 데 용기가 필요했던 이유는 무엇입니까? 성서 연구생들은 라합의 본에서 무엇을 배울 수 있습니까?</p>
+
+</li>
+</ul>
+<div class="dc-bleedToArticleEdge dc-paddingToContentEdge dc-bgImageLayout--matchContainerWidth-bottom du-bgColor--black du-color--white du-margin-top-desktopOnly--5 du-margin-top--4 du-padding-top-desktopOnly--5 du-padding-top--4 du-padding-bottom--1 suppressZoom" data-bg-image="/ko/wol/mp/r8/lp-ko/wcg/2025/348" data-bg-image-label="" id="tt51" style="background-image: url('/ko/wol/mp/r8/lp-ko/wcg/2025/348')"><ul class="du-margin-inlineEnd-desktopOnly--8 du-margin-bottom-desktopOnly--0"><li><p data-pid="30" id="p30">  성경에서는 거짓말을 정죄합니다. 그런데 때때로 적들이 우리에게 형제들에 대한 내밀을 알려 달라고 압력을 가할 수 있습니다. 그런 상황과 관련하여 라합의 본에서 무엇을 배울 수 있습니까? (<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025914/5/0">잠언 11:13;</a><a class="b" data-bid="6-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025914/5/1"> 전도 3:7;</a><a class="b" data-bid="6-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025914/5/2"> 에베소 4:25</a>) <span class="du-color--orange-400"><strong>삽화 다</strong></span></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[잠언 11:13;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v20-11-13-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070124/16817">13 </a>중상자는 내밀을 누설하며 돌아다니지만<a class="b" data-bid="311-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070124/310">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v20-11-13-2">신뢰할 만한 자<a class="fn" data-fnid="118" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070124/117" id="footnotesource118">*</a><em> (각주: 직역하면 “영이 충실한 자”.)</em>는 비밀을 지킨다.<a class="fn" data-fnid="119" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070124/118" id="footnotesource119">*</a><em> (각주: 직역하면 “일을 덮어 둔다.”)</em></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[전도 3:7;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v21-3-7-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070125/17482">7 </a>찢을 때가 있고<a class="b" data-bid="56-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070125/55">+</a> 꿰맬 때가 있으며,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v21-3-7-2">잠잠할 때가 있고<a class="b" data-bid="57-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070125/56">+</a> 말할 때가 있다.<a class="b" data-bid="58-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070125/57">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[에베소 4:25]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v49-4-25-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070153/29389">25 </a>여러분은 거짓을 버렸으므로 각자 이웃에게 진실을 말하십시오.<a class="b" data-bid="119-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/118">+</a> 우리는 서로에게 속한 지체들이기 때문입니다.<a class="b" data-bid="120-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070153/119">+</a> </span></td></tr></tbody></table></div>
+
+</li>
+</ul>
+</div>
+<div class="dc-bleedToArticleEdge" id="f5">
+<figure>
+<img alt="교도관이 선 채로 책상 위에 있는 서류를 가리키며 수갑을 찬 자매를 신문하고 있습니다. 그 자매는 입을 굳게 다물고 있고 뒤편에는 무장한 군인이 서 있습니다." data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/349" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/350" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption dc-screenReaderText">
+<p data-pid="56" id="p56"><strong>삽화 다</strong></p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">교도관이 선 채로 책상 위에 있는 서류를 가리키며 수갑을 찬 자매를 신문하고 있습니다. 그 자매는 입을 굳게 다물고 있고 뒤편에는 무장한 군인이 서 있습니다.</td></tr></tbody></table></div></figure>
+</div>
+<div class="dc-bleedToArticleEdge dc-paddingToContentEdge dc-bgImageLayout--matchContainerWidth-top du-clearfix du-bgColor--black du-padding-vertical--4 du-margin-children--0 du-margin-bottom-desktopOnly--12 du-margin-bottom--8 suppressZoom" data-bg-image="/ko/wol/mp/r8/lp-ko/wcg/2025/351" data-bg-image-label="" id="tt59" style="background-image: url('/ko/wol/mp/r8/lp-ko/wcg/2025/351')"><p data-pid="32" id="p32"><span class="dc-screenReaderText"><strong>삽화</strong></span> <span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus1 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>다</strong></span></p>
+</div>
+<ul><li><p data-pid="33" id="p33">  당신은 다른 어떤 면에서 라합을 본받아 용기를 나타낼 수 있습니까?</p>
+
+</li>
+</ul>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="35" id="p35"><strong>시야를 넓혀 생각해 보기</strong></h2>
+<ul><li><p data-pid="36" id="p36">  이 성경 기록을 통해 여호와에 대해 무엇을 배울 수 있을까?</p>
+
+</li>
+<li><p data-pid="38" id="p38">  이 성경 기록은 여호와의 목적과 어떤 관련이 있을까?</p>
+
+</li>
+<li><p data-pid="40" id="p40">  부활된 라합을 만나면 무엇을 물어볼까?</p>
+
+</li>
+</ul>
+<div class="dc-bleedToArticleEdge dc-paddingToContentEdge du-bgColor--warmGray-50 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--4 du-padding-bottom--8" id="tt85">
+<h2 class="du-color--orange-700 du-margin-top--0" data-pid="42" id="p42"><strong>더 찾아보기</strong></h2>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt87">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f6">
+<figure>
+<a href="https://wol.jw.org/wol/rslink/r8/lp-ko?lang=KO&amp;docid=2009366&amp;pub=w09&amp;issuedate=20090515"><img alt="" class="suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/352" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/353" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt88">
+<p data-pid="43" id="p43">라합에 관한 성경 기록을 볼 때, 다가오는 여호와의 날에 살아남으려면 어떻게 해야 합니까?</p>
+<p data-pid="44" id="p44"><a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025914/4/0"><strong>“끝이 올 때 어디에 있어야 하는가?”</strong> (「파09」 5/15 6-8면)</a></p>
+</div>
+</div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[“끝이 올 때 어디에 있어야 하는가?” (「파09」 5/15 6-8면)]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="st" data-pid="1" id="p1" style="margin-top: 0; margin-bottom: 8px"><span aria-hidden="true" class="pageNum" data-before-text="6" data-no="6" id="page6"></span><strong>끝이 올 때 어디에 있어야 하는가?</strong></div><div class="sb" data-pid="2" id="p2" style="margin-top: 0; margin-bottom: 8px">여호와께서 아마겟돈에서 현 악한 세상 제도를 끝내실 때 올바른 사람들은 어떻게 될 것입니까? <a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/0/0">잠언 2:21, 22</a>에서 그 답을 찾아볼 수 있습니다. “올바른 사람들은 땅에 거하고, 나무랄 데 없는 사람들은 땅에 남아 있을 것이다. 그러나 악한 자들은 땅에서 끊어지고, 배신자들은 땅에서 뽑힐 것이다.”</div><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px">하지만 나무랄 데 없는 사람들이 어떻게 땅에 남아 있게 될 것입니까? 그들이 도피할 곳이 있을 것입니까? 끝이 올 때 올바른 사람들은 어디에 있어야 합니까? 성경에 들어 있는 생존과 관련된 네 가지 기록에서는 이 문제에 대해 많은 점을 밝혀 줍니다.</div><div class="ss" data-pid="4" id="p4" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>어디에 있느냐가 중요했던 때</strong></div><div class="sb" data-pid="5" id="p5" style="margin-top: 0; margin-bottom: 8px">족장 노아와 롯의 구출에 대해 <a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/1/0">베드로 둘째 2:5-7</a>에서는 이렇게 알려 줍니다. “[하느님께서는] 옛 세상을 처벌하기를 주저하지 않으시고, 경건하지 않은 사람들의 세상에 대홍수를 가져오셨을 때에 다만 의의 전파자인 노아를 다른 일곱 사람과 함께 안전하게 지켜 주셨습니다. 그리고 소돔과 고모라 도시들을 재가 되게 하여 정죄하심으로, 경건하지 않은 사람들에게 앞으로 있을 일에 대한 본을 삼으셨습니다. 그리고 법을 무시하는 사람들이 방종에 탐닉하는 것 때문에 크게 괴로워하던 의로운 롯을 구출하셨습니다.”</div><div class="sb" data-pid="6" id="p6" style="margin-top: 0; margin-bottom: 8px">노아는 어떻게 대홍수를 생존했습니까? 하느님께서는 노아에게 다음과 같이 말씀하셨습니다. “모든 육체의 끝이 내 앞에 이르렀다. 그들로 말미암아 땅에 폭력이 가득하기 때문이다. 이제, 내가 그들을 땅과 함께 멸하겠다. 너는 수지성 나무로 방주를 만들어라.” (<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/2/0">창세 6:13, 14</a>) 노아는 여호와께서 명령하신 대로 방주를 만들었습니다. 비가 쏟아져 홍수가 나기 7일 전에 여호와께서는 노아에게 동물들을 모아 그의 온 가족과 함께 방주 안으로 들어가라고 지시하셨습니다. 7일째 되는 날에 그의 뒤에서 방주의 문이 닫히고, “큰비가 땅에 밤낮 사십 일 동안 계속 내렸습니다.” (<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/3/0">창세 7:1-4,</a><a class="b" data-bid="4-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/3/1"> 11, 12,</a><a class="b" data-bid="4-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/3/2"> 16</a>) 노아와 그의 가족은 “안전하게 물을 통과하였습니다.” (<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/4/0">베드로 첫째 3:20</a>) 그들의 생존은 방주 안에 들어가 있는 것에 달려 있었습니다. 방주 외에는 이 땅의 어느 곳도 안전하지 않았습니다.—<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/5/0">창세 7:19, 20</a>.</div><div class="sb" data-pid="7" id="p7" style="margin-top: 0; margin-bottom: 8px">롯이 받은 지시는 그와는 좀 달랐습니다. 두 천사는 그가 있어서는 <em>안 될</em> 곳을 알려 준 것입니다. 두 천사는 롯에게 다음과 같이 말했습니다. “이 도시[소돔] 안에 당신에게 속한 자들을 모두 이곳에서 데리고 나가시오! 우리가 이곳을 멸할 것이오.” 그들은 “산간 지방으로 도피”해야 했습니다.—<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/6/0">창세 19:12, 13,</a><a class="b" data-bid="7-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/6/1"> 17</a>.</div><div class="sb" data-pid="8" id="p8" style="margin-top: 0; margin-bottom: 8px">노아와 롯의 경험을 보면, “여호와께서는 경건한 정성을 바치는 사람들을 시련에서 구출하시고, 불의한 사람들은 심판 날에 끊어 버리기 위하여 보존해 두실 줄을 아신다”는 점을 분명히 알 수 있습니다. (<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/7/0">베드로 둘째 2:9</a>) 두 경우 모두, 어디에 있느냐 하는 것이 생사를 가름하는 결정적인 요인이었습니다. 노아는 방주 <em>안으로</em> 들어가야 했고 롯은 소돔 <em>밖으로</em> 나와야 했습니다. 하지만 언제나 그러합니까? 여호와께서는 의로운 사람들을 다른 곳으로 도피시키지 않고도 그들이 어디에 있든지 구원해 주실 수 있습니까? 구출과 관련된 다음 두 가지 기록을 통해 그 질문에 대한 답을 알아보도록 하겠습니다.</div><div class="ss" data-pid="9" id="p9" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>어디에 있느냐가 언제나 중요한가?</strong></div><div class="sb" data-pid="10" id="p10" style="margin-top: 0; margin-bottom: 8px">모세 시대에 여호와께서는 열 번째 재앙으로 이집트에 결정적인 타격을 입히시기에 앞서, 이스라엘 <span aria-hidden="true" class="pageNum" data-before-text="7" data-no="7" id="page7"></span>사람들에게 유월절 동물의 피를 집의 상인방과 문설주에 뿌리라고 명령하셨습니다. 그 이유는 무엇이었습니까? ‘여호와께서 이집트인들에게 재앙을 내리려고 지나가시다가 출입구 윗부분과 두 문설주 위에 있는 피를 보실 때에, 그 입구를 넘어가시고 파멸하는 것이 그들의 집으로 들어가 재앙을 내리도록 허용하지 않으시기’ 위해서였습니다. 바로 그날 밤, “여호와께서 이집트 땅의 모든 처음 난 것, 곧 그 왕좌에 앉아 있는 파라오의 처음 난 자부터 구덩이 감옥에 있는 포로의 처음 난 자까지, 또 짐승의 모든 처음 난 것을 치셨습니다.” 이스라엘의 처음 난 자들은 아무도 다른 곳으로 도피하지 않고도 구원을 받았습니다.—<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/8/0">탈출 12:22, 23,</a><a class="b" data-bid="9-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/8/1"> 29</a>.</div><div class="sb" data-pid="11" id="p11" style="margin-top: 0; margin-bottom: 8px">예리코 도시에 사는 매춘부였던 라합의 경우를 생각해 보십시오. 이스라엘 사람들은 이제 약속의 땅을 정복하기 시작하려던 참이었습니다. 예리코가 곧 멸망될 것임을 깨달은 라합은 이스라엘의 두 정탐꾼에게 이스라엘 사람들의 진격 때문에 온 도시가 공포에 떨고 있다고 말했습니다. 라합은 정탐꾼들을 숨겨 주면서, 예리코가 함락될 때 자기와 자신의 온 가족을 살려 줄 것을 맹세해 달라고 요청했습니다. 정탐꾼들은 라합에게 가족을 성벽 위에 있던 그의 집 안으로 모으라고 지시했습니다. 그 집에서 나간다면 그 도시의 나머지 사람들과 함께 멸망될 것이었습니다. (<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/9/0">여호수아 2:8-13,</a><a class="b" data-bid="10-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/9/1"> 15,</a><a class="b" data-bid="10-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/9/2"> 18, 19</a>) 하지만 나중에 여호와께서는 여호수아에게 “그 도시의 성벽이 정녕 무너져 내릴 것”이라고 말씀하셨습니다. (<a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/10/0">여호수아 6:5</a>) 정탐꾼들이 안전하다고 보증한 곳이 이제는 위험스러워 보이게 되었습니다. 라합과 그의 집안 사람들은 어떻게 구출될 것이었습니까?</div><div class="sb" data-pid="12" id="p12" style="margin-top: 0; margin-bottom: 8px">예리코를 함락시킬 때가 되었을 때 이스라엘 사람들은 뿔나팔을 불고 함성을 질렀습니다. <a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/11/0">여호수아 6:20</a>에 의하면, “[이스라엘] 백성이 뿔나팔 소리를 듣고 큰 전쟁 함성을 지르자, 성벽이 무너져 내리기 시작하였습니다.” 성벽이 무너지는 것은 이제 사람이 어떻게 할 수 있는 일이 아니었습니다. 그런데 성벽은 허물어져 내리다가 기적을 통해 라합의 집 앞에서 멈추었습니다. 여호수아는 두 정탐꾼에게 다음과 같이 명령했습니다. “그 여자, 그 매춘부의 집으로 들어가서, 그대들이 그에게 맹세한 대로, 그 여자와 그에게 속한 모든 자를 거기에서 데리고 나오십시오.” (<a class="b" data-bid="13-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/12/0">여호수아 6:22</a>) 라합의 집에 있던 모든 사람들은 구원을 받았습니다.</div><div class="ss" data-pid="13" id="p13" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>가장 중요했던 것은 무엇인가?</strong></div><div class="sb" data-pid="14" id="p14" style="margin-top: 0; margin-bottom: 8px">노아, 롯, 모세 시대의 이스라엘 사람들, 라합의 구출로부터 무엇을 배울 수 있습니까? 현 악한 세상 제도의 끝이 올 때 우리가 어디에 있어야 하는지를 알아내는 데 이런 기록들이 어떻게 도움이 됩니까?</div><div class="sb" data-pid="15" id="p15" style="margin-top: 0; margin-bottom: 8px">노아가 방주 안에 있었기 때문에 구원을 받은 것은 사실입니다. 하지만 노아가 거기에 있었던 이유는 <span aria-hidden="true" class="pageNum" data-before-text="8" data-no="8" id="page8"></span>무엇입니까? 믿음을 나타내고 순종했기 때문이 아닙니까? 성서에서는 다음과 같이 알려 줍니다. “노아는 하느님이 그에게 명령하신 대로 다 행하였다. 그는 꼭 그대로 행하였다.” (<a class="b" data-bid="14-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/13/0">창세 6:22;</a><a class="b" data-bid="14-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/13/1"> 히브리 11:7</a>) 우리는 어떠합니까? 우리는 하느님께서 명령하신 것을 다 행하고 있습니까? 노아는 또한 “의의 전파자”였습니다. (<a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/14/0">베드로 둘째 2:5</a>) 우리는 사람들이 반응을 나타내지 않는 구역에서도 노아처럼 열심히 전파 활동을 하고 있습니까?</div><div class="sb" data-pid="16" id="p16" style="margin-top: 0; margin-bottom: 8px">롯은 소돔에서 도피함으로 멸망되지 않을 수 있었습니다. 롯이 생존하게 된 이유는 그가 하느님 보시기에 의로웠고, 법을 무시하는 소돔과 고모라 사람들의 방종을 보고 크게 괴로워했기 때문입니다. 우리는 오늘날 방종이 너무나 만연하기 때문에 참으로 괴로워합니까? 아니면 자꾸 보다 보니까 이제는 아무렇지도 않습니까? 우리는 “점도 없고 흠도 없이 평화 가운데” 나타나기 위해 전력을 다하고 있습니까?—<a class="b" data-bid="16-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/15/0">베드로 둘째 3:14</a>.</div><div class="sb" data-pid="17" id="p17" style="margin-top: 0; margin-bottom: 8px">이집트의 이스라엘 사람들과 예리코의 라합의 경우, 구출은 집 안에 머물러 있는 것에 달려 있었습니다. 그렇게 하는 데는 믿음과 순종이 요구되었습니다. (<a class="b" data-bid="17-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/16/0">히브리 11:28,</a><a class="b" data-bid="17-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/16/1"> 30, 31</a>) 이집트인들의 가정에서 차례로 “큰 부르짖음이 일어나기 시작”했을 때, 자기 가족의 처음 난 자에게서 눈을 떼지 못하고 있었을 이스라엘 사람들의 모습을 한번 상상해 보십시오. (<a class="b" data-bid="18-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/17/0">탈출 12:30</a>) 예리코 성벽이 무너져 내리는 소리가 점점 더 가까워지는 것을 느꼈을 때, 가족과 꼭 붙어 있었을 라합의 모습도 한번 상상해 보십시오. 라합이 계속 순종하여 집 안에 머물러 있으려면 진정한 믿음이 필요했습니다.</div><div class="sb" data-pid="18" id="p18" style="margin-top: 0; margin-bottom: 8px">곧 사탄의 악한 세상에는 끝이 올 것입니다. 여호와께서 두려움을 불러일으키는 그분의 “분노의 날에” 어떻게 자신의 백성을 보호하실 것인지 우리는 아직 알 수 없습니다. (<a class="b" data-bid="19-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/18/0">스바냐 2:3</a>) 하지만 그때 어디에 있고 상황이 어떠하든, 우리는 생존이 여호와에 대한 우리의 믿음과 순종에 달려 있을 것임을 확신할 수 있습니다. 그때가 올 때까지, 우리는 이사야의 예언에서 우리의 “밀실”이라고 언급한 것에 대한 올바른 태도를 발전시켜야 합니다.</div><div class="ss" data-pid="19" id="p19" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>“너의 밀실에 들어가라”</strong></div><div class="sb" data-pid="20" id="p20" style="margin-top: 0; margin-bottom: 8px"><a class="b" data-bid="20-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/19/0">이사야 26:20</a>에는 다음과 같은 말씀이 있습니다. “가거라, 내 백성아. 너의 밀실에 들어가서 네 뒤의 문을 닫아라. 질책이 지나갈 때까지 잠시 동안만 숨어 있어라.” 이 예언은 기원전 539년에 메디아 사람들과 페르시아 사람들이 바빌론을 정복했을 때 첫 번째로 성취된 것 같습니다. 바빌론에 입성하면서 페르시아의 키루스는 모든 주민에게 집 안에 머물러 있으라고 명령했다고 합니다. 집 밖에서 발견되는 사람은 모두 죽이라는 지시가 그의 병사들에게 내려졌기 때문입니다.</div><div class="sb" data-pid="21" id="p21" style="margin-top: 0; margin-bottom: 8px">오늘날, 이 예언에 나오는 “밀실”은 세계적으로 10만 개가 넘는 여호와의 증인의 회중과 밀접한 관련이 있을 수 있습니다. 그러한 회중은 우리 삶에서 매우 중요한 역할을 합니다. 그리고 “큰 환난”의 기간 중에도 계속 그러할 것입니다. (<a class="b" data-bid="21-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/20/0">계시 7:14</a>) 하느님의 백성은 그들의 “밀실”에 들어가서 “질책이 지나갈 때까지” 숨어 있으라는 명령을 받고 있습니다. 회중에 대해 건전한 태도를 발전시키고 유지하면서, 회중과 긴밀하게 연합해 있겠다고 굳게 결심하는 것은 매우 중요합니다. 우리는 바울의 이러한 교훈을 마음에 새겨야겠습니다. “서로 남을 고려하여 사랑과 훌륭한 일을 고무하며, 일부 사람들의 습관처럼 함께 모이는 일을 그만두지 말고, 도리어 서로 격려하며 그 날이 다가오는 것을 볼수록 더욱더 그렇게 합시다.”—<a class="b" data-bid="22-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2009366/21/0">히브리 10:24, 25</a>.</div><div class="se" data-pid="22" id="p22" style="margin-top: 0; margin-bottom: 8px"><strong>[7면 삽화]</strong></div><div class="sc" data-pid="23" id="p23" style="margin-top: 0; margin-bottom: 8px">하느님께서 과거에 구출을 행하신 경우를 통해 무엇을 배울 수 있습니까?</div><div class="se" data-pid="24" id="p24" style="margin-top: 0; margin-bottom: 8px"><strong>[8면 삽화]</strong></div><div class="sc" data-pid="25" id="p25" style="margin-top: 0; margin-bottom: 8px">“밀실”은 오늘날 무엇을 가리키는 것일 수 있습니까?</div><div class="sb" data-pid="26" id="p26" style="margin-top: 0; margin-bottom: 8px"></div></td></tr></tbody></table></div>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt89">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f7">
+<figure>
+<a href="https://www.jw.org/finder?wtlocale=KO&amp;docid=502014342"><img alt="" class="suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/354" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/355" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt90">
+<p data-pid="45" id="p45">만화로 배우는 성경 이야기를 사용해 자녀가 이 성경 기록에 나오는 사건들을 머릿속에 생생하게 그려 보도록 도와주십시오.</p>
+<p data-pid="46" id="p46"><a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025914/5/0"><strong>“라합이 지시에 잘 따르다”</strong> (「웹만성」 기사 11)</a></p>
+</div>
+</div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[“라합이 지시에 잘 따르다” (「웹만성」 기사 11)]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="featureTtl" data-pid="1" id="p1" style="margin-top: 0; margin-bottom: 8px"><strong>만화로 배우는 성경 이야기</strong></div><h1 data-pid="2" id="p2"><span aria-hidden="true" class="pageNum" data-before-text="11" data-no="11" id="page11"></span><strong>라합이 지시에 잘 따르다</strong></h1><div data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="1"></span>이스라엘 사람들이 예리코 성을 무너뜨리러 왔을 때, 그 도시에 살았던 라합은 어떻게 살아남을 수 있었을까요?</div><div data-pid="4" id="p4" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="2"></span>만화로 배우는 이 이야기를 다운로드해서 읽거나 인쇄해서 읽어 보세요.</div><div data-pid="5" id="p5" style="margin-top: 0; margin-bottom: 8px"><a data-online-link="https://www.jw.org/finder?wtlocale=KO&amp;docid=502014342" href="https://wol.jw.org/wol/webpubdl?docid=502014342&amp;lang=KO&amp;track=1">다운로드</a></div></td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="{BibleBookName} {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value="{BibleBookName} {StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value="{BibleBookName} {BibleVerse}"/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="용기 있게 하느님과 함께 걸으십시오 {StartingPageNumber}-{EndingPageNumber}면"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="용기 있게 하느님과 함께 걸으십시오 {PageNumber}면"/>
+<input id="documentDescription" type="hidden" value="용기 있게 하느님과 함께 걸으십시오"/>
+<input id="englishSym" type="hidden" value="wcg"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="audioPubSym" type="hidden" value="wcg"/>
+<input id="chapNo" type="hidden" value="14"/>
+<input id="issue" type="hidden" value=""/>
+<input id="docId" type="hidden" value="1102025914"/>
+<input id="documentInBible" type="hidden" value=""/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=KO&amp;docid=1102025914&amp;srctype=wol&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="document"/>
+<input id="contentTitle" type="hidden" value="동족을 버리고 여호와를 선택하다"/>
+<input id="parentTitle" type="hidden" value="용기 있게 하느님과 함께 걸으십시오"/>
+<input id="contentThumbnail" type="hidden" value="/ko/wol/d/r8/lp-ko/1102025914/thumbnail"/>
+</article>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Gather all alternate presentation elements and their images
+        const altPresElements = Array.from(document.querySelectorAll('.alternatePresentation'));
+        const altImages = altPresElements.map(el => {
+            const img = el.querySelector('img');
+            if (img) {
+                return {
+                    src: img.getAttribute('data-alt-src') || img.getAttribute('src'),
+                    title: el.querySelector('.title')?.textContent || "Image"
+                };
+            }
+            return null;
+        }).filter(Boolean);
+
+        // 2. Create Lightbox DOM structure dynamically
+        const lightbox = document.createElement('div');
+        lightbox.className = 'custom-lightbox';
+        lightbox.innerHTML = `
+            <button class="custom-lightbox-close">&times;</button>
+            <button class="custom-lightbox-nav custom-lightbox-prev">&#10094;</button>
+            <div class="custom-lightbox-content">
+                <img class="custom-lightbox-img" src="" alt="" />
+            </div>
+            <button class="custom-lightbox-nav custom-lightbox-next">&#10095;</button>
+            <div class="custom-lightbox-caption"></div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('.custom-lightbox-img');
+        const lightboxCaption = lightbox.querySelector('.custom-lightbox-caption');
+        const closeBtn = lightbox.querySelector('.custom-lightbox-close');
+        const prevBtn = lightbox.querySelector('.custom-lightbox-prev');
+        const nextBtn = lightbox.querySelector('.custom-lightbox-next');
+
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        const openLightbox = (group, index) => {
+            currentGroup = group;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const updateLightbox = () => {
+            const item = currentGroup[currentIndex];
+            if (item) {
+                lightboxImg.src = item.src;
+                if (item.title && item.title.trim() !== "" && item.title.trim() !== "Printed Edition") {
+                    lightboxCaption.textContent = item.title;
+                    lightboxCaption.style.display = 'block';
+                } else {
+                    lightboxCaption.textContent = "";
+                    lightboxCaption.style.display = 'none';
+                }
+                if (currentGroup.length > 1) {
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                } else {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                }
+            }
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImg.src = '';
+            lightboxCaption.textContent = '';
+        };
+
+        const navigate = (direction) => {
+            if (currentGroup.length <= 1) return;
+            currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+            updateLightbox();
+        };
+
+        // Event Listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('custom-lightbox-content')) {
+                closeLightbox();
+            }
+        });
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Attach click handlers to alternate presentations
+        altPresElements.forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(altImages, index);
+            });
+        });
+
+        // Attach click handlers to other zoomable figure images
+        document.querySelectorAll('article figure img:not(.suppressZoom)').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = img.getAttribute('data-alt-src') || img.getAttribute('src');
+                const title = img.getAttribute('alt') || "";
+                openLightbox([{ src, title }], 0);
+            });
+        });
+    });
+    </script>
+</body>
+</html>

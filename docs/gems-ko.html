@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>예레미야 47 & 예레미야 48</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💎</text></svg>'>
+    <link rel="stylesheet" type="text/css" href="css/media-player.css">
+    <link rel="stylesheet" type="text/css" href="css/+0+61168f8ef805085f5a3c0118b14679f74c9e62a4.css">
+    <link rel="stylesheet" type="text/css" href="css/+1+f8319dd08c749624466cb777b7d528e1a42d7368.css">
+    <link rel="stylesheet" type="text/css" href="css/+2+894de4a6eba76bf97927253f95f582449947a96e.css">
+    <link rel="stylesheet" type="text/css" href="css/+3+d00a791fdbb951906e95f1428ae322e41ea9da95.css">
+    <style>
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @media screen and (min-width: 600px) {
+            .document, .bible {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 16px 50px 80px;
+            }
+            .document .dc-bleedToArticleEdge, .bible .dc-bleedToArticleEdge {
+                margin-left: -50px;
+                margin-right: -50px;
+            }
+            .document .dc-paddingToContentEdge, .bible .dc-paddingToContentEdge {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        #content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+        .inserted-reference {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+            font-size: 0.95em;
+        }
+        .inserted-reference-header {
+            margin: 0;
+            padding: 4px 16px;
+            background-color: #e2e6ea;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #495057;
+        }
+        .inserted-reference-header a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #1a73e8;
+        }
+        .inserted-reference-header a:hover {
+            text-decoration: underline;
+        }
+        .inserted-reference > *:not(.inserted-reference-header) {
+            margin: 12px 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-style: italic;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        /* Custom Lightbox Styles */
+        .custom-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            /* user-select: none; */
+            /* -webkit-user-select: none; */
+        }
+        .custom-lightbox.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .custom-lightbox-content {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 35px;
+            color: #fff;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10002;
+            transition: transform 0.2s ease;
+        }
+        .custom-lightbox-close:hover {
+            transform: scale(1.1);
+        }
+        .custom-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 20px;
+        }
+        .custom-lightbox-nav:hover {
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .custom-lightbox-prev {
+            left: 0px;
+        }
+        .custom-lightbox-next {
+            right: 0px;
+        }
+        .custom-lightbox-caption {
+            color: #ccc;
+            margin-top: 15px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 80%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body, #content {
+                background-color: #171c2a !important;
+                color: #e2e8f0;
+            }
+            .document, .bible, .article, #article {
+                background-color: #1e293b !important;
+                color: #e2e8f0;
+            }
+            .scalableui, .bodyTxt {
+                background-color: transparent !important;
+                color: #e2e8f0;
+            }
+            .du-bgColor--bgSecondary, .du-bgColor--warmGray-50,
+            [class*="du-bgColor--bgSecondary"], [class*="du-bgColor--warmGray-"],
+            #tt9, .document #tt9, body #tt9,
+            .document [class*="du-bgColor--bgSecondary"], body [class*="du-bgColor--bgSecondary"],
+            .document [class*="du-bgColor--warmGray-"], body [class*="du-bgColor--warmGray-"] {
+                background-color: #2d3a4f !important;
+                color: #e2e8f0 !important;
+            }
+            .du-borderColor--borderDefault, hr {
+                border-color: #3b4d66 !important;
+            }
+            .du-color--teal-700 {
+                color: #2dd4bf !important;
+            }
+            h1, h2, h3, h4, h5, h6, strong {
+                color: #f8fafc;
+            }
+            a, a.b, a.vl, a.fn, a:visited {
+                color: #60a5fa;
+            }
+            a:hover, a.b:hover, a.vl:hover, a.fn:hover {
+                color: #93c5fd;
+            }
+            .du-color--textSubdued, .pageNum, .themeScrp {
+                color: #94a3b8 !important;
+            }
+            .inserted-reference {
+                background-color: #263346;
+                border: 1px solid #3b4d66;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .inserted-reference-header {
+                background-color: #1e2b3c;
+                border-bottom: 1px solid #3b4d66;
+                color: #cbd5e1;
+            }
+            .inserted-reference-header a {
+                color: #60a5fa;
+            }
+            .inserted-reference-header a:hover {
+                color: #93c5fd;
+            }
+            .note-card-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .note-card-header {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #cbd5e1 !important;
+            }
+            .note-card-header a {
+                color: #60a5fa !important;
+            }
+            .note-card-body {
+                color: #e2e8f0 !important;
+            }
+            .box-supplement-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+            }
+            .box-supplement-table th {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #f8fafc !important;
+            }
+            .box-supplement-table th h1, .box-supplement-table th h2,
+            .box-supplement-table th h3, .box-supplement-table th h4,
+            .box-supplement-table th strong, .box-supplement-table th p {
+                color: #f8fafc !important;
+            }
+            .box-supplement-table td {
+                color: #e2e8f0 !important;
+            }
+            .image-caption {
+                color: #94a3b8;
+            }
+            .custom-lightbox-img {
+                background-color: #1e293b;
+            }
+            .custom-lightbox-caption {
+                color: #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body  class="showRuby cc-theme--light DynamicLayout">
+    <div id="content" class="content">
+        <article class="article bible html5 pub-nwtsty jwac showRuby ml-KO ms-KOREAN dir-ltr includeSecondaryNav" data-lang="KO" dir="ltr" id="article" lang="ko" role="article"><div class="gems-global-controls"><button onclick="toggleAllGems(this, true)">💎 Expand All Gems</button><button onclick="toggleAllGems(this, false)">💎 Collapse All Gems</button></div>
+<div class="scalableui">
+<header>
+<h1>예레미야<button class="gems-toggle-btn" onclick="toggleGems('gems-outline-24-47-1')" title="Toggle Outline">💎</button></h1>
+</header><div class="gems-references-container inserted-reference-container" id="gems-outline-24-47-1" style="display: block;"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[예레미야 개요]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="summaryOutline" style="margin-top: 0; margin-bottom: 8px"><li class="L2" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 0px;"><p style="margin: 2px 0; line-height: 1.35;">블레셋 사람들에 대한 예언 <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/24/47#h=1292:0-1308:0"><span class="altsize">1-7</span></a><span class="altsize">)</span></p></li></div></td></tr></tbody></table></div>
+<p class="sb" data-pid="1292" id="p1292"><span class="v" id="v24-47-1-1"><a class="cl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20190"><strong>47</strong> </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-47-1')" title="Toggle Gems Study References">💎</button>파라오가 가자를 치기 전에 블레셋 사람들에<a class="b" data-bid="1371-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1370">+</a> 관해 예언자 예레미야에게 임한 여호와의 말씀이다. </span><span class="v" id="v24-47-2-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20191">2 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-47-2')" title="Toggle Gems Study References">💎</button>여호와께서 이렇게 말씀하신다.</span></p><div class="gems-references-container" id="gems-ref-24-47-1" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 36면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">예레미야 시대에는 이집트 군대가 가자를 쳤다. (<a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/14/0">렘 47:1</a>) 이 일이 있기 전, 블레셋 사람들에 대한 여호와의 말씀에서는 재난이 북쪽으로부터 닥칠 것이라고 지적하면서 “머리를 미는 일이 <strong>가자</strong>에 임하고야 말 것이다”라고 알려 준다. (<a class="b" data-bid="16-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/15/0">렘 47:2-5</a>. 또한 <a class="b" data-bid="17-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/16/0">렘 25:17,</a><a class="b" data-bid="17-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/16/1"> 20</a> 참조) 예레미야에 나오는 다른 구절들(<a class="b" data-bid="18-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/17/0">1:14;</a><a class="b" data-bid="18-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/17/1"> 46:20</a>)에 암시되어 있는 바와 같이, <a class="b" data-bid="19-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/18/0">예레미야 47:2</a>에 언급된 “북쪽”에서 밀려오는 “물”은 바빌로니아 군대를 가리키는 것 같다. 바빌론 왕 느부갓네살(네부카드네자르)은 실제로 이 지역을 지배하게 되었으며(<a class="b" data-bid="20-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/19/0">왕둘 24:1,</a><a class="b" data-bid="20-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/19/1"> 7</a>), 가자 왕은 바빌로니아의 비문들에 언급되어 있다. (「고대 근동 문헌」, 308면) 따라서 “<strong>파라오</strong>가 <strong>가자</strong>를 치기 전에”라는 말은(<a class="b" data-bid="21-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/20/0">렘 47:1</a>) 단지 블레셋 사람들에 관한 여호와의 말씀이 예레미야에게 임한 시기를 나타내 주는 표현인 것 같다. 이 말이 뒤이어 설명되는 “북쪽으로부터” 닥칠 심판의 표현과 반드시 직접 관련된 것은 아닐 것이다.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 36]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+<div data-pid="1293" id="p1293"><p class="sz" data-pid="1293"><span class="v" id="v24-47-2-2">“보라! 물이 북쪽에서 와서</span></p><p class="sz" data-pid="1293"><span class="v" id="v24-47-2-3">범람하는 급류가 될 것이다.</span></p>
+</div><div data-pid="1294" id="p1294"><p class="sz" data-pid="1294"><span class="v" id="v24-47-2-4">물이 그 땅과 그 안에 있는 모든 것을,</span></p><p class="sz" data-pid="1294"><span class="v" id="v24-47-2-5">도시와 그 주민들을 휩쓸어 갈 것이다.</span></p>
+</div><div data-pid="1295" id="p1295"><p class="sz" data-pid="1295"><span class="v" id="v24-47-2-6">사람들이 부르짖고,</span></p><p class="sz" data-pid="1295"><span class="v" id="v24-47-2-7">그 땅에 사는 모든 자가 통곡할 것이다.</span></p><div class="gems-references-container" id="gems-ref-24-47-2" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 36면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">예레미야 시대에는 이집트 군대가 가자를 쳤다. (<a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/14/0">렘 47:1</a>) 이 일이 있기 전, 블레셋 사람들에 대한 여호와의 말씀에서는 재난이 북쪽으로부터 닥칠 것이라고 지적하면서 “머리를 미는 일이 <strong>가자</strong>에 임하고야 말 것이다”라고 알려 준다. (<a class="b" data-bid="16-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/15/0">렘 47:2-5</a>. 또한 <a class="b" data-bid="17-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/16/0">렘 25:17,</a><a class="b" data-bid="17-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/16/1"> 20</a> 참조) 예레미야에 나오는 다른 구절들(<a class="b" data-bid="18-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/17/0">1:14;</a><a class="b" data-bid="18-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/17/1"> 46:20</a>)에 암시되어 있는 바와 같이, <a class="b" data-bid="19-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/18/0">예레미야 47:2</a>에 언급된 “북쪽”에서 밀려오는 “물”은 바빌로니아 군대를 가리키는 것 같다. 바빌론 왕 느부갓네살(네부카드네자르)은 실제로 이 지역을 지배하게 되었으며(<a class="b" data-bid="20-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/19/0">왕둘 24:1,</a><a class="b" data-bid="20-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/19/1"> 7</a>), 가자 왕은 바빌로니아의 비문들에 언급되어 있다. (「고대 근동 문헌」, 308면) 따라서 “<strong>파라오</strong>가 <strong>가자</strong>를 치기 전에”라는 말은(<a class="b" data-bid="21-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001622/20/0">렘 47:1</a>) 단지 블레셋 사람들에 관한 여호와의 말씀이 예레미야에게 임한 시기를 나타내 주는 표현인 것 같다. 이 말이 뒤이어 설명되는 “북쪽으로부터” 닥칠 심판의 표현과 반드시 직접 관련된 것은 아닐 것이다.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 36]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+</div><div data-pid="1296" id="p1296"><p class="sl" data-pid="1296"><span class="v" id="v24-47-3-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20192">3 </a>그의 종마들의 발굽 소리,</span></p><p class="sz" data-pid="1296"><span class="v" id="v24-47-3-2">그의 병거들의 덜컹거리는 소리,</span></p><p class="sz" data-pid="1296"><span class="v" id="v24-47-3-3">그의 바퀴들의 요란한 소리에,</span></p><p class="sz" data-pid="1296"><span class="v" id="v24-47-3-4">아버지들은 손을 축 늘어뜨리고</span></p><p class="sz" data-pid="1296"><span class="v" id="v24-47-3-5">자식들을 돌아보지도 못할 것이다.</span></p>
+</div><p class="sl" data-pid="1297" id="p1297"><span class="v" id="v24-47-4-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20193">4 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-47-4')" title="Toggle Gems Study References">💎</button>블레셋 사람들을 모두 멸망시킬 날이 오고 있기 때문이다.<a class="b" data-bid="1372-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1371">+</a></span></p>
+<p class="sz" data-pid="1298" id="p1298"><span class="v" id="v24-47-4-2">그날에 티레와<a class="b" data-bid="1373-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1372">+</a> 시돈의<a class="b" data-bid="1374-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1373">+</a> 동맹군 가운데 남은 자들을 모두 없애 버릴 것이다.</span></p>
+<div data-pid="1299" id="p1299"><p class="sz" data-pid="1299"><span class="v" id="v24-47-4-3">여호와가 블레셋 사람들을 멸망시킬 것이니,</span></p><p class="sz" data-pid="1299"><span class="v" id="v24-47-4-4">갑돌<a class="fn pr" data-fnid="411" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/410" id="footnotesource411">*</a><em> (각주: 크레타를 가리킴.)</em><a class="b" data-bid="1375-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1374">+</a> 섬에서 온 남은 자들을 멸망시킬 것이다.</span></p><div class="gems-references-container" id="gems-ref-24-47-4" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 30,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><h1 data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="30" data-no="30" id="page30"></span><strong>가슬루힘</strong></h1><div class="sn" data-pid="2" id="p2" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="1"></span>(Casluhim)</div><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="2"></span>함의 아들인 미스라임에게서 나온 아들 또는 민족. 성서 기록은 가슬루힘 “가운데서 <strong>블레셋</strong> 사람들이 나왔다”고 알려 준다. (<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000902/0/0">창 10:6,</a><a class="b" data-bid="1-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000902/0/1"> 13, 14;</a><a class="b" data-bid="1-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000902/0/2"> 대첫 1:8,</a><a class="b" data-bid="1-4" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000902/0/3"> 11, 12</a>) 다른 성구들에서는 블레셋 사람들이 갑돌이나 크레타에서 왔다고 되어 있으므로(<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000902/1/0">렘 47:4;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000902/1/1"> 암 9:7</a>), 일부 학자들은 위에 나온 문구가 미스라임의 자손 가운데 마지막으로 이름이 나오는 갑도림 다음에 오도록 위치가 바뀌어야 한다는 견해를 제시한다. 하지만 이 성구들 사이에 모순이 있다고 생각할 필요는 없다. 창세기에 나오는 기록(역대기에 나오는 기록과 유사함)은 족보를 알려 주는 것이다. 반면에 블레셋 사람들이 갑돌에서 나온 것으로 언급하는 성구들은 아마도 지리적인 면을 설명하여, 그들이 갑도림의 영토에서 이주해 왔음을 지적하는 것일 것이다.</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 61,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="2"></span>갑도림은 함의 자손들로서, 미스라임 계통이다. (<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000883/0/0">창 10:6,</a><a class="b" data-bid="1-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000883/0/1"> 13, 14;</a><a class="b" data-bid="1-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000883/0/2"> 대첫 1:12</a>) 이스라엘 사람들의 이집트 탈출(기원전 1513년)이 있기 전 밝혀지지 않은 어느 때에, 갑도림은 아윔으로 알려진 민족을 쫓아내고 가나안 남서부에 있는 땅을 차지하였다. (<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000883/1/0">신 2:23</a>) 다른 성구에서 갑돌(또는, 크레타, 「신세」)이라는 이름은 블레셋 사람들이 가나안으로 이주해 오기 전에 살았던 “섬” 혹은 “연안 지대”(<em>RS</em>, <em>AT</em> 등)에 적용된다.—<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000883/2/0">렘 47:4;</a><a class="b" data-bid="3-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000883/2/1"> 암 9:7</a>.</div><div class="sb" data-pid="4" id="p4" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="3"></span>갑돌이 어떤 곳이었는지에 대해서는 많은 논의가 있어 왔다. 갑돌이 있던 곳으로 제시된 장소들로는 이집트의 삼각주 지역, 소아시아의 남동 해안(길리기아 포함), 카파도키아, 크레타가 있다. 오늘날 학자들 대다수는 그곳이 그리스 남동 해안에서 약간 떨어져 있는 크레타 섬이었다는 견해를 지지한다. 어떤 사람들은 그 근처에 있는 섬들과 연안 지대들도 갑돌이라는 이름으로 불리었다고 생각한다. 갑돌은 아시리아·바빌로니아 문헌들에서는 <em>캅타라</em>라는 이름으로, 그리고 이집트 비문들에서는 <em>크프티</em>(<em>우</em>)라는 이름으로 나와 있는 것으로 이해된다. 이집트 사람들(역시 미스라임의 자손들)이 초기부터, 어쩌면 아브라함이 살았던 시대부터, 크레타 사람들과 무역을 했음을 지적하는 증거도 있다.</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 992면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="3"></span>일반적으로, 히브리어 성경에서는 크레타를 가리켜 “<strong>갑돌</strong>”—블레셋 사람들이 가나안으로 이주하기 전에 살았던 곳—이라고 부르는 것으로 여겨진다. (<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001071/0/0">렘 47:4;</a><a class="b" data-bid="1-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001071/0/1"> 암 9:7</a>) 또한 일부 학자들은 “<strong>그렛</strong> 사람들”이 크레타인들과 관련이 있다고 생각한다. 그리스어 「칠십인역」의 <a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001071/1/0">에스겔 25:15-17과</a><a class="b" data-bid="2-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001071/1/1"> 스바냐 2:5-7</a>에는 “<strong>그렛</strong> 사람들”이라고 되어 있지 않고 “크레타인들”이라고 되어 있다. (<a href="https://wol.jw.org/ko/wol/tc/r8/lp-ko/1200001071/0"><strong>그렛 사람들</strong></a> 참조) 개연성이 높은 견해에 따라 갑돌과 크레타를 같은 것으로 본다면 초기에 그 섬에 살았던 사람들은 미스라임의 후손들이었던 셈인데, 미스라임은 성서에서 이집트와 같은 것으로 여겨지는 이름이다.—<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001071/2/0">창 10:13, 14</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 968면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="4"></span><strong>역사</strong> 크레타 섬(일반적으로 갑돌과 동일한 장소로 생각되는 곳)이 꼭 블레셋 사람들의 본고향은 아니었을 수 있지만, 어쨌든 그들은 그 섬에서 가나안의 해안으로 이주하였다. (<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003469/9/0">렘 47:4;</a><a class="b" data-bid="10-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003469/9/1"> 암 9:7</a>. <a class="it" href="https://wol.jw.org/ko/wol/tc/r8/lp-ko/1200003469/3"><strong>갑돌</strong></a>; <a href="https://wol.jw.org/ko/wol/tc/r8/lp-ko/1200003469/4"><strong>크레타</strong></a> 참조) 정확히 언제 이 이주가 시작되었는지는 확실하지 않다. 하지만 일찍이 아브라함과 그의 아들 이삭 시대에 블레셋 사람들은 가나안 남부의 그랄에 거주하고 있었다. 그들에게는 아비멜렉이라는 왕도 있었고, 비골이라는 사람의 지휘 아래 있는 군대도 있었다.—<a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003469/10/0">창 20:1, 2;</a><a class="b" data-bid="11-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003469/10/1"> 21:32-34;</a><a class="b" data-bid="11-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003469/10/2"> 26:1-18</a>. <a href="https://wol.jw.org/ko/wol/tc/r8/lp-ko/1200003469/5"><strong>아비멜렉</strong></a> 1, 2번 참조.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 30,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 61,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 968;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-2 992]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+</div><div data-pid="1300" id="p1300"><p class="sl" data-pid="1300"><span class="v" id="v24-47-5-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20194">5 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-47-5')" title="Toggle Gems Study References">💎</button>가자는 대머리가 되겠고<a class="fn" data-fnid="412" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/411" id="footnotesource412">*</a><em> (각주: 슬퍼하고 수치스러워하면서 머리를 미는 것을 가리킴.)</em></span></p><p class="sz" data-pid="1300"><span class="v" id="v24-47-5-2">아스글론은 잠잠해진다.<a class="b" data-bid="1376-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1375">+</a></span></p>
+</div><div data-pid="1301" id="p1301"><p class="sz" data-pid="1301"><span class="v" id="v24-47-5-3">그들의 골짜기<a class="fn" data-fnid="413" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/412" id="footnotesource413">*</a><em> (각주: 또는 “저지 평야”.)</em>의 남은 자야,</span></p><p class="sz" data-pid="1301"><span class="v" id="v24-47-5-4">네가 언제까지 네 몸을 베려느냐?<a class="b" data-bid="1377-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1376">+</a></span></p><div class="gems-references-container" id="gems-ref-24-47-5" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 60,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="4"></span>아모스의 예언(기원전 804년경)에는, 아스글론의 통치자가 패배할 것이라는 예언이 나온다. (<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000421/5/0">암 1:8</a>) 세속 역사는 그다음 세기에 아시리아의 디글랏-빌레셀 3세가 <em>아스칼루나</em>(아스글론)를 예속 도시로 만들었음을 알려 준다. 예레미야(기원전 647년 이후)도 아스글론과 관련된 두 가지 예언을 하였다. <a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000421/6/0">예레미야 47:2-7</a>은 느부갓네살(네부카드네자르)이 그의 통치 초기(기원전 624년경)에 이 도시를 약탈했을 때 어느 정도 성취되었을 수 있지만, <a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000421/7/0">예레미야 25:17-20,</a><a class="b" data-bid="8-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000421/7/1"> 28, 29</a>에 나오는 예언은 기원전 607년에 예루살렘이 멸망된 후에 성취될 것임을 분명히 시사한다. 또한 스바냐의 예언(기원전 648년 이전에 기록됨)에서도, 블레셋의 다른 도시들과 함께 아스글론에 황폐가 다가오고 있으며 그 후 유다의 남은 자가 마침내 “<strong>아스글론</strong>의 집”을 차지할 것임을 예언하였다. (<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000421/8/0">습 2:4-7</a>) 끝으로 기원전 518년경에 스가랴는 티레가 황폐될 때(기원전 332년)에 관해 말하면서 아스글론에 닥칠 파멸에 대해서도 선포하였다.—<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000421/9/0">슥 9:3-5</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 693면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><h1 data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="693" data-no="693" id="page693"></span><strong>몸을 벰, 자해</strong></h1><div class="sn" data-pid="2" id="p2" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="1"></span>(cuttings)</div><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="2"></span>고대인들 사이에서는 애도 기간에 몸을 베거나 팔, 손, 얼굴을 할퀴어 상처를 내는 것이 일반적인 관습이었던 것 같다. (<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001097/0/0">렘 47:5;</a><a class="b" data-bid="1-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001097/0/1"> 48:37</a>) 죽은 자들을 지배한다고 여겨지던 신들을 진정시키거나 달랠 목적으로 그와 같이 했을 수 있다. 그리스의 역사가 헤로도토스(IV, 71)는, 스키타이 사람들의 왕이 죽었을 때 그들 사이에서 행해진 이러한 관습과 관련하여 이와 같이 기록하였다. “그들은 자기들의 귀의 일부를 잘라 내고, 머리를 밀고, 팔 둘레에 칼자국을 내고, 이마와 코를 쥐어뜯고, 화살로 왼손을 꿰찔렀다.”</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 693;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-2 60]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+</div><p class="sl" data-pid="1302" id="p1302"><span class="v" id="v24-47-6-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20195">6 </a>아! 여호와의 칼아!<a class="b" data-bid="1378-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1377">+</a></span></p>
+<p class="sz" data-pid="1303" id="p1303"><span class="v" id="v24-47-6-2">네가 얼마나 더 지나야 잠잠해지려느냐?</span></p>
+<p class="sz" data-pid="1304" id="p1304"><span class="v" id="v24-47-6-3">너의 칼집으로 다시 들어가거라.</span></p>
+<p class="sz" data-pid="1305" id="p1305"><span class="v" id="v24-47-6-4">쉬면서 조용히 있어라.</span></p>
+<div data-pid="1306" id="p1306"><p class="sl" data-pid="1306"><span class="v" id="v24-47-7-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20196">7 </a>여호와가 그 칼에게 명령하였는데,</span></p><p class="sz" data-pid="1306"><span class="v" id="v24-47-7-2">그것이 어떻게 잠잠할 수 있겠느냐?</span></p>
+</div><div data-pid="1307" id="p1307"><p class="sz" data-pid="1307"><span class="v" id="v24-47-7-3">그가 그 칼을 시켜서</span></p><p class="sz" data-pid="1307"><span class="v" id="v24-47-7-4">아스글론과 바닷가를 치게 한 것이다.”<a class="b" data-bid="1379-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1378">+</a></span></p>
+</div> <!-- Root element of lightbox -->
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="예레미야 47:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="예레미야 47:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="예레미야 {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value=""/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value=""/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="{PublicationSymbol} {StartingPageNumber}-{EndingPageNumber}면"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="{PublicationSymbol} {PageNumber}면"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="englishSym" type="hidden" value="nwtsty"/>
+<input id="audioPubSym" type="hidden" value="nwt"/>
+<input id="pubYear" type="hidden" value="2024"/>
+<input id="langSym" type="hidden" value="KO"/>
+<input id="bookNo" type="hidden" value="24"/>
+<input id="chapNo" type="hidden" value="47"/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=KO&amp;pub=nwtsty&amp;srctype=wol&amp;bible=24047000&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="bible-chapter"/>
+<input id="contentTitle" type="hidden" value="예레미야 47"/>
+<input id="contentThumbnail" type="hidden" value="/ko/wol/publication/r8/lp-ko/nwtsty/thumbnail"/>
+<input id="parentTitle" type="hidden" value="신세계역 성경 (연구용)"/>
+<input id="sourcePreferredBible" type="hidden" value="nwtsty"/>
+<style>
+.gems-toggle-btn {
+    background: none;
+    border: 1px solid #4a6da7;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75em;
+    padding: 1px 3px;
+    margin-left: 0px;
+    margin-right: 4px;
+    vertical-align: top;
+    transition: background-color 0.2s, transform 0.1s;
+}
+h1 .gems-toggle-btn {
+    font-size: 13px;
+    vertical-align: top;
+    margin-left: 8px;
+}
+.gems-toggle-btn:hover {
+    background-color: #e9ecef;
+    transform: scale(1.1);
+}
+.summaryOutline {
+    margin: 0;
+    padding: 0;
+}
+.summaryOutline ul {
+    padding-left: 16px;
+    margin: 2px 0;
+}
+.summaryOutline > ul.content {
+    padding-left: 0;
+    list-style: none;
+}
+.summaryOutline li {
+    margin-bottom: 2px;
+    line-height: 1.35;
+}
+.summaryOutline p {
+    margin: 2px 0;
+    line-height: 1.35;
+}
+.gems-note-link {
+    cursor: pointer;
+    color: #4a6da7;
+    background-color: #e9ecef;
+}
+.gems-note-link:hover {
+    color: #4a6da7;
+    background-color: #e9ecef;
+}
+.studyItemMedia, .media-list img {
+    max-width: 80px !important;
+    height: auto !important;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+.media-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.media-list li {
+    margin-bottom: 12px;
+}
+.media-list li:last-child {
+    margin-bottom: 0;
+}
+.media-list a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    /* color: inherit; */
+}
+.media-list a:hover .caption {
+    text-decoration: underline;
+}
+.media-list .caption {
+    display: block;
+    font-size: 0.95em;
+    /* color: #212529; */
+}
+.media-list .caption p {
+    margin: 0;
+}
+.gems-references-container {
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+.gems-global-controls {
+    margin: 12px 0 16px auto;
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    display: flex;
+    width: fit-content;
+    gap: 10px;
+    align-items: center;
+}
+.gems-global-controls button {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 0.85em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.gems-global-controls button:hover {
+    background-color: #e9ecef;
+}
+</style><script>
+function toggleGems(id) {
+    var elem = document.getElementById(id);
+    if (elem) {
+        var isHidden = elem.style.display === 'none' || !elem.style.display;
+        elem.style.display = isHidden ? 'block' : 'none';
+        var cards = elem.querySelectorAll('.inserted-reference-container');
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = isHidden ? 'block' : 'none';
+        }
+    }
+}
+function toggleSpecificGemsNote(containerId, noteId) {
+    var container = document.getElementById(containerId);
+    var targetNote = document.getElementById(noteId);
+    if (!container || !targetNote) return;
+
+    var cards = container.querySelectorAll('.inserted-reference-container');
+    var isContainerHidden = container.style.display === 'none' || !container.style.display;
+
+    var visibleCount = 0;
+    for (var i = 0; i < cards.length; i++) {
+        if (cards[i].style.display !== 'none' && cards[i].style.display !== '') visibleCount++;
+    }
+
+    if (isContainerHidden) {
+        container.style.display = 'block';
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = (cards[i] === targetNote) ? 'block' : 'none';
+        }
+    } else if (visibleCount === 1 && targetNote.style.display === 'block') {
+        container.style.display = 'none';
+        targetNote.style.display = 'none';
+    } else {
+        container.style.display = 'block';
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = (cards[i] === targetNote) ? 'block' : 'none';
+        }
+    }
+}
+function toggleAllGems(btnOrShowAll, showAll) {
+    var target = document;
+    var show = showAll;
+    if (typeof btnOrShowAll === 'boolean') {
+        show = btnOrShowAll;
+    } else if (btnOrShowAll && btnOrShowAll.closest) {
+        target = btnOrShowAll.closest('article') || btnOrShowAll.closest('.content') || document;
+    }
+    var containers = target.querySelectorAll('.gems-references-container');
+    containers.forEach(function(c) {
+        c.style.display = show ? 'block' : 'none';
+        var cards = c.querySelectorAll('.inserted-reference-container');
+        cards.forEach(function(card) {
+            card.style.display = show ? 'block' : 'none';
+        });
+    });
+}
+</script></article><article class="article bible html5 pub-nwtsty jwac showRuby ml-KO ms-KOREAN dir-ltr includeSecondaryNav" data-lang="KO" dir="ltr" id="article" lang="ko" role="article"><div class="gems-global-controls"><button onclick="toggleAllGems(this, true)">💎 Expand All Gems</button><button onclick="toggleAllGems(this, false)">💎 Collapse All Gems</button></div>
+<div class="scalableui">
+<header>
+<h1>예레미야<button class="gems-toggle-btn" onclick="toggleGems('gems-outline-24-48-1')" title="Toggle Outline">💎</button></h1>
+</header><div class="gems-references-container inserted-reference-container" id="gems-outline-24-48-1" style="display: block;"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[예레미야 개요]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="summaryOutline" style="margin-top: 0; margin-bottom: 8px"><li class="L2" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 0px;"><p style="margin: 2px 0; line-height: 1.35;">모압에 대한 예언 <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/24/48#h=1308:0-1403:0"><span class="altsize">1-47</span></a><span class="altsize">)</span></p></li></div></td></tr></tbody></table></div>
+<p class="sb" data-pid="1308" id="p1308"><span class="v" id="v24-48-1-1"><a class="cl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20197"><strong>48</strong> </a>모압에<a class="b" data-bid="1380-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1379">+</a> 관해 만군의 여호와, 이스라엘의 하느님께서 이렇게 말씀하신다.</span></p>
+<p class="sz" data-pid="1309" id="p1309"><span class="v" id="v24-48-1-2">“느보에게<a class="b" data-bid="1381-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1380">+</a> 화가 있다! 그가 멸망되었다.</span></p>
+<p class="sz" data-pid="1310" id="p1310"><span class="v" id="v24-48-1-3">기랴다임이<a class="b" data-bid="1382-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1381">+</a> 수치를 당하고 점령되었다.</span></p>
+<p class="sz" data-pid="1311" id="p1311"><span class="v" id="v24-48-1-4">안전한 도피처<a class="fn" data-fnid="414" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/413" id="footnotesource414">*</a><em> (각주: 또는 “안전한 산성”.)</em>가 수치를 당하고 산산이 부서졌다.<a class="b" data-bid="1383-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1382">+</a></span></p>
+<p class="sl" data-pid="1312" id="p1312"><span class="v" id="v24-48-2-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20198">2 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-48-2')" title="Toggle Gems Study References">💎</button>모압은 더 이상 칭송받지 못한다.</span></p>
+<div data-pid="1313" id="p1313"><p class="sz" data-pid="1313"><span class="v" id="v24-48-2-2">헤스본에서<a class="b" data-bid="1384-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1383">+</a> 그들이 그를 무너뜨릴 계략을 꾸미며,</span></p><p class="sz" data-pid="1313"><span class="v" id="v24-48-2-3">‘자, 우리가 그 민족을 아예 없애 버리자’ 한다.</span></p>
+</div><p class="sz" data-pid="1314" id="p1314"><span class="v" id="v24-48-2-4">맛멘아, 너도 잠자코 있어라.</span></p>
+<p class="sz" data-pid="1315" id="p1315"><span class="v" id="v24-48-2-5">칼이 너를 뒤쫓을 것이다.</span></p><div class="gems-references-container" id="gems-ref-24-48-2" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 516면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="4"></span>하지만 디본이라는 이름이 짧은 선언 가운데서 서로 다른 두 가지 형태로 나왔을 리는 없을 것이라고 생각하는 사람들도 있다. 그들은 또한 그 선언 가운데서 그 밖의 다른 장소가 두 가지 이름으로 언급된 경우는 없다는 점에도 유의한다. 그에 더해, 그들은 디본이 자리 잡고 있던 곳 옆에는 큰 “물”이 없다고 지적하는데, 디본은 가장 가까이에 있는 급류 골짜기인 아르논까지도 상당히 멀리 떨어져 있다. 따라서 그들의 견해에 따르면, 디몬은 예레미야가 모압을 정죄한 내용에 언급되어 있는 맛멘이 필사 과정에서 바뀐 것일 수 있으며(<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001180/3/0">렘 48:2</a>), 일반적으로 라바트모아브에서 서북서쪽으로 4킬로미터쯤 떨어져 있고 남동쪽으로 아인엘메게이실의 물을 내려다보는 고지에 위치한 딤나였던 것으로 여겨진다.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 625면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><h1 data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="625" data-no="625" id="page625"></span><strong>맛멘</strong></h1><div class="sn" data-pid="2" id="p2" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="1"></span>(Madmen) [“거름”을 의미하는 어근에서 유래한 듯함]</div><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="2"></span>모압에 있었던 것으로 보이는 장소. 맛멘은 칼에 의한 재앙을 당하게 될 것으로 예언되었다. <a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002825/0/0">예레미야 48:2</a>에 나오는 “<strong>맛멘</strong>아, 너도 잠자코 있게 될 것이다”라는 표현은 히브리어 어구 <em>감-마드멘 팃돔미</em>를 번역한 것이다. 많은 학자들은 <em>마드멘</em>(<em>madh·menʹ</em>, “맛멘”)의 첫 자모인 <em>m</em>(ㅁ)은 그 앞에 나오는 단어(<em>gam</em>, 감)의 마지막 자모를 무심결에 반복한 것이라고 생각한다. 첫 자모인 <em>m</em>이 없으면 맛멘의 자음들은 디몬의 자음들과 일치하며, 그 때문에 맛멘은 디몬(카라크에서 북쪽으로 10킬로미터쯤 떨어진 딤나인 듯함)과 같은 곳으로 간주되는 경우가 많다. 하지만 아마도 맛멘은 실제 장소의 이름은 아닌 것 같다. 그리스어 「칠십인역」과 시리아어 「페시타」와 라틴어 「불가타」의 번역에서는 고대 히브리어 본문이 ‘그렇다, 네[모압]가 완전히 잠잠해질 것이다’로 되어 있었음을 시사하기 때문이다.</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 516,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 625]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+<div data-pid="1316" id="p1316"><p class="sl" data-pid="1316"><span class="v" id="v24-48-3-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20199">3 </a>호로나임에서 부르짖는 소리가,<a class="b" data-bid="1385-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1384">+</a></span></p><p class="sz" data-pid="1316"><span class="v" id="v24-48-3-2">멸망과 큰 파괴의 소리가 들린다.</span></p>
+</div><div data-pid="1317" id="p1317"><p class="sl" data-pid="1317"><span class="v" id="v24-48-4-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20200">4 </a>모압이 파멸되니,</span></p><p class="sz" data-pid="1317"><span class="v" id="v24-48-4-2">그의 어린아이들이 부르짖는다.</span></p>
+</div><p class="sl" data-pid="1318" id="p1318"><span class="v" id="v24-48-5-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20201">5 </a>사람들이 루힛의 오르막길을 올라가면서 계속 운다.</span></p>
+<p class="sz" data-pid="1319" id="p1319"><span class="v" id="v24-48-5-2">호로나임을 떠나는 내리막길에서 재난 때문에 고통으로 부르짖는 소리가 들린다.<a class="b" data-bid="1386-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1385">+</a></span></p>
+<p class="sl" data-pid="1320" id="p1320"><span class="v" id="v24-48-6-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20202">6 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-48-6')" title="Toggle Gems Study References">💎</button>도망쳐라, 피하여 너희 목숨<a class="fn" data-fnid="415" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/414" id="footnotesource415">*</a><em> (각주: 또는 “영혼”.)</em>을 건져라!</span></p>
+<p class="sz" data-pid="1321" id="p1321"><span class="v" id="v24-48-6-2">광야의 향나무같이 되어라.</span></p><div class="gems-references-container" id="gems-ref-24-48-6" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제2권 1142면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><strong>2.</strong> [히브리어, <em>아로에르</em> 또는 <em>아라르</em>] 아랍어 <em>아라르</em>는 이 나무가 어떤 나무인지 밝히는 데 도움이 되는데, 아마도 이 나무는 시나이 지역과 에돔의 사막 지역에서 발견되는 관목처럼 생긴 나무인 유니페루스 페니키아(<em>Juniperus phoenicia</em>)일 것이다. 이 나무의 이름이 파생된 히브리어의 어근 단어는 “벌거벗음” 또는 “벗겨진”이라는 개념을 가지고 있으며(<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002555/11/0">시 102:17</a> 비교), 이 난쟁이향나무는 그에 맞게 다소 희끄무레해 보이고 바위투성이의 사막 지역이나 바위 위에서 자라는 것으로 묘사된다. 이 나무는 적절하게도 예레미야서에서 그 마음이 여호와에게서 떠난 사람을 “사막 평원에 외로이 서 있는 나무[<em>아라르</em>]”에 비할 때, 그리고 모압 사람들에 대한 경고 즉 도망하여 “광야의 향나무같이[<em>카아로에르</em>]” 되라는 통고에 사용된다.—<a class="b" data-bid="13-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002555/12/0">렘 17:5, 6;</a><a class="b" data-bid="13-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002555/12/1"> 48:1,</a><a class="b" data-bid="13-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002555/12/2"> 6</a>(다만 각주 참조).</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-2 1142]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+<div data-pid="1322" id="p1322"><p class="sl" data-pid="1322"><span class="v" id="v24-48-7-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20203">7 </a>너는 네가 만든 것들과 보물들을 신뢰하니,</span></p><p class="sz" data-pid="1322"><span class="v" id="v24-48-7-2">너 또한 사로잡힐 것이다.</span></p>
+</div><div data-pid="1323" id="p1323"><p class="sz" data-pid="1323"><span class="v" id="v24-48-7-3">그모스가<a class="b" data-bid="1387-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1386">+</a> 유배되고</span></p><p class="sz" data-pid="1323"><span class="v" id="v24-48-7-4">그 제사장들과 방백들도 함께 유배될 것이다.</span></p>
+</div><div data-pid="1324" id="p1324"><p class="sl" data-pid="1324"><span class="v" id="v24-48-8-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20204">8 </a>멸망시키는 자가 모든 도시에 오리니,</span></p><p class="sz" data-pid="1324"><span class="v" id="v24-48-8-2">어떤 도시도 피하지 못할 것이다.<a class="b" data-bid="1388-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1387">+</a></span></p>
+</div><div data-pid="1325" id="p1325"><p class="sz" data-pid="1325"><span class="v" id="v24-48-8-3">골짜기<a class="fn" data-fnid="416" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/415" id="footnotesource416">*</a><em> (각주: 또는 “저지 평야”.)</em>가 파괴되고 평원<a class="fn" data-fnid="417" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/416" id="footnotesource417">*</a><em> (각주: 또는 “고원 지대”.)</em>이 황폐되리니,</span></p><p class="sz" data-pid="1325"><span class="v" id="v24-48-8-4">여호와가 말한 대로 될 것이다.</span></p>
+</div><p class="sl" data-pid="1326" id="p1326"><span class="v" id="v24-48-9-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20205">9 </a>모압을 위해 표를 세워라.</span></p>
+<p class="sz" data-pid="1327" id="p1327"><span class="v" id="v24-48-9-2">그가 무너져 폐허가 되어 도망칠 것이다.</span></p>
+<div data-pid="1328" id="p1328"><p class="sz" data-pid="1328"><span class="v" id="v24-48-9-3">그의 도시들은 경악의 대상이 되어</span></p><p class="sz" data-pid="1328"><span class="v" id="v24-48-9-4">아무도 살지 않게 될 것이다.<a class="b" data-bid="1389-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1388">+</a></span></p>
+</div><p class="sl" data-pid="1329" id="p1329"><span class="v" id="v24-48-10-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20206">10 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-48-10')" title="Toggle Gems Study References">💎</button>여호와가 시킨 일을 소홀히 하는 자는 저주를 받는다!</span></p>
+<p class="sz" data-pid="1330" id="p1330"><span class="v" id="v24-48-10-2">자기 칼을 거두어들여 피를 흘리지 않는 자도 저주를 받는다!</span></p><div class="gems-references-container" id="gems-ref-24-48-10" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파80 7 23]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="26" data-rel-pid="[52]" id="p26" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="24"><sup>24</sup></span> 그 다음에는 어떠합니까? <a class="b" data-bid="18-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980165/17/0">계시록 19:11-21</a>은 느부갓네살 <span aria-hidden="true" class="pageNum" data-before-text="23" data-no="23" id="page23"></span>왕보다 더 큰 정복자이신 예수 그리스도께서 천군을 거느리고 반격을 가하실 것임을 알려 줍니다. 그들은 여호와께 받은 사명을 태만히 함으로 인한 저주를 받는 일이 없을 것입니다. 그들은 적의 피를 흘리는 집행의 “칼”을 금함으로 인한 저주를 받는 일이 없을 것입니다. (<a class="b" data-bid="19-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980165/18/0">예레미야 48:10</a>) 그들은 침략적인 열국에게 여호와의 복수를 집행할 것입니다. 그렇게 함으로써 그들은 여호와께서 영원히 입증되도록 영광스러운 승리의 축복을 받게 될 것입니다.</div><div class="sb" data-pid="27" data-rel-pid="[53]" id="p27" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="25"><sup>25</sup></span> 1914년 이래 우리는 “마지막 때”에 살아왔습니다. (<a class="b" data-bid="20-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980165/19/0">다니엘 12:4</a>) 그러므로 지금 예레미야 반열과 그들의 헌신한 반려자들은 위협적인 “칼” 즉 여호와께서 다가오는 “큰 환난” 동안에 사용하실 집행 도구에 세계적인 주의를 환기시키지 않으면 안 됩니다. (<a class="b" data-bid="21-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980165/20/0">마태 24:21</a>) 그들은 예레미야의 본을 따라야 합니다. 예레미야는 유다 땅으로부터 강제로 끌려간 후에 그가 끌려간 땅인 애굽에 대하여 그리고 블레셋과 모압, 암몬, 에돔 및 기타 적국들에 대하여 느부갓네살 왕의 위협적인 “칼”을 선포하였습니다. 심지어 “큰 환난”이 시작되기 전인 지금에도 그들은 조직화된 종교와 모든 세상 나라들에 대하여 “우리 하나님의 신원의 날을 전파”할 하나님의 명령을 받고 있습니다. (<a class="b" data-bid="22-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980165/21/0">예레미야 46:1-49:39</a>) 그들의 “사명”은 다음과 같은 경고의 소식을 선포하는 것입니다. “이것은 여호와의 보수할 날이요 시온의 송사를 위하여 신원하실 해라.”—<a class="b" data-bid="23-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980165/22/0">이사야 34:8</a>.</div><div class="sb" data-pid="28" data-rel-pid="[54]" id="p28" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="26"><sup>26</sup></span> 이제 <a class="b" data-bid="24-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980165/23/0">누가 복음 21:22</a>에 있는 예수의 예언의 말씀이 적용됩니다. “이 날들은 기록된 모든 것을 이루는 형벌의 날이니라.” 지금이야말로 특히 예레미야 반열에게 있어서 여호와께서 에스겔에게 말씀하신 것을 마음에 간직해야 할 때입니다. 에스겔은 예레미야가 자기 의사에 반하여 애굽으로 끌려가기 7년 전인 기원전 613년에 바벨론에서 예언하기 시작하였었습니다.</div><div class="sb" data-pid="29" data-rel-pid="[54]" id="p29" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="27"><sup>27</sup></span> “그러나 파숫군이 칼이 임함을 보고도 나팔을 불지 아니하여 백성에게 경고치 아니하므로 그 중에 한 사람이 그 임하는 칼에 제함을 당하면 그는 자기 죄악 중에서 제한바 되려니와 그 죄를 내가 파숫군의 손에서 찾으리라 인자야 내가 너로 <strong>이스라엘</strong> 족속의 파숫군을 삼음이 이와 같으니라 그런즉 너는 내 입의 말을 듣고 나를 대신하여 그들에게 경고할찌어다 가령 내가 악인에게 이르기를 악인아 너는 정녕 죽으리라 하였다 하자 네가 그 악인에게 말로 경고하여 그 길에서 떠나게 아니하면 그 악인은 자기 죄악 중에서 죽으려니와 내가 그 피를 네 손에서 찾으리라 그러나 너는 악인에게 경고하여 돌이켜 그 길에서 떠나라고 하되 그가 돌이켜 그 길에서 떠나지 아니하면 그는 자기 죄악 중에서 죽으려니와 너는 네 생명을 보전하리라.”—<a class="b" data-bid="25-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980165/24/0">에스겔 33:6-9</a>; 비교 <a class="b" data-bid="26-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980165/25/0">에스겔 9:2-10</a>.</div><div class="sb" data-pid="30" data-rel-pid="[55]" id="p30" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="28"><sup>28</sup></span> 오늘날의 예레미야 반열과 그들의 협조적 반려자들은 그러한 방법으로 유혈죄를 짓기를 원치 않습니다. 그러나 그들에게 그러한 일이 가능합니다. 만일 사람을 두려워하기 때문에 그들이 여호와의 “신원의 날”의 “칼”에 관하여 모든 사람들에게 경고하는 일을 주저함으로 그들의 “사명”을 이행하지 않는다면 그들은 하나님의 저주를 받기에 합당할 것입니다. 그들에게 있어서 이것은 그들의 태만으로 인하여 살아 남지 못함을 의미할 것입니다.</div><div class="sb" data-pid="31" data-rel-pid="[56]" id="p31" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="29"><sup>29</sup></span> 급속히 다가오는 “큰 환난”에서 하나님의 신원 즉 복수의 “칼”이 조직화된 모든 종교를 칠 때 여호와의 “파숫군”인 예레미야 반열의 말을 청종하지 않은 사람들은 멸망의 운명하에 있는 정치 요소에 피난을 하려고 할 것입니다. 그러나 이것은 아마겟돈에서 있을 “하나님 곧 전능하신이의 큰 날에 전쟁”에서 멸망될 것을 보증할 뿐입니다. (<a class="b" data-bid="27-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980165/26/0">계시 16:14,</a><a class="b" data-bid="27-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1980165/26/1"> 16</a>) 그들과 함께 멸망되는 일을 피하기 위하여 아직도 올바른 길이 열려져 있는 지금, 올바른 길을 선택해야 합니다. 그 길에서 생명의 추구자들은 결코 그들의 길을 바꿀 필요가 없게 될 것입니다.</div><div class="sd" data-pid="32" id="p32" style="margin-top: 0; margin-bottom: 8px">(예레미야 예언에 관한 이 연속 기사의 마지막 기사는 후에 발행될 것이다.)</div></td></tr></tbody></table></div></div>
+<div data-pid="1331" id="p1331"><p class="sl" data-pid="1331"><span class="v" id="v24-48-11-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20207">11 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-48-11')" title="Toggle Gems Study References">💎</button>모압 사람들은 어릴 때부터 편히 지냈으며,</span></p><p class="sz" data-pid="1331"><span class="v" id="v24-48-11-2">찌꺼기가 잘 가라앉은 포도주 같았다.</span></p>
+</div><div data-pid="1332" id="p1332"><p class="sz" data-pid="1332"><span class="v" id="v24-48-11-3">이 그릇에서 저 그릇으로 옮겨 부어진 적도 없고,</span></p><p class="sz" data-pid="1332"><span class="v" id="v24-48-11-4">유배되어 간 적도 없었다.</span></p>
+</div><div data-pid="1333" id="p1333"><p class="sz" data-pid="1333"><span class="v" id="v24-48-11-5">그 때문에 맛이 그대로 남아 있고,</span></p><p class="sz" data-pid="1333"><span class="v" id="v24-48-11-6">향도 변하지 않았다.</span></p><div class="gems-references-container" id="gems-ref-24-48-11" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제2권 896면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><h1 data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="896" data-no="896" id="page896"></span><strong>찌꺼기</strong></h1><div class="sn" data-pid="2" id="p2" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="1"></span>(dregs)</div><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="2"></span>포도주를 가만히 놔두면 침전하여 바닥에 쌓이는 부유 입자. 성경에서는 이 표현이 다섯 차례 나오는데, 언제나 복수형(히브리어, <em>셰마림</em>)으로 사용되어 있다. 성서 번역자들은 이 표현을 일반적으로 “앙금”으로 번역한다. 온전히 숙성시키기 위해 좋은 포도주를 오랫동안 “찌꺼기를 가라앉”히면서 보관하면 포도주는 투명해지고 알코올의 농도가 높아지며 그윽한 맛을 지니게 된다. (<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001223/0/0">사 25:6</a>) 반면에, 포도의 질이 좋지 않아서 처음부터 좋지 않은 포도주는 찌꺼기를 가라앉혀 응고되게 해도 맛이나 향이 나아지지 않는다. 예언자들은 이러한 사실을 예들에서 언급한다. (<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001223/1/0">렘 48:11;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001223/1/1"> 습 1:12</a>) 또한 시편 필자는 비유적인 표현으로 “땅의 모든 악한 자들”이 여호와의 분노의 잔을 비우고 그 찌꺼기와 모든 것을 마지막 쓰디쓴 한 방울까지 마시지 않을 수 없게 될 것이라고 말한다.—<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001223/2/0">시 75:8</a>. <a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001223/3/0">겔 23:32-34</a> 비교. <a class="it" href="https://wol.jw.org/ko/wol/tc/r8/lp-ko/1200001223/0"><strong>포도주와 독한 술</strong></a> 참조.</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-2 896]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+</div><p class="sb" data-pid="1334" id="p1334"><span class="v" id="v24-48-12-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20208">12 </a>‘보라! 그날이 오고 있다.’ 여호와의 말이다. ‘그때에 내가 그들을 엎어 버릴 사람들을 보낼 것이다. 그 사람들은 그들을 엎어서 그 그릇들을 비우고, 그 큰 항아리들을 산산이 부술 것이다. </span><span class="v" id="v24-48-13-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20209">13 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-48-13')" title="Toggle Gems Study References">💎</button>이스라엘 집이 자기들이 굳게 믿던 베델 때문에 수치를 당한 것처럼,<a class="b" data-bid="1390-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1389">+</a> 모압 사람들은 그모스 때문에 수치를 당할 것이다.</span></p><div class="gems-references-container" id="gems-ref-24-48-13" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 235면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="6"></span>예언자 예레미야는 모압의 재앙을 예고하면서 모압의 주요 신 그모스를 비롯하여 그 신의 제사장들과 방백들이 유배되어 갈 것임을 지적하였다. 모압 사람들은 자신들의 신이 무력하기 때문에 그 신으로 말미암아 부끄러움을 당할 것이었다. 마치 열 지파 왕국의 이스라엘 사람들이 베델로 말미암아, 아마도 그곳이 송아지 숭배와 관련되어 있기에 부끄러움을 당한 것과 같다.—<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000936/7/0">렘 48:7,</a><a class="b" data-bid="8-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000936/7/1"> 13,</a><a class="b" data-bid="8-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000936/7/2"> 46</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 235]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+<p class="sl" data-pid="1335" id="p1335"><span class="v" id="v24-48-14-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20210">14 </a>어찌 감히 너희가 “우리는 싸울 준비가 되어 있는 강한 전사들이다” 하고 말하느냐?’<a class="b" data-bid="1391-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1390">+</a></span></p>
+<div data-pid="1336" id="p1336"><p class="sl" data-pid="1336"><span class="v" id="v24-48-15-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20211">15 </a>‘모압은 멸망되고,</span></p><p class="sz" data-pid="1336"><span class="v" id="v24-48-15-2">그의 도시들은 침략을 당하며,<a class="b" data-bid="1392-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1391">+</a></span></p><p class="sz" data-pid="1336"><span class="v" id="v24-48-15-3">가장 빼어난 젊은이들마저 살육을 당한다.’<a class="b" data-bid="1393-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1392">+</a></span></p>
+</div><p class="sz" data-pid="1337" id="p1337"><span class="v" id="v24-48-15-4">그 이름이 만군의 여호와인 왕의 말이다.<a class="b" data-bid="1394-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1393">+</a></span></p>
+<div data-pid="1338" id="p1338"><p class="sl" data-pid="1338"><span class="v" id="v24-48-16-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20212">16 </a>모압 사람들에게 재난이 곧 닥쳐오리니,</span></p><p class="sz" data-pid="1338"><span class="v" id="v24-48-16-2">그들의 몰락이 빠르게 다가오고 있다.<a class="b" data-bid="1395-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1394">+</a></span></p>
+</div><div data-pid="1339" id="p1339"><p class="sl" data-pid="1339"><span class="v" id="v24-48-17-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20213">17 </a>그들 주위에 있는 모든 자들이,</span></p><p class="sz" data-pid="1339"><span class="v" id="v24-48-17-2">그들의 이름을 아는 모든 자들이 그들을 동정할 것이다.</span></p>
+</div><p class="sz" data-pid="1340" id="p1340"><span class="v" id="v24-48-17-3">그들에게 말하여라.</span></p>
+<p class="sz" data-pid="1341" id="p1341"><span class="v" id="v24-48-17-4">‘어찌하여 그 강한 지팡이, 그 아름다운 막대기가 부러졌는가!’</span></p>
+<div data-pid="1342" id="p1342"><p class="sl" data-pid="1342"><span class="v" id="v24-48-18-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20214">18 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-48-18')" title="Toggle Gems Study References">💎</button>디본에<a class="b" data-bid="1396-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1395">+</a> 사는 딸아,</span></p><p class="sz" data-pid="1342"><span class="v" id="v24-48-18-2">너의 영광에서 내려와 목말라하며<a class="fn" data-fnid="418" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/417" id="footnotesource418">*</a><em> (각주: 달리 번역하면 “메마른 땅에”.)</em> 앉아라.</span></p>
+</div><div data-pid="1343" id="p1343"><p class="sz" data-pid="1343"><span class="v" id="v24-48-18-3">모압을 멸망시키는 자가 너를 치러 와서</span></p><p class="sz" data-pid="1343"><span class="v" id="v24-48-18-4">너의 요새들을 파괴할 것이다.<a class="b" data-bid="1397-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1396">+</a></span></p><div class="gems-references-container" id="gems-ref-24-48-18" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 516-517면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="6" id="p6" style="margin-top: 0; margin-bottom: 8px">그로부터 200년도 채 안 되었을 때 디본은 또다시 모압의 도시로 알려져 있었으며, 이 도시에 대해 <a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001172/6/0">이사야(15:2</a>)는 멸망을 선언한다. 따라서 그 지역의 주민들은 모압의 황폐에 대해 애도하면서 “‘집’과 <strong>디본</strong>으로, 산당으로” 올라갈 것으로 예언되어 있다.</div><div class="sb" data-pid="7" id="p7" style="margin-top: 0; margin-bottom: 8px">일부 학자들은, 디본 근처에 있는 “산당”에서 “울”게 하는 원인으로 이사야가 임박한 아시리아의 위협을 넌지시 언급하였다는 의견을 제시한다. 하지만 아시리아가 그 지역을 황폐시켰다는 기록은 전혀 없다. 약 100년 후에 여호와의 종 예레미야가 디본이 “영광에서 내려와 목마름 가운데 앉”게 될 것이라고 예언하였을 때(<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001172/7/0">렘 48:18</a>), 이사야가 이전에 한 예언은 아직 성취되지 않았던 것 같다. 따라서 후대의 예언자 예레미야는 비슷한 <span aria-hidden="true" class="pageNum" data-before-text="517" data-no="517" id="page517"></span>소식을 새로운 방식으로 전한 것 같으며, 그리하여 모압의 멸망에 대한 예언을 이중으로 확실한 것이 되게 하였다. 기원전 607년에 예루살렘이 함락된 지 얼마 후 느부갓네살(네부카드네자르)이 모압을 철저히 황폐시킬 때, 그는 디본의 시민들이 단지 이전에 영화롭던 시절에 누리던 사치품들에 대해 ‘목말라하는’ 정도를 넘어, 비천해진 포로로 버려져서 문자적으로 물을 비롯한 일반 필수품에 대해서까지도 목말라하게 만들었을 수 있다.—<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001172/8/0">렘 25:9,</a><a class="b" data-bid="9-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001172/8/1"> 17-21</a>.</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 516-517]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+</div><p class="sl" data-pid="1344" id="p1344"><span class="v" id="v24-48-19-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20215">19 </a>아로엘의<a class="b" data-bid="1398-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1397">+</a> 주민아, 길가에 서서 지켜보아라.</span></p>
+<div data-pid="1345" id="p1345"><p class="sz" data-pid="1345"><span class="v" id="v24-48-19-2">도망치는 남자와 도피하는 여자에게</span></p><p class="sz" data-pid="1345"><span class="v" id="v24-48-19-3">‘무슨 일이오?’ 하고 물어보아라.</span></p>
+</div><p class="sl" data-pid="1346" id="p1346"><span class="v" id="v24-48-20-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20216">20 </a>모압이 수치를 당하고 공포에 떤다.</span></p>
+<p class="sz" data-pid="1347" id="p1347"><span class="v" id="v24-48-20-2">통곡하고 부르짖어라.</span></p>
+<p class="sz" data-pid="1348" id="p1348"><span class="v" id="v24-48-20-3">모압이 멸망되었다고 아르논에서<a class="b" data-bid="1399-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1398">+</a> 선포하여라.</span></p>
+<p class="sb" data-pid="1349" id="p1349"><span class="v" id="v24-48-21-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20217">21 </a>심판이 평원 지대<a class="fn" data-fnid="419" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/418" id="footnotesource419">*</a><em> (각주: 또는 “고원 지대”.)</em>에 닥쳤다.<a class="b" data-bid="1400-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1399">+</a> 곧 홀론과 야하스와<a class="b" data-bid="1401-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1400">+</a> 메바앗,<a class="b" data-bid="1402-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1401">+</a> </span><span class="v" id="v24-48-22-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20218">22 </a>디본과<a class="b" data-bid="1403-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1402">+</a> 느보와<a class="b" data-bid="1404-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1403">+</a> 벳디블라다임, </span><span class="v" id="v24-48-23-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20219">23 </a>기랴다임과<a class="b" data-bid="1405-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1404">+</a> 벳가물과 벳므온,<a class="b" data-bid="1406-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1405">+</a> </span><span class="v" id="v24-48-24-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20220">24 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-48-24')" title="Toggle Gems Study References">💎</button>그리옷과<a class="b" data-bid="1407-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1406">+</a> 보스라, 모압 땅의 멀고 가까운 모든 도시에 닥쳤다.</span></p><div class="gems-references-container" id="gems-ref-24-48-24" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 899면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><strong>2.</strong> <a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000808/3/0">예레미야 48:24</a>은 모압에 대해 예언을 하는 가운데, 보스라가 “<strong>모압</strong> 땅의” 도시들 가운데 있는 것으로 언급한다. 이 도시는 고원 지대 즉 “평원 지대의 땅”에 있는 그 밖의 도시들 가운데 포함되어 있으며(<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000808/4/0">렘 48:21</a>), 같은 히브리어 표현이 베셀(<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000808/5/0">신 4:43</a>)과 관련해서도 사용되었기 때문에 일부 학자들은 그 도시들이 동일한 장소였을 것이라고 생각한다.—<a class="it" href="https://wol.jw.org/ko/wol/tc/r8/lp-ko/1200000808/0"><strong>베셀</strong></a> 2번 참조.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 899]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+<p class="sl" data-pid="1350" id="p1350"><span class="v" id="v24-48-25-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20221">25 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-48-25')" title="Toggle Gems Study References">💎</button>‘모압의 뿔<a class="fn" data-fnid="420" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/419" id="footnotesource420">*</a><em> (각주: 또는 “힘”.)</em>이 잘리고, 그의 팔이 부러졌다.’</span></p>
+<p class="sz" data-pid="1351" id="p1351"><span class="v" id="v24-48-25-2">여호와의 말이다.</span></p><div class="gems-references-container" id="gems-ref-24-48-25" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제2권 1028면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="2"></span>사람의 몸을 이루는 지체 중 하나. “팔”에 해당되는 히브리어와 그리스어(<em>제로아</em>; <em>브라키온</em>)는 성서에서 비유적으로 사용되어 힘을 행사하는 능력을 나타내는 경우가 많다. (<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/0/0">창 49:24</a>, 각주; <a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/1/0">욥 22:8</a>, 각주. <a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/2/0">누 1:51</a> 비교) 여호와 하느님의 “팔”은 한없이 강력하며, 경이로운 창조 작업을 할 수 있다. (<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/3/0">렘 27:5;</a><a class="b" data-bid="4-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/3/1"> 32:17</a>) 여호와께서는 또한 자신의 “팔”을 사용하여 통치하시고(<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/4/0">사 40:10;</a><a class="b" data-bid="5-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/4/1"> 겔 20:33</a>), 고통 받는 자들을 구원하시고(<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/5/0">시 44:3;</a><a class="b" data-bid="6-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/5/1"> 사 52:10</a>), 자신의 백성을 구출하시고(<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/6/0">출 6:6;</a><a class="b" data-bid="7-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/6/1"> 사 63:12;</a><a class="b" data-bid="7-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/6/2"> 행 13:17</a>), 그들을 지원하고 돌보시며(<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/7/0">신 33:27;</a><a class="b" data-bid="8-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/7/1"> 사 40:11;</a><a class="b" data-bid="8-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/7/2"> 호 11:3</a>), 심판하시고(<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/8/0">사 51:5</a>), 자신의 적들을 흩어지게 하신다(<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/9/0">시 89:10;</a><a class="b" data-bid="10-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/9/1"> 누 1:51</a>). 팔을 부러뜨리는 것은 사람의 힘을 꺾는 것을 나타낸다. (<a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/10/0">욥 38:15;</a><a class="b" data-bid="11-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/10/1"> 시 10:15;</a><a class="b" data-bid="11-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/10/2"> 렘 48:25</a>) 권위와 능력으로 옷 입고 심판관이자 심판 집행자로서 행동하는 예수 그리스도를 통하여, 여호와께서는 자신의 “팔”로 표현되는 자신의 위력을 나타내신다.—<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/11/0">사 53:1;</a><a class="b" data-bid="12-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000370/11/1"> 요 12:37, 38</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-2 1028]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+<p class="sl" data-pid="1352" id="p1352"><span class="v" id="v24-48-26-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20222">26 </a>‘그를 취하게 만들어라.<a class="b" data-bid="1408-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1407">+</a></span></p>
+<p class="sz" data-pid="1353" id="p1353"><span class="v" id="v24-48-26-2">그가 여호와를 거슬러 자기를 높였기 때문이다.<a class="b" data-bid="1409-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1408">+</a></span></p>
+<div data-pid="1354" id="p1354"><p class="sz" data-pid="1354"><span class="v" id="v24-48-26-3">모압은 자기가 토한 것에 뒹굴고</span></p><p class="sz" data-pid="1354"><span class="v" id="v24-48-26-4">비웃음거리가 된다.</span></p>
+</div><p class="sl" data-pid="1355" id="p1355"><span class="v" id="v24-48-27-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20223">27 </a>네가 이스라엘을 비웃음거리로 삼지 않았느냐?<a class="b" data-bid="1410-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1409">+</a></span></p>
+<div data-pid="1356" id="p1356"><p class="sz" data-pid="1356"><span class="v" id="v24-48-27-2">그가 도둑질하다 들키기라도 했기에</span></p><p class="sz" data-pid="1356"><span class="v" id="v24-48-27-3">네가 머리를 흔들며 그를 거슬러 말하였느냐?</span></p>
+</div><p class="sl" data-pid="1357" id="p1357"><span class="v" id="v24-48-28-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20224">28 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-48-28')" title="Toggle Gems Study References">💎</button>모압 주민들아, 도시들을 떠나 바위 위에서 살아라.</span></p>
+<p class="sz" data-pid="1358" id="p1358"><span class="v" id="v24-48-28-2">깊은 협곡 양쪽 벽에 둥지를 트는 비둘기처럼 되어라.’”</span></p><div class="gems-references-container" id="gems-ref-24-48-28" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 895면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="5"></span>양비둘기도 높은 바위 지역에 보금자리를 짓는다. 사해 부근의 높이 솟은 바위들에는 이 새가 보금자리를 만들기에 적합한 갈라진 틈과 동굴이 수없이 많다. 예레미야는 이 외진 곳의 보금자리들을 염두에 두고서, 이 지역에 거주하던 모압에 대해 다음과 같이 심판을 선언하였을 것이다. “너희 <strong>모압</strong>의 주민들아, 도시들을 떠나 바위 위에서 거하여라. 우묵한 곳의 입구 부근에 보금자리를 만드는 비둘기처럼 되어라.”—<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003233/4/0">렘 48:28</a>. <a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003233/5/0">민 24:21</a>에 나오는 발람의 말 비교.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 895]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+<div data-pid="1359" id="p1359"><p class="sl" data-pid="1359"><span class="v" id="v24-48-29-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20225">29 </a>“우리가 모압의 교만에 대해 들었는데,</span></p><p class="sz" data-pid="1359"><span class="v" id="v24-48-29-2">그는 매우 거만하다.</span></p>
+</div><p class="sz" data-pid="1360" id="p1360"><span class="v" id="v24-48-29-3">우리는 그의 오만과 교만과 거만과 그 마음의 도도함에 대해 들었다.”<a class="b" data-bid="1411-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1410">+</a></span></p>
+<p class="sl" data-pid="1361" id="p1361"><span class="v" id="v24-48-30-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20226">30 </a>“‘나는 그의 격노를 알고 있다.’ 여호와의 말이다.</span></p>
+<p class="sz" data-pid="1362" id="p1362"><span class="v" id="v24-48-30-2">‘그러나 그의 헛된 말은 이루어지지 않을 것이다.</span></p>
+<p class="sz" data-pid="1363" id="p1363"><span class="v" id="v24-48-30-3">그들은 아무것도 하지 못할 것이다.</span></p>
+<div data-pid="1364" id="p1364"><p class="sl" data-pid="1364"><span class="v" id="v24-48-31-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20227">31 </a>그러므로 내가 모압 때문에 통곡하고,</span></p><p class="sz" data-pid="1364"><span class="v" id="v24-48-31-2">모압 전체를 위해 부르짖으며,</span></p><p class="sz" data-pid="1364"><span class="v" id="v24-48-31-3">길헤레스 사람들을 위해 흐느껴 울 것이다.<a class="b" data-bid="1412-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1411">+</a></span></p>
+</div><div data-pid="1365" id="p1365"><p class="sl" data-pid="1365"><span class="v" id="v24-48-32-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20228">32 </a>십마의<a class="b" data-bid="1413-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1412">+</a> 포도나무야,</span></p><p class="sz" data-pid="1365"><span class="v" id="v24-48-32-2">내가 야셀을<a class="b" data-bid="1414-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1413">+</a> 위해 우는 것보다</span></p><p class="sz" data-pid="1365"><span class="v" id="v24-48-32-3">너를 위해 더 많이 울 것이다.</span></p>
+</div><p class="sz" data-pid="1366" id="p1366"><span class="v" id="v24-48-32-4">너의 무성한 가지가 바다를 건너갔다.</span></p>
+<p class="sz" data-pid="1367" id="p1367"><span class="v" id="v24-48-32-5">바다까지, 야셀까지 뻗어 나갔다.</span></p>
+<div data-pid="1368" id="p1368"><p class="sz" data-pid="1368"><span class="v" id="v24-48-32-6">네 여름 과일과 포도 수확 위에</span></p><p class="sz" data-pid="1368"><span class="v" id="v24-48-32-7">멸망시키는 자가 덮쳤다.<a class="b" data-bid="1415-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1414">+</a></span></p>
+</div><p class="sl" data-pid="1369" id="p1369"><span class="v" id="v24-48-33-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20229">33 </a>과수원과 모압 땅에서 즐거움과 기쁨이 사라졌다.<a class="b" data-bid="1416-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1415">+</a></span></p>
+<p class="sz" data-pid="1370" id="p1370"><span class="v" id="v24-48-33-2">내가 포도주틀에서 더 이상 포도주가 흐르지 않게 하였다.</span></p>
+<p class="sz" data-pid="1371" id="p1371"><span class="v" id="v24-48-33-3">기뻐 외치며 포도주틀을 밟는 자가 아무도 없을 것이다.</span></p>
+<p class="sz" data-pid="1372" id="p1372"><span class="v" id="v24-48-33-4">외치는 소리가 있더라도 기뻐 외치는 소리는 아닐 것이다.’”<a class="b" data-bid="1417-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1416">+</a></span></p>
+<p class="sl" data-pid="1373" id="p1373"><span class="v" id="v24-48-34-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20230">34 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-48-34')" title="Toggle Gems Study References">💎</button>“‘헤스본에서<a class="b" data-bid="1418-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1417">+</a> 부르짖는 소리가 엘르알레까지<a class="b" data-bid="1419-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1418">+</a> 들린다.</span></p>
+<div data-pid="1374" id="p1374"><p class="sz" data-pid="1374"><span class="v" id="v24-48-34-2">그들이 목소리를 높이니,</span></p><p class="sz" data-pid="1374"><span class="v" id="v24-48-34-3">그 소리가 야하스까지<a class="b" data-bid="1420-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1419">+</a> 들리고,</span></p><p class="sz" data-pid="1374"><span class="v" id="v24-48-34-4">소알에서 호로나임까지,<a class="b" data-bid="1421-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1420">+</a> 에글랏슬리시야까지 들린다.</span></p>
+</div><p class="sz" data-pid="1375" id="p1375"><span class="v" id="v24-48-34-5">니므림의 물마저 황폐될 것이다.<a class="b" data-bid="1422-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1421">+</a></span></p><div class="gems-references-container" id="gems-ref-24-48-34" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제2권 163면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><h1 data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="163" data-no="163" id="page163"></span><strong>에글랏-슬리시야</strong></h1><div class="sn" data-pid="2" id="p2" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="1"></span>(Eglath-shelishiyah) [아마도 ‘세 번째 에글랏’이라는 의미]</div><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="2"></span>모압의 멸망을 선언하면서 <a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001263/0/0">이사야(15:5</a>)와 <a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001263/1/0">예레미야(48:34</a>)가 사용한 표현. 아마도 모압에 있던 한 장소를 가리키는 것 같다. 일부 학자들은 한 지역에 같은 이름을 가진 성읍이 세 개 있었는데, 그중 세 번째 성읍(“세 번째 에글랏”, <em>AT</em>)이 여기에서 그 예언자들이 한 선언의 대상이 되었다고 주장한다. 이 성읍들이 정확히 어떤 곳들이었는지에 대해서는 알려진 바가 전혀 없다.</div><div class="sb" data-pid="4" id="p4" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="3"></span>하지만 많은 학자들은 이곳의 이름에 해당하는 히브리어(<em>에글라트 셸리시야</em>)를 고유 명사로 음역해서는 안 된다는 견해를 갖고 있다. 그들은 이 말을 상징적인 표현으로 여겨 “삼 년 된 암소 새끼” 혹은 “삼 년 된 암송아지”로 번역한다. (<em>KJ</em>, <em>Dy</em>, <em>JP</em>. <em>Ro</em> 참조) 만일 그러하다면 그 예언자들은 정복당한 모압이 튼튼하고 다 자란, 나이 어린 암소와 같지만 그것으로부터 들리는 것은 가엾은 고통의 ‘부르짖음’뿐이라고 말한 것일 수 있다.</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 391,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><h1 data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="391" data-no="391" id="page391"></span><strong>니므림</strong></h1><div class="sn" data-pid="2" id="p2" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="1"></span>(Nimrim) [“표범들”이라는 의미인 듯함]</div><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="2"></span>이사야와 예레미야는 모두 모압에 대한 예언에서 “<strong>니므림</strong>의 물”을 언급한다. (<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003258/0/0">사 15:5-9;</a><a class="b" data-bid="1-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003258/0/1"> 렘 48:34, 35</a>) 일부 사람들은 주변 지역이 비옥하다는 사실을 근거로 니므림의 물이, 사해 북쪽의 요르단 강으로 물을 흘려보내는 와디님린이라고 생각한다. (<a class="it" href="https://wol.jw.org/ko/wol/tc/r8/lp-ko/1200003258/0"><strong>벳-니므라</strong></a> 참조) 하지만 그 예언에서 지명들이 나오는 순서로 볼 때 이곳은 모압 남쪽에 있었던 것 같다. 그 때문에 많은 사람들은 이곳이 카라크에서 서남서쪽으로 17킬로미터쯤 떨어진 사해 남동쪽 끝으로 흘러 들어가는 와디엔누메이라라는 견해를 더 지지한다. 그 예언들에서는 이 물이 “황폐”될 것이라고 예고하는데, 그 땅이 황폐됨으로 인하여 비유적 의미로 그렇게 되든지, 어쩌면 적군이 그 물줄기를 막아 버림으로 인하여 그렇게 되게 되어 있었다.</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 1154-1155면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="3"></span>모압에 대재난이 닥칠 때 도망자들이 소알로 도피할 것이며 그 나라의 황폐로 말미암아 부르짖는 소리가 “<strong>소알</strong>에서 <strong>호로나임</strong>까지, <strong>에글랏-슬리시야</strong>까지” 들릴 것이라는 예언이 있는데, 이것은 소알이 당시에 모압의 한 도시였음을 시사하는 것 같다. (<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004755/4/0">사 15:5;</a><a class="b" data-bid="5-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004755/4/1"> 렘 48:34</a>) 그리스어 「칠십인역」과 일부 현대 번역판들(<em>AT</em>, <em>JB</em>, <em>NE</em>, <em>RS</em>)은 <a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004755/5/0">예레미야 48:4</a>(31:4, <em>LXX</em>, 백스터)에서 소알(소고라)을 언급하지만, 히브리어 마소라 본문은 그 구절에서 소알 대신에 “그의 어린아이들”을 언급한다. (「신세」, <em>JP</em>, <em>Le</em>, <em>Ro</em>) 소알은 모세가 느보 산에서 바라본 땅의 남단에 있었다. (<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004755/6/0">신 34:1-3</a>) 이 도시는 모압이나 그 인근에 있었던 것으로 보인다. 모압의 <span aria-hidden="true" class="pageNum" data-before-text="1155" data-no="1155" id="page1155"></span>산간 지방과 가까웠고 사해의 남동쪽 어딘가에 있었을 것이다. (<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004755/7/0">창 19:17-22,</a><a class="b" data-bid="8-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004755/7/1"> 30,</a><a class="b" data-bid="8-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004755/7/2"> 37</a> 비교) 학자들 중에는 소알의 위치를 사해 북쪽으로 보는 사람도 있고, 엘리산 반도로 보는 사람도 있고, 사해 남단의 바로 서쪽이나 남쪽으로 보는 사람도 있다. 요하난 아하로니는 소알을 제렛 급류 골짜기(와디엘하사)의 삼각주 지역에 위치한 에스사피와 동일시한다. 중세에 이 지명은 예루살렘과 엘랏 사이의 한 중요한 장소와 관련되었다. 그러나 일부 학자들은 원래의 소알과 “그 ‘지역’의 [그 밖의] 도시들”이 사해 남부의 물 밑에 잠겨 있다고 믿고 있다.—<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004755/8/0">창 13:12</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 391,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 1154;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-2 163]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+<div data-pid="1376" id="p1376"><p class="sl" data-pid="1376"><span class="v" id="v24-48-35-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20231">35 </a>산당에 제물을 가져오는 자와</span></p><p class="sz" data-pid="1376"><span class="v" id="v24-48-35-2">자기 신에게 희생 제물을 바치는 자를</span></p><p class="sz" data-pid="1376"><span class="v" id="v24-48-35-3">내가 모압에서 끊어 버리겠다.’ 여호와의 말이다.</span></p>
+</div><div data-pid="1377" id="p1377"><p class="sl" data-pid="1377"><span class="v" id="v24-48-36-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20232">36 </a>‘그러므로 나의 마음이 모압을 위해 피리<a class="fn" data-fnid="421" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/420" id="footnotesource421">*</a><em> (각주: 장례식 때 애가를 연주하는 피리를 가리킴.)</em>처럼 흐느끼며,<a class="fn pr" data-fnid="422" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/421" id="footnotesource422">*</a><em> (각주: 또는 “슬픈 소리를 내며”.)</em><a class="b" data-bid="1423-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1422">+</a></span></p><p class="sz" data-pid="1377"><span class="v" id="v24-48-36-2">나의 마음이 길헤레스 사람들을 위해 피리<a class="fn" data-fnid="423" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/422" id="footnotesource423">*</a><em> (각주: 장례식 때 애가를 연주하는 피리를 가리킴.)</em>처럼 흐느낄<a class="fn" data-fnid="424" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070128/423" id="footnotesource424">*</a><em> (각주: 또는 “슬픈 소리를 낼”.)</em> 것이다.</span></p>
+</div><p class="sz" data-pid="1378" id="p1378"><span class="v" id="v24-48-36-3">그가 쌓은 부가 사라질 것이기 때문이다.</span></p>
+<div data-pid="1379" id="p1379"><p class="sl" data-pid="1379"><span class="v" id="v24-48-37-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20233">37 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-48-37')" title="Toggle Gems Study References">💎</button>모두 머리를 밀고<a class="b" data-bid="1424-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1423">+</a></span></p><p class="sz" data-pid="1379"><span class="v" id="v24-48-37-2">모두 수염을 깎는다.</span></p>
+</div><div data-pid="1380" id="p1380"><p class="sz" data-pid="1380"><span class="v" id="v24-48-37-3">손마다 상처를 내고<a class="b" data-bid="1425-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1424">+</a></span></p><p class="sz" data-pid="1380"><span class="v" id="v24-48-37-4">허리에 자루천을 두르고 있다!’”<a class="b" data-bid="1426-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1425">+</a></span></p><div class="gems-references-container" id="gems-ref-24-48-37" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 643,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="13"></span>에스겔은 머리털과 수염을 잘라 셋으로 나누어서, 예루살렘에 대한 하느님의 심판이 집행될 때 그 도시의 주민이 당할 비참한 일을 예언적으로 묘사하는 방법으로 처분하라는 명령을 받았다. (<a class="b" data-bid="14-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001821/13/0">겔 5:1-13</a>) 머리털을 잡아 뜯거나 잘라 버리는 것도 고난과 괴로움을 상징하였다. (<a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001821/14/0">라 9:3;</a><a class="b" data-bid="15-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001821/14/1"> 렘 7:29;</a><a class="b" data-bid="15-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001821/14/2"> 48:37;</a><a class="b" data-bid="15-4" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001821/14/3"> 미 1:16</a>) 다른 사람의 머리나 얼굴에 난 털을 잡아 뜯는 것은 불명예, 멸시, 모욕을 나타내는 것일 수 있었다.—<a class="b" data-bid="16-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001821/15/0">느 13:25;</a><a class="b" data-bid="16-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001821/15/1"> 사 50:6</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 693면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><h1 data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="693" data-no="693" id="page693"></span><strong>몸을 벰, 자해</strong></h1><div class="sn" data-pid="2" id="p2" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="1"></span>(cuttings)</div><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="2"></span>고대인들 사이에서는 애도 기간에 몸을 베거나 팔, 손, 얼굴을 할퀴어 상처를 내는 것이 일반적인 관습이었던 것 같다. (<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001097/0/0">렘 47:5;</a><a class="b" data-bid="1-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001097/0/1"> 48:37</a>) 죽은 자들을 지배한다고 여겨지던 신들을 진정시키거나 달랠 목적으로 그와 같이 했을 수 있다. 그리스의 역사가 헤로도토스(IV, 71)는, 스키타이 사람들의 왕이 죽었을 때 그들 사이에서 행해진 이러한 관습과 관련하여 이와 같이 기록하였다. “그들은 자기들의 귀의 일부를 잘라 내고, 머리를 밀고, 팔 둘레에 칼자국을 내고, 이마와 코를 쥐어뜯고, 화살로 왼손을 꿰찔렀다.”</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 643,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 693]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+</div><div data-pid="1381" id="p1381"><p class="sl" data-pid="1381"><span class="v" id="v24-48-38-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20234">38 </a>“‘모압의 모든 지붕 위에서,</span></p><p class="sz" data-pid="1381"><span class="v" id="v24-48-38-2">그의 모든 광장에서</span></p><p class="sz" data-pid="1381"><span class="v" id="v24-48-38-3">통곡 소리만 들린다.</span></p>
+</div><div data-pid="1382" id="p1382"><p class="sz" data-pid="1382"><span class="v" id="v24-48-38-4">내다 버리는 항아리처럼</span></p><p class="sz" data-pid="1382"><span class="v" id="v24-48-38-5">내가 모압을 깨뜨렸기 때문이다.’ 여호와의 말이다.</span></p>
+</div><p class="sl" data-pid="1383" id="p1383"><span class="v" id="v24-48-39-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20235">39 </a>‘어찌하여 그가 겁에 질렸는가! 통곡하여라!</span></p>
+<p class="sz" data-pid="1384" id="p1384"><span class="v" id="v24-48-39-2">어찌하여 모압이 등을 돌리고 수치스러워하는가!</span></p>
+<div data-pid="1385" id="p1385"><p class="sz" data-pid="1385"><span class="v" id="v24-48-39-3">주위에 있는 모든 자들에게</span></p><p class="sz" data-pid="1385"><span class="v" id="v24-48-39-4">모압이 비웃음거리와 두려움의 대상이 되었다.’”</span></p>
+</div><p class="sl" data-pid="1386" id="p1386"><span class="v" id="v24-48-40-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20236">40 </a>“여호와가 이렇게 말한다.</span></p>
+<div data-pid="1387" id="p1387"><p class="sz" data-pid="1387"><span class="v" id="v24-48-40-2">‘보라! 내리 덮치는 독수리처럼,<a class="b" data-bid="1427-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1426">+</a></span></p><p class="sz" data-pid="1387"><span class="v" id="v24-48-40-3">그가 모압 위에 날개를 펼 것이다.<a class="b" data-bid="1428-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1427">+</a></span></p>
+</div><div data-pid="1388" id="p1388"><p class="sl" data-pid="1388"><span class="v" id="v24-48-41-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20237">41 </a>성읍들이 함락되고,</span></p><p class="sz" data-pid="1388"><span class="v" id="v24-48-41-2">그의 성채들이 점령될 것이다.</span></p>
+</div><div data-pid="1389" id="p1389"><p class="sz" data-pid="1389"><span class="v" id="v24-48-41-3">그날에 모압 전사들의 마음은</span></p><p class="sz" data-pid="1389"><span class="v" id="v24-48-41-4">아이를 낳는 여자의 마음처럼 될 것이다.’”</span></p>
+</div><p class="sl" data-pid="1390" id="p1390"><span class="v" id="v24-48-42-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20238">42 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-48-42')" title="Toggle Gems Study References">💎</button>“‘모압은 멸망되어 한 민족으로 남아 있지 못할 것이다.<a class="b" data-bid="1429-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1428">+</a></span></p>
+<p class="sz" data-pid="1391" id="p1391"><span class="v" id="v24-48-42-2">그가 여호와를 거슬러 자기를 높였기 때문이다.<a class="b" data-bid="1430-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1429">+</a></span></p><div class="gems-references-container" id="gems-ref-24-48-42" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 682면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="28" id="p28" style="margin-top: 0; margin-bottom: 8px">모압과 관련된 예언들이 정확하게 성취되었다는 사실은 부인할 수 없다. 여러 세기 전에 모압 사람들은 백성으로 더 이상 존재하지 않게 되었다. (<a class="b" data-bid="76-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003097/75/0">렘 48:42</a>) 오늘날 느보, 헤스본, 아로엘, 벳-가물, 바알-므온과 같은 모압의 도시들이 있었던 곳으로 생각되는 곳에는 폐허만이 남아 있을 뿐이다. 다른 여러 곳들은 현재 알려져 있지도 않다.</div><div class="sb" data-pid="29" id="p29" style="margin-top: 0; margin-bottom: 8px">모압 사람들이 하나의 민족으로서 사라진 데 대한 유일한 설명은 성서에 나온다. 1959년판 「브리태니커 백과사전」(영문, 15권, 629면)에서는 이렇게 지적하였다. “이스라엘은 강력한 국력을 유지하였지만 모압은 사라졌다. 모압이 사막의 유목 민족들로부터 지속적으로 심한 압박을 받은 것은 사실이다. 그 지역이 적에게 노출되어 있는 상태였다는 사실은 그곳에 연이어 늘어서 있는 요새들과 성들의 유적을 보아도 잘 알 수 있다. 로마인들조차 그러한 요새들과 성들을 건설하지 않으면 안 되었던 것이다. 하지만 모압이 사라진 이유에 대한 설명은 이스라엘 내에서, 특히 예언자들의 기록에서 찾아야 한다.”</div><div class="sb" data-pid="30" id="p30" style="margin-top: 0; margin-bottom: 8px">모압 사람들이 하나의 민족으로서 사라졌음을 고려할 때, <a class="b" data-bid="77-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003097/76/0">다니엘 11:41</a>에서 모압을 “마지막 때”에 있을 나라들 가운데 포함시킨 것은(<a class="b" data-bid="78-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003097/77/0">단 11:40</a>) 상징적인 의미라고 보는 것이 논리적일 것이다. 모압 사람들은 “북방 왕”이 지배하는 데 성공을 거두지 못하는 국가들 중 일부를 가리키는 것 같다.</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 682]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+<p class="sl" data-pid="1392" id="p1392"><span class="v" id="v24-48-43-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20239">43 </a>모압의 주민아, 공포와 함정과 덫이 네 앞에 있다.’</span></p>
+<p class="sz" data-pid="1393" id="p1393"><span class="v" id="v24-48-43-2">여호와의 말이다.</span></p>
+<div data-pid="1394" id="p1394"><p class="sl" data-pid="1394"><span class="v" id="v24-48-44-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20240">44 </a>‘공포를 피하여 도망하는 자는 함정에 빠지고,</span></p><p class="sz" data-pid="1394"><span class="v" id="v24-48-44-2">함정에서 올라오는 자는 덫에 걸릴 것이다.’</span></p>
+</div><p class="sz" data-pid="1395" id="p1395"><span class="v" id="v24-48-44-3">‘내가 모압에게 처벌의 해가 닥치게 할 것이기 때문이다.’ 여호와의 말이다.</span></p>
+<p class="sl" data-pid="1396" id="p1396"><span class="v" id="v24-48-45-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20241">45 </a>‘도망하는 자들이 헤스본의 그늘에 힘없이 서 있다.</span></p>
+<div data-pid="1397" id="p1397"><p class="sz" data-pid="1397"><span class="v" id="v24-48-45-2">헤스본에서 불이 나오고</span></p><p class="sz" data-pid="1397"><span class="v" id="v24-48-45-3">시혼 가운데서 불꽃이 나와서,<a class="b" data-bid="1431-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1430">+</a></span></p><p class="sz" data-pid="1397"><span class="v" id="v24-48-45-4">모압의 이마와 소란 피우는 자들의 두개골을 태워 버릴 것이다.’<a class="b" data-bid="1432-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1431">+</a></span></p>
+</div><p class="sl" data-pid="1398" id="p1398"><span class="v" id="v24-48-46-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20242">46 </a>‘모압아, 네게 화가 있다!</span></p>
+<p class="sz" data-pid="1399" id="p1399"><span class="v" id="v24-48-46-2">그모스의<a class="b" data-bid="1433-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1432">+</a> 백성이 망하였다.</span></p>
+<div data-pid="1400" id="p1400"><p class="sz" data-pid="1400"><span class="v" id="v24-48-46-3">네 아들들이 포로로 잡혀가고</span></p><p class="sz" data-pid="1400"><span class="v" id="v24-48-46-4">네 딸들이 유배된다.<a class="b" data-bid="1434-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1433">+</a></span></p>
+</div><p class="sl" data-pid="1401" id="p1401"><span class="v" id="v24-48-47-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070128/20243">47 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-24-48-47')" title="Toggle Gems Study References">💎</button>그러나 말일에 내가 모압의 포로들을 모으겠다.’ 여호와의 말이다.</span></p>
+<p class="sz" data-pid="1402" id="p1402"><span class="v" id="v24-48-47-2">‘모압에 대한 심판은 여기까지다.’”<a class="b" data-bid="1435-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070128/1434">+</a></span></p><div class="gems-references-container" id="gems-ref-24-48-47" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 682면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="28" id="p28" style="margin-top: 0; margin-bottom: 8px">모압과 관련된 예언들이 정확하게 성취되었다는 사실은 부인할 수 없다. 여러 세기 전에 모압 사람들은 백성으로 더 이상 존재하지 않게 되었다. (<a class="b" data-bid="76-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003097/75/0">렘 48:42</a>) 오늘날 느보, 헤스본, 아로엘, 벳-가물, 바알-므온과 같은 모압의 도시들이 있었던 곳으로 생각되는 곳에는 폐허만이 남아 있을 뿐이다. 다른 여러 곳들은 현재 알려져 있지도 않다.</div><div class="sb" data-pid="29" id="p29" style="margin-top: 0; margin-bottom: 8px">모압 사람들이 하나의 민족으로서 사라진 데 대한 유일한 설명은 성서에 나온다. 1959년판 「브리태니커 백과사전」(영문, 15권, 629면)에서는 이렇게 지적하였다. “이스라엘은 강력한 국력을 유지하였지만 모압은 사라졌다. 모압이 사막의 유목 민족들로부터 지속적으로 심한 압박을 받은 것은 사실이다. 그 지역이 적에게 노출되어 있는 상태였다는 사실은 그곳에 연이어 늘어서 있는 요새들과 성들의 유적을 보아도 잘 알 수 있다. 로마인들조차 그러한 요새들과 성들을 건설하지 않으면 안 되었던 것이다. 하지만 모압이 사라진 이유에 대한 설명은 이스라엘 내에서, 특히 예언자들의 기록에서 찾아야 한다.”</div><div class="sb" data-pid="30" id="p30" style="margin-top: 0; margin-bottom: 8px">모압 사람들이 하나의 민족으로서 사라졌음을 고려할 때, <a class="b" data-bid="77-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003097/76/0">다니엘 11:41</a>에서 모압을 “마지막 때”에 있을 나라들 가운데 포함시킨 것은(<a class="b" data-bid="78-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003097/77/0">단 11:40</a>) 상징적인 의미라고 보는 것이 논리적일 것이다. 모압 사람들은 “북방 왕”이 지배하는 데 성공을 거두지 못하는 국가들 중 일부를 가리키는 것 같다.</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 682]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+<!-- Root element of lightbox -->
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="예레미야 48:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="예레미야 48:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="예레미야 {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value=""/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value=""/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="{PublicationSymbol} {StartingPageNumber}-{EndingPageNumber}면"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="{PublicationSymbol} {PageNumber}면"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="englishSym" type="hidden" value="nwtsty"/>
+<input id="audioPubSym" type="hidden" value="nwt"/>
+<input id="pubYear" type="hidden" value="2024"/>
+<input id="langSym" type="hidden" value="KO"/>
+<input id="bookNo" type="hidden" value="24"/>
+<input id="chapNo" type="hidden" value="48"/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=KO&amp;pub=nwtsty&amp;srctype=wol&amp;bible=24048000&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="bible-chapter"/>
+<input id="contentTitle" type="hidden" value="예레미야 48"/>
+<input id="contentThumbnail" type="hidden" value="/ko/wol/publication/r8/lp-ko/nwtsty/thumbnail"/>
+<input id="parentTitle" type="hidden" value="신세계역 성경 (연구용)"/>
+<input id="sourcePreferredBible" type="hidden" value="nwtsty"/>
+<style>
+.gems-toggle-btn {
+    background: none;
+    border: 1px solid #4a6da7;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75em;
+    padding: 1px 3px;
+    margin-left: 0px;
+    margin-right: 4px;
+    vertical-align: top;
+    transition: background-color 0.2s, transform 0.1s;
+}
+h1 .gems-toggle-btn {
+    font-size: 13px;
+    vertical-align: top;
+    margin-left: 8px;
+}
+.gems-toggle-btn:hover {
+    background-color: #e9ecef;
+    transform: scale(1.1);
+}
+.summaryOutline {
+    margin: 0;
+    padding: 0;
+}
+.summaryOutline ul {
+    padding-left: 16px;
+    margin: 2px 0;
+}
+.summaryOutline > ul.content {
+    padding-left: 0;
+    list-style: none;
+}
+.summaryOutline li {
+    margin-bottom: 2px;
+    line-height: 1.35;
+}
+.summaryOutline p {
+    margin: 2px 0;
+    line-height: 1.35;
+}
+.gems-note-link {
+    cursor: pointer;
+    color: #4a6da7;
+    background-color: #e9ecef;
+}
+.gems-note-link:hover {
+    color: #4a6da7;
+    background-color: #e9ecef;
+}
+.studyItemMedia, .media-list img {
+    max-width: 80px !important;
+    height: auto !important;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+.media-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.media-list li {
+    margin-bottom: 12px;
+}
+.media-list li:last-child {
+    margin-bottom: 0;
+}
+.media-list a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    /* color: inherit; */
+}
+.media-list a:hover .caption {
+    text-decoration: underline;
+}
+.media-list .caption {
+    display: block;
+    font-size: 0.95em;
+    /* color: #212529; */
+}
+.media-list .caption p {
+    margin: 0;
+}
+.gems-references-container {
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+.gems-global-controls {
+    margin: 12px 0 16px auto;
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    display: flex;
+    width: fit-content;
+    gap: 10px;
+    align-items: center;
+}
+.gems-global-controls button {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 0.85em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.gems-global-controls button:hover {
+    background-color: #e9ecef;
+}
+</style><script>
+function toggleGems(id) {
+    var elem = document.getElementById(id);
+    if (elem) {
+        var isHidden = elem.style.display === 'none' || !elem.style.display;
+        elem.style.display = isHidden ? 'block' : 'none';
+        var cards = elem.querySelectorAll('.inserted-reference-container');
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = isHidden ? 'block' : 'none';
+        }
+    }
+}
+function toggleSpecificGemsNote(containerId, noteId) {
+    var container = document.getElementById(containerId);
+    var targetNote = document.getElementById(noteId);
+    if (!container || !targetNote) return;
+
+    var cards = container.querySelectorAll('.inserted-reference-container');
+    var isContainerHidden = container.style.display === 'none' || !container.style.display;
+
+    var visibleCount = 0;
+    for (var i = 0; i < cards.length; i++) {
+        if (cards[i].style.display !== 'none' && cards[i].style.display !== '') visibleCount++;
+    }
+
+    if (isContainerHidden) {
+        container.style.display = 'block';
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = (cards[i] === targetNote) ? 'block' : 'none';
+        }
+    } else if (visibleCount === 1 && targetNote.style.display === 'block') {
+        container.style.display = 'none';
+        targetNote.style.display = 'none';
+    } else {
+        container.style.display = 'block';
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = (cards[i] === targetNote) ? 'block' : 'none';
+        }
+    }
+}
+function toggleAllGems(btnOrShowAll, showAll) {
+    var target = document;
+    var show = showAll;
+    if (typeof btnOrShowAll === 'boolean') {
+        show = btnOrShowAll;
+    } else if (btnOrShowAll && btnOrShowAll.closest) {
+        target = btnOrShowAll.closest('article') || btnOrShowAll.closest('.content') || document;
+    }
+    var containers = target.querySelectorAll('.gems-references-container');
+    containers.forEach(function(c) {
+        c.style.display = show ? 'block' : 'none';
+        var cards = c.querySelectorAll('.inserted-reference-container');
+        cards.forEach(function(card) {
+            card.style.display = show ? 'block' : 'none';
+        });
+    });
+}
+</script></article>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Gather all alternate presentation elements and their images
+        const altPresElements = Array.from(document.querySelectorAll('.alternatePresentation'));
+        const altImages = altPresElements.map(el => {
+            const img = el.querySelector('img');
+            if (img) {
+                return {
+                    src: img.getAttribute('data-alt-src') || img.getAttribute('src'),
+                    title: el.querySelector('.title')?.textContent || "Image"
+                };
+            }
+            return null;
+        }).filter(Boolean);
+
+        // 2. Create Lightbox DOM structure dynamically
+        const lightbox = document.createElement('div');
+        lightbox.className = 'custom-lightbox';
+        lightbox.innerHTML = `
+            <button class="custom-lightbox-close">&times;</button>
+            <button class="custom-lightbox-nav custom-lightbox-prev">&#10094;</button>
+            <div class="custom-lightbox-content">
+                <img class="custom-lightbox-img" src="" alt="" />
+            </div>
+            <button class="custom-lightbox-nav custom-lightbox-next">&#10095;</button>
+            <div class="custom-lightbox-caption"></div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('.custom-lightbox-img');
+        const lightboxCaption = lightbox.querySelector('.custom-lightbox-caption');
+        const closeBtn = lightbox.querySelector('.custom-lightbox-close');
+        const prevBtn = lightbox.querySelector('.custom-lightbox-prev');
+        const nextBtn = lightbox.querySelector('.custom-lightbox-next');
+
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        const openLightbox = (group, index) => {
+            currentGroup = group;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const updateLightbox = () => {
+            const item = currentGroup[currentIndex];
+            if (item) {
+                lightboxImg.src = item.src;
+                if (item.title && item.title.trim() !== "" && item.title.trim() !== "Printed Edition") {
+                    lightboxCaption.textContent = item.title;
+                    lightboxCaption.style.display = 'block';
+                } else {
+                    lightboxCaption.textContent = "";
+                    lightboxCaption.style.display = 'none';
+                }
+                if (currentGroup.length > 1) {
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                } else {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                }
+            }
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImg.src = '';
+            lightboxCaption.textContent = '';
+        };
+
+        const navigate = (direction) => {
+            if (currentGroup.length <= 1) return;
+            currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+            updateLightbox();
+        };
+
+        // Event Listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('custom-lightbox-content')) {
+                closeLightbox();
+            }
+        });
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Attach click handlers to alternate presentations
+        altPresElements.forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(altImages, index);
+            });
+        });
+
+        // Attach click handlers to other zoomable figure images
+        document.querySelectorAll('article figure img:not(.suppressZoom)').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = img.getAttribute('data-alt-src') || img.getAttribute('src');
+                const title = img.getAttribute('alt') || "";
+                openLightbox([{ src, title }], 0);
+            });
+        });
+    });
+    </script>
+</body>
+</html>
