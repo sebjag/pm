@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>“내가 반드시 당신과 함께 가겠습니다”</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">📖</text></svg>'>
+    <link rel="stylesheet" type="text/css" href="css/media-player.css">
+    <link rel="stylesheet" type="text/css" href="css/+0+61168f8ef805085f5a3c0118b14679f74c9e62a4.css">
+    <link rel="stylesheet" type="text/css" href="css/+1+f8319dd08c749624466cb777b7d528e1a42d7368.css">
+    <link rel="stylesheet" type="text/css" href="css/+2+894de4a6eba76bf97927253f95f582449947a96e.css">
+    <link rel="stylesheet" type="text/css" href="css/+3+d00a791fdbb951906e95f1428ae322e41ea9da95.css">
+    <style>
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @media screen and (min-width: 600px) {
+            .document, .bible {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 16px 50px 80px;
+            }
+            .document .dc-bleedToArticleEdge, .bible .dc-bleedToArticleEdge {
+                margin-left: -50px;
+                margin-right: -50px;
+            }
+            .document .dc-paddingToContentEdge, .bible .dc-paddingToContentEdge {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        #content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+        .inserted-reference {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+            font-size: 0.95em;
+        }
+        .inserted-reference-header {
+            margin: 0;
+            padding: 4px 16px;
+            background-color: #e2e6ea;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #495057;
+        }
+        .inserted-reference-header a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #1a73e8;
+        }
+        .inserted-reference-header a:hover {
+            text-decoration: underline;
+        }
+        .inserted-reference > *:not(.inserted-reference-header) {
+            margin: 12px 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-style: italic;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        /* Custom Lightbox Styles */
+        .custom-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            /* user-select: none; */
+            /* -webkit-user-select: none; */
+        }
+        .custom-lightbox.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .custom-lightbox-content {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 35px;
+            color: #fff;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10002;
+            transition: transform 0.2s ease;
+        }
+        .custom-lightbox-close:hover {
+            transform: scale(1.1);
+        }
+        .custom-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 20px;
+        }
+        .custom-lightbox-nav:hover {
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .custom-lightbox-prev {
+            left: 0px;
+        }
+        .custom-lightbox-next {
+            right: 0px;
+        }
+        .custom-lightbox-caption {
+            color: #ccc;
+            margin-top: 15px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 80%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body, #content {
+                background-color: #171c2a !important;
+                color: #e2e8f0;
+            }
+            .document, .bible, .article, #article {
+                background-color: #1e293b !important;
+                color: #e2e8f0;
+            }
+            .scalableui, .bodyTxt {
+                background-color: transparent !important;
+                color: #e2e8f0;
+            }
+            .du-bgColor--bgSecondary, .du-bgColor--warmGray-50,
+            [class*="du-bgColor--bgSecondary"], [class*="du-bgColor--warmGray-"],
+            #tt9, .document #tt9, body #tt9,
+            .document [class*="du-bgColor--bgSecondary"], body [class*="du-bgColor--bgSecondary"],
+            .document [class*="du-bgColor--warmGray-"], body [class*="du-bgColor--warmGray-"] {
+                background-color: #2d3a4f !important;
+                color: #e2e8f0 !important;
+            }
+            .du-borderColor--borderDefault, hr {
+                border-color: #3b4d66 !important;
+            }
+            .du-color--teal-700 {
+                color: #2dd4bf !important;
+            }
+            h1, h2, h3, h4, h5, h6, strong {
+                color: #f8fafc;
+            }
+            a, a.b, a.vl, a.fn, a:visited {
+                color: #60a5fa;
+            }
+            a:hover, a.b:hover, a.vl:hover, a.fn:hover {
+                color: #93c5fd;
+            }
+            .du-color--textSubdued, .pageNum, .themeScrp {
+                color: #94a3b8 !important;
+            }
+            .inserted-reference {
+                background-color: #263346;
+                border: 1px solid #3b4d66;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .inserted-reference-header {
+                background-color: #1e2b3c;
+                border-bottom: 1px solid #3b4d66;
+                color: #cbd5e1;
+            }
+            .inserted-reference-header a {
+                color: #60a5fa;
+            }
+            .inserted-reference-header a:hover {
+                color: #93c5fd;
+            }
+            .note-card-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .note-card-header {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #cbd5e1 !important;
+            }
+            .note-card-header a {
+                color: #60a5fa !important;
+            }
+            .note-card-body {
+                color: #e2e8f0 !important;
+            }
+            .box-supplement-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+            }
+            .box-supplement-table th {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #f8fafc !important;
+            }
+            .box-supplement-table th h1, .box-supplement-table th h2,
+            .box-supplement-table th h3, .box-supplement-table th h4,
+            .box-supplement-table th strong, .box-supplement-table th p {
+                color: #f8fafc !important;
+            }
+            .box-supplement-table td {
+                color: #e2e8f0 !important;
+            }
+            .image-caption {
+                color: #94a3b8;
+            }
+            .custom-lightbox-img {
+                background-color: #1e293b;
+            }
+            .custom-lightbox-caption {
+                color: #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body  class="showRuby cc-theme--light DynamicLayout">
+    <div id="content" class="content">
+        <article class="article document html5 pub- docId-1102025916 pub-wcg pub- pub-wcg docClass-13 jwac showRuby ml-KO ms-KOREAN dir-ltr includeSecondaryNav" data-lang="KO" dir="ltr" id="article" lang="ko" role="article">
+<div class="scalableui">
+<header>
+<div class="dc-bleedToArticleEdge suppressZoom" id="f1">
+<figure>
+<img alt="" class="suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/394" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/395" style="max-width: min(100%, 700px); height: auto;"/>
+</figure>
+</div>
+<p class="contextTtl dc-bleedToArticleEdge dc-paddingToContentEdge du-letterSpacing--1 du-color--orange-700 du-borderColor--orange-700 du-borderStyle-bottom--solid du-borderWidth--1 du-padding-vertical--2" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="78" data-no="78" id="page78"></span><strong>16</strong> 바락과 드보라</p>
+<h1 class="du-color--coolGray-600 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="2" id="p2"><strong>“내가 반드시 당신과 함께 가겠습니다”</strong></h1>
+</header> <div class="clearfix alternatePresentation clickable noTooltips">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/392" data-alt-type="svg" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/390" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">인쇄판</div>
+</div>
+<div class="clearfix alternatePresentation clickable noTooltips hidden">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/393" data-alt-type="svg" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/391" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">인쇄판</div>
+</div>
+<div class="bodyTxt">
+<div id="tt4">
+<p data-pid="3" id="p3">이스라엘 사람들은 암울한 시기를 보내고 있었습니다. 그들이 여호와께 반역했기 때문에 그분은 이전에 경고하신 대로 적들이 그들을 압제하게 내버려두셨습니다. 그들의 적들 중에는 가나안 사람들도 있었습니다. 당시 가나안에서는 야빈이라는 왕이 다스리고 있었습니다. 그의 부하 중에는 시스라라는 장군이 있었는데, 그는 매우 잔인한 사람이었습니다. 시스라가 이끄는 큰 군대는 철낫이 달린 병거 900대로 무장하고 있었습니다.</p>
+<p data-pid="4" id="p4">20년 동안 시스라의 군대는 이스라엘 사람들을 공포에 떨게 만들었습니다. 그 군대가 어떤 지역을 공격하면 젊은 여자를 붙잡아 강간하는 일이 흔했던 것 같습니다. 그래서 사람들은 그런 끔찍한 일을 겪지 않기 위해 살던 곳을 떠나 숲속이나 산속에 숨었으며 거리는 텅텅 비었습니다. 이스라엘에는 자신을 방어할 무기를 가진 사람이 거의 없었습니다.</p>
+<p data-pid="5" id="p5">당시 이스라엘에서는 드보라라는 용감한 여자가 여호와의 예언자로 일하고 있었습니다. 드보라는 백성이 어려운 사건을 가져오면 판결하는 일도 했습니다. 여호와께서는 바락이라는 사람을 백성의 재판관이자 구원자로 일으키기 위해 드보라를 사용하셨습니다. 드보라는 사람을 보내 바락을 불러 여호와의 지시를 전했습니다. 1만 명의 군사를 모아 다볼산으로 가라는 여호와의 지시를 들었을 때 바락이 얼마나 놀랐을지 상상해 보십시오. 여호와께서는 바락이 시스라와 그의 군대에 승리를 거두게 해 주겠다고 약속하셨습니다!</p>
+<p data-pid="6" id="p6">바락은 교만한 사람이었습니까? 자신에게 지시를 전해 준 사람이 여자라서 기분이 상했습니까? 그렇지 않습니다. 오히려 그는 드보라에게 자신과 함께 가 달라고 말했습니다. 바락이 그렇게 말한 것은 믿음이 부족해서가 아니었습니다. 후에 사도 바울은 강한 믿음을 나타낸 사람들 가운데 한 명으로 바락을 언급했습니다. (<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025916/0/0">히브리 11:1, 2,</a><a class="b" data-bid="1-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025916/0/1"> 32</a>) 바락이 드보라에게 자신의 군대와 함께 가 달라고 한 것은 믿음을 표현한 것이었습니다. 여호와께서 드보라를 사용하고 계신다는 것을 알았던 바락은 여호와의 인도를 가능한 한 많이 받고 싶었던 것입니다. 드보라는 용감하게도 이렇게 말했습니다. “내가 반드시 당신과 함께 가겠습니다.” 또한 드보라는 바락이 전쟁에서 승리하겠지만 시스라를 죽이지는 못할 것이라고 덧붙였습니다. 하느님께서는 그 일을 남자가 아니라 여자에게 맡기실 것이었습니다.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[히브리 11:1, 2,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v58-11-1-1"><a class="cl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070162/30265"><strong>11</strong> </a>믿음은 바라는 것들에 대한 보증된 기대이며<a class="b" data-bid="275-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070162/274">+</a> 보이지 않는 실체에 대한 확실한 증거<a class="fn" data-fnid="68" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070162/67" id="footnotesource68">*</a><em> (각주: 또는 “명백한 실증”.)</em>입니다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v58-11-2-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070162/30266">2 </a>이 믿음으로 옛사람들<a class="fn" data-fnid="69" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070162/68" id="footnotesource69">*</a><em> (각주: 또는 “우리의 조상들”.)</em>은 자신에 대해 좋은 증언을 얻었습니다.</span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[32]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v58-11-32-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070162/30296">32 </a>내가 무슨 말을 더 하겠습니까? 기드온,<a class="b" data-bid="324-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070162/323">+</a> 바락,<a class="b" data-bid="325-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070162/324">+</a> 삼손,<a class="b" data-bid="326-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070162/325">+</a> 입다,<a class="b" data-bid="327-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070162/326">+</a> 다윗,<a class="b" data-bid="328-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070162/327">+</a> 그리고 사무엘과<a class="b" data-bid="329-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070162/328">+</a> 그 밖의 예언자들에 관해 말하려면 시간이 부족할 것입니다. </span></td></tr></tbody></table></div>
+<p data-pid="7" id="p7">바락은 즉시 여호와께서 말씀하신 대로 했습니다. 그는 용감한 남자 1만 명을 모아, 할 수 있는 한 최선을 다해 전쟁을 준비했습니다. 그리고 그들과 함께 <span aria-hidden="true" class="pageNum" data-before-text="79" data-no="79" id="page79"></span>다볼산으로 올라갔습니다. 인상적으로 솟아 있는 약 600미터 높이의 다볼산은 위가 뭉툭한 원뿔 모양으로, 드넓은 이스르엘 평야를 내려다보고 있었습니다. 그 꼭대기에서 드보라와 바락과 그의 군대는 멀리서 병거로 무장한 시스라의 군대가 진군해 오는 것을 볼 수 있었습니다.</p>
+<div class="dc-bleedToArticleEdge du-margin-vertical--8 du-margin-vertical-desktopOnly--12" id="f2">
+<figure>
+<img alt="드보라와 바락과 그의 군대가 다볼산 꼭대기에 서서 병거로 무장한 시스라의 군대가 몰려오는 것을 봅니다." data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/396" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/397" style="max-width: min(100%, 700px); height: auto;"/>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">드보라와 바락과 그의 군대가 다볼산 꼭대기에 서서 병거로 무장한 시스라의 군대가 몰려오는 것을 봅니다.</td></tr></tbody></table></div></figure>
+</div>
+<p data-pid="8" id="p8">바락은 어떻게 할 것입니까? 전략적인 측면에서 보면 시스라가 병거를 이끌고 다볼산 가까이 올 때까지 기다리는 것이 좋은 선택이었을 것입니다. 경사면에서는 병거의 속도가 느려져서 바락의 군사들이 더 유리한 입장에서 싸울 수 있기 때문입니다. 하지만 바락은 그 전쟁이 여호와의 전쟁이며 그분의 도움이 있어야만 승리할 수 있다는 것을 알았습니다. 그래서 드보라의 말에 귀를 기울였습니다. 여호와께서는 드보라를 통해 바락에게 공격하라고 말씀하셨습니다! 바락과 그의 군사들은 용감하게 평지로 내려가 무시무시한 병거들에 맞섰습니다!</p>
+<div class="stdPullQuote dc-ttClassStyle--unset du-color--orange-700 du-float-desktopOnly--inlineStart du-width-desktopOnly--oneHalf du-margin-inlineStart-mobileOnly--6 du-margin-inlineEnd-desktopOnly--4 du-margin-children-top-desktopOnly--0"><p data-pid="46" id="p46"><strong>재판관 바락과 여예언자 드보라는 무자비한 시스라와 그가 이끄는 무시무시한 군대에 맞서야 했습니다</strong></p>
+</div>
+<p data-pid="9" id="p9">군사적인 관점에서는 그들이 이길 가능성이 전혀 없어 보였습니다. 하지만 여호와께서는 용기를 나타낸 그들을 축복하셨습니다. 그분은 가나안 군대를 혼란에 빠뜨리셨습니다. 비가 억수같이 내려 이스르엘 골짜기가 거대한 늪처럼 되었으며, 그 무시무시한 병거들은 진흙탕에 빠져 꼼짝도 하지 못했습니다. 시스라의 군사들은 병거에서 내려 이스라엘 군사들과 맞붙어 싸워야 했습니다. 병거는 아무 쓸모가 없었고 시스라의 군사는 한 사람도 살아남지 못했습니다. 시스라는 어떻게 되었습니까?</p>
+<p data-pid="10" id="p10">시스라는 가까스로 도망쳤습니다. 그는 진흙탕이 된 평원을 걸어서 더 높은 지대로 갔습니다. 비겁하게 부하들을 죽게 내버려둔 채 자신은 위험에서 벗어났다고 생각했을지 모릅니다. 하지만 바락이 그를 뒤쫓았습니다. 그리고 여호와께서도 그를 보고 계셨습니다. 그분은 시스라를 어떻게 할지 이미 정해 두셨습니다.</p>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="11" id="p11"><strong>성경 기록을 읽어 보십시오</strong></h3>
+<ul><li><p data-pid="12" id="p12"> <a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025916/1/0"><strong>사사기 4:1-16,</strong></a><a class="b" data-bid="2-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025916/1/1"> <strong>23, 24;</strong></a><a class="b" data-bid="2-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025916/1/2"> <strong>5:1-23</strong></a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[사사기 4:1-16,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-1-1"><a class="cl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6600"><strong>4</strong> </a>에훗이 죽은 뒤에 이스라엘 사람들이 다시 여호와의 눈에 악한 일을 행했다.<a class="b" data-bid="125-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/124">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-2-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6601">2 </a>그래서 여호와께서는 하솔에서 통치하던 가나안 왕 야빈의 손에 그들을 파셨다.<a class="b" data-bid="126-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/125">+</a> 그의 군대 대장은 이방 사람들의 하로셋<a class="fn" data-fnid="34" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/33" id="footnotesource34">*</a><em> (각주: 또는 “하로셋하고이임”.)</em>에<a class="b" data-bid="127-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/126">+</a> 사는 시스라였다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-3-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6602">3 </a>이스라엘 사람들이 여호와께 부르짖었다.<a class="b" data-bid="128-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/127">+</a> 야빈<a class="fn" data-fnid="35" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/34" id="footnotesource35">*</a><em> (각주: 직역하면 “그”.)</em>이 철낫이 달린 병거<a class="fn" data-fnid="36" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/35" id="footnotesource36">*</a><em> (각주: 직역하면 “철 병거”.)</em> 900대를 가지고 있었고,<a class="b" data-bid="129-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/128">+</a> 20년 동안 이스라엘 사람들을 거칠게 압제했기 때문이다.<a class="b" data-bid="130-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/129">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-4-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6603">4 </a>그때에 랍비돗의 아내 여예언자<a class="b" data-bid="131-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/130">+</a> 드보라가 이스라엘을 재판하고 있었다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-5-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6604">5 </a>그는 에브라임 산간 지방, 라마와<a class="b" data-bid="132-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/131">+</a> 베델<a class="b" data-bid="133-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/132">+</a> 사이에 있는 드보라의 야자나무 아래 앉아 있었으며, 이스라엘 사람들은 판결을 구하려고 그에게 올라가곤 했다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-6-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6605">6 </a>드보라가 사람을 보내어 게데스납달리에서<a class="b" data-bid="134-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/133">+</a> 아비노암의 아들 바락을<a class="b" data-bid="135-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/134">+</a> 불러다가 말했다. “이스라엘의 하느님 여호와께서 이렇게 명령하지 않으셨습니까? ‘가서, 다볼 산으로 진군하여라.<a class="fn" data-fnid="37" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/36" id="footnotesource37">*</a><em> (각주: 또는 “다볼 산에 너의 사람들을 배치하여라.”)</em> 납달리와 스불론 가운데서 1만 명을 데리고 가거라. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-7-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6606">7 </a>내가 야빈의 군대 대장 시스라와 그의 병거들과 군대를 키손 시내<a class="fn" data-fnid="38" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/37" id="footnotesource38">*</a><em> (각주: 또는 “와디”.)</em>로<a class="b" data-bid="136-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/135">+</a> 끌어내어, 그를 네 손에 넘겨주겠다.’”<a class="b" data-bid="137-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/136">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-8-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6607">8 </a>그러자 바락이 드보라에게 말했다. “당신이 나와 함께 가면 나도 가겠습니다. 그러나 당신이 나와 함께 가지 않으면 나도 가지 않겠습니다.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-9-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6608">9 </a>드보라가 말했다. “내가 반드시 당신과 함께 가겠습니다. 그렇지만 당신이 이번 출정에서는 영광을 얻지 못할 것입니다. 여호와께서 시스라를 여자의 손에 넘겨주실 것이기 때문입니다.”<a class="b" data-bid="138-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/137">+</a> 그리고 드보라는 일어나서 바락과 함께 게데스로<a class="b" data-bid="139-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/138">+</a> 갔다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-10-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6609">10 </a>바락이 스불론과 납달리를<a class="b" data-bid="140-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/139">+</a> 게데스로 불러 모으자, 1만 명이 그의 발걸음을 따랐고, 드보라도 그와 함께 올라갔다.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-11-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6610">11 </a>그런데 겐 사람 헤벨은 모세의 장인 호밥의<a class="b" data-bid="141-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/140">+</a> 후손들 곧 겐 사람들에게서<a class="b" data-bid="142-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/141">+</a> 떠나, 게데스에 있는 사아난님의 큰 나무 근처에 천막을 치고 있었다.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-12-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6611">12 </a>사람들이 시스라에게 아비노암의 아들 바락이 다볼 산에 올라갔다고 알리자,<a class="b" data-bid="143-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/142">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-13-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6612">13 </a>그 즉시 시스라는 그의 모든 병거 곧 철낫이 달린 병거<a class="fn" data-fnid="39" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/38" id="footnotesource39">*</a><em> (각주: 직역하면 “철 병거”.)</em> 900대와 그와 함께 있던 모든 군대를 이방 사람들의 하로셋에서 불러 모아 키손 시내<a class="fn" data-fnid="40" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/39" id="footnotesource40">*</a><em> (각주: 또는 “와디”.)</em>로 갔다.<a class="b" data-bid="144-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/143">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-14-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6613">14 </a>그때에 드보라가 바락에게 말했다. “일어나십시오. 바로 오늘이 여호와께서 시스라를 당신의 손에 넘겨주실 날입니다. 여호와께서 당신보다 앞서 나가지 않으시겠습니까?” 그래서 바락은 자기를 따르는 1만 명과 함께 다볼 산에서 내려갔다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-15-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6614">15 </a>여호와께서는 시스라와 그의 모든 병거와 온 군대를 바락의 칼 앞에서 혼란에 빠뜨리셨다.<a class="b" data-bid="145-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/144">+</a> 마침내 시스라는 병거에서 내려 걸어서 도망쳤다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-16-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6615">16 </a>바락은 그 병거들과 군대를 이방 사람들의 하로셋까지 뒤쫓았다. 시스라의 온 군대는 칼에 쓰러져, 한 사람도 남지 않았다.<a class="b" data-bid="146-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/145">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[23, 24;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-23-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6622">23 </a>이렇게 하느님께서 그날에 이스라엘 사람들 앞에서 가나안 왕 야빈을 굴복시키셨다.<a class="b" data-bid="152-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/151">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-24-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6623">24 </a>이스라엘 사람들의 손이 가나안 왕 야빈을 점점 더 강하게 짓눌렀고,<a class="b" data-bid="153-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/152">+</a> 마침내 그들은 가나안 왕 야빈을 멸망시켰다.<a class="b" data-bid="154-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/153">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[5:1-23]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-1-1"><a class="cl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6624"><strong>5</strong> </a>그날에 드보라가<a class="b" data-bid="155-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/154">+</a> 아비노암의 아들 바락과<a class="b" data-bid="156-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/155">+</a> 함께 이런 노래를 불렀다.<a class="b" data-bid="157-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/156">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-2-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6625">2 </a>“이스라엘에서 머리를 푸니,<a class="fn" data-fnid="41" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/40" id="footnotesource41">*</a><em> (각주: 또는 “전사들이 머리를 푸니”.)</em></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-2-2">백성이 자원하니,<a class="b" data-bid="158-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/157">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-2-3">여호와를 찬양하여라!</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-3-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6626">3 </a>너희 왕들아, 잘 들어라! 너희 통치자들아, 귀를 기울여라!</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-3-2">내가 여호와께 노래하련다.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-3-3">이스라엘의 하느님 여호와께<a class="b" data-bid="159-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/158">+</a> 찬양 노래를 부르련다.<a class="fn pr" data-fnid="42" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/41" id="footnotesource42">*</a><em> (각주: 또는 “음악을 연주하련다.”)</em><a class="b" data-bid="160-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/159">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-4-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6627">4 </a>여호와여, 주께서 세일에서 나오실 때에,<a class="b" data-bid="161-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/160">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-4-2">주께서 에돔 지역에서 행진해 나오실 때에,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-4-3">땅이 흔들렸고 하늘이 물을 쏟았으며</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-4-4">구름이 물을 쏟아 내렸습니다.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-5-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6628">5 </a>산들이 여호와의 면전에서 녹아내렸고<a class="fn pr" data-fnid="43" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/42" id="footnotesource43">*</a><em> (각주: 달리 번역하면 “진동했고”.)</em><a class="b" data-bid="162-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/161">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-5-2">시나이도 이스라엘의 하느님 여호와의<a class="b" data-bid="163-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/162">+</a> 면전에서 녹아내렸습니다.<a class="b" data-bid="164-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/163">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-6-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6629">6 </a>아낫의 아들 삼갈의<a class="b" data-bid="165-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/164">+</a> 날에,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-6-2">야엘의<a class="b" data-bid="166-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/165">+</a> 날에, 길에는 발길이 끊어졌고</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-6-3">나그네들은 뒷길로 다녔네.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-7-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6630">7 </a>이스라엘에는 마을 사람들이 없어졌네,<a class="fn" data-fnid="44" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/43" id="footnotesource44">*</a><em> (각주: 또는 “끊어졌네”.)</em></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-7-2">나 드보라가<a class="b" data-bid="167-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/166">+</a> 일어날 때까지,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-7-3">내가 이스라엘의 어머니로 일어날 때까지.<a class="b" data-bid="168-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/167">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-8-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6631">8 </a>그들이 새 신들을 선택했을 때에<a class="b" data-bid="169-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/168">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-8-2">성문 안에서 전쟁이 있었네.<a class="b" data-bid="170-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/169">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-8-3">이스라엘의 4만 명 가운데</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-8-4">방패도 창도 보이지 않았네.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-9-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6632">9 </a>내 마음이 이스라엘의 지휘관들,<a class="b" data-bid="171-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/170">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-9-2">백성과 더불어 자원하여 나선 그 사람들과 함께하는구나.<a class="b" data-bid="172-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/171">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-9-3">여호와를 찬양하여라!</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-10-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6633">10 </a>황갈색 나귀를 타는 자들아,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-10-2">좋은 융단에 앉는 자들아,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-10-3">길을 걷는 자들아,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-10-4">생각해 보아라!</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-11-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6634">11 </a>물 곁에서, 물을 나누어 주는 사람들의 목소리가 들렸네.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-11-2">거기서 그들이 여호와의 의로운 행동을 자세히 이야기했네,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-11-3">이스라엘의 마을들에 사는 그분의 백성의 의로운 행동을.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-11-4">그때에 여호와의 백성이 성문으로 내려갔네.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-12-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6635">12 </a>깨어나라, 깨어나라, 오 드보라여!<a class="b" data-bid="173-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/172">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-12-2">깨어나라, 깨어나라, 노래를 불러라!<a class="b" data-bid="174-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/173">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-12-3">일어나라, 바락이여!<a class="b" data-bid="175-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/174">+</a> 너의 포로들을 끌고 가거라, 너 아비노암의 아들이여!</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-13-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6636">13 </a>그때에 남은 사람들이 귀인들에게 내려왔네.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-13-2">여호와의 백성이 용사들을 치려고 나에게 내려왔네.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-14-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6637">14 </a>에브라임에서 나온 자들, 골짜기<a class="fn" data-fnid="45" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/44" id="footnotesource45">*</a><em> (각주: 또는 “저지 평야”.)</em>에 있는 자들이,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-14-2">베냐민, 너의 백성들 가운데서 너를 따르고 있구나.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-14-3">마길에서는<a class="b" data-bid="176-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/175">+</a> 지휘관들이 내려왔고,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-14-4">스불론에서는 모병관의 지휘봉을 잡은<a class="fn" data-fnid="46" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/45" id="footnotesource46">*</a><em> (각주: 달리 번역하면 “서기관의 용구를 다루는”.)</em> 자들이 내려왔네.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-15-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6638">15 </a>잇사갈의 방백들이 드보라와 함께했고</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-15-2">잇사갈처럼 바락도 함께했네.<a class="b" data-bid="177-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/176">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-15-3">그가 걸어서 골짜기<a class="fn" data-fnid="47" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/46" id="footnotesource47">*</a><em> (각주: 또는 “저지 평야”.)</em>로 가게 되었구나.<a class="b" data-bid="178-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/177">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-15-4">르우벤의 분파들 가운데서 마음을 깊이 살피는 일이 있었구나.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-16-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6639">16 </a>어째서 너는 두 안장주머니 사이에 앉아</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-16-2">가축 떼를 위해 부는 피리 소리를 듣고 있었느냐?<a class="b" data-bid="179-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/178">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-16-3">르우벤의 분파들에서 마음을 깊이 살피는 일이 있었구나.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-17-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6640">17 </a>길르앗은 요르단 강 건너편에 머물러 있었네.<a class="b" data-bid="180-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/179">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-17-2">단은 어째서 배 곁에 머물러 있었느냐?<a class="b" data-bid="181-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/180">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-17-3">아셀은 바닷가에 앉아 빈둥거렸고</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-17-4">자기 항구<a class="fn" data-fnid="48" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/47" id="footnotesource48">*</a><em> (각주: 또는 “부둣가”.)</em>에 머물러 있었구나.<a class="b" data-bid="182-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/181">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-18-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6641">18 </a>스불론은 죽음을 무릅쓰고 목숨을 내건<a class="fn" data-fnid="49" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/48" id="footnotesource49">*</a><em> (각주: 또는 “자기 영혼을 경멸한”.)</em> 백성이었네.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-18-2">납달리도<a class="b" data-bid="183-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/182">+</a> 높은 곳의 들판에서 그렇게 했네.<a class="b" data-bid="184-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/183">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-19-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6642">19 </a>왕들이 와서 싸웠네.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-19-2">그때에 가나안의 왕들이<a class="b" data-bid="185-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/184">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-19-3">므깃도의 물가 다아낙에서<a class="b" data-bid="186-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/185">+</a> 싸웠네.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-19-4">그러나 은을 조금도 약탈하지 못했네.<a class="b" data-bid="187-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/186">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-20-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6643">20 </a>하늘에서 별들이 싸웠네.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-20-2">그 궤도에서 시스라와 싸웠네.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-21-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6644">21 </a>키손의 급류<a class="fn" data-fnid="50" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/49" id="footnotesource50">*</a><em> (각주: 또는 “시내”.)</em>가 그들을 휩쓸어 갔네,<a class="b" data-bid="188-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/187">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-21-2">옛날의 급류,<a class="fn" data-fnid="51" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/50" id="footnotesource51">*</a><em> (각주: 또는 “시내”.)</em> 키손의 급류<a class="fn" data-fnid="52" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/51" id="footnotesource52">*</a><em> (각주: 또는 “시내”.)</em>가.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-21-3">내 영혼<a class="fn" data-fnid="53" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/52" id="footnotesource53">*</a><em> (각주: 용어 설명 참조.)</em>아, 네가 힘 있는 자들을 짓밟았구나.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-22-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6645">22 </a>그때에 말발굽들이 땅을 찼네,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-22-2">그의 종마들이 맹렬히 달리면서.<a class="b" data-bid="189-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/188">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-23-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6646">23 </a>‘메로스를 저주하여라.’ 여호와의 천사가 말했네.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-23-2">‘그 주민을 저주하여라.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-23-3">그들이 여호와를 도우러,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-23-4">용사들과 함께 여호와를 도우러 오지 않았다.’</span></div></td></tr></tbody></table></div>
+</li>
+</ul>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="13" id="p13"><strong>토의해 보십시오</strong></h3>
+<p data-pid="14" id="p14"><strong>바락과 드보라는 어떻게 용기를 나타냈습니까?</strong></p>
+
+</div>
+<div id="tt13">
+<h2 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--2" data-pid="16" id="p16"><span aria-hidden="true" class="pageNum" data-before-text="80" data-no="80" id="page80"></span><strong>더 깊이 알아보기</strong></h2>
+<ol class="du-listStyleType--source"><li><p data-pid="17" id="p17"><span class="txtSrcBullet"><strong>1.</strong> </span><strong>시스라의 압제를 받는 동안 이스라엘 사람들의 삶은 어떠했습니까?</strong> (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025916/0/0">「파15」 8/1 12면 6항</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「파15」 8/1 12면 6항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">시스라! 그 이름만 들어도 이스라엘 사람들은 공포와 전율에 <span aria-hidden="true" class="pageNum" data-before-text="13" data-no="13" id="page13"></span>휩싸였습니다. 가나안 사람들의 종교와 문화는 야만적이었고, 자녀 희생과 신전 매춘이 특징이었습니다. 가나안 사람인 장군과 그의 군대의 지배를 받는 이스라엘 땅의 상황은 어떠했습니까? 드보라의 노래를 보면 알 수 있듯이, 그 땅에서 여행은 거의 불가능했으며 마을에는 사람이 더는 살지 않았습니다. (<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2015566/3/0">사사기 5:6, 7</a>) 한번 상상해 보십시오. 사람들은 농사를 짓거나 성벽이 없는 마을에 살기가 두려워서 숲 속이나 산속에 웅크리고 있었을 것이며, 공격을 당하고 자녀들을 빼앗기고 여자들이 성폭행을<a class="fn" data-fnid="2" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/2015566/1" id="footnotesource2">b</a><em> (Footnote: 드보라의 노래에서 알려 주듯이, 시스라가 전투에서 돌아올 때 가져온 전리품 중에는 여자들이 있었으며 때로는 군인이 저마다 한 명 이상의 여자를 차지했다. (사사기 5:30) 이 성구에 사용된 “여자”라는 단어는 문자적으로 “태”를 의미한다. 그런 표현을 보면 그 여자들이 주로 생식기 때문에 가치 있게 여겨졌음을 알 수 있다. 성폭행이 흔히 일어났을 것이다.)</em> 당할까 봐 겁이 나서 넓은 길로 다니지 못했을 것입니다.</td></tr></tbody></table></div>
+
+</li>
+<li><p data-pid="19" id="p19"><span class="txtSrcBullet"><strong>2.</strong> </span><strong>사무엘이 예언자가 되기 전에 이스라엘에서 재판관으로 일한 12명 가운데 일반적으로 드보라가 포함되지 않는 이유는 무엇입니까?</strong> (<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025916/1/0">「파86」 9/15 24면 6-8항</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「파86」 9/15 24면 6-8항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px">사사들의 수가 몇명인가는 독자가 특정한 이스라엘 사람들을 어떻게 보느냐에 달려 있읍니다. 하지만 여호수아부터 사무엘 사이에 12명의 남자가 사사로 일했다고 말해도 큰 문제는 안 될 것입니다.</div><div class="sb" data-pid="4" id="p4" style="margin-top: 0; margin-bottom: 8px">모세와 여호수아 시대에, 회중 내의 일부 연로한 남자들은 법적인 일들을 경청하고 결정하도록 선택되었다는 의미에서 사사들이었읍니다. (<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1986409/0/0">출애굽 18:21, 22;</a><a class="b" data-bid="1-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1986409/0/1"> 여호수아 8:33;</a><a class="b" data-bid="1-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1986409/0/2"> 23:2</a>) 여호수아가 죽은 뒤에, 이스라엘은 참 숭배에서 떨어져 나갔고 다른 민족들로부터 괴롭힘을 당하게 되었읍니다. <a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1986409/1/0">사사기 2:16</a>에 의하면 “여호와께서 <strong>사사</strong>를 세우사 노략하는 자의 손에서 그들을 건져내게 하셨”다고 알려 줍니다. (고딕체로는 본지에서) 여호와께서는 첫 번째로 옷니엘이라는 남자를 사사 또는 “구원자”로 일으키셨읍니다. (<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1986409/2/0">사사 3:9</a>) 그후에 에훗, 삼갈, 바락, 기드온, 돌라, 야일, 입다, 입산, 엘론, 압돈 및 삼손이 있었읍니다.</div><div class="sb" data-pid="5" id="p5" style="margin-top: 0; margin-bottom: 8px">이 12명 외에도, 성서는 사사로 다스린 일과 관련하여 드보라, 엘리 및 사무엘을 언급합니다. (<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1986409/3/0">사사 4:4;</a><a class="b" data-bid="4-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1986409/3/1"> 사무엘 상 4:16-18;</a><a class="b" data-bid="4-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1986409/3/2"> 7:15, 16</a>) 그러나 드보라는 최초의 여 예언자로 불리었고, 사사 바락과 관련이 있는데, 바락은 특히 백성을 압제로부터 구출하는 일을 인도했읍니다. 그와 유사하게, 엘리는 주로 대제사장이었지 이스라엘을 전쟁에서 해방시킨 “구원자”가 아니었읍니다. (<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1986409/4/0">느헤미야 9:27</a>) 따라서 드보라와 엘리가 이스라엘에게 사사와 같은 역할을 하긴 했지만, 본래부터 명확히 사사로서 각별히 ‘세움을 받은’ 12명의 남자와 동일하게 사사에 포함시킬 이유는 없는 것입니다. <a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1986409/5/0">사도 행전 13:20</a>(새번역)은 “<strong>예언자 사무엘 시대에 이르기까지</strong> 사사들[이] 보내어”졌다고 알려 줍니다. (고딕체로는 본지에서) 이 점은 사사 시대로 알려진 기간을 한정시켜 주며, 사무엘과 그의 아들들이 일반적으로 사사들 중에 포함되지 않는 이유도 밝혀 줍니다.—<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1986409/6/0">사무엘 상 8:1</a>.</div></td></tr></tbody></table></div>
+
+</li>
+</ol>
+<div class="dc-bgImageLayout--matchContainerWidthAndHeight dc-bleedToArticleEdge dc-paddingToContentEdge du-bgColor--white du-padding-bottom--1 du-padding-top--24 suppressZoom" data-bg-image="/ko/wol/mp/r8/lp-ko/wcg/2025/398" data-bg-image-label="" id="tt28" style="background-image: url('/ko/wol/mp/r8/lp-ko/wcg/2025/398')"><ol class="du-listStyleType--source du-width--sevenEighths du-width-desktopOnly--oneHalf"><li><p data-pid="21" id="p21"><span class="txtSrcBullet"><strong>3.</strong> </span><strong>드보라는 어떤 의미에서 “이스라엘의 어머니”였습니까?</strong> (<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025916/2/0">사사 4:4, 5;</a><a class="b" data-bid="3-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025916/2/1"> 5:7</a>; <a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025916/2/0">「파15」 8/1 13면 1항</a>) <span class="du-color--orange-700"><strong>삽화 가</strong></span></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[사사 4:4, 5;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-4-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6603">4 </a>그때에 랍비돗의 아내 여예언자<a class="b" data-bid="131-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/130">+</a> 드보라가 이스라엘을 재판하고 있었다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-4-5-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6604">5 </a>그는 에브라임 산간 지방, 라마와<a class="b" data-bid="132-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/131">+</a> 베델<a class="b" data-bid="133-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/132">+</a> 사이에 있는 드보라의 야자나무 아래 앉아 있었으며, 이스라엘 사람들은 판결을 구하려고 그에게 올라가곤 했다. </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[5:7]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-7-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6630">7 </a>이스라엘에는 마을 사람들이 없어졌네,<a class="fn" data-fnid="44" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070111/43" id="footnotesource44">*</a><em> (각주: 또는 “끊어졌네”.)</em></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-7-2">나 드보라가<a class="b" data-bid="167-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/166">+</a> 일어날 때까지,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-7-3">내가 이스라엘의 어머니로 일어날 때까지.<a class="b" data-bid="168-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070111/167">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「파15」 8/1 13면 1항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">그런 공포의 기간은 20년간, 즉 여호와께서 고집 센 백성이 변화할 마음을 가졌다는 증거를 보실 때까지, 또는 영감받은 드보라와 바락의 노래 가사처럼, “나 드보라가 일어날 때까지, 내가 이스라엘의 어머니로 일어날 때까지” 계속되었습니다. 랍비돗이라는 사람의 아내인 드보라가 문자 그대로 자녀를 둔 어머니였는지는 알 수 없지만, 여기서 어머니라는 표현은 비유적으로 사용되었습니다. 사실, 여호와께서는 드보라에게 그 나라를 어머니처럼 보호하는 일을 맡기셨습니다. 그분은 드보라에게 믿음이 강한 재판관 바락을 불러 시스라를 대항하여 행동하도록 지시하는 임무를 주셨습니다.—<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2015566/4/0">사사기 4:3,</a><a class="b" data-bid="5-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2015566/4/1"> 6, 7;</a><a class="b" data-bid="5-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2015566/4/2"> 5:7</a>.</td></tr></tbody></table></div>
+
+</li>
+</ol>
+</div>
+<div class="dc-bleedToArticleEdge" id="f3">
+<figure>
+<img alt="드보라가 야자나무 아래에 앉아 양들을 데리고 온 두 남자 사이의 문제를 해결해 줍니다. 한 이스라엘인 부부도 드보라를 향해 걸어옵니다." data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/399" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/400" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption dc-screenReaderText">
+<p data-pid="48" id="p48"><strong>삽화 가</strong></p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">드보라가 야자나무 아래에 앉아 양들을 데리고 온 두 남자 사이의 문제를 해결해 줍니다. 한 이스라엘인 부부도 드보라를 향해 걸어옵니다.</td></tr></tbody></table></div></figure>
+</div>
+<div class="dc-bleedToArticleEdge dc-paddingToContentEdge dc-bgImageLayout--matchContainerWidth-top du-clearfix du-bgColor--warmGray-600 du-padding-vertical--4 du-margin-children--0 du-margin-bottom-desktopOnly--12 du-margin-bottom--8 suppressZoom" data-bg-image="/ko/wol/mp/r8/lp-ko/wcg/2025/402" data-bg-image-label="" id="tt37" style="background-image: url('/ko/wol/mp/r8/lp-ko/wcg/2025/402')"><p data-pid="23" id="p23"><span class="dc-screenReaderText"><strong>삽화</strong></span> <span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus1 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>가</strong></span></p>
+</div>
+<ol class="du-listStyleType--source"><li><p data-pid="24" id="p24"><span class="txtSrcBullet"><strong>4.</strong> </span><strong>드보라와 바락은 노래 가운데서 ‘별들이 시스라와 싸웠다’고 했습니다. 이 말은 무슨 의미입니까?</strong> (<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102025916/3/0">사사 5:20</a>; <a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025916/3/0">「파05」 1/15 25면 5항</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[사사 5:20]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-20-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070111/6643">20 </a>하늘에서 별들이 싸웠네.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-5-20-2">그 궤도에서 시스라와 싸웠네.</span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「파05」 1/15 25면 5항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2005046/14/0"><strong>5:20</strong></a><strong>—어떻게 별들이 바락을 위하여 하늘에서 싸웠습니까?</strong> 성서에서는 이 표현이 천사의 지원과 관련이 있는지, 시스라의 지혜자들이 불길하게 해석한 유성우와 관련이 있는지 또는 어쩌면 거짓으로 판명된 시스라를 위한 점성술적인 예언과 관련이 있는지 알려 주지 않습니다. 하지만 틀림없이 어떤 형태로든 하느님의 개입이 있었을 것입니다.</td></tr></tbody></table></div>
+
+</li>
+</ol>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="26" id="p26"><span aria-hidden="true" class="pageNum" data-before-text="81" data-no="81" id="page81"></span><strong>교훈점 적용하기</strong></h2>
+<ul><li><p data-pid="27" id="p27">  형제들은 충실한 여자의 도움을 겸손히 받아들인 바락을 어떤 상황에서 본받을 수 있습니까? <span class="du-color--orange-700"><strong>삽화 나</strong></span></p>
+
+<div class="south_center" id="f4">
+<figure>
+<img alt="한 자매가 냉난방 시설의 작동 방법을 세 형제들에게 알려 줍니다. 형제들이 잘 들으며 필기하고 있습니다." class="south_center" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/403" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/404" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="50" id="p50"><span class="dc-screenReaderText"><strong>삽화</strong></span> <span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>나</strong></span></p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">한 자매가 냉난방 시설의 작동 방법을 세 형제들에게 알려 줍니다. 형제들이 잘 들으며 필기하고 있습니다.</td></tr></tbody></table></div></figure>
+</div>
+</li>
+<li><p data-pid="29" id="p29">  드보라가 바락과 함께 가는 데 용기가 필요했던 이유는 무엇입니까? 우리에게 그와 같은 용기가 필요한 어떤 상황이 있습니까?</p>
+
+</li>
+<li><p data-pid="31" id="p31">  당신은 다른 어떤 면에서 바락과 드보라를 본받아 용기를 나타낼 수 있습니까?</p>
+
+</li>
+</ul>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="33" id="p33"><strong>시야를 넓혀 생각해 보기</strong></h2>
+<ul><li><p data-pid="34" id="p34">  이 성경 기록을 통해 여호와에 대해 무엇을 배울 수 있을까?</p>
+
+</li>
+<li><p data-pid="36" id="p36">  이 성경 기록은 여호와의 목적과 어떤 관련이 있을까?</p>
+
+</li>
+<li><p data-pid="38" id="p38">  부활된 바락과 드보라를 만나면 무엇을 물어볼까?</p>
+
+</li>
+</ul>
+<div class="dc-bleedToArticleEdge dc-paddingToContentEdge du-bgColor--warmGray-50 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--4 du-padding-bottom--8" id="tt82">
+<h2 class="du-color--orange-700 du-margin-top--0" data-pid="40" id="p40"><strong>더 찾아보기</strong></h2>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt84">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f5">
+<figure>
+<a href="https://wol.jw.org/wol/rslink/r8/lp-ko?lang=KO&amp;docid=2017367&amp;pub=w17&amp;issuesymbol=w17.04&amp;issuedate=201704&amp;issuenumber=4"><img alt="" class="suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/405" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/406" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt85">
+<p data-pid="41" id="p41">이 성경 기록이 여호와께서 우리가 기울이는 노력을 가치 있게 여기신다는 점을 어떻게 보여 주는지 알아보십시오.</p>
+<p data-pid="42" id="p42"><a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025916/4/0"><strong>“기꺼이 자원함으로 여호와께 찬양을 돌리십시오!”</strong> (「파17.04」 28-32면)</a></p>
+</div>
+</div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[“기꺼이 자원함으로 여호와께 찬양을 돌리십시오!” (「파17.04」 28-32면)]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><h1 data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="28" data-no="28" id="page28"></span><strong>기꺼이 자원함으로 여호와께 찬양을 돌리십시오!</strong></h1><div class="themeScrp" data-pid="2" id="p2" style="margin-top: 0; margin-bottom: 8px">“백성이 자원하니, 여호와를 찬양하여라!”—<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/0/0">사사 5:2</a>.</div><div class="pubRefs" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px"><a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/2017367/0/0">노래: <strong>150,</strong></a><a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/2017367/0/1"> <strong>10</strong></a></div><div class="boxTtl emphasized" data-pid="4" id="p4" style="margin-top: 0; margin-bottom: 8px"><h2><strong>어떻게 대답하시겠습니까?</strong></h2></div><ul><li style="line-height: 1.5; margin-bottom: 15px"><p class="si" data-pid="5" id="p5">여호와께서 그분의 일을 소홀히 여기는 사람을 기뻐하지 않으신다는 것을 어떻게 알 수 있습니까?</p>
+</li><li style="line-height: 1.5; margin-bottom: 15px"><p class="si" data-pid="6" id="p6">여호와께서 한낱 인간이 드리는 충실한 봉사를 소중히 여기고 상 주신다고 확신하는 이유는 무엇입니까?</p>
+</li><li style="line-height: 1.5; margin-bottom: 15px"><p class="si" data-pid="7" id="p7">여호와께서 당신의 자원하는 태도를 중요하게 여기신다는 것을 어떻게 알 수 있습니까?</p>
+</li></ul><div class="qu" data-pid="35" id="p35" style="margin-top: 0; margin-bottom: 8px"><strong>1, 2.</strong> (ㄱ) 엘리바스와 빌닷은 하느님이 우리의 봉사를 어떻게 여기신다고 주장했습니까? (ㄴ) 여호와께서는 자신의 생각을 어떻게 밝혀 주셨습니까?</div><div class="sb" data-pid="8" data-rel-pid="[35]" id="p8" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="1"></span>데만 사람 엘리바스는 욥에게 이런 질문을 했습니다. “사람이 하느님에게 유익이 될 수 있겠는가? 통찰력이 있는 사람이라 해서 그분에게 유익이 되겠는가? 자네가 의롭다 한들 전능자가 무슨 관심을 가지며 충절의 행로를 따른다고 해서 그분에게 무슨 이득이 있겠는가?” (<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/1/0">욥 22:1-3</a>) 당신은 이 질문들에 대한 답을 생각해 본 적이 있습니까? 처음에 이 질문을 한 엘리바스는 사람이 하느님께 유익이 되지 않는다고 믿었던 것이 분명합니다. 엘리바스의 친구인 수아 사람 빌닷은 하느님 앞에서 인간은 결코 의로운 신분을 얻을 수 없다고 주장하기까지 했습니다.—<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/2/0"><strong>욥기 25:4</strong></a> <strong>낭독.</strong></div><div class="sb" data-pid="9" data-rel-pid="[35]" id="p9" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="2"><strong><sup>2</sup></strong></span> 이 거짓 위로자들은 여호와를 충성스럽게 섬기려는 우리의 노력이 그분께 아무 유익이 되지 않으며, 하느님의 눈에 우리는 나방이나 구더기나 벌레만큼 하찮은 존재라고 주장했습니다. (<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/3/0">욥 4:19;</a><a class="b" data-bid="4-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/3/1"> 25:6</a>) 언뜻 보면 엘리바스와 빌닷이 겸손한 태도를 나타낸 것이라는 생각이 들지 모릅니다. (<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/4/0">욥 22:29</a>) 사실, 높은 산꼭대기나 비행기에서 내려다보면 인간이 하는 일들은 보잘것없어 보입니다. 그러면 높은 곳에서 이 땅을 내려다보시는 여호와께서도 우리가 왕국을 위해 하는 일들을 하찮게 여기십니까? <span aria-hidden="true" class="pageNum" data-before-text="29" data-no="29" id="page29"></span>여호와께서는 거짓 주장을 한 엘리바스와 빌닷과 소발은 질책하셨지만, 욥은 기뻐하시고 “내 종”이라고 부르심으로 자신의 생각을 밝혀 주셨습니다. (<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/5/0">욥 42:7, 8</a>) 그렇습니다. 사람은 분명히 “하느님에게 유익이 될 수 있”습니다.</div><h2 data-pid="10" id="p10"><strong>“그분에게 무엇을 드리겠습니까?”</strong></h2><div class="qu" data-pid="36" id="p36" style="margin-top: 0; margin-bottom: 8px"> <strong>3.</strong> 엘리후는 여호와를 섬기려는 우리의 노력에 대해 무엇이라고 말했으며, 그 말의 의미는 무엇입니까?</div><div class="sb" data-pid="11" data-rel-pid="[36]" id="p11" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="3"><strong><sup>3</sup></strong></span> 엘리후는 욥에게 다음과 같은 질문을 했습니다. “당신이 의롭다 한들 그분[하느님]에게 무엇을 드리며, 그분이 당신에게서 무엇을 받으시겠습니까?” (<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/6/0">욥 35:7</a>) 엘리후는 하느님을 섬기려는 우리의 노력이 아무 의미가 없다고 말한 것입니까? 그렇지 않습니다. 다른 사람들과 달리 엘리후는 자신이 한 말에 대해 여호와께 시정을 받지 않았습니다. 엘리후가 한 말의 의미는 여호와께서 우리의 숭배에 의존하지 않으신다는 것이었습니다. 여호와께는 부족한 것이 전혀 없습니다. 우리가 하느님을 더 부유하거나 더 강한 분이 되게 할 수는 없습니다. 사실, 우리가 가진 선한 특성이나 재능이나 힘은 하느님이 주신 것이며, 그분은 우리가 그러한 선물을 어떻게 사용하는지 관심을 갖고 보십니다.</div><div class="qu" data-pid="37" id="p37" style="margin-top: 0; margin-bottom: 8px"> <strong>4.</strong> 여호와께서는 우리가 타인에게 친절하게 행동할 때 어떻게 느끼십니까?</div><div class="sb" data-pid="12" data-rel-pid="[37]" id="p12" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="4"><strong><sup>4</sup></strong></span> 우리가 여호와의 종들에게 충성스러운 사랑을 나타낼 때 그분은 그것을 자신에게 한 사랑의 행동으로 여기십니다. <a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/7/0">잠언 19:17</a>은 이렇게 말합니다. “낮은 자에게 은혜를 베푸는 이는 여호와께 빌려 드리는 것이니, 그분이 그가 하는 대로 갚아 주신다.” 이 성구는 여호와께서 우리가 낮은 자에게 하는 친절한 행동 하나하나를 눈여겨보신다는 뜻입니까? 우주의 창조주께서 한낱 인간에 불과한 우리가 자비로운 행동을 할 때 우리에게 빚을 졌다고 여기시고 그 빚을 은혜와 축복으로 갚아 주어야 한다고 느끼신다는 말입니까? 그렇습니다. 하느님의 아들도 그 점을 확증하셨습니다.—<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/8/0"><strong>누가복음 14:13, 14</strong></a> <strong>낭독.</strong></div><div class="qu" data-pid="38" id="p38" style="margin-top: 0; margin-bottom: 8px"> <strong>5.</strong> 이제 어떤 질문들을 살펴볼 것입니까?</div><div class="sb" data-pid="13" data-rel-pid="[38]" id="p13" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="5"><strong><sup>5</sup></strong></span> 여호와께서는 예언자 이사야에게 자신의 대변자로 일하도록 초대하셨습니다. 분명 그분은 충실한 사람들에게 자신의 목적을 이루는 일에 참여할 기회를 주는 것을 좋아하십니다. (<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/9/0">이사야 6:8-10</a>) 이사야는 그 초대를 기꺼이 받아들였습니다. 오늘날 많은 사람이 이사야와 같은 태도를 나타냅니다. 그들은 여호와를 섬기기 위해 어려운 임명을 받아들임으로 “제가 여기 있습니다! 저를 보내십시오!”라고 말합니다. 하지만 이러한 생각이 들지 모릅니다. ‘내 노력이 정말 의미가 있을까? 여호와께서 내게 자원하여 봉사할 기회를 주시는 것은 감사하지만, 내가 하느님의 일에 얼마나 참여하든 어차피 그분은 자신의 말씀을 이루실 것이 아닌가?’ 이제 이 질문들에 대한 답을 알아보기 위해, 드보라와 바락 시대에 있었던 일을 생각해 보겠습니다.</div><h2 data-pid="14" id="p14"><strong>두려운 상황에서 하느님께서 힘을 주시다</strong></h2><div class="qu" data-pid="39" id="p39" style="margin-top: 0; margin-bottom: 8px"> <strong>6.</strong> 이스라엘 백성은 야빈의 군대와 비교할 때 어떠했습니까?</div><div class="sb" data-pid="15" data-rel-pid="[39]" id="p15" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="6"><strong><sup>6</sup></strong></span> 가나안 왕 야빈은 이스라엘 백성을 20년 동안 “거칠게 압제했습니다.” 이스라엘 백성은 사람들의 눈에 띌까 봐 밖에 나가는 것조차 두려워했습니다. 군사적인 관점에서 볼 때, 이스라엘 백성은 공격 무기나 방어용 장비가 빈약했지만, 적들은 철낫이 달린 병거 900대를 갖추고 있었습니다.—<a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/10/0">사사 4:1-3,</a><a class="b" data-bid="11-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/10/1"> 13;</a><a class="b" data-bid="11-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/10/2"> 5:6-8</a>.<a class="fn" data-fnid="1" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/2017367/0" id="footnotesource1">a</a><em> (Footnote: 철낫은 길고 날카로운 칼날이었으며, 그중에는 곡선 형태로 된 것도 있었다. 대개 병거의 바퀴 축에 바깥쪽으로 튀어나오게 철낫을 달았을 것이다. 그처럼 무시무시한 병거에 감히 다가가려는 사람은 아무도 없었을 것이다.)</em></div><div class="qu" data-pid="40" id="p40" style="margin-top: 0; margin-bottom: 8px"><strong>7, 8.</strong> (ㄱ) 여호와께서는 처음에 바락에게 어떤 명령을 하셨습니까? (ㄴ) 이스라엘은 어떻게 야빈의 군대를 무찔렀습니까? (기사 제목 위에 있는 삽화 참조)</div><div class="sb" data-pid="16" data-rel-pid="[40]" id="p16" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="7"><strong><sup>7</sup></strong></span> 하지만 여호와께서는 여예언자 드보라를 통해 <span aria-hidden="true" class="pageNum" data-before-text="30" data-no="30" id="page30"></span>바락에게 다음과 같이 분명히 명령하셨습니다. “가서, 다볼 산으로 진군하여라. 납달리와 스불론 가운데서 1만 명을 데리고 가거라. 내가 야빈의 군대 대장 시스라와 그의 병거들과 군대를 키손 시내로 끌어내어, 그를 네 손에 넘겨주겠다.”—<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/11/0">사사 4:4-7</a>.</div><div class="sb" data-pid="17" data-rel-pid="[40]" id="p17" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="8"><strong><sup>8</sup></strong></span> 지원자를 구한다는 말이 이스라엘 땅에 퍼져나갔고, 자원한 사람들이 다볼 산에 모였습니다. 바락은 지체 없이 여호와의 지시를 따랐습니다. <strong>(</strong><a class="b" data-bid="13-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/12/0"><strong>사사기 4:14-16</strong></a> <strong>낭독)</strong> 다아낙에서 벌어진 큰 전투 중에 갑자기 폭우가 쏟아지면서 그 일대가 진흙탕이 되었습니다. 바락은 시스라의 군대를 뒤쫓아 하로셋까지 24킬로미터를 추격했습니다. 도망치던 시스라는 한때 무시무시한 무기였지만 이제 무용지물이 된 병거를 버리고 아마도 게데스 근처의 사아난님으로 도피한 것 같습니다. 시스라는 겐 사람 헤벨의 아내인 야엘의 천막에 몸을 숨겼는데, 야엘은 그를 친절하게 맞이했습니다. 전투로 지친 시스라는 잠이 들었습니다. 야엘은 용기 있게 행동하여 잠든 시스라를 죽였습니다. (<a class="b" data-bid="14-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/13/0">사사 4:17-21</a>) 이스라엘의 적들이 패배한 것입니다!<a class="fn" data-fnid="2" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/2017367/1" id="footnotesource2">b</a><em> (Footnote: 이 흥미진진한 사건에 관해 자세히 알아보려면 「파수대」 2015년 8월 1일호에 실린 “‘내가 이스라엘의 어머니로 일어났습니다’” 기사 참조.)</em></div><h2 data-pid="18" id="p18"><strong>서로 다른 태도를 보인 사람들</strong></h2><div class="qu" data-pid="41" id="p41" style="margin-top: 0; margin-bottom: 8px"> <strong>9.</strong> <a class="b" data-bid="30-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/29/0">사사기 5:20, 21</a>은 이스라엘 백성이 시스라와 벌인 전투에 대해 어떤 세부점을 알려 줍니까?</div><div class="sb" data-pid="19" data-rel-pid="[41]" id="p19" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="9"><strong><sup>9</sup></strong></span> <a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/14/0">사사기 4장과</a><a class="b" data-bid="15-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/14/1"> 5장</a>은 서로 보충하는 내용을 담고 있기 때문에 함께 살펴봐야 합니다. 예를 들어, <a class="b" data-bid="16-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/15/0">사사기 5:20, 21</a>은 이렇게 알려 줍니다. “하늘에서 별들이 싸웠네. 그 궤도에서 시스라와 싸웠네. 키손의 급류가 그들을 휩쓸어 갔네.” 이것은 천사들의 도움을 가리키거나 하늘에서 비처럼 쏟아지는 유성을 언급한 것입니까? 성경은 자세히 알려 주지 않습니다. 하지만 꼭 필요한 순간에 꼭 알맞은 곳에 폭우가 쏟아져 병거 900대가 진흙탕에서 꼼짝 못하게 된 것을 보면 하느님이 개입하신 것이 분명하지 않습니까? <a class="b" data-bid="17-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/16/0">사사기 4:14, 15</a>은 승리는 여호와께서 주시는 것이라고 세 차례나 언급했습니다. 자원한 이스라엘 군사 1만 명 중 그 누구도 승리의 공로를 자신에게 돌리며 자랑할 수 없었습니다.</div><div class="qu" data-pid="42" id="p42" style="margin-top: 0; margin-bottom: 8px"><strong>10, 11.</strong> “메로스”는 무엇이었으며, 왜 저주를 받았습니까?</div><div class="sb" data-pid="20" data-rel-pid="[42]" id="p20" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="10"><strong><sup>10</sup></strong></span> 드보라와 바락은 기적에 의한 승리에 대해 여호와를 찬양하는 승리의 노래를 불렀습니다. 흥미롭게도, 그 노래에는 이러한 말이 들어 있습니다. “‘메로스를 저주하여라.’ 여호와의 천사가 말했네. ‘그 주민을 저주하여라. 그들이 여호와를 도우러, 용사들과 함께 여호와를 도우러 오지 않았다.’”—<a class="b" data-bid="18-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/17/0">사사 5:23</a>.</div><div class="sb" data-pid="21" data-rel-pid="[42]" id="p21" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="11"><strong><sup>11</sup></strong></span> 메로스가 무엇이었는지 오늘날 정확히 알 수 없는 것을 보면, 메로스는 저주를 받은 것이 확실한 것 같습니다. 메로스는 전투에 나갈 지원자를 구하는 요청에 응하지 않은 도시를 가리키는 것입니까? 만일 그 도시가 시스라가 도망하던 경로에 있었다면, 주민들이 그를 붙잡을 기회가 있었는데도 그렇게 하지 않은 것입니까? 지원자를 구하는 여호와의 요청을 그들이 듣지 못했을 리는 없습니다. 시스라와 싸우기 위해 그 지역에서 1만 명이나 되는 지원자들이 모여들었으니 말입니다. 포악한 전사 시스라가 메로스를 통과하는 길을 혼자서 필사적으로 도망하는 모습을 그 도시의 주민들이 보았다고 생각해 보십시오. 그것은 여호와의 목적에 기여하고 그분의 축복을 받을 수 있는 절호의 기회였습니다. 그들은 행동할 것인지 행동하지 않을 것인지 선택의 기로에 섰습니다. 그 결정적인 순간에 그들은 무심한 태도를 보인 것입니까? 만일 그랬다면 그들의 태도는 분명 야엘과는 너무도 달랐습니다! 바로 이어지는 구절에서 알려 주듯이 야엘은 매우 용감하게 행동했습니다.—<a class="b" data-bid="19-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/18/0">사사 5:24-27</a>.</div><div class="qu" data-pid="43" id="p43" style="margin-top: 0; margin-bottom: 8px"><strong>12.</strong> <a class="b" data-bid="31-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/30/0">사사기 5:9, 10</a>에 나오는 사람들은 어떻게 서로 다른 태도를 나타냈으며, 오늘날 우리는 어떻게 해야 합니까?</div><div class="sb" data-pid="22" data-rel-pid="[43]" id="p22" style="margin-top: 0; margin-bottom: 8px"><span aria-hidden="true" class="pageNum" data-before-text="31" data-no="31" id="page31"></span><span class="parNum" data-pnum="12"><strong><sup>12</sup></strong></span> <a class="b" data-bid="20-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/19/0">사사기 5:9, 10</a>을 보면, 바락과 함께 전투에 나간 사람들과 전투에 나가지 않은 사람들의 태도가 어떻게 달랐는지 더 잘 알 수 있습니다. 드보라와 바락은 ‘백성과 더불어 자원하여 나선 이스라엘의 지휘관들’을 칭찬했습니다. 그들의 태도는 자신을 지나치게 중요하게 여기며 전투에 나가지 않은 “황갈색 나귀를 타는 자들”이나 ‘좋은 융단에 앉아’ 호화로운 생활을 즐긴 자들과는 정말 달랐습니다! 또한 바락과 함께한 사람들은 ‘길을 걸은 자들’ 즉 편안한 삶을 살고 싶어 한 자들과는 달리 기꺼이 바위투성이의 경사진 다볼 산과 질퍽질퍽한 키손 골짜기에 가서 전투를 벌였습니다! 따라서 쾌락을 추구하던 모든 자들은 “생각해 보아라!”라는 말을 들었습니다. 그렇습니다. 그들은 여호와의 목적에 기여할 기회를 잡지 않은 것에 대해 깊이 생각해 보아야 했습니다. 오늘날, 하느님을 온전히 섬기기를 주저하는 사람도 그렇게 해야 합니다.</div><div class="qu" data-pid="44" id="p44" style="margin-top: 0; margin-bottom: 8px"><strong>13.</strong> 르우벤, 단, 아셀 지파의 태도는 스불론과 납달리 지파와 어떻게 달랐습니까?</div><div class="sb" data-pid="23" data-rel-pid="[44]" id="p23" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="13"><strong><sup>13</sup></strong></span> 자원한 사람들은 여호와께서 어떻게 자신의 주권을 드높이시는지 직접 보았습니다. 그들은 다른 사람들에게 “여호와의 의로운 행동을 자세히 이야기할” 때 뜻깊은 말을 해 줄 수 있었습니다. (<a class="b" data-bid="21-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/20/0">사사 5:11</a>) 한편 <a class="b" data-bid="22-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/21/0">사사기 5:15-17</a>에 따르면 르우벤, 단, 아셀 지파는 여호와의 일보다 가축 떼, 배, 항구가 뜻하는 물질적인 이득에 더 많은 관심을 쏟았습니다. 그와는 달리 스불론과 납달리 지파는 드보라와 바락을 지원하기 위해 “죽음을 무릅쓰고 목숨을 내걸었습니다.” (<a class="b" data-bid="23-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/22/0">사사 5:18</a>) 우리는 자원하는 면에서 서로 다른 태도를 나타낸 그들에게서 중요한 교훈을 배울 수 있습니다.</div><h2 data-pid="24" id="p24"><strong>“여호와를 찬양하여라!”</strong></h2><div class="qu" data-pid="45" id="p45" style="margin-top: 0; margin-bottom: 8px"><strong>14.</strong> 오늘날 여호와의 주권을 지지한다는 것을 어떻게 나타낼 수 있습니까?</div><div class="sb" data-pid="25" data-rel-pid="[45]" id="p25" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="14"><strong><sup>14</sup></strong></span> 오늘날 우리는 하느님으로부터 실제 전쟁에 참여하라는 요청을 받지는 않지만, 전파 활동을 열심히 수행함으로 용기를 나타낼 기회가 있습니다. <span aria-hidden="true" class="pageNum" data-before-text="32" data-no="32" id="page32"></span>여호와의 조직에는 자원하여 일할 사람이 그 어느 때보다 많이 필요합니다. 수많은 형제 자매들과 청소년들이 자원하여 다양한 봉사를 하고 있습니다. 파이오니아, 베델 성원, 왕국회관 건축 자원봉사자로서 전 시간 봉사를 하는 사람도 있고 크고 작은 대회에서 자원봉사를 하는 사람도 있습니다. 또한 일부 장로들은 병원 교섭 위원회에서 일하거나 대회를 조직하는 중요한 책임을 맡고 있습니다. 분명 여호와께서는 기꺼이 자원하는 우리의 태도를 기뻐하고 결코 잊지 않으실 것입니다.—<a class="b" data-bid="24-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/23/0">히브리 6:10</a>.</div><div class="sc" data-pid="51" id="p51" style="margin-top: 0; margin-bottom: 8px">결정을 내리기 전에 그 결정이 가족과 회중에 어떤 영향을 줄지 생각해 보십시오 (15항 참조)</div><div class="qu" data-pid="46" id="p46" style="margin-top: 0; margin-bottom: 8px"><strong>15.</strong> 자신이 여호와의 일에 무심한 태도를 보이고 있는지 그렇지 않은지를 어떻게 알 수 있습니까?</div><div class="sb" data-pid="26" data-rel-pid="[46]" id="p26" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="15"><strong><sup>15</sup></strong></span> 우리 각자는 이렇게 자문해 보는 것이 좋습니다. ‘다른 사람들이 자원해서 필요한 일을 하고 있으니 그것으로 충분하다고 생각하는가? 내가 자원하는 마음이 약한 것은 물질에 지나친 관심을 쏟기 때문인가? 나는 바락, 드보라, 야엘, 그리고 전투에 자원한 1만 명처럼 믿음과 용기를 나타내서 내가 가진 모든 것으로 여호와의 분명한 명령을 수행하는가? 경제적으로 더 안정된 삶을 살고 싶어서 다른 도시나 외국으로 이주할 생각을 하고 있다면, 그것이 가족과 회중에 어떤 영향을 미칠지 기도하면서 깊이 생각해 보는가?’<a class="fn" data-fnid="3" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/2017367/2" id="footnotesource3">c</a><em> (Footnote: 「파수대」 2015년 7월 1일호에 실린 “돈 문제로 불안할 때” 기사 참조.)</em></div><div class="qu" data-pid="47" id="p47" style="margin-top: 0; margin-bottom: 8px"><strong>16.</strong> 모든 것을 가지신 여호와께 우리가 드릴 수 있는 것이 있습니까?</div><div class="sb" data-pid="27" data-rel-pid="[47]" id="p27" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="16"><strong><sup>16</sup></strong></span> 여호와께서는 우리에게 그분의 주권을 지지할 기회를 주심으로 우리를 품위 있게 대해 주십니다. 마귀가 최초로 사람들을 유혹해서 하느님을 버리고 자신의 주권을 옹호하게 만든 이래로, 우리 각자가 여호와의 통치권을 지지하는 것은 우리가 여호와의 편임을 사탄에게 분명히 보여 주는 것입니다. 여호와께서는 우리가 믿음과 충절이 동기가 되어 기꺼이 자원할 때 기뻐하십니다. (<a class="b" data-bid="25-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/24/0">잠언 23:15, 16</a>) 우리가 여호와의 주권을 지지한다는 것을 나타낸다면, 그분은 자신을 조롱하는 사탄에게 대답하실 수 있습니다. (<a class="b" data-bid="26-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/25/0">잠언 27:11</a>) 따라서 우리가 여호와께 충성과 순종을 드릴 때 그분은 그것을 소중히 여기시고 크게 기뻐하십니다.</div><div class="qu" data-pid="48" id="p48" style="margin-top: 0; margin-bottom: 8px"><strong>17.</strong> <a class="b" data-bid="32-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/31/0">사사기 5:31</a>에 따르면 앞으로 무슨 일이 있을 것입니까?</div><div class="sb" data-pid="28" data-rel-pid="[48]" id="p28" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="17"><strong><sup>17</sup></strong></span> 머지않아 이 땅은 여호와의 주권만을 지지하는 사람들로 가득 찰 것입니다. 그때가 정말 기다려지지 않습니까! 우리는 드보라와 바락처럼 이렇게 노래합니다. “오 여호와여, 주의 적들은 모두 ··· 망하게 해 주십시오. 하지만 주를 사랑하는 이들은 영광 가운데 떠오르는 해처럼 되게 해 주십시오.” (<a class="b" data-bid="27-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/26/0">사사 5:31</a>) 이 청원의 노래는 여호와께서 사탄의 악한 세상을 끝내실 때 응답될 것입니다! 아마겟돈 전쟁이 시작되면, 적을 멸망시키는 일에 참여할 사람이 필요하지는 않을 것입니다. 그때 우리는 “그대로 서서 ··· 여호와의 구원을 보게” 될 것입니다. (<a class="b" data-bid="28-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/27/0">역대기하 20:17</a>) 하지만 그 전까지는 용기와 열심을 나타내 여호와의 목적에 기여할 기회가 많습니다.</div><div class="qu" data-pid="49" id="p49" style="margin-top: 0; margin-bottom: 8px"><strong>18.</strong> 우리가 자원하여 수행하는 봉사에서 유익을 얻는 사람들은 무슨 일을 할 것입니까?</div><div class="sb" data-pid="29" data-rel-pid="[49]" id="p29" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="18"><strong><sup>18</sup></strong></span> “백성이 자원하니, 여호와를 찬양하여라!” 이렇게 드보라와 바락은 창조물이 아니라 가장 높으신 분께 찬양을 돌리는 것으로 승리의 노래를 시작했습니다. (<a class="b" data-bid="29-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2017367/28/0">사사 5:1, 2</a>) 오늘날에도 우리가 자원하여 수행하는 봉사에서 많은 사람이 유익을 얻고 “여호와를 찬양”하게 되기를 바랍니다.</div><div data-pid="31" id="p31" style="margin-top: 0; margin-bottom: 8px"><a class="fn-symbol" href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025916/4/0#footnotesource1">a</a> 철낫은 길고 날카로운 칼날이었으며, 그중에는 곡선 형태로 된 것도 있었다. 대개 병거의 바퀴 축에 바깥쪽으로 튀어나오게 철낫을 달았을 것이다. 그처럼 무시무시한 병거에 감히 다가가려는 사람은 아무도 없었을 것이다.</div><div data-pid="32" id="p32" style="margin-top: 0; margin-bottom: 8px"><a class="fn-symbol" href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025916/4/0#footnotesource2">b</a> 이 흥미진진한 사건에 관해 자세히 알아보려면 「파수대」 2015년 8월 1일호에 실린 “<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/2017367/1/0">‘내가 이스라엘의 어머니로 일어났습니다’</a>” 기사 참조.</div><div data-pid="33" id="p33" style="margin-top: 0; margin-bottom: 8px"><a class="fn-symbol" href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025916/4/0#footnotesource3">c</a> 「파수대」 2015년 7월 1일호에 실린 “<a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/2017367/2/0">돈 문제로 불안할 때</a>” 기사 참조.</div></td></tr></tbody></table></div>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt86">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f6">
+<figure>
+<a href="https://wol.jw.org/wol/rslink/r8/lp-ko?lang=KO&amp;docid=2003848&amp;pub=w03&amp;issuedate=20031115"><img alt="" class="suppressZoom" data-img-small-src="/ko/wol/mp/r8/lp-ko/wcg/2025/407" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/wcg/2025/408" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt87">
+<p data-pid="43" id="p43">바락과 드보라를 통해, 여호와를 신뢰하고 그분께 순종하고 겸허를 나타내는 것에 대해 무엇을 배울 수 있습니까?</p>
+<p data-pid="44" id="p44"><a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/1102025916/5/0"><strong>“믿음을 통하여, 바락은 강력한 군대를 패주시켰다”</strong> (「파03」 11/15 28-31면)</a></p>
+</div>
+</div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[“믿음을 통하여, 바락은 강력한 군대를 패주시켰다” (「파03」 11/15 28-31면)]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="st" data-pid="1" id="p1" style="margin-top: 0; margin-bottom: 8px"><span aria-hidden="true" class="pageNum" data-before-text="28" data-no="28" id="page28"></span><strong>믿음을 통하여, 바락은 강력한 군대를 패주시켰다</strong></div><div class="sb" data-pid="2" id="p2" style="margin-top: 0; margin-bottom: 8px">당신이 적대적인 군사들로 이루어진 대부대를 대면하여 서 있다고 상상해 보십시오. 적들은 최신 군사 장비로 무장하고 있으며 그것을 사용할 준비가 되어 있습니다. 그들 앞에 서 있는 당신과 당신의 동료들은 사실상 무방비 상태입니다.</div><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px">이스라엘의 재판관 시대에, 바락과 드보라 그리고 만 명의 동료 이스라엘 군사들은 바로 그러한 경험을 하였습니다. 적군들은 군대 대장 시스라의 지휘를 받는 가나안 군사들인데, 그들의 무기 가운데는 바퀴에 치사적인 철낫이 달린 병거들이 있습니다. 전투가 벌어지는 장소는 다볼 산과 키손 급류 골짜기입니다. 그곳에서 벌어진 사건을 살펴보면 바락이 모범이 되는 믿음을 가진 남자라는 것을 알 수 있습니다. 양편의 군대가 맞서 싸우기까지 어떤 일이 있었는지 고려해 보도록 합시다.</div><div class="ss" data-pid="4" id="p4" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>이스라엘이 여호와께 부르짖다</strong></div><div class="sb" data-pid="5" id="p5" style="margin-top: 0; margin-bottom: 8px">재판관기는 이스라엘이 거듭해서 참 숭배를 버렸고 그로 인해 거듭거듭 비참한 결과를 겪었음을 알려 줍니다. 그럴 때마다 진실되게 하느님의 자비를 구하는 간청을 하면 하느님께서는 구원자를 임명하셔서 자유를 누리게 하셨습니다. 하지만 그러고 나면 이스라엘은 다시 반역하였습니다. 매번 그랬던 것처럼 , “<strong>에훗</strong>[모압의 압제로부터 이스라엘을 구한 재판관]이 죽자 <strong>이스라엘</strong> 자손이 다시 <strong>여호와</strong>의 눈에 악한 일을 행하기 시작하였[습니다].” 사실, ‘그들은 새 신들을 택하였습니다.’ 어떤 결과가 있게 되었습니까? “<strong>여호와</strong>께서는 <strong>하솔</strong>에서 통치하던 <strong>가나안</strong> 왕 <strong>야빈</strong>의 손에 그들을 파셨다. 그의 군대 대장은 ··· <strong>시스라</strong>였다. <strong>이스라엘</strong> 자손이 <strong>여호와</strong>께 부르짖었으니, [시스라]가 철낫이 달린 병거 구백 대를 가지고 있었고, 이십 년 동안 <strong>이스라엘</strong> 자손을 거칠게 압제하였기 때문이다.”—<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/0/0">재판관 4:1-3;</a><a class="b" data-bid="1-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/0/1"> 5:8</a>.</div><div class="sb" data-pid="6" id="p6" style="margin-top: 0; margin-bottom: 8px">이스라엘 백성의 생활과 관련하여, 성서는 이렇게 알려 줍니다. “[그 날에] 길에는 왕래가 없었고, 길을 가는 여행자들은 에움길로 다녔네. 벌판에 사는 사람들이 끊어졌[네].” (<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/1/0">재판관 5:6, 7</a>) 백성들은 약탈하는 전차병들을 두려워하였습니다. 한 학자는 이렇게 말합니다. “공포가 이스라엘 사람들의 삶을 지배했다. 사회 전체가 마비되고 무력해진 것 같았다.” 그래서 전에도 자주 그랬던 것처럼, 낙담한 이스라엘 백성은 여호와께 도와 달라고 부르짖었습니다.</div><div class="ss" data-pid="7" id="p7" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>여호와께서 지도자를 임명하시다</strong></div><div class="sb" data-pid="8" id="p8" style="margin-top: 0; margin-bottom: 8px">가나안 사람들의 압제는 이스라엘에게 국가적 위기가 되었습니다. 하느님께서는 그분의 판결과 지시 사항을 전달하도록 여예언자 드보라를 사용하셨습니다. 그렇게 하심으로 여호와께서는 드보라가 이스라엘에서 비유적으로 어머니 역할을 할 수 있는 특권을 주셨습니다.—<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/2/0">재판관 4:4;</a><a class="b" data-bid="3-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/2/1"> 5:7</a>.</div><div class="sb" data-pid="9" id="p9" style="margin-top: 0; margin-bottom: 8px">드보라는 바락을 불러서 이렇게 말하였습니다. “<strong>이스라엘</strong>의 하느님 <strong>여호와</strong>께서 이렇게 명령하지 않으셨습니까? ‘가서, <strong>다볼</strong> 산에 흩어져라. 너는 <strong>납달리</strong> 자손과 <strong>스불론</strong> 자손 중에서 만 명을 데리고 가야 한다. 그러면 내가 반드시 <strong>키손</strong> 급류 골짜기에서 <strong>야빈</strong>의 군대 대장 <strong>시스라</strong>와 그의 병거들과 무리를 너에게 이끌어, 정녕 그를 네 손에 넘겨 주겠다.’” (<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/3/0">재판관 4:6, <span aria-hidden="true" class="pageNum" data-before-text="29" data-no="29" id="page29"></span>7</a>) 드보라는 “<strong>여호와</strong>께서 이렇게 명령하지 않으셨습니까?”라고 말함으로 자신이 바락에 대해 개인적으로 어떠한 권위도 가지고 있지 않음을 분명하게 나타냈습니다. 드보라는 단지 하느님의 명령이 전달되도록 하는 통로 역할만 하였습니다. 바락은 어떤 반응을 나타냈습니까?</div><div class="sb" data-pid="10" id="p10" style="margin-top: 0; margin-bottom: 8px">바락은 이렇게 말하였습니다. “당신이 나와 함께 가면, 나도 틀림없이 가겠습니다. 그러나 당신이 나와 함께 가지 않으면, 나는 가지 않겠습니다.” (<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/4/0">재판관 4:8</a>) 바락은 왜 하느님께서 주신 책임을 받아들이기를 주저하였습니까? 그는 겁이 난 것입니까? 아니면 하느님께서 하신 약속들에 대한 믿음이 부족한 것이었습니까? 그런 것이 아니었습니다. 바락은 주어진 일을 거부하거나 여호와께 불순종한 것이 아니었습니다. 오히려 그가 보인 반응은 자신이 하느님의 명령을 혼자서 이행하기에 부적합하다고 느꼈음을 나타낸 것이었습니다. 하느님의 대표자와 함께 있는 것은 하느님의 인도를 확증해 주고 바락과 그의 병사들을 확신으로 가득 차게 해 주었을 것입니다. 그러므로 바락이 제시한 조건은 약함의 표시라기보다는 강한 믿음을 나타낸 것이었습니다.</div><div class="sb" data-pid="11" id="p11" style="margin-top: 0; margin-bottom: 8px">바락이 나타낸 반응을 모세나 기드온이나 예레미야가 나타낸 반응에 비할 수 있을 것입니다. 이 사람들 역시 자신들이 하느님께서 주신 사명을 수행할 능력이 있는지에 대해 확신하지 못했습니다. 하지만 그렇다고 해서 그들이 믿음이 부족한 사람들이라고 여겨지지는 않았습니다. (<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/5/0">탈출 3:11–4:17;</a><a class="b" data-bid="6-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/5/1"> 33:12-17;</a><a class="b" data-bid="6-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/5/2"> 재판관 6:11-22,</a><a class="b" data-bid="6-4" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/5/3"> 36-40;</a><a class="b" data-bid="6-5" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/5/4"> 예레미야 1:4-10</a>) 드보라의 태도는 어떠합니까? 드보라는 자신이 나서서 일을 처리하려고 하지 않았습니다. 그보다는 여전히 여호와의 겸허한 종으로 머물렀습니다. 드보라는 바락에게 “내가 반드시 당신과 함께 가겠습니다” 라고 말하였습니다. (<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/6/0">재판관 4:9</a>) 드보라는 기꺼이 집—훨씬 더 안전한 장소—을 떠나 임박한 전투에 나가기 위해 바락과 함께 가려고 하였습니다. 드보라 역시 믿음과 용기의 좋은 모범이 됩니다.</div><div class="ss" data-pid="12" id="p12" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>믿음으로 그들은 바락을 따랐다</strong></div><div class="sb" data-pid="13" id="p13" style="margin-top: 0; margin-bottom: 8px">이스라엘 군대의 집결지는 다볼이라는 눈에 잘 띄는 산이었습니다. 이곳이 선택된 것은 매우 적절하였습니다. 이곳은 근처에 사는 납달리 지파와 스불론 지파가 자연스럽게 모일 수 있는 장소였던 것입니다. 그래서 하느님께서 명령하신 대로 만 명의 자원한 병사들이—그리고 드보라가—바락을 따라 이 산을 올라갔습니다.</div><div class="sb" data-pid="14" id="p14" style="margin-top: 0; margin-bottom: 8px">바락과 함께 있는 모든 사람들에게는 믿음이 요구되었습니다. 여호와께서는 바락이 가나안 사람들에게 승리를 거둘 것이라고 약속하셨지만, 이스라엘 군사들은 어떤 무기를 가지고 있었습니까? <a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/7/0">재판관기 5:8</a>은 이렇게 알려 줍니다. “방패도 창도 보이지 않았네, <strong>이스라엘</strong>의 사만 명 가운데.” 이스라엘 병사들의 무장은 보잘것없었습니다. 설령 창과 방패가 있었다 해도, 그것으로는 철낫이 달린 병거를 당해 낼 수 없을 것이었습니다. 바락이 다볼 산에 올라갔다는 소식을 듣자마자 시스라는 그의 모든 병거들과 군대를 키손 급류 골짜기로 소집하였습니다. (<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/8/0">재판관 4:12, 13</a>) 시스라가 깨닫지 못한 것은 그가 전능하신 하느님과 싸우게 될 것이라는 사실이었습니다.</div><div class="ss" data-pid="15" id="p15" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>바락이 시스라의 군대를 패주시키다</strong></div><div class="sb" data-pid="16" id="p16" style="margin-top: 0; margin-bottom: 8px">결전의 순간이 다가왔을 때, 드보라는 바락에게 이렇게 말합니다. “일어나십시오. 바로 오늘이 <strong>여호와</strong>께서 <strong>시스라</strong>를 당신의 손에 넘겨 주실 날입니다. <strong>여호와</strong>께서 친히 당신보다 앞서 나가지 않으셨습니까?” 바락과 그의 군사들은 다볼 산의 꼭대기에서 골짜기 평야로 내려가게 되는데, 그곳에서는 시스라의 병거들이 전략적으로 유리한 위치를 차지할 것이었습니다. 당신이 바락의 군대에 속했다면 어떻게 느꼈겠습니까? 명령이 여호와로부터 온 것임을 기억하며 주저하지 <span aria-hidden="true" class="pageNum" data-before-text="30" data-no="30" id="page30"></span>않고 따랐겠습니까? 바락과 그의 만 명의 군사들은 그렇게 하였습니다. 그러자 “<strong>여호와</strong>께서는 <strong>시스라</strong>와 그의 모든 병거와 온 진영을 <strong>바락</strong> 앞에서 칼날로 혼란에 빠뜨리셨[습니다].”—<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/9/0">재판관 4:14, 15</a>.</div><div class="sb" data-pid="17" id="p17" style="margin-top: 0; margin-bottom: 8px">여호와의 후원으로 바락은 시스라의 군대를 패주시켰습니다. 전투 기록은 무슨 일이 일어났는지 다 설명하지는 않습니다. 하지만 바락과 드보라가 부른 승리의 노래에서는 ‘하늘과 구름이 물을 떨어뜨렸다’라고 알려 줍니다. 아마도 폭풍우가 시스라의 병거들이 진흙에 빠지게 만들어서 바락이 유리해지게 했던 것 같습니다. 이렇게 하여 가나안 병사들의 주된 공격 무기가 오히려 장애물이 되고 말았습니다. 시스라의 병사들의 시체에 대해, 노래는 “키손의 급류가 그들을 휩쓸어 갔네”라고 알려 줍니다.—<a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/10/0">재판관 5:4,</a><a class="b" data-bid="11-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/10/1"> 21</a>.</div><div class="sb" data-pid="18" id="p18" style="margin-top: 0; margin-bottom: 8px">이러한 일은 있을 법한 일입니까? 키손 급류 골짜기는 와디 즉 평소에는 물이 거의 흐르지 않는 하천 바닥입니다. 폭풍우가 오거나 장마가 지면, 이런 하천은 갑자기 물이 불어서 물살이 빠르고 위험한 급류가 되기 쉽습니다. 제1차 세계 대전 중에 동일한 지역의 두꺼운 진흙층에 단지 15분 동안 비가 내리자 모든 기병대의 작전 성공이 위태롭게 되었다고 합니다. 1799년 4월 16일에 벌어진 나폴레옹과 투르크 간의 다볼 산 전투에 관한 기록에서는 “많은 투르크 병사들이 키손 강이 범람한 평야를 가로질러 도망하려다 익사했다”고 알려 줍니다.</div><div class="sb" data-pid="19" id="p19" style="margin-top: 0; margin-bottom: 8px">유대인 역사가 플라비우스 요세푸스는 시스라의 군대와 바락의 군대가 맞서 싸우려 할 때 “하늘로부터 엄청난 비와 우박을 동반한 폭풍이 몰아치기 시작했다. 바람이 가나안인들의 정면으로 불어 비가 그들의 얼굴에 부딪혀 눈을 뜨지 못하게 되니 그들의 활과 무릿매는 아무 소용이 없게 되었다”고 주장합니다.</div><div class="sb" data-pid="20" id="p20" style="margin-top: 0; margin-bottom: 8px"><a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/11/0">재판관기 5:20</a>은 “하늘에서 별들이 싸웠으니, 그 궤도에서 <strong>시스라</strong>와 싸웠네”라고 알려 줍니다. 어떻게 별들이 시스라와 싸웠습니까? 이 표현이 하느님의 도움을 언급한 것이라는 견해가 있습니다. 다른 견해들은 천사의 도움이나 유성우 혹은 시스라가 의존한 점성술적인 예언이 거짓으로 판명된 것을 말한다고 지적합니다. 성서에서 어떻게 실제로 별들이 이 전투에서 싸웠는지 설명해 주지 않기 때문에, 이 표현은 이스라엘 군대를 위해 하느님께서 어떤 형태로인가 개입하셨음을 지적하는 표현으로 이해해도 충분할 것 같습니다. 어떤 일이 벌어진 것이든, 이스라엘 병사들은 이 상황을 온전히 활용하였습니다. “<strong>바락</strong>은 그 병거들[을] ··· 뒤쫓았고, <strong>시스라</strong>의 온 진영이 칼날에 쓰러져, 한 사람도 남지 않았다.” (<a class="b" data-bid="13-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/12/0">재판관 4:16</a>) 군대 대장 시스라에게는 무슨 일이 일어났습니까?</div><div class="ss" data-pid="21" id="p21" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>압제자가 “여자의 손에” 떨어지다</strong></div><div class="sb" data-pid="22" id="p22" style="margin-top: 0; margin-bottom: 8px">성서는 이렇게 알려 줍니다. “<strong>시스라</strong>는 [전투를 포기하고] 도보로 <strong>겐</strong> 사람 <strong>헤벨</strong>의 아내 <strong>야엘</strong>의 천막으로 도망하였는데, <strong>하솔</strong> 왕 <strong>야빈</strong>과 <strong>겐</strong> 사람 <strong>헤벨</strong>의 집안 사이에 평화가 있었기 때문이다.” 야엘은 기진맥진한 시스라를 자신의 천막으로 맞아들여 우유를 마시게 하고 그를 담요로 덮어 주어 잠들게 하였습니다. 그러고 나서 야엘은 “천막 말뚝을 가져와서, 망치를 손에 들”었는데 그런 물건들은 천막 거주자들이 늘 사용하는 것들이었습니다. 야엘은 “가만히 그에게 가서 말뚝을 그의 관자놀이에 박고 그것을 쳐서 땅에 꽂았다. 그때에 그는 깊이 잠들어 있었고 지쳐 있었던 것이다. 그리하여 그가 죽었다.”—<a class="b" data-bid="14-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/13/0">재판관 4:17-21</a>.</div><div class="sb" data-pid="23" id="p23" style="margin-top: 0; margin-bottom: 8px">그다음 야엘은 밖으로 나와 바락을 맞으며 이렇게 말하였습니다. “오십시오. 제가 당신이 찾고 있는 사람을 보여 드리겠습니다.” 기록은 계속해서 이렇게 알려 줍니다. “<strong>바락</strong>이 그에게로 들어가 보니, 보라! <strong>시스라</strong>가 <span aria-hidden="true" class="pageNum" data-before-text="31" data-no="31" id="page31"></span>죽어 쓰러져 있었고, 그의 관자놀이에는 말뚝이 박혀 있었다.” 바락에게는 참으로 믿음을 강화시켜 주는 경험이었을 것입니다! 앞서 여예언자 드보라는 그에게 이렇게 말했던 적이 있습니다. “당신이 가는 길에서, 아름답게 하는 것은 당신의 것이 되지 않을 것입니다. <strong>여호와</strong>께서 <strong>시스라</strong>를 여자의 손에 파실 것이기 때문입니다.”—<a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/14/0">재판관 4:9,</a><a class="b" data-bid="15-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/14/1"> 22</a>.</div><div class="sb" data-pid="24" id="p24" style="margin-top: 0; margin-bottom: 8px">야엘의 행동을 배신 행위라고 할 수 있습니까? 여호와께서는 그렇게 보시지 않았습니다. 바락과 드보라가 부른 승리의 노래에서는 이렇게 알려 줍니다. “[야엘은] 천막에 사는 여자들 가운데 가장 축복받으리라.” 이 노래는 시스라의 죽음을 올바른 시각으로 바라보게 해 줍니다. 시스라의 어머니는 그가 전투에서 돌아오기만을 초조하게 기다리고 있는 것으로 묘사됩니다. 그 여자는 “어찌하여 그의 병거가 더디 오는가?” 하고 묻습니다. “그의 존귀한 여인들 가운데 지혜로운 자들”이 시스라가 틀림없이 전리품을 나누고 있을 것이라고—아름답게 수놓은 옷들과 남자들에게 줄 여자들을 나누고 있을 것이라고 말하며 그 여자가 느끼는 두려움을 가라앉히려고 애씁니다. 여인들은 이렇게 묻습니다. “그들이 ··· 전리품을 나누어야 하지 않겠는가? 한 태씩—두 태씩[사로잡은 첩들에 대해 병사들이 사용하는 표현, 신세계역 참조주 성서 각주 참조] 모든 장정에게 <strong>시스라</strong>를 위하여 염색한 직물 전리품을 ··· 수놓은 옷, 염색한 직물, 수놓은 옷 두 벌을, 전리품을 얻은 사람들의 목에.”—<a class="b" data-bid="16-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/15/0">재판관 5:24,</a><a class="b" data-bid="16-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/15/1"> 28-30</a>.</div><div class="ss" data-pid="25" id="p25" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>우리가 배울 수 있는 교훈</strong></div><div class="sb" data-pid="26" id="p26" style="margin-top: 0; margin-bottom: 8px">우리는 바락에 대한 기록으로부터 중요한 교훈을 배울 수 있습니다. 자신들의 삶에서 여호와를 배척하는 사람은 누구나 반드시 문제들과 좌절감으로 인해 고통받을 것이라는 점입니다. 회개하고 하느님께 돌아와 그분에 대한 믿음을 나타내는 사람들은 다양한 형태의 압제로부터 해방될 수 있습니다. 우리는 또한 순종의 영을 배양해야 하지 않겠습니까? 하느님께서 요구하시는 것이 인간적인 추리와 반대되는 것처럼 보인다 하더라도 우리는 그분이 지시하신 것이 언제나 우리의 영속적인 유익을 위한 것임을 확신할 수 있습니다. (<a class="b" data-bid="17-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/16/0">이사야 48:17, 18</a>) 바락이 “타국인들의 군대를 패주”시킬 수 있었던 것은 전적으로 여호와께 믿음을 나타내고 그분의 지시에 순종하였기 때문입니다.—<a class="b" data-bid="18-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/17/0">히브리 11:32-34</a>.</div><div class="sb" data-pid="27" id="p27" style="margin-top: 0; margin-bottom: 8px">드보라와 바락이 부른 노래는 이와 같은 강렬한 표현으로 끝납니다. “당신의 적은 모두 이와 같이 망하게 하십시오, 오 <strong>여호와</strong>여, 당신을 사랑하는 이들은 해가 위력 있게 나갈 때처럼 되게 하십시오.” (<a class="b" data-bid="19-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2003848/18/0">재판관 5:31</a>) 여호와께서 사탄의 악한 세상에 종말을 가져오실 때 분명히 이 말이 참되다는 것이 증명될 것입니다!</div><div class="se" data-pid="28" id="p28" style="margin-top: 0; margin-bottom: 8px"><strong>[29면 삽화]</strong></div><div class="sc" data-pid="29" id="p29" style="margin-top: 0; margin-bottom: 8px">여호와께서는 드보라를 사용하시어 바락을 부르셨다</div><div class="se" data-pid="30" id="p30" style="margin-top: 0; margin-bottom: 8px"><strong>[31면 삽화]</strong></div><div class="sc" data-pid="31" id="p31" style="margin-top: 0; margin-bottom: 8px">범람하는 키손 강</div><div class="sc" data-pid="32" id="p32" style="margin-top: 0; margin-bottom: 8px"><strong>[자료 제공]</strong></div><div class="sc" data-pid="33" id="p33" style="margin-top: 0; margin-bottom: 8px">Pictorial Archive (Near Eastern History) Est.</div><div class="se" data-pid="34" id="p34" style="margin-top: 0; margin-bottom: 8px"><strong>[31면 삽화]</strong></div><div class="sc" data-pid="35" id="p35" style="margin-top: 0; margin-bottom: 8px">다볼 산</div><div class="sb" data-pid="36" id="p36" style="margin-top: 0; margin-bottom: 8px"></div></td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="{BibleBookName} {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value="{BibleBookName} {StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value="{BibleBookName} {BibleVerse}"/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="용기 있게 하느님과 함께 걸으십시오 {StartingPageNumber}-{EndingPageNumber}면"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="용기 있게 하느님과 함께 걸으십시오 {PageNumber}면"/>
+<input id="documentDescription" type="hidden" value="용기 있게 하느님과 함께 걸으십시오"/>
+<input id="englishSym" type="hidden" value="wcg"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="audioPubSym" type="hidden" value="wcg"/>
+<input id="chapNo" type="hidden" value="16"/>
+<input id="issue" type="hidden" value=""/>
+<input id="docId" type="hidden" value="1102025916"/>
+<input id="documentInBible" type="hidden" value=""/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=KO&amp;docid=1102025916&amp;srctype=wol&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="document"/>
+<input id="contentTitle" type="hidden" value="“내가 반드시 당신과 함께 가겠습니다”"/>
+<input id="parentTitle" type="hidden" value="용기 있게 하느님과 함께 걸으십시오"/>
+<input id="contentThumbnail" type="hidden" value="/ko/wol/d/r8/lp-ko/1102025916/thumbnail"/>
+</article>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Gather all alternate presentation elements and their images
+        const altPresElements = Array.from(document.querySelectorAll('.alternatePresentation'));
+        const altImages = altPresElements.map(el => {
+            const img = el.querySelector('img');
+            if (img) {
+                return {
+                    src: img.getAttribute('data-alt-src') || img.getAttribute('src'),
+                    title: el.querySelector('.title')?.textContent || "Image"
+                };
+            }
+            return null;
+        }).filter(Boolean);
+
+        // 2. Create Lightbox DOM structure dynamically
+        const lightbox = document.createElement('div');
+        lightbox.className = 'custom-lightbox';
+        lightbox.innerHTML = `
+            <button class="custom-lightbox-close">&times;</button>
+            <button class="custom-lightbox-nav custom-lightbox-prev">&#10094;</button>
+            <div class="custom-lightbox-content">
+                <img class="custom-lightbox-img" src="" alt="" />
+            </div>
+            <button class="custom-lightbox-nav custom-lightbox-next">&#10095;</button>
+            <div class="custom-lightbox-caption"></div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('.custom-lightbox-img');
+        const lightboxCaption = lightbox.querySelector('.custom-lightbox-caption');
+        const closeBtn = lightbox.querySelector('.custom-lightbox-close');
+        const prevBtn = lightbox.querySelector('.custom-lightbox-prev');
+        const nextBtn = lightbox.querySelector('.custom-lightbox-next');
+
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        const openLightbox = (group, index) => {
+            currentGroup = group;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const updateLightbox = () => {
+            const item = currentGroup[currentIndex];
+            if (item) {
+                lightboxImg.src = item.src;
+                if (item.title && item.title.trim() !== "" && item.title.trim() !== "Printed Edition") {
+                    lightboxCaption.textContent = item.title;
+                    lightboxCaption.style.display = 'block';
+                } else {
+                    lightboxCaption.textContent = "";
+                    lightboxCaption.style.display = 'none';
+                }
+                if (currentGroup.length > 1) {
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                } else {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                }
+            }
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImg.src = '';
+            lightboxCaption.textContent = '';
+        };
+
+        const navigate = (direction) => {
+            if (currentGroup.length <= 1) return;
+            currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+            updateLightbox();
+        };
+
+        // Event Listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('custom-lightbox-content')) {
+                closeLightbox();
+            }
+        });
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Attach click handlers to alternate presentations
+        altPresElements.forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(altImages, index);
+            });
+        });
+
+        // Attach click handlers to other zoomable figure images
+        document.querySelectorAll('article figure img:not(.suppressZoom)').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = img.getAttribute('data-alt-src') || img.getAttribute('src');
+                const title = img.getAttribute('alt') || "";
+                openLightbox([{ src, title }], 0);
+            });
+        });
+    });
+    </script>
+</body>
+</html>
