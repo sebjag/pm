@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>모든 나라 사람들이 자신들의 언어로 진리를 듣고 있습니다 — 워치타워 온라인 라이브러리</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">📰</text></svg>'>
+    <link rel="stylesheet" type="text/css" href="css/media-player.css">
+    <link rel="stylesheet" type="text/css" href="css/+0+61168f8ef805085f5a3c0118b14679f74c9e62a4.css">
+    <link rel="stylesheet" type="text/css" href="css/+1+f8319dd08c749624466cb777b7d528e1a42d7368.css">
+    <link rel="stylesheet" type="text/css" href="css/+2+894de4a6eba76bf97927253f95f582449947a96e.css">
+    <link rel="stylesheet" type="text/css" href="css/+3+d00a791fdbb951906e95f1428ae322e41ea9da95.css">
+    <style>
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @media screen and (min-width: 600px) {
+            .document, .bible {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 16px 50px 80px;
+            }
+            .document .dc-bleedToArticleEdge, .bible .dc-bleedToArticleEdge {
+                margin-left: -50px;
+                margin-right: -50px;
+            }
+            .document .dc-paddingToContentEdge, .bible .dc-paddingToContentEdge {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        #content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+        .inserted-reference {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+            font-size: 0.95em;
+        }
+        .inserted-reference-header {
+            margin: 0;
+            padding: 4px 16px;
+            background-color: #e2e6ea;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #495057;
+        }
+        .inserted-reference-header a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #1a73e8;
+        }
+        .inserted-reference-header a:hover {
+            text-decoration: underline;
+        }
+        .inserted-reference > *:not(.inserted-reference-header) {
+            margin: 12px 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-style: italic;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        /* Custom Lightbox Styles */
+        .custom-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            /* user-select: none; */
+            /* -webkit-user-select: none; */
+        }
+        .custom-lightbox.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .custom-lightbox-content {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 35px;
+            color: #fff;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10002;
+            transition: transform 0.2s ease;
+        }
+        .custom-lightbox-close:hover {
+            transform: scale(1.1);
+        }
+        .custom-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 20px;
+        }
+        .custom-lightbox-nav:hover {
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .custom-lightbox-prev {
+            left: 0px;
+        }
+        .custom-lightbox-next {
+            right: 0px;
+        }
+        .custom-lightbox-caption {
+            color: #ccc;
+            margin-top: 15px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 80%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body, #content {
+                background-color: #171c2a !important;
+                color: #e2e8f0;
+            }
+            .document, .bible, .article, #article {
+                background-color: #1e293b !important;
+                color: #e2e8f0;
+            }
+            .scalableui, .bodyTxt {
+                background-color: transparent !important;
+                color: #e2e8f0;
+            }
+            .du-bgColor--bgSecondary, .du-bgColor--warmGray-50,
+            [class*="du-bgColor--bgSecondary"], [class*="du-bgColor--warmGray-"],
+            #tt9, .document #tt9, body #tt9,
+            .document [class*="du-bgColor--bgSecondary"], body [class*="du-bgColor--bgSecondary"],
+            .document [class*="du-bgColor--warmGray-"], body [class*="du-bgColor--warmGray-"] {
+                background-color: #2d3a4f !important;
+                color: #e2e8f0 !important;
+            }
+            .du-borderColor--borderDefault, hr {
+                border-color: #3b4d66 !important;
+            }
+            .du-color--teal-700 {
+                color: #2dd4bf !important;
+            }
+            h1, h2, h3, h4, h5, h6, strong {
+                color: #f8fafc;
+            }
+            a, a.b, a.vl, a.fn, a:visited {
+                color: #60a5fa;
+            }
+            a:hover, a.b:hover, a.vl:hover, a.fn:hover {
+                color: #93c5fd;
+            }
+            .du-color--textSubdued, .pageNum, .themeScrp {
+                color: #94a3b8 !important;
+            }
+            .inserted-reference {
+                background-color: #263346;
+                border: 1px solid #3b4d66;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .inserted-reference-header {
+                background-color: #1e2b3c;
+                border-bottom: 1px solid #3b4d66;
+                color: #cbd5e1;
+            }
+            .inserted-reference-header a {
+                color: #60a5fa;
+            }
+            .inserted-reference-header a:hover {
+                color: #93c5fd;
+            }
+            .note-card-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .note-card-header {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #cbd5e1 !important;
+            }
+            .note-card-header a {
+                color: #60a5fa !important;
+            }
+            .note-card-body {
+                color: #e2e8f0 !important;
+            }
+            .box-supplement-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+            }
+            .box-supplement-table th {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #f8fafc !important;
+            }
+            .box-supplement-table th h1, .box-supplement-table th h2,
+            .box-supplement-table th h3, .box-supplement-table th h4,
+            .box-supplement-table th strong, .box-supplement-table th p {
+                color: #f8fafc !important;
+            }
+            .box-supplement-table td {
+                color: #e2e8f0 !important;
+            }
+            .image-caption {
+                color: #94a3b8;
+            }
+            .custom-lightbox-img {
+                background-color: #1e293b;
+            }
+            .custom-lightbox-caption {
+                color: #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body  class="showRuby cc-theme--light DynamicLayout">
+    <div id="content" class="content">
+        <article class="article document html5 pub-w docId-2026562 pub-w26 pub-파 pub-w26 docClass-40 jwac showRuby ml-KO ms-KOREAN dir-ltr includeSecondaryNav" data-lang="KO" dir="ltr" id="article" lang="ko" role="article">
+<div class="scalableui">
+<header>
+<div class="dc-bleedToArticleEdge dc-paddingToContentEdge du-bgColor--purple-700 du-padding-vertical--2" id="tt2">
+<p class="contextTtl du-color--white" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="14" data-no="14" id="page14"></span><strong>2026년 11월 16-22일</strong></p>
+</div>
+<div class="du-color--textSubdued du-margin-vertical--8" id="tt4">
+<p class="pubRefs" data-pid="2" id="p2"><a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/2026562/0/0"><strong>노래 84</strong></a> 필요한 곳 어디든</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[노래 84]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<p class="contextTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="108" data-no="108" id="page108"></span><strong>84번</strong></p>
+<h1 data-pid="2" id="p2"><strong>필요한 곳 어디든</strong></h1>
+</header> 
+<p class="themeScrp" data-pid="3" id="p3">(<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016884/0/0">마태복음 9:37, 38</a>)</p>
+<div class="bodyTxt">
+<ol><li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="4" id="p4">여호와는 잘 아시네,</p>
+<p class="sz" data-pid="5" id="p5">어떤 삶이 행복한지.</p>
+<p class="sp" data-pid="6" id="p6">기쁨으로 섬기도록</p>
+<p class="sz" data-pid="7" id="p7">다양한 일 맡기셨네.</p>
+<div class="chorus"><p class="se" data-pid="8" id="p8">(후렴)</p>
+<p class="sp" data-pid="9" id="p9">모든 걸 드리리,</p>
+<p class="sz" data-pid="10" id="p10" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">여호와 위해.</p>
+<p class="sp" data-pid="11" id="p11">도움 필요한 곳 어디든</p>
+<p class="sz" data-pid="12" id="p12" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">달려가리라.</p>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="13" id="p13">우리 손길 필요한 곳</p>
+<p class="sz" data-pid="14" id="p14">온 세상에 참 많다네.</p>
+<p class="sp" data-pid="15" id="p15">정성 다해 도움 주고</p>
+<p class="sz" data-pid="16" id="p16">필요한 곳 찾아가리.</p>
+<div class="chorus"><p class="se" data-pid="17" id="p17">(후렴)</p>
+<p class="sp" data-pid="18" id="p18">모든 걸 드리리,</p>
+<p class="sz" data-pid="19" id="p19" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">여호와 위해.</p>
+<p class="sp" data-pid="20" id="p20">도움 필요한 곳 어디든</p>
+<p class="sz" data-pid="21" id="p21" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">달려가리라.</p>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="22" id="p22">멀리멀리 못 떠나도</p>
+<p class="sz" data-pid="23" id="p23">둘러보면 할 일 많네.</p>
+<p class="sp" data-pid="24" id="p24">건축 봉사, 외국어 밭,</p>
+<p class="sz" data-pid="25" id="p25">필요한 일 찾아 하리.</p>
+<div class="chorus"><p class="se" data-pid="26" id="p26">(후렴)</p>
+<p class="sp" data-pid="27" id="p27">모든 걸 드리리,</p>
+<p class="sz" data-pid="28" id="p28" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">여호와 위해.</p>
+<p class="sp" data-pid="29" id="p29">도움 필요한 곳 어디든</p>
+<p class="sz" data-pid="30" id="p30" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">달려가리라.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="closingContent"><p class="se" data-pid="31" id="p31">(<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016884/1/0">요한 4:35;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016884/1/1"> 사도 2:8;</a><a class="b" data-bid="2-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016884/1/2"> 로마 10:14</a> 참조)</p>
+</div>
+<p class="sb" data-pid="32" id="p32"></p>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+</div>
+<h1 class="du-color--coolGray-700 du-margin-top--8" data-pid="3" id="p3"><strong>모든 나라 사람들이 자신들의 언어로 진리를 듣고 있습니다</strong></h1>
+</header>
+<div class="du-color--textSubdued du-margin-vertical--8" id="tt8">
+<p class="themeScrp" data-pid="4" id="p4"><em>“나라들의 모든 언어에서 나온 사람 열 명이 유대인 한 명의 옷을 붙잡을 것이다.”</em>—<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/0/0">스가랴 8:23</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[스가랴 8:23]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v38-8-23-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070142/23115">23 </a>만군의 여호와가 말한다. ‘그날에 나라들의 모든 언어에서 나온 사람 열 명이<a class="b" data-bid="135-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070142/134">+</a> 유대인 한 명의 옷<a class="fn" data-fnid="38" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070142/37" id="footnotesource38">*</a><em> (각주: 또는 “옷자락”.)</em>을 붙잡을 것이다. 그들이 옷을 꼭 붙잡고 “우리도 여러분과 함께 가고 싶습니다.<a class="b" data-bid="136-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070142/135">+</a> 하느님께서 여러분과 함께 계시다는 말을 들었기 때문입니다”<a class="b" data-bid="137-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070142/136">+</a> 할 것이다.’”</span></td></tr></tbody></table></div>
+</div>
+<div class="du-color--textSubdued du-borderStyle-inlineStart--solid du-borderWidth--2 du-borderColor--purple-700 du-margin-vertical--8 du-margin-children--0 du-padding-inlineStart--4 du-padding-vertical--1" id="tt10">
+<p class="pubRefs" data-pid="5" id="p5"><strong>요점</strong></p>
+<p class="pubRefs" data-pid="6" id="p6">오늘날 여호와의 백성은 <a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/1/0">스가랴 8:23</a>의 예언을 어떻게 성취시키고 있습니까?</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[스가랴 8:23]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v38-8-23-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070142/23115">23 </a>만군의 여호와가 말한다. ‘그날에 나라들의 모든 언어에서 나온 사람 열 명이<a class="b" data-bid="135-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070142/134">+</a> 유대인 한 명의 옷<a class="fn" data-fnid="38" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070142/37" id="footnotesource38">*</a><em> (각주: 또는 “옷자락”.)</em>을 붙잡을 것이다. 그들이 옷을 꼭 붙잡고 “우리도 여러분과 함께 가고 싶습니다.<a class="b" data-bid="136-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070142/135">+</a> 하느님께서 여러분과 함께 계시다는 말을 들었기 때문입니다”<a class="b" data-bid="137-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070142/136">+</a> 할 것이다.’”</span></td></tr></tbody></table></div>
+</div>
+<div class="bodyTxt">
+<p class="qu" data-pid="40" id="p40"> <strong>1.</strong> 왜 좋은 소식이 다양한 언어로 전파되어야 합니까? (<a class="b" data-bid="29-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/28/0">로마서 10:13, 14</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[로마서 10:13, 14]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v45-10-13-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070149/28293">13 </a>“누구든지 여호와의 이름을 부르는 사람은 구원을 받을 것이다”라고<a class="b" data-bid="352-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070149/351">+</a> 했습니다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v45-10-14-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070149/28294">14 </a>하지만 믿은 적이 없는 분을 어떻게 부르겠습니까? 들어 본 적이 없는 분을 어떻게 믿겠습니까? 전파하는 사람이 없으면 어떻게 듣겠습니까? </span></div></td></tr></tbody></table></div>
+
+<p data-pid="7" data-rel-pid="[40]" id="p7"><span class="parNum" data-pnum="1"></span>성경에서는 고대에 사람들이 하나의 언어를 썼다고 알려 줍니다. 하지만 그들이 여호와께 반역해 바벨탑을 쌓기 시작하자, 여호와께서는 그들을 막으시려고 그들이 서로 다른 언어를 쓰게 하셨습니다. 그 결과 사람들은 같은 언어를 쓰는 사람들끼리 온 땅에 흩어져 살게 되었습니다. (<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/2/0">창세 11:6-9</a>) 하지만 여호와의 목적은 “모든 나라와 종족과 민족과 <strong><em>언어</em></strong>”에서 나온 “큰 무리”가 하나로 연합하여, 큰 환난을 통과해 신세계에서 행복하게 사는 것입니다. (<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/3/0">계시록 7:9, 10,</a><a class="b" data-bid="4-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/3/1"> 14</a>) 그처럼 다양한 언어를 사용하는 사람들이 큰 환난을 통과하려면 여호와의 이름을 불러야 합니다. 그러려면 무엇이 필요합니까? 자신들이 이해할 수 있는 언어로 왕국 소식을 들어야 합니다. <strong>(</strong><a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/4/0"><strong>로마서 10:13, 14</strong></a> <strong>낭독)</strong> 사람들이 여호와의 이름을 부르고 구원을 받도록 돕는 일에 참여하는 것은 정말 큰 특권입니다!</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[창세 11:6-9]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-11-6-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/272">6 </a>여호와께서 말씀하셨다. “보아라! 그들이 한 백성이고 언어가 하나이므로<a class="b" data-bid="254-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/253">+</a> 이런 일을 시작했구나. 이제는 그들이 하려고만 하면 무엇이든 못할 일이 없겠다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-11-7-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/273">7 </a>자! 우리가<a class="b" data-bid="255-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/254">+</a> 내려가서 그들의 언어를 혼란시켜 그들이 서로의 언어를 알아듣지 못하게 하자.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-11-8-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/274">8 </a>그리하여 여호와께서 그들을 거기서부터 온 땅으로 흩으시자,<a class="b" data-bid="256-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/255">+</a> 그들이 마침내 도시를 세우는 일을 그만두었다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-11-9-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070105/275">9 </a>그래서 그곳의 이름을 바벨<a class="fn" data-fnid="87" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070105/86" id="footnotesource87">*</a><em> (각주: “혼란”을 의미함.)</em>이라 했는데,<a class="b" data-bid="257-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070105/256">+</a> 거기서 여호와께서 온 땅의 언어를 혼란시키셨기 때문이다. 여호와께서 그들을 거기서부터 온 땅으로 흩으셨다.</span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[계시록 7:9, 10,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v66-7-9-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070170/30911">9 </a>그 후에 내가 보니, 아무도 셀 수 없는 큰 무리가 모든 나라와 종족과 민족과 언어에서 나와<a class="b" data-bid="216-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070170/215">+</a> 왕좌 앞과 ‘어린양’ 앞에 희고 긴 옷을 입고<a class="b" data-bid="217-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070170/216">+</a> 서 있었다. 그들의 손에는 야자나무 가지가 있었다.<a class="b" data-bid="218-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070170/217">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v66-7-10-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070170/30912">10 </a>그들은 계속 큰 소리로 외쳤다. “우리의 구원은 왕좌에 앉아 계신 우리 하느님과<a class="b" data-bid="219-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070170/218">+</a> ‘어린양’에게<a class="b" data-bid="220-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070170/219">+</a> 있습니다.”</span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[14]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v66-7-14-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070170/30916">14 </a>나는 즉시 그에게 “내 주여, 당신이 아십니다” 하고 대답했다. 그러자 그가 내게 말했다. “이 사람들은 큰 환난에서<a class="b" data-bid="224-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070170/223">+</a> 나오는 사람들입니다. 그들은 ‘어린양’의 피에 자기들의 긴 옷을 씻어 희게 했습니다.<a class="b" data-bid="225-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070170/224">+</a> </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[로마서 10:13, 14]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v45-10-13-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070149/28293">13 </a>“누구든지 여호와의 이름을 부르는 사람은 구원을 받을 것이다”라고<a class="b" data-bid="352-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070149/351">+</a> 했습니다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v45-10-14-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070149/28294">14 </a>하지만 믿은 적이 없는 분을 어떻게 부르겠습니까? 들어 본 적이 없는 분을 어떻게 믿겠습니까? 전파하는 사람이 없으면 어떻게 듣겠습니까? </span></div></td></tr></tbody></table></div>
+<p class="qu" data-pid="42" id="p42"> <strong>2.</strong> 스가랴는 영감을 받아 어떤 예언을 했습니까?</p>
+
+<p data-pid="8" data-rel-pid="[42]" id="p8"><span class="parNum" data-pnum="2"><strong><sup>2</sup></strong></span> 요한 계시록이 기록되기 오래전에 여호와께서는 예언자 스가랴에게 영감을 주셔서 “많은 민족이 여호와와 함께하여 [그분의] 백성이 될” 것이라고 예언하게 하셨습니다. (<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/5/0">스가랴 2:11</a>) 그리고 스가랴는 이러한 예언도 했습니다. “만군의 여호와가 말한다. ‘그날에 나라들의 <strong><em>모든 언어</em></strong>에서 나온 사람 열 명이 유대인 한 명의 옷을 ··· 꼭 붙잡고 “우리도 여러분과 함께 가고 싶습니다. 하느님께서 여러분과 함께 계시다는 말을 들었기 때문입니다” 할 것이다.’” (<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/6/0">스가랴 8:23<span aria-hidden="true" class="pageNum" data-before-text="15" data-no="15" id="page15"></span></a>) 이 흥미로운 예언이 바로 우리 시대에 성취되고 있습니다. 이제 우리 각자가 이 예언이 성취되는 데 어떻게 기여할 수 있는지 알아보겠습니다.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[스가랴 2:11]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v38-2-11-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070142/23026">11 </a>“그날에 많은 민족이 여호와와 함께하여<a class="b" data-bid="41-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070142/40">+</a> 내 백성이 되겠고, 나는 네 가운데 거하겠다.” 그러면 너희는 만군의 여호와께서 나를 네게 보내신 줄 알게 될 것이다. </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[스가랴 8:23]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v38-8-23-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070142/23115">23 </a>만군의 여호와가 말한다. ‘그날에 나라들의 모든 언어에서 나온 사람 열 명이<a class="b" data-bid="135-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070142/134">+</a> 유대인 한 명의 옷<a class="fn" data-fnid="38" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070142/37" id="footnotesource38">*</a><em> (각주: 또는 “옷자락”.)</em>을 붙잡을 것이다. 그들이 옷을 꼭 붙잡고 “우리도 여러분과 함께 가고 싶습니다.<a class="b" data-bid="136-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070142/135">+</a> 하느님께서 여러분과 함께 계시다는 말을 들었기 때문입니다”<a class="b" data-bid="137-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070142/136">+</a> 할 것이다.’”</span></td></tr></tbody></table></div>
+<h2 class="du-color--coolGray-700 du-textAlign--center" data-pid="9" id="p9"><strong>“모든 언어에서 나온 사람 열 명”에게 좋은 소식을 전하는 일</strong></h2>
+<p class="qu" data-pid="44" id="p44"> <strong>3.</strong> 스가랴의 예언에 나오는 “유대인”은 오늘날 누구를 가리키며, “열 명”은 누구를 가리킵니까?</p>
+
+<p data-pid="10" data-rel-pid="[44]" id="p10"><span class="parNum" data-pnum="3"><strong><sup>3</sup></strong></span> 스가랴의 예언에 나오는 “유대인”은 하느님께 성령으로 기름부음받은 그리스도인들을 가리킵니다. 성경에서는 이들을 “하느님의 이스라엘”이라고 부르기도 합니다. (<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/7/0">갈라디아 6:16</a>) 그들은 “하늘의 부르심”을 받고 예수와 함께 하늘에서 통치할 사람들입니다. (<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/8/0">히브리 3:1</a>) 한편 “열 명”은 낙원이 된 땅에서 영원히 살 희망을 가진 겸손한 사람들을 가리킵니다. 이들은 다양한 국적을 가진 모든 언어권의 사람들로 이루어져 있습니다.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[갈라디아 6:16]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v48-6-16-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070152/29296">16 </a>이러한 행동 규범에 따라 사는<a class="fn" data-fnid="14" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070152/13" id="footnotesource14">*</a><em> (각주: 또는 “질서 있게 걷는”.)</em> 모든 사람 곧 하느님의 이스라엘에게<a class="b" data-bid="183-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070152/182">+</a> 평화와 자비가 있기를 바랍니다.</span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[히브리 3:1]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v58-3-1-1"><a class="cl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070162/30088"><strong>3</strong> </a>그러므로 하늘의 부르심<a class="fn" data-fnid="13" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070162/12" id="footnotesource13">*</a><em> (각주: 또는 “초대”.)</em>에<a class="b" data-bid="57-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070162/56">+</a> 참여하는 자들인 거룩한 형제 여러분, 우리가 인정하는<a class="fn" data-fnid="14" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070162/13" id="footnotesource14">*</a><em> (각주: 또는 “믿는다고 고백하는”.)</em> 사도이며 대제사장이신 예수를<a class="b" data-bid="58-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070162/57">+</a> 생각하십시오. </span></td></tr></tbody></table></div>
+<p class="qu" data-pid="46" id="p46"> <strong>4.</strong> 예수께서 1919년에 “충실하고 슬기로운 종”을 임명하신 후에 어떤 일이 있었습니까?</p>
+
+<p data-pid="11" data-rel-pid="[46]" id="p11"><span class="parNum" data-pnum="4"><strong><sup>4</sup></strong></span> 예수께서는 1919년에 “충실하고 슬기로운 종”을 임명하셨습니다. (<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/9/0">마태 24:45</a>) 이 형제들은 자신들이 맡은 임무가 세계적인 규모로 수행되어야 할 일임을 깨달았습니다. 그 일에는 성경의 소식을 수많은 언어로 번역하는 일이 포함될 것이었습니다. 물론 그 전에도 성경 연구생들은 세계 곳곳에서 다양한 언어로 “창조 사진극”을 상영했습니다. 하지만 충실한 종은 그것만으로는 충분하지 않다는 것을 알았습니다. 예를 들어, 그들은 1921년에 성서 연구 보조 서적인 「하나님의 거문고」라는 책을 발행했습니다. 그 책은 36개 언어로 번역되었습니다. 1935년에는 “큰 무리”가 누구인지 명확히 분별하게 되면서, 전 세계의 다양한 언어를 사용하는 사람들에게 전파해야 한다는 것을 깨달았습니다. 이렇게 여호와께서는 20세기 초에 충실한 종을 사용해, 좋은 소식이 세계적으로 전파되고 스가랴의 예언이 성취될 수 있도록 토대를 놓으셨습니다.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[마태 24:45]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v40-24-45-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070144/24118">45 </a>주인이 자기 집안 일꾼들을 돌보도록 임명하여 그들에게 제때에 양식을 나누어 주게 한 충실하고 슬기로운 종은 과연 누구입니까?<a class="b" data-bid="875-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/874">+</a> </span></td></tr></tbody></table></div>
+<h2 class="du-color--coolGray-700 du-textAlign--center" data-pid="12" id="p12"><strong>“당신의 백성이 자신을 기꺼이 바칠 것입니다”</strong></h2>
+<p class="qu" data-pid="48" id="p48"><strong>5-6.</strong> <a class="b" data-bid="30-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/29/0">이사야 2:2-4</a>의 예언이 오늘날 어떻게 성취되고 있습니까? (또한 삽화 참조)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[이사야 2:2-4]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070127/17803">2 </a>말일<a class="fn" data-fnid="14" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070127/13" id="footnotesource14">*</a><em> (각주: 또는 “마지막 날”.)</em>에</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-2">여호와의 집의 산이</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-3">산들의 꼭대기보다 높이 굳게 서고<a class="b" data-bid="67-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070127/66">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-4">언덕들 위에 높이 솟아오를 것이니,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-5">그리로 모든 나라 사람들이 몰려들 것이다.<a class="b" data-bid="68-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070127/67">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070127/17804">3 </a>많은 민족들이 가면서 말할 것이다.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-2">“오라, 여호와의 산으로 올라가자.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-3">야곱의 하느님의 집으로 올라가자.<a class="b" data-bid="69-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070127/68">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-4">그분이 우리에게 그분의 길을 가르치실 것이니,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-5">우리가 그 길로 걸을 것이다.”<a class="b" data-bid="70-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070127/69">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-6">법<a class="fn" data-fnid="15" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070127/14" id="footnotesource15">*</a><em> (각주: 또는 “교훈; 가르침”.)</em>이 시온에서,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-7">여호와의 말씀이 예루살렘에서 나올 것이기 때문이다.<a class="b" data-bid="71-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070127/70">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070127/17805">4 </a>그분은 나라들 가운데서 심판하시고</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-2">많은 민족들에 관한 문제들을 바로잡으실 것이다.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-3">그들은 칼을 쳐서 보습을 만들고</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-4">창을 쳐서 낫을 만들 것이다.<a class="b" data-bid="72-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070127/71">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-5">나라가 나라를 대적하여 칼을 들지도 않고</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-6">다시는 전쟁을 배워 익히지도 않을 것이다.<a class="b" data-bid="73-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070127/72">+</a></span></div></td></tr></tbody></table></div>
+
+<p data-pid="13" data-rel-pid="[48]" id="p13"><span class="parNum" data-pnum="5"><strong><sup>5</sup></strong></span> 하느님의 백성은 좋은 소식을 세계 곳곳에 계속 전했습니다. 그러한 소식을 들은 다양한 언어권의 수많은 사람들은 여호와에 대해 배우고 그분을 숭배하기를 원했습니다. 이사야의 예언이 성취된 것입니다! <strong>(</strong><a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/10/0"><strong>이사야 2:2-4</strong></a> <strong>낭독)</strong> 하느님의 백성은 마음이 올바른 그러한 사람들을 돕기 위해 “자신을 기꺼이” 바쳤습니다. 진리를 전하는 일에 더해, 생명의 소식이 담긴 출판물을 더 많은 언어로 번역하고 인쇄하고 세계 전역의 필요한 곳으로 보내는 일에 최선을 다했습니다. (<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/11/0">시 68:11;</a><a class="b" data-bid="12-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/11/1"> 110:3</a>) 또한 많은 형제자매들이 우리 웹사이트와 「JW 라이브러리」와 같은 프로그램들을 개발하고 관리하는 일에 참여해 왔습니다. 이러한 도구들 덕분에 다양한 언어를 사용하는 사람들이 성경에 대해 배울 수 있습니다.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[이사야 2:2-4]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070127/17803">2 </a>말일<a class="fn" data-fnid="14" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070127/13" id="footnotesource14">*</a><em> (각주: 또는 “마지막 날”.)</em>에</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-2">여호와의 집의 산이</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-3">산들의 꼭대기보다 높이 굳게 서고<a class="b" data-bid="67-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070127/66">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-4">언덕들 위에 높이 솟아오를 것이니,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-5">그리로 모든 나라 사람들이 몰려들 것이다.<a class="b" data-bid="68-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070127/67">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070127/17804">3 </a>많은 민족들이 가면서 말할 것이다.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-2">“오라, 여호와의 산으로 올라가자.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-3">야곱의 하느님의 집으로 올라가자.<a class="b" data-bid="69-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070127/68">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-4">그분이 우리에게 그분의 길을 가르치실 것이니,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-5">우리가 그 길로 걸을 것이다.”<a class="b" data-bid="70-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070127/69">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-6">법<a class="fn" data-fnid="15" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070127/14" id="footnotesource15">*</a><em> (각주: 또는 “교훈; 가르침”.)</em>이 시온에서,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-7">여호와의 말씀이 예루살렘에서 나올 것이기 때문이다.<a class="b" data-bid="71-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070127/70">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070127/17805">4 </a>그분은 나라들 가운데서 심판하시고</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-2">많은 민족들에 관한 문제들을 바로잡으실 것이다.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-3">그들은 칼을 쳐서 보습을 만들고</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-4">창을 쳐서 낫을 만들 것이다.<a class="b" data-bid="72-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070127/71">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-5">나라가 나라를 대적하여 칼을 들지도 않고</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-6">다시는 전쟁을 배워 익히지도 않을 것이다.<a class="b" data-bid="73-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070127/72">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[시 68:11;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-68-11-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070123/14974">11 </a>여호와께서 명령하시니,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-68-11-2">좋은 소식을 선포하는 여자들이 큰 군대로구나.<a class="b" data-bid="1290-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070123/1289">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[110:3]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-110-3-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070123/15882">3 </a>당신의 군대의 날에<a class="fn" data-fnid="789" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070123/788" id="footnotesource789">*</a><em> (각주: 또는 “당신의 군대가 집결하는 날에”.)</em> 당신의 백성이 자신을 기꺼이 바치리니,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-110-3-2">영화로운 거룩함 가운데, 새벽의 태에서</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-110-3-3">이슬방울 같은 청년들의 무리가 당신에게 나옵니다.</span></div></td></tr></tbody></table></div>
+<p data-pid="14" data-rel-pid="[48]" id="p14"><span class="parNum" data-pnum="6"><strong><sup>6</sup></strong></span> 하느님의 백성은 그 밖에도 여러 가지 방법으로 전파 활동을 지원합니다. 한 가지 방법은 자발적인 헌금을 통해 전파 활동을 재정적으로 지원하는 것입니다. 이러한 헌금 덕분에 생명의 소식이 담긴 출판물이 1100개가 넘는 언어로 생산되고 있습니다. 그 결과 매년 수십만 명의 사람들이 침례를 받습니다.</p>
+<div class="du-margin-top--8" id="f1">
+<figure>
+<img alt="삽화 모음: 세계 전역에서 진행되는 신권 활동. 1. 여호와께서 왕좌에 앉아 계시고 천사가 지구 주위를 날고 있습니다. 2. 중앙장로회가 회의를 하고 있는 모습이 실루엣으로 그려져 있습니다. 3. 번역 팀이 번역을 하고 있습니다. 4. 인쇄부에서 일하는 한 형제가 방금 인쇄된 「행복한 삶을 영원히 누리십시오!」 책을 확인하고 있습니다. 5. 한 형제와 자매가 봉사 중에 한 여자에게 수어로 된 동영상을 보여 주고 있습니다. 6. 휴대폰 화면에 JW 라이브러리 앱이 띄워져 있습니다." data-img-small-src="/ko/wol/mp/r8/lp-ko/w26/2026/535" src="https://wol.jw.org/ko/wol/mp/r8/lp-ko/w26/2026/534" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption">
+<p data-pid="74" id="p74">세계 전역에서 모든 언어권의 사람들이 충실하고 슬기로운 종이 제공하는 영적 양식으로부터 유익을 얻고 있습니다 (5-6항 참조)</p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">삽화 모음: 세계 전역에서 진행되는 신권 활동. 1. 여호와께서 왕좌에 앉아 계시고 천사가 지구 주위를 날고 있습니다. 2. 중앙장로회가 회의를 하고 있는 모습이 실루엣으로 그려져 있습니다. 3. 번역 팀이 번역을 하고 있습니다. 4. 인쇄부에서 일하는 한 형제가 방금 인쇄된 「행복한 삶을 영원히 누리십시오!」 책을 확인하고 있습니다. 5. 한 형제와 자매가 봉사 중에 한 여자에게 수어로 된 동영상을 보여 주고 있습니다. 6. 휴대폰 화면에 JW 라이브러리 앱이 띄워져 있습니다.</td></tr></tbody></table></div></figure>
+</div>
+<hr class="du-width--oneQuarter du-borderColor--purple-700 du-borderWidth--2 du-margin-top--0 du-margin-bottom--8"/>
+<p class="qu" data-pid="50" id="p50"> <strong>7.</strong> 스가랴와 요한이 한 예언들이 성취되는 것을 보면 어떤 마음을 갖게 됩니까? (<a class="b" data-bid="31-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/30/0">요한 계시록 14:6</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[요한 계시록 14:6]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v66-14-6-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070170/31024">6 </a>나는 또 다른 천사가 하늘 한가운데를<a class="fn" data-fnid="52" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070170/51" id="footnotesource52">*</a><em> (각주: 또는 “공중을; 머리 위에서”.)</em> 날고 있는 것을 보았다. 그는 땅에 사는 사람들, 곧 모든 나라와 종족과 언어와 민족에게 선포할 영원한 좋은 소식을<a class="b" data-bid="379-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070170/378">+</a> 가지고 있었다. </span></td></tr></tbody></table></div>
+
+<p data-pid="15" data-rel-pid="[50]" id="p15"><span class="parNum" data-pnum="7"><strong><sup>7</sup></strong></span> 현재 여호와의 백성은 언어 장벽을 무너뜨리는 여러 도구들을 갖고 있습니다. 천사의 인도 아래 그들은 어깨를 나란히 하여 “모든 나라와 종족과 언어와 민족”에게 “영원한 좋은 소식<span aria-hidden="true" class="pageNum" data-before-text="16" data-no="16" id="page16"></span>”을 전하고 있습니다. <strong>(</strong><a class="b" data-bid="13-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/12/0"><strong>요한 계시록 14:6</strong></a> <strong>낭독)</strong> 그렇습니다. 스가랴와 요한이 한 예언들이 오늘날 놀랍게 성취되고 있습니다. 그 점을 생각해 보면 다른 성경 예언들도 반드시 성취될 것이라는 확신이 강해지지 않습니까? 또한 하느님께서 좋은 소식을 전하기 위해 사용하시는 이 조직에 계속 충성해야겠다고 굳게 결심하게 되지 않습니까?</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[요한 계시록 14:6]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v66-14-6-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070170/31024">6 </a>나는 또 다른 천사가 하늘 한가운데를<a class="fn" data-fnid="52" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070170/51" id="footnotesource52">*</a><em> (각주: 또는 “공중을; 머리 위에서”.)</em> 날고 있는 것을 보았다. 그는 땅에 사는 사람들, 곧 모든 나라와 종족과 언어와 민족에게 선포할 영원한 좋은 소식을<a class="b" data-bid="379-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070170/378">+</a> 가지고 있었다. </span></td></tr></tbody></table></div>
+<h2 class="du-color--coolGray-700 du-textAlign--center" data-pid="16" id="p16"><strong>현대의 기적</strong></h2>
+<p class="qu" data-pid="52" id="p52"> <strong>8.</strong> 기원 33년 오순절에 여호와께서는 어떤 놀라운 일을 하셨습니까?</p>
+
+<p data-pid="17" data-rel-pid="[52]" id="p17"><span class="parNum" data-pnum="8"><strong><sup>8</sup></strong></span> 기원 33년 오순절에 여호와께서는 놀라운 일을 하셨습니다. 예루살렘에 있던 예수의 제자들이 기적으로 갑자기 여러 외국어를 하게 해 주신 것입니다. (<a class="b" data-bid="14-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/13/0">사도 2:4-10</a>) 그분이 그렇게 하신 이유는 무엇입니까? 당시 예루살렘에 와 있던 여러 지역의 사람들이 자신들의 언어로 “하느님의 장엄한 일들”에 관해 듣기를 바라셨기 때문입니다. (<a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/14/0">사도 2:11</a>) 오늘날 우리도 1세기 제자들과 비슷한 일을 할 수 있습니다. 우리는 다양한 언어로 된 출판물을 사용해, 관심을 가진 사람들에게 그들의 마음에 이르는 언어로 진리를 전해 줄 수 있습니다.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[사도 2:4-10]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-2-4-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070148/27045">4 </a>그러자 그들은 모두 성령으로 충만하여,<a class="b" data-bid="37-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070148/36">+</a> 영이 말하게 하는 대로 여러 언어로 말하기 시작했다.<a class="b" data-bid="38-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070148/37">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-2-5-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070148/27046">5 </a>그때에 예루살렘에는 하늘 아래 있는 모든 나라에서 온 독실한 유대인들이 머물고 있었다.<a class="b" data-bid="39-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070148/38">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-2-6-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070148/27047">6 </a>그 소리가 나자 군중이 모여들었는데, 자기들의 언어로 제자들이 말하는 것을 듣고 모두 어리둥절해했다. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-2-7-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070148/27048">7 </a>그들은 몹시 놀라며 말했다. “저것 좀 보시오. 지금 말하고 있는 저 사람들은 모두 갈릴리 사람이<a class="b" data-bid="40-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070148/39">+</a> 아니오? </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-2-8-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070148/27049">8 </a>그런데 우리가 저마다 자기 모국어를 듣고 있으니 어찌 된 일이오? </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-2-9-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070148/27050">9 </a>우리 중에는 파르티아 사람, 메디아 사람,<a class="b" data-bid="41-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070148/40">+</a> 엘람 사람,<a class="b" data-bid="42-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070148/41">+</a> 그리고 메소포타미아와 유대와 카파도키아의 주민, 폰투스와 아시아 속주의 주민,<a class="b" data-bid="43-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070148/42">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-2-10-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070148/27051">10 </a>프리지아와 팜필리아의 주민, 이집트 주민과 키레네 부근 리비아의 여러 지방 주민, 로마에서 온 체류자들, 곧 유대인들과 개종자들이 있소.<a class="b" data-bid="44-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070148/43">+</a> </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[사도 2:11]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v44-2-11-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070148/27052">11 </a>또 크레타 사람과 아라비아 사람도 있소. 그런데 저들이 우리 말로 하느님의 장엄한 일들에 관해 말하는 것을 우리가 듣고 있소.” </span></td></tr></tbody></table></div>
+<p class="qu" data-pid="54" id="p54"> <strong>9.</strong> 다른 언어를 사용하는 사람들에게 어떻게 좋은 소식을 전해 줄 수 있습니까?</p>
+
+<p data-pid="18" data-rel-pid="[54]" id="p18"><span class="parNum" data-pnum="9"><strong><sup>9</sup></strong></span> 사람들은 자신이 이해할 수 있는 언어로 좋은 소식을 들을 필요가 있습니다. 한 가지 예를 생각해 보겠습니다. 어떤 사람이 외국을 여행하다가 심하게 아파서 의사의 치료를 받아야 하는 상황이 생깁니다. 만약 그가 현지어를 할 줄 모른다면 통역해 줄 사람이 필요할 것입니다. 통역자는 의사의 지시 사항을 그가 이해할 수 있게 도와줄 것입니다. 그와 비슷하게 오늘날 많은 사람들은 영적으로, 감정적으로 치료를 받을 필요가 있습니다. 그들을 낫게 해 줄 희망과 위로의 소식이 바로 성경에 들어 있습니다. 외국인을 <span aria-hidden="true" class="pageNum" data-before-text="17" data-no="17" id="page17"></span>만나게 되면 그들이 이해할 수 있는 언어로 그 소식을 전해 주십시오. 예를 들어, 그들의 언어로 된 출판물을 전해 주거나 동영상을 보여 줄 수 있을 것입니다.</p>
+<p class="qu" data-pid="56" id="p56"><strong>10-11.</strong> 로버트 형제의 경험과 “<a class="it" href="https://wol.jw.org/ko/wol/d/r8/lp-ko/2026562#h=71-73:0">희망을 발견한 여자</a>” 제하의 내용에서 무엇을 배울 수 있습니까?</p>
+
+<p data-pid="19" data-rel-pid="[56]" id="p19"><span class="parNum" data-pnum="10"><strong><sup>10</sup></strong></span> 우리 조직에서 만든 도구들을 어떻게 잘 사용해 외국인들을 도울 수 있습니까? 영어가 모국어인 로버트 형제의 경험을 생각해 보겠습니다. 형제는 항구 봉사를 하다가 배에서 일하는 한 튀르키예 남자를 만났습니다. 그 남자가 영어를 잘하지 못했기 때문에 로버트 형제는 그에게 튀르키예어로 된 「하느님에게서 온 좋은 소식!」 팜플렛을 주었습니다. 형제는 팜플렛의 내용을 잘 알고 있었기 때문에 팜플렛의 특정 부분을 가리키면서 그 부분을 읽어 보라고 했습니다. 그 내용을 읽고 남자는 세상 상태에 대해 몇 가지 질문을 했습니다. 형제는 「JW 라이브러리」 앱을 켜서 튀르키예어로 성경을 보여 주며 답을 해 주었습니다. 그 남자는 놀라며 이렇게 말했습니다. “꼭 튀르키예어를 아시는 분이랑 대화하는 것 같아요!” 로버트 형제는 이렇게 말합니다. “그렇게 1시간 정도 대화했어요. 그 대화를 통해 그 남자는 성경을 조금 더 깊이 이해하게 됐고, 성경이 정말 중요한 책이라는 걸 알게 됐죠.” 이처럼 다른 언어를 사용하는 사람들에게 그들의 마음에 이르는 언어로 진리를 전해 줄 수 있다는 것은 정말 보람 있는 일이 아닙니까!</p>
+<p data-pid="20" data-rel-pid="[56]" id="p20"><span class="parNum" data-pnum="11"><strong><sup>11</sup></strong></span> 외국인을 만났을 때, jw.org 웹사이트를 사용해 그 사람의 모국어로 된 전도지나 기사를 전해 주는 것만으로도 놀라운 결과가 있을 수 있습니다. 따라서 다음번에 외국인을 만나게 된다면 이러한 방식으로 좋은 소식을 전해 보시기 바랍니다.</p>
+<table class="box-supplement-table" style="width: 100%; border-collapse: separate; border-spacing: 0; margin: 16px 0; background-color: #f1f1f1; border-top: 0px solid #4a6da7; border-left: 0px solid #dee2e6; border-right: 0px solid #dee2e6; border-bottom: 0px solid #dee2e6; border-radius: 0px;"><thead><tr><th style="background-color: #f1f1f1; padding: 15px 33px 8px; font-size: 1.75em; text-align: left; border-bottom: 0px solid #dee2e6; font-weight: bold; border-top-left-radius: 0px; border-top-right-radius: 0px;"><h2 style="color: #375255 !important; margin: 0 !important; padding: 0 !important; font-size: 1em !important"><strong style="color: #375255 !important; margin: 0 !important; padding: 0 !important; font-size: 1em !important">희망을 발견한 여자</strong></h2></th></tr></thead><tbody><tr><td style="padding: 15px 33px 30px; font-size: 1.2em; line-height: 1.5; color: #212529; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;"><p data-pid="72" id="p72">몽족 난민인 쥬어는 미국에서 살고 있습니다. 그는 힘든 삶을 살았습니다. 그는 영어를 할 줄 몰랐고 몽어만 할 수 있었습니다. 그리고 남편은 그가 성경을 포함해 그 어떤 것도 읽지 못하게 했습니다. 쥬어는 이렇게 말합니다. “한 번도 마음이 편한 적이 없었어요. 항상 불안하고 우울했죠.” 그러던 어느 날 영어를 모국어로 사용하는 한 자매가 몽어로 된 「평화로운 신세계에서의 생활」 전도지를 주었습니다. 전도지에는 그가 처음 들어 보는 하느님의 약속이 나와 있었습니다. 쥬어는 그 전도지의 내용이 정말 좋았고, 미래에 대한 희망을 갖게 되었습니다. 그 후 여러 해 동안 전도지를 바구니에 숨겨 놓고 몰래 꺼내 읽곤 했습니다. 나중에 쥬어의 딸 한 명이 여호와의 증인이 되었습니다. 딸은 쥬어를 몽어로 열리는 집회에 데리고 갔습니다. 그 집회를 보고 나서 쥬어는 성서 연구를 시작했습니다. 몽어로 된 전도지 한 장이 쥬어를 여호와와 그분을 섬기는 사람들에게로 이끈 것입니다.</p>
+</td></tr></tbody></table>
+<h2 class="du-color--coolGray-700 du-textAlign--center" data-pid="21" id="p21"><span aria-hidden="true" class="pageNum" data-before-text="18" data-no="18" id="page18"></span><strong>모든 나라 사람들에게 여호와의 이름을 알리는 일</strong></h2>
+<p class="qu" data-pid="58" id="p58"><strong>12.</strong> 여호와의 백성은 「신세계역」을 통해 어떤 유익을 얻고 있습니까?</p>
+
+<p data-pid="22" data-rel-pid="[58]" id="p22"><span class="parNum" data-pnum="12"><strong><sup>12</sup></strong></span> 성경 번역은 오랜 역사를 가지고 있습니다.<a class="fn" data-fnid="1" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/2026562/0" id="footnotesource1">a</a> 번역자들은 더 많은 사람들이 자신의 언어로 하느님의 말씀을 읽을 수 있도록 힘써 노력해 왔습니다. 「신세계역 성경」도 여러 언어로 번역되었습니다. 그 덕분에 전 세계의 여호와의 백성들이 하느님의 말씀에 들어 있는 진리를 배울 수 있습니다. 네팔에 사는 한 장로는 「신세계역」에 대해 이렇게 말합니다. “모국어로 성경을 읽으니까 여호와께서 저한테 직접 말씀하시는 것 같아요. 그분과 더 가까워졌고 믿음도 더 강해졌죠.” 현재 「신세계역」은 전역과 부분역을 합해 300개가 훨씬 넘는 언어로 읽어 볼 수 있습니다. 이 번역판은 이해하기 쉽고 신뢰할 만하며 언어에 상관없이 동일한 내용을 담고 있습니다. 그 덕분에 여호와의 백성은 전 세계 어디에 살든 같은 신앙을 가지고 똑같은 소식을 전합니다. (<a class="b" data-bid="16-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/15/0">고린도 전서 1:10</a>) 하지만 「신세계역」의 유익은 여기서 그치지 않습니다.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Footnote a]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><p data-pid="37" id="p37"><a class="fn-symbol" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/2026562/0#footnotesource1">a</a> 최초의 성경 번역본은 그리스어 「칠십인역」인데, 기원전 150년경에 완성되었습니다.</p></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[고린도 전서 1:10]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v46-1-10-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070150/28465">10 </a>형제 여러분, 우리 주 예수 그리스도의 이름으로 여러분에게 권고합니다. 모두 일치되게 말하고 여러분 가운데 분열이 없게 하여<a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070150/10">+</a> 같은 정신과 같은 생각으로 온전히 연합하십시오.<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070150/11">+</a> </span></td></tr></tbody></table></div>
+<p class="qu" data-pid="60" id="p60"><strong>13.</strong> 오늘날 대부분의 성경 번역판에 하느님의 이름이 나오지 않는 이유는 무엇입니까?</p>
+
+<p data-pid="23" data-rel-pid="[60]" id="p23"><span class="parNum" data-pnum="13"><strong><sup>13</sup></strong></span> 「신세계역」에는 하느님의 이름이 수천 번 나옵니다. 하지만 오늘날 시중에서 볼 수 있는 대부분의 성경 번역판들에서는 하느님의 이름을 찾아 보기가 힘듭니다. 사실 100여 년 전만 해도 많은 성경 번역판에서 하느님의 이름을 볼 수 있었습니다. 특히 히브리어 성경 부분에서 그러했습니다. 하지만 하느님을 대표한다고 주장하는 그리스도교국의 교직자들이 하느님의 이름 여호와를 사용하거나 사람들에게 알리는 것을 심하게 반대하기 시작했습니다. 예를 들어, 가톨릭교회의 고위 성직자들은 자신들의 성경과 관련 서적들에서 하느님의 이름을 빼 버렸습니다.<a class="fn" data-fnid="2" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/2026562/1" id="footnotesource2">b</a> 대부분의 프로테스탄트 교파들도 자신들의 성경에서 하느님의 이름을 지워 버렸습니다. 하지만 언어에 상관없이 모든 「신세계역」에는 하느님의 이름 여호와가 마땅히 있어야 할 자리에 복원되어 있습니다. 이 사실이 그토록 중요한 이유는 무엇입니까?</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Footnote b]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><p data-pid="38" id="p38"><a class="fn-symbol" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/2026562/1#footnotesource2">b</a> 2008년에 교황 베네딕토 16세는 가톨릭 예배나 찬송가나 기도에서 하느님의 이름을 “사용하거나 발음해서는 안 된다”고 지시했습니다. 또한 <a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/2026562/3/0">「파수대」 1997년 10월 1일호 16-18면 4-8항</a>을 참조하십시오.</p></td></tr></tbody></table></div>
+<p class="qu" data-pid="62" id="p62"><strong>14.</strong> 성경에 따르면, 하느님의 이름을 알고 사용하는 것은 얼마나 중요합니까?</p>
+
+<p data-pid="24" data-rel-pid="[62]" id="p24"><span class="parNum" data-pnum="14"><strong><sup>14</sup></strong></span> 성경은 하느님의 이름을 알고 사용하는 것이 중요하다는 점을 강조합니다. 예를 들어, 시편 필자는 하느님의 종들에게 “여호와의 이름을 찬양하라”고 권합니다. (<a class="b" data-bid="17-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/16/0">시 135:1</a>) 예수께서는 기도하는 법을 제자들에게 가르치시면서, 이렇게 기도하라고 하셨습니다. “아버지의 이름이 거룩해지게 하십시오.” 그리고 나중에 기도하시면서 이렇게 말씀하셨습니다. “저는 ··· 아버지의 이름을 알려 주었습니다.” (<a class="b" data-bid="18-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/17/0">마태 6:9;</a><a class="b" data-bid="18-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/17/1"> 요한 17:26</a>) 또한 사도 바울은 예언자 요엘의 말을 인용해 이렇게 기록했습니다. “누구든지 여호와의 이름을 부르는 사람은 구원을 받을 것이다.” (<a class="b" data-bid="19-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/18/0">로마 10:13</a>) 만약 자신이 보는 성경 번역판에 하느님의 이름이 나오지 않는다면 어떻게 이러한 영감받은 말씀을 따를 수 있겠습니까?</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[시 135:1]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-135-1-1"><a class="cl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070123/16284"><strong>135</strong> </a>야를 찬양하여라!<a class="fn" data-fnid="933" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070123/932" id="footnotesource933">*</a><em> (각주: 또는 “할렐루야!” “야”는 여호와라는 이름의 축약형.)</em></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-135-1-2">여호와의 이름을 찬양하여라.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-135-1-3">찬양을 드려라, 여호와의 종들아,<a class="b" data-bid="2807-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070123/2806">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[마태 6:9;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v40-6-9-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070144/23407">9 </a>그러므로 여러분은 이렇게 기도해야 합니다.<a class="b" data-bid="200-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/199">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v40-6-9-2">‘하늘에 계신 우리 아버지, 아버지의 이름이<a class="b" data-bid="201-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/200">+</a> 거룩해지게 하십시오.<a class="b" data-bid="202-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070144/201">+</a> </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[요한 17:26]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v43-17-26-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070147/26877">26 </a>저는 그들에게 아버지의 이름을 알려 주었고 또 알려 주겠습니다.<a class="b" data-bid="681-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070147/680">+</a> 그것은 아버지께서 저를 사랑하신 사랑이 그들 안에 있게 하고 제가 그들과 함께하기 위한 것입니다.”<a class="b" data-bid="682-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070147/681">+</a></span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[로마 10:13]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v45-10-13-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070149/28293">13 </a>“누구든지 여호와의 이름을 부르는 사람은 구원을 받을 것이다”라고<a class="b" data-bid="352-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070149/351">+</a> 했습니다. </span></td></tr></tbody></table></div>
+<p class="qu" data-pid="64" id="p64"><strong>15.</strong> 「신세계역」 덕분에 여호와의 백성은 어떤 유익을 얻고 있습니까?</p>
+
+<p data-pid="25" data-rel-pid="[64]" id="p25"><span class="parNum" data-pnum="15"><strong><sup>15</sup></strong></span> 오늘날 대부분의 여호와의 증인은 자신의 언어로 나온 「신세계역」을 읽을 수 있습니다. 이 번역판은 성경 진리를 정확하게 전달합니다. 덕분에 우리는 하느님의 이름을 알고 찬양하는 것이 얼마나 중요한지 알게 되었습니다. 또한 하느님의 이름을 사랑하게 되었습니다. 그리고 여호와라는 <span aria-hidden="true" class="pageNum" data-before-text="19" data-no="19" id="page19"></span>이름을 가진 하느님을 더 의지하게 되었습니다.—<a class="b" data-bid="20-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/19/0">잠언 18:10;</a><a class="b" data-bid="20-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/19/1"> 이사야 56:6</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[잠언 18:10;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v20-18-10-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070124/17027">10 </a>여호와의 이름은 견고한 망대이니,<a class="b" data-bid="583-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070124/582">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v20-18-10-2">의로운 자는 그리로 달려 들어가서 보호를 받는다.<a class="fn pr" data-fnid="246" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070124/245" id="footnotesource246">*</a><em> (각주: 직역하면 “높은 곳에 올려진다.” 닿을 수 없는 안전한 곳에 있게 된다는 의미임.)</em><a class="b" data-bid="584-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070124/583">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[이사야 56:6]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-56-6-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070127/18875">6 </a>여호와와 함께하여</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-56-6-2">그를 섬기고</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-56-6-3">여호와의 이름을 사랑하며<a class="b" data-bid="1605-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070127/1604">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-56-6-4">그의 종이 되려고 하는 외국인들,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-56-6-5">안식일을 지키고 그날을 더럽히지 않는 이들,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-56-6-6">나의 계약을 굳게 지키는 모든 이들,</span></div></td></tr></tbody></table></div>
+<p class="qu" data-pid="66" id="p66"><strong>16.</strong> 지금 여호와를 아는 것이 매우 중요한 이유는 무엇입니까? (<a class="b" data-bid="32-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/31/0">요한복음 17:3</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[요한복음 17:3]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v43-17-3-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070147/26854">3 </a>영원한 생명에 이르는 길은<a class="b" data-bid="646-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070147/645">+</a> 오직 한 분의 참하느님이신 아버지와 아버지께서 보내신 예수 그리스도를 알아 가는<a class="b" data-bid="647-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070147/646">+</a> 것입니다.<a class="b" data-bid="648-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070147/647">+</a> </span></td></tr></tbody></table></div>
+
+<p data-pid="26" data-rel-pid="[66]" id="p26"><span class="parNum" data-pnum="16"><strong><sup>16</sup></strong></span> 성경에서는 여호와께서 머지않아 “사람이 거주하는 온 땅의 왕들”과 전쟁을 벌이실 것이라고 알려 줍니다. (<a class="b" data-bid="21-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/20/0">계시록 16:14</a>) 여호와를 알고 그분의 이름에 영예를 돌리는 사람들은 그때 안전하게 보호를 받을 것입니다. (<a class="b" data-bid="22-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/21/0">시 9:10</a>. <a class="b" data-bid="23-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/22/0"><strong>요한복음 17:3</strong></a> <strong>낭독;</strong> <a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/2026562/1/0">연구 노트</a> “알아 가는” 참조) 하지만 여호와에 대해 배우려 하지 않고 그분께 순종하지 않는 사람들은 그때가 되어서야 여호와가 어떤 분이신지 알게 될 것입니다. 다시 말해, 그분이 전능한 하느님이심을 인정하지 않을 수 없을 것입니다. 여호와께서는 이렇게 말씀하십니다. “내가 틀림없이 나 자신을 드높이고 거룩하게 하여 많은 나라들의 눈앞에서 나를 알릴 것이니, 그들은 반드시 내가 여호와인 줄 알게 될 것이다.” (<a class="b" data-bid="24-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/23/0">에스겔 38:23</a>) 이처럼 여호와께서 적들에게 심판을 집행하실 때 우리는 이미 여호와를 알고 그분과 친구가 되었다는 사실이 정말 기쁠 것입니다!—<a class="b" data-bid="25-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/24/0">말라기 3:16</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[계시록 16:14]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v66-16-14-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070170/31060">14 </a>사실, 그것들은 악귀들의 영감받은 표현으로서 표징들을 행한다.<a class="b" data-bid="443-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070170/442">+</a> 그것들은 사람이 거주하는 온 땅의 왕들을 전능자이신 하느님의 큰 날의<a class="b" data-bid="444-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070170/443">+</a> 전쟁으로 모으려고<a class="b" data-bid="445-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070170/444">+</a> 그들에게 나간다.</span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[시 9:10]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-9-10-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070123/14038">10 </a>당신의 이름을 아는 이들이 당신을 신뢰하리니,<a class="b" data-bid="113-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070123/112">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-9-10-2">오 여호와여, 당신은 당신을 찾는 이들을 결코 버리지 않으실 것입니다.<a class="b" data-bid="114-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070123/113">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[요한복음 17:3]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v43-17-3-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070147/26854">3 </a>영원한 생명에 이르는 길은<a class="b" data-bid="646-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070147/645">+</a> 오직 한 분의 참하느님이신 아버지와 아버지께서 보내신 예수 그리스도를 알아 가는<a class="b" data-bid="647-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070147/646">+</a> 것입니다.<a class="b" data-bid="648-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070147/647">+</a> </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 노트]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><strong>알아 가는:</strong> 또는 “지식을 얻는; 계속 알아 가는”. 그리스어 동사 <em>기노스코</em>는 기본적으로 “알다”를 의미하는데, 여기서는 이 동사가 계속적인 동작을 나타내는 현재 시제로 되어 있다. 따라서 “누군가에 대한 지식을 얻는; 누군가를 알아 가는; 누군가를 더 잘 알게 되는” 과정을 의미할 수 있다. 또한 이미 알고 있는 누군가를 더 잘 알기 위해 계속 노력한다는 의미를 담고 있을 수 있다. 이 문맥에서는 하느님과 그리스도에 대한 지식을 계속 늘리고 그분들에 대한 신뢰를 키워 나감으로, 하느님과 개인적으로 더 가까워지는 것을 가리킨다. 분명, 누군가를 그처럼 안다는 것은 그가 누구인지, 그의 이름이 무엇인지 아는 것보다 훨씬 더 많은 것을 의미한다. 그렇게 하는 것에는 그가 무엇을 좋아하고 싫어하는지, 그의 가치관과 표준이 무엇인지 아는 것도 포함된다.—<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070685/5/0">요1 2:3;</a><a class="b" data-bid="6-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070685/5/1"> 4:8</a>.</td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[에스겔 38:23]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v26-38-23-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070130/21564">23 </a>이렇게 내가 틀림없이 나 자신을 드높이고 거룩하게 하여 많은 나라들의 눈앞에서 나를 알릴 것이니, 그들은 반드시 내가 여호와인 줄 알게 될 것이다.’”</span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[말라기 3:16]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v39-3-16-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070143/23252">16 </a>그때에 여호와를 두려워하는 사람들이 저마다 자기 친구와 서로 말하니, 여호와께서 주의를 기울여 들으셨다. 그리고 여호와를 두려워하는 사람들과 그분의 이름을 묵상하는<a class="fn" data-fnid="35" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070143/34" id="footnotesource35">*</a><em> (각주: 또는 “생각하는”. 달리 번역하면 “소중히 여기는”.)</em> 사람들을<a class="b" data-bid="67-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070143/66">+</a> 위해 그분 앞에서 기념책이 기록되었다.<a class="b" data-bid="68-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070143/67">+</a></span></td></tr></tbody></table></div>
+<p class="qu" data-pid="68" id="p68"><strong>17.</strong> 우리는 어떤 영예로운 일에 참여하고 있습니까?</p>
+
+<p data-pid="27" data-rel-pid="[68]" id="p27"><span class="parNum" data-pnum="17"><strong><sup>17</sup></strong></span> <a class="b" data-bid="26-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/25/0">스가랴 8:23</a>의 예언이 성취되는 일에 조금이나마 기여할 수 있다는 것은 정말 큰 영예입니다! 우리는 동료 형제자매들과 어깨를 나란히 하여 수많은 언어로 좋은 소식을 전하고 있습니다. 하늘에서 천사들도 우리를 지원하고 있습니다. 여호와께서는 우리가 전 세계의 모든 언어권의 사람들에게 전파할 수 있도록 유용한 도구들을 계속 마련해 주고 계십니다. 이러한 도구들을 효과적으로 사용하여, 가능한 한 많은 사람들이 누구도 차별하지 않으시고 자비롭고 참을성 많은 하느님 여호와를 알도록 최선을 다해 도와야겠습니다. 여호와의 이름이 모든 창조물 앞에서 거룩해질 그날까지 이 활동에 참여하면서 계속 기쁨과 보람을 느끼시기 바랍니다.—<a class="b" data-bid="27-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/26/0">누가 11:2</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[스가랴 8:23]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v38-8-23-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070142/23115">23 </a>만군의 여호와가 말한다. ‘그날에 나라들의 모든 언어에서 나온 사람 열 명이<a class="b" data-bid="135-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070142/134">+</a> 유대인 한 명의 옷<a class="fn" data-fnid="38" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070142/37" id="footnotesource38">*</a><em> (각주: 또는 “옷자락”.)</em>을 붙잡을 것이다. 그들이 옷을 꼭 붙잡고 “우리도 여러분과 함께 가고 싶습니다.<a class="b" data-bid="136-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070142/135">+</a> 하느님께서 여러분과 함께 계시다는 말을 들었기 때문입니다”<a class="b" data-bid="137-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070142/136">+</a> 할 것이다.’”</span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[누가 11:2]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v42-11-2-1"><a class="vl vx vp study" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070146/25511">2 </a>그분이 그들에게 말씀하셨다. “언제든 여러분이 기도할 때는 이렇게 말하십시오. ‘아버지, 아버지의 이름이 거룩해지게 하십시오.<a class="b" data-bid="485-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070146/484">+</a> 아버지의 왕국이 오게 하십시오.<a class="b" data-bid="486-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070146/485">+</a> </span></td></tr></tbody></table></div>
+</div>
+<div class="blockTeach dc-ttClassStyle--unset"><aside><div class="boxTtl dc-ttClassStyle--unset du-borderStyle-top--solid du-borderColor--purple-700 du-borderWidth--2 du-margin-top--6 du-margin-children-vertical--6" data-pid="28" id="p28"><h2><strong>어떻게 대답하시겠습니까?</strong></h2></div>
+<div class="boxContent dc-ttClassStyle--unset"><ul><li><p data-pid="29" id="p29"> <a class="b" data-bid="28-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2026562/27/0">스가랴 8:23</a>에 나오는 “유대인”과 “열 명”은 누구를 가리킵니까?</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[스가랴 8:23]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v38-8-23-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070142/23115">23 </a>만군의 여호와가 말한다. ‘그날에 나라들의 모든 언어에서 나온 사람 열 명이<a class="b" data-bid="135-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070142/134">+</a> 유대인 한 명의 옷<a class="fn" data-fnid="38" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070142/37" id="footnotesource38">*</a><em> (각주: 또는 “옷자락”.)</em>을 붙잡을 것이다. 그들이 옷을 꼭 붙잡고 “우리도 여러분과 함께 가고 싶습니다.<a class="b" data-bid="136-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070142/135">+</a> 하느님께서 여러분과 함께 계시다는 말을 들었기 때문입니다”<a class="b" data-bid="137-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070142/136">+</a> 할 것이다.’”</span></td></tr></tbody></table></div>
+
+</li>
+<li><p data-pid="31" id="p31">  어떻게 다양한 언어권의 사람들이 여호와에 대해 배울 수 있게 되었습니까?</p>
+
+</li>
+<li><p data-pid="33" id="p33">  사람들이 여호와의 이름을 알고 사용하는 것이 중요한 이유는 무엇입니까?</p>
+
+</li>
+</ul>
+</div>
+</aside></div>
+<div class="du-color--textSubdued" id="tt37">
+<p class="pubRefs" data-pid="35" id="p35"><a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/2026562/2/0"><strong>노래 57</strong></a> 모든 부류의 사람들에게 전파하라</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[노래 57]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<p class="contextTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="74" data-no="74" id="page74"></span><strong>57번</strong></p>
+<h1 data-pid="2" id="p2"><strong>모든 부류의 사람들에게 전파하라</strong></h1>
+</header> 
+<p class="themeScrp" data-pid="3" id="p3">(<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016857/0/0">디모데 전서 2:4</a>)</p>
+<div class="bodyTxt">
+<ol><li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="4" id="p4">우리는 정말 닮고 싶어요,</p>
+<p class="sz" data-pid="5" id="p5">편파적이지 않은 하느님.</p>
+<p class="sp" data-pid="6" id="p6">누구라도 기회를 주시고</p>
+<p class="sz" data-pid="7" id="p7">가족으로 다 받아 주시죠.</p>
+<div class="chorus"><p class="se" data-pid="8" id="p8">(후렴)</p>
+<p class="sp" data-pid="9" id="p9">겉모습이 아니라</p>
+<p class="sz" data-pid="10" id="p10" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">속사람을 보아요.</p>
+<p class="sp" data-pid="11" id="p11">그게 더 중요한 걸 알지요.</p>
+<p class="sp" data-pid="12" id="p12">전해 주고 싶어요,</p>
+<p class="sz" data-pid="13" id="p13" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">“어떤 사람이라도</p>
+<p class="sz" data-pid="14" id="p14" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">하느님 친구 될 수 있다”고.</p>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="15" id="p15">언제, 어디서 누굴 만나든</p>
+<p class="sz" data-pid="16" id="p16">첫인상 어떻게 느껴지든</p>
+<p class="sp" data-pid="17" id="p17">중요한 건 여호와 보시는</p>
+<p class="sz" data-pid="18" id="p18">그 속사람, 그 마음이지요.</p>
+<div class="chorus"><p class="se" data-pid="19" id="p19">(후렴)</p>
+<p class="sp" data-pid="20" id="p20">겉모습이 아니라</p>
+<p class="sz" data-pid="21" id="p21" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">속사람을 보아요.</p>
+<p class="sp" data-pid="22" id="p22">그게 더 중요한 걸 알지요.</p>
+<p class="sp" data-pid="23" id="p23">전해 주고 싶어요,</p>
+<p class="sz" data-pid="24" id="p24" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">“어떤 사람이라도</p>
+<p class="sz" data-pid="25" id="p25" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">하느님 친구 될 수 있다”고.</p>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="26" id="p26">이 세상의 길 버린 사람들</p>
+<p class="sz" data-pid="27" id="p27">여호와 모두 안아 주시죠.</p>
+<p class="sp" data-pid="28" id="p28">내가 받은 이 소중한 진리</p>
+<p class="sz" data-pid="29" id="p29">모두에게 전하고 싶어요.</p>
+<div class="chorus"><p class="se" data-pid="30" id="p30">(후렴)</p>
+<p class="sp" data-pid="31" id="p31">겉모습이 아니라</p>
+<p class="sz" data-pid="32" id="p32" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">속사람을 보아요.</p>
+<p class="sp" data-pid="33" id="p33">그게 더 중요한 걸 알지요.</p>
+<p class="sp" data-pid="34" id="p34">전해 주고 싶어요,</p>
+<p class="sz" data-pid="35" id="p35" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">“어떤 사람이라도</p>
+<p class="sz" data-pid="36" id="p36" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">하느님 친구 될 수 있다”고.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="closingContent"><p class="se" data-pid="37" id="p37">(<a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016857/1/0">요한 12:32;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016857/1/1"> 사도 10:34;</a><a class="b" data-bid="2-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016857/1/2"> 디모데 전서 4:10;</a><a class="b" data-bid="2-4" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102016857/1/3"> 디도 2:11</a> 참조)</p>
+</div>
+<p class="sb" data-pid="38" id="p38"></p>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+</div>
+<div class="groupFootnote"><div class="fn-ref" data-fnid="1" id="footnote1"><p data-pid="37" id="p37"><a class="fn-symbol" href="https://wol.jw.org/ko/wol/d/r8/lp-ko/2026562#footnotesource1">a</a> 최초의 성경 번역본은 그리스어 「칠십인역」인데, 기원전 150년경에 완성되었습니다.</p></div>
+<div class="fn-ref" data-fnid="2" id="footnote2"><p data-pid="38" id="p38"><a class="fn-symbol" href="https://wol.jw.org/ko/wol/d/r8/lp-ko/2026562#footnotesource2">b</a> 2008년에 교황 베네딕토 16세는 가톨릭 예배나 찬송가나 기도에서 하느님의 이름을 “사용하거나 발음해서는 안 된다”고 지시했습니다. 또한 <a href="https://wol.jw.org/ko/wol/pc/r8/lp-ko/2026562/3/0">「파수대」 1997년 10월 1일호 16-18면 4-8항</a>을 참조하십시오.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[「파수대」 1997년 10월 1일호 16-18면 4-8항]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="7" data-rel-pid="[34]" id="p7" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="4"><sup>4</sup></span> 성서의 주요 목적 가운데 하나는 사람들이 참 하느님을 알도록 돕는 것입니다. (<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997724/2/0">출애굽 20:2-7;</a><a class="b" data-bid="3-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997724/2/1"> 34:1-7;</a><a class="b" data-bid="3-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997724/2/2"> 이사야 52:6</a>) 예수 그리스도께서는 추종자들에게 아버지의 이름이 “거룩해지게”, 신성하게 여겨지게 혹은 거룩한 것으로 대우받게 해 달라고 기도하라고 가르치셨습니다. (<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997724/3/0">마태 6:9</a>) 하느님께서는 자신의 고유한 이름이 성서에 7000번 이상 나오게 하셨습니다. 그분은 사람들이 그 이름과 그 이름을 지니신 분의 특성을 알기를 원하셨습니다.—<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997724/4/0">말라기 1:11</a>.</div><div class="sb" data-pid="8" data-rel-pid="[35]" id="p8" style="margin-top: 0; margin-bottom: 8px"><span aria-hidden="true" class="pageNum" data-before-text="17" data-no="17" id="page17"></span><span class="parNum" data-pnum="5"><sup>5</sup></span> 많은 성서 번역자들은 하느님의 이름을 진심으로 존중해 왔고 자기들의 번역판에서 그 이름을 일관성 있게 사용해 왔습니다. 어떤 번역자들은 야훼를 더 좋아합니다. 그런가 하면 어떤 번역자들이 택하는 하느님의 이름은, 그들이 사용하는 언어에 맞추어 옮기면서도 여전히 히브리어 본문에서 무엇을 번역한 것인지를 분명히 알아볼 수 있게 옮긴 형태로서, 오랫동안 사용되어 잘 알려져 있는 이름일 수 있습니다. 「신세계역 성경」(영문)은 본문에 여호와(Jehovah)를 7210회 사용합니다.</div><div class="sb" data-pid="9" data-rel-pid="[36]" id="p9" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="6"><sup>6</sup></span> 근년에, 성서 번역자들이 바알이나 몰렉과 같은 이교 신들의 이름은 그대로 두면서 참 하느님의 고유한 이름은 그분의 영감받은 말씀의 번역판들에서 빼 버리는 경우가 점점 늘어나고 있습니다. (<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997724/5/0">출애굽 3:15;</a><a class="b" data-bid="6-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997724/5/1"> 예레미야 32:35</a>) 널리 배부된 한 알바니아어 번역판에서는 <a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997724/6/0">마태 6:9이나</a><a class="b" data-bid="7-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997724/6/1"> 요한 17:6,</a><a class="b" data-bid="7-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997724/6/2"> 26</a>과 같은 구절에서 “당신의 이름”(즉 하느님의 이름)에 해당하는 그리스어 표현을, 마치 본문에 이름에 대한 언급이 없는 것처럼 단지 “당신”이라고 번역합니다. 「신 영어 성서」와 「오늘날의 영어 역본」은 둘 다 <a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997724/7/0">시편 83:18</a>에서 하느님의 고유한 이름은 물론 하느님에게 이름이 있다는 사실을 언급하는 표현조차 빼 버립니다. 대부분의 언어에서 비교적 오래 된 히브리어 성경 번역판들에는 하느님의 이름이 나오지만, 최근 번역판들은 흔히 그 이름을 빼 버리거나 난외주에서만 언급합니다. 영어를 비롯하여 유럽, 아프리카, 남아메리카, 인도, 태평양의 섬들에서 사용하는 많은 언어들의 경우에도 그러합니다.</div><div class="sb" data-pid="10" data-rel-pid="[37]" id="p10" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="7"><sup>7</sup></span> 일부 아프리카의 언어로 성서를 번역하는 사람들은 한층 더 심한 일을 하고 있습니다. 단지 하느님의 이름을 하느님이나 주와 같은 성경적인 칭호로 대치하는 것이 아니라, 그 지역의 종교 신앙에서 따온 이름들을 삽입하고 있습니다. 「줄루어 신약과 시편」(<em>The New Testament and Psalms in Zulu</em>, 1986년판)에는 하느님이라는 칭호(<em>운쿨룬쿨루</em>)가 하나의 고유한 이름(<em>움벨린간기</em>)과 서로 바꾸어 쓸 수 있는 표현으로 사용되었는데, 그 이름은 줄루족 사람들이 ‘인간 조상들을 통해 숭배받는 위대한 조상’을 가리키는 것으로 이해하는 표현입니다. 「성서 번역자」(<em>The Bible Translator</em>)라는 잡지 1992년 10월 호에 실린 한 기사에서는, 번역자들이 「부쿠 로예라」라고 하는 치체와어 성서를 준비하면서 여호와를 대치하는 고유한 이름으로 <em>차우타</em>를 사용하고 있다고 보도하였습니다. 그 기사의 설명에 의하면, <em>차우타</em>는 “그들이 항상 알고 있었고 숭배해 온 하느님”입니다. 그러나 이 가운데 많은 사람들은 죽은 자의 영들이라고 자기들이 믿는 것 역시 숭배해 왔습니다. 사람들이 “최고 존재자”에게 간구하기만 한다면, 그들의 숭배에 무엇이 관련되는지에 상관없이, 그 “최고 존재자”에 대하여 무슨 이름을 사용하든 그 이름이 여호와라는 고유한 이름의 정당한 대용어가 될 수 있다는 것이 사실입니까? 결코 그렇지 않습니다! (<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997724/8/0">이사야 42:8;</a><a class="b" data-bid="9-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997724/8/1"> 고린도 첫째 10:20</a>) 하느님의 고유한 이름을 다른 것으로 대치함으로써 사람들이 자기들의 전통 신앙이 사실상 올바른 것이라고 느끼게 한다면, 그것은 그 사람들이 참 하느님께 더 가까이 가는 데 도움이 되지 않습니다.</div><div class="sb" data-pid="11" data-rel-pid="[38]" id="p11" style="margin-top: 0; margin-bottom: 8px"><span aria-hidden="true" class="pageNum" data-before-text="18" data-no="18" id="page18"></span><span class="parNum" data-pnum="8"><sup>8</sup></span> 이 모든 일들은 자신의 이름을 알리려는 여호와의 목적을 변경시키지도 좌절시키지도 못하였습니다. 유럽, 아프리카, 남북 아메리카, 동양, 바다의 섬들의 언어들로, 하느님의 이름이 들어 있는 많은 성서들이 여전히 배부되고 있습니다. 또한 233개의 나라와 지역에 540만 명이 넘는 여호와의 증인이 있으며, 그들은 모두 합쳐 1년에 10억 시간 이상을 바쳐서 다른 사람들에게 참 하느님의 이름과 목적에 관해 이야기합니다. 증인들은 지상 인구의 약 36억 명이 사용하는 언어들로 된 성서들—하느님의 이름을 사용하는 성서들—을 인쇄하고 배부하는데, 그 가운데는 영어, 중국어, 러시아어, 스페인어, 포르투갈어, 프랑스어, 네덜란드어가 있습니다. 증인들은 또한 지상 인구의 거의 대부분이 알고 있는 언어들로 된 성서 연구 보조서들을 인쇄하고 있습니다. 머지않아 하느님께서는 친히 조처를 취하실 것이며, 그리하여 나라들이 ‘자신을 여호와인줄 알게’ 할 것이라는 그분의 선언을 확고하게 이행하실 것입니다.—<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1997724/9/0">에스겔 38:23</a>.</div></td></tr></tbody></table></div></div>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="{BibleBookName} {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value="{BibleBookName} {StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value="{BibleBookName} {BibleVerse}"/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="파26 9월호 {StartingPageNumber}-{EndingPageNumber}면"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="파26 9월호 {PageNumber}면"/>
+<input id="documentDescription" type="hidden" value="파26 9월호"/>
+<input id="englishSym" type="hidden" value="w"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="audioPubSym" type="hidden" value="w"/>
+<input id="chapNo" type="hidden" value="-1"/>
+<input id="issue" type="hidden" value="202609"/>
+<input id="docId" type="hidden" value="2026562"/>
+<input id="documentInBible" type="hidden" value=""/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=KO&amp;docid=2026562&amp;srctype=wol&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="document"/>
+<input id="contentTitle" type="hidden" value="모든 나라 사람들이 자신들의 언어로 진리를 듣고 있습니다"/>
+<input id="parentTitle" type="hidden" value="파수대—여호와의 왕국 선포 (연구용)—2026"/>
+<input id="contentThumbnail" type="hidden" value="/ko/wol/d/r8/lp-ko/2026562/thumbnail"/>
+</article>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Gather all alternate presentation elements and their images
+        const altPresElements = Array.from(document.querySelectorAll('.alternatePresentation'));
+        const altImages = altPresElements.map(el => {
+            const img = el.querySelector('img');
+            if (img) {
+                return {
+                    src: img.getAttribute('data-alt-src') || img.getAttribute('src'),
+                    title: el.querySelector('.title')?.textContent || "Image"
+                };
+            }
+            return null;
+        }).filter(Boolean);
+
+        // 2. Create Lightbox DOM structure dynamically
+        const lightbox = document.createElement('div');
+        lightbox.className = 'custom-lightbox';
+        lightbox.innerHTML = `
+            <button class="custom-lightbox-close">&times;</button>
+            <button class="custom-lightbox-nav custom-lightbox-prev">&#10094;</button>
+            <div class="custom-lightbox-content">
+                <img class="custom-lightbox-img" src="" alt="" />
+            </div>
+            <button class="custom-lightbox-nav custom-lightbox-next">&#10095;</button>
+            <div class="custom-lightbox-caption"></div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('.custom-lightbox-img');
+        const lightboxCaption = lightbox.querySelector('.custom-lightbox-caption');
+        const closeBtn = lightbox.querySelector('.custom-lightbox-close');
+        const prevBtn = lightbox.querySelector('.custom-lightbox-prev');
+        const nextBtn = lightbox.querySelector('.custom-lightbox-next');
+
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        const openLightbox = (group, index) => {
+            currentGroup = group;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const updateLightbox = () => {
+            const item = currentGroup[currentIndex];
+            if (item) {
+                lightboxImg.src = item.src;
+                if (item.title && item.title.trim() !== "" && item.title.trim() !== "Printed Edition") {
+                    lightboxCaption.textContent = item.title;
+                    lightboxCaption.style.display = 'block';
+                } else {
+                    lightboxCaption.textContent = "";
+                    lightboxCaption.style.display = 'none';
+                }
+                if (currentGroup.length > 1) {
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                } else {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                }
+            }
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImg.src = '';
+            lightboxCaption.textContent = '';
+        };
+
+        const navigate = (direction) => {
+            if (currentGroup.length <= 1) return;
+            currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+            updateLightbox();
+        };
+
+        // Event Listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('custom-lightbox-content')) {
+                closeLightbox();
+            }
+        });
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Attach click handlers to alternate presentations
+        altPresElements.forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(altImages, index);
+            });
+        });
+
+        // Attach click handlers to other zoomable figure images
+        document.querySelectorAll('article figure img:not(.suppressZoom)').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = img.getAttribute('data-alt-src') || img.getAttribute('src');
+                const title = img.getAttribute('alt') || "";
+                openLightbox([{ src, title }], 0);
+            });
+        });
+    });
+    </script>
+</body>
+</html>

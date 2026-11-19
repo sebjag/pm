@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>Courageous and Cautious</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">📖</text></svg>'>
+    <link rel="stylesheet" type="text/css" href="css/media-player.css">
+    <link rel="stylesheet" type="text/css" href="css/+0+61168f8ef805085f5a3c0118b14679f74c9e62a4.css">
+    <link rel="stylesheet" type="text/css" href="css/+1+f8319dd08c749624466cb777b7d528e1a42d7368.css">
+    <link rel="stylesheet" type="text/css" href="css/+2+894de4a6eba76bf97927253f95f582449947a96e.css">
+    <link rel="stylesheet" type="text/css" href="css/+3+d00a791fdbb951906e95f1428ae322e41ea9da95.css">
+    <style>
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @media screen and (min-width: 600px) {
+            .document, .bible {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 16px 50px 80px;
+            }
+            .document .dc-bleedToArticleEdge, .bible .dc-bleedToArticleEdge {
+                margin-left: -50px;
+                margin-right: -50px;
+            }
+            .document .dc-paddingToContentEdge, .bible .dc-paddingToContentEdge {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        #content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+        .inserted-reference {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+            font-size: 0.95em;
+        }
+        .inserted-reference-header {
+            margin: 0;
+            padding: 4px 16px;
+            background-color: #e2e6ea;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #495057;
+        }
+        .inserted-reference-header a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #1a73e8;
+        }
+        .inserted-reference-header a:hover {
+            text-decoration: underline;
+        }
+        .inserted-reference > *:not(.inserted-reference-header) {
+            margin: 12px 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-style: italic;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        /* Custom Lightbox Styles */
+        .custom-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            /* user-select: none; */
+            /* -webkit-user-select: none; */
+        }
+        .custom-lightbox.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .custom-lightbox-content {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 35px;
+            color: #fff;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10002;
+            transition: transform 0.2s ease;
+        }
+        .custom-lightbox-close:hover {
+            transform: scale(1.1);
+        }
+        .custom-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 20px;
+        }
+        .custom-lightbox-nav:hover {
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .custom-lightbox-prev {
+            left: 0px;
+        }
+        .custom-lightbox-next {
+            right: 0px;
+        }
+        .custom-lightbox-caption {
+            color: #ccc;
+            margin-top: 15px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 80%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body, #content {
+                background-color: #171c2a !important;
+                color: #e2e8f0;
+            }
+            .document, .bible, .article, #article {
+                background-color: #1e293b !important;
+                color: #e2e8f0;
+            }
+            .scalableui, .bodyTxt {
+                background-color: transparent !important;
+                color: #e2e8f0;
+            }
+            .du-bgColor--bgSecondary, .du-bgColor--warmGray-50,
+            [class*="du-bgColor--bgSecondary"], [class*="du-bgColor--warmGray-"],
+            #tt9, .document #tt9, body #tt9,
+            .document [class*="du-bgColor--bgSecondary"], body [class*="du-bgColor--bgSecondary"],
+            .document [class*="du-bgColor--warmGray-"], body [class*="du-bgColor--warmGray-"] {
+                background-color: #2d3a4f !important;
+                color: #e2e8f0 !important;
+            }
+            .du-borderColor--borderDefault, hr {
+                border-color: #3b4d66 !important;
+            }
+            .du-color--teal-700 {
+                color: #2dd4bf !important;
+            }
+            h1, h2, h3, h4, h5, h6, strong {
+                color: #f8fafc;
+            }
+            a, a.b, a.vl, a.fn, a:visited {
+                color: #60a5fa;
+            }
+            a:hover, a.b:hover, a.vl:hover, a.fn:hover {
+                color: #93c5fd;
+            }
+            .du-color--textSubdued, .pageNum, .themeScrp {
+                color: #94a3b8 !important;
+            }
+            .inserted-reference {
+                background-color: #263346;
+                border: 1px solid #3b4d66;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .inserted-reference-header {
+                background-color: #1e2b3c;
+                border-bottom: 1px solid #3b4d66;
+                color: #cbd5e1;
+            }
+            .inserted-reference-header a {
+                color: #60a5fa;
+            }
+            .inserted-reference-header a:hover {
+                color: #93c5fd;
+            }
+            .note-card-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .note-card-header {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #cbd5e1 !important;
+            }
+            .note-card-header a {
+                color: #60a5fa !important;
+            }
+            .note-card-body {
+                color: #e2e8f0 !important;
+            }
+            .box-supplement-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+            }
+            .box-supplement-table th {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #f8fafc !important;
+            }
+            .box-supplement-table th h1, .box-supplement-table th h2,
+            .box-supplement-table th h3, .box-supplement-table th h4,
+            .box-supplement-table th strong, .box-supplement-table th p {
+                color: #f8fafc !important;
+            }
+            .box-supplement-table td {
+                color: #e2e8f0 !important;
+            }
+            .image-caption {
+                color: #94a3b8;
+            }
+            .custom-lightbox-img {
+                background-color: #1e293b;
+            }
+            .custom-lightbox-caption {
+                color: #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body  class="showRuby cc-theme--light DynamicLayout">
+    <div id="content" class="content">
+        <article class="article document html5 pub- docId-1102025918 pub-wcg pub- pub-wcg docClass-13 jwac showRuby ml-E ms-ROMAN dir-ltr includeSecondaryNav" data-lang="E" dir="ltr" id="article" lang="en" role="article">
+<div class="scalableui">
+<header>
+<div class="dc-bleedToArticleEdge suppressZoom" id="f1">
+<figure>
+<img alt="" class="suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/443" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/444" style="max-width: min(100%, 700px); height: auto;"/>
+</figure>
+</div>
+<p class="contextTtl dc-bleedToArticleEdge dc-paddingToContentEdge du-letterSpacing--1 du-color--orange-700 du-borderColor--orange-700 du-borderStyle-bottom--solid du-borderWidth--1 du-padding-vertical--2" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="86" data-no="86" id="page86"></span><strong>18</strong> GIDEON</p>
+<h1 class="du-color--coolGray-600 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="2" id="p2"><strong>Courageous and Cautious</strong></h1>
+</header> <div class="clearfix alternatePresentation clickable noTooltips">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/441" data-alt-type="svg" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/439" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">Printed Edition</div>
+</div>
+<div class="clearfix alternatePresentation clickable noTooltips hidden">
+<div class="thumbnail">
+<img class="lightbox" data-alt-src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/442" data-alt-type="svg" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/440" style="max-width: min(100%, 700px); height: auto;"/>
+</div>
+<div class="title">Printed Edition</div>
+</div>
+<div class="bodyTxt">
+<div id="tt4">
+<p data-pid="3" id="p3">GENUINE courage requires caution. Without caution, courage may become mere recklessness. Gideon was both courageous and cautious. He lived at a time when Israel had once again strayed from Jehovah. So Jehovah allowed the Midianites to flood into the land, oppress his people, and prevent them from reaping their crops. Undaunted, Gideon threshed grain to help feed his people. But he did so cautiously, partially concealed in a winepress, likely a large, sheltered vat that was carved out of a rock.</p>
+<p data-pid="4" id="p4">The Israelites repentantly called on Jehovah for help. So he sent a prophet to remind them of why he had abandoned them; then he sent an angel to commission Gideon to rescue His people. Gideon asked for a sign. The angel obliged, miraculously using fire to consume a sacrifice that Gideon prepared. After this, the angel vanished. That night, Jehovah spoke to Gideon, telling him to tear down an altar to Baal and a sacred pole and then to build an altar to Jehovah and sacrifice to Him. Gideon obeyed, but fear of his father and the men of the city moved him to do so at night, when he was sure he would not be seen.</p>
+<p data-pid="5" id="p5">After Gideon’s courageous acts, the Midianites amassed a huge army with the Amalekites and the Easterners and came against Israel, filling the valley of Jezreel like a vast swarm of locusts. With Jehovah’s spirit upon him, Gideon sent messengers to summon the men of several tribes of Israel to rise up and fight. Then, cautious Gideon asked Jehovah for two miraculous signs to reassure him of divine backing. Jehovah patiently complied. That night, when Gideon laid a fleece out on the threshing floor, Jehovah caused it to be soaked with dew though the ground around it remained dry. The next night, He caused the fleece to stay dry though the ground was soaked with dew.</p>
+<div class="stdPullQuote dc-ttClassStyle--unset du-color--orange-700 du-float-desktopOnly--inlineStart du-width-desktopOnly--oneHalf du-margin-inlineStart-mobileOnly--6 du-margin-inlineEnd-desktopOnly--4 du-margin-children-top-desktopOnly--0"><p data-pid="43" id="p43"><strong>Gideon and his men were vastly outnumbered, but Jehovah told them to reduce their ranks further</strong></p>
+</div>
+<p data-pid="6" id="p6">Thus, strengthened by God’s response, Gideon led his relatively small army of 32,000 men toward the enemy, who numbered some 135,000. While the Israelites were encamped at the Spring of Harod, Jehovah told Gideon that his army was too large! Gideon had to excuse from battle all the soldiers who were stricken <span aria-hidden="true" class="pageNum" data-before-text="87" data-no="87" id="page87"></span>with fear. Only 10,000 men were left. But Jehovah said that this was still too many. He told Gideon to observe his men as they drank from the water. Those who knelt and bent low, facedown, to drink were dismissed. Others, though, drank with caution, crouching down and scooping up water with their hands while still looking around them. These alert soldiers were selected to fight. Now Gideon had only 300 men!</p>
+<p data-pid="7" id="p7">Gideon bravely went ahead, preparing to attack. Jehovah then gave him further assurance. He told Gideon to sneak into the enemy encampment at night. Gideon did so. He overheard a soldier relating a dream that showed that Israel would win the battle. Brimming with God-given confidence, Gideon returned to his men and told them to follow him carefully in a clever battle strategy. In the dark of night, they spread out. When Gideon gave the signal, they used large jars, torches, and horns to create a sudden burst of noise and light. “The sword of Jehovah and of Gideon!” they shouted. The tactic convinced the enemy soldiers that they were surrounded and under attack. They panicked and were thrown into confusion! Jehovah caused them to turn on one another. Only some 15,000 survived and fled.</p>
+<div class="dc-bleedToArticleEdge du-margin-vertical--8 du-margin-vertical-desktopOnly--12" id="f2">
+<figure>
+<img alt="Gideon and his men holding torches in their left hands and blowing horns in their right hands. Smashed jars lie at their feet." data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/445" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/446" style="max-width: min(100%, 700px); height: auto;"/>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">Gideon and his men holding torches in their left hands and blowing horns in their right hands. Smashed jars lie at their feet.</td></tr></tbody></table></div></figure>
+</div>
+<p data-pid="8" id="p8">Gideon pursued them. Finally, he defeated the enemy, executed their leaders, and punished those who had been disloyal and refused to support Gideon in this divinely directed battle. Then the people tried to make Gideon their king. He modestly refused, saying: “Jehovah is the one who will rule over you.” God rewarded that brave and cautious man. Gideon enjoyed peace as a judge over Israel and lived to a good old age. He was even mentioned by the apostle Paul when he listed men and women of great faith.​—<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025918/0/0">Heb. 11:32</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Heb. 11:32]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v58-11-32-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070162/30296">32 </a>And what more will I say? For time will fail me if I go on to relate about Gidʹe·on,<a class="b" data-bid="341-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070162/340">+</a> Baʹrak,<a class="b" data-bid="342-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070162/341">+</a> Samson,<a class="b" data-bid="343-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070162/342">+</a> Jephʹthah,<a class="b" data-bid="344-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070162/343">+</a> David,<a class="b" data-bid="345-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070162/344">+</a> as well as Samuel<a class="b" data-bid="346-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070162/345">+</a> and the other prophets. </span></td></tr></tbody></table></div>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="9" id="p9"><strong>Read the Bible account:</strong></h3>
+<ul><li><p data-pid="10" id="p10"> <a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025918/1/0"><strong>Judges 6:1–7:22;</strong></a><a class="b" data-bid="2-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025918/1/1"> <strong>8:4-23,</strong></a><a class="b" data-bid="2-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025918/1/2"> <strong>28</strong></a></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Judges 6:1–7:22;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-1-1"><a class="cl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6655"><strong>6</strong> </a>But the Israelites again did what was bad in the eyes of Jehovah,<a class="b" data-bid="198-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/197">+</a> so Jehovah gave them into the hand of Midʹi·an for seven years.<a class="b" data-bid="199-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/198">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-2-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6656">2 </a>The hand of Midʹi·an dominated over Israel.<a class="b" data-bid="200-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/199">+</a> Because of Midʹi·an, the Israelites made hiding places<a class="fn" data-fnid="56" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/55" id="footnotesource56">*</a><em> (Footnote: Or possibly, “underground storage places.”)</em> for themselves in the mountains, in the caves, and in the places difficult to approach.<a class="b" data-bid="201-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/200">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-3-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6657">3 </a>If Israel sowed seed, Midʹi·an and Amʹa·lek<a class="b" data-bid="202-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/201">+</a> and the Easterners<a class="b" data-bid="203-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/202">+</a> would attack them. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-4-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6658">4 </a>They would camp against them and ruin the produce of the land all the way to Gazʹa, and they left nothing for Israel to eat and no sheep or bull or donkey.<a class="b" data-bid="204-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/203">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-5-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6659">5 </a>For they would come up with their livestock and tents as numerous as the locusts,<a class="b" data-bid="205-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/204">+</a> and they and their camels could not be numbered,<a class="b" data-bid="206-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/205">+</a> and they would come into the land to destroy it. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-6-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6660">6 </a>So Israel became greatly impoverished on account of Midʹi·an; and the Israelites called to Jehovah for help.<a class="b" data-bid="207-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/206">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-7-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6661">7 </a>When the Israelites called to Jehovah for help because of Midʹi·an,<a class="b" data-bid="208-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/207">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-8-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6662">8 </a>Jehovah sent to the Israelites a prophet who said to them: “This is what Jehovah the God of Israel says, ‘I brought you up from Egypt and thus brought you out of the house of slavery.<a class="b" data-bid="209-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/208">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-9-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6663">9 </a>So I rescued you from the hand of Egypt and from all your oppressors and drove them out from before you and gave you their land.<a class="b" data-bid="210-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/209">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-10-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6664">10 </a>And I said to you: “I am Jehovah your God.<a class="b" data-bid="211-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/210">+</a> You must not fear the gods of the Amʹor·ites in whose land you are dwelling.”<a class="b" data-bid="212-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/211">+</a> But you did not obey me.’”<a class="fn pr" data-fnid="57" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/56" id="footnotesource57">*</a><em> (Footnote: Lit., “listen to my voice.”)</em><a class="b" data-bid="213-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/212">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-11-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6665">11 </a>Later Jehovah’s angel came<a class="b" data-bid="214-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/213">+</a> and sat under the big tree that was in Ophʹrah, which belonged to Joʹash the Abi-ezʹrite.<a class="b" data-bid="215-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/214">+</a> His son Gidʹe·on<a class="b" data-bid="216-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/215">+</a> was beating out wheat in the winepress in order to hide it from Midʹi·an. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-12-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6666">12 </a>Jehovah’s angel appeared to him and said: “Jehovah is with you,<a class="b" data-bid="217-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/216">+</a> you mighty warrior.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-13-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6667">13 </a>At this Gidʹe·on said to him: “Pardon me, my lord, but if Jehovah is with us, why has all of this come upon us?<a class="b" data-bid="218-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/217">+</a> Where are all his wonderful acts that our fathers related to us,<a class="b" data-bid="219-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/218">+</a> saying, ‘Did Jehovah not bring us up out of Egypt?’<a class="b" data-bid="220-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/219">+</a> Now Jehovah has deserted us<a class="b" data-bid="221-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/220">+</a> and given us into Midʹi·an’s hand.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-14-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6668">14 </a>Jehovah faced him and said: “Go with the strength you have, and you will save Israel out of Midʹi·an’s hand.<a class="b" data-bid="222-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/221">+</a> Is it not I who send you?” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-15-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6669">15 </a>Gidʹe·on answered him: “Pardon me, Jehovah. How can I save Israel? Look! My clan<a class="fn" data-fnid="58" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/57" id="footnotesource58">*</a><em> (Footnote: Lit., “thousand.”)</em> is the least in Ma·nasʹseh, and I am the most insignificant in my father’s house.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-16-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6670">16 </a>But Jehovah said to him: “Because I will be with you,<a class="b" data-bid="223-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/222">+</a> you will strike down Midʹi·an as if they were one man.”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-17-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6671">17 </a>Then he said to him: “If, now, I have found favor in your eyes, show me a sign that you are the one speaking with me. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-18-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6672">18 </a>Please do not depart from here until I return with my gift and set it before you.”<a class="b" data-bid="224-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/223">+</a> So he said: “I will stay here until you return.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-19-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6673">19 </a>And Gidʹe·on went in and prepared a young goat and made unleavened bread from an eʹphah<a class="fn" data-fnid="59" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/58" id="footnotesource59">*</a><em> (Footnote: About 22 L (20 dry qt). See App. B14.)</em> of flour.<a class="b" data-bid="225-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/224">+</a> He put the meat in the basket and the broth in the cooking pot; then he brought them out to him and served them under the big tree.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-20-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6674">20 </a>The angel of the true God now said to him: “Take the meat and the unleavened bread and place them on the big rock there, and pour out the broth.” And he did so. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-21-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6675">21 </a>Then Jehovah’s angel stretched out the tip of the staff that was in his hand and touched the meat and the unleavened bread, and fire flared up from the rock and consumed the meat and the unleavened bread.<a class="b" data-bid="226-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/225">+</a> Jehovah’s angel then vanished from his sight. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-22-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6676">22 </a>Gidʹe·on now realized that it was Jehovah’s angel.<a class="b" data-bid="227-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/226">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-22-2">At once Gidʹe·on said: “Alas, Sovereign Lord Jehovah, for I have seen Jehovah’s angel face-to-face!”<a class="b" data-bid="228-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/227">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-23-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6677">23 </a>But Jehovah said to him: “Peace be with you. Have no fear;<a class="b" data-bid="229-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/228">+</a> you will not die.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-24-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6678">24 </a>So Gidʹe·on built an altar there to Jehovah, and it is called Je·hoʹvah-shaʹlom<a class="fn pr" data-fnid="60" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/59" id="footnotesource60">*</a><em> (Footnote: Meaning “Jehovah Is Peace.”)</em><a class="b" data-bid="230-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/229">+</a> down to this day. It is still in Ophʹrah of the Abi-ezʹrites.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-25-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6679">25 </a>That night Jehovah said to him: “Take the young bull that belongs to your father, the second young bull that is seven years old, and tear down the altar of Baʹal that belongs to your father, and cut down the sacred pole<a class="fn" data-fnid="61" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/60" id="footnotesource61">*</a><em> (Footnote: See Glossary.)</em> next to it.<a class="b" data-bid="231-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/230">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-26-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6680">26 </a>After you build an altar to Jehovah your God on top of this stronghold with the row of stones, take the second young bull and offer it as a burnt offering on the pieces of wood from the sacred pole<a class="fn" data-fnid="62" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/61" id="footnotesource62">*</a><em> (Footnote: See Glossary.)</em> that you cut down.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-27-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6681">27 </a>So Gidʹe·on took ten men of his servants and did just as Jehovah told him. But he feared the household of his father and the men of the city too much to do it by day, so he did it at night.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-28-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6682">28 </a>When the men of the city got up early the next morning, they saw that the altar of Baʹal had been pulled down and the sacred pole<a class="fn" data-fnid="63" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/62" id="footnotesource63">*</a><em> (Footnote: See Glossary.)</em> beside it had been cut down and the second young bull had been offered up on the altar that had been built. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-29-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6683">29 </a>They asked one another: “Who did this?” After they investigated, they said: “Gidʹe·on the son of Joʹash did this.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-30-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6684">30 </a>So the men of the city said to Joʹash: “Bring your son out that he may die, because he pulled down the altar of Baʹal and cut down the sacred pole<a class="fn" data-fnid="64" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/63" id="footnotesource64">*</a><em> (Footnote: See Glossary.)</em> next to it.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-31-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6685">31 </a>Joʹash<a class="b" data-bid="232-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/231">+</a> then said to all those who confronted him: “Do you have to defend Baʹal? Do you have to save him? Whoever defends him should be put to death this morning.<a class="b" data-bid="233-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/232">+</a> If he is a god, let him defend himself,<a class="b" data-bid="234-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/233">+</a> since someone pulled down his altar.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-32-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6686">32 </a>And he called Gidʹe·on Jer·ub·baʹal<a class="fn" data-fnid="65" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/64" id="footnotesource65">*</a><em> (Footnote: Meaning “Let Baal Make a Legal Defense (Contend).”)</em> on that day, saying: “Let Baʹal defend himself, for someone has pulled down his altar.”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-33-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6687">33 </a>All Midʹi·an<a class="b" data-bid="235-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/234">+</a> and Amʹa·lek<a class="b" data-bid="236-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/235">+</a> and the Easterners joined forces;<a class="b" data-bid="237-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/236">+</a> and they crossed over<a class="fn" data-fnid="66" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/65" id="footnotesource66">*</a><em> (Footnote: Or “crossed the river.”)</em> into the Valley<a class="fn" data-fnid="67" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/66" id="footnotesource67">*</a><em> (Footnote: Or “Low Plain.”)</em> of Jezʹre·el and camped. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-34-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6688">34 </a>Then Jehovah’s spirit came upon<a class="fn" data-fnid="68" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/67" id="footnotesource68">*</a><em> (Footnote: Lit., “clothed.”)</em> Gidʹe·on<a class="b" data-bid="238-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/237">+</a> and he sounded the horn,<a class="b" data-bid="239-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/238">+</a> and the Abi-ezʹrites<a class="b" data-bid="240-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/239">+</a> rallied behind him. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-35-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6689">35 </a>He sent out messengers through all of Ma·nasʹseh, and they too rallied behind him. He also sent out messengers through Ashʹer, Zebʹu·lun, and Naphʹta·li, and they came up to meet him.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-36-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6690">36 </a>Then Gidʹe·on said to the true God: “If you are saving Israel by means of me, just as you have promised,<a class="b" data-bid="241-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/240">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-37-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6691">37 </a>here I am laying a fleece of wool on the threshing floor. If there is dew on the fleece only but all the ground around it is dry, then I will know that you will save Israel by means of me, just as you have promised.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-38-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6692">38 </a>And that is how it happened. When he rose up early the next day and wrung the fleece, he squeezed off enough dew from the fleece to fill a large banquet bowl with water. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-39-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6693">39 </a>However, Gidʹe·on said to the true God: “Do not let your anger burn against me, but let me ask just once more. Let me, please, make just one more test with the fleece. Please let the fleece alone be dry while there is dew all over the ground.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-6-40-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6694">40 </a>So that is what God did that night; only the fleece was dry, and there was dew all over the ground.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-1-1"><a class="cl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6695"><strong>7</strong> </a>Then Jer·ub·baʹal, that is, Gidʹe·on,<a class="b" data-bid="242-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/241">+</a> and all the people with him rose early and encamped at the Spring of Haʹrod, while the camp of Midʹi·an was north of him at the hill of Moʹreh in the valley plain.<a class="fn" data-fnid="69" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/68" id="footnotesource69">*</a><em> (Footnote: Or “low plain.”)</em> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-2-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6696">2 </a>Jehovah now said to Gidʹe·on: “There are too many people with you for me to give Midʹi·an into their hand.<a class="b" data-bid="243-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/242">+</a> Otherwise, Israel might brag about itself against me and say, ‘My own hand saved me.’<a class="b" data-bid="244-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/243">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-3-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6697">3 </a>Now, please, announce in the presence of the people: ‘Whoever is afraid and trembling, let him return home.’”<a class="b" data-bid="245-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/244">+</a> So Gidʹe·on put them to the test. With that, 22,000 of the people returned home, and 10,000 remained.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-4-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6698">4 </a>Still Jehovah said to Gidʹe·on: “There are yet too many people. Have them go down to the water so that I may test them for you there. When I say to you, ‘This one will go with you,’ he will go with you, but when I say to you, ‘This one will not go along with you,’ he will not go along.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-5-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6699">5 </a>So he took the people down to the water.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-5-2">Then Jehovah said to Gidʹe·on: “Separate everyone who laps up the water with his tongue just as a dog laps, from those who bend down on their knees to drink.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-6-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6700">6 </a>The number of those lapping up the water, putting their hand to their mouth, was 300 men. The rest of the people bent down on their knees to drink.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-7-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6701">7 </a>Jehovah now said to Gidʹe·on: “I will save you with the 300 men who lapped the water, and I will give Midʹi·an into your hand.<a class="b" data-bid="246-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/245">+</a> But let all the other people go back home.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-8-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6702">8 </a>So after they took the provisions and the horns from the people, he sent all the other men of Israel back home, and he kept only the 300 men. The camp of Midʹi·an was below him in the valley plain.<a class="b" data-bid="247-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/246">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-9-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6703">9 </a>During that night, Jehovah said to him: “Get up, attack the camp, for I have given it into your hand.<a class="b" data-bid="248-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/247">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-10-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6704">10 </a>But if you are afraid to attack, go down to the camp with Puʹrah your attendant. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-11-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6705">11 </a>Listen to what they say, and afterward you will have the courage<a class="fn" data-fnid="70" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/69" id="footnotesource70">*</a><em> (Footnote: Lit., “your hands will grow strong.”)</em> to attack the camp.” At that he and Puʹrah his attendant went down to the edge of the encamped army.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-12-1"><a class="vl vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6706">12 </a>Now Midʹi·an and Amʹa·lek and all the Easterners<a class="b" data-bid="249-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/248">+</a> covered the valley plain like a swarm of locusts, and their camels were without number,<a class="b" data-bid="250-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/249">+</a> as many as the grains of sand on the seashore. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-13-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6707">13 </a>Gidʹe·on now came, and there was a man relating a dream to his companion, and he said: “This is the dream I had. There was a round loaf of barley bread rolling into the camp of Midʹi·an. It came to a tent and struck it so hard that it collapsed.<a class="b" data-bid="251-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/250">+</a> Yes, it turned the tent upside down, and the tent fell flat.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-14-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6708">14 </a>At this his companion said: “This can only be the sword of Gidʹe·on<a class="b" data-bid="252-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/251">+</a> the son of Joʹash, a man of Israel. God has given Midʹi·an and all the camp into his hand.”<a class="b" data-bid="253-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/252">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-15-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6709">15 </a>As soon as Gidʹe·on heard him relate the dream and its interpretation,<a class="b" data-bid="254-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/253">+</a> he bowed down to worship. After that he returned to the camp of Israel and said: “Get up, for Jehovah has given the camp of Midʹi·an into your hand.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-16-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6710">16 </a>Then he divided the 300 men into three bands and gave all of them horns<a class="b" data-bid="255-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/254">+</a> and large empty jars with torches inside the jars. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-17-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6711">17 </a>Then he said to them: “Watch me and do exactly what I do. When I come to the edge of the camp, you should do just as I do. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-18-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6712">18 </a>When I blow the horn, I and all who are with me, you also must blow the horns all around the camp and shout, ‘For Jehovah and for Gidʹe·on!’”</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-19-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6713">19 </a>Gidʹe·on and the 100 men who were with him came to the edge of the camp at the start of the middle night watch,<a class="fn" data-fnid="71" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/70" id="footnotesource71">*</a><em> (Footnote: From about 10:00 p.m. to about 2:00 a.m.)</em> just after the sentries were posted. They blew the horns<a class="b" data-bid="256-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/255">+</a> and smashed the large water jars that were in their hands.<a class="b" data-bid="257-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/256">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-20-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6714">20 </a>So the three bands blew the horns and shattered the large jars. They held the torches in their left hands and blew the horns in their right hands and they called out: “The sword of Jehovah and of Gidʹe·on!” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-21-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6715">21 </a>All the while each man stood in his place all around the camp, and the whole army ran away, shouting as they fled.<a class="b" data-bid="258-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/257">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-7-22-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6716">22 </a>The 300 continued to blow the horns, and Jehovah turned the sword of each one against the other throughout the camp;<a class="b" data-bid="259-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/258">+</a> and the army fled as far as Beth-shitʹtah, on to Zerʹe·rah, as far as the outskirts of Aʹbel-me·hoʹlah<a class="b" data-bid="260-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/259">+</a> by Tabʹbath.</span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[8:4-23,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-4-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6723">4 </a>Gidʹe·on then came to the Jordan and crossed it. He and the 300 men with him were tired, but they kept up the pursuit. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-5-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6724">5 </a>So he said to the men of Sucʹcoth: “Please give loaves of bread to the people following me, for they are tired and I am chasing after Zeʹbah and Zal·munʹna, the kings of Midʹi·an.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-6-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6725">6 </a>But the princes of Sucʹcoth said: “Are the palms of Zeʹbah and Zal·munʹna already in your hand so that we should give bread to your army?” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-7-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6726">7 </a>At this Gidʹe·on said: “Just for that, when Jehovah gives Zeʹbah and Zal·munʹna into my hand, I will give you a thrashing with the thorns and the briars of the wilderness.”<a class="b" data-bid="269-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/268">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-8-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6727">8 </a>And he went up from there to Pe·nuʹel and made the same request, but the men of Pe·nuʹel gave him the same answer as the men of Sucʹcoth. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-9-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6728">9 </a>So he said also to the men of Pe·nuʹel: “When I return in peace, I will pull down this tower.”<a class="b" data-bid="270-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/269">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-10-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6729">10 </a>Now Zeʹbah and Zal·munʹna were in Karʹkor with their armies, about 15,000 men. These were all who remained of the entire army of the Easterners,<a class="b" data-bid="271-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/270">+</a> for 120,000 men armed with swords had fallen. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-11-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6730">11 </a>Gidʹe·on continued up by the way of the tent dwellers east of Noʹbah and Jogʹbe·hah<a class="b" data-bid="272-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/271">+</a> and attacked the camp, which was off guard. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-12-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6731">12 </a>When Zeʹbah and Zal·munʹna fled, he pursued and captured the two Midʹi·an·ite kings, Zeʹbah and Zal·munʹna, throwing the whole camp into a panic.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-13-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6732">13 </a>Gidʹe·on the son of Joʹash then returned from the war by way of the pass that goes up to Heʹres. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-14-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6733">14 </a>En route he captured and interrogated a young man from Sucʹcoth. So the young man wrote out for him the names of the princes and elders of Sucʹcoth, 77 men. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-15-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6734">15 </a>With that he went to the men of Sucʹcoth and said: “Here are Zeʹbah and Zal·munʹna about whom you taunted me, saying, ‘Are the palms of Zeʹbah and Zal·munʹna already in your hand so that we should give bread to your exhausted men?’”<a class="b" data-bid="273-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/272">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-16-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6735">16 </a>Then he took the elders of the city and with thorns and briars of the wilderness, he taught the men of Sucʹcoth a lesson.<a class="b" data-bid="274-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/273">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-17-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6736">17 </a>And he pulled down the tower of Pe·nuʹel<a class="b" data-bid="275-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/274">+</a> and killed the men of the city.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-18-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6737">18 </a>He asked Zeʹbah and Zal·munʹna: “What sort of men did you kill in Taʹbor?” To this they said: “They were like you, each one looked like the son of a king.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-19-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6738">19 </a>At that he said: “They were my brothers, the sons of my mother. As surely as Jehovah lives, if you had spared their lives, I would not have to kill you.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-20-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6739">20 </a>Then he said to Jeʹther his firstborn: “Get up, kill them.” But the young man did not draw his sword; he was afraid, for he was still a young man. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-21-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6740">21 </a>So Zeʹbah and Zal·munʹna said: “Get up yourself and slay us, for a man is judged by his mightiness.”<a class="fn" data-fnid="74" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/73" id="footnotesource74">*</a><em> (Footnote: Or “for as a man is, so is his strength.”)</em> So Gidʹe·on got up and killed Zeʹbah and Zal·munʹna<a class="b" data-bid="276-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/275">+</a> and took the crescent-shaped ornaments that were on the necks of their camels.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-22-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6741">22 </a>Later the men of Israel said to Gidʹe·on: “Rule over us, you and your son and your grandson as well, for you saved us out of the hand of Midʹi·an.”<a class="b" data-bid="277-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/276">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-23-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6742">23 </a>But Gidʹe·on said to them: “I will not rule over you, nor will my son rule over you. Jehovah is the one who will rule over you.”<a class="b" data-bid="278-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/277">+</a> </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[28]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v7-8-28-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6747">28 </a>Thus Midʹi·an<a class="b" data-bid="285-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/284">+</a> was subdued before the Israelites, and they did not challenge them<a class="fn" data-fnid="76" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/75" id="footnotesource76">*</a><em> (Footnote: Lit., “did not lift up their head.”)</em> again; and the land had rest<a class="fn" data-fnid="77" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/76" id="footnotesource77">*</a><em> (Footnote: Or “peace.”)</em> for 40 years in the days of Gidʹe·on.<a class="b" data-bid="286-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/285">+</a></span></td></tr></tbody></table></div>
+</li>
+</ul>
+<h3 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--2 du-margin-top--4 du-margin-top-desktopOnly--8 du-padding-top--2" data-pid="11" id="p11"><strong>For discussion:</strong></h3>
+<p data-pid="12" id="p12"><strong>In what ways did Gideon show courage?</strong></p>
+
+</div>
+<div id="tt13">
+<h2 class="du-color--orange-700 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--2" data-pid="14" id="p14"><span aria-hidden="true" class="pageNum" data-before-text="88" data-no="88" id="page88"></span><strong>Dig Deeper</strong></h2>
+<ol class="du-listStyleType--source"><li><p data-pid="15" id="p15"><span class="txtSrcBullet"><strong>1.</strong> </span><strong>Why might the “round loaf of barley” in the soldier’s dream have been a fitting symbol of Gideon’s army?</strong> (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025918/2/0">Judg. 7:13</a>; <a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025918/0/0"><em>it</em> “Barley” ¶7</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Judg. 7:13]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v7-7-13-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6707">13 </a>Gidʹe·on now came, and there was a man relating a dream to his companion, and he said: “This is the dream I had. There was a round loaf of barley bread rolling into the camp of Midʹi·an. It came to a tent and struck it so hard that it collapsed.<a class="b" data-bid="251-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/250">+</a> Yes, it turned the tent upside down, and the tent fell flat.” </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[it “Barley” ¶7]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span aria-hidden="true" class="pageNum" data-before-text="257" data-no="257" id="page257"></span><span class="parNum" data-pnum="7"></span>Nevertheless, barley was a common and a lowly food, and some commentators suggest that these qualities are represented in the figure of “a round cake of barley bread” that was seen in the Midianite’s dream and that symbolized Gideon’s humble army.​—<a class="b" data-bid="14-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200000565/13/0">Jg 7:13, 14</a>.</td></tr></tbody></table></div>
+
+</li>
+<li><p data-pid="17" id="p17"><span class="txtSrcBullet"><strong>2.</strong> </span><strong>Why did the sound of 300 horns confuse and frighten the Midianites?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025918/1/0"><em>it</em> “Horn” ¶3</a>) <span class="du-color--orange-700"><strong>A</strong></span></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[it “Horn” ¶3]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="3"></span>The <em>shoh·pharʹ</em> was basically used as a signaling instrument. It assembled the Israelite forces, sometimes sounded the “alarm signal” against a city to be attacked, and directed other maneuvers in warfare. (<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200002080/3/0">Jg 3:27;</a><a class="b" data-bid="4-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200002080/3/1"> 6:34;</a><a class="b" data-bid="4-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200002080/3/2"> 2Sa 2:28;</a><a class="b" data-bid="4-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200002080/3/3"> Joe 2:1;</a><a class="b" data-bid="4-5" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200002080/3/4"> Zep 1:16</a>) In case of enemy attack, the <em>shoh·pharʹ</em> gave warning. (<a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200002080/4/0">Ne 4:18-20</a>) Being just a signaling instrument in battle, the sound of 300 of these horns would, under normal circumstances, indicate an army of considerable size. So when the Midianites heard the horns blown by everyone in Gideon’s band of 300 men, “the whole camp got on the run,” terror stricken.​—<a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1200002080/5/0">Jg 7:15-22</a>.</td></tr></tbody></table></div>
+
+<div class="south_center" id="f3">
+<figure>
+<img alt="A ram’s horn." class="south_center" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/447" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/448" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="45" id="p45"><span class="dc-screenReaderText"><strong>Picture</strong> </span><span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>A</strong></span><span class="dc-screenReaderText"><strong>:</strong> </span>Rams’ horns were used as signaling instruments</p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">A ram’s horn.</td></tr></tbody></table></div></figure>
+</div>
+</li>
+<li><p data-pid="19" id="p19"><span class="txtSrcBullet"><strong>3.</strong> </span><strong>What did Gideon and his army have to do to defeat the Midianites?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025918/2/0"><em>w04</em> 10/15 16 ¶9-10</a>) <span class="du-color--orange-700"><strong>B</strong></span></p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[w04 10/15 16 ¶9-10]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="12" data-rel-pid="[37]" id="p12" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="9"><sup>9</sup></span> Gideon’s victory over the Midianites is another account that brings distances to the fore. Most Bible readers know that Judge Gideon and his band of 300 defeated a coalition of 135,000 invaders​—Midianites, Amalekites, and others encamped on the plain of Jezreel, near the hill of Moreh. <strong>[</strong>gl <strong>18]</strong> Gideon’s men blew horns, smashed jars to reveal their torches, and shouted: “Jehovah’s sword and Gideon’s!” This confused and frightened the enemies, so that they began striking down one another. (<a class="b" data-bid="11-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2004764/10/0">Judges 6:33;</a><a class="b" data-bid="11-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2004764/10/1"> 7:1-22</a>) Was that the whole event, one quick act in the dark of night? Read on in <a class="b" data-bid="12-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2004764/11/0">Judges chapters 7 and</a><a class="b" data-bid="12-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2004764/11/1"> 8</a>. You will see that Gideon pressed the attack. Of the many places mentioned, some cannot be identified today with known sites, so they may not appear on Bible maps. Still, enough are identified, so that we can follow Gideon’s actions.</div><div class="sb" data-pid="13" data-rel-pid="[37]" id="p13" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="10"><sup>10</sup></span> Gideon chased the remnant of the coalition forces past Beth-shittah and then southward to Abel-meholah, near the Jordan. (<a class="b" data-bid="13-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2004764/12/0">Judges 7:22-25</a>) The account says: “Gideon came to the Jordan, crossing it, he and the three hundred men that were with him, <em>tired but keeping up the pursuit.”</em> Once across, the Israelites pursued the enemies southward to Succoth and Penuel, near the Jabbok, then up hills to Jogbehah (close to modern Amman, Jordan). That was some 50 miles <strong>[80 km]</strong> of pursuit and fighting. Gideon captured and slew two Midianite kings; then he returned to his city, Ophrah, near the place where the fighting started. (<a class="b" data-bid="14-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2004764/13/0">Judges 8:4-12,</a><a class="b" data-bid="14-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2004764/13/1"> 21-27</a>) Clearly, Gideon’s feat was more than a few minutes of blowing horns, waving torches, and shouting. And think how it adds impact to the comment about men of faith: “Time will fail me if I go on to relate about Gideon [and others who] from a weak state were made powerful, became valiant in war.” (<a class="b" data-bid="15-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2004764/14/0">Hebrews 11:32-34</a>) <span aria-hidden="true" class="pageNum" data-before-text="17" data-no="17" id="page17"></span>Christians too may tire physically, but is it not vital that we keep up in doing God’s will?​—<a class="b" data-bid="16-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2004764/15/0">2 Corinthians 4:1,</a><a class="b" data-bid="16-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2004764/15/1"> 16;</a><a class="b" data-bid="16-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2004764/15/2"> Galatians 6:9</a>.</div></td></tr></tbody></table></div>
+
+<div class="south_center" id="f4">
+<figure>
+<img alt="A map displaying the rugged terrain and the distance covered by Gideon and his men while chasing the Midianites from the Jezreel Valley to Jogbehah." class="south_center" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/449" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/450" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="47" id="p47"><span class="dc-screenReaderText"><strong>Picture</strong> </span><span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>B</strong></span><span class="dc-screenReaderText"><strong>:</strong> </span>Gideon chased the Midianites about 80 kilometers (50 mi) to Jogbehah (exact route unknown)</p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">A map displaying the rugged terrain and the distance covered by Gideon and his men while chasing the Midianites from the Jezreel Valley to Jogbehah.</td></tr></tbody></table></div></figure>
+</div>
+</li>
+<li><p data-pid="21" id="p21"><span class="txtSrcBullet"><strong>4.</strong> </span><strong>What details confirm the accuracy of this Bible account?</strong> (<a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025918/3/0"><em>w05</em> 4/15 32</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[w05 4/15 32]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="st" data-pid="1" id="p1" style="margin-top: 0; margin-bottom: 8px"><span aria-hidden="true" class="pageNum" data-before-text="32" data-no="32" id="page32"></span><strong>Bible History​—How Accurate?</strong></div><div class="sb" data-pid="2" id="p2" style="margin-top: 0; margin-bottom: 8px">IN THEIR book <em>Battles of the Bible,</em> Chaim Herzog, former president of the State of Israel, and Mordechai Gichon, emeritus professor of archaeology at Tel Aviv University, make this point:</div><div class="sb" data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px">“The tactical description of the battles of the Bible . . . cannot be explained by mere inventiveness. It suffices, for example, to compare the campaign of Gideon against the Midianites and their allies, as related in Judges, 6-8, with the battles of the Trojan War, described by Homer in his <em>Iliad.</em> For the latter, any accessible sea shore and a not-far-away fortified town will do nicely as geographic setting . . . Not so the biblical account of Gideon’s campaign. The detailed tactical movements and encounters based on the interaction between specific topographical features and the actions of both friend or foe​—over a theatre of war covering some forty miles <strong>[60 km]</strong> in length—​simply cannot be reproduced anywhere . . . We are thus virtually forced to accept the veracity of the tactical narrative of the battles as described in the Bible.”</div><div class="sb" data-pid="4" id="p4" style="margin-top: 0; margin-bottom: 8px">You might study Gideon’s campaign by using the map on pages 18 and 19 of the atlaslike brochure <em>“See the Good Land.”</em><a class="fn" data-fnid="1" href="https://wol.jw.org/en/wol/fn/r1/lp-e/2005289/0" id="footnotesource1">a</a><em> (Footnote: Published by Jehovah’s Witnesses.)</em> The story began when “all Midian and Amalek and the Easterners gathered together as one and proceeded to cross over and camp in the low plain of Jezreel.” Gideon called nearby tribes to help. Events moved from the well of Harod to the hill of Moreh, then down the Jordan Valley. After pursuing the enemies across the Jordan River, Gideon subdued them.​—<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2005289/0/0">Judges 6:33–8:12</a>.</div><div class="sb" data-pid="5" id="p5" style="margin-top: 0; margin-bottom: 8px">That map in <em>“See the Good Land”</em> shows the major places mentioned and the land features involved. Another map (page 15) identifies the territories of Israel’s tribes. The two maps can help you to appreciate the accuracy of the Bible account.</div><div class="sb" data-pid="6" id="p6" style="margin-top: 0; margin-bottom: 8px">This illustrates an observation made by the late Professor Yohanan Aharoni: “In the land of the Bible, geography and history are so deeply interwoven that neither can be really understood without the help of the other.”</div><div class="sf" data-pid="7" id="p7" style="margin-top: 0; margin-bottom: 8px"><strong>[Footnote]</strong></div><div data-pid="8" id="p8" style="margin-top: 0; margin-bottom: 8px"><a class="fn-symbol" href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025918/3/0#footnotesource1">a</a> Published by Jehovah’s Witnesses.</div><div class="se" data-pid="9" id="p9" style="margin-top: 0; margin-bottom: 8px"><strong>[Picture Credit Line on page 32]</strong></div><div class="sc" data-pid="10" id="p10" style="margin-top: 0; margin-bottom: 8px">Background map: Based on maps copyrighted by Pictorial Archive (Near Eastern History) Est. and Survey of Israel</div><div class="sb" data-pid="11" id="p11" style="margin-top: 0; margin-bottom: 8px"></div></td></tr></tbody></table></div>
+
+</li>
+</ol>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="23" id="p23"><span aria-hidden="true" class="pageNum" data-before-text="89" data-no="89" id="page89"></span><strong>Reflect on the Lessons</strong></h2>
+<ul><li><p data-pid="24" id="p24">  Gideon led God’s people to a victory. But he remained humble and spoke peaceably to others. (<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102025918/3/0">Judg. 8:1-3</a>) How can family heads and elders imitate Gideon when someone is upset by something they do?</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Judg. 8:1-3]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-1-1"><a class="cl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6720"><strong>8</strong> </a>Then the men of Eʹphra·im said to him: “What have you done to us? Why did you not call us when you went to fight against Midʹi·an?”<a class="b" data-bid="264-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/263">+</a> And they quarreled bitterly with him.<a class="b" data-bid="265-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/264">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-2-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6721">2 </a>But he said to them: “What have I done compared with you? Are not the gleanings of Eʹphra·im<a class="b" data-bid="266-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/265">+</a> better than the grape harvest of Abi-eʹzer?<a class="b" data-bid="267-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/266">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v7-8-3-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070111/6722">3 </a>It was into your hand that God gave Midʹi·an’s princes Oʹreb and Zeʹeb,<a class="b" data-bid="268-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070111/267">+</a> and what have I done compared with you?” When he spoke this way,<a class="fn" data-fnid="72" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/71" id="footnotesource72">*</a><em> (Footnote: Lit., “word.”)</em> they calmed down.<a class="fn" data-fnid="73" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070111/72" id="footnotesource73">*</a><em> (Footnote: Lit., “their spirit relaxed from against him.”)</em></span></div></td></tr></tbody></table></div>
+
+</li>
+<li><p data-pid="26" id="p26">  In what situations might we need to be both courageous and cautious? <span class="du-color--orange-700"><strong>C</strong></span></p>
+
+<div class="south_center gen-flipbook pm-flipbook-gallery" id="f5">
+<figure class="south_center gen-flipbook pm-flipbook-gallery">
+<img alt="Collage: A teenage sister facing pressure at school. The next two images show each scene separately." class="south_center gen-flipbook pm-flipbook-gallery" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/451" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/451" style="max-width: min(100%, 700px); height: auto;"/>
+<img alt="The sister walking down a hallway at school glances at a poster that promotes homosexual lifestyles. Behind her, two female students wearing rainbow bracelets are walking hand in hand." class="south_center gen-flipbook pm-flipbook-gallery" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/452" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/452" style="max-width: min(100%, 700px); height: auto;"/>
+<img alt="Later, in the classroom, the sister’s classmates urging her to wear a rainbow bracelet. She politely refuses while her classmates look at her in disbelief." class="south_center gen-flipbook pm-flipbook-gallery" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/453" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/453" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption du-clearfix du-margin--0 du-padding-top--3 du-margin-children--0">
+<p data-pid="63" id="p63"><span class="dc-screenReaderText"><strong>Picture</strong> </span><span class="du-bgColor--orange-600 du-color--white du-fontSize--basePlus2 du-float--inlineStart du-margin-inlineEnd--3 du-padding-vertical--1 du-padding-horizontal--3"><strong>C</strong></span></p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">Collage: A teenage sister facing pressure at school. The next two images show each scene separately.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">The sister walking down a hallway at school glances at a poster that promotes homosexual lifestyles. Behind her, two female students wearing rainbow bracelets are walking hand in hand.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">Later, in the classroom, the sister’s classmates urging her to wear a rainbow bracelet. She politely refuses while her classmates look at her in disbelief.</td></tr></tbody></table></div></figure>
+</div>
+</li>
+<li><p data-pid="28" id="p28">  How might you imitate Gideon’s courage in your life?</p>
+
+</li>
+</ul>
+<h2 class="du-color--orange-700 du-margin-top--8 du-margin-top-desktopOnly--12" data-pid="30" id="p30"><strong>Meditate on the Bigger Picture</strong></h2>
+<ul><li><p data-pid="31" id="p31">  What does this account teach me about Jehovah?</p>
+
+</li>
+<li><p data-pid="33" id="p33">  How does the account tie in with Jehovah’s purposes?</p>
+
+</li>
+<li><p data-pid="35" id="p35">  What would I like to ask Gideon in the resurrection?</p>
+
+</li>
+</ul>
+<div class="dc-bleedToArticleEdge dc-paddingToContentEdge du-bgColor--warmGray-50 du-borderStyle-top--solid du-borderColor--orange-700 du-borderWidth--10 du-margin-top--8 du-margin-top-desktopOnly--12 du-padding-top--4 du-padding-bottom--8" id="tt77">
+<h2 class="du-color--orange-700 du-margin-top--0" data-pid="37" id="p37"><strong>Learn More</strong></h2>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt79">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f6">
+<figure>
+<a href="https://wol.jw.org/wol/rslink/r1/lp-e?lang=E&amp;docid=2000564&amp;pub=w00&amp;issuedate=20000801&amp;beginpar=16&amp;endpar=21"><img alt="" class="suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/454" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/455" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt80">
+<p data-pid="38" id="p38">If you receive a privilege of service, how can you imitate Gideon?</p>
+<p data-pid="39" id="p39"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025918/4/0"><strong>“Wisdom Is With the Modest Ones”</strong> (<em>w00</em> 8/1 16-18 ¶11-15)</a></p>
+</div>
+</div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[“Wisdom Is With the Modest Ones” (w00 8/1 16-18 ¶11-15)]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="16" data-rel-pid="[47]" id="p16" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="11"><sup>11</sup></span> Gideon, a stalwart young man of the tribe of Manasseh, lived during a turbulent time in Israel’s history. For seven years, God’s people had suffered under Midianite oppression. However, the time had now come for Jehovah to deliver his people. Hence, an angel appeared to Gideon and said: “Jehovah is with you, you valiant, mighty one.” Gideon was modest, so he did not bask in the glory of this unexpected compliment. Instead, he respectfully said to the angel: “Excuse me, my lord, but if Jehovah is with us, then why has all this come upon us?” The angel clarified matters and told Gideon: “You will certainly save Israel out of <span aria-hidden="true" class="pageNum" data-before-text="17" data-no="17" id="page17"></span>Midian’s palm.” How did Gideon respond? Instead of hungrily seizing the assignment as an opportunity to make himself a national hero, Gideon replied: “Excuse me, Jehovah. With what shall I save Israel? Look! My thousand is the least in Manasseh, and I am the smallest in my father’s house.” What modesty!​—<a class="b" data-bid="25-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2000564/24/0">Judges 6:11-15</a>.</div><div class="sb" data-pid="17" data-rel-pid="[48]" id="p17" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="12"><sup>12</sup></span> Before sending Gideon into battle, Jehovah tested him. How? Gideon was told to demolish his father’s altar to Baal and to cut down the sacred pole that stood alongside it. This assignment would take courage, but Gideon also showed modesty and discretion in the way he carried it out. Instead of making a public spectacle of himself, Gideon worked under cover of night when he would most likely pass unnoticed. Furthermore, Gideon approached his assignment with due caution. He took along ten servants​—perhaps so that some could stand guard while the rest helped him to destroy the altar and the sacred pole.<a class="fn" data-fnid="2" href="https://wol.jw.org/en/wol/fn/r1/lp-e/2000564/1" id="footnotesource2">b</a><em> (Footnote: Gideon’s discretion and caution should not be misinterpreted as a sign of cowardice. On the contrary, his courage is confirmed by Hebrews 11:32-38, which includes Gideon among those who “were made powerful” and who “became valiant in war.”)</em> In any event, with Jehovah’s blessing, Gideon carried out his assignment, and in time he was used by God to liberate Israel from the Midianites.​—<a class="b" data-bid="26-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2000564/25/0">Judges 6:25-27</a>.</div><div class="ss" data-pid="18" id="p18" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>Displaying Modesty and Discretion</strong></div><div class="sb" data-pid="19" data-rel-pid="[49]" id="p19" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="13"><sup>13</sup></span> There is much we can learn from Gideon’s modesty. For example, how do we respond when a privilege of service is extended to us? Do we think first of the prominence or prestige that will result? Or do we modestly and prayerfully <span aria-hidden="true" class="pageNum" data-before-text="18" data-no="18" id="page18"></span>consider whether we can fulfill the demands of the assignment? Brother A. H. Macmillan, who finished his earthly course in 1966, set a fine example in this regard. C. T. Russell, the first president of the Watch Tower Society, once asked Brother Macmillan for his thoughts on who might take charge of the work in his absence. In the discussion that followed, Brother Macmillan did not once promote himself, though it would have been quite convenient for him to do so. In the end, Brother Russell invited Brother Macmillan to consider accepting the assignment. “I stood there half dazed,” Brother Macmillan wrote years later. “I did think it over, very seriously, and prayed about it for some time before I finally told him I would be happy to do all that I could do to assist him.”</div><div class="sb" data-pid="20" data-rel-pid="[49]" id="p20" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="14"><sup>14</sup></span> Not long afterward, Brother Russell passed away, leaving the office of the Watch Tower Society’s presidency vacant. Since Brother Macmillan was in charge during Brother Russell’s final preaching tour, a brother remarked to him: “Mac, you have a strong chance of getting in yourself. You were Brother Russell’s special representative when he was gone, and he told all of us to do as you say. Well, he went away and never did return. It looks like you’re the man to carry on.” Brother Macmillan responded: “Brother, that’s not the way to look at this matter. This is the Lord’s work and the only position you get in the Lord’s organization is what the Lord sees fit to give you; and I am sure I’m not the man for the job.” Then Brother Macmillan recommended someone else for the position. Like Gideon, he had a modest view of himself​—a view we do well to adopt.</div><div class="sb" data-pid="21" data-rel-pid="[50]" id="p21" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="15"><sup>15</sup></span> We too should be modest in the manner in which we carry out our assignment. Gideon was discreet, and he strove not to anger his opposers unnecessarily. Similarly, in our preaching work, we should be modest and discreet about how we talk to others. True, we are engaged in a spiritual warfare to overturn “strongly entrenched things” and “reasonings.” (<a class="b" data-bid="27-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2000564/26/0">2 Corinthians 10:4, 5</a>) But we should not talk down to others or give them any valid cause for taking offense at our message. Instead, we should respect their views, emphasize what we may hold in common, and then focus on the positive aspects of our message.​—<a class="b" data-bid="28-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2000564/27/0">Acts 22:1-3;</a><a class="b" data-bid="28-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2000564/27/1"> 1 Corinthians 9:22;</a><a class="b" data-bid="28-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2000564/27/2"> Revelation 21:4</a>.</div></td></tr></tbody></table></div>
+<div class="dc-columns-desktopOnly du-margin-top--8" id="tt81">
+<div class="dc-column-width--oneQuarter du-margin-inlineEnd-desktopOnly--4" id="f7">
+<figure>
+<a href="https://www.jw.org/finder?wtlocale=E&amp;docid=502015214"><img alt="" class="suppressZoom" data-img-small-src="/en/wol/mp/r1/lp-e/wcg/2025/456" src="https://wol.jw.org/en/wol/mp/r1/lp-e/wcg/2025/457" style="max-width: min(100%, 700px); height: auto;"/></a>
+</figure>
+</div>
+<div class="dc-column-width--threeQuarters du-margin-top-mobileOnly--4 du-margin-children--0" id="tt82">
+<p data-pid="40" id="p40">Use this illustrated Bible story to help your children to put their trust in God.</p>
+<p data-pid="41" id="p41"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/1102025918/5/0"><strong>“Jehovah Strengthens Gideon”</strong> (<em>ijwis</em> article 13)</a></p>
+</div>
+</div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[“Jehovah Strengthens Gideon” (ijwis article 13)]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="featureTtl" data-pid="1" id="p1" style="margin-top: 0; margin-bottom: 8px"><strong>ILLUSTRATED BIBLE STORIES</strong></div><h1 data-pid="2" id="p2"><span aria-hidden="true" class="pageNum" data-before-text="13" data-no="13" id="page13"></span><strong>Jehovah Strengthens Gideon</strong></h1><div data-pid="3" id="p3" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="1"></span>How did Jehovah help Gideon to deal with bullies from Midian?</div><div data-pid="4" id="p4" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="2"></span>Read the illustrated story online or from a printed PDF.</div><div data-pid="5" id="p5" style="margin-top: 0; margin-bottom: 8px"><a data-online-link="https://www.jw.org/finder?wtlocale=E&amp;docid=502015214" href="https://wol.jw.org/wol/webpubdl?docid=502015214&amp;lang=E&amp;track=1">Download</a></div></td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="{BibleBookName} {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value="{BibleBookName} {StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value="{BibleBookName} {BibleVerse}"/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="Walk Courageously With God p. {StartingPageNumber}-{EndingPageNumber}"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="Walk Courageously With God p. {PageNumber}"/>
+<input id="documentDescription" type="hidden" value="Walk Courageously With God"/>
+<input id="englishSym" type="hidden" value="wcg"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="audioPubSym" type="hidden" value="wcg"/>
+<input id="chapNo" type="hidden" value="18"/>
+<input id="issue" type="hidden" value=""/>
+<input id="docId" type="hidden" value="1102025918"/>
+<input id="documentInBible" type="hidden" value=""/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=E&amp;docid=1102025918&amp;srctype=wol&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="document"/>
+<input id="contentTitle" type="hidden" value="Courageous and Cautious"/>
+<input id="parentTitle" type="hidden" value="Walk Courageously With God"/>
+<input id="contentThumbnail" type="hidden" value="/en/wol/d/r1/lp-e/1102025918/thumbnail"/>
+</article>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Gather all alternate presentation elements and their images
+        const altPresElements = Array.from(document.querySelectorAll('.alternatePresentation'));
+        const altImages = altPresElements.map(el => {
+            const img = el.querySelector('img');
+            if (img) {
+                return {
+                    src: img.getAttribute('data-alt-src') || img.getAttribute('src'),
+                    title: el.querySelector('.title')?.textContent || "Image"
+                };
+            }
+            return null;
+        }).filter(Boolean);
+
+        // 2. Create Lightbox DOM structure dynamically
+        const lightbox = document.createElement('div');
+        lightbox.className = 'custom-lightbox';
+        lightbox.innerHTML = `
+            <button class="custom-lightbox-close">&times;</button>
+            <button class="custom-lightbox-nav custom-lightbox-prev">&#10094;</button>
+            <div class="custom-lightbox-content">
+                <img class="custom-lightbox-img" src="" alt="" />
+            </div>
+            <button class="custom-lightbox-nav custom-lightbox-next">&#10095;</button>
+            <div class="custom-lightbox-caption"></div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('.custom-lightbox-img');
+        const lightboxCaption = lightbox.querySelector('.custom-lightbox-caption');
+        const closeBtn = lightbox.querySelector('.custom-lightbox-close');
+        const prevBtn = lightbox.querySelector('.custom-lightbox-prev');
+        const nextBtn = lightbox.querySelector('.custom-lightbox-next');
+
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        const openLightbox = (group, index) => {
+            currentGroup = group;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const updateLightbox = () => {
+            const item = currentGroup[currentIndex];
+            if (item) {
+                lightboxImg.src = item.src;
+                if (item.title && item.title.trim() !== "" && item.title.trim() !== "Printed Edition") {
+                    lightboxCaption.textContent = item.title;
+                    lightboxCaption.style.display = 'block';
+                } else {
+                    lightboxCaption.textContent = "";
+                    lightboxCaption.style.display = 'none';
+                }
+                if (currentGroup.length > 1) {
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                } else {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                }
+            }
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImg.src = '';
+            lightboxCaption.textContent = '';
+        };
+
+        const navigate = (direction) => {
+            if (currentGroup.length <= 1) return;
+            currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+            updateLightbox();
+        };
+
+        // Event Listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('custom-lightbox-content')) {
+                closeLightbox();
+            }
+        });
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Attach click handlers to alternate presentations
+        altPresElements.forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(altImages, index);
+            });
+        });
+
+        // Attach click handlers to other zoomable figure images
+        document.querySelectorAll('article figure img:not(.suppressZoom)').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = img.getAttribute('data-alt-src') || img.getAttribute('src');
+                const title = img.getAttribute('alt') || "";
+                openLightbox([{ src, title }], 0);
+            });
+        });
+    });
+    </script>
+</body>
+</html>

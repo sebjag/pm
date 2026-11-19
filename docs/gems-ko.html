@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>예레미야 애가 1 & 예레미야 애가 2</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💎</text></svg>'>
+    <link rel="stylesheet" type="text/css" href="css/media-player.css">
+    <link rel="stylesheet" type="text/css" href="css/+0+61168f8ef805085f5a3c0118b14679f74c9e62a4.css">
+    <link rel="stylesheet" type="text/css" href="css/+1+f8319dd08c749624466cb777b7d528e1a42d7368.css">
+    <link rel="stylesheet" type="text/css" href="css/+2+894de4a6eba76bf97927253f95f582449947a96e.css">
+    <link rel="stylesheet" type="text/css" href="css/+3+d00a791fdbb951906e95f1428ae322e41ea9da95.css">
+    <style>
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @media screen and (min-width: 600px) {
+            .document, .bible {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 16px 50px 80px;
+            }
+            .document .dc-bleedToArticleEdge, .bible .dc-bleedToArticleEdge {
+                margin-left: -50px;
+                margin-right: -50px;
+            }
+            .document .dc-paddingToContentEdge, .bible .dc-paddingToContentEdge {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        #content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+        .inserted-reference {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+            font-size: 0.95em;
+        }
+        .inserted-reference-header {
+            margin: 0;
+            padding: 4px 16px;
+            background-color: #e2e6ea;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #495057;
+        }
+        .inserted-reference-header a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #1a73e8;
+        }
+        .inserted-reference-header a:hover {
+            text-decoration: underline;
+        }
+        .inserted-reference > *:not(.inserted-reference-header) {
+            margin: 12px 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-style: italic;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        /* Custom Lightbox Styles */
+        .custom-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            /* user-select: none; */
+            /* -webkit-user-select: none; */
+        }
+        .custom-lightbox.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .custom-lightbox-content {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 35px;
+            color: #fff;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10002;
+            transition: transform 0.2s ease;
+        }
+        .custom-lightbox-close:hover {
+            transform: scale(1.1);
+        }
+        .custom-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 20px;
+        }
+        .custom-lightbox-nav:hover {
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .custom-lightbox-prev {
+            left: 0px;
+        }
+        .custom-lightbox-next {
+            right: 0px;
+        }
+        .custom-lightbox-caption {
+            color: #ccc;
+            margin-top: 15px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 80%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body, #content {
+                background-color: #171c2a !important;
+                color: #e2e8f0;
+            }
+            .document, .bible, .article, #article {
+                background-color: #1e293b !important;
+                color: #e2e8f0;
+            }
+            .scalableui, .bodyTxt {
+                background-color: transparent !important;
+                color: #e2e8f0;
+            }
+            .du-bgColor--bgSecondary, .du-bgColor--warmGray-50,
+            [class*="du-bgColor--bgSecondary"], [class*="du-bgColor--warmGray-"],
+            #tt9, .document #tt9, body #tt9,
+            .document [class*="du-bgColor--bgSecondary"], body [class*="du-bgColor--bgSecondary"],
+            .document [class*="du-bgColor--warmGray-"], body [class*="du-bgColor--warmGray-"] {
+                background-color: #2d3a4f !important;
+                color: #e2e8f0 !important;
+            }
+            .du-borderColor--borderDefault, hr {
+                border-color: #3b4d66 !important;
+            }
+            .du-color--teal-700 {
+                color: #2dd4bf !important;
+            }
+            h1, h2, h3, h4, h5, h6, strong {
+                color: #f8fafc;
+            }
+            a, a.b, a.vl, a.fn, a:visited {
+                color: #60a5fa;
+            }
+            a:hover, a.b:hover, a.vl:hover, a.fn:hover {
+                color: #93c5fd;
+            }
+            .du-color--textSubdued, .pageNum, .themeScrp {
+                color: #94a3b8 !important;
+            }
+            .inserted-reference {
+                background-color: #263346;
+                border: 1px solid #3b4d66;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .inserted-reference-header {
+                background-color: #1e2b3c;
+                border-bottom: 1px solid #3b4d66;
+                color: #cbd5e1;
+            }
+            .inserted-reference-header a {
+                color: #60a5fa;
+            }
+            .inserted-reference-header a:hover {
+                color: #93c5fd;
+            }
+            .note-card-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .note-card-header {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #cbd5e1 !important;
+            }
+            .note-card-header a {
+                color: #60a5fa !important;
+            }
+            .note-card-body {
+                color: #e2e8f0 !important;
+            }
+            .box-supplement-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+            }
+            .box-supplement-table th {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #f8fafc !important;
+            }
+            .box-supplement-table th h1, .box-supplement-table th h2,
+            .box-supplement-table th h3, .box-supplement-table th h4,
+            .box-supplement-table th strong, .box-supplement-table th p {
+                color: #f8fafc !important;
+            }
+            .box-supplement-table td {
+                color: #e2e8f0 !important;
+            }
+            .image-caption {
+                color: #94a3b8;
+            }
+            .custom-lightbox-img {
+                background-color: #1e293b;
+            }
+            .custom-lightbox-caption {
+                color: #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body  class="showRuby cc-theme--light DynamicLayout">
+    <div id="content" class="content">
+        <article class="article bible html5 pub-nwtsty jwac showRuby ml-KO ms-KOREAN dir-ltr includeSecondaryNav" data-lang="KO" dir="ltr" id="article" lang="ko" role="article"><div class="gems-global-controls"><button onclick="toggleAllGems(this, true)">💎 Expand All Gems</button><button onclick="toggleAllGems(this, false)">💎 Collapse All Gems</button></div>
+<div class="scalableui">
+<header>
+<h1>예레미야 애가<button class="gems-toggle-btn" onclick="toggleGems('gems-outline-25-1-1')" title="Toggle Outline">💎</button></h1>
+</header><div class="gems-references-container inserted-reference-container" id="gems-outline-25-1-1" style="display: block;"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[예레미야 애가 개요]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="summaryOutline" style="margin-top: 0; margin-bottom: 8px"><li class="L2" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 0px;"><p style="margin: 2px 0; line-height: 1.35;">과부로 의인화된 예루살렘</p><ul style="list-style: none; list-style-type: none; padding-left: 0; margin: 2px 0;"><li class="L3" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 20px;"><p style="margin: 2px 0; line-height: 1.35;">버려진 채 홀로 앉아 있다 <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/25/1#h=3:0-6:0"><span class="altsize">1</span></a><span class="altsize">)</span></p></li><li class="L3" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 20px;"><p style="margin: 2px 0; line-height: 1.35;">시온의 큰 죄 <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/25/1#h=27:0-36:0"><span class="altsize">8, 9</span></a><span class="altsize">)</span></p></li><li class="L3" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 20px;"><p style="margin: 2px 0; line-height: 1.35;">하느님께서 시온을 배척하시다 <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/25/1#h=45:0-61:0"><span class="altsize">12-15</span></a><span class="altsize">)</span></p></li><li class="L3" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 20px;"><p style="margin: 2px 0; line-height: 1.35;">시온을 위로해 줄 이가 없다 <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/25/1#h=66:0-69:0"><span class="altsize">17</span></a><span class="altsize">)</span></p></li></ul></li></div></td></tr></tbody></table></div>
+<p class="ss" data-pid="2" id="p2" style="font-size: 0.8em; text-align: center">א [알레프]<a class="fn" data-fnid="1" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/0" id="footnotesource1">*</a><em> (각주: 1-4장은 히브리어 알파벳 순서를 따라 이합체시 형식으로 쓴 비가이다.)</em></p>
+<p class="sb" data-pid="3" id="p3"><span class="v" id="v25-1-1-1"><a class="cl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20427"><strong>1</strong> </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-1-1')" title="Toggle Gems Study References">💎</button>사람들로 가득하던 도시가<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/0">+</a> 어쩌다가 홀로 앉아 있게 되었는가!</span></p>
+<p class="sz" data-pid="4" id="p4"><span class="v" id="v25-1-1-2">나라들 가운데서 뛰어나던<a class="fn pr" data-fnid="2" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/1" id="footnotesource2">*</a><em> (각주: 또는 “인구가 많던”.)</em><a class="b" data-bid="2-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/1">+</a> 그가 어쩌다가 과부처럼 되었는가!</span></p>
+<p class="sz" data-pid="5" id="p5"><span class="v" id="v25-1-1-3">속주<a class="fn" data-fnid="3" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/2" id="footnotesource3">*</a><em> (각주: 또는 “관할 지역”.)</em>들 가운데서 여왕이던 그가 어쩌다가 강제 노역을 하는 신세가 되었는가!<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/2">+</a></span></p><div class="gems-references-container" id="gems-ref-25-1-1" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「파수대」 1988/9/1, 26면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>죄는 결코 즐거움을 가져오지 않는다.</em> 보라! 한때 거민이 많은 유다의 수도였던 죄많은 예루살렘이 적막히 앉아 있다. 유다는 황폐되었기 때문에, 마치 과부가 되어 애곡하는 공주와도 같다. 애굽과 같은 “사랑하던 자”들은 기원전 607년에 바벨론의 정복으로부터 유다를 구해 주지 않았다. 백성은 더 이상 절기를 지키려고 시온으로 모여들지 않는다. 자녀들은 사로잡히고, 대적들은 유다의 무너짐을 비웃는다. 불결한 이방인들이 성전을 더럽혔으며, 유다 백성은 양식을 위해 보물을 내놓지 않을 수 없었다. 이 모든 것이 죄 때문이다!—<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/2/0">1:1-11</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파88 9/1 26]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="5" id="p5"><em>죄는 결코 즐거움을 가져오지 않는다.</em> 보라! 한때 거민이 많은 유다의 수도였던 죄많은 예루살렘이 적막히 앉아 있다. 유다는 황폐되었기 때문에, 마치 과부가 되어 애곡하는 공주와도 같다.</p>
+</article><article class="scalableui">
+<p class="sb" data-pid="5" id="p5"><a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/2/0">1:1</a></p>
+</article></td></tr></tbody></table></div></div>
+<p class="ss" data-pid="6" id="p6" style="font-size: 0.8em; text-align: center">ב [베트]</p>
+<p class="sl" data-pid="7" id="p7"><span class="v" id="v25-1-2-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20428">2 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-1-2')" title="Toggle Gems Study References">💎</button>그가 밤새 목 놓아 우니,<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/3">+</a> 뺨에 눈물이 마르지 않는구나.</span></p>
+<div data-pid="8" id="p8"><p class="sz" data-pid="8"><span class="v" id="v25-1-2-2">그 모든 애인들 가운데 그를 위로해 줄 자가 하나도 없고,<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/4">+</a></span></p><p class="sz" data-pid="8"><span class="v" id="v25-1-2-3">친구들은 모두 그를 배신하여<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/5">+</a> 원수가 되었다.</span></p><div class="gems-references-container" id="gems-ref-25-1-2" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「파수대」 1988/9/1, 26면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>죄는 결코 즐거움을 가져오지 않는다.</em> 보라! 한때 거민이 많은 유다의 수도였던 죄많은 예루살렘이 적막히 앉아 있다. 유다는 황폐되었기 때문에, 마치 과부가 되어 애곡하는 공주와도 같다. 애굽과 같은 “사랑하던 자”들은 기원전 607년에 바벨론의 정복으로부터 유다를 구해 주지 않았다. 백성은 더 이상 절기를 지키려고 시온으로 모여들지 않는다. 자녀들은 사로잡히고, 대적들은 유다의 무너짐을 비웃는다. 불결한 이방인들이 성전을 더럽혔으며, 유다 백성은 양식을 위해 보물을 내놓지 않을 수 없었다. 이 모든 것이 죄 때문이다!—<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/2/0">1:1-11</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파88 9/1 26]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="5" id="p5"><em>죄는 결코 즐거움을 가져오지 않는다.</em> 보라! 한때 거민이 많은 유다의 수도였던 죄많은 예루살렘이 적막히 앉아 있다. 유다는 황폐되었기 때문에, 마치 과부가 되어 애곡하는 공주와도 같다.</p>
+</article><article class="scalableui">
+<p class="sb" data-pid="5" id="p5"><a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/2/0">1:1</a></p>
+</article></td></tr></tbody></table></div></div>
+</div><p class="ss" data-pid="9" id="p9" style="font-size: 0.8em; text-align: center">ג [기멜]</p>
+<p class="sl" data-pid="10" id="p10"><span class="v" id="v25-1-3-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20429">3 </a>유다는 고통과 가혹한 노역에 시달리다가<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/6">+</a> 유배되어 갔다.<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/7">+</a></span></p>
+<p class="sz" data-pid="11" id="p11"><span class="v" id="v25-1-3-2">그가 민족들 가운데서 살아야 하니,<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/8">+</a> 쉴 곳이 없구나.</span></p>
+<p class="sz" data-pid="12" id="p12"><span class="v" id="v25-1-3-3">그를 박해하던 모든 자가 고난에 처한 그를 덮쳤다.</span></p>
+<p class="ss" data-pid="13" id="p13" style="font-size: 0.8em; text-align: center">ד [달레트]</p>
+<p class="sl" data-pid="14" id="p14"><span class="v" id="v25-1-4-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20430">4 </a>시온으로 가는 길들이 슬퍼하니, 축제에 오는 사람이 아무도 없기 때문이다.<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/9">+</a></span></p>
+<p class="sz" data-pid="15" id="p15"><span class="v" id="v25-1-4-2">그의 모든 성문은 황폐해 있고,<a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/10">+</a> 그의 제사장들은 한숨짓는다.</span></p>
+<p class="sz" data-pid="16" id="p16"><span class="v" id="v25-1-4-3">그의 처녀<a class="fn" data-fnid="4" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/3" id="footnotesource4">*</a><em> (각주: 또는 “젊은 여자”.)</em>들은 비탄에 잠겨 있고, 그는 몹시 괴로워하는구나.</span></p>
+<p class="ss" data-pid="17" id="p17" style="font-size: 0.8em; text-align: center">ה [헤]</p>
+<p class="sl" data-pid="18" id="p18"><span class="v" id="v25-1-5-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20431">5 </a>그의 적들은 이제 그의 주인<a class="fn" data-fnid="5" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/4" id="footnotesource5">*</a><em> (각주: 직역하면 “머리”.)</em>이 되었고, 그의 원수들은 걱정을 모르고 산다.<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/11">+</a></span></p>
+<div data-pid="19" id="p19"><p class="sz" data-pid="19"><span class="v" id="v25-1-5-2">여호와께서 그의 많은 범법 행위 때문에 그를 비탄에 잠기게 하셨으니,<a class="b" data-bid="13-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/12">+</a></span></p><p class="sz" data-pid="19"><span class="v" id="v25-1-5-3">그의 자녀들이 적 앞에서 사로잡혀 갔다.<a class="b" data-bid="14-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/13">+</a></span></p>
+</div><p class="ss" data-pid="20" id="p20" style="font-size: 0.8em; text-align: center">ו [와우]</p>
+<p class="sl" data-pid="21" id="p21"><span class="v" id="v25-1-6-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20432">6 </a>딸 시온에게서 모든 영화가 떠났다.<a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/14">+</a></span></p>
+<div data-pid="22" id="p22"><p class="sz" data-pid="22"><span class="v" id="v25-1-6-2">그의 방백들은 목초지를 찾지 못한 사슴처럼,</span></p><p class="sz" data-pid="22"><span class="v" id="v25-1-6-3">뒤쫓는 자 앞에서 힘없이 걷고 있다.</span></p>
+</div><p class="ss" data-pid="23" id="p23" style="font-size: 0.8em; text-align: center">ז [자인]</p>
+<div data-pid="24" id="p24"><p class="sl" data-pid="24"><span class="v" id="v25-1-7-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20433">7 </a>괴로워하며 집 없이 떠도는 날에,</span></p><p class="sz" data-pid="24"><span class="v" id="v25-1-7-2">예루살렘은 옛날에 가졌던 모든 귀중한 것을 기억한다.<a class="b" data-bid="16-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/15">+</a></span></p>
+</div><div data-pid="25" id="p25"><p class="sz" data-pid="25"><span class="v" id="v25-1-7-3">그의 백성이 적의 손에 떨어지고 도와주는 이 하나 없을 때에,<a class="b" data-bid="17-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/16">+</a></span></p><p class="sz" data-pid="25"><span class="v" id="v25-1-7-4">적들은 그를 보며 그의 몰락을 비웃었다.<a class="fn pr" data-fnid="6" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/5" id="footnotesource6">*</a><em> (각주: 또는 “고소해했다.”)</em><a class="b" data-bid="18-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/17">+</a></span></p>
+</div><p class="ss" data-pid="26" id="p26" style="font-size: 0.8em; text-align: center">ח [헤트]</p>
+<p class="sl" data-pid="27" id="p27"><span class="v" id="v25-1-8-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20434">8 </a>예루살렘은 큰 죄를 지어<a class="b" data-bid="19-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/18">+</a> 몹시 혐오스러운 것이 되었다.</span></p>
+<p class="sz" data-pid="28" id="p28"><span class="v" id="v25-1-8-2">그를 귀하게 여기던 모든 자가 그의 벌거벗은 몸을 보고서 이제 그를 멸시하는구나.<a class="b" data-bid="20-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/19">+</a></span></p>
+<p class="sz" data-pid="29" id="p29"><span class="v" id="v25-1-8-3">그 자신도 신음하며<a class="b" data-bid="21-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/20">+</a> 수치스러워서 몸을 돌린다.</span></p>
+<p class="ss" data-pid="30" id="p30" style="font-size: 0.8em; text-align: center">ט [테트]</p>
+<p class="sl" data-pid="31" id="p31"><span class="v" id="v25-1-9-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20435">9 </a>그의 더러움이 그의 치마 속에 있다.</span></p>
+<p class="sz" data-pid="32" id="p32"><span class="v" id="v25-1-9-2">그는 자기의 앞날을 생각하지 않았다.<a class="b" data-bid="22-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/21">+</a></span></p>
+<p class="sz" data-pid="33" id="p33"><span class="v" id="v25-1-9-3">그가 비참하게 몰락했는데도, 위로해 주는 이가 아무도 없다.</span></p>
+<p class="sz" data-pid="34" id="p34"><span class="v" id="v25-1-9-4">오 여호와여, 나의 괴로움을 보십시오.</span></p>
+<p class="sz" data-pid="35" id="p35"><span class="v" id="v25-1-9-5">원수가 자신을 드높입니다.<a class="b" data-bid="23-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/22">+</a></span></p>
+<p class="ss" data-pid="36" id="p36" style="font-size: 0.8em; text-align: center">י [요드]</p>
+<p class="sl" data-pid="37" id="p37"><span class="v" id="v25-1-10-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20436">10 </a>그의 모든 보물에 적이 손을 댔습니다.<a class="b" data-bid="24-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/23">+</a></span></p>
+<p class="sz" data-pid="38" id="p38"><span class="v" id="v25-1-10-2">그는 이방 사람들이 신성한 곳에 들어오는 것을 보았습니다.<a class="b" data-bid="25-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/24">+</a></span></p>
+<p class="sz" data-pid="39" id="p39"><span class="v" id="v25-1-10-3">그들은 당신의 회중에 들어오지 못하도록 당신이 명령하신 자들입니다.</span></p>
+<p class="ss" data-pid="40" id="p40" style="font-size: 0.8em; text-align: center">כ [카프]</p>
+<p class="sl" data-pid="41" id="p41"><span class="v" id="v25-1-11-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20437">11 </a>그의 모든 백성이 한숨지으며 빵을 찾고 있습니다.<a class="b" data-bid="26-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/25">+</a></span></p>
+<p class="sz" data-pid="42" id="p42"><span class="v" id="v25-1-11-2">그들은 목숨을 부지하려고<a class="fn" data-fnid="7" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/6" id="footnotesource7">*</a><em> (각주: 또는 “영혼을 회복시키려고”.)</em> 자기들의 귀중품을 먹을 것과 바꾸었습니다.</span></p>
+<p class="sz" data-pid="43" id="p43"><span class="v" id="v25-1-11-3">보십시오, 오 여호와여, 내가 무가치한 여자<a class="fn" data-fnid="8" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/7" id="footnotesource8">*</a><em> (각주: 예루살렘을 의인화한 표현.)</em>처럼 되었습니다.</span></p>
+<p class="ss" data-pid="44" id="p44" style="font-size: 0.8em; text-align: center">ל [라메드]</p>
+<p class="sl" data-pid="45" id="p45"><span class="v" id="v25-1-12-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20438">12 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-1-12')" title="Toggle Gems Study References">💎</button>길을 지나가는 너희 모두에게는 이 일이 아무것도 아니냐?</span></p>
+<p class="sz" data-pid="46" id="p46"><span class="v" id="v25-1-12-2">보고 또 보아라!</span></p>
+<div data-pid="47" id="p47"><p class="sz" data-pid="47"><span class="v" id="v25-1-12-3">여호와께서 자신의 타오르는 분노의 날에 내리신 고통,<a class="b" data-bid="27-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/26">+</a></span></p><p class="sz" data-pid="47"><span class="v" id="v25-1-12-4">내가 겪은 것과 같은 그런 고통이 또 있겠느냐?</span></p><div class="gems-references-container" id="gems-ref-25-1-12" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「파수대」 2007/6/1, 8면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">남편과 자녀를 잃은 과부로 의인화된 예루살렘은 “나의 고통과 같은 고통이 있겠느냐?”라고 묻습니다. 예루살렘은 자기의 적에 관해 하느님께 이렇게 기도합니다. “그들의 모든 악이 당신 앞에 이르게 하시고, 그들을 가혹하게 대하여 주십시오, 당신이 저의 모든 범법 행위 때문에 저를 가혹하게 대하신 것처럼. 저의 한숨이 많고, 저의 마음이 병들어 있습니다.”—<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/3/0">애가 1:12,</a><a class="b" data-bid="4-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/3/1"> 22</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 1988/9/1, 26면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>여호와께서는 의로우시게도 범죄자들을 벌하신다.</em> 예루살렘은 자신의 말로 이것을 시인한다. 예루살렘은 하나님께서 자기에게 주신 고통과 같은 슬픔이 어디 있느냐고 질문한다. 그분은 불을 보내어 성전을 황폐하게 하셨다. 그 도시의 죄는 멍에가 되었으며, 하나님께서 예루살렘의 “술틀”을 밟으시자 피가 즙처럼 흘러내렸다. 시온은 슬퍼하면서 두 손을 펴고 간청했지만 위로하는 자를 찾을 수 없었다. 여호와께서는 의로우시게도 반역적인 예루살렘을 벌하셨다. 그분이 기뻐 날뛰는 적들에게도 그처럼 준엄한 벌을 내리시기를 바란다.—<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/3/0">1:12-22</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파07 6/1 8;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="8" id="p8">남편과 자녀를 잃은 과부로 의인화된 예루살렘은 “나의 고통과 같은 고통이 있겠느냐?”라고 묻습니다.</p>
+</article><article class="scalableui">
+<p class="sb" data-pid="8" id="p8"><a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/3/0">애가 1:12,</a></p>
+</article></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파88 9/1 26]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="5" id="p5"><em>죄는 결코 즐거움을 가져오지 않는다.</em> 보라! 한때 거민이 많은 유다의 수도였던 죄많은 예루살렘이 적막히 앉아 있다. 유다는 황폐되었기 때문에, 마치 과부가 되어 애곡하는 공주와도 같다.</p>
+</article><article class="scalableui">
+<p class="sb" data-pid="5" id="p5"><a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/2/0">1:1</a></p>
+</article></td></tr></tbody></table></div></div>
+</div><p class="ss" data-pid="48" id="p48" style="font-size: 0.8em; text-align: center">מ [멤]</p>
+<p class="sl" data-pid="49" id="p49"><span class="v" id="v25-1-13-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20439">13 </a>그분은 높은 곳에서 내 뼈 속으로 불을 보내시어<a class="b" data-bid="28-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/27">+</a> 하나하나 제압하신다.</span></p>
+<p class="sz" data-pid="50" id="p50"><span class="v" id="v25-1-13-2">그분은 내 발에 그물을 펼쳐 놓으셔서, 나를 뒤로 물러나게 하셨다.</span></p>
+<p class="sz" data-pid="51" id="p51"><span class="v" id="v25-1-13-3">그분이 나를 버림받은 여자로 만드셨구나.</span></p>
+<p class="sz" data-pid="52" id="p52"><span class="v" id="v25-1-13-4">나는 온종일 병들어 있다.</span></p>
+<p class="ss" data-pid="53" id="p53" style="font-size: 0.8em; text-align: center">נ [눈]</p>
+<p class="sl" data-pid="54" id="p54"><span class="v" id="v25-1-14-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20440">14 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-1-14')" title="Toggle Gems Study References">💎</button>내 범법 행위들이 멍에처럼 묶여졌으니, 그분이 손으로 동여매셨다.</span></p>
+<p class="sz" data-pid="55" id="p55"><span class="v" id="v25-1-14-2">그것들이 내 목에 지워져, 내 힘이 빠졌다.</span></p>
+<p class="sz" data-pid="56" id="p56"><span class="v" id="v25-1-14-3">여호와께서는 내가 대항할 수 없는 자들의 손에 나를 넘겨주셨다.<a class="b" data-bid="29-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/28">+</a></span></p><div class="gems-references-container" id="gems-ref-25-1-14" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「파수대」 1988/9/1, 26면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>죄는 결코 즐거움을 가져오지 않는다.</em> 보라! 한때 거민이 많은 유다의 수도였던 죄많은 예루살렘이 적막히 앉아 있다. 유다는 황폐되었기 때문에, 마치 과부가 되어 애곡하는 공주와도 같다. 애굽과 같은 “사랑하던 자”들은 기원전 607년에 바벨론의 정복으로부터 유다를 구해 주지 않았다. 백성은 더 이상 절기를 지키려고 시온으로 모여들지 않는다. 자녀들은 사로잡히고, 대적들은 유다의 무너짐을 비웃는다. 불결한 이방인들이 성전을 더럽혔으며, 유다 백성은 양식을 위해 보물을 내놓지 않을 수 없었다. 이 모든 것이 죄 때문이다!—<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/2/0">1:1-11</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파88 9/1 26]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="5" id="p5"><em>죄는 결코 즐거움을 가져오지 않는다.</em> 보라! 한때 거민이 많은 유다의 수도였던 죄많은 예루살렘이 적막히 앉아 있다. 유다는 황폐되었기 때문에, 마치 과부가 되어 애곡하는 공주와도 같다.</p>
+</article><article class="scalableui">
+<p class="sb" data-pid="5" id="p5"><a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/2/0">1:1</a></p>
+</article></td></tr></tbody></table></div></div>
+<p class="ss" data-pid="57" id="p57" style="font-size: 0.8em; text-align: center">ס [사메크]</p>
+<p class="sl" data-pid="58" id="p58"><span class="v" id="v25-1-15-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20441">15 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-1-15')" title="Toggle Gems Study References">💎</button>여호와께서 내 가운데 있던 강한 자들을 모두 몰아내셨다.<a class="b" data-bid="30-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/29">+</a></span></p>
+<p class="sz" data-pid="59" id="p59"><span class="v" id="v25-1-15-2">나의 젊은이들을 쳐부수시려고, 나를 대적하여 무리를 소집하셨다.<a class="b" data-bid="31-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/30">+</a></span></p>
+<p class="sz" data-pid="60" id="p60"><span class="v" id="v25-1-15-3">여호와께서 유다의 처녀 딸을 포도주틀에 넣고 밟으셨다.<a class="b" data-bid="32-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/31">+</a></span></p><div class="gems-references-container" id="gems-ref-25-1-15" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제2권 915면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="9"></span><strong>도시, 장소, 백성</strong> “처녀”라는 단어는, 도시나 지역이나 백성과 관련하여 자주 사용된다. “처녀” 또는 “처녀 딸”인 “내 백성”(<a class="b" data-bid="21-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/20/0">렘 14:17</a>), 이스라엘(<a class="b" data-bid="22-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/21/0">렘 31:4,</a><a class="b" data-bid="22-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/21/1"> 21;</a><a class="b" data-bid="22-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/21/2"> 암 5:2</a>), 유다(<a class="b" data-bid="23-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/22/0">애 1:15</a>), 시온(<a class="b" data-bid="24-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/23/0">왕둘 19:21;</a><a class="b" data-bid="24-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/23/1"> 애 2:13</a>), 이집트(<a class="b" data-bid="25-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/24/0">렘 46:11</a>), 바빌론(<a class="b" data-bid="26-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/25/0">사 47:1</a>), 시돈(<a class="b" data-bid="27-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/26/0">사 23:12</a>)이 언급된다. 이러한 비유적 용법은, 그처럼 언급된 다양한 백성이나 장소가 외국의 정복자에 의해 점령당하거나 강탈당하지 않았음을 또는 처녀처럼 정복되지 않은 상태를 한때 누렸음을 의미하는 듯하다.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「파수대」 2007/6/1, 8면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">남편과 자녀를 잃은 과부로 의인화된 예루살렘은 “나의 고통과 같은 고통이 있겠느냐?”라고 묻습니다. 예루살렘은 자기의 적에 관해 하느님께 이렇게 기도합니다. “그들의 모든 악이 당신 앞에 이르게 하시고, 그들을 가혹하게 대하여 주십시오, 당신이 저의 모든 범법 행위 때문에 저를 가혹하게 대하신 것처럼. 저의 한숨이 많고, 저의 마음이 병들어 있습니다.”—<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/3/0">애가 1:12,</a><a class="b" data-bid="4-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/3/1"> 22</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 1988/9/1, 26-27면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="6" id="p6"><em>여호와께서는 의로우시게도 범죄자들을 벌하신다.</em> 예루살렘은 자신의 말로 이것을 시인한다. 예루살렘은 하나님께서 자기에게 주신 고통과 같은 슬픔이 어디 있느냐고 질문한다. 그분은 불을 보내어 성전을 황폐하게 하셨다. 그 도시의 죄는 멍에가 되었으며, 하나님께서 예루살렘의 “술틀”을 밟으시자 피가 즙처럼 흘러내렸다. 시온은 슬퍼하면서 두 손을 펴고 간청했지만 위로하는 자를 찾을 수 없었다. 여호와께서는 의로우시게도 반역적인 예루살렘을 벌하셨다. 그분이 기뻐 날뛰는 적들에게도 그처럼 준엄한 벌을 내리시기를 바란다.—<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/3/0">1:12-22</a>.</p>
+</article><article class="scalableui">
+<p class="sc" data-pid="18" id="p18">  ◻ <a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/11/0">1:15</a>—‘여호와께서 처녀 유다를 술틀에 밟으셨다.’ 왜냐하면 그분이 그런 일이 일어나도록 선언하고 허락하셨기 때문이다. “처녀 <strong>유다</strong>”는 더럽혀지지 않은 여자처럼 생각되던 예루살렘이었다. 기원전 607년에 바벨론인들이 유다의 수도를 멸망시켰을 때, 그곳에는 술틀에 담긴 포도에서 즙을 짜는 것에 비할 만큼 엄청난 피흘림이 있었다. 여호와께서는 예루살렘의 실체인 그리스도교국이 비슷하게 파괴되게 하실 것이다.</p>
+</article></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-2 915;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파07 6/1 8;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="8" id="p8">남편과 자녀를 잃은 과부로 의인화된 예루살렘은 “나의 고통과 같은 고통이 있겠느냐?”라고 묻습니다.</p>
+</article><article class="scalableui">
+<p class="sb" data-pid="8" id="p8"><a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/3/0">애가 1:12,</a></p>
+</article></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파88 9/1 26-27]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="6" id="p6"><a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/3/0">1:12-22</a></p>
+</article><article class="scalableui">
+<p class="sb" data-pid="6" id="p6">그 도시의 죄는 멍에가 되었으며, 하나님께서 예루살렘의 “술틀”을 밟으시자 피가 즙처럼 흘러내렸다.</p>
+</article><article class="scalableui">
+<p class="sc" data-pid="18" id="p18">◻ <a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/11/0">1:15</a>—‘여호와께서 처녀 유다를 술틀에 밟으셨다.’ 왜냐하면 그분이 그런 일이 일어나도록 선언하고 허락하셨기 때문이다. “처녀 <strong>유다</strong>”는 더럽혀지지 않은 여자처럼 생각되던 예루살렘이었다. 기원전 607년에 바벨론인들이 유다의 수도를 멸망시켰을 때, 그곳에는 술틀에 담긴 포도에서 즙을 짜는 것에 비할 만큼 엄청난 피흘림이 있었다. 여호와께서는 예루살렘의 실체인 그리스도교국이 비슷하게 파괴되게 하실 것이다.</p>
+</article></td></tr></tbody></table></div></div>
+<p class="ss" data-pid="61" id="p61" style="font-size: 0.8em; text-align: center">ע [아인]</p>
+<p class="sl" data-pid="62" id="p62"><span class="v" id="v25-1-16-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20442">16 </a>이런 일 때문에 내가 울고 있으니,<a class="b" data-bid="33-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/32">+</a> 눈에서 눈물이 흘러내린다.</span></p>
+<p class="sz" data-pid="63" id="p63"><span class="v" id="v25-1-16-2">나를 위로하고 내<a class="fn" data-fnid="9" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/8" id="footnotesource9">*</a><em> (각주: 또는 “내 영혼”.)</em>게 새 힘을 줄 이가 내게서 멀리 떨어져 있기 때문이다.</span></p>
+<p class="sz" data-pid="64" id="p64"><span class="v" id="v25-1-16-3">원수가 나를 이기니, 내 아들들이 버림을 받았구나.</span></p>
+<p class="ss" data-pid="65" id="p65" style="font-size: 0.8em; text-align: center">פ [페]</p>
+<p class="sl" data-pid="66" id="p66"><span class="v" id="v25-1-17-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20443">17 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-1-17')" title="Toggle Gems Study References">💎</button>시온이 손을 폈으나,<a class="b" data-bid="34-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/33">+</a> 위로해 줄 이가 없구나.</span></p>
+<p class="sz" data-pid="67" id="p67"><span class="v" id="v25-1-17-2">여호와께서 야곱을 대적하여 그 주위에 있는 모든 적들에게 명령을 내리셨다.<a class="b" data-bid="35-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/34">+</a></span></p>
+<p class="sz" data-pid="68" id="p68"><span class="v" id="v25-1-17-3">예루살렘은 그들에게 몹시 혐오스러운 것이 되었다.<a class="b" data-bid="36-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/35">+</a></span></p><div class="gems-references-container" id="gems-ref-25-1-17" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 693면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="3"></span>그러하기에 예레미야는 <a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000026/5/0">애가 1:17</a>에서 황폐된 예루살렘이 “그들 가운데서[즉 주변 나라들 가운데서] 몹시 혐오스러운 것이[“월경하는 여인과 같이”, 「킹」; “혐오거리가”, 「천」] 되었구나”라고 말한다.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「파수대」 1988/9/1, 26면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>죄는 결코 즐거움을 가져오지 않는다.</em> 보라! 한때 거민이 많은 유다의 수도였던 죄많은 예루살렘이 적막히 앉아 있다. 유다는 황폐되었기 때문에, 마치 과부가 되어 애곡하는 공주와도 같다. 애굽과 같은 “사랑하던 자”들은 기원전 607년에 바벨론의 정복으로부터 유다를 구해 주지 않았다. 백성은 더 이상 절기를 지키려고 시온으로 모여들지 않는다. 자녀들은 사로잡히고, 대적들은 유다의 무너짐을 비웃는다. 불결한 이방인들이 성전을 더럽혔으며, 유다 백성은 양식을 위해 보물을 내놓지 않을 수 없었다. 이 모든 것이 죄 때문이다!—<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/2/0">1:1-11</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 693;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파88 9/1 26]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="5" id="p5"><em>죄는 결코 즐거움을 가져오지 않는다.</em> 보라! 한때 거민이 많은 유다의 수도였던 죄많은 예루살렘이 적막히 앉아 있다. 유다는 황폐되었기 때문에, 마치 과부가 되어 애곡하는 공주와도 같다.</p>
+</article><article class="scalableui">
+<p class="sb" data-pid="5" id="p5"><a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/2/0">1:1</a></p>
+</article></td></tr></tbody></table></div></div>
+<p class="ss" data-pid="69" id="p69" style="font-size: 0.8em; text-align: center">צ [차데]</p>
+<p class="sl" data-pid="70" id="p70"><span class="v" id="v25-1-18-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20444">18 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-1-18')" title="Toggle Gems Study References">💎</button>여호와께서는 의로우시다.<a class="b" data-bid="37-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/36">+</a></span></p>
+<p class="sz" data-pid="71" id="p71"><span class="v" id="v25-1-18-2">내가 그분의 명령<a class="fn" data-fnid="10" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/9" id="footnotesource10">*</a><em> (각주: 직역하면 “입”.)</em>을 거역한 것이다.<a class="b" data-bid="38-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/37">+</a></span></p>
+<p class="sz" data-pid="72" id="p72"><span class="v" id="v25-1-18-3">들어라, 너희 모든 민족들아, 나의 고통을 보아라.</span></p>
+<p class="sz" data-pid="73" id="p73"><span class="v" id="v25-1-18-4">나의 처녀<a class="fn" data-fnid="11" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/10" id="footnotesource11">*</a><em> (각주: 또는 “젊은 여자”.)</em>들과 청년들이 사로잡혀 갔다.<a class="b" data-bid="39-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/38">+</a></span></p><div class="gems-references-container" id="gems-ref-25-1-18" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「파수대」 1988/9/1, 26면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>죄는 결코 즐거움을 가져오지 않는다.</em> 보라! 한때 거민이 많은 유다의 수도였던 죄많은 예루살렘이 적막히 앉아 있다. 유다는 황폐되었기 때문에, 마치 과부가 되어 애곡하는 공주와도 같다. 애굽과 같은 “사랑하던 자”들은 기원전 607년에 바벨론의 정복으로부터 유다를 구해 주지 않았다. 백성은 더 이상 절기를 지키려고 시온으로 모여들지 않는다. 자녀들은 사로잡히고, 대적들은 유다의 무너짐을 비웃는다. 불결한 이방인들이 성전을 더럽혔으며, 유다 백성은 양식을 위해 보물을 내놓지 않을 수 없었다. 이 모든 것이 죄 때문이다!—<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/2/0">1:1-11</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파88 9/1 26]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="5" id="p5"><em>죄는 결코 즐거움을 가져오지 않는다.</em> 보라! 한때 거민이 많은 유다의 수도였던 죄많은 예루살렘이 적막히 앉아 있다. 유다는 황폐되었기 때문에, 마치 과부가 되어 애곡하는 공주와도 같다.</p>
+</article><article class="scalableui">
+<p class="sb" data-pid="5" id="p5"><a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/2/0">1:1</a></p>
+</article></td></tr></tbody></table></div></div>
+<p class="ss" data-pid="74" id="p74" style="font-size: 0.8em; text-align: center">ק [코프]</p>
+<p class="sl" data-pid="75" id="p75"><span class="v" id="v25-1-19-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20445">19 </a>내가 애인들을 불렀으나 그들은 나를 배신했다.<a class="b" data-bid="40-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/39">+</a></span></p>
+<p class="sz" data-pid="76" id="p76"><span class="v" id="v25-1-19-2">나의 제사장들과 장로들이 도시 안에서 죽었다.</span></p>
+<p class="sz" data-pid="77" id="p77"><span class="v" id="v25-1-19-3">목숨을 부지하려고<a class="fn" data-fnid="12" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/11" id="footnotesource12">*</a><em> (각주: 또는 “영혼을 회복시키려고”.)</em> 먹을 것을 찾다가 죽었다.<a class="b" data-bid="41-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/40">+</a></span></p>
+<p class="ss" data-pid="78" id="p78" style="font-size: 0.8em; text-align: center">ר [레시]</p>
+<p class="sl" data-pid="79" id="p79"><span class="v" id="v25-1-20-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20446">20 </a>보십시오, 오 여호와여, 내가 큰 고난을 겪고 있습니다.</span></p>
+<p class="sz" data-pid="80" id="p80"><span class="v" id="v25-1-20-2">내 속<a class="fn" data-fnid="13" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/12" id="footnotesource13">*</a><em> (각주: 직역하면 “창자”.)</em>이 뒤끓고, 내 마음이 안에서 뒤집혔습니다.</span></p>
+<p class="sz" data-pid="81" id="p81"><span class="v" id="v25-1-20-3">내가 완전히 반역했기 때문입니다.<a class="b" data-bid="42-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/41">+</a></span></p>
+<p class="sz" data-pid="82" id="p82"><span class="v" id="v25-1-20-4">밖에서는 칼이 자식들을 앗아 가고<a class="b" data-bid="43-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/42">+</a> 집 안에도 죽음이 있습니다.</span></p>
+<p class="ss" data-pid="83" id="p83" style="font-size: 0.8em; text-align: center">ש [쉰]</p>
+<p class="sl" data-pid="84" id="p84"><span class="v" id="v25-1-21-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20447">21 </a>사람들이 나의 한숨 소리를 들었지만, 나를 위로해 주는 이가 아무도 없습니다.</span></p>
+<div data-pid="85" id="p85"><p class="sz" data-pid="85"><span class="v" id="v25-1-21-2">나의 모든 원수들이 내가 재앙을 당했다는 것을 듣고,</span></p><p class="sz" data-pid="85"><span class="v" id="v25-1-21-3">당신이 그런 일을 하셨다고 기뻐합니다.<a class="b" data-bid="44-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/43">+</a></span></p>
+</div><p class="sz" data-pid="86" id="p86"><span class="v" id="v25-1-21-4">그러나 당신은 당신이 선포하신 날이 오게 하셔서,<a class="b" data-bid="45-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/44">+</a> 그들도 나처럼 되게 하실 것입니다.<a class="b" data-bid="46-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/45">+</a></span></p>
+<p class="ss" data-pid="87" id="p87" style="font-size: 0.8em; text-align: center">ת [타우]</p>
+<div data-pid="88" id="p88"><p class="sl" data-pid="88"><span class="v" id="v25-1-22-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20448">22 </a>나의 모든 범법 행위 때문에 나를 엄하게 다스리신 것처럼,</span></p><p class="sz" data-pid="88"><span class="v" id="v25-1-22-2">그들의 모든 악을 당신 앞에 드러나게 하시고 그들도 엄하게 다스려 주십시오.<a class="b" data-bid="47-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/46">+</a></span></p>
+</div><p class="sz" data-pid="89" id="p89"><span class="v" id="v25-1-22-3">나의 한숨이 많고, 나의 마음이 병들어 있습니다.</span></p>
+<!-- Root element of lightbox -->
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="예레미야 애가 1:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="예레미야 애가 1:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="예레미야 애가 {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value=""/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value=""/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="{PublicationSymbol} {StartingPageNumber}-{EndingPageNumber}면"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="{PublicationSymbol} {PageNumber}면"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="englishSym" type="hidden" value="nwtsty"/>
+<input id="audioPubSym" type="hidden" value="nwt"/>
+<input id="pubYear" type="hidden" value="2024"/>
+<input id="langSym" type="hidden" value="KO"/>
+<input id="bookNo" type="hidden" value="25"/>
+<input id="chapNo" type="hidden" value="1"/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=KO&amp;pub=nwtsty&amp;srctype=wol&amp;bible=25001000&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="bible-chapter"/>
+<input id="contentTitle" type="hidden" value="예레미야 애가 1"/>
+<input id="contentThumbnail" type="hidden" value="/ko/wol/publication/r8/lp-ko/nwtsty/thumbnail"/>
+<input id="parentTitle" type="hidden" value="신세계역 성경 (연구용)"/>
+<input id="sourcePreferredBible" type="hidden" value="nwtsty"/>
+<style>
+.gems-toggle-btn {
+    background: none;
+    border: 1px solid #4a6da7;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75em;
+    padding: 1px 3px;
+    margin-left: 0px;
+    margin-right: 4px;
+    vertical-align: top;
+    transition: background-color 0.2s, transform 0.1s;
+}
+h1 .gems-toggle-btn {
+    font-size: 13px;
+    vertical-align: top;
+    margin-left: 8px;
+}
+.gems-toggle-btn:hover {
+    background-color: #e9ecef;
+    transform: scale(1.1);
+}
+.summaryOutline {
+    margin: 0;
+    padding: 0;
+}
+.summaryOutline ul {
+    padding-left: 16px;
+    margin: 2px 0;
+}
+.summaryOutline > ul.content {
+    padding-left: 0;
+    list-style: none;
+}
+.summaryOutline li {
+    margin-bottom: 2px;
+    line-height: 1.35;
+}
+.summaryOutline p {
+    margin: 2px 0;
+    line-height: 1.35;
+}
+.gems-note-link {
+    cursor: pointer;
+    color: #4a6da7;
+    background-color: #e9ecef;
+}
+.gems-note-link:hover {
+    color: #4a6da7;
+    background-color: #e9ecef;
+}
+.studyItemMedia, .media-list img {
+    max-width: 80px !important;
+    height: auto !important;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+.media-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.media-list li {
+    margin-bottom: 12px;
+}
+.media-list li:last-child {
+    margin-bottom: 0;
+}
+.media-list a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    /* color: inherit; */
+}
+.media-list a:hover .caption {
+    text-decoration: underline;
+}
+.media-list .caption {
+    display: block;
+    font-size: 0.95em;
+    /* color: #212529; */
+}
+.media-list .caption p {
+    margin: 0;
+}
+.gems-references-container {
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+.gems-global-controls {
+    margin: 12px 0 16px auto;
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    display: flex;
+    width: fit-content;
+    gap: 10px;
+    align-items: center;
+}
+.gems-global-controls button {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 0.85em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.gems-global-controls button:hover {
+    background-color: #e9ecef;
+}
+</style><script>
+function toggleGems(id) {
+    var elem = document.getElementById(id);
+    if (elem) {
+        var isHidden = elem.style.display === 'none' || !elem.style.display;
+        elem.style.display = isHidden ? 'block' : 'none';
+        var cards = elem.querySelectorAll('.inserted-reference-container');
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = isHidden ? 'block' : 'none';
+        }
+    }
+}
+function toggleSpecificGemsNote(containerId, noteId) {
+    var container = document.getElementById(containerId);
+    var targetNote = document.getElementById(noteId);
+    if (!container || !targetNote) return;
+
+    var cards = container.querySelectorAll('.inserted-reference-container');
+    var isContainerHidden = container.style.display === 'none' || !container.style.display;
+
+    var visibleCount = 0;
+    for (var i = 0; i < cards.length; i++) {
+        if (cards[i].style.display !== 'none' && cards[i].style.display !== '') visibleCount++;
+    }
+
+    if (isContainerHidden) {
+        container.style.display = 'block';
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = (cards[i] === targetNote) ? 'block' : 'none';
+        }
+    } else if (visibleCount === 1 && targetNote.style.display === 'block') {
+        container.style.display = 'none';
+        targetNote.style.display = 'none';
+    } else {
+        container.style.display = 'block';
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = (cards[i] === targetNote) ? 'block' : 'none';
+        }
+    }
+}
+function toggleAllGems(btnOrShowAll, showAll) {
+    var target = document;
+    var show = showAll;
+    if (typeof btnOrShowAll === 'boolean') {
+        show = btnOrShowAll;
+    } else if (btnOrShowAll && btnOrShowAll.closest) {
+        target = btnOrShowAll.closest('article') || btnOrShowAll.closest('.content') || document;
+    }
+    var containers = target.querySelectorAll('.gems-references-container');
+    containers.forEach(function(c) {
+        c.style.display = show ? 'block' : 'none';
+        var cards = c.querySelectorAll('.inserted-reference-container');
+        cards.forEach(function(card) {
+            card.style.display = show ? 'block' : 'none';
+        });
+    });
+}
+</script></article><article class="article bible html5 pub-nwtsty jwac showRuby ml-KO ms-KOREAN dir-ltr includeSecondaryNav" data-lang="KO" dir="ltr" id="article" lang="ko" role="article"><div class="gems-global-controls"><button onclick="toggleAllGems(this, true)">💎 Expand All Gems</button><button onclick="toggleAllGems(this, false)">💎 Collapse All Gems</button></div>
+<div class="scalableui">
+<header>
+<h1>예레미야 애가<button class="gems-toggle-btn" onclick="toggleGems('gems-outline-25-2-1')" title="Toggle Outline">💎</button></h1>
+</header><div class="gems-references-container inserted-reference-container" id="gems-outline-25-2-1" style="display: block;"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[예레미야 애가 개요]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="summaryOutline" style="margin-top: 0; margin-bottom: 8px"><li class="L2" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 0px;"><p style="margin: 2px 0; line-height: 1.35;">예루살렘에 대한 여호와의 분노</p><ul style="list-style: none; list-style-type: none; padding-left: 0; margin: 2px 0;"><li class="L3" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 20px;"><p style="margin: 2px 0; line-height: 1.35;">동정심을 보이지 않으시다 <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/25/2#h=94:0-96:0"><span class="altsize">2</span></a><span class="altsize">)</span></p></li><li class="L3" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 20px;"><p style="margin: 2px 0; line-height: 1.35;">여호와께서 원수처럼 되시다 <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/25/2#h=104:0-108:0"><span class="altsize">5</span></a><span class="altsize">)</span></p></li><li class="L3" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 20px;"><p style="margin: 2px 0; line-height: 1.35;">시온을 두고 눈물을 흘리다 <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/25/2#h=128:0-139:0"><span class="altsize">11-13</span></a><span class="altsize">)</span></p></li><li class="L3" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 20px;"><p style="margin: 2px 0; line-height: 1.35;">사람들이 한때 아름다웠던 그 도시를 비웃다 <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/25/2#h=144:0-147:0"><span class="altsize">15</span></a><span class="altsize">)</span></p></li><li class="L3" style="list-style: none; list-style-type: none; line-height: 1.35; margin-bottom: 3px; margin-top: 2px; margin-left: 20px;"><p style="margin: 2px 0; line-height: 1.35;">원수들이 시온의 몰락을 기뻐하다 <span class="altsize">(</span><a class="outlineItem" href="https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/25/2#h=154:0-157:0"><span class="altsize">17</span></a><span class="altsize">)</span></p></li></ul></li></div></td></tr></tbody></table></div>
+<p class="ss" data-pid="90" id="p90" style="font-size: 0.8em; text-align: center">א [알레프]</p>
+<p class="sl" data-pid="91" id="p91"><span class="v" id="v25-2-1-1"><a class="cl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20449"><strong>2</strong> </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-2-1')" title="Toggle Gems Study References">💎</button>어찌하여 여호와께서 딸 시온을 분노의 구름으로 덮으셨는가!</span></p>
+<div data-pid="92" id="p92"><p class="sz" data-pid="92"><span class="v" id="v25-2-1-2">그분은 이스라엘의 아름다움을 하늘에서 땅으로 던지시고,<a class="b" data-bid="48-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/47">+</a></span></p><p class="sz" data-pid="92"><span class="v" id="v25-2-1-3">분노의 날에 자신의 발판을<a class="b" data-bid="49-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/48">+</a> 기억하지 않으셨다.</span></p><div class="gems-references-container" id="gems-ref-25-2-1" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제2권 1105면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="26"></span><strong>높여진 것이 낮추어짐</strong> 하늘은 높여진 것을 나타내기 때문에, 높여진 것들이 낮아지는 것은 때때로 하늘이 뒤집히거나 ‘요동’하거나 ‘진동’하는 것으로 표현된다. 이스라엘이 황폐될 때 여호와께서 “하늘에서 땅으로 <strong>이스라엘</strong>의 아름다움을 던지셨다”고 기록되어 있다. 그 아름다움 가운데는 이스라엘 왕국과 그 방백들과 그들의 권력이 포함되었는데, 그러한 아름다움은 불에 타 버리듯이 삼켜졌다. (<a class="b" data-bid="103-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001949/102/0">애 2:1-3</a>) 그러나 이스라엘을 정복하였던 바빌론도, 후에 그 자신의 “하늘”이 요동하고 “땅”이 진동하는 경험을 하게 되었다. 그 일은 메디아 사람들과 페르시아 사람들이 바빌론을 함락시켜서, 바빌론이 섬긴 하늘의 신들은 거짓이며 그 나라가 땅에 대한 지배력을 상실하지 않도록 구원해 줄 수 없음이 증명되었을 때 일어났다.—<a class="b" data-bid="104-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001949/103/0">사 13:1,</a><a class="b" data-bid="104-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200001949/103/1"> 10-13</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「파수대」 2007/6/1, 8-9면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="12" id="p12" style="margin-top: 0; margin-bottom: 8px"><a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/6/0"><strong>2:1</strong></a><strong>—어떻게 ‘이스라엘의 아름다움이 하늘에서 땅으로 던져졌’습니까?</strong> “하늘이 땅보다 높”기 때문에, 높여진 것이 낮추어지는 것은 때때로 ‘하늘에서 <span aria-hidden="true" class="pageNum" data-before-text="9" data-no="9" id="page9"></span>땅으로 던져지는’ 것으로 표현됩니다. “이스라엘의 아름다움”—여호와의 축복이 머물러 있는 동안 이스라엘이 누렸던 영광과 권력—은 예루살렘의 멸망과 유다의 황폐와 더불어 던져졌습니다.—<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/7/0">이사야 55:9</a>.</div><div class="sb" data-pid="13" id="p13" style="margin-top: 0; margin-bottom: 8px"><a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/8/0"><strong>2:1,</strong></a><a class="b" data-bid="9-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/8/1"> <strong>6</strong></a><strong>—여호와의 “발판”과 “초막”은 무엇입니까?</strong> 시편 필자는 이렇게 노래하였습니다. “그분의 웅장한 장막으로 들어가서 그분의 발판에서 몸을 굽히자.” (<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/9/0">시 132:7</a>) 따라서 <a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/10/0">애가 2:1</a>의 “발판”은 여호와의 숭배의 집 즉 그분의 성전을 가리킵니다. 바빌로니아 사람들은 마치 동산의 보잘것없는 초막인 것처럼 ‘여호와의 집을 태웠습니다.’—<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/11/0">예레미야 52:12, 13</a>.</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 1988/9/1, 26면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>여호와께서는 의로우시게도 범죄자들을 벌하신다.</em> 예루살렘은 자신의 말로 이것을 시인한다. 예루살렘은 하나님께서 자기에게 주신 고통과 같은 슬픔이 어디 있느냐고 질문한다. 그분은 불을 보내어 성전을 황폐하게 하셨다. 그 도시의 죄는 멍에가 되었으며, 하나님께서 예루살렘의 “술틀”을 밟으시자 피가 즙처럼 흘러내렸다. 시온은 슬퍼하면서 두 손을 펴고 간청했지만 위로하는 자를 찾을 수 없었다. 여호와께서는 의로우시게도 반역적인 예루살렘을 벌하셨다. 그분이 기뻐 날뛰는 적들에게도 그처럼 준엄한 벌을 내리시기를 바란다.—<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/3/0">1:12-22</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-2 1105;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파07 6/1 8-9;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파88 9/1 26]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="5" id="p5"><em>죄는 결코 즐거움을 가져오지 않는다.</em> 보라! 한때 거민이 많은 유다의 수도였던 죄많은 예루살렘이 적막히 앉아 있다. 유다는 황폐되었기 때문에, 마치 과부가 되어 애곡하는 공주와도 같다.</p>
+</article><article class="scalableui">
+<p class="sb" data-pid="5" id="p5"><a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/2/0">1:1</a></p>
+</article></td></tr></tbody></table></div></div>
+</div><p class="ss" data-pid="93" id="p93" style="font-size: 0.8em; text-align: center">ב [베트]</p>
+<p class="sl" data-pid="94" id="p94"><span class="v" id="v25-2-2-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20450">2 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-2-2')" title="Toggle Gems Study References">💎</button>여호와께서는 동정심을 보이지 않으시고 야곱의 모든 거처를 삼키셨다.</span></p>
+<div data-pid="95" id="p95"><p class="sz" data-pid="95"><span class="v" id="v25-2-2-2">진노하시어 유다의 딸의 요새들을 허물어뜨리시고,<a class="b" data-bid="50-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/49">+</a></span></p><p class="sz" data-pid="95"><span class="v" id="v25-2-2-3">왕국과<a class="b" data-bid="51-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/50">+</a> 그 방백들을<a class="b" data-bid="52-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/51">+</a> 땅에 쓰러뜨려 욕되게 하셨다.</span></p><div class="gems-references-container" id="gems-ref-25-2-2" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「파수대」 1988/9/1, 26면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>죄는 결코 즐거움을 가져오지 않는다.</em> 보라! 한때 거민이 많은 유다의 수도였던 죄많은 예루살렘이 적막히 앉아 있다. 유다는 황폐되었기 때문에, 마치 과부가 되어 애곡하는 공주와도 같다. 애굽과 같은 “사랑하던 자”들은 기원전 607년에 바벨론의 정복으로부터 유다를 구해 주지 않았다. 백성은 더 이상 절기를 지키려고 시온으로 모여들지 않는다. 자녀들은 사로잡히고, 대적들은 유다의 무너짐을 비웃는다. 불결한 이방인들이 성전을 더럽혔으며, 유다 백성은 양식을 위해 보물을 내놓지 않을 수 없었다. 이 모든 것이 죄 때문이다!—<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/2/0">1:1-11</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파88 9/1 26;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="8" id="p8">하나님께서는 예루살렘을 “하늘에서 땅에” 던지셔서, 예루살렘의 멸망과 그분의 “발등상”인 성전의 멸망을 허락하셨다. (<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/4/0">시 132:7</a>) 그분은 그렇게 함으로써 유다 ‘나라를 욕되게 하셨다.’</p>
+</article><article class="scalableui">
+<p class="sb" data-pid="8" id="p8"><a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/6/0">2:1-22</a></p>
+</article></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파73 71]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="17" data-rel-pid="[43]" id="p17" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="14"><sup>14</sup></span> ‘예루살렘’이 하나님께 반역하고, 극도로 가증하고 부정한 행동을 하였기 때문에, 여호와께서는 이전에 상징적으로 ‘에스겔’에게 그곳의 악한 사람들을 멸하실 것을 보여 주셨읍니다. 그러나 먼저 <span aria-hidden="true" class="pageNum" data-before-text="71" data-no="71" id="page71"></span>하나님께서는 환상 속의 인물인 ‘가는 베옷을 입은 사람’에게 그 도시를 두루 다니면서 의로운 사람들에게 표를 하여 살아남게 하라고 명령하셨읍니다. ‘에스겔’은 그 사람과 함께 손에 ‘살륙하는 기계’를 가진 다른 여섯 사람을 보았읍니다.—<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/6/0">에스겔 9:2-7</a>.</div><div class="ss" data-pid="18" id="p18" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>하늘로부터의 “불”</strong></div><div class="sb" data-pid="19" data-rel-pid="[44]" id="p19" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="15"><sup>15</sup></span> 다음에 어떤 일이 일어났는가를 ‘에스겔’은 이렇게 말합니다.</div><div class="si" data-pid="20" data-rel-pid="[44]" id="p20" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="16"><sup>16</sup></span> “이에 내가 보니 ‘그룹’들 머리 위 궁창에 남보석같은 것이 나타나는데 보좌 형상 같더라. 하나님이 가는 베옷 입은 사람에게 일러 가라사대 너는 ‘그룹’ 밑 바퀴 사이로 들어 가서 그 속에서 숯불을 두 손에 가득히 움켜 가지고 성읍 위에 흩으라 하시매 그가 내 목전에 들어가더라.”—<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/7/0">에스겔 10:1, 2</a>.</div><div class="sb" data-pid="21" data-rel-pid="[44]" id="p21" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="17"><sup>17</sup></span> ‘예루살렘’ 시를 태울 재료는 병거 두 바퀴 사이에서 나올 것이었읍니다. 여호와의 영광이 전에 가득하므로 그분이 직접 자기의 심판이 집행되는 것을 보실 것이었읍니다.—<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/8/0">에스겔 10:3-5</a>.</div><div class="sb" data-pid="22" data-rel-pid="[45]" id="p22" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="18"><sup>18</sup></span> ‘에스겔’은 다음에 가는 베옷을 입은 사람의 행동을 묘사합니다.</div><div class="si" data-pid="23" data-rel-pid="[45]" id="p23" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="19"><sup>19</sup></span> “하나님이 가는 베옷 입은 자에게 명하시기를 바퀴 사이 곧 ‘그룹’들 사이에서 불을 취하라 하셨으므로 그가 들어가 바퀴 옆에 서매 한 ‘그룹’이 ‘그룹’들 사이에서 손을 내밀어 그 ‘그룹’들 사이에 있는 불을 취하여 가는 베옷 입은 자의 손에 주매 그가 받아 가지고 나가는 데 ‘그룹’들의 날개 밑에 사람의 손 같은 것이 나타났더라.”—<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/9/0">에스겔 10:6-8</a>.</div><div class="sb" data-pid="24" data-rel-pid="[45]" id="p24" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="20"><sup>20</sup></span> 환상 가운데서 이렇게 하여 ‘예루살렘’을 태운 불은 사람이 만든 불이 아니었읍니다. 그것은 하나님의 하늘의 병거 같은 조직으로부터 나온 기적의 불이었읍니다. 이것은 무슨 의미입니까? 이러한 의미가 있읍니다. 불로 멸망시키는 것과 <strong>같은</strong> ‘예루살렘’의 극심한 멸망이 그 도시에 대한 여호와의 분노와 격노의 표현일 것이라는 것입니다. 그 도시가 칼과 기근과 온역과 불로 멸망되었는데도, 예언자 ‘예레미야’는 「애가」서에서 여호와의 분노(‘예루살렘’이 그것에 의해 멸망되었음)를 <strong>불</strong>에 비하였읍니다.—<a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/10/0">애가 2:2-4;</a><a class="b" data-bid="11-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/10/1"> 4:11</a>.</div><div class="ss" data-pid="25" id="p25" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>사전 경고</strong></div><div class="sb" data-pid="26" data-rel-pid="[46]" id="p26" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="21"><sup>21</sup></span> 여호와께서는 ‘예루살렘’을 멸하시기 위해 불같은 분노를 쏟으실 것을 가는 베옷 입은 사람을 통해 미리 경고하셨읍니다. 마찬가지로 현대적인 가는 베옷입은 사람 곧 기름 부음을 받고 영으로 출생한, 예수 그리스도의 형제들은 하나님의 말씀으로부터 불같은 소식을 그리스도교국 전역에 쏟고 있읍니다. 이것은 장차 올 “큰 환난”에서 여호와의 불같은 분노가 그리스도교국 위에 쏟아질 것에 대한 사전 통고입니다.—<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/11/0">마태 24:21</a>.</div><div class="sb" data-pid="27" data-rel-pid="[47]" id="p27" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="22"><sup>22</sup></span> ‘에스겔’에게 주어진 이 환상에 의하면 기름부음을 받은 여호와의 그리스도인 증인들은 실제 그리스도교국에게 불을 지르지도 아니할 것이요, 그리스도교국을 멸망시키는 일에 활동적으로 참여하지도 않을 것입니다. 파괴하는 일을 한 사람은 가는 베옷을 입은 사람이 아니었읍니다. 그것은 살륙하는 기계를 가진 “여섯 사람”이었읍니다. (<a class="b" data-bid="13-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/12/0">에스겔 9:2,</a><a class="b" data-bid="13-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/12/1"> 4, 5</a>) 마찬가지로 오늘날 여호와의 증인들은 단지 그리스도교국에 대해 “우리 하나님의 신원의 날”을 선포하는 것 뿐입니다. 그들이 신원을 집행하지는 않습니다.—<a class="b" data-bid="14-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/13/0">이사야 61:1, 2;</a><a class="b" data-bid="14-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/13/1"> 로마 12:19</a>.</div><div class="sb" data-pid="28" data-rel-pid="[48]" id="p28" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="23"><sup>23</sup></span> 여호와의 증인들은 이 불같은 소식을 여호와로부터, 그의 하늘 조직 곧 하늘 “병거”를 통하여 받았읍니다. 말하자면, 그 하늘 병거에 속한 천적 ‘그룹’ 중 하나가 상징적 숯불을 “‘그룹’들 사이에서” 취하여 그들 손에 주어 그것을 그리스도교국 도시에 쏟아 경고가 되게 하는 것입니다.</div><div class="sb" data-pid="29" data-rel-pid="[48]" id="p29" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="24"><sup>24</sup></span> 그러나 영광스럽게 된 예수 그리스도의 지휘하에 있는 보이지 않는 여호와의 하늘 조직이 그리스도교국을 실제 쓸어 버리는 일을 할 것입니다. 기원전 607년에 ‘바벨론’ 사람들이 위선적인 ‘예루살렘’을 멸한 바와 같이, 지상의 급진적인 요소들이 하늘의 지휘를 받아서 그리스도교국을 폭력적으로 멸하는 일을 할 것입니다.</div><div class="ss" data-pid="30" id="p30" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>애통하는 자가 되지 말라</strong></div><div class="sb" data-pid="31" data-rel-pid="[49]" id="p31" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="25"><sup>25</sup></span> 그러므로 그리스도교국에게는 불같은 종말이 가깝습니다. 그의 종교 조직들은 멸망될 것입니다. 사도 ‘요한’은 하늘로부터 큰 ‘바벨론’ 곧 거짓 종교 세계 제국에 대한 예언적 말씀을 들었읍니다. 그리스도교국의 종교는 큰 ‘바벨론’의 주요 부분을 차지하고 있읍니다. ‘요한’이 들은 말은 다음과 같습니다. “그러므로 하루 동안에 그 재앙들이 <span aria-hidden="true" class="pageNum" data-before-text="72" data-no="72" id="page72"></span>이르리니 곧 사망과 애통과 흉년이라. 그가 또한 불에 살라지리니 그를 심판하신 주[여호와] 하나님은 강하신 자이심이니라.”—<a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/14/0">계시 18:8</a>.</div></td></tr></tbody></table></div></div>
+</div><p class="ss" data-pid="96" id="p96" style="font-size: 0.8em; text-align: center">ג [기멜]</p>
+<p class="sl" data-pid="97" id="p97"><span class="v" id="v25-2-3-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20451">3 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-2-3')" title="Toggle Gems Study References">💎</button>그분은 분노에 차서 이스라엘의 모든 뿔<a class="fn" data-fnid="14" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/13" id="footnotesource14">*</a><em> (각주: 또는 “힘”.)</em>을 자르셨다.</span></p>
+<p class="sz" data-pid="98" id="p98"><span class="v" id="v25-2-3-2">원수가 다가올 때 오른손을 거두셨다.<a class="b" data-bid="53-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/52">+</a></span></p>
+<p class="sz" data-pid="99" id="p99"><span class="v" id="v25-2-3-3">주위의 모든 것을 태워 없애는 불처럼, 야곱 가운데서 계속 타오르셨다.<a class="b" data-bid="54-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/53">+</a></span></p><div class="gems-references-container" id="gems-ref-25-2-3" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파73 71]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="17" data-rel-pid="[43]" id="p17" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="14"><sup>14</sup></span> ‘예루살렘’이 하나님께 반역하고, 극도로 가증하고 부정한 행동을 하였기 때문에, 여호와께서는 이전에 상징적으로 ‘에스겔’에게 그곳의 악한 사람들을 멸하실 것을 보여 주셨읍니다. 그러나 먼저 <span aria-hidden="true" class="pageNum" data-before-text="71" data-no="71" id="page71"></span>하나님께서는 환상 속의 인물인 ‘가는 베옷을 입은 사람’에게 그 도시를 두루 다니면서 의로운 사람들에게 표를 하여 살아남게 하라고 명령하셨읍니다. ‘에스겔’은 그 사람과 함께 손에 ‘살륙하는 기계’를 가진 다른 여섯 사람을 보았읍니다.—<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/6/0">에스겔 9:2-7</a>.</div><div class="ss" data-pid="18" id="p18" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>하늘로부터의 “불”</strong></div><div class="sb" data-pid="19" data-rel-pid="[44]" id="p19" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="15"><sup>15</sup></span> 다음에 어떤 일이 일어났는가를 ‘에스겔’은 이렇게 말합니다.</div><div class="si" data-pid="20" data-rel-pid="[44]" id="p20" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="16"><sup>16</sup></span> “이에 내가 보니 ‘그룹’들 머리 위 궁창에 남보석같은 것이 나타나는데 보좌 형상 같더라. 하나님이 가는 베옷 입은 사람에게 일러 가라사대 너는 ‘그룹’ 밑 바퀴 사이로 들어 가서 그 속에서 숯불을 두 손에 가득히 움켜 가지고 성읍 위에 흩으라 하시매 그가 내 목전에 들어가더라.”—<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/7/0">에스겔 10:1, 2</a>.</div><div class="sb" data-pid="21" data-rel-pid="[44]" id="p21" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="17"><sup>17</sup></span> ‘예루살렘’ 시를 태울 재료는 병거 두 바퀴 사이에서 나올 것이었읍니다. 여호와의 영광이 전에 가득하므로 그분이 직접 자기의 심판이 집행되는 것을 보실 것이었읍니다.—<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/8/0">에스겔 10:3-5</a>.</div><div class="sb" data-pid="22" data-rel-pid="[45]" id="p22" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="18"><sup>18</sup></span> ‘에스겔’은 다음에 가는 베옷을 입은 사람의 행동을 묘사합니다.</div><div class="si" data-pid="23" data-rel-pid="[45]" id="p23" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="19"><sup>19</sup></span> “하나님이 가는 베옷 입은 자에게 명하시기를 바퀴 사이 곧 ‘그룹’들 사이에서 불을 취하라 하셨으므로 그가 들어가 바퀴 옆에 서매 한 ‘그룹’이 ‘그룹’들 사이에서 손을 내밀어 그 ‘그룹’들 사이에 있는 불을 취하여 가는 베옷 입은 자의 손에 주매 그가 받아 가지고 나가는 데 ‘그룹’들의 날개 밑에 사람의 손 같은 것이 나타났더라.”—<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/9/0">에스겔 10:6-8</a>.</div><div class="sb" data-pid="24" data-rel-pid="[45]" id="p24" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="20"><sup>20</sup></span> 환상 가운데서 이렇게 하여 ‘예루살렘’을 태운 불은 사람이 만든 불이 아니었읍니다. 그것은 하나님의 하늘의 병거 같은 조직으로부터 나온 기적의 불이었읍니다. 이것은 무슨 의미입니까? 이러한 의미가 있읍니다. 불로 멸망시키는 것과 <strong>같은</strong> ‘예루살렘’의 극심한 멸망이 그 도시에 대한 여호와의 분노와 격노의 표현일 것이라는 것입니다. 그 도시가 칼과 기근과 온역과 불로 멸망되었는데도, 예언자 ‘예레미야’는 「애가」서에서 여호와의 분노(‘예루살렘’이 그것에 의해 멸망되었음)를 <strong>불</strong>에 비하였읍니다.—<a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/10/0">애가 2:2-4;</a><a class="b" data-bid="11-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/10/1"> 4:11</a>.</div><div class="ss" data-pid="25" id="p25" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>사전 경고</strong></div><div class="sb" data-pid="26" data-rel-pid="[46]" id="p26" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="21"><sup>21</sup></span> 여호와께서는 ‘예루살렘’을 멸하시기 위해 불같은 분노를 쏟으실 것을 가는 베옷 입은 사람을 통해 미리 경고하셨읍니다. 마찬가지로 현대적인 가는 베옷입은 사람 곧 기름 부음을 받고 영으로 출생한, 예수 그리스도의 형제들은 하나님의 말씀으로부터 불같은 소식을 그리스도교국 전역에 쏟고 있읍니다. 이것은 장차 올 “큰 환난”에서 여호와의 불같은 분노가 그리스도교국 위에 쏟아질 것에 대한 사전 통고입니다.—<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/11/0">마태 24:21</a>.</div><div class="sb" data-pid="27" data-rel-pid="[47]" id="p27" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="22"><sup>22</sup></span> ‘에스겔’에게 주어진 이 환상에 의하면 기름부음을 받은 여호와의 그리스도인 증인들은 실제 그리스도교국에게 불을 지르지도 아니할 것이요, 그리스도교국을 멸망시키는 일에 활동적으로 참여하지도 않을 것입니다. 파괴하는 일을 한 사람은 가는 베옷을 입은 사람이 아니었읍니다. 그것은 살륙하는 기계를 가진 “여섯 사람”이었읍니다. (<a class="b" data-bid="13-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/12/0">에스겔 9:2,</a><a class="b" data-bid="13-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/12/1"> 4, 5</a>) 마찬가지로 오늘날 여호와의 증인들은 단지 그리스도교국에 대해 “우리 하나님의 신원의 날”을 선포하는 것 뿐입니다. 그들이 신원을 집행하지는 않습니다.—<a class="b" data-bid="14-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/13/0">이사야 61:1, 2;</a><a class="b" data-bid="14-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/13/1"> 로마 12:19</a>.</div><div class="sb" data-pid="28" data-rel-pid="[48]" id="p28" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="23"><sup>23</sup></span> 여호와의 증인들은 이 불같은 소식을 여호와로부터, 그의 하늘 조직 곧 하늘 “병거”를 통하여 받았읍니다. 말하자면, 그 하늘 병거에 속한 천적 ‘그룹’ 중 하나가 상징적 숯불을 “‘그룹’들 사이에서” 취하여 그들 손에 주어 그것을 그리스도교국 도시에 쏟아 경고가 되게 하는 것입니다.</div><div class="sb" data-pid="29" data-rel-pid="[48]" id="p29" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="24"><sup>24</sup></span> 그러나 영광스럽게 된 예수 그리스도의 지휘하에 있는 보이지 않는 여호와의 하늘 조직이 그리스도교국을 실제 쓸어 버리는 일을 할 것입니다. 기원전 607년에 ‘바벨론’ 사람들이 위선적인 ‘예루살렘’을 멸한 바와 같이, 지상의 급진적인 요소들이 하늘의 지휘를 받아서 그리스도교국을 폭력적으로 멸하는 일을 할 것입니다.</div><div class="ss" data-pid="30" id="p30" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>애통하는 자가 되지 말라</strong></div><div class="sb" data-pid="31" data-rel-pid="[49]" id="p31" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="25"><sup>25</sup></span> 그러므로 그리스도교국에게는 불같은 종말이 가깝습니다. 그의 종교 조직들은 멸망될 것입니다. 사도 ‘요한’은 하늘로부터 큰 ‘바벨론’ 곧 거짓 종교 세계 제국에 대한 예언적 말씀을 들었읍니다. 그리스도교국의 종교는 큰 ‘바벨론’의 주요 부분을 차지하고 있읍니다. ‘요한’이 들은 말은 다음과 같습니다. “그러므로 하루 동안에 그 재앙들이 <span aria-hidden="true" class="pageNum" data-before-text="72" data-no="72" id="page72"></span>이르리니 곧 사망과 애통과 흉년이라. 그가 또한 불에 살라지리니 그를 심판하신 주[여호와] 하나님은 강하신 자이심이니라.”—<a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/14/0">계시 18:8</a>.</div></td></tr></tbody></table></div></div>
+<p class="ss" data-pid="100" id="p100" style="font-size: 0.8em; text-align: center">ד [달레트]</p>
+<div data-pid="101" id="p101"><p class="sl" data-pid="101"><span class="v" id="v25-2-4-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20452">4 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-2-4')" title="Toggle Gems Study References">💎</button>그분은 원수처럼 자신의 활을 당기시고<a class="fn" data-fnid="15" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/14" id="footnotesource15">*</a><em> (각주: 직역하면 “밟으시고”.)</em> 적처럼 자신의 오른손을 치켜드셔서,<a class="b" data-bid="55-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/54">+</a></span></p><p class="sz" data-pid="101"><span class="v" id="v25-2-4-2">우리 눈에 보배로운 자들을 모두 죽이셨다.<a class="b" data-bid="56-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/55">+</a></span></p>
+</div><p class="sz" data-pid="102" id="p102"><span class="v" id="v25-2-4-3">딸 시온의 천막에<a class="b" data-bid="57-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/56">+</a> 진노를 불처럼 쏟으셨다.<a class="b" data-bid="58-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/57">+</a></span></p><div class="gems-references-container" id="gems-ref-25-2-4" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제2권 918면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="10"></span>예레미야는 유대인들에게 닥칠 멸망을 묘사하면서 천막의 비유를 사용하였다. (<a class="b" data-bid="22-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004362/21/0">렘 4:20</a>) 그는 황폐된 그 나라를, 천막 줄이 끊어지고 천막이 무너진 여자에 비하였다. 상황을 더욱 애처롭게 만드는 것은, 그 여자의 아들들이 유배되어 있어서 그 여자를 도와 천막을 세우고 칠 자가 아무도 남아 있지 않다는 것이었다. (<a class="b" data-bid="23-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004362/22/0">렘 10:20</a>) 바빌로니아 사람들이 예루살렘을 멸망시켰을 때, 전에 집들이 모여 있던 그 도시는 하느님이 격노를 쏟으신 “딸 <strong>시온</strong>의 천막”으로 묘사될 수 있었다.—<a class="b" data-bid="24-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004362/23/0">애 2:4</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-2 918;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파73 71]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="17" data-rel-pid="[43]" id="p17" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="14"><sup>14</sup></span> ‘예루살렘’이 하나님께 반역하고, 극도로 가증하고 부정한 행동을 하였기 때문에, 여호와께서는 이전에 상징적으로 ‘에스겔’에게 그곳의 악한 사람들을 멸하실 것을 보여 주셨읍니다. 그러나 먼저 <span aria-hidden="true" class="pageNum" data-before-text="71" data-no="71" id="page71"></span>하나님께서는 환상 속의 인물인 ‘가는 베옷을 입은 사람’에게 그 도시를 두루 다니면서 의로운 사람들에게 표를 하여 살아남게 하라고 명령하셨읍니다. ‘에스겔’은 그 사람과 함께 손에 ‘살륙하는 기계’를 가진 다른 여섯 사람을 보았읍니다.—<a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/6/0">에스겔 9:2-7</a>.</div><div class="ss" data-pid="18" id="p18" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>하늘로부터의 “불”</strong></div><div class="sb" data-pid="19" data-rel-pid="[44]" id="p19" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="15"><sup>15</sup></span> 다음에 어떤 일이 일어났는가를 ‘에스겔’은 이렇게 말합니다.</div><div class="si" data-pid="20" data-rel-pid="[44]" id="p20" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="16"><sup>16</sup></span> “이에 내가 보니 ‘그룹’들 머리 위 궁창에 남보석같은 것이 나타나는데 보좌 형상 같더라. 하나님이 가는 베옷 입은 사람에게 일러 가라사대 너는 ‘그룹’ 밑 바퀴 사이로 들어 가서 그 속에서 숯불을 두 손에 가득히 움켜 가지고 성읍 위에 흩으라 하시매 그가 내 목전에 들어가더라.”—<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/7/0">에스겔 10:1, 2</a>.</div><div class="sb" data-pid="21" data-rel-pid="[44]" id="p21" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="17"><sup>17</sup></span> ‘예루살렘’ 시를 태울 재료는 병거 두 바퀴 사이에서 나올 것이었읍니다. 여호와의 영광이 전에 가득하므로 그분이 직접 자기의 심판이 집행되는 것을 보실 것이었읍니다.—<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/8/0">에스겔 10:3-5</a>.</div><div class="sb" data-pid="22" data-rel-pid="[45]" id="p22" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="18"><sup>18</sup></span> ‘에스겔’은 다음에 가는 베옷을 입은 사람의 행동을 묘사합니다.</div><div class="si" data-pid="23" data-rel-pid="[45]" id="p23" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="19"><sup>19</sup></span> “하나님이 가는 베옷 입은 자에게 명하시기를 바퀴 사이 곧 ‘그룹’들 사이에서 불을 취하라 하셨으므로 그가 들어가 바퀴 옆에 서매 한 ‘그룹’이 ‘그룹’들 사이에서 손을 내밀어 그 ‘그룹’들 사이에 있는 불을 취하여 가는 베옷 입은 자의 손에 주매 그가 받아 가지고 나가는 데 ‘그룹’들의 날개 밑에 사람의 손 같은 것이 나타났더라.”—<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/9/0">에스겔 10:6-8</a>.</div><div class="sb" data-pid="24" data-rel-pid="[45]" id="p24" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="20"><sup>20</sup></span> 환상 가운데서 이렇게 하여 ‘예루살렘’을 태운 불은 사람이 만든 불이 아니었읍니다. 그것은 하나님의 하늘의 병거 같은 조직으로부터 나온 기적의 불이었읍니다. 이것은 무슨 의미입니까? 이러한 의미가 있읍니다. 불로 멸망시키는 것과 <strong>같은</strong> ‘예루살렘’의 극심한 멸망이 그 도시에 대한 여호와의 분노와 격노의 표현일 것이라는 것입니다. 그 도시가 칼과 기근과 온역과 불로 멸망되었는데도, 예언자 ‘예레미야’는 「애가」서에서 여호와의 분노(‘예루살렘’이 그것에 의해 멸망되었음)를 <strong>불</strong>에 비하였읍니다.—<a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/10/0">애가 2:2-4;</a><a class="b" data-bid="11-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/10/1"> 4:11</a>.</div><div class="ss" data-pid="25" id="p25" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>사전 경고</strong></div><div class="sb" data-pid="26" data-rel-pid="[46]" id="p26" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="21"><sup>21</sup></span> 여호와께서는 ‘예루살렘’을 멸하시기 위해 불같은 분노를 쏟으실 것을 가는 베옷 입은 사람을 통해 미리 경고하셨읍니다. 마찬가지로 현대적인 가는 베옷입은 사람 곧 기름 부음을 받고 영으로 출생한, 예수 그리스도의 형제들은 하나님의 말씀으로부터 불같은 소식을 그리스도교국 전역에 쏟고 있읍니다. 이것은 장차 올 “큰 환난”에서 여호와의 불같은 분노가 그리스도교국 위에 쏟아질 것에 대한 사전 통고입니다.—<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/11/0">마태 24:21</a>.</div><div class="sb" data-pid="27" data-rel-pid="[47]" id="p27" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="22"><sup>22</sup></span> ‘에스겔’에게 주어진 이 환상에 의하면 기름부음을 받은 여호와의 그리스도인 증인들은 실제 그리스도교국에게 불을 지르지도 아니할 것이요, 그리스도교국을 멸망시키는 일에 활동적으로 참여하지도 않을 것입니다. 파괴하는 일을 한 사람은 가는 베옷을 입은 사람이 아니었읍니다. 그것은 살륙하는 기계를 가진 “여섯 사람”이었읍니다. (<a class="b" data-bid="13-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/12/0">에스겔 9:2,</a><a class="b" data-bid="13-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/12/1"> 4, 5</a>) 마찬가지로 오늘날 여호와의 증인들은 단지 그리스도교국에 대해 “우리 하나님의 신원의 날”을 선포하는 것 뿐입니다. 그들이 신원을 집행하지는 않습니다.—<a class="b" data-bid="14-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/13/0">이사야 61:1, 2;</a><a class="b" data-bid="14-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/13/1"> 로마 12:19</a>.</div><div class="sb" data-pid="28" data-rel-pid="[48]" id="p28" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="23"><sup>23</sup></span> 여호와의 증인들은 이 불같은 소식을 여호와로부터, 그의 하늘 조직 곧 하늘 “병거”를 통하여 받았읍니다. 말하자면, 그 하늘 병거에 속한 천적 ‘그룹’ 중 하나가 상징적 숯불을 “‘그룹’들 사이에서” 취하여 그들 손에 주어 그것을 그리스도교국 도시에 쏟아 경고가 되게 하는 것입니다.</div><div class="sb" data-pid="29" data-rel-pid="[48]" id="p29" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="24"><sup>24</sup></span> 그러나 영광스럽게 된 예수 그리스도의 지휘하에 있는 보이지 않는 여호와의 하늘 조직이 그리스도교국을 실제 쓸어 버리는 일을 할 것입니다. 기원전 607년에 ‘바벨론’ 사람들이 위선적인 ‘예루살렘’을 멸한 바와 같이, 지상의 급진적인 요소들이 하늘의 지휘를 받아서 그리스도교국을 폭력적으로 멸하는 일을 할 것입니다.</div><div class="ss" data-pid="30" id="p30" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>애통하는 자가 되지 말라</strong></div><div class="sb" data-pid="31" data-rel-pid="[49]" id="p31" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="25"><sup>25</sup></span> 그러므로 그리스도교국에게는 불같은 종말이 가깝습니다. 그의 종교 조직들은 멸망될 것입니다. 사도 ‘요한’은 하늘로부터 큰 ‘바벨론’ 곧 거짓 종교 세계 제국에 대한 예언적 말씀을 들었읍니다. 그리스도교국의 종교는 큰 ‘바벨론’의 주요 부분을 차지하고 있읍니다. ‘요한’이 들은 말은 다음과 같습니다. “그러므로 하루 동안에 그 재앙들이 <span aria-hidden="true" class="pageNum" data-before-text="72" data-no="72" id="page72"></span>이르리니 곧 사망과 애통과 흉년이라. 그가 또한 불에 살라지리니 그를 심판하신 주[여호와] 하나님은 강하신 자이심이니라.”—<a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972803/14/0">계시 18:8</a>.</div></td></tr></tbody></table></div></div>
+<p class="ss" data-pid="103" id="p103" style="font-size: 0.8em; text-align: center">ה [헤]</p>
+<div data-pid="104" id="p104"><p class="sl" data-pid="104"><span class="v" id="v25-2-5-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20453">5 </a>여호와께서 원수처럼 되시어<a class="b" data-bid="59-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/58">+</a></span></p><p class="sz" data-pid="104"><span class="v" id="v25-2-5-2">이스라엘을 삼키셨다.</span></p>
+</div><p class="sz" data-pid="105" id="p105"><span class="v" id="v25-2-5-3">그의 모든 탑을 삼키시고</span></p>
+<p class="sz" data-pid="106" id="p106"><span class="v" id="v25-2-5-4">모든 요새를 파괴하셨다.</span></p>
+<p class="sz" data-pid="107" id="p107"><span class="v" id="v25-2-5-5">그분은 유다의 딸 안에 애통과 애곡이 넘치게 하시는구나.</span></p>
+<p class="ss" data-pid="108" id="p108" style="font-size: 0.8em; text-align: center">ו [와우]</p>
+<div data-pid="109" id="p109"><p class="sl" data-pid="109"><span class="v" id="v25-2-6-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20454">6 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-2-6')" title="Toggle Gems Study References">💎</button>그분은 자신의 초막을 동산의 원두막처럼 마구 부숴 버리시고,<a class="b" data-bid="60-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/59">+</a></span></p><p class="sz" data-pid="109"><span class="v" id="v25-2-6-2">자신의 축제를 그치게 하셨다.<a class="fn pr" data-fnid="16" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/15" id="footnotesource16">*</a><em> (각주: 또는 “멸하셨다.”)</em><a class="b" data-bid="61-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/60">+</a></span></p>
+</div><div data-pid="110" id="p110"><p class="sz" data-pid="110"><span class="v" id="v25-2-6-3">여호와께서 시온에서 축제와 안식일이 잊혀지게 하셨고,</span></p><p class="sz" data-pid="110"><span class="v" id="v25-2-6-4">크게 분노하시어 왕과 제사장을 귀하게 여기지 않으신다.<a class="b" data-bid="62-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/61">+</a></span></p><div class="gems-references-container" id="gems-ref-25-2-6" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「파수대」 2007/6/1, 9면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/8/0"><strong>2:1,</strong></a><a class="b" data-bid="9-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/8/1"> <strong>6</strong></a><strong>—여호와의 “발판”과 “초막”은 무엇입니까?</strong> 시편 필자는 이렇게 노래하였습니다. “그분의 웅장한 장막으로 들어가서 그분의 발판에서 몸을 굽히자.” (<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/9/0">시 132:7</a>) 따라서 <a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/10/0">애가 2:1</a>의 “발판”은 여호와의 숭배의 집 즉 그분의 성전을 가리킵니다. 바빌로니아 사람들은 마치 동산의 보잘것없는 초막인 것처럼 ‘여호와의 집을 태웠습니다.’—<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/11/0">예레미야 52:12, 13</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 1988/9/1, 26-27면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="6" id="p6"><em>여호와께서는 의로우시게도 범죄자들을 벌하신다.</em> 예루살렘은 자신의 말로 이것을 시인한다. 예루살렘은 하나님께서 자기에게 주신 고통과 같은 슬픔이 어디 있느냐고 질문한다. 그분은 불을 보내어 성전을 황폐하게 하셨다. 그 도시의 죄는 멍에가 되었으며, 하나님께서 예루살렘의 “술틀”을 밟으시자 피가 즙처럼 흘러내렸다. 시온은 슬퍼하면서 두 손을 펴고 간청했지만 위로하는 자를 찾을 수 없었다. 여호와께서는 의로우시게도 반역적인 예루살렘을 벌하셨다. 그분이 기뻐 날뛰는 적들에게도 그처럼 준엄한 벌을 내리시기를 바란다.—<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/3/0">1:12-22</a>.</p>
+</article><article class="scalableui">
+<p class="sc" data-pid="18" id="p18">  ◻ <a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/11/0">1:15</a>—‘여호와께서 처녀 유다를 술틀에 밟으셨다.’ 왜냐하면 그분이 그런 일이 일어나도록 선언하고 허락하셨기 때문이다. “처녀 <strong>유다</strong>”는 더럽혀지지 않은 여자처럼 생각되던 예루살렘이었다. 기원전 607년에 바벨론인들이 유다의 수도를 멸망시켰을 때, 그곳에는 술틀에 담긴 포도에서 즙을 짜는 것에 비할 만큼 엄청난 피흘림이 있었다. 여호와께서는 예루살렘의 실체인 그리스도교국이 비슷하게 파괴되게 하실 것이다.</p>
+</article></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파07 6/1 9;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="13" id="p13"><a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/8/0"><strong>2:1,</strong></a><a class="b" data-bid="9-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/8/1"> <strong>6</strong></a><strong>—여호와의 “발판”과 “초막”은 무엇입니까?</strong></p>
+</article><article class="scalableui">
+<p class="sb" data-pid="13" id="p13">바빌로니아 사람들은 마치 동산의 보잘것없는 초막인 것처럼 ‘여호와의 집을 태웠습니다.’—<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/11/0">예레미야 52:12, 13</a>.</p>
+</article></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파88 9/1 26-27]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="6" id="p6"><a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/3/0">1:12-22</a></p>
+</article><article class="scalableui">
+<p class="sb" data-pid="6" id="p6">그 도시의 죄는 멍에가 되었으며, 하나님께서 예루살렘의 “술틀”을 밟으시자 피가 즙처럼 흘러내렸다.</p>
+</article><article class="scalableui">
+<p class="sc" data-pid="18" id="p18">◻ <a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/11/0">1:15</a>—‘여호와께서 처녀 유다를 술틀에 밟으셨다.’ 왜냐하면 그분이 그런 일이 일어나도록 선언하고 허락하셨기 때문이다. “처녀 <strong>유다</strong>”는 더럽혀지지 않은 여자처럼 생각되던 예루살렘이었다. 기원전 607년에 바벨론인들이 유다의 수도를 멸망시켰을 때, 그곳에는 술틀에 담긴 포도에서 즙을 짜는 것에 비할 만큼 엄청난 피흘림이 있었다. 여호와께서는 예루살렘의 실체인 그리스도교국이 비슷하게 파괴되게 하실 것이다.</p>
+</article></td></tr></tbody></table></div></div>
+</div><p class="ss" data-pid="111" id="p111" style="font-size: 0.8em; text-align: center">ז [자인]</p>
+<div data-pid="112" id="p112"><p class="sl" data-pid="112"><span class="v" id="v25-2-7-1"> <a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20455">7 </a>여호와께서 자신의 제단을 물리치시고,</span></p><p class="sz" data-pid="112"><span class="v" id="v25-2-7-2">자신의 신성한 곳을 버리셨다.<a class="b" data-bid="63-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/62">+</a></span></p>
+</div><p class="sz" data-pid="113" id="p113"><span class="v" id="v25-2-7-3">그 요새 탑들의 벽을 원수의 손에 넘겨주셨다.<a class="b" data-bid="64-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/63">+</a></span></p>
+<p class="sz" data-pid="114" id="p114"><span class="v" id="v25-2-7-4">그들은 축제의 날처럼 여호와의 집에서 소리를 질렀다.<a class="b" data-bid="65-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/64">+</a></span></p>
+<p class="ss" data-pid="115" id="p115" style="font-size: 0.8em; text-align: center">ח [헤트]</p>
+<p class="sl" data-pid="116" id="p116"><span class="v" id="v25-2-8-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20456">8 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-2-8')" title="Toggle Gems Study References">💎</button>여호와께서 딸 시온의 성벽을 파괴하기로 작정하셨다.<a class="b" data-bid="66-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/65">+</a></span></p>
+<p class="sz" data-pid="117" id="p117"><span class="v" id="v25-2-8-2">측량줄을 펴시고,<a class="b" data-bid="67-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/66">+</a> 파괴하는<a class="fn" data-fnid="17" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/16" id="footnotesource17">*</a><em> (각주: 직역하면 “삼키는”.)</em> 일에서 손을 거두지 않으셨다.</span></p>
+<div data-pid="118" id="p118"><p class="sz" data-pid="118"><span class="v" id="v25-2-8-3">방벽과 성벽이 슬퍼하게 하시니,</span></p><p class="sz" data-pid="118"><span class="v" id="v25-2-8-4">그것들이 함께 쇠약해졌구나.</span></p><div class="gems-references-container" id="gems-ref-25-2-8" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「계시록 절정」 162면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="5"><sup>5</sup></span> 요한은 “하느님의 성전 신성한 곳과 제단과 그 안에서 숭배하는 자들을 재”라는 말을 들었습니다. 그것은 무엇을 의미합니까? 히브리어 성경의 예언에서, 그와 같이 측량하는 일은 여호와의 완전한 표준에 근거하여 공의가 시행될 것이라는 보증이었습니다. 악한 왕 므낫세의 시대에, 예언적인 의미로 예루살렘을 측량한 일은 그 도시를 멸망시킨다는 판결이 변치 않으리라는 증거였습니다. (<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1101988025/8/0">열왕 둘째 21:13;</a><a class="b" data-bid="9-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1101988025/8/1"> 애가 2:8</a>) 그렇지만 예레미야가 나중에 예루살렘이 측량되는 것을 보았던 경우는 그 도시가 재건될 것임을 확증하는 것이었습니다. (<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1101988025/9/0">예레미야 31:39</a>. 또한 <a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1101988025/10/0">스가랴 2:2-8</a> 참조) 그와 마찬가지로, 에스겔이 목격하였던 것처럼, 환상에 나오는 성전을 광범위하고 자세하게 측량하는 일은 바빌론에 유배당한 유대인들에게 고국에서의 참숭배가 회복될 것임을 보증하는 것이었습니다. 그것은 또한 이스라엘 백성이 그들이 잘못한 점으로 보아, 앞으로는 하느님의 거룩한 표준에 달해야 한다는 사실을 생각나게 하는 것이기도 하였습니다.—<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1101988025/11/0">에스겔 40:3, 4;</a><a class="b" data-bid="12-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1101988025/11/1"> 43:10</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 계 162]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+</div><p class="ss" data-pid="119" id="p119" style="font-size: 0.8em; text-align: center">ט [테트]</p>
+<p class="sl" data-pid="120" id="p120"><span class="v" id="v25-2-9-1"> <a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20457">9 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-2-9')" title="Toggle Gems Study References">💎</button>그의 성문들이 땅속에 파묻혔다.<a class="b" data-bid="68-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/67">+</a></span></p>
+<p class="sz" data-pid="121" id="p121"><span class="v" id="v25-2-9-2">그분이 그 빗장들을 파괴하고 부수셨다.</span></p>
+<div data-pid="122" id="p122"><p class="sz" data-pid="122"><span class="v" id="v25-2-9-3">그의 왕과 방백들은 민족들 가운데 있으며,<a class="b" data-bid="69-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/68">+</a></span></p><p class="sz" data-pid="122"><span class="v" id="v25-2-9-4">법<a class="fn" data-fnid="18" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/17" id="footnotesource18">*</a><em> (각주: 또는 “교훈; 가르침”.)</em>이 없고 그의 예언자들마저 여호와께 환상을 받지 못한다.<a class="b" data-bid="70-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/69">+</a></span></p><div class="gems-references-container" id="gems-ref-25-2-9" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「예레미야」 73면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="boxTtl rule" data-pid="59" id="p59" style="margin-top: 0; margin-bottom: 8px"><h2><strong>하느님의 법을 버린 사람의 생활</strong></h2></div><div class="sc" data-pid="60" id="p60" style="margin-top: 0; margin-bottom: 8px">  예루살렘이 멸망된 후 유다 사람들의 삶은 어떠했습니까? <a class="b" data-bid="31-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102010145/30/0">애가 2:9</a>에 기록된 예레미야의 말을 통해 당시 상황을 엿볼 수 있습니다. 성벽은 무너졌고 아마 이전에 도시를 보호해 주던 성문들도 파괴되었을 것입니다. 하지만 그보다 심각한 문제는 그들에게 “율법이 없다”는 것이었습니다. 예레미야의 말은 생존자들이 통제할 수 없는 무법자로 변했다는 뜻입니까? 그보다는 충실한 제사장과 예언자들이 하느님의 율법을 가르치던 시절에 유다 사람들이 누렸던 영적 안전과 안락함이 사라졌다는 의미일 것입니다. 이제 거짓 예언자들이 유다 사람들의 주의를 끌고 있었습니다. 하지만 거짓 예언자들은 진정한 “환상” 다시 말해 여호와로부터 오는 인도를 베풀지 못했으며, 그들이 “환상으로 본” 것은 무가치한 것이었습니다.—<a class="b" data-bid="32-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102010145/31/0">애가 2:14</a>.</div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 예레 73]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+</div><p class="ss" data-pid="123" id="p123" style="font-size: 0.8em; text-align: center">י [요드]</p>
+<p class="sl" data-pid="124" id="p124"><span class="v" id="v25-2-10-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20458">10 </a>딸 시온의 장로들이 아무 말 없이 땅바닥에 주저앉아 있다.<a class="b" data-bid="71-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/70">+</a></span></p>
+<p class="sz" data-pid="125" id="p125"><span class="v" id="v25-2-10-2">머리에 먼지를 끼얹고 자루천을 두르고 있다.<a class="b" data-bid="72-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/71">+</a></span></p>
+<p class="sz" data-pid="126" id="p126"><span class="v" id="v25-2-10-3">예루살렘의 처녀들이 머리를 땅바닥까지 숙였다.</span></p>
+<p class="ss" data-pid="127" id="p127" style="font-size: 0.8em; text-align: center">כ [카프]</p>
+<p class="sl" data-pid="128" id="p128"><span class="v" id="v25-2-11-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20459">11 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-2-11')" title="Toggle Gems Study References">💎</button>하도 눈물을 흘려 내 눈이 짓물렀구나.<a class="b" data-bid="73-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/72">+</a></span></p>
+<p class="sz" data-pid="129" id="p129"><span class="v" id="v25-2-11-2">내 속<a class="fn" data-fnid="19" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/18" id="footnotesource19">*</a><em> (각주: 직역하면 “창자”.)</em>이 뒤끓고, 내 간이 땅바닥에 쏟아졌구나.</span></p>
+<div data-pid="130" id="p130"><p class="sz" data-pid="130"><span class="v" id="v25-2-11-3">내 딸<a class="fn" data-fnid="20" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/19" id="footnotesource20">*</a><em> (각주: 시적으로 의인화한 표현. 연민이나 동정심을 나타내는 표현인 것 같음.)</em> 백성이 몰락하고,<a class="b" data-bid="74-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/73">+</a></span></p><p class="sz" data-pid="130"><span class="v" id="v25-2-11-4">어린아이들과 아기들이 성읍의 광장에서 실신하기 때문이다.<a class="b" data-bid="75-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/74">+</a></span></p><div class="gems-references-container" id="gems-ref-25-2-11" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제1권 42-43면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="3"></span>부도덕한 여자의 유혹에 굴복한 경험 없는 젊은이에 관한 솔로몬의 기록은 이러한 말로 끝을 맺는다. “돌연히 그가 그 여자를 따라가니, ··· 마침내 ··· 화살이 그의 간을 꿰뚫어 쪼갤 터인데도, 그는 거기에 자기 영혼이 걸려 있다는 것을 모르는구나.” (<a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002754/3/0">잠 7:21-23</a>) 이것은 매우 적절한 묘사이다. 의사들이 발견한 바에 따르면, 매독은 상당히 진행되었을 경우에(다른 여러 질병도 마찬가지임), 세균이 간을 망쳐 놓기 때문이다. 또 다른 성병인 임질을 일으키는 세균(임균)도 경우에 따라서는 간에 심한 염증을 일으킨다. 말할 것도 없이, 간이 심하게 손상되면 사망을 초래할 수 있다. 간이 깊은 슬픔을 묘사하는 데 비유적으로 사용되는 것으로 보아, 살아가는 <span aria-hidden="true" class="pageNum" data-before-text="43" data-no="43" id="page43"></span>데 간이 대단히 중요한 역할을 수행한다는 것이 인정되어 있다고 할 수 있다.—<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002754/4/0">애 2:11</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-1 42-43]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+</div><p class="ss" data-pid="131" id="p131" style="font-size: 0.8em; text-align: center">ל [라메드]</p>
+<div data-pid="132" id="p132"><p class="sl" data-pid="132"><span class="v" id="v25-2-12-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20460">12 </a>그들은 자기 어머니에게 “곡식과 포도주가 어디 있나요?” 하고 계속 묻다가,<a class="b" data-bid="76-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/75">+</a></span></p><p class="sz" data-pid="132"><span class="v" id="v25-2-12-2">부상당한 사람처럼 도시의 광장에서 실신한다.</span></p>
+</div><p class="sz" data-pid="133" id="p133"><span class="v" id="v25-2-12-3">자기 어머니의 품에서 생명<a class="fn" data-fnid="21" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/20" id="footnotesource21">*</a><em> (각주: 또는 “영혼”.)</em>이 꺼져 간다.</span></p>
+<p class="ss" data-pid="134" id="p134" style="font-size: 0.8em; text-align: center">מ [멤]</p>
+<p class="sl" data-pid="135" id="p135"><span class="v" id="v25-2-13-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20461">13 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-2-13')" title="Toggle Gems Study References">💎</button>내가 무엇을 증인으로 삼을 수 있겠느냐?</span></p>
+<p class="sz" data-pid="136" id="p136"><span class="v" id="v25-2-13-2">딸 예루살렘아, 너를 무엇에 비할 수 있겠느냐?</span></p>
+<p class="sz" data-pid="137" id="p137"><span class="v" id="v25-2-13-3">처녀 딸 시온아, 너를 무엇에 비교하여 위로할 수 있겠느냐?</span></p>
+<p class="sz" data-pid="138" id="p138"><span class="v" id="v25-2-13-4">너의 다친 곳이 바다처럼 크니,<a class="b" data-bid="77-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/76">+</a> 누가 너를 고쳐 줄 수 있겠느냐?<a class="b" data-bid="78-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/77">+</a></span></p><div class="gems-references-container" id="gems-ref-25-2-13" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제2권 915면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="9"></span><strong>도시, 장소, 백성</strong> “처녀”라는 단어는, 도시나 지역이나 백성과 관련하여 자주 사용된다. “처녀” 또는 “처녀 딸”인 “내 백성”(<a class="b" data-bid="21-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/20/0">렘 14:17</a>), 이스라엘(<a class="b" data-bid="22-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/21/0">렘 31:4,</a><a class="b" data-bid="22-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/21/1"> 21;</a><a class="b" data-bid="22-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/21/2"> 암 5:2</a>), 유다(<a class="b" data-bid="23-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/22/0">애 1:15</a>), 시온(<a class="b" data-bid="24-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/23/0">왕둘 19:21;</a><a class="b" data-bid="24-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/23/1"> 애 2:13</a>), 이집트(<a class="b" data-bid="25-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/24/0">렘 46:11</a>), 바빌론(<a class="b" data-bid="26-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/25/0">사 47:1</a>), 시돈(<a class="b" data-bid="27-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200004563/26/0">사 23:12</a>)이 언급된다. 이러한 비유적 용법은, 그처럼 언급된 다양한 백성이나 장소가 외국의 정복자에 의해 점령당하거나 강탈당하지 않았음을 또는 처녀처럼 정복되지 않은 상태를 한때 누렸음을 의미하는 듯하다.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-2 915]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+<p class="ss" data-pid="139" id="p139" style="font-size: 0.8em; text-align: center">נ [눈]</p>
+<p class="sl" data-pid="140" id="p140"><span class="v" id="v25-2-14-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20462">14 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-2-14')" title="Toggle Gems Study References">💎</button>너의 예언자들이 너에게 전해 준 환상은 거짓되고 헛된 것이었다.<a class="b" data-bid="79-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/78">+</a></span></p>
+<p class="sz" data-pid="141" id="p141"><span class="v" id="v25-2-14-2">그들은 너의 잘못을 드러내지 않아서 네가 사로잡혀 가게 만들었다.<a class="b" data-bid="80-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/79">+</a></span></p>
+<p class="sz" data-pid="142" id="p142"><span class="v" id="v25-2-14-3">그들이 너에게 환상이라고 전해 준 것은 거짓되고 잘못된 길로 인도하는 선언들뿐이었다.<a class="b" data-bid="81-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/80">+</a></span></p><div class="gems-references-container" id="gems-ref-25-2-14" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「파수대」 1988/9/1, 26면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>죄는 결코 즐거움을 가져오지 않는다.</em> 보라! 한때 거민이 많은 유다의 수도였던 죄많은 예루살렘이 적막히 앉아 있다. 유다는 황폐되었기 때문에, 마치 과부가 되어 애곡하는 공주와도 같다. 애굽과 같은 “사랑하던 자”들은 기원전 607년에 바벨론의 정복으로부터 유다를 구해 주지 않았다. 백성은 더 이상 절기를 지키려고 시온으로 모여들지 않는다. 자녀들은 사로잡히고, 대적들은 유다의 무너짐을 비웃는다. 불결한 이방인들이 성전을 더럽혔으며, 유다 백성은 양식을 위해 보물을 내놓지 않을 수 없었다. 이 모든 것이 죄 때문이다!—<a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/2/0">1:1-11</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파88 9/1 26]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="5" id="p5"><em>죄는 결코 즐거움을 가져오지 않는다.</em> 보라! 한때 거민이 많은 유다의 수도였던 죄많은 예루살렘이 적막히 앉아 있다. 유다는 황폐되었기 때문에, 마치 과부가 되어 애곡하는 공주와도 같다.</p>
+</article><article class="scalableui">
+<p class="sb" data-pid="5" id="p5"><a class="b" data-bid="3-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/2/0">1:1</a></p>
+</article></td></tr></tbody></table></div></div>
+<p class="ss" data-pid="143" id="p143" style="font-size: 0.8em; text-align: center">ס [사메크]</p>
+<p class="sl" data-pid="144" id="p144"><span class="v" id="v25-2-15-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20463">15 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-2-15')" title="Toggle Gems Study References">💎</button>길을 지나가는 사람들이 모두 너를 비웃으며 손뼉을 친다.<a class="b" data-bid="82-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/81">+</a></span></p>
+<p class="sz" data-pid="145" id="p145"><span class="v" id="v25-2-15-2">딸 예루살렘을 보고 크게 놀라 휘파람을 불고<a class="b" data-bid="83-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/82">+</a> 머리를 흔들면서 말한다.</span></p>
+<p class="sz" data-pid="146" id="p146"><span class="v" id="v25-2-15-3">“이것이 ‘완전한 아름다움, 온 땅의 기쁨’이라고<a class="b" data-bid="84-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/83">+</a> 불리던 그 도시인가?”</span></p><div class="gems-references-container" id="gems-ref-25-2-15" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제2권 702면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="28"></span><em>손뼉을 치는 것</em>은 <a class="b" data-bid="75-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000467/74/0">여호수아 15:18</a>에서처럼 단순히 주의를 끌기 위한 동작이었을 수도 있다. 하지만 이 동작은 흔히 분노(<a class="b" data-bid="76-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000467/75/0">민 24:10</a>), 멸시나 조롱(<a class="b" data-bid="77-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000467/76/0">욥 27:23;</a><a class="b" data-bid="77-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000467/76/1"> 애 2:15</a>), 슬픔(<a class="b" data-bid="78-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000467/77/0">겔 6:11</a>)이나 원한, 경쟁자나 미워하는 적 또는 압제자가 불행을 당한 것을 기뻐한다는 표시였다. 이 동작을 하면서 발을 구르는 경우도 있었다.—<a class="b" data-bid="79-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000467/78/0">겔 25:6;</a><a class="b" data-bid="79-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200000467/78/1"> 나 3:19</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제2권 453면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="7"></span>예루살렘 도시는 그곳의 언덕인 시온과 더불어 “완전한 아름다움”이라고 불렸다. (<a class="b" data-bid="17-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003440/16/0">애 2:15;</a><a class="b" data-bid="17-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003440/16/1"> 시 50:2</a>) 그렇다고 해서 그 도시의 외형의 세부적인 모든 부면이 지극히 매력적인 것은 아니었다. 그보다도 그 말은 그 도시를 하느님이 사용하신다는 점과 관련된 것으로서, 그분이 그 도시를 자신의 기름부음받은 왕들의 수도와 성전 소재지로 삼으시어 그 도시에 영화를 부여하심으로 말미암은 아름다움을 가리키는 말이다. (<a class="b" data-bid="18-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003440/17/0">겔 16:14</a>) 부유한 상업 도시인 티레는 배로 묘사되었는데, 그 건조자들, 즉 그 도시의 물질적 이득을 위하여 일하는 자들은 여러 나라의 호화로운 산물들로 그 도시를 채움으로 ‘그 아름다움을 완전하게 하였다.’—<a class="b" data-bid="19-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200003440/18/0">겔 27:3-25</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-2 453,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 702;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 령 136]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="7" data-rel-pid="[63]" id="p7" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="4"><sup>4</sup></span> 이러한 비유와 일치하게, 하나님께서 인류를 위하여 예언하신 것은 아주 새로울 것입니다. 중동의 옛 ‘예루살렘’은 그것과 전혀 무관할 것입니다. 하나님께서 기원 70년에 불리한 심판을 <span aria-hidden="true" class="pageNum" data-before-text="136" data-no="136" id="page136"></span>집행하셨을 때, 그분은 예수 당시의 ‘예루살렘’이 멸망되게 하셨읍니다. 그 때 이후로 건축된 ‘예루살렘’은 그분의 명령에 의하여 혹은 그분의 승인받는 백성에 의하여 설립되지 않았읍니다. (<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1101976039/5/0">요한 4:21</a>) 중요한 것은 새 ‘예루살렘’입니다! 이것은 옛 ‘예루살렘’이 있던 자리에 설립한 이 지상의 도시 조직이 아닙니다. 새 ‘예루살렘’은 천적인 것입니다. <a class="b" data-bid="7-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1101976039/6/0">계시록 21:9에서 22:3</a>까지에 있는 묘사만 조사하여 보아도, 우리는 새 ‘예루살렘’이 그 규모와 특징으로 볼 때 옛 ‘예루살렘’의 지역에 맞지 않는다는 것을 알 것입니다. 그 영감받은 묘사에서, 새 ‘예루살렘’은 “신부 곧 어린 양의 아내”라고 불리웠읍니다.</div><div class="sb" data-pid="8" data-rel-pid="[64]" id="p8" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="5"><sup>5</sup></span> 사도 ‘요한’은 이렇게 말합니다. “내가 보매 거룩한 성 새 ‘예루살렘’이 하나님께로부터 하늘에서 내려오니 그 예비한 것이 신부가 남편을 위하여 단장한 것 같더라.” (<a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1101976039/7/0">계시 21:2</a>) 여기에서 새 ‘예루살렘’이 여인, 신부, 아내에 비유된 것과 같이, 옛 ‘예루살렘’도 여자에 비유되었읍니다. 예를 들면, 예수께서 기원 33년 ‘니산’월 9일(3월 27일)에 ‘예루살렘’에 마치 미취임 왕이 대관식에 들어가는 것처럼 입성하실 때, <a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1101976039/8/0">스가랴 9:9</a>의 이러한 예언이 성취되었읍니다. “‘시온’의 딸아 크게 기뻐할찌어다. ‘예루살렘’의 딸아, 즐거이 부를찌어다. 보라. 네 왕이 네게 임하나니 그는 ··· 나귀를 타나니 나귀의 작은 것 곧 나귀새끼니라.”—<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1101976039/9/0">마태 21:4, 5</a>.</div><div class="sb" data-pid="9" data-rel-pid="[65]" id="p9" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="6"><sup>6</sup></span> 고대 지적 ‘예루살렘’은 “온전한 영광[아름다움, 신세]이라 ··· 일컫던 성”이었읍니다. (<a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1101976039/10/0">애가 2:15;</a><a class="b" data-bid="11-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1101976039/10/1"> 시 48:1, 2;</a><a class="b" data-bid="11-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1101976039/10/2"> 50:2</a>) 그러나 아름다움과 영광에 있어서, 그것은 천적인 새 ‘예루살렘’과 결코 비교될 수 없을 것입니다. 이 영광스러운 새 도시는 “하나님께로부터 하늘에서” 내려옵니다. 어떠한 방법으로? 이 새로운 통치 기구가 하나님으로부터 비롯되어 그 능력과 권위를 하늘에서 땅으로 펴서 인류에게 최고의 선을 베푸는 면에서 내려옵니다.—<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1101976039/11/0">계시 21:2</a>.</div></td></tr></tbody></table></div></div>
+<p class="ss" data-pid="147" id="p147" style="font-size: 0.8em; text-align: center">פ [페]</p>
+<p class="sl" data-pid="148" id="p148"><span class="v" id="v25-2-16-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20464">16 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-2-16')" title="Toggle Gems Study References">💎</button>너의 원수들이 모두 너를 향해 입을 벌렸다.</span></p>
+<p class="sz" data-pid="149" id="p149"><span class="v" id="v25-2-16-2">그들은 휘파람을 불고 이를 갈며 말한다.</span></p>
+<p class="sz" data-pid="150" id="p150"><span class="v" id="v25-2-16-3">“우리가 그를 삼켰다.<a class="b" data-bid="85-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/84">+</a></span></p>
+<p class="sz" data-pid="151" id="p151"><span class="v" id="v25-2-16-4">우리가 이날을 얼마나 기다렸던가!<a class="b" data-bid="86-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/85">+</a></span></p>
+<p class="sz" data-pid="152" id="p152"><span class="v" id="v25-2-16-5">드디어 이날이 왔다. 우리가 이날을 보는구나!”<a class="b" data-bid="87-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/86">+</a></span></p><div class="gems-references-container" id="gems-ref-25-2-16" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제2권 120-121면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="8"></span><a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002675/7/0">2,</a><a class="b" data-bid="8-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002675/7/1"> 3,</a><a class="b" data-bid="8-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002675/7/2"> 4장</a>에는 (<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002675/8/0">애가 1장</a>과 <a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002675/9/0">시 119편의</a> 순서와는 달리) 글자 <em>아인</em>과 <em>페</em>가 바뀌어 있다. 그렇다고 영감받은 「애가」의 필자가 실수를 했다는 말은 아니다. 이 문제를 고려하여 다음과 같은 점이 지적되었다. “불규칙의 문제를 작시자의 실책으로 보기는 어려울 것이다. ··· 세 편의 시에서 불규칙이 반복되었기 때문이다. 오히려 다른 상황과 관련이 있다. 우리는 다른 알파벳 시에서도, 특히 오래된 시에서 규칙을 벗어난 경우를 많이 보게 되는데, 이것은 알파벳 순서가 부자연스러움 없이 사상의 흐름에 맞을 경우에만 작시자가 그 순서를 엄밀하게 따른다는 것을 부인할 여지 없이 증명해 준다.” (「구약 주석」 <em>Commentary on the Old Testament</em>, C. <span aria-hidden="true" class="pageNum" data-before-text="121" data-no="121" id="page121"></span>F. 카일과 F. 델리치 공저, 1973년, 8권, 예레미야 애가, 338면) 그런 설명에 이어서 언급된 보기로는 <em>와우</em> 절이 빠진 <a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002675/10/0">시편 34</a>편과, <em>눈</em> 절이 빠진 <a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002675/11/0">시편 145편</a>이 있다. 이들 영감받은 기록에 제시된 내용이 히브리어 글자의 알파벳 순서를 엄밀하게 따르지 않았다고 해서 그리 우려할 일은 못 된다. 이합체 방식을 사용하는 것이 기억에 도움이 된다는 데는 의문의 여지가 없으나, 무엇보다 중요한 것은 전달되는 소식이고, 어떤 문학적 기교보다 우선하는 것은 담겨진 사상이었다.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「파수대」 2007/6/1, 9면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/8/0"><strong>2:1,</strong></a><a class="b" data-bid="9-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/8/1"> <strong>6</strong></a><strong>—여호와의 “발판”과 “초막”은 무엇입니까?</strong> 시편 필자는 이렇게 노래하였습니다. “그분의 웅장한 장막으로 들어가서 그분의 발판에서 몸을 굽히자.” (<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/9/0">시 132:7</a>) 따라서 <a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/10/0">애가 2:1</a>의 “발판”은 여호와의 숭배의 집 즉 그분의 성전을 가리킵니다. 바빌로니아 사람들은 마치 동산의 보잘것없는 초막인 것처럼 ‘여호와의 집을 태웠습니다.’—<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/11/0">예레미야 52:12, 13</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-2 120-121;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파07 6/1 9]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><a class="b" data-bid="13-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/12/0"><strong>2:16, 17</strong></a><strong>—히브리어 알파벳 순서를 따르려면 16절이 히브리어 글자 <em>아인</em>으로 시작하고 17절이 <em>페</em>로 시작해야 하는 것이 아닙니까?</strong> 영감받은 필자들은 이러한 유의 시를 지을 때 대개 알파벳 순서를 따랐습니다. 하지만 부자연스럽게 들리는 것을 감수하면서까지 그렇게 하지는 않았습니다. 단지 기억에 도움이 되는 역할을 하는 문학적 기교에 고착하는 것보다는 담겨진 사상을 더 중요하게 여겼습니다. 똑같은 두 글자가 바뀌어 있는 것을 <a class="b" data-bid="14-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/13/0">애가 3장과</a><a class="b" data-bid="14-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/13/1"> 4장의</a> 노래에서도 볼 수 있습니다.—<a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/14/0">애가 3:46,</a><a class="b" data-bid="15-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/14/1"> 49;</a><a class="b" data-bid="15-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/14/2"> 4:16, 17</a>.</td></tr></tbody></table></div></div>
+<p class="ss" data-pid="153" id="p153" style="font-size: 0.8em; text-align: center">ע [아인]</p>
+<div data-pid="154" id="p154"><p class="sl" data-pid="154"><span class="v" id="v25-2-17-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20465">17 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-2-17')" title="Toggle Gems Study References">💎</button>여호와께서 뜻하신 바를 행하셨고,<a class="b" data-bid="88-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/87">+</a></span></p><p class="sz" data-pid="154"><span class="v" id="v25-2-17-2">자신의 말씀을,<a class="b" data-bid="89-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/88">+</a> 오래전에 명령하신 것을<a class="b" data-bid="90-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/89">+</a> 이루셨다.</span></p>
+</div><p class="sz" data-pid="155" id="p155"><span class="v" id="v25-2-17-3">동정심을 보이지 않고 허물어뜨리셨다.<a class="b" data-bid="91-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/90">+</a></span></p>
+<p class="sz" data-pid="156" id="p156"><span class="v" id="v25-2-17-4">원수가 너를 보고 기뻐하게 하시고, 네 적들의 뿔<a class="fn" data-fnid="22" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/21" id="footnotesource22">*</a><em> (각주: 또는 “힘”.)</em>을 높이셨다.</span></p><div class="gems-references-container" id="gems-ref-25-2-17" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「통찰」 제2권 120-121면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="parNum" data-pnum="8"></span><a class="b" data-bid="8-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002675/7/0">2,</a><a class="b" data-bid="8-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002675/7/1"> 3,</a><a class="b" data-bid="8-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002675/7/2"> 4장</a>에는 (<a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002675/8/0">애가 1장</a>과 <a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002675/9/0">시 119편의</a> 순서와는 달리) 글자 <em>아인</em>과 <em>페</em>가 바뀌어 있다. 그렇다고 영감받은 「애가」의 필자가 실수를 했다는 말은 아니다. 이 문제를 고려하여 다음과 같은 점이 지적되었다. “불규칙의 문제를 작시자의 실책으로 보기는 어려울 것이다. ··· 세 편의 시에서 불규칙이 반복되었기 때문이다. 오히려 다른 상황과 관련이 있다. 우리는 다른 알파벳 시에서도, 특히 오래된 시에서 규칙을 벗어난 경우를 많이 보게 되는데, 이것은 알파벳 순서가 부자연스러움 없이 사상의 흐름에 맞을 경우에만 작시자가 그 순서를 엄밀하게 따른다는 것을 부인할 여지 없이 증명해 준다.” (「구약 주석」 <em>Commentary on the Old Testament</em>, C. <span aria-hidden="true" class="pageNum" data-before-text="121" data-no="121" id="page121"></span>F. 카일과 F. 델리치 공저, 1973년, 8권, 예레미야 애가, 338면) 그런 설명에 이어서 언급된 보기로는 <em>와우</em> 절이 빠진 <a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002675/10/0">시편 34</a>편과, <em>눈</em> 절이 빠진 <a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1200002675/11/0">시편 145편</a>이 있다. 이들 영감받은 기록에 제시된 내용이 히브리어 글자의 알파벳 순서를 엄밀하게 따르지 않았다고 해서 그리 우려할 일은 못 된다. 이합체 방식을 사용하는 것이 기억에 도움이 된다는 데는 의문의 여지가 없으나, 무엇보다 중요한 것은 전달되는 소식이고, 어떤 문학적 기교보다 우선하는 것은 담겨진 사상이었다.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「예레미야」 154면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><h1 data-pid="2" id="p2"><strong>“여호와는 염두에 두셨던 것을 행하셨다”</strong></h1><div class="sb" data-pid="3" data-rel-pid="[38]" id="p3" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="1"></span>예루살렘이 황폐되었습니다. 침략한 바빌론 군대가 불을 지른 곳에서 여전히 연기가 치솟고 있었습니다. 예레미야는 사람들이 죽임을 당하며 소름 끼치는 비명을 지르던 모습이 아직도 생생했습니다. 하느님께서는 예레미야에게 무슨 일이 일어날 것인지 미리 알려 주셨으며, 모든 일이 그분이 말씀하신 대로 일어났습니다. 예언자 예레미야는 “여호와께서 염두에 두셨던 것을 행하셨다”고 탄식하며 말했습니다. 예루살렘이 무너지는 안타까운 일이 벌어진 것입니다!—<a class="b" data-bid="1-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1102010152/0/0"><strong><em>애가 2:17</em></strong></a> <strong><em>낭독.</em></strong></div></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「파수대」 2007/6/1, 9면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/8/0"><strong>2:1,</strong></a><a class="b" data-bid="9-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/8/1"> <strong>6</strong></a><strong>—여호와의 “발판”과 “초막”은 무엇입니까?</strong> 시편 필자는 이렇게 노래하였습니다. “그분의 웅장한 장막으로 들어가서 그분의 발판에서 몸을 굽히자.” (<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/9/0">시 132:7</a>) 따라서 <a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/10/0">애가 2:1</a>의 “발판”은 여호와의 숭배의 집 즉 그분의 성전을 가리킵니다. 바빌로니아 사람들은 마치 동산의 보잘것없는 초막인 것처럼 ‘여호와의 집을 태웠습니다.’—<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/11/0">예레미야 52:12, 13</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 통-2 120-121;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 예레 154;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파07 6/1 9]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><a class="b" data-bid="13-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/12/0"><strong>2:16, 17</strong></a><strong>—히브리어 알파벳 순서를 따르려면 16절이 히브리어 글자 <em>아인</em>으로 시작하고 17절이 <em>페</em>로 시작해야 하는 것이 아닙니까?</strong> 영감받은 필자들은 이러한 유의 시를 지을 때 대개 알파벳 순서를 따랐습니다. 하지만 부자연스럽게 들리는 것을 감수하면서까지 그렇게 하지는 않았습니다. 단지 기억에 도움이 되는 역할을 하는 문학적 기교에 고착하는 것보다는 담겨진 사상을 더 중요하게 여겼습니다. 똑같은 두 글자가 바뀌어 있는 것을 <a class="b" data-bid="14-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/13/0">애가 3장과</a><a class="b" data-bid="14-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/13/1"> 4장의</a> 노래에서도 볼 수 있습니다.—<a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/14/0">애가 3:46,</a><a class="b" data-bid="15-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/14/1"> 49;</a><a class="b" data-bid="15-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/14/2"> 4:16, 17</a>.</td></tr></tbody></table></div></div>
+<p class="ss" data-pid="157" id="p157" style="font-size: 0.8em; text-align: center">צ [차데]</p>
+<p class="sl" data-pid="158" id="p158"><span class="v" id="v25-2-18-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20466">18 </a>딸 시온의 성벽아, 그들의 마음이 여호와께 부르짖는다.</span></p>
+<p class="sz" data-pid="159" id="p159"><span class="v" id="v25-2-18-2">밤낮으로 눈물이 급류처럼 흘러내리게 하여라.</span></p>
+<p class="sz" data-pid="160" id="p160"><span class="v" id="v25-2-18-3">잠시도 멈추지 말고, 네 눈<a class="fn" data-fnid="23" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/22" id="footnotesource23">*</a><em> (각주: 직역하면 “네 눈의 딸”.)</em>도 쉬게 하지 마라.</span></p>
+<p class="ss" data-pid="161" id="p161" style="font-size: 0.8em; text-align: center">ק [코프]</p>
+<p class="sl" data-pid="162" id="p162"><span class="v" id="v25-2-19-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20467">19 </a>일어나라! 밤중에, 새벽녘부터<a class="fn" data-fnid="24" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/23" id="footnotesource24">*</a><em> (각주: 또는 “경들이 시작될 때마다”. 용어 설명 “경” 참조.)</em> 부르짖어라.</span></p>
+<p class="sz" data-pid="163" id="p163"><span class="v" id="v25-2-19-2">네 마음을 여호와의 면전에 물처럼 쏟아 놓아라.</span></p>
+<div data-pid="164" id="p164"><p class="sz" data-pid="164"><span class="v" id="v25-2-19-3">네 자식들이 모든 거리의 모퉁이<a class="fn" data-fnid="25" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/24" id="footnotesource25">*</a><em> (각주: 직역하면 “머리”.)</em>에서 기근 때문에 실신하니,<a class="b" data-bid="92-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/91">+</a></span></p><p class="sz" data-pid="164"><span class="v" id="v25-2-19-4">그들의 목숨<a class="fn" data-fnid="26" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/25" id="footnotesource26">*</a><em> (각주: 또는 “영혼”.)</em>을 위해 네 손을 그분에게 들어 올려라.</span></p>
+</div><p class="ss" data-pid="165" id="p165" style="font-size: 0.8em; text-align: center">ר [레시]</p>
+<p class="sl" data-pid="166" id="p166"><span class="v" id="v25-2-20-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20468">20 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-2-20')" title="Toggle Gems Study References">💎</button>보십시오, 오 여호와여, 당신이 이토록 엄하게 다스리신 자를 살펴보십시오.</span></p>
+<p class="sz" data-pid="167" id="p167"><span class="v" id="v25-2-20-2">여자들이 자기 자식<a class="fn" data-fnid="27" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/26" id="footnotesource27">*</a><em> (각주: 또는 “열매”.)</em>을, 자기가 낳은 멀쩡한 아이를 먹어야 합니까?<a class="b" data-bid="93-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/92">+</a></span></p>
+<p class="sz" data-pid="168" id="p168"><span class="v" id="v25-2-20-3">제사장과 예언자가 여호와의 신성한 곳에서 죽임을 당해야 합니까?<a class="b" data-bid="94-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/93">+</a></span></p><div class="gems-references-container" id="gems-ref-25-2-20" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 「파수대」 2007/6/1, 9면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/8/0"><strong>2:1,</strong></a><a class="b" data-bid="9-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/8/1"> <strong>6</strong></a><strong>—여호와의 “발판”과 “초막”은 무엇입니까?</strong> 시편 필자는 이렇게 노래하였습니다. “그분의 웅장한 장막으로 들어가서 그분의 발판에서 몸을 굽히자.” (<a class="b" data-bid="10-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/9/0">시 132:7</a>) 따라서 <a class="b" data-bid="11-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/10/0">애가 2:1</a>의 “발판”은 여호와의 숭배의 집 즉 그분의 성전을 가리킵니다. 바빌로니아 사람들은 마치 동산의 보잘것없는 초막인 것처럼 ‘여호와의 집을 태웠습니다.’—<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/11/0">예레미야 52:12, 13</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 1989/8/1, 29면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><a class="b" data-bid="4-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1989567/3/0">예레미야 애가 4:10</a>에서 예언자 예레미야는, 자기 자식에 대해서 어머니는 천성적으로 다정하고, 가엽게 여기며, 보호하려 한다는, 누구나 다 아는 사실을 들어서 말한 것입니다. (<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1989567/4/0">열왕 상 3:26, 27;</a><a class="b" data-bid="5-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1989567/4/1"> 데살로니가 전 2:7</a>) 그렇지만, 포위중인 예루살렘에서 식량 부족은 극에 달하였고 그로 인한 아사 상태가 절박하여 보통 때라면 자식을 가엽게 여길, 즉 자비한 어머니가 자기 자식을 삶아서 식인종처럼 먹었던 것입니다.—비교 <a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1989567/5/0">애가 2:20</a>.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[연구 자료 찾아보기 - 1988/9/1, 27면]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">  ◻ <a class="b" data-bid="15-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/14/0">4:3</a>—여기에서는 어머니들이 자녀를 잔인하게 다루는 행위를 어미 들개가 새끼에게 베푸는 보살핌과 대조시키고 있다. 들개는 야수로 간주되는 동물이지만, ‘젖을 내어 새끼를 먹인다.’ 포위된 예루살렘 내의 엄청난 식량 부족 때문에, 굶주린 유대 여자들은 자녀에게 줄 젖이 없었고 살기 위해서 실제로 자기 자녀를 먹으므로 잔인하게 되었다. (<a class="b" data-bid="16-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1988646/15/0">애가 2:20</a>) 따라서, 여자들은 알을 낳아서 버려 두는 타조와 같이 되기도 하였다.</td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파07 6/1 9;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><article class="scalableui">
+<p class="sb" data-pid="13" id="p13"><a class="b" data-bid="9-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/8/0"><strong>2:1,</strong></a><a class="b" data-bid="9-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/8/1"> <strong>6</strong></a><strong>—여호와의 “발판”과 “초막”은 무엇입니까?</strong></p>
+</article><article class="scalableui">
+<p class="sb" data-pid="13" id="p13">바빌로니아 사람들은 마치 동산의 보잘것없는 초막인 것처럼 ‘여호와의 집을 태웠습니다.’—<a class="b" data-bid="12-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/2007402/11/0">예레미야 52:12, 13</a>.</p>
+</article></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파89 8/1 29;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파88 9/1 27]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><em>This reference is already included in the Research Guide above.</em></td></tr></tbody></table></div></div>
+<p class="ss" data-pid="169" id="p169" style="font-size: 0.8em; text-align: center">ש [쉰]</p>
+<div data-pid="170" id="p170"><p class="sl" data-pid="170"><span class="v" id="v25-2-21-1"><a class="vl vx vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20469">21 </a><button class="gems-toggle-btn" onclick="toggleGems('gems-ref-25-2-21')" title="Toggle Gems Study References">💎</button>소년과 노인이 죽어서 길바닥에 쓰러져 있고,<a class="b" data-bid="95-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/94">+</a></span></p><p class="sz" data-pid="170"><span class="v" id="v25-2-21-2">나의 처녀<a class="fn" data-fnid="28" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/27" id="footnotesource28">*</a><em> (각주: 또는 “젊은 여자”.)</em>들과 청년들이 칼에 쓰러졌습니다.<a class="b" data-bid="96-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/95">+</a></span></p>
+</div><p class="sz" data-pid="171" id="p171"><span class="v" id="v25-2-21-3">당신의 분노의 날에 당신이 죽이셨습니다.</span></p>
+<p class="sz" data-pid="172" id="p172"><span class="v" id="v25-2-21-4">동정심을 보이지 않고 살육하셨습니다.<a class="b" data-bid="97-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/96">+</a></span></p><div class="gems-references-container" id="gems-ref-25-2-21" style="display: none;"><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[출판물 색인 - 파72 572]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="21" data-rel-pid="[43]" id="p21" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="17"><sup>17</sup></span> 그리스도교국이 거짓 신 숭배에 물들어 있으며 현대 과학을 우상화하고 있는 면에서 그 정체가 조금씩 폭로되고 있읍니다. 예를 들면, 1969년 7월 20일에 인간이 최초로 달에 발을 디뎠을 때에, 그것에 관련된 과학자들이 거기에 사용된 물건들의 이름을 지은 방법을 보면 누가 영예를 받았읍니까? 달의 창조주이신 여호와께서 영예를 받은 것이 아니었읍니다. 영예를 받은 것은 신화적인 태양신이었읍니다. 왜 그렇게 말할 수 있읍니까? 그때 사용하였던 우주선(그 이후 달 착륙 때에도 그랬듯이)의 이름을 “아폴로”라고 했기 때문입니다. 하고 많은 이름 가운데서 우상 숭배적인 희랍 신화 <span aria-hidden="true" class="pageNum" data-before-text="572" data-no="572" id="page572"></span>중의 이름을 택한 것입니다. ‘피버스 아폴로’는 고대 희랍의 태양신이었으며, 달의 여신 ‘아테미스’(다이아나)의 쌍동이 형제였읍니다.</div><div class="sb" data-pid="22" data-rel-pid="[44]" id="p22" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="18"><sup>18</sup></span> 지성 있는 사람들이 창조주의 법칙을 사용하여 업적을 이루어 놓고는 사실상 신도 아무 것도 아닌 고대의 태양신을 광고하고 그 이름을 뛰어나게 만들 이유가 무엇이겠읍니까? 사람이 하나님보다 더 중요시되고 있음이 분명합니다. 뿐만 아니라, 그리스도교국에서 전반적으로 증명되지 않은 진화론을 받아들이고 있는 사실은 그들이 과학의 “태양”을 숭배하고 있음을 들어내는 한 가지 증거입니다.</div><div class="sb" data-pid="23" data-rel-pid="[45]" id="p23" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="19"><sup>19</sup></span> 과학이 인간 문명의 주된 근원인 “태양”으로 추앙받고 있는 이교로 접근하는 이 과학의 경향은 인류에게 더 나은 세계로 접근시켜 주었읍니까? 고대 ‘에스겔’ 시대에도 그와 같은 행동은 ‘이스라엘’ 나라에 폭력을 초래하였읍니다. 현대에 와서도 그보다 나을 것이 없읍니다. 그리스도교국의 교직자들은, 현대 과학을 이용하여 가장 흉악한 전쟁 무기를 만드는 일이나 사용하는 일을 중지시키려고 하지도 않으며 그럴 능력도 없읍니다. 결국 생물학 무기, 방사성 무기, 핵 무기를 개발하고 있읍니다. 제1차 세계 대전과 제2차 세계 대전은 과학자들의 활약에 큰 영향을 주었읍니다. 이 땅에 가득찬 폭력은 주로 그리스도교국 사이에 싸움을 벌렸던 두 전쟁에서만 국한 된 것이 아닙니다. 크게 숭배받고 있는 현대 철학은 교인들로부터 하나님께 대한 참된 두려움을 박탈해버렸으며, 폭력은 평화시에도 널리 사용되고 있읍니다. 기원 1914년 이후의 시대는 공적으로 “폭력의 시대”라고 불리웁니다.</div><div class="sb" data-pid="24" data-rel-pid="[45]" id="p24" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="20"><sup>20</sup></span> 현대 과학의 기술은 산업과 상업에도 사용되어 왔읍니다. 이 결과 공해가 심해져서 인간의 자연 환경을 망치고 있읍니다. 얼마 안가면 이 지구가 인간이 살기에 부적합한 장소가 될 것이라는 우려를 표명하는 사람도 있읍니다. 그러면 인간의 도덕적 환경은 어떠합니까?</div><div class="sb" data-pid="25" data-rel-pid="[46]" id="p25" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="21"><sup>21</sup></span> 간음, 음행 및 동성애까지도 너그럽게 보아 주고 합법적으로 인정하려고 하는 신 도덕률이 대두되었읍니다. 그리스도교국의 교직자들은 이러한 것을 비난하는 성서의 말씀을 지지하려고 하지 않습니다. 사실상, 많은 저명한 교직자들은 부도덕한 사람들이 그러한 더러운 행위를 해도 벌을 받지 않도록 법을 제정하자고 주장합니다. 그 결과 성병은 계속 무섭게 번지고 있읍니다. 만일 이 점이 오늘날 하나님을 두려워하는 많은 사람들에게도 불쾌하다면, 하나님께는 얼마나 불쾌하겠읍니까? ‘예루살렘’에 위치한 여호와의 성전안에 있던 스물 다섯명의 숭배자들이 음탕하게도 “나무가지를 그 코에” 가져다 대는 것과 같습니다.</div><div class="ss" data-pid="26" id="p26" style="display:block; font-size: 0.8em; text-align: center; margin-top: 0; margin-bottom: 8px"><strong>하나님께서는 어떻게 하실 것인가?</strong></div><div class="sb" data-pid="27" data-rel-pid="[47]" id="p27" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="22"><sup>22</sup></span> 여호와께서는 ‘예루살렘’ 성전에서 행해지는 가증한 일들을 ‘에스겔’에게 보여 주신 것 외에, 어떤 조치를 취하셨읍니까? 다음과 같이 말씀하신 대로 하셨읍니다. “그러므로 나도 분노로 갚아 아껴보지 아니하고 긍휼을 베풀지도 아니하리니 그들이 큰 소리로 내 귀에 부르짖을찌라도 내가 듣지 아니하리라.”—<a class="b" data-bid="5-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972723/4/0">에스겔 8:18</a>.</div><div class="sb" data-pid="28" data-rel-pid="[47]" id="p28" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="23"><sup>23</sup></span> 이러한 일이 실제 일어났읍니까? 그랬읍니다. 약 삼년 반 후에 ‘느브갓네살’이 ‘예루살렘’을 포위하자 그 사람들은 곤경에 처하게 되었읍니다. 굶어 죽는 사람들이 많았읍니다. 어머니들은 자기 아이들을 잡아 먹기도 하였읍니다. 질병은 수많은 사람을 죽였읍니다. 포위당한 ‘유대’인들 사이의 싸움으로 환난은 더욱 심하게 되었읍니다. ‘느브갓네살’의 군대가 그 도시에 진입해서는 노소를 막론하고 길가에서 학살을 하였읍니다. 귀족들은 밧줄에 매달렸읍니다. 사로잡힌 사람들은 노예로 ‘바벨론’으로 끌려갔읍니다. 하나님께서 그 도시와 그 성전에 자기의 이름을 두시기는 하였지만, ‘유대’인들의 가증한 우상 숭배와 음탕한 행위에 대해 대단히 분노하셨기 때문에 그들을 구원해 주지 않으셨읍니다. (<a class="b" data-bid="6-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972723/5/0">애가 2:21;</a><a class="b" data-bid="6-2" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972723/5/1"> 4:9, 10;</a><a class="b" data-bid="6-3" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1972723/5/2"> 5:12</a>) 하나님께서 오늘날은 달리 행동하실 것이라고 생각할 것입니까?</div><div class="sb" data-pid="29" data-rel-pid="[48]" id="p29" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="24"><sup>24</sup></span> 그리스도교국은 자기들이 하나님과 그리스도의 이름을 지니고 있다고 주장하고 있으며, 사람들을 그 분들의 길로 인도한다고 주장합니다. 그러나 그와 정반대로 그리스도교국은 여호와 하나님과 그분의 아들과 그분의 숭배에 최대의 모독을 가져 왔읍니다. 그것은 하나님의 원수인 ‘사단’ 마귀의 손아귀에 들어 있는 하나의 도구로서 가능한 한 많은 사람들을 참 하나님으로부터 이탈시키는 데 사용되고 있읍니다.</div></td></tr></tbody></table></div></div>
+<p class="ss" data-pid="173" id="p173" style="font-size: 0.8em; text-align: center">ת [타우]</p>
+<p class="sl" data-pid="174" id="p174"><span class="v" id="v25-2-22-1"><a class="vl vp" href="https://wol.jw.org/ko/wol/dx/r8/lp-ko/1001070129/20470">22 </a>축제 날에<a class="b" data-bid="98-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/97">+</a> 사람들을 불러 모으듯, 당신은 사방에서 공포를 불러들이십니다.</span></p>
+<p class="sz" data-pid="175" id="p175"><span class="v" id="v25-2-22-2">여호와의 진노의 날에는 피한 사람도, 살아남은 사람도 없었습니다.<a class="b" data-bid="99-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/98">+</a></span></p>
+<p class="sz" data-pid="176" id="p176"><span class="v" id="v25-2-22-3">내가 낳아서<a class="fn" data-fnid="29" href="https://wol.jw.org/ko/wol/fn/r8/lp-ko/1001070129/28" id="footnotesource29">*</a><em> (각주: 또는 “건강하게 낳아서”.)</em> 기른 자들을 나의 원수가 진멸했습니다.<a class="b" data-bid="100-1" href="https://wol.jw.org/ko/wol/bc/r8/lp-ko/1001070129/99">+</a></span></p>
+<!-- Root element of lightbox -->
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="예레미야 애가 2:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="예레미야 애가 2:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="예레미야 애가 {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value=""/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value=""/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="{PublicationSymbol} {StartingPageNumber}-{EndingPageNumber}면"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="{PublicationSymbol} {PageNumber}면"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="englishSym" type="hidden" value="nwtsty"/>
+<input id="audioPubSym" type="hidden" value="nwt"/>
+<input id="pubYear" type="hidden" value="2024"/>
+<input id="langSym" type="hidden" value="KO"/>
+<input id="bookNo" type="hidden" value="25"/>
+<input id="chapNo" type="hidden" value="2"/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=KO&amp;pub=nwtsty&amp;srctype=wol&amp;bible=25002000&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="bible-chapter"/>
+<input id="contentTitle" type="hidden" value="예레미야 애가 2"/>
+<input id="contentThumbnail" type="hidden" value="/ko/wol/publication/r8/lp-ko/nwtsty/thumbnail"/>
+<input id="parentTitle" type="hidden" value="신세계역 성경 (연구용)"/>
+<input id="sourcePreferredBible" type="hidden" value="nwtsty"/>
+<style>
+.gems-toggle-btn {
+    background: none;
+    border: 1px solid #4a6da7;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75em;
+    padding: 1px 3px;
+    margin-left: 0px;
+    margin-right: 4px;
+    vertical-align: top;
+    transition: background-color 0.2s, transform 0.1s;
+}
+h1 .gems-toggle-btn {
+    font-size: 13px;
+    vertical-align: top;
+    margin-left: 8px;
+}
+.gems-toggle-btn:hover {
+    background-color: #e9ecef;
+    transform: scale(1.1);
+}
+.summaryOutline {
+    margin: 0;
+    padding: 0;
+}
+.summaryOutline ul {
+    padding-left: 16px;
+    margin: 2px 0;
+}
+.summaryOutline > ul.content {
+    padding-left: 0;
+    list-style: none;
+}
+.summaryOutline li {
+    margin-bottom: 2px;
+    line-height: 1.35;
+}
+.summaryOutline p {
+    margin: 2px 0;
+    line-height: 1.35;
+}
+.gems-note-link {
+    cursor: pointer;
+    color: #4a6da7;
+    background-color: #e9ecef;
+}
+.gems-note-link:hover {
+    color: #4a6da7;
+    background-color: #e9ecef;
+}
+.studyItemMedia, .media-list img {
+    max-width: 80px !important;
+    height: auto !important;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+.media-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.media-list li {
+    margin-bottom: 12px;
+}
+.media-list li:last-child {
+    margin-bottom: 0;
+}
+.media-list a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    /* color: inherit; */
+}
+.media-list a:hover .caption {
+    text-decoration: underline;
+}
+.media-list .caption {
+    display: block;
+    font-size: 0.95em;
+    /* color: #212529; */
+}
+.media-list .caption p {
+    margin: 0;
+}
+.gems-references-container {
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+.gems-global-controls {
+    margin: 12px 0 16px auto;
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    display: flex;
+    width: fit-content;
+    gap: 10px;
+    align-items: center;
+}
+.gems-global-controls button {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 0.85em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.gems-global-controls button:hover {
+    background-color: #e9ecef;
+}
+</style><script>
+function toggleGems(id) {
+    var elem = document.getElementById(id);
+    if (elem) {
+        var isHidden = elem.style.display === 'none' || !elem.style.display;
+        elem.style.display = isHidden ? 'block' : 'none';
+        var cards = elem.querySelectorAll('.inserted-reference-container');
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = isHidden ? 'block' : 'none';
+        }
+    }
+}
+function toggleSpecificGemsNote(containerId, noteId) {
+    var container = document.getElementById(containerId);
+    var targetNote = document.getElementById(noteId);
+    if (!container || !targetNote) return;
+
+    var cards = container.querySelectorAll('.inserted-reference-container');
+    var isContainerHidden = container.style.display === 'none' || !container.style.display;
+
+    var visibleCount = 0;
+    for (var i = 0; i < cards.length; i++) {
+        if (cards[i].style.display !== 'none' && cards[i].style.display !== '') visibleCount++;
+    }
+
+    if (isContainerHidden) {
+        container.style.display = 'block';
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = (cards[i] === targetNote) ? 'block' : 'none';
+        }
+    } else if (visibleCount === 1 && targetNote.style.display === 'block') {
+        container.style.display = 'none';
+        targetNote.style.display = 'none';
+    } else {
+        container.style.display = 'block';
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = (cards[i] === targetNote) ? 'block' : 'none';
+        }
+    }
+}
+function toggleAllGems(btnOrShowAll, showAll) {
+    var target = document;
+    var show = showAll;
+    if (typeof btnOrShowAll === 'boolean') {
+        show = btnOrShowAll;
+    } else if (btnOrShowAll && btnOrShowAll.closest) {
+        target = btnOrShowAll.closest('article') || btnOrShowAll.closest('.content') || document;
+    }
+    var containers = target.querySelectorAll('.gems-references-container');
+    containers.forEach(function(c) {
+        c.style.display = show ? 'block' : 'none';
+        var cards = c.querySelectorAll('.inserted-reference-container');
+        cards.forEach(function(card) {
+            card.style.display = show ? 'block' : 'none';
+        });
+    });
+}
+</script></article>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Gather all alternate presentation elements and their images
+        const altPresElements = Array.from(document.querySelectorAll('.alternatePresentation'));
+        const altImages = altPresElements.map(el => {
+            const img = el.querySelector('img');
+            if (img) {
+                return {
+                    src: img.getAttribute('data-alt-src') || img.getAttribute('src'),
+                    title: el.querySelector('.title')?.textContent || "Image"
+                };
+            }
+            return null;
+        }).filter(Boolean);
+
+        // 2. Create Lightbox DOM structure dynamically
+        const lightbox = document.createElement('div');
+        lightbox.className = 'custom-lightbox';
+        lightbox.innerHTML = `
+            <button class="custom-lightbox-close">&times;</button>
+            <button class="custom-lightbox-nav custom-lightbox-prev">&#10094;</button>
+            <div class="custom-lightbox-content">
+                <img class="custom-lightbox-img" src="" alt="" />
+            </div>
+            <button class="custom-lightbox-nav custom-lightbox-next">&#10095;</button>
+            <div class="custom-lightbox-caption"></div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('.custom-lightbox-img');
+        const lightboxCaption = lightbox.querySelector('.custom-lightbox-caption');
+        const closeBtn = lightbox.querySelector('.custom-lightbox-close');
+        const prevBtn = lightbox.querySelector('.custom-lightbox-prev');
+        const nextBtn = lightbox.querySelector('.custom-lightbox-next');
+
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        const openLightbox = (group, index) => {
+            currentGroup = group;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const updateLightbox = () => {
+            const item = currentGroup[currentIndex];
+            if (item) {
+                lightboxImg.src = item.src;
+                if (item.title && item.title.trim() !== "" && item.title.trim() !== "Printed Edition") {
+                    lightboxCaption.textContent = item.title;
+                    lightboxCaption.style.display = 'block';
+                } else {
+                    lightboxCaption.textContent = "";
+                    lightboxCaption.style.display = 'none';
+                }
+                if (currentGroup.length > 1) {
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                } else {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                }
+            }
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImg.src = '';
+            lightboxCaption.textContent = '';
+        };
+
+        const navigate = (direction) => {
+            if (currentGroup.length <= 1) return;
+            currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+            updateLightbox();
+        };
+
+        // Event Listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('custom-lightbox-content')) {
+                closeLightbox();
+            }
+        });
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Attach click handlers to alternate presentations
+        altPresElements.forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(altImages, index);
+            });
+        });
+
+        // Attach click handlers to other zoomable figure images
+        document.querySelectorAll('article figure img:not(.suppressZoom)').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = img.getAttribute('data-alt-src') || img.getAttribute('src');
+                const title = img.getAttribute('alt') || "";
+                openLightbox([{ src, title }], 0);
+            });
+        });
+    });
+    </script>
+</body>
+</html>

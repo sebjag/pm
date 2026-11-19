@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>Sharing the Good News in “All the Languages of the Nations” — Watchtower ONLINE LIBRARY</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">📰</text></svg>'>
+    <link rel="stylesheet" type="text/css" href="css/media-player.css">
+    <link rel="stylesheet" type="text/css" href="css/+0+61168f8ef805085f5a3c0118b14679f74c9e62a4.css">
+    <link rel="stylesheet" type="text/css" href="css/+1+f8319dd08c749624466cb777b7d528e1a42d7368.css">
+    <link rel="stylesheet" type="text/css" href="css/+2+894de4a6eba76bf97927253f95f582449947a96e.css">
+    <link rel="stylesheet" type="text/css" href="css/+3+d00a791fdbb951906e95f1428ae322e41ea9da95.css">
+    <style>
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'jw-icons-all';
+            src: url('fonts/jw-icons-all-ad2eb6a.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @media screen and (min-width: 600px) {
+            .document, .bible {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 16px 50px 80px;
+            }
+            .document .dc-bleedToArticleEdge, .bible .dc-bleedToArticleEdge {
+                margin-left: -50px;
+                margin-right: -50px;
+            }
+            .document .dc-paddingToContentEdge, .bible .dc-paddingToContentEdge {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        #content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+        .inserted-reference {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+            font-size: 0.95em;
+        }
+        .inserted-reference-header {
+            margin: 0;
+            padding: 4px 16px;
+            background-color: #e2e6ea;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #495057;
+        }
+        .inserted-reference-header a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #1a73e8;
+        }
+        .inserted-reference-header a:hover {
+            text-decoration: underline;
+        }
+        .inserted-reference > *:not(.inserted-reference-header) {
+            margin: 12px 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-style: italic;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        /* Custom Lightbox Styles */
+        .custom-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            /* user-select: none; */
+            /* -webkit-user-select: none; */
+        }
+        .custom-lightbox.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .custom-lightbox-content {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 35px;
+            color: #fff;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10002;
+            transition: transform 0.2s ease;
+        }
+        .custom-lightbox-close:hover {
+            transform: scale(1.1);
+        }
+        .custom-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10001;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 20px;
+        }
+        .custom-lightbox-nav:hover {
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .custom-lightbox-prev {
+            left: 0px;
+        }
+        .custom-lightbox-next {
+            right: 0px;
+        }
+        .custom-lightbox-caption {
+            color: #ccc;
+            margin-top: 15px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 80%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body, #content {
+                background-color: #171c2a !important;
+                color: #e2e8f0;
+            }
+            .document, .bible, .article, #article {
+                background-color: #1e293b !important;
+                color: #e2e8f0;
+            }
+            .scalableui, .bodyTxt {
+                background-color: transparent !important;
+                color: #e2e8f0;
+            }
+            .du-bgColor--bgSecondary, .du-bgColor--warmGray-50,
+            [class*="du-bgColor--bgSecondary"], [class*="du-bgColor--warmGray-"],
+            #tt9, .document #tt9, body #tt9,
+            .document [class*="du-bgColor--bgSecondary"], body [class*="du-bgColor--bgSecondary"],
+            .document [class*="du-bgColor--warmGray-"], body [class*="du-bgColor--warmGray-"] {
+                background-color: #2d3a4f !important;
+                color: #e2e8f0 !important;
+            }
+            .du-borderColor--borderDefault, hr {
+                border-color: #3b4d66 !important;
+            }
+            .du-color--teal-700 {
+                color: #2dd4bf !important;
+            }
+            h1, h2, h3, h4, h5, h6, strong {
+                color: #f8fafc;
+            }
+            a, a.b, a.vl, a.fn, a:visited {
+                color: #60a5fa;
+            }
+            a:hover, a.b:hover, a.vl:hover, a.fn:hover {
+                color: #93c5fd;
+            }
+            .du-color--textSubdued, .pageNum, .themeScrp {
+                color: #94a3b8 !important;
+            }
+            .inserted-reference {
+                background-color: #263346;
+                border: 1px solid #3b4d66;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .inserted-reference-header {
+                background-color: #1e2b3c;
+                border-bottom: 1px solid #3b4d66;
+                color: #cbd5e1;
+            }
+            .inserted-reference-header a {
+                color: #60a5fa;
+            }
+            .inserted-reference-header a:hover {
+                color: #93c5fd;
+            }
+            .note-card-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            }
+            .note-card-header {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #cbd5e1 !important;
+            }
+            .note-card-header a {
+                color: #60a5fa !important;
+            }
+            .note-card-body {
+                color: #e2e8f0 !important;
+            }
+            .box-supplement-table {
+                background-color: #263346 !important;
+                border-color: #3b4d66 !important;
+            }
+            .box-supplement-table th {
+                background-color: #1e2b3c !important;
+                border-bottom-color: #3b4d66 !important;
+                color: #f8fafc !important;
+            }
+            .box-supplement-table th h1, .box-supplement-table th h2,
+            .box-supplement-table th h3, .box-supplement-table th h4,
+            .box-supplement-table th strong, .box-supplement-table th p {
+                color: #f8fafc !important;
+            }
+            .box-supplement-table td {
+                color: #e2e8f0 !important;
+            }
+            .image-caption {
+                color: #94a3b8;
+            }
+            .custom-lightbox-img {
+                background-color: #1e293b;
+            }
+            .custom-lightbox-caption {
+                color: #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body  class="showRuby cc-theme--light DynamicLayout">
+    <div id="content" class="content">
+        <article class="article document html5 pub-w docId-2026562 pub-w26 pub-w pub-w26 docClass-40 jwac showRuby ml-E ms-ROMAN dir-ltr includeSecondaryNav" data-lang="E" dir="ltr" id="article" lang="en" role="article">
+<div class="scalableui">
+<header>
+<div class="dc-bleedToArticleEdge dc-paddingToContentEdge du-bgColor--purple-700 du-padding-vertical--2" id="tt2">
+<p class="contextTtl du-color--white" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="14" data-no="14" id="page14"></span><strong>NOVEMBER 16-22, 2026</strong></p>
+</div>
+<div class="du-color--textSubdued du-margin-vertical--8" id="tt4">
+<p class="pubRefs" data-pid="2" id="p2"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/2026562/0/0"><strong>SONG 84</strong></a> Reaching Out</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[SONG 84]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<p class="contextTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="108" data-no="108" id="page108"></span><strong>SONG 84</strong></p>
+<h1 data-pid="2" id="p2"><strong>Reaching Out</strong></h1>
+</header> 
+<p class="themeScrp" data-pid="3" id="p3">(<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016884/0/0">Matthew 9:37, 38</a>)</p>
+<div class="bodyTxt">
+<ol><li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="4" id="p4">Jehovah knows just what we need</p>
+<p class="sz" data-pid="5" id="p5">To bring us joy and to succeed.</p>
+<p class="sp" data-pid="6" id="p6">So he provides so many ways</p>
+<p class="sz" data-pid="7" id="p7">In which to serve and spend our days.</p>
+<div class="chorus"><p class="se" data-pid="8" id="p8">(CHORUS)</p>
+<p class="sp" data-pid="9" id="p9">Reaching out, giving all,</p>
+<p class="sz" data-pid="10" id="p10" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">for our God above.</p>
+<p class="sp" data-pid="11" id="p11">And where the need is great, there we’ll be,</p>
+<p class="sz" data-pid="12" id="p12" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">reaching out in love.</p>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="13" id="p13">There’s work to do in ev’ry land.</p>
+<p class="sz" data-pid="14" id="p14">Where there’s a need, we lend a hand.</p>
+<p class="sp" data-pid="15" id="p15">By reaching out, we show we care.</p>
+<p class="sz" data-pid="16" id="p16">We want to help and want to share.</p>
+<div class="chorus"><p class="se" data-pid="17" id="p17">(CHORUS)</p>
+<p class="sp" data-pid="18" id="p18">Reaching out, giving all,</p>
+<p class="sz" data-pid="19" id="p19" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">for our God above.</p>
+<p class="sp" data-pid="20" id="p20">And where the need is great, there we’ll be,</p>
+<p class="sz" data-pid="21" id="p21" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">reaching out in love.</p>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="22" id="p22">And here at home, in towns nearby,</p>
+<p class="sz" data-pid="23" id="p23">We plan, we build, new skills we try.</p>
+<p class="sp" data-pid="24" id="p24">We learn to speak a foreign tongue</p>
+<p class="sz" data-pid="25" id="p25">And bring good news to ev’ryone.</p>
+<div class="chorus"><p class="se" data-pid="26" id="p26">(CHORUS)</p>
+<p class="sp" data-pid="27" id="p27">Reaching out, giving all,</p>
+<p class="sz" data-pid="28" id="p28" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">for our God above.</p>
+<p class="sp" data-pid="29" id="p29">And where the need is great, there we’ll be,</p>
+<p class="sz" data-pid="30" id="p30" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">reaching out in love.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="closingContent"><p class="se" data-pid="31" id="p31">(See also <a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016884/1/0">John 4:35;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016884/1/1"> Acts 2:8;</a><a class="b" data-bid="2-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016884/1/2"> Rom. 10:14</a>.)</p>
+</div>
+<p class="sb" data-pid="32" id="p32"></p>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+</div>
+<h1 class="du-color--coolGray-700 du-margin-top--8" data-pid="3" id="p3"><strong>Sharing the Good News in “All the Languages of the Nations”</strong></h1>
+</header>
+<div class="du-color--textSubdued du-margin-vertical--8" id="tt8">
+<p class="themeScrp" data-pid="4" id="p4"><em>“Ten men out of all the languages of the nations will take . . . hold of the robe of a Jew.”</em>​—<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/0/0">ZECH. 8:23</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[ZECH. 8:23]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v38-8-23-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070142/23115">23 </a>“This is what Jehovah of armies says, ‘In those days ten men out of all the languages of the nations<a class="b" data-bid="136-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070142/135">+</a> will take hold, yes, they will take firm hold of the robe<a class="fn" data-fnid="39" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070142/38" id="footnotesource39">*</a><em> (Footnote: Or “extremity of the garment.”)</em> of a Jew,<a class="fn" data-fnid="40" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070142/39" id="footnotesource40">*</a><em> (Footnote: Lit., “a Jewish man.”)</em> saying: “We want to go with you,<a class="b" data-bid="137-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070142/136">+</a> for we have heard that God is with you people.”’”<a class="b" data-bid="138-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070142/137">+</a></span></td></tr></tbody></table></div>
+</div>
+<div class="du-color--textSubdued du-borderStyle-inlineStart--solid du-borderWidth--2 du-borderColor--purple-700 du-margin-vertical--8 du-margin-children--0 du-padding-inlineStart--4 du-padding-vertical--1" id="tt10">
+<p class="pubRefs" data-pid="5" id="p5"><strong>FOCUS</strong></p>
+<p class="pubRefs" data-pid="6" id="p6">Appreciating the role of Jehovah’s people in the fulfillment of <a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/1/0">Zechariah 8:23</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Zechariah 8:23]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v38-8-23-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070142/23115">23 </a>“This is what Jehovah of armies says, ‘In those days ten men out of all the languages of the nations<a class="b" data-bid="136-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070142/135">+</a> will take hold, yes, they will take firm hold of the robe<a class="fn" data-fnid="39" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070142/38" id="footnotesource39">*</a><em> (Footnote: Or “extremity of the garment.”)</em> of a Jew,<a class="fn" data-fnid="40" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070142/39" id="footnotesource40">*</a><em> (Footnote: Lit., “a Jewish man.”)</em> saying: “We want to go with you,<a class="b" data-bid="137-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070142/136">+</a> for we have heard that God is with you people.”’”<a class="b" data-bid="138-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070142/137">+</a></span></td></tr></tbody></table></div>
+</div>
+<div class="bodyTxt">
+<p class="qu" data-pid="40" id="p40"> <strong>1.</strong> Why is it essential for the good news to be preached in many languages? (<a class="b" data-bid="31-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/30/0">Romans 10:13, 14</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Romans 10:13, 14]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v45-10-13-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070149/28293">13 </a>For “everyone who calls on the name of Jehovah will be saved.”<a class="b" data-bid="352-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070149/351">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v45-10-14-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070149/28294">14 </a>However, how will they call on him if they have not put faith in him? How, in turn, will they put faith in him about whom they have not heard? How, in turn, will they hear without someone to preach? </span></div></td></tr></tbody></table></div>
+
+<p data-pid="7" data-rel-pid="[40]" id="p7"><span class="parNum" data-pnum="1"></span>JEHOVAH frustrated the efforts of the rebellious builders of the Tower of Babel by confusing their language. As a result, the human family was fragmented into language groups and scattered throughout the earth. (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/2/0">Gen. 11:6-9</a>) But it is Jehovah’s declared purpose to unite “a great crowd . . . out of all nations and tribes and peoples and <strong><em>languages”</em></strong> and lead them through the great tribulation and into the new world. (<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/3/0">Rev. 7:9</a>, ftn., <a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/4/0">10,</a> <a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/5/0">14</a>) This great crowd can call on Jehovah’s name during the great tribulation because the Kingdom message has reached them in a language they understand. <strong>(Read</strong> <a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/6/0"><strong>Romans 10:13, 14</strong></a><strong>.)</strong> What a privilege we have to share in that lifesaving work!</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Gen. 11:6-9]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-11-6-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070105/272">6 </a>Jehovah then said: “Look! They are one people with one language,<a class="b" data-bid="255-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070105/254">+</a> and this is what they have started to do. Now there is nothing that they may have in mind to do that will be impossible for them. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-11-7-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070105/273">7 </a>Come! Let us<a class="b" data-bid="256-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070105/255">+</a> go down there and confuse their language in order that they may not understand one another’s language.” </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-11-8-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070105/274">8 </a>So Jehovah scattered them from there over the entire face of the earth,<a class="b" data-bid="257-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070105/256">+</a> and they gradually left off building the city. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v1-11-9-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070105/275">9 </a>That is why it was named Baʹbel,<a class="fn pr" data-fnid="86" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070105/85" id="footnotesource86">*</a><em> (Footnote: Meaning “Confusion.”)</em><a class="b" data-bid="258-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070105/257">+</a> because there Jehovah confused the language of all the earth, and Jehovah scattered them from there over the entire face of the earth.</span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Rev. 7:9]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v66-7-9-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070170/30911">9 </a>After this I saw, and look! a great crowd, which no man was able to number, out of all nations and tribes and peoples and tongues,<a class="fn pr" data-fnid="31" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070170/30" id="footnotesource31">*</a><em> (Footnote: Or “languages.”)</em><a class="b" data-bid="216-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070170/215">+</a> standing before the throne and before the Lamb, dressed in white robes;<a class="b" data-bid="217-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070170/216">+</a> and there were palm branches in their hands.<a class="b" data-bid="218-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070170/217">+</a> </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[10,]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v66-7-10-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070170/30912">10 </a>And they keep shouting with a loud voice, saying: “Salvation we owe to our God, who is seated on the throne,<a class="b" data-bid="219-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070170/218">+</a> and to the Lamb.”<a class="b" data-bid="220-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070170/219">+</a></span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[14]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v66-7-14-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070170/30916">14 </a>So right away I said to him: “My lord, you are the one who knows.” And he said to me: “These are the ones who come out of the great tribulation,<a class="b" data-bid="224-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070170/223">+</a> and they have washed their robes and made them white in the blood of the Lamb.<a class="b" data-bid="225-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070170/224">+</a> </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Romans 10:13, 14]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v45-10-13-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070149/28293">13 </a>For “everyone who calls on the name of Jehovah will be saved.”<a class="b" data-bid="352-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070149/351">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v45-10-14-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070149/28294">14 </a>However, how will they call on him if they have not put faith in him? How, in turn, will they put faith in him about whom they have not heard? How, in turn, will they hear without someone to preach? </span></div></td></tr></tbody></table></div>
+<p class="qu" data-pid="42" id="p42"> <strong>2.</strong> What was the prophet Zechariah inspired to foretell?</p>
+
+<p data-pid="8" data-rel-pid="[42]" id="p8"><span class="parNum" data-pnum="2"><strong><sup>2</sup></strong></span> Centuries before the apostle John wrote the book of Revelation, Jehovah inspired the prophet Zechariah to foretell that “many nations [would] join themselves to Jehovah . . . and [would] become [His] people.” (<a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/7/0">Zech. 2:11</a>) Later in his prophetic book, Zechariah wrote: “This is what Jehovah of armies says, ‘In those days ten men out of <strong><em>all the languages</em></strong> of the nations will take . . . firm hold of the robe of a Jew, saying: “We want to go with you, for we have heard that God is with you people.”’” <span aria-hidden="true" class="pageNum" data-before-text="15" data-no="15" id="page15"></span>(<a class="b" data-bid="9-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/8/0">Zech. 8:23</a>) This exciting prophecy is being fulfilled in our day. Let us see how each of us can have a part in its fulfillment.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Zech. 2:11]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v38-2-11-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070142/23026">11 </a>“Many nations will join themselves to Jehovah in that day,<a class="b" data-bid="41-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070142/40">+</a> and they will become my people; and I will reside in your midst.” And you will have to know that Jehovah of armies has sent me to you. </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Zech. 8:23]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v38-8-23-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070142/23115">23 </a>“This is what Jehovah of armies says, ‘In those days ten men out of all the languages of the nations<a class="b" data-bid="136-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070142/135">+</a> will take hold, yes, they will take firm hold of the robe<a class="fn" data-fnid="39" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070142/38" id="footnotesource39">*</a><em> (Footnote: Or “extremity of the garment.”)</em> of a Jew,<a class="fn" data-fnid="40" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070142/39" id="footnotesource40">*</a><em> (Footnote: Lit., “a Jewish man.”)</em> saying: “We want to go with you,<a class="b" data-bid="137-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070142/136">+</a> for we have heard that God is with you people.”’”<a class="b" data-bid="138-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070142/137">+</a></span></td></tr></tbody></table></div>
+<h2 class="du-color--coolGray-700 du-textAlign--center" data-pid="9" id="p9"><strong>REACHING “TEN MEN OUT OF ALL THE LANGUAGES”</strong></h2>
+<p class="qu" data-pid="44" id="p44"> <strong>3.</strong> Who today are represented by the “Jew,” and who are represented by the “ten men”?</p>
+
+<p data-pid="10" data-rel-pid="[44]" id="p10"><span class="parNum" data-pnum="3"><strong><sup>3</sup></strong></span> The “Jew” in Zechariah’s prophecy represents those whom God has anointed with holy spirit. They are also known as “the Israel of God.” (<a class="b" data-bid="10-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/9/0">Gal. 6:16</a>) These have “the heavenly calling.” (<a class="b" data-bid="11-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/10/0">Heb. 3:1</a>) The “ten men” represent humble ones who hope to live forever in Paradise on earth. They come from all linguistic and national backgrounds.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Gal. 6:16]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v48-6-16-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070152/29296">16 </a>As for all those who walk orderly by this rule of conduct, peace and mercy be upon them, yes, upon the Israel of God.<a class="b" data-bid="184-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070152/183">+</a></span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Heb. 3:1]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v58-3-1-1"><a class="cl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070162/30088"><strong>3</strong> </a>Consequently, holy brothers, partakers of the heavenly calling,<a class="b" data-bid="60-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070162/59">+</a> consider the apostle<a class="b" data-bid="61-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070162/60">+</a> and high priest whom we acknowledge—Jesus.<a class="b" data-bid="62-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070162/61">+</a> </span></td></tr></tbody></table></div>
+<p class="qu" data-pid="46" id="p46"> <strong>4.</strong> What happened after Jesus appointed “the faithful and discreet slave” in 1919?</p>
+
+<p data-pid="11" data-rel-pid="[46]" id="p11"><span class="parNum" data-pnum="4"><strong><sup>4</sup></strong></span> When Christ appointed “the faithful and discreet slave” in 1919, those making up that slave recognized that their commission was international in scope, one that would involve translating the Bible’s message into numerous languages. (<a class="b" data-bid="12-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/11/0">Matt. 24:45</a>) The Bible Students had already been presenting the “Photo-Drama of Creation” to international audiences, but the faithful slave saw the need to do more. For example, the Bible study aid entitled <em>The Harp of God,</em> released in 1921, was eventually translated into 36 languages. In 1935 the “great crowd” was clearly identified, revealing the enormous scope of the work. Thus, during the first few decades of the 20th century, Jehovah laid the foundation for the witnessing work to expand and completely fulfill Zechariah’s prophecy.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Matt. 24:45]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v40-24-45-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070144/24118">45 </a>“Who really is the faithful and discreet slave whom his master appointed over his domestics, to give them their food at the proper time?<a class="b" data-bid="879-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070144/878">+</a> </span></td></tr></tbody></table></div>
+<h2 class="du-color--coolGray-700 du-textAlign--center" data-pid="12" id="p12"><strong>“YOUR PEOPLE WILL OFFER THEMSELVES WILLINGLY”</strong></h2>
+<p class="qu" data-pid="48" id="p48"><strong>5-6.</strong> How is <a class="b" data-bid="32-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/31/0">Isaiah 2:2-4</a> being fulfilled today? (See also picture.)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Isaiah 2:2-4]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-1"> <a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070127/17803">2 </a>In the final part of the days,<a class="fn" data-fnid="13" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070127/12" id="footnotesource13">*</a><em> (Footnote: Or “In the last days.”)</em></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-2">The mountain of the house of Jehovah</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-3">Will become firmly established above the top of the mountains,<a class="b" data-bid="67-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070127/66">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-4">And it will be raised up above the hills,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-5">And to it all the nations will stream.<a class="b" data-bid="68-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070127/67">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-1"> <a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070127/17804">3 </a>And many peoples will go and say:</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-2">“Come, let us go up to the mountain of Jehovah,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-3">To the house of the God of Jacob.<a class="b" data-bid="69-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070127/68">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-4">He will instruct us about his ways,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-5">And we will walk in his paths.”<a class="b" data-bid="70-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070127/69">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-6">For law<a class="fn" data-fnid="14" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070127/13" id="footnotesource14">*</a><em> (Footnote: Or “instruction.”)</em> will go out of Zion,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-7">And the word of Jehovah out of Jerusalem.<a class="b" data-bid="71-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070127/70">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-1"> <a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070127/17805">4 </a>He will render judgment among the nations</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-2">And set matters straight<a class="fn" data-fnid="15" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070127/14" id="footnotesource15">*</a><em> (Footnote: Or “correct matters.”)</em> respecting many peoples.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-3">They will beat their swords into plowshares</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-4">And their spears into pruning shears.<a class="b" data-bid="72-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070127/71">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-5">Nation will not lift up sword against nation,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-6">Nor will they learn war anymore.<a class="b" data-bid="73-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070127/72">+</a></span></div></td></tr></tbody></table></div>
+
+<p data-pid="13" data-rel-pid="[48]" id="p13"><span class="parNum" data-pnum="5"><strong><sup>5</sup></strong></span> As the good news continued to spread, righthearted people were found among many language groups. As foretold, people from all nations were invited to Jehovah’s house so that they could be instructed about his ways. <strong>(Read</strong> <a class="b" data-bid="13-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/12/0"><strong>Isaiah 2:2-4</strong></a><strong>.)</strong> In order to reach these potential disciples and care for them, God’s people have “offer[ed] themselves willingly” not only to preach but also to translate, to print, and to ship the lifesaving message contained in our publications in an ever-growing number of languages. (<a class="b" data-bid="14-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/13/0">Ps. 68:11;</a><a class="b" data-bid="14-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/13/1"> 110:3</a>) In addition, computer programmers and other skilled workers have designed and maintained programs, including <em>JW Library</em><sup>®</sup>, as well as a multilanguage website.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Isaiah 2:2-4]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-1"> <a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070127/17803">2 </a>In the final part of the days,<a class="fn" data-fnid="13" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070127/12" id="footnotesource13">*</a><em> (Footnote: Or “In the last days.”)</em></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-2">The mountain of the house of Jehovah</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-3">Will become firmly established above the top of the mountains,<a class="b" data-bid="67-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070127/66">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-4">And it will be raised up above the hills,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-2-5">And to it all the nations will stream.<a class="b" data-bid="68-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070127/67">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-1"> <a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070127/17804">3 </a>And many peoples will go and say:</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-2">“Come, let us go up to the mountain of Jehovah,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-3">To the house of the God of Jacob.<a class="b" data-bid="69-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070127/68">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-4">He will instruct us about his ways,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-5">And we will walk in his paths.”<a class="b" data-bid="70-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070127/69">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-6">For law<a class="fn" data-fnid="14" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070127/13" id="footnotesource14">*</a><em> (Footnote: Or “instruction.”)</em> will go out of Zion,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-3-7">And the word of Jehovah out of Jerusalem.<a class="b" data-bid="71-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070127/70">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-1"> <a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070127/17805">4 </a>He will render judgment among the nations</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-2">And set matters straight<a class="fn" data-fnid="15" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070127/14" id="footnotesource15">*</a><em> (Footnote: Or “correct matters.”)</em> respecting many peoples.</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-3">They will beat their swords into plowshares</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-4">And their spears into pruning shears.<a class="b" data-bid="72-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070127/71">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-5">Nation will not lift up sword against nation,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-2-4-6">Nor will they learn war anymore.<a class="b" data-bid="73-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070127/72">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Ps. 68:11;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-68-11-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070123/14974">11 </a>Jehovah gives the command;</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-68-11-2">The women proclaiming the good news are a large army.<a class="b" data-bid="1291-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070123/1290">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[110:3]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-110-3-1"> <a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070123/15882">3 </a>Your people will offer themselves willingly on the day of your military force.<a class="fn" data-fnid="779" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070123/778" id="footnotesource779">*</a><em> (Footnote: Or “on the day your army mobilizes.”)</em></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-110-3-2">In splendid holiness, from the womb of the dawn,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-110-3-3">You have your company of young men just like dewdrops.</span></div></td></tr></tbody></table></div>
+<p data-pid="14" data-rel-pid="[48]" id="p14"><span class="parNum" data-pnum="6"><strong><sup>6</sup></strong></span> People of all nations and language groups benefit from the spiritual food provided by the faithful and discreet slave. One way they show their appreciation is by providing financial support, making voluntary donations to the worldwide preaching work. As a result of this united effort, lifesaving Bible-based publications have become available in over 1,100 languages. And each year, hundreds of thousands of individuals get baptized.</p>
+<div class="du-margin-top--8" id="f1">
+<figure>
+<img alt="Collage: Theocratic activity around the world. 1. Jehovah sitting on his throne and an angel flying above the earth. 2. A silhouette of the Governing Body at a conference table. 3. A translation team. 4. A brother in a printery inspecting newly printed “Enjoy Life Forever” books. 5. A brother and sister showing a sign language video to a woman in the ministry. 6. A mobile phone displaying the JW Library app." data-img-small-src="/en/wol/mp/r1/lp-e/w26/2026/535" src="https://wol.jw.org/en/wol/mp/r1/lp-e/w26/2026/534" style="max-width: min(100%, 700px); height: auto;"/>
+<figcaption class="figcaption">
+<p data-pid="74" id="p74">People of all nations and language groups benefit from the spiritual food provided through the faithful and discreet slave (See paragraphs 5-6)</p>
+</figcaption>
+<div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Image Description]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">Collage: Theocratic activity around the world. 1. Jehovah sitting on his throne and an angel flying above the earth. 2. A silhouette of the Governing Body at a conference table. 3. A translation team. 4. A brother in a printery inspecting newly printed “Enjoy Life Forever” books. 5. A brother and sister showing a sign language video to a woman in the ministry. 6. A mobile phone displaying the JW Library app.</td></tr></tbody></table></div></figure>
+</div>
+<hr class="du-width--oneQuarter du-borderColor--purple-700 du-borderWidth--2 du-margin-top--0 du-margin-bottom--8"/>
+<p class="qu" data-pid="50" id="p50"> <strong>7.</strong> How are we affected by seeing the fulfillment of <a class="b" data-bid="33-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/32/0">Revelation 14:6</a>?</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Revelation 14:6]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v66-14-6-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070170/31024">6 </a>And I saw another angel flying in midheaven,<a class="fn" data-fnid="68" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070170/67" id="footnotesource68">*</a><em> (Footnote: Or “in midair; overhead.”)</em> and he had everlasting good news to declare to those who dwell on the earth, to every nation and tribe and tongue<a class="fn" data-fnid="69" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070170/68" id="footnotesource69">*</a><em> (Footnote: Or “language.”)</em> and people.<a class="b" data-bid="379-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070170/378">+</a> </span></td></tr></tbody></table></div>
+
+<p data-pid="15" data-rel-pid="[50]" id="p15"><span class="parNum" data-pnum="7"><strong><sup>7</sup></strong></span> Jehovah’s people are now equipped with tools that transcend language barriers. Under angelic direction, they are unitedly declaring “everlasting good <span aria-hidden="true" class="pageNum" data-before-text="16" data-no="16" id="page16"></span>news . . . to every nation and tribe and tongue [or, “language,” ftn.] and people.” <strong>(Read</strong> <a class="b" data-bid="15-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/14/0"><strong>Revelation 14:6</strong></a><strong>.)</strong> When we see how the thrilling prophecies recorded by Zechariah and by John are being fulfilled in modern times, we are moved to trust Bible prophecy and to cling to the organization that God is using to proclaim the good news.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Revelation 14:6]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v66-14-6-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070170/31024">6 </a>And I saw another angel flying in midheaven,<a class="fn" data-fnid="68" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070170/67" id="footnotesource68">*</a><em> (Footnote: Or “in midair; overhead.”)</em> and he had everlasting good news to declare to those who dwell on the earth, to every nation and tribe and tongue<a class="fn" data-fnid="69" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070170/68" id="footnotesource69">*</a><em> (Footnote: Or “language.”)</em> and people.<a class="b" data-bid="379-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070170/378">+</a> </span></td></tr></tbody></table></div>
+<h2 class="du-color--coolGray-700 du-textAlign--center" data-pid="16" id="p16"><strong>A MODERN-DAY MIRACLE</strong></h2>
+<p class="qu" data-pid="52" id="p52"> <strong>8.</strong> At Pentecost 33 C.E., how did Jehovah reverse the effects of what he had done at the Tower of Babel?</p>
+
+<p data-pid="17" data-rel-pid="[52]" id="p17"><span class="parNum" data-pnum="8"><strong><sup>8</sup></strong></span> On the day of Pentecost 33 C.E., Jehovah revealed that he had the power to reverse the effects of what he had done at the Tower of Babel. He miraculously enabled Christ’s disciples to speak in languages that they did not know. (<a class="b" data-bid="16-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/15/0">Acts 2:4-10</a>) Why did he do so? In order to make known “the magnificent things of God” to an international crowd of God-fearing persons. (<a class="b" data-bid="17-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/16/0">Acts 2:11</a>) Today, our publications enable us, in effect, to speak in the tongues of interested ones.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Acts 2:4-10]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-2-4-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070148/27045">4 </a>and they all became filled with holy spirit<a class="b" data-bid="37-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070148/36">+</a> and started to speak in different languages, just as the spirit enabled them to speak.<a class="b" data-bid="38-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070148/37">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-2-5-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070148/27046">5 </a>At that time devout Jews from every nation under heaven were staying in Jerusalem.<a class="b" data-bid="39-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070148/38">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-2-6-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070148/27047">6 </a>So when this sound occurred, a crowd gathered and was bewildered, because each one heard them speaking in his own language. </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-2-7-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070148/27048">7 </a>Indeed, they were utterly amazed and said: “See here, all these who are speaking are Gal·i·leʹans,<a class="b" data-bid="40-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070148/39">+</a> are they not? </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-2-8-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070148/27049">8 </a>How is it, then, that each one of us is hearing his own native language? </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-2-9-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070148/27050">9 </a>Parʹthi·ans, Medes,<a class="b" data-bid="41-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070148/40">+</a> and Eʹlam·ites,<a class="b" data-bid="42-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070148/41">+</a> the inhabitants of Mes·o·po·taʹmi·a, Ju·deʹa and Cap·pa·doʹci·a, Ponʹtus and the province of Asia,<a class="b" data-bid="43-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070148/42">+</a> </span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v44-2-10-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070148/27051">10 </a>Phrygʹi·a and Pam·phylʹi·a, Egypt and the regions of Libʹy·a near Cy·reʹne, sojourners from Rome, both Jews and proselytes,<a class="b" data-bid="44-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070148/43">+</a> </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Acts 2:11]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v44-2-11-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070148/27052">11 </a>Creʹtans, and Arabians—we hear them speaking in our languages about the magnificent things of God.” </span></td></tr></tbody></table></div>
+<p class="qu" data-pid="54" id="p54"> <strong>9.</strong> How can we help those who speak a language that we do not know to learn about the good news?</p>
+
+<p data-pid="18" data-rel-pid="[54]" id="p18"><span class="parNum" data-pnum="9"><strong><sup>9</sup></strong></span> People need to hear the good news in a language that they understand. Consider this illustration: A person travels overseas, but he becomes seriously ill and needs medical attention. If he does not speak the local language, he will need an interpreter to help him understand what the doctor is instructing him to do to get well. Similarly, countless people today are suffering spiritually and emotionally, and they are in need of hope and comfort. The remedy they require is found in the Bible’s message. <span aria-hidden="true" class="pageNum" data-before-text="17" data-no="17" id="page17"></span>When we meet someone, we can help him to receive that lifesaving remedy in a language that he understands. We have the tools we need​—printed literature, videos, and digital publications.</p>
+<p class="qu" data-pid="56" id="p56"><strong>10-11.</strong> What do you learn from the experience of a brother named Robert and from the account in the box “<a class="it" href="https://wol.jw.org/en/wol/d/r1/lp-e/2026562#h=71-73:0">A Refugee Finds Hope</a>”?</p>
+
+<p data-pid="19" data-rel-pid="[56]" id="p19"><span class="parNum" data-pnum="10"><strong><sup>10</sup></strong></span> How can we effectively use the spiritual tools available to us? Note the experience of Robert, who speaks English. While doing harbor witnessing, he met a man from Türkiye who was working on a ship. The man spoke little English but accepted the brochure <em>Good News From God!</em> in Turkish. Robert was thoroughly familiar with the brochure’s contents, so he was able to direct the man to read selected portions in his language. The Turkish man then asked a number of questions about world conditions and was shown the Bible’s answers in Turkish, using the <em>JW Library</em> app. He exclaimed: “It is as if you knew my language!” Robert relates: “We spoke for about an hour. During the conversation, it was clear that this man’s respect for the Bible and his understanding of its message greatly increased.” What a privilege we have to help sincere individuals hear God’s message in the language of their heart!</p>
+<p data-pid="20" data-rel-pid="[56]" id="p20"><span class="parNum" data-pnum="11"><strong><sup>11</sup></strong></span> Something as simple as sharing a tract or an article on the jw.org website in a language that another person can understand could have amazing results. Why not make it a goal to prepare to share the Bible’s message with those who do not speak your language?</p>
+<table class="box-supplement-table" style="width: 100%; border-collapse: separate; border-spacing: 0; margin: 16px 0; background-color: #f1f1f1; border-top: 0px solid #4a6da7; border-left: 0px solid #dee2e6; border-right: 0px solid #dee2e6; border-bottom: 0px solid #dee2e6; border-radius: 0px;"><thead><tr><th style="background-color: #f1f1f1; padding: 15px 33px 8px; font-size: 1.75em; text-align: left; border-bottom: 0px solid #dee2e6; font-weight: bold; border-top-left-radius: 0px; border-top-right-radius: 0px;"><h2 style="color: #375255 !important; margin: 0 !important; padding: 0 !important; font-size: 1em !important"><strong style="color: #375255 !important; margin: 0 !important; padding: 0 !important; font-size: 1em !important">A Refugee Finds Hope</strong></h2></th></tr></thead><tbody><tr><td style="padding: 15px 33px 30px; font-size: 1.2em; line-height: 1.5; color: #212529; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;"><p data-pid="72" id="p72">Youa, a Hmong refugee in the United States, had a difficult life. She did not speak English, and her husband did not allow her to read anything, even the Bible. She says, “I never felt peace or happiness.” One day, an English-speaking sister left her the tract <em>Life in a Peaceful New World</em> in the Hmong language. Youa had never before seen or heard anything like the Bible’s promises contained in this tract. She treasured its message, which gave her hope for a better life. For many years thereafter, she kept the tract hidden in her embroidery basket. She secretly read it over and over. Eventually, one of Youa’s daughters learned the truth and brought her to a meeting held in Hmong. A Bible study was arranged, and Youa was finally able to join in worship with others who shared the hope she had discovered in that precious tract.</p>
+</td></tr></tbody></table>
+<h2 class="du-color--coolGray-700 du-textAlign--center" data-pid="21" id="p21"><span aria-hidden="true" class="pageNum" data-before-text="18" data-no="18" id="page18"></span><strong>MAKING JEHOVAH’S NAME KNOWN AMONG THE NATIONS</strong></h2>
+<p class="qu" data-pid="58" id="p58"><strong>12.</strong> What effect does reading and studying the <em>New World Translation</em> have on Jehovah’s people?</p>
+
+<p data-pid="22" data-rel-pid="[58]" id="p22"><span class="parNum" data-pnum="12"><strong><sup>12</sup></strong></span> All of us depend on the work done by translators. Bible translation is not new.<a class="fn" data-fnid="1" href="https://wol.jw.org/en/wol/fn/r1/lp-e/2026562/0" id="footnotesource1">a</a> Translators have worked tirelessly to ensure that the message of God’s Word reaches more people. In recent years, a remarkable tool for unifying Jehovah’s people has been the <em>New World Translation of the Holy Scriptures.</em> Note what an elder who serves in Nepal says about this translation: “Reading this translation in my language has made Jehovah more real to me. It has helped me draw closer to God and has strengthened my faith.” The <em>New World Translation</em> is available, in whole or in part, in well over 300 languages. That is one reason why Jehovah’s people are able to think and speak in agreement​—they use this clear, reliable Bible translation that conveys the same message regardless of language. (<a class="b" data-bid="18-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/17/0">1 Cor. 1:10</a>) However, this translation does much more.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Footnote a]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><p data-pid="37" id="p37"><a class="fn-symbol" href="https://wol.jw.org/en/wol/fn/r1/lp-e/2026562/0#footnotesource1">a</a> The first translation of the Holy Scriptures​—known as the Greek Septuagint version—​was completed about 150 B.C.E.</p></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[1 Cor. 1:10]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v46-1-10-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070150/28465">10 </a>Now I urge you, brothers, through the name of our Lord Jesus Christ, that you should all speak in agreement and that there should be no divisions among you,<a class="b" data-bid="11-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070150/10">+</a> but that you may be completely united in the same mind and in the same line of thought.<a class="b" data-bid="12-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070150/11">+</a> </span></td></tr></tbody></table></div>
+<p class="qu" data-pid="60" id="p60"><strong>13.</strong> Why do few modern Bible translations use God’s name?</p>
+
+<p data-pid="23" data-rel-pid="[60]" id="p23"><span class="parNum" data-pnum="13"><strong><sup>13</sup></strong></span> The <em>New World Translation</em> is one of the few Bibles being distributed in the 21st century that continues to honor Jehovah’s name by using it throughout the Bible text. At the beginning of the last days, it was common to find the name Jehovah in many translations of the Bible, especially in the Hebrew Scriptures. However, the leaders of Christendom, who claim to represent God, have become increasingly opposed to making known or to using God’s name, Jehovah. The leaders of the Catholic Church have removed it from their Bibles and from related literature.<a class="fn" data-fnid="2" href="https://wol.jw.org/en/wol/fn/r1/lp-e/2026562/1" id="footnotesource2">b</a> Most Protestant denominations likewise omit the name from their translations of the Bible. In contrast, the <em>New World Translation</em> consistently restores the divine name to its rightful place in the Scriptures, regardless of language. Why is this significant?</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Footnote b]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><p data-pid="38" id="p38"><a class="fn-symbol" href="https://wol.jw.org/en/wol/fn/r1/lp-e/2026562/1#footnotesource2">b</a> In 2008, Pope Benedict XVI directed that God’s name is “neither to be used [n]or pronounced” in Catholic religious services, hymns, or prayers. See also <a href="https://wol.jw.org/en/wol/pc/r1/lp-e/2026562/3/0"><em>The Watchtower</em> of October 1, 1997, pp. 16-18, pars. 4-8</a>.</p></td></tr></tbody></table></div>
+<p class="qu" data-pid="62" id="p62"><strong>14.</strong> According to the Scriptures, why is it important to know and to use God’s name?</p>
+
+<p data-pid="24" data-rel-pid="[62]" id="p24"><span class="parNum" data-pnum="14"><strong><sup>14</sup></strong></span> The Scriptures repeatedly highlight the importance of knowing and using God’s name. The psalmist urges God’s servants to “praise the name of Jehovah.” (<a class="b" data-bid="19-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/18/0">Ps. 135:1</a>) When teaching his disciples how to pray to Jehovah, Jesus directed them to say: “Let your name be sanctified.” Later, while praying to his Father, Jesus said: “I have made your name known.” (<a class="b" data-bid="20-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/19/0">Matt. 6:9;</a><a class="b" data-bid="20-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/19/1"> John 17:26</a>) The apostle Paul quoted the words of the prophet Joel, who said: “Everyone who calls on the name of Jehovah will be saved.” (<a class="b" data-bid="21-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/20/0">Rom. 10:13</a>) People who use Bible translations that omit the divine name cannot obey these inspired exhortations.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Ps. 135:1]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-135-1-1"><a class="cl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070123/16284"><strong>135</strong> </a>Praise Jah!<a class="fn" data-fnid="920" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070123/919" id="footnotesource920">*</a><em> (Footnote: Or “Hallelujah!” “Jah” is a shortened form of the name Jehovah.)</em></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-135-1-2">Praise the name of Jehovah;</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-135-1-3">Offer praise, you servants of Jehovah,<a class="b" data-bid="2813-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070123/2812">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Matt. 6:9;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v40-6-9-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070144/23407">9 </a>“You must pray, then, this way:<a class="b" data-bid="202-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070144/201">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v40-6-9-2">“‘Our Father in the heavens, let your name<a class="b" data-bid="203-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070144/202">+</a> be sanctified.<a class="b" data-bid="204-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070144/203">+</a> </span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[John 17:26]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v43-17-26-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070147/26877">26 </a>I have made your name known to them and will make it known,<a class="b" data-bid="682-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070147/681">+</a> so that the love with which you loved me may be in them and I in union with them.”<a class="b" data-bid="683-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070147/682">+</a></span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Rom. 10:13]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v45-10-13-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070149/28293">13 </a>For “everyone who calls on the name of Jehovah will be saved.”<a class="b" data-bid="352-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070149/351">+</a> </span></td></tr></tbody></table></div>
+<p class="qu" data-pid="64" id="p64"><strong>15.</strong> How do Jehovah’s people feel about the divine name?</p>
+
+<p data-pid="25" data-rel-pid="[64]" id="p25"><span class="parNum" data-pnum="15"><strong><sup>15</sup></strong></span> The vast majority of Jehovah’s Witnesses have access to a translation that accurately conveys Bible truth, including <span aria-hidden="true" class="pageNum" data-before-text="19" data-no="19" id="page19"></span>the importance of relying on and praising God’s illustrious name. They have grown to love that name and to rely on the One it represents.​—<a class="b" data-bid="22-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/21/0">Prov. 18:10;</a><a class="b" data-bid="22-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/21/1"> Isa. 56:6</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Prov. 18:10;]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v20-18-10-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070124/17027">10 </a>The name of Jehovah is a strong tower.<a class="b" data-bid="586-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070124/585">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v20-18-10-2">Into it the righteous one runs and receives protection.<a class="fn pr" data-fnid="243" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070124/242" id="footnotesource243">*</a><em> (Footnote: Lit., “is raised high,” that is, out of reach, safe.)</em><a class="b" data-bid="587-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070124/586">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Isa. 56:6]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-56-6-1"> <a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070127/18875">6 </a>As for the foreigners who join themselves to Jehovah to minister to him,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-56-6-2">To love the name of Jehovah<a class="b" data-bid="1606-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070127/1605">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-56-6-3">And to be his servants,</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-56-6-4">All those who keep the Sabbath and do not profane it</span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v23-56-6-5">And who hold fast to my covenant,</span></div></td></tr></tbody></table></div>
+<p class="qu" data-pid="66" id="p66"><strong>16.</strong> Why is it urgent to come to know Jehovah now? (<a class="b" data-bid="34-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/33/0">John 17:3</a>)</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[John 17:3]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v43-17-3-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070147/26854">3 </a>This means everlasting life,<a class="b" data-bid="647-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070147/646">+</a> their coming to know you, the only true God,<a class="b" data-bid="648-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070147/647">+</a> and the one whom you sent, Jesus Christ.<a class="b" data-bid="649-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070147/648">+</a> </span></td></tr></tbody></table></div>
+
+<p data-pid="26" data-rel-pid="[66]" id="p26"><span class="parNum" data-pnum="16"><strong><sup>16</sup></strong></span> The Bible foretells a showdown in the near future between “the kings of the entire inhabited earth” and Jehovah. (<a class="b" data-bid="23-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/22/0">Rev. 16:14</a>) During that time, those who know Jehovah and honor his name will be kept safe. (<a class="b" data-bid="24-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/23/0">Ps. 9:10</a>; <strong>read</strong> <a class="b" data-bid="25-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/24/0"><strong>John 17:3</strong></a><strong>;</strong> see <a href="https://wol.jw.org/en/wol/pc/r1/lp-e/2026562/1/0">study note</a> on “their coming to know you.”) But those who refuse to know him as their Father and God will be forced to know him in a different way. Jehovah says: “I will certainly magnify myself and sanctify myself and make myself known before the eyes of many nations; and they will have to know that I am Jehovah.” (<a class="b" data-bid="26-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/25/0">Ezek. 38:23</a>) How happy Jehovah’s people will be that they know him as their Friend and not as their adversary!​—<a class="b" data-bid="27-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/26/0">Mal. 3:16</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Rev. 16:14]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v66-16-14-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070170/31060">14 </a>They are, in fact, expressions inspired by demons and they perform signs,<a class="b" data-bid="443-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070170/442">+</a> and they go out to the kings of the entire inhabited earth, to gather them together to the war<a class="b" data-bid="444-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070170/443">+</a> of the great day of God the Almighty.<a class="b" data-bid="445-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070170/444">+</a></span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Ps. 9:10]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-9-10-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070123/14038">10 </a>Those knowing your name will trust in you;<a class="b" data-bid="113-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070123/112">+</a></span></div><div style="margin-top: 0; margin-bottom: 8px"><span class="v" id="v19-9-10-2">You will never abandon those seeking you, O Jehovah.<a class="b" data-bid="114-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070123/113">+</a></span></div></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[John 17:3]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v43-17-3-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070147/26854">3 </a>This means everlasting life,<a class="b" data-bid="647-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070147/646">+</a> their coming to know you, the only true God,<a class="b" data-bid="648-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070147/647">+</a> and the one whom you sent, Jesus Christ.<a class="b" data-bid="649-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070147/648">+</a> </span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[study note]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><strong>their coming to know you:</strong> Or “their taking in knowledge of you; their continuing to know you.” The Greek verb <em>gi·noʹsko</em> basically means “to know,” and here the verb is used in the present tense to express continuous action. It may denote a process of “taking in knowledge about someone; getting to know someone; becoming better acquainted with someone.” It may also include the thought of making an ongoing effort to get better acquainted with someone who is already known. In this context, it refers to a deepening personal relationship with God brought about by ever-increasing knowledge of God and Christ and a growing trust in them. Clearly, this necessitates more than knowing who a person is or knowing his name. It would also involve knowing what that person likes and dislikes and knowing his values and standards.​—<a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070685/4/0">1Jo 2:3;</a><a class="b" data-bid="5-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070685/4/1"> 4:8</a>.</td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Ezek. 38:23]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v26-38-23-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070130/21564">23 </a>And I will certainly magnify myself and sanctify myself and make myself known before the eyes of many nations; and they will have to know that I am Jehovah.’</span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Mal. 3:16]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v39-3-16-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070143/23252">16 </a>At that time those who fear Jehovah spoke with one another, each one with his companion, and Jehovah kept paying attention and listening. And a book of remembrance was written before him<a class="b" data-bid="67-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070143/66">+</a> for those fearing Jehovah and for those meditating on<a class="fn" data-fnid="35" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070143/34" id="footnotesource35">*</a><em> (Footnote: Or “thinking on.” Or possibly, “treasuring.”)</em> his name.<a class="b" data-bid="68-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070143/67">+</a></span></td></tr></tbody></table></div>
+<p class="qu" data-pid="68" id="p68"><strong>17.</strong> What privilege do we have?</p>
+
+<p data-pid="27" data-rel-pid="[68]" id="p27"><span class="parNum" data-pnum="17"><strong><sup>17</sup></strong></span> What a privilege we have to play even a small role in the fulfillment of the prophecy recorded at <a class="b" data-bid="28-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/27/0">Zechariah 8:23</a>! We have the opportunity of working unitedly not only with our brothers and sisters but also with the angels in this multilingual preaching work. Jehovah is giving us the tools we need to reach people from every nation and tribe and tongue. May we use these tools effectively to help draw as many people as possible to our impartial, merciful, and patient God, Jehovah. It is our honor to share in this work until Jehovah’s name is sanctified before all creation.​—<a class="b" data-bid="29-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/28/0">Luke 11:2</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Zechariah 8:23]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v38-8-23-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070142/23115">23 </a>“This is what Jehovah of armies says, ‘In those days ten men out of all the languages of the nations<a class="b" data-bid="136-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070142/135">+</a> will take hold, yes, they will take firm hold of the robe<a class="fn" data-fnid="39" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070142/38" id="footnotesource39">*</a><em> (Footnote: Or “extremity of the garment.”)</em> of a Jew,<a class="fn" data-fnid="40" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070142/39" id="footnotesource40">*</a><em> (Footnote: Lit., “a Jewish man.”)</em> saying: “We want to go with you,<a class="b" data-bid="137-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070142/136">+</a> for we have heard that God is with you people.”’”<a class="b" data-bid="138-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070142/137">+</a></span></td></tr></tbody></table><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Luke 11:2]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v42-11-2-1"><a class="vl vx vp study" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070146/25511">2 </a>So he said to them: “Whenever you pray, say: ‘Father, let your name be sanctified.<a class="b" data-bid="488-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070146/487">+</a> Let your Kingdom come.<a class="b" data-bid="489-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070146/488">+</a> </span></td></tr></tbody></table></div>
+</div>
+<div class="blockTeach dc-ttClassStyle--unset"><aside><div class="boxTtl dc-ttClassStyle--unset du-borderStyle-top--solid du-borderColor--purple-700 du-borderWidth--2 du-margin-top--6 du-margin-children-vertical--6" data-pid="28" id="p28"><h2><strong>HOW WOULD YOU ANSWER?</strong></h2></div>
+<div class="boxContent dc-ttClassStyle--unset"><ul><li><p data-pid="29" id="p29">  Who are represented by the “Jew” and by the “ten men” mentioned at <a class="b" data-bid="30-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/2026562/29/0">Zechariah 8:23</a>?</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[Zechariah 8:23]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><span class="v" id="v38-8-23-1"><a class="vl vx vp" href="https://wol.jw.org/en/wol/dx/r1/lp-e/1001070142/23115">23 </a>“This is what Jehovah of armies says, ‘In those days ten men out of all the languages of the nations<a class="b" data-bid="136-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070142/135">+</a> will take hold, yes, they will take firm hold of the robe<a class="fn" data-fnid="39" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070142/38" id="footnotesource39">*</a><em> (Footnote: Or “extremity of the garment.”)</em> of a Jew,<a class="fn" data-fnid="40" href="https://wol.jw.org/en/wol/fn/r1/lp-e/1001070142/39" id="footnotesource40">*</a><em> (Footnote: Lit., “a Jewish man.”)</em> saying: “We want to go with you,<a class="b" data-bid="137-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070142/136">+</a> for we have heard that God is with you people.”’”<a class="b" data-bid="138-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1001070142/137">+</a></span></td></tr></tbody></table></div>
+
+</li>
+<li><p data-pid="31" id="p31">  What is making it possible for people from every tongue to learn about Jehovah?</p>
+
+</li>
+<li><p data-pid="33" id="p33">  Why is it important for people to know and to use Jehovah’s name?</p>
+
+</li>
+</ul>
+</div>
+</aside></div>
+<div class="du-color--textSubdued" id="tt37">
+<p class="pubRefs" data-pid="35" id="p35"><a href="https://wol.jw.org/en/wol/pc/r1/lp-e/2026562/2/0"><strong>SONG 57</strong></a> Preaching to All Sorts of People</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[SONG 57]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;">
+<header>
+<p class="contextTtl" data-pid="1" id="p1"><span aria-hidden="true" class="pageNum" data-before-text="74" data-no="74" id="page74"></span><strong>SONG 57</strong></p>
+<h1 data-pid="2" id="p2"><strong>Preaching to All Sorts of People</strong></h1>
+</header> 
+<p class="themeScrp" data-pid="3" id="p3">(<a class="b" data-bid="1-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016857/0/0">1 Timothy 2:4</a>)</p>
+<div class="bodyTxt">
+<ol><li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="4" id="p4">We really want to imitate our God,</p>
+<p class="sz" data-pid="5" id="p5">To be impartial, as we know he is.</p>
+<p class="sp" data-pid="6" id="p6">To save all sorts of people is his will;</p>
+<p class="sz" data-pid="7" id="p7">He welcomes all to come and to be his.</p>
+<div class="chorus"><p class="se" data-pid="8" id="p8">(CHORUS)</p>
+<p class="sp" data-pid="9" id="p9">It’s the person, not the place;</p>
+<p class="sz" data-pid="10" id="p10" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">It’s the heart and not the face.</p>
+<p class="sp" data-pid="11" id="p11">God’s message to all people we extend.</p>
+<p class="sp" data-pid="12" id="p12">So because we really care,</p>
+<p class="sz" data-pid="13" id="p13" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">We keep preaching ev’rywhere:</p>
+<p class="sz" data-pid="14" id="p14" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">“All sorts of people can become God’s friend.”</p>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="15" id="p15">It doesn’t matter where they may be found</p>
+<p class="sz" data-pid="16" id="p16">Or what at first they might appear to be.</p>
+<p class="sp" data-pid="17" id="p17">What really counts is what they are at heart—</p>
+<p class="sz" data-pid="18" id="p18">The inner self, the one Jehovah sees.</p>
+<div class="chorus"><p class="se" data-pid="19" id="p19">(CHORUS)</p>
+<p class="sp" data-pid="20" id="p20">It’s the person, not the place;</p>
+<p class="sz" data-pid="21" id="p21" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">It’s the heart and not the face.</p>
+<p class="sp" data-pid="22" id="p22">God’s message to all people we extend.</p>
+<p class="sp" data-pid="23" id="p23">So because we really care,</p>
+<p class="sz" data-pid="24" id="p24" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">We keep preaching ev’rywhere:</p>
+<p class="sz" data-pid="25" id="p25" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">“All sorts of people can become God’s friend.”</p>
+</div>
+</li>
+<li style="line-height: 1.5; margin-bottom: 15px"><p class="sl" data-pid="26" id="p26">Jehovah welcomes all who make the choice</p>
+<p class="sz" data-pid="27" id="p27">To leave the world and all its ways behind.</p>
+<p class="sp" data-pid="28" id="p28">This we have learned, and this we want to share,</p>
+<p class="sz" data-pid="29" id="p29">And so we preach to people of all kinds.</p>
+<div class="chorus"><p class="se" data-pid="30" id="p30">(CHORUS)</p>
+<p class="sp" data-pid="31" id="p31">It’s the person, not the place;</p>
+<p class="sz" data-pid="32" id="p32" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">It’s the heart and not the face.</p>
+<p class="sp" data-pid="33" id="p33">God’s message to all people we extend.</p>
+<p class="sp" data-pid="34" id="p34">So because we really care,</p>
+<p class="sz" data-pid="35" id="p35" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">We keep preaching ev’rywhere:</p>
+<p class="sz" data-pid="36" id="p36" style="display:block; text-indent:-1em; padding-left:2.5em; margin:.2em 1em">“All sorts of people can become God’s friend.”</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="closingContent"><p class="se" data-pid="37" id="p37">(See also <a class="b" data-bid="2-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016857/1/0">John 12:32;</a><a class="b" data-bid="2-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016857/1/1"> Acts 10:34;</a><a class="b" data-bid="2-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016857/1/2"> 1 Tim. 4:10;</a><a class="b" data-bid="2-4" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1102016857/1/3"> Titus 2:11</a>.)</p>
+</div>
+<p class="sb" data-pid="38" id="p38"></p>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</td></tr></tbody></table></div>
+</div>
+<div class="groupFootnote"><div class="fn-ref" data-fnid="1" id="footnote1"><p data-pid="37" id="p37"><a class="fn-symbol" href="https://wol.jw.org/en/wol/d/r1/lp-e/2026562#footnotesource1">a</a> The first translation of the Holy Scriptures​—known as the Greek Septuagint version—​was completed about 150 B.C.E.</p></div>
+<div class="fn-ref" data-fnid="2" id="footnote2"><p data-pid="38" id="p38"><a class="fn-symbol" href="https://wol.jw.org/en/wol/d/r1/lp-e/2026562#footnotesource2">b</a> In 2008, Pope Benedict XVI directed that God’s name is “neither to be used [n]or pronounced” in Catholic religious services, hymns, or prayers. See also <a href="https://wol.jw.org/en/wol/pc/r1/lp-e/2026562/3/0"><em>The Watchtower</em> of October 1, 1997, pp. 16-18, pars. 4-8</a>.</p><div class="inserted-reference-container"><table class="note-card-table" style="width: calc(100% - 30px); border-collapse: separate; border-spacing: 0; margin: 12px 0 12px 30px; background-color: #f1f3f5; border: 1px solid #dee2e6; border-radius: 8px;"><thead><tr><th class="note-card-header" style="background-color: #e2e6ea; padding: 6px 16px; border-bottom: 1px solid #dee2e6; font-size: 1em; color: #495057; font-weight: bold; text-align: left; border-top-left-radius: 7px; border-top-right-radius: 7px;">[The Watchtower of October 1, 1997, pp. 16-18, pars. 4-8]</th></tr></thead><tbody><tr><td class="note-card-body" style="padding: 12px 16px; font-size: 1.15em; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #212529;"><div class="sb" data-pid="7" data-rel-pid="[34]" id="p7" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="4"><sup>4</sup></span> One of the principal objectives of the Bible is to help people come to know the true God. (<a class="b" data-bid="3-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1997724/2/0">Exodus 20:2-7;</a><a class="b" data-bid="3-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1997724/2/1"> 34:1-7;</a><a class="b" data-bid="3-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1997724/2/2"> Isaiah 52:6</a>) Jesus Christ taught his followers to pray that his Father’s name “be sanctified,” be held sacred, or treated as holy. (<a class="b" data-bid="4-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1997724/3/0">Matthew 6:9</a>) God had his personal name included in the Bible more than 7,000 times. He wants people <span aria-hidden="true" class="pageNum" data-before-text="17" data-no="17" id="page17"></span>to know that name and the qualities of the One who bears it.—<a class="b" data-bid="5-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1997724/4/0">Malachi 1:11</a>.</div><div class="sb" data-pid="8" data-rel-pid="[35]" id="p8" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="5"><sup>5</sup></span> Many Bible translators have shown sincere respect for the divine name and have used it consistently in their work. Some translators favor Yahweh. Others have chosen a form of the divine name that is adapted to their own language while still clearly identified with what appears in the Hebrew text, possibly a form that is well-known through long use. The <em>New World Translation of the Holy Scriptures</em> uses Jehovah 7,210 times in its main text.</div><div class="sb" data-pid="9" data-rel-pid="[36]" id="p9" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="6"><sup>6</sup></span> In recent years, although Bible translators retain the names of such pagan deities as Baal and Molech, with increasing frequency they are removing the personal name of the true God from translations of his inspired Word. (<a class="b" data-bid="6-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1997724/5/0">Exodus 3:15;</a><a class="b" data-bid="6-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1997724/5/1"> Jeremiah 32:35</a>) In such passages as <a class="b" data-bid="7-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1997724/6/0">Matthew 6:9 and</a><a class="b" data-bid="7-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1997724/6/1"> John 17:6,</a><a class="b" data-bid="7-3" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1997724/6/2"> 26</a>, a widely distributed Albanian version renders the Greek expression for “the name of you” (that is, the name of God) as simply “you,” as if those texts made no mention of a name. At <a class="b" data-bid="8-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1997724/7/0">Psalm 83:18</a>, <em>The New English Bible</em> and <em>Today’s English Version</em> eliminate both God’s personal name and any reference to the fact that God has a name. Although the divine name appeared in older translations of the Hebrew Scriptures in most languages, newer translations often eliminate it or relegate it to a marginal notation. This is the case in English, as well as in many languages of Europe, Africa, South America, India, and the islands of the Pacific.</div><div class="sb" data-pid="10" data-rel-pid="[37]" id="p10" style="margin-top: 0; margin-bottom: 8px"><span class="parNum" data-pnum="7"><sup>7</sup></span> Translators of the Bible into some African languages are going a step further. Instead of just replacing the divine name with a Scriptural title, such as God or Lord, they are inserting names taken from local religious beliefs. In <em>The New Testament and Psalms in Zulu</em> (1986 version), the title God (<em>uNkulunkulu</em>) was used interchangeably with a personal name (<em>uMvelinqangi</em>) that Zulus understand to refer to ‘the great ancestor who is worshiped through human ancestors.’ An article in the magazine <em>The Bible Translator,</em> of October 1992, reported that in preparing the Chichewa Bible that is to be called <em>Buku Loyera,</em> translators were using <em>Chauta</em> as a personal name to take the place of Jehovah. <em>Chauta,</em> the article explained, is “the God they’ve always known and worshipped.” Yet, many of these people also worship what they believe to be spirits of the dead. Is it true that if people make petitions to a “Supreme Being,” then whatever name they use for the “Supreme Being” is a valid equivalent for the personal name Jehovah, regardless of what else their worship may involve? Definitely not! (<a class="b" data-bid="9-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1997724/8/0">Isaiah 42:8;</a><a class="b" data-bid="9-2" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1997724/8/1"> 1 Corinthians 10:20</a>) Replacing God’s personal name with something that makes people feel that their traditional beliefs are actually right does not help them to draw closer to the true God.</div><div class="sb" data-pid="11" data-rel-pid="[38]" id="p11" style="margin-top: 0; margin-bottom: 8px"><span aria-hidden="true" class="pageNum" data-before-text="18" data-no="18" id="page18"></span><span class="parNum" data-pnum="8"><sup>8</sup></span> All of this has neither changed nor frustrated Jehovah’s purpose to have his name made known. In the languages of Europe, Africa, the Americas, the Orient, and the islands of the sea, there are still in circulation many Bibles that include the divine name. There are also upwards of 5,400,000 of Jehovah’s Witnesses in 233 countries and territories who collectively devote more than a billion hours a year to telling others about the name and purpose of the true God. They print and distribute Bibles—ones using the divine name—in languages spoken by some 3,600,000,000 of the earth’s population, including English, Chinese, Russian, Spanish, Portuguese, French, and Dutch. They also print aids to Bible study in languages that are known by the vast majority of earth’s population. Soon God himself will take action in a way that will decisively fulfill his declaration that the nations “will have to know that [he is] Jehovah.”—<a class="b" data-bid="10-1" href="https://wol.jw.org/en/wol/bc/r1/lp-e/1997724/9/0">Ezekiel 38:23</a>.</div></td></tr></tbody></table></div></div>
+</div>
+<!-- Root element of lightbox -->
+
+<div id="questionContainer">
+<ul></ul>
+</div>
+
+</div>
+<input id="bibleDocumentNavigationChapterManyVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseFormat" type="hidden" value="{BibleBookName} {BibleChapter}:{BibleVerse}"/>
+<input id="bibleDocumentNavigationChapterVerseRangeFormat" type="hidden" value="{BibleBookName} {StartingBibleChapter}:{StartingBibleVerse}-{EndingBibleChapter}:{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterManyVerseFormat" type="hidden" value="{BibleBookName} {StartingBibleVerse}-{EndingBibleVerse}"/>
+<input id="bibleDocumentNavigationSingleChapterSingleVerseFormat" type="hidden" value="{BibleBookName} {BibleVerse}"/>
+<input id="documentNavigationMultiplePagesPositionFormat" type="hidden" value="w26 September p. {StartingPageNumber}-{EndingPageNumber}"/>
+<input id="documentNavigationSinglePagePositionFormat" type="hidden" value="w26 September p. {PageNumber}"/>
+<input id="documentDescription" type="hidden" value="w26 September"/>
+<input id="englishSym" type="hidden" value="w"/>
+<input id="pubMediaServer" type="hidden" value="https://b.jw-cdn.org/apis/pub-media/GETPUBMEDIALINKS"/>
+<input id="audioPubSym" type="hidden" value="w"/>
+<input id="chapNo" type="hidden" value="-1"/>
+<input id="issue" type="hidden" value="202609"/>
+<input id="docId" type="hidden" value="2026562"/>
+<input id="documentInBible" type="hidden" value=""/>
+<input id="hasRuby" type="hidden" value="false"/>
+<input id="isRuby" type="hidden" value="false"/>
+<input id="shareBaseUrl" type="hidden" value="https://www.jw.org/finder?wtlocale=E&amp;docid=2026562&amp;srctype=wol&amp;srcid=share"/>
+<input id="shareType" type="hidden" value="document"/>
+<input id="contentTitle" type="hidden" value="Sharing the Good News in “All the Languages of the Nations”"/>
+<input id="parentTitle" type="hidden" value="The Watchtower Announcing Jehovah’s Kingdom (Study)—2026"/>
+<input id="contentThumbnail" type="hidden" value="/en/wol/d/r1/lp-e/2026562/thumbnail"/>
+</article>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Gather all alternate presentation elements and their images
+        const altPresElements = Array.from(document.querySelectorAll('.alternatePresentation'));
+        const altImages = altPresElements.map(el => {
+            const img = el.querySelector('img');
+            if (img) {
+                return {
+                    src: img.getAttribute('data-alt-src') || img.getAttribute('src'),
+                    title: el.querySelector('.title')?.textContent || "Image"
+                };
+            }
+            return null;
+        }).filter(Boolean);
+
+        // 2. Create Lightbox DOM structure dynamically
+        const lightbox = document.createElement('div');
+        lightbox.className = 'custom-lightbox';
+        lightbox.innerHTML = `
+            <button class="custom-lightbox-close">&times;</button>
+            <button class="custom-lightbox-nav custom-lightbox-prev">&#10094;</button>
+            <div class="custom-lightbox-content">
+                <img class="custom-lightbox-img" src="" alt="" />
+            </div>
+            <button class="custom-lightbox-nav custom-lightbox-next">&#10095;</button>
+            <div class="custom-lightbox-caption"></div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('.custom-lightbox-img');
+        const lightboxCaption = lightbox.querySelector('.custom-lightbox-caption');
+        const closeBtn = lightbox.querySelector('.custom-lightbox-close');
+        const prevBtn = lightbox.querySelector('.custom-lightbox-prev');
+        const nextBtn = lightbox.querySelector('.custom-lightbox-next');
+
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        const openLightbox = (group, index) => {
+            currentGroup = group;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const updateLightbox = () => {
+            const item = currentGroup[currentIndex];
+            if (item) {
+                lightboxImg.src = item.src;
+                if (item.title && item.title.trim() !== "" && item.title.trim() !== "Printed Edition") {
+                    lightboxCaption.textContent = item.title;
+                    lightboxCaption.style.display = 'block';
+                } else {
+                    lightboxCaption.textContent = "";
+                    lightboxCaption.style.display = 'none';
+                }
+                if (currentGroup.length > 1) {
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                } else {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                }
+            }
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImg.src = '';
+            lightboxCaption.textContent = '';
+        };
+
+        const navigate = (direction) => {
+            if (currentGroup.length <= 1) return;
+            currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+            updateLightbox();
+        };
+
+        // Event Listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('custom-lightbox-content')) {
+                closeLightbox();
+            }
+        });
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Attach click handlers to alternate presentations
+        altPresElements.forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(altImages, index);
+            });
+        });
+
+        // Attach click handlers to other zoomable figure images
+        document.querySelectorAll('article figure img:not(.suppressZoom)').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = img.getAttribute('data-alt-src') || img.getAttribute('src');
+                const title = img.getAttribute('alt') || "";
+                openLightbox([{ src, title }], 0);
+            });
+        });
+    });
+    </script>
+</body>
+</html>
